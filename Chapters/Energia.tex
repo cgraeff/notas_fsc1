@@ -1,0 +1,645 @@
+\chapter{Trabalho e Energia Mecânica}
+\label{Chap:Energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\minitoc
+
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Quando iniciamos este capítulo, os alunos começam a ver derivadas em cálculo. Já viram produto escalar em geometria
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Introdução} 
+%%%%%%%%%%%%%%%%%%%%%
+{\it
+
+Falar do problema de descobrir a velocidade do pêndulo no ponto inferior.
+
+Várias formas de energia (mesmo esquema da força). Novas formas de energia associadas a algumas forças; por que algumas e não todas? quais tem energia associada e quais não? Se o trabalho transfere energia, as que não tem forma de energia associada, transferem energia para onde?. Conservação: não precisamos saber os passos intermediários para saber a relação entre o estado final e o inicial.
+
+Falar em sistema isolado $W_ext = 0$, mas que vamos relaxar essa condição depois.
+
+\comment{discutir o Pêndulo}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Teorema Trabalho-Energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% O primeiro a falar em trabalho e energia cinética com o significado atual foi Coriolis (segundo o livro de Sistemas Dinâmicos de Luiz Henrique Alves Monteiro).
+
+Se tomarmos um objeto que pode se mover ao longo de um fio esticado horizontalmente, submetido a uma força $F$ que faz um ângulo $\theta$ com a direção do fio. Definindo um eixo $x$ ao longo do fio, podemos verificar através da Equação de Torricelli que a velocidade estará relacionada à distância percorrida pelo objeto através de
+\begin{equation}
+  v_f^2 = v_i^2 + 2 a \Delta x.
+\end{equation}
+%
+Sabemos que se o fio impede o movimento no eixo perpendicular a ele, temos somente aceleração no eixo $x$, o que resulta em uma aceleração dada por $a = F_x/m$. Logo,
+\begin{equation}
+  v_f^2 = v_i^2 + 2 \frac{F_x}{m} \Delta x,
+\end{equation}
+%
+o que pode ser reescrito como
+\begin{equation}
+  \frac{1}{2} m v_f^2 - \frac{1}{2} m v_i^2 = F_x \Delta x.
+\end{equation}
+
+Através da expressão acima, verificamos que durante o deslocamento do objeto existe uma variação entre os valores inicial e final de uma grandeza $K$ definida como
+\begin{equation}
+  K = \frac{1}{2} m v^2 \mathnote{Energia cinética}
+\end{equation}
+%
+e que denominamos como \emph{energia cinética}. A variação de tal grandeza está relacionada ao produto da força e do deslocamento o que define uma grandeza $W$ denominada \emph{trabalho}:
+\begin{equation}
+  W = F_x \Delta x.
+\end{equation}
+%
+O trabalho pode ser analisado em três situações distintas, relacionadas ao ângulo que a força $\vec{F}$ faz com a direção do deslocamento. Se tivermos que $\theta < \np[\tcdegree]{90}$, a força tende a acelerar o objeto e a energia cinética deve aumentar com o tempo. Se, por outro lado, $\theta > \np[\tcdegree]{90}$, a força tende a desacelerar o objeto, diminuindo sua energia cinética. Finalmente, se $\theta = \np[\tcdegree]{90}$, a força não é capaz de acelerar o objeto\footnote{Lembre-se que o objeto está limitado a se deslocar no eixo $x$, portanto não podemos ter aceleração centrípeta.}, deixando a energia cinética constante, o que implica em um trabalho nulo. Essas três observações podem ser conciliadas se definirmos um vetor $\vec{d}$ que descreva o deslocamento do objeto (a direção e sentido de $\vec{d}$ são a do semi-eixo $x$ positivo; o módulo é dado por $\Delta x$) e tomarmos o produto escalar com a força. Assim
+\begin{equation}
+  W = \vec{F}\cdot\vec{d}. \mathnote{Trabalho}
+\end{equation}
+
+Temos então o seguinte resultado, conhecido como \emph{Teorema Trabalho -- Energia Cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial. De qualquer forma, o resultado é bastante útil.},
+\begin{equation}
+  \Delta K = W \mathnote{Teorema Trabalho -- Energia Cinética}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cálculo do trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Encher uma linguiça aqui, falar de características gerais do trabalho (ser positivo ou negativo, o que significa ser negativo ou positivo).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho realizado pela força peso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Quando um objeto se move por um caminho qualquer sujeito à força peso, temos que o trabalho realizado por tal força pode ser positivo, negativo ou nulo, dependendo da orientação do deslocamento do objeto. Se temos um deslocamento que ocorre verticalmente para baixo, como na Figura~???, devido à orientação dos vetores temos
+\begin{align}
+  W_g &= \vec{P}\cdot\vec{d} \\
+  &= mgd\cos\grau{0} \\
+  &= mgd.
+\end{align}
+%
+Se, por outro, temos que o deslocamento ocorre para cima, (Figura~???), temos
+\begin{align}
+  W_g &= \vec{P}\cdot\vec{d} \\
+  &= mgd\cos\grau{180} \\
+  &= -mgd.
+\end{align}
+%
+Já se realizarmos um deslocamento horizontal, obtemos
+\begin{align}
+  W_g &= \vec{P}\cdot\vec{d} \\
+  &= mgd\cos\grau{900} \\
+  &= 0,
+\end{align}
+%
+isto é, para qualquer deslocamento horizontal, o trabalho é nulo. Podemos chegar a um resultado mais geral verificando analisando a Figura~???. \comment{marginfig vetor peso e deslocamento diagonal de cima para baixo, esquerda para direita. ângulo $\theta$ entre os vetores.}
+O trabalho realizado pela força peso em tal deslocamento será dado por
+\begin{align}
+  W_g &= \vec{P}\cdot\vec{d} \\
+  &= mgd\cos\theta.
+\end{align}
+%
+O produto $d\cos\theta$ pode ser interpretado como a distância percorrida no eixo vertical $y$ (projeção de $\vec{d}$ na direção de $\vec{P}$, que é \emph{por definição} o eixo vertical). Se o eixo vertical tem seu sentido positivo apontando para cima, temos que $d\cos\theta = \Delta y$. Logo, podemos expressar o trabalho da força peso como
+\begin{equation}\label{Eq:TrabalhoPeso}
+  W_g = - mg\Delta y. \mathnote{Trabalho realizado pela força peso}
+\end{equation}
+%
+Veja que esse resultado depende da definição do eixo $y$ como um eixo vertical, dirigido para cima. Essa definição também dá conta dos casos anteriores em que consideramos deslocamentos verticais e horizontais.
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho realizado por forças de atrito e arrasto}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se um bloco desliza sobre uma superfície com atrito, eventualmente ele acabará parando. Isso pode ser entendido do ponto de vista do trabalho ao analisarmos a variação da energia cinética. Na Figura~??? temos um diagrama de forças para o deslizamento do bloco, onde também indicamos o vetor deslocamento. Podemos verificar que o atrito realiza um trabalho dado por
+\begin{align}
+  W_{\fat} &= \vecfat\cdot\vec{d} \\
+  &= \fat d\cos\theta.
+\end{align}
+%
+como $\theta = \grau{180}$, temos
+\begin{equation}
+  W_{\fat} = -\fat d.
+\end{equation}
+%
+Os módulos dos vetores $\vecfat$ e $\vec{d}$ são positivos, logo, temos que $W_{\fat}$ é negativo. De acordo com o Teorema Trabalho-Energia Cinética, temos então que a variação da energia cinética deve ser negativa, ou seja, temos que a velocidade sofrerá uma diminuição. 
+
+Em geral, quando se pensa em situações envolvendo atrito, nos vêm à mente situações como a discutida acima e ficamos com a impressão de que o trabalho efetuado pela força de atrito é sempre negativo. Isso não é verdade. Se temos um corpo sobre uma esteira, %desenhar no blender
+sendo acelerado por ela, verificamos através de um diagrama de corpo livre % desenhar diagrama
+que a força de atrito (que tem a mesma direção da aceleração) será no mesmo sentido do deslocamento. Nesse caso, temos que o trabalho realizado pela força de atrito deve ser \emph{positivo}, pois tal força é responsável por \emph{aumentar} a energia cinética. Outros exemplos em que a força de atrito realiza um trabalho positivo são o de uma caixa sobre a caçamba de uma camionete que acelera, ou mesmo o atrito que age sobre os pneus da camionete e que tem a mesma direção e sentido que seu deslocamento.
+
+Quando tratamos a força de arrasto, também temos a impressão de que o trabalho é sempre negativo, o que é incorreto. Quando um paraquedista cai, chegando à sua velocidade terminal, claramente temos um trabalho negativo, pois a força de arrasto tem direção contrária ao deslocamento. Porém se soprarmos uma bola de ping-pong, ela ganhará velocidade. Temos então que a força de arrasto, que tem a mesma direção e sentido que o deslocamento, realiza um trabalho positivo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho de um conjunto de forças e trabalho em uma situação de equilíbrio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Voltando ao exemplo de um objeto sobre uma esteira discutido acima, podemos analisar o que acontece se a velocidade de deslocamento é constante. Se o deslocamento é horizontal, temos que -- devido ao equilíbrio -- não temos força de atrito \comment{diagrama}
+pois $a_x = 0$, o que implica em $F_x^Res = 0$. Se temos um deslocamento em um plano inclinado, como na Figura~???, \comment{desenho da esteira subindo} no entanto, temos um trabalho realizado pela força da gravidade e que será negativo. Para que tenhamos uma velocidade constante, é necessário que alguma força equilibre a componente da força peso que atua ao longo do eixo paralelo ao plano inclinado. Nessa situação, tal força será o atrito. Dessa forma temos que o trabalho efetuado pela resultante será dado por
+\begin{align}
+  W &= (\vec{P} + \vecfat) \cdot \vec{d} \\
+  &= 0.
+\end{align}
+%
+Devido ao fato de que o produto escalar é distributivo -- isto é, $(\vec{a} + \vec{b})\cdot \vec{c} = \vec{a}\cdot\vec{c} + \vec{b}\cdot\vec{c}$, podemos escrever
+\begin{align}
+  W &= \vec{P}\cdot\vec{d} + \vecfat\cdot\vec{d}\\
+  &= 0,
+\end{align}
+%
+ou seja, ao calcularmos o trabalho de um conjunto de forças, \emph{podemos simplesmente calcular o trabalho de cada uma delas e somar os resultados, obtendo o trabalho total}. Além disso, observamos que, devido ao equilíbrio,
+\begin{equation}
+  \vec{P}\cdot\vec{d} = - \vecfat\cdot\vec{d}
+\end{equation}
+%
+ou seja,
+\begin{equation}
+  W_P = - W_{\fat}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trabalho como a área de um gráfico $F \times x$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em um movimento unidimensional, se elaborarmos um gráfico da força $F_x$ que atua sobre um corpo em função de sua posição $x$ em tal eixo, obtemos um gráfico como o da Figura~???. \comment{gráfico de $F\times x$, $F = cte$.}
+O trabalho efetuado pela força no deslocamento entre duas posições $x_i$ e $x_f$ pode então ser calculado como a ``área virtual'' do gráfico compreendida entre as linhas verticais que passam por $x_i$ e $x_f$ e as linhas horizontais do eixo $x$ e da força $F_x$, pois tal área é dada por
+\begin{align}
+  A &= \textrm{base} \times \textrm{altura} \\
+  &= \Delta x \times F_x \\
+  &= W_{F_x}.
+\end{align}
+%
+Este artifício é útil para calcularmos o trabalho realizado por forças que não são constantes, bastando que tenhamos uma maneira de calcular a área do gráfico.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho realizado por uma força elástica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Um exemplo de força que não é constante e cujo trabalho estamos interessados em calcular é o trabalho realizado por uma força elástica. A força exercida por uma mola varia conforme ela é distendida segundo a expressão
+\begin{equation}
+  F = -k x,
+\end{equation}
+%
+o que resulta em um gráfico como o da Figura~???. Se um corpo submetido a essa força sofre um deslocamento entre as posições $x_i$ e $x_f$, temos que a área do gráfico, será dada pela diferença entre o triângulo maior ($OBD$) e o triângulo menor ($OAC$). Portanto, o trabalho será 
+\begin{equation}
+  W_{F_e} = \frac{x_f F(x_f)}{2} - \frac{x_i F(x_i)}{2}
+\end{equation}
+%
+onde usamos o fato de que a altura dos triângulos é dada por $y = F(x)$. Assim, obtemos
+\begin{equation}
+  W_{F_e} = -\frac{1}{2} k x_f^2 - \left(-\frac{1}{2} k x_i^2 \right)
+\end{equation}
+%
+ou
+\begin{equation}\label{Eq:TrabalhoForcaElastica}
+  W_{F_e} = - \frac{1}{2} k (x_f^2 - x_1^2). \mathnote{Trabalho realizado por uma força elástica}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trabalho como a integral da força}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos ainda usar o método gráfico para fazer aproximações. Na Figura~??? temos o gráfico da componente de uma força $\vec{f}$ ao longo de um eixo $x$ como função da posição. \comment{figura de uma força que varie de alguma forma complicada (mas não muito)}
+Podemos calcular o trabalho realizado por tal força em um deslocamento entre duas posições $x_i$ e $x_f$ através da área abaixo da curva. Apesar de não podermos dividir a área em figuras geométricas cuja área sabemos calcular, podemos calcular o trabalho de maneira aproximada dividindo a área abaixo da curva em $n$ retângulos (Figura~???); esse processo é conhecido como \emph{soma de Riemann}. A área de cada retângulo será dada pelo produto de sua largura pelo valor da altura, porém tal altura será diferente para cada ponto $x$ dentro do intervalo. Como estamos interessados em uma aproximação, tal variação não é importante, portanto podemos tomar qualquer ponto do intervalo. Podemos então expressar o trabalho como
+\begin{equation}
+  W \approx \sum_n f_x(x_n)\Delta x,
+\end{equation}
+%
+onde $x_n$ representa algum ponto $x$ contido no $n$-ésimo retângulo.
+
+Essa aproximação pode ser calculada com uma precisão maior quanto menor for a largura dos retângulos. Se tomarmos o limite para a largura $\Delta x$ tendendo a zero --~ou seja, para o número $n$ de intervalos tendendo ao infinito~--, temos o valor exato da área. Tal limite é conhecido como integral de Riemann:
+\begin{equation}
+  W = \lim_{n \to \infty} \sum_{n} f_x(x_n) \Delta x.
+\end{equation}
+
+A área abaixo da curva $f_x(x)$ contida no intervalo $[x_i,x_f]$ é conhecida como \emph{integral definida da função $f_x(x)$ no intervalo $[x_i,x_f]$} e é representada por
+\begin{equation}
+  \int_{x_i}^{x_f} f_x(x) dx.
+\end{equation}
+Concluímos, portanto, que a integral definida é igual à integral de Riemann. Logo,
+\begin{align}
+  W &= \lim_{n \to \infty} \sum_{n} f_x(x_n) \Delta x \\
+  &= \int_{x_i}^{x_f} f_x(x) dx. \label{Eq:TrabalhoIntegral}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema fundamental do cálculo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Calcular uma integral definida através de uma integral de Riemann não é uma tarefa fácil. Felizmente existe um método mais simples. Para isso vamos considerar uma função $g(x)$ definida como
+\begin{equation}
+  g(x) = \int_a^x h(\xi) d\xi,
+\end{equation}
+%
+cuja interpretação é \emph{a área abaixo da curva $f(x)$ contida entre $a$ e $x$}. \comment{Reproduzir figura 5 do Stewart, p. 312.}
+Se tentarmos calcular a derivada de $g(x)$ através da definição, temos
+\begin{equation}
+  g'(x) = \lim_{\ell \to 0} \frac{g(x+\ell) - g(x)}{\ell}.
+\end{equation}
+%
+A diferença $g(x+\ell) - g(x)$ é simplesmente a área mostrada na Figura~??? e podemos substituí-la por $\ell h(x)$. Logo, derivada de $g(x)$ é a própria função $h(x)$:
+\begin{align}
+  g'(x) &= \lim_{\ell \to 0} \frac{\ell h(x)}{\ell} \\
+  &= \lim_{\ell \to 0} h(x) \\
+  &= h(x).
+\end{align}
+
+De acordo com a expressão acima, se temos uma função $f(x)$ que nos dá a força exercida sobre um objeto, podemos definir uma função $W(x)$ de acordo com
+\begin{equation}
+  W(x) = \int_a^x f(\xi) d\xi
+\end{equation}
+%
+e temos que a área abaixo da curva no intervalo $[x_i,x_f]$ --~que nos dá o trabalho~-- será dada por $W(x_f) - W(x_i)$:
+\begin{equation}
+  W = W(x_f) - W(x_i).
+\end{equation}
+%
+No entanto,
+\begin{equation}
+  W'(x) = f(x),
+\end{equation}
+%
+isto é, se conhecemos $f(x)$, sabemos que tal expressão é a derivada de $W(x)$. Se desejamos encontrar $W(x)$, basta fazermos o processo inverso da diferenciação. Uma vez conhecida a função $F(x)$, cuja derivada é $f(x)$, temos que
+\begin{equation}
+  W(x) = F(x),
+\end{equation}
+%
+logo,
+\begin{equation}
+  W = F(x_f) - F(x_i).
+\end{equation}
+
+Portanto, se conhecemos a função $f(x)$ que nos dá a força, podemos realizar o processo inverso à diferenciação, encontrando uma função $F(x)$ e tal função --~calculada entre os \emph{limites inferior e superior de integração $x_i$ e $x_f$} através de $F(x_f) - F(x_i)$~-- nos dará o trabalho realizado no deslocamento entre $x_i$ e $x_f$. Os resultados mostrados acima compõe o chamado \emph{Teorema Fundamental do Cálculo}, que pode ser dividido em duas partes:
+\begin{description}
+  \item[Teorema Fundamental do Cálculo, primeira parte:] Se $f(x)$ é uma função contínua no intervalo $[a,b]$, então a função $g(x)$ definida como
+  \begin{align}
+    g(x) &= \int_a^x f(\xi) d\xi & a&\leq x \leq b
+  \end{align}
+  é contínua no intervalo $[a,b]$ e diferenciável em $(a,b)$, e
+  \begin{equation}
+    g'(x) = f(x).
+  \end{equation}
+  \item[Teorema Fundamental do Cálculo, segunda parte:] Se $f(x)$ é contínua no intervalo $[a,b]$, então
+  \begin{equation}
+    \int_a^b f(x) dx = F(b) - F(a)
+  \end{equation}
+  onde $F(x)$ é a antiderivada\footnote{Também denominada \emph{função primitiva} ou \emph{integral indefinida}.} de $f(x)$, isto é, a função cuja derivada é $f(x)$.
+\end{description}
+
+%%%%%%%%%%%%%%%%%%
+\section{Potência}
+%%%%%%%%%%%%%%%%%%
+
+Muitas vezes estamos mais interessados na quantidade de trabalho realizado por unidade de tempo do que no trabalho total realizado. Esse é o caso de motores, por exemplo. Definimos então uma grandeza, denominada \emph{potência}, cujo valor médio é dado por
+\begin{equation}
+  \mean{P} = \frac{W}{\Delta t}.
+\end{equation}
+%
+No caso de termos valores diferentes de trabalho realizados em intervalos de tempo diferentes, mas de mesma duração, podemos definir a \emph{potência instantânea} como
+\begin{equation}\label{Eq:DefPotenciaInstantanea}
+  P = \frac{dW}{dt}.
+\end{equation}
+
+Analisando a dimensão da potência temos
+\begin{align}
+  [P] &= \frac{[W]}{[t]} \\
+  &= \nicefrac{\rm{J}}{\rm{s}}.
+\end{align}
+%
+Como a potência é uma grandeza muito comum em áreas técnicas, científicas e mesmo no cotidiano, suas unidades ganham uma denominação especial --~o \emph{watt}~--, da mesma forma que a unidade de energia. O watt é representado\footnote{Tome cuidado para não confundir o símbolo em itálico para o trabalho $W$ com o símbolo W da unidade para a potência.} por W:
+\begin{equation}
+  \rm{W} \equiv \nicefrac{\rm{J}}{\rm{s}}.
+\end{equation}
+
+Finalmente, vale notar que podemos relacionar a potência instantânea exercida por uma força constante à velocidade desenvolvida pelo corpo sobre o qual a força atua. Para isso, basta substituirmos a expressão para o trabalho
+\begin{equation}
+  W = F r \cos \theta,
+\end{equation}
+%
+onde utilizamos $x$ para denotar a distância percorrida durante a aplicação da força $F$, na definição de potência instantânea dada pela Equação~\ref{Eq:DefPotenciaInstantanea}. Obtemos então
+\begin{align}
+  P &= \frac{dW}{dt} \\
+  &= \frac{d}{dt}(Fr\cos\theta) \\
+  &= F\frac{dr}{dt} \cos\theta\\
+  &= F v \cos\theta \\
+  &= \vec{F}\cdot\vec{v}.
+\end{align}
+
+\comment{Exemplo de potencia + arrasto: velocidade máxima de um carro.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia cinética e referenciais inerciais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+\section{Potencial}
+%%%%%%%%%%%%%%%%%%%
+
+Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças internas que atuam em um sistema e à própria \emph{configuração} -- isto é, à \emph{disposição} -- das partículas que compõe o sistema. Tais formas de energia são classificadas como sendo do tipo \emph{potencial}.
+
+Uma das propriedades do potencial é a de que ele independe do histórico de configurações do sistema, dependendo somente de seu estado em um dado momento. Quando associamos tal característica ao conceito de energia cinética, verificamos que podemos definir a \emph{energia mecânica} de um sistema. Tal grandeza é constante para um sistema fechado e podemos utilizá-la para obter informações sobre sistemas físicos de maneira relativamente simples. Verificaremos também que a propriedade de independer do histórico do sistema faz com que nem todas as forças têm potenciais associados a elas, porém teremos uma maneira simples de verificar quais forças os têm. Finalmente, é importante notar que assim como cada força tem uma expressão diferente, o mesmo pode ser dito sobre os potenciais, já que eles são determinados diretamente a partir da expressão para a força.
+
+\comment{Discutir o que é um sistema para fins de cálculo da energia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia potencial gravitacional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se considerarmos a Terra e um objeto qualquer, próximo à superfície do planeta, temos um sistema fechado. Vamos desconsiderar momentaneamente a força de arrasto do ar e analisar o trabalho realizado pela força peso. Se o objeto é lançado verticalmente para cima, com velocidade inicial $v_i$, à medida que ele se desloca, sua velocidade diminui. Sabemos que há um trabalho exercido pelo peso, de forma que -- utilizando o Teorema Trabalho--Energia Cinética e a Equação~\ref{Eq:TrabalhoPeso} --, podemos escrever
+\begin{align}
+  \Delta K &= W_g \\
+  K_f - K_i &=  -mg\Delta y \\
+  K_f - K_i &=  -(mgy_f - mgy_i).
+\end{align}
+%
+Podemos reorganizar os termos da equação acima e obter
+\begin{equation}
+  K_f + mgy_f = K_i + mgy_i.
+\end{equation}
+%
+Analisando essa expressão, vemos que a quantidade inicial e a final da soma da energia cinética e do valor $mgy$ são iguais. Nessas expressões, não especificamos que pontos são o inicial e o final, portanto elas são válidas para quaisquer pontos $i$ e $f$. Logo
+\begin{equation}
+  K_f + mgy_f = K_i + mgy_i = \textrm{constante}.
+\end{equation}
+
+Se o ponto final é o mais alto da trajetória, temos que $K_f = 0$, se adotarmos $y_i = 0$, obtemos
+\begin{equation}
+  K_i = mgy_f.
+\end{equation}
+%
+Podemos interpretar o processo acima como a \emph{transferência} da energia cinética para outra forma de energia, que denominamos como \emph{energia potencial gravitacional} e que definimos como
+\begin{equation}
+  U_g = mgy, \mathnote{Energia potencial gravitacional}
+\end{equation}
+%
+de forma que
+\begin{equation}
+  K_i + U_i = K_f + U_f.
+\end{equation}
+
+É importante notar que utilizamos a força peso para descrever a atração exercida pelo planeta sobre o corpo, o que limita a utilização desse potencial às imediações da superfície da Terra. No caso de estarmos interessados em calcular o potencial gravitacional a grandes distâncias, precisamos utilizar a Lei da Gravitação Universal (Equação~\eqref{Eq:LeiGravitacaoUniversal}) para deduzir outra expressão para o potencial gravitacional.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia potencial elástica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Outro caso em que podemos identificar a existência de um potencial é quando atua sobre o sistema uma força elástica. Considere um bloco disposto sobre uma mesa sem atrito e sujeito a uma força elástica exercida ao longo de um eixo $x$ por uma mola presa ao bloco e a uma parede. Em um dado instante, o bloco se encontra na posição $x_i$ e se afasta da parede com velocidade $v$ \comment{Figura do bloco em 3d com uma mola}. Sabemos que nesse caso o trabalho realizado é dado pela Equação~\eqref{Eq:TrabalhoForcaElastica}. Utilizando essa expressão e o Teorema Trabalho -- Energia Cinética, obtemos
+\begin{align}
+  \Delta K &= W_e \\
+  K_f - K_i &= -\frac{k}{2}(x_f^2 - x_i^2) \\
+  K_f + \frac{k}{2} x_f^2 &= K_i + \frac{k}{2}x_i^2
+\end{align}
+
+Da forma análoga ao caso do potencial gravitacional, podemos associar a expressão $kx^2/2$ a um \emph{potencial elástico}$U_e$:
+\begin{equation}
+  U_e = \frac{k}{2}x^2. \mathnote{Energia potencial elástica}
+\end{equation}
+%
+Como no caso gravitacional, temos
+\begin{equation}
+  K_f + U_e^f = K_i + U_e^i
+\end{equation}
+%
+e como não existe nenhuma restrição em quais são os pontos inicial e final, temos que
+\begin{equation}
+  K + U_e = \textrm{constante}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial e trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em ambos os casos vistos acima, temos que a variação na energia cinética pode ser escrita em termos da variação da energia potencial de acordo com
+\begin{equation}
+  \Delta K = - \Delta U_{e,g}.
+\end{equation}
+%
+Através do teorema trabalho energia, podemos então relacionar a variação da energia potencial ao trabalho:
+\begin{equation}
+  \Delta U = - W,
+\end{equation}
+%
+ou, utilizando a Equação~\eqref{Eq:TrabalhoIntegral}
+\begin{equation}\label{Eq:CalculoDoPotencial}
+  \Delta U = - \int_{x_i}^{x_f} F(x) dx.
+\end{equation}
+
+Portanto, temos uma maneira definida de encontrar o potencial associado a uma força uma vez que se conheça a expressão para a força. Além disso, sabemos -- através da segunda parte do Teorema Fundamental do Cálculo -- que a integral à direita da igualdade na expressão acima depende somente dos valores $x_i$ e $x_f$, como esperávamos.\comment{A partir dessa expressão fica fácil definir que precisa ser independente de caminho, afinal o valor da integral só depende dos pontos inicial e final.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia mecânica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos que para os potenciais gravitacional e elástico, os valores associados à energia cinética e a cada potencial é constante. Portanto, temos em cada caso que
+\begin{align}
+  K + U = \textrm{constante}.
+\end{align}
+
+Se analisarmos um caso em que existam $n$ forças atuando sobre o sistema, podemos escrever
+\begin{align}
+  \Delta K &= W_{\textrm{Total}} \\
+  &= \sum_n W_{F_n}.
+\end{align}
+%
+Se cada um dos trabalhos associados às forças \comment{forças conservativas ... deveria colocar as condições para calcular o potencial antes dessa seção} $F_n$ puder ser escrito como
+\begin{equation}
+  W_n = \Delta U_n,
+\end{equation}
+%
+então temos
+\begin{align}
+  \Delta K &= \sum_n \Delta U_n \\
+  &= \sum_n (U_n^f - U_n^i) \\
+  &= \left(\sum_n U_n^f\right) - \left(\sum_n U_n^i\right).
+\end{align}
+%
+de onde temos
+\begin{equation}
+  K_f + \sum_n U_n^f = K_i + \sum_n U_n^i.
+\end{equation}
+%
+A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinéticas e das potenciais deve ser uma constante:
+\begin{equation}
+  K + \sum_n U_n = E, \mathnote{Definição de Energia Mecânica}
+\end{equation}
+%
+onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. 
+
+Verificamos portanto que se as forças que atuam em um sistema dão origem a potenciais, a energia mecânica do sistema é uma constante. Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico. Podemos agora imaginar que existe uma grandeza -- a energia -- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante. Veremos posteriormente que em alguns casos a energia mecânica não é constante, mas poderemos associá-la a outras formas de energia e teremos um princípio geral que nos ajuda a entender muitos fenômenos físicos de uma maneira mais simples.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Oscilação de um pêndulo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{exemplo do pêndulo simples aqui, com os gráficos das energias potencial e cinética durante a oscilação}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Condições para a existência de um potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Identificamos anteriormente que o potencial pode ser definido através da expressão para o cálculo do trabalho através da integral da força que dá origem ao potencial, Equação~\eqref{Eq:CalculoDoPotencial}. Tal expressão respeita uma propriedade fundamental do potencial que é sua dependência exclusiva na configuração atual do sistema, o que implica em -- no caso de o estado inicial e o final serem o mesmo --
+\begin{equation}
+  \Delta U = \int_{x_i}^{x_f} F(x) dx = 0.
+\end{equation}
+
+Entretanto, nem todas as forças respeitam a condição acima. A força de atrito, por exemplo, realiza um trabalho diferente de zero em um trajeto cujos pontos inicial e final são o mesmo: Se tomarmos um bloco que se desloca sobre uma mesa -- preso a um eixo por um fio de forma a descrever um movimento circular--, quando o bloco completa uma volta completa, sua energia cinética certamente é menor. Consequentemente, o trabalho é negativo:
+\begin{equation}
+  \int_{x_i}^{x_i} \fat dx < 0.
+\end{equation}
+%
+Devido a isso, não podemos escrever um potencial para tal força. Como a integral acima é proveniente da expressão para o trabalho, podemos dizer que \emph{se o trabalho realizado por uma força em um caminho fechado é diferente de zero, não podemos escrever um potencial para tal força.} Uma maneira equivalente a tal afirmação é analisarmos o deslocamento entre duas configurações distintas $A$ e $B$ para um sistema, porém considerando deslocamentos por caminhos diferentes. Se o potencial é função somente da configuração atual do sistema, os valores de potencial $U_A$ e $U_B$ são os mesmo para qualquer dois caminhos tomados, logo, podemos afirmar que \emph{se o trabalho realizado por uma força no deslocamento entre dois pontos é diferente de zero, não podemos escrever um potencial para tal força.}
+
+As forças podem ser então classificadas em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial -- ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho --. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal, de tensão e forças magnéticas são não-conservativas. A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.
+
+
+\comment{Ver golstein pg. 4, não chamar de função de estado pq isso é termodinâmica, ver do que o goldstein chama
+Mostrar que podemos nos valer da independência do caminho para escolher um caminho onde o cálculo do trabalho seja mais simples.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo da força a partir de um potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos que podemos determinar o potencial associado a uma força conservativa através de
+\begin{equation}
+  \Delta U = - \int_{x_i}^{x_f} F(x) dx.
+\end{equation}
+%
+Segundo a primeira parte do Teorema Fundamental do Cálculo, temos que a derivada de $U$ deve nos dar a força: \comment{Verificar se isso está claro: estamos assumingo que $U$ é função de $x_f$. Talvez seja melhor discutir antes, e aqui relembrar, ou discutir aqui simplesmente, que podemos escrever o potencial como função da posição ao escrever a integral de um ponto $a$ até um ponto $x$. Na real isso é feito para deduzir essa primeira parte do teorema, então aqui é só falar um pouco.}
+\begin{equation}\label{Eq:ForcaGradPot}
+  F =  -\frac{dU}{dx},
+\end{equation}
+%
+onde o sinal reflete o sinal da definição do potencial. Esse resultado será muito útil ao analisarmos curvas de potencial mais adiante.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dependência da energia na escolha do referencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma consequência interessante da Equação~\eqref{Eq:ForcaGradPor} é que podemos adicionar qualquer constante $C$ ao potencial sem que isso altere a força obtida:
+\begin{align}
+  F &= - \frac{d(U+C)}{dx} \\
+  &= -\left(\frac{dU}{dx} + \frac{dC}{dx}\right) \\
+  &= -\frac{dU}{dx},
+\end{align}
+%
+pois a derivada de uma constante é zero. Devido a isso, podemos escolher um valor arbitrário de potencial para um ponto qualquer e a partir dele definir o potencial dos demais pontos --~nos valemos dessa propriedade para definir o zero do potencial no ponto mais conveniente possível~--. Os resultados obtidos através de cálculos não serão influenciados diretamente pelo \emph{valor} do potencial, mas sim pela sua \emph{variação}. \comment{reescrever/explorar mais isso. O texto não deixa claro nem pq essa seção tem o nome que tem.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo simples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Algum exemplo simples, talvez o da piscina
+\comment{Usar $U = mgy + C$, de preferência mais geral, para dizer que podemos escolher qq valor em qq ponto e que por isso, adotamos $C = 0$ em $y = 0$ e escolhemos o y onde for mais conveniente}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Potencial gravitacional à partir da lei da gravitação universal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Curvas de potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pontos de equilíbrio e retorno}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{Tá meia boca essa seção.}
+
+Através do gráfico do potencial, podemos verificar aspectos importantes de um problema de uma maneira bastante intuitiva ao analisa-lo sob o ponto de vista da energia. Se tomarmos como o da Figura~???, onde o atrito entre a mesa e o bloco é desprezível, e o bloco pode se deslocar em torno de sua posição de equilíbrio $x = 0$, temos que o potencial associado ao sistema é o potencial elástico (Figura~???). Ao deslocarmos o sistema até uma posição $x_A$, temos que o potencial será dado por $U_A = kx_A^2 /2$. Se liberarmos a movimentação do bloco a partir desse ponto, com velocidade inicial nula, temos que a energia mecânica será dada por
+\begin{align}
+  E_A &= U_A + K_A \\
+  &= U_A.
+\end{align}
+
+Como a energia mecânica é constante, podemos traçar uma reta horizontal no gráfico do potencial (Figura~???). Verificamos que para cada valor da posição $x$, a soma entre a energia potencial $U$ e a energia cinética $K$ deve ser igual a $E$. Logo, através do gráfico, podemos identificar rapidamente quais os pontos onde temos maior o menor energia cinética ao verificarmos onde a distância vertical entre a curva do potencial e a reta da energia mecânica é maior. Além disso verificamos que em qualquer movimento, a energia está limitada ao valor numérico de $E$, portanto qualquer forma de energia no sistema tem no máximo tal valor. Isso implica em um valor máximo para a energia potencial que será no instante em que $K = 0$. Isso corresponde aos pontos de interseção entre a reta $E$ e a curva $U$ nos gráficos (afinal,nesses pontos a distância entre a curva e a reta é nula, o que implica em $K=0$).
+
+Os pontos de interseção da curva do potencial pela reta da energia mecânica são denominados \emph{pontos de retorno}. No exemplo do oscilador massa-mola se o bloco se desloca em direção a um ponto de retorno, ele sofre uma força dada por
+\begin{equation}
+  F = -\frac{dU}{dx},
+\end{equation}
+%
+o que fará com que ele sofra uma aceleração no sentido contrário ao deslocamento e eventualmente pare. Como ele continua sob efeito da força, ele passará a \emph{retornar} ao atingir tal ponto. Devido a esse comportamento, em potenciais mais complexos, podem ocorrer regiões em que o movimento está confinado a um \emph{poço de potencial} limitado por dois pontos de retorno, mesmo que existam outras regiões em que o movimento do sistema seria possível (Figura~???). Um aumento da energia mecânica possibilitaria, se o ganho energético for suficiente, que o sistema ultrapassasse as \emph{barreiras de potencial} e ampliasse o tamanho da região de confinamento.
+
+Outra característica interessante do sistema e que pode ser facilmente verificada através dos gráficos de potencial é a existência de \emph{pontos de equilíbrio}. Um sistema está em equilíbrio se a força que atua sobre ele é nula, o que implica em
+\begin{equation}
+  F = \frac{dU}{dx} = 0.
+\end{equation}
+%
+Graficamente, podemos interpretar a derivada de uma função $f(x)$ como a inclinação da reta que tange a curva $f(x)$ no ponto $x$. Se a derivada é nula, temos então que a inclinação é nula, ou seja, temos uma reta horizontal. Tais pontos são os pontos de \emph{mínimo}, \emph{máximo} e \emph{pontos de inflexão}. Verificando as forças que atuam nas imediações de cada um desses pontos, verificamos que em torno dos pontos de mínimo, qualquer deslocamento faz com que apareça uma força que tende a trazer o corpo de volta à posição de equilíbrio. Já nos pontos de máximo, temos que as forças que aparecem tendem a fazer com que o corpo seja afastado da posição de equilíbrio. Devido a essas características, os pontos de mínimo do potencial são ditos \emph{pontos de equilíbrio estável} e os pontos de máximo são ditos \emph{pontos de equilíbrio instável}. Os pontos de inflexão dependem da direção do delocamento: em uma das direções, a força faz com que o sistema volte ao equilíbrio; já na direção oposta, a força tende a levar o sistema para longe do equilíbrio.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial interatômico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{posição de equilíbrio, oscilação em torno do equilíbrio e dilatação}
+
+As forças que ocorrem entre átomos são caracterizadas por serem repulsivas a curtas distâncias e atrativas a distâncias médias. Isso dá origem a um potencial como o da Figura~???. Verificamos que existe um ponto de equilíbrio estável a uma distância $a_0$ em relação à origem. Tal ponto é a distância média entre os dois átomos. Em caso de termos uma perturbação dos átomos, temos que a distância entre eles passará a variar em um movimento oscilatório. Isso se deve ao fato de que temos um ponto de equilíbrio estável e temos uma energia mecânica que é maior do que o mínimo possível (que seria igual ao potencial no ponto $a_0$, com $K=0$). Se tivermos uma perturbação forte o suficiente, a oscilação pode ser forte o suficiente para que a energia mecânica seja grande o suficiente para que o átomo se afaste indefinidamente, chegando ao infinito com uma energia cinética residual. Essa energia dada ao sistema é a chamada \emph{energia de ativação}, isto é, a energia necessária para se iniciar uma reação química. Microscopicamente, a temperatura está relacionada à velocidade das partículas, portanto, se aumentarmos a temperatura, aumentamos a energia cinética das moléculas. Esse aumento da energia cinética levará inevitavelmente a um aumento no número de colisões entre moléculas que são capazes de transferir energia suficiente para ``ativar'' a reação. Isso explica por que uma reação ocorre mais rápido quando aumentamos a temperatura (e por que usamos panelas de pressão).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial de Woods-Saxon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{Região central com $F \approx 0$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Atrito e Trabalho de forças externas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se voltarmos ao problema do oscilador massa-mola (Figura~???), mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, mas eventualmente parará. Se o sistema partir de um ponto $x_A$ à esquerda da origem, por exemplo, podemos verificar que após um deslocamento até $x_B$, o atrito realizará um trabalho sobre o bloco dado por
+\begin{equation}
+  W_{\fat} = - \fat \Delta x.
+\end{equation}
+%
+Nesse mesmo deslocamento, o trabalho efetuado pela mola será dado por
+\begin{equation}
+  W_e = -\frac{k}{2}(x_f^2 - x_i^2).
+\end{equation}
+%
+Usando o teorema trabalho energia cinética, temos
+\begin{align}
+  \Delta K &= W_{\textrm{Total}} \\
+  K_f - K_i &= W_{\fat} + \left(-\frac{k}{2}x_f^2 + \frac{k}{2}x_i^2\right) \\
+  \left(K_f + \frac{k}{2} x_f^2\right) - \left(K_i + \frac{k}{2}x_i^2\right) &= W_{\fat}.
+\end{align}
+%
+Usando $U_e = kx^2/2$, podemos escrever
+\begin{equation}
+  (K_f + U_f) - (K_i - U_i) = W_{\fat}
+\end{equation}
+%
+o que equivale a
+\begin{equation}
+  \Delta E = W_{\fat}.
+\end{equation}
+
+A equação acima não se restringe ao caso da existência de uma força de atrito, ela é válida sempre que houver \emph{qualquer} força externa que realize um trabalho sobre o sistema, sendo ele positivo ou negativo. Portanto podemos escrever
+\begin{equation}
+  \Delta E = W_{\textrm{Ext}}. \mathnote{Variação da energia mecânica}
+\end{equation}
+
+Se o trabalho é exercido por uma força de arrasto, podemos afirmar que a energia extraída do sistema passou para a forma de energia cinética das partículas que compõe o ar --~caso tenhamos um trabalho negativo~--. Se, por outro lado, temos uma rampa sobre a qual um bloco desce sujeito a uma força de atrito, verificamos que a energia mecânica do sistema diminui. No entanto, nenhum trabalho é exercido no sentido de se extrair energia do sistema. Nesse caso, a energia é transformada em energia térmica, na forma de um aumento de temperatura do sistema.
+
+Com base nesse tipo de observação, se formulou uma teoria que generaliza a ideia de conservação da energia para incluir outras formas de energia, culminando em um princípio geral da Física.
+ 
+\comment{Aqui tem que reescrever tudo, tá muito ruim (dar uma revisada em outros livros, fatos históricos). Nessa parte do calor, teve alguém que observou que ao se furar o cano de canhões, havia uma grande aquecimento; Foi a primeira vez que alguém associou energia térmica a trabalho. Aqui é a ponte para a termodinâmica. Discutir a conservação da energia e suas origens na termodinâmica, teorema de Noether.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conservação da energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+falar do cara do furo do canhão
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Seções opcionais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pseudo trabalho, dedução do teorema trabalho energia através da segunda lei de newton
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemplos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
+
+Massa mola com arrasto.

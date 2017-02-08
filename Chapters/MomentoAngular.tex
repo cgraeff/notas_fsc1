@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Momento Angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minitoc
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%
+
+{\it
+Intro ...
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Caráter vetorial das variáveis da rotação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade e aceleração}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Quando discutimos as grandezas da translação, concluímos que posição, velocidade e aceleração eram grandezas vetoriais e tinham módulo, direção e sentido. Podemos atribuir um caráter vetorial à velocidade angular e à aceleração angular. Nesses casos, no entanto, a direção do vetor não nos dá a direção do movimento, mas a direção \emph{em torno} da qual o objeto gira.
+
+Para definirmos tal direção de maneira única, utilizamos a regra da mão direita: ``seguramos'' o eixo em torno do qual o objeto gira de forma que os dedos (exceto o polegar) apontem no sentido de rotação. Fazendo isso, o polegar apontará na direção do vetor.
+
+No caso da aceleração, apontamos a direção da variação da velocidade (na direção de $\vec{\omega}$ se o módulo da velocidade angular cresce e na direção contrária se o módulo decresce). Tanto $\vec{\omega}$ quanto $\vec{\alpha}$ obedecem a todos os requisitos para serem denominados vetores, inclusive à soma vetorial.
+
+A posição e -- consequentemente -- o deslocamento angulares, no entanto, não podem ser tratados como vetores. Se tomarmos um livro e realizarmos dois deslocamentos angulares sucessivos de \grau{90} em torno dos eixos $x$ e $y$, a ordem em que eles forem realizados influenciará no resultado final, resultando em estados finais diferentes. Como a soma vetorial de $\vec{a} + \vec{b} = \vec{b} + \vec{a}$, percebemos que os deslocamentos angulares não podem ser tratados como vetores.
+
+\comment{Pra mim isso não explica nada. Como podemos mostrar que duas velocidades angulares podem ser somadas? (Acho que o Teorema de Euler para rotação explica, mas como? ver isso e colocar essa explicação aqui). TODO Por que podemos tratar deslocamentos para pequenos ângulos como vetores e não para grandes ângulos? ver isso com cuidado}
+
+%%%%%%%%%%%%%%%%%%%
+\subsection{Torque como o produto vetorial $\vec{r}\times\vec{F}$}
+%%%%%%%%%%%%%%%%%%%
+
+Da mesma forma que $\vec{\omega}$ e $\vec{\alpha}$ são grandezas vetoriais, também é possível mostrar que o torque é uma grandeza vetorial. Analisando a expressão para o módulo do produto vetorial entre dois vetores $\vec{a}$ e $\vec{b}$:
+\begin{equation}
+  |\vec{a}\times\vec{b}| = ab\sen\phi,
+\end{equation}
+%
+onde $\phi$ é o ângulo entre os dois vetores, e comparando-a com a Equação~\eqref{Eq:DefModTorque}, podemos escrever o torque como
+\begin{align}
+  |\vec{\tau}| &= F d \sen\phi \\
+  &= |\vec{F}\times\vec{d}.
+\end{align}
+%
+Na expressão acima, $\vec{F}$ é o vetor que descreve a força que gera o torque, enquanto $\vec{d}$ é o vetor que denota a posição do ponto onde a força é aplicada. A origem do vetor é o próprio ponto em torno do qual o objeto gira. Apesar de utilizarmos $\vec{d}$ até o momento, em geral posições são denotadas por $\vec{r}$. Assim, o torque pode ser definido como: \comment{a origem pode ser um ponto qualquer, porém quando formos tratar de corpos rígidos mais adiante, usaremos sempre um ponto no eixo de rotação ... como explicar isso direito?}
+\begin{equation}\label{Eq:DefTorque}
+  \vec{\tau} = \vec{r}\times\vec{F}.
+\end{equation}
+
+A direção do vetor torque pode ser facilmente compreendida ao se analisar a expressão para a Segunda Lei de Newton para a rotação,
+\begin{equation}
+  \tau = I \alpha.
+\end{equation}
+%
+Sabendo que $I$ é uma grandeza escalar e que atribuimos um caráter vetorial para a aceleração angular, obrigatoriamente temos que o torque também tem uma caráter vetorial (pois uma das propriedades dos vetores é que a multiplicação de um escalar por um vetor resulta em um vetor). Assim, o torque assume a mesma direção que a aceleração angular:
+\begin{equation}
+  \vec{\tau} = I\vec{\alpha}.
+\end{equation}
+%
+Dessa conclusão podemos tirar uma observação importante, justificando a escolha da ordem dos vetores na Equação~\eqref{Eq:DefTorque}: devido à regra da mão direita, se temos um eixo em torno do qual um objeto gira e a aceleração angular é positiva, o torque dado pelo produto vetorial~\eqref{Eq:DefTorque} acima deve correspondentemente ser positivo. Para isso, também devemos adotar a regra da mão direita para o produto vetorial. Analisando o diagrama ao lado, percebemos que a ordem do produto vetorial deve ser $\vec{r}\times\vec{F}$, caso contrário o sentido resultante para o torque seria oposto ao sentido da aceleração. Alternativamente podemos usar $\vec{\tau} = -\vec{F}\times\vec{r}$, já que $\vec{a}\times\vec{b} = - \vec{b}\times\vec{a}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Momento angular e Segunda Lei de Newton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Da mesma forma que temos o momento linear, para o caso das rotações temos o momento angular, definido como
+\begin{equation}\label{Eq:DefMomAngular}
+  \vec{\ell} = \vec{r}\times\vec{p},
+\end{equation}
+%
+onde $r$ denota a posição de uma partícula qualquer e $p$ denota seu momento angular. Se derivarmos essa expressão em relação ao tempo, temos
+\begin{align}
+  \frac{d\vec{\ell}}{dt} &= \frac{d(\vec{r}\times\vec{p})}{dt} \\
+  &= \frac{d\vec{r}}{dt}\times\vec{p} + \vec{r}\times\frac{d\vec{p}}{dt},
+\end{align}
+%
+onde usamos a regra da cadeia. Notando que $d\vec{r}/dt = \vec{v}$, $\vec{p} = m \vec{v}$ e $d\vec{p}/dt = \vec{F}$, podemos escrever
+\begin{equation}
+  \frac{d\vec{\ell}}{dt} = m\vec{v}\times\vec{v} + \vec{r} \times \vec{F}.
+\end{equation}
+%
+Finalmente, notando que o produto vetorial de dois vetores colineares é nulo, temos que $\vec{v}\times\vec{v} = 0$ e, portanto,
+\begin{align}
+  \frac{d\vec{\ell}}{dt} &= \vec{r} \times \vec{F} \\
+  &= \vec{\tau}.
+\end{align}
+
+Mais uma vez obtivemos um resultado para o caso das rotações que tem um análogo no caso da translação: a equação acima mostra que a taxa de variação do momento angular no tempo é igual ao torque, o que é análogo à forma $\vec{F} = d\vec{p}/dt$ para a Segunda Lei de Newton. Portanto, temos uma nova forma para a Segunda Lei de Newton para Rotações:
+\begin{equation}\label{Eq:SegLeiNewtonRotDLDT}
+  \vec{\tau} = \frac{d\vec{\ell}}{dt}.
+\end{equation}
+
+\comment{$\tau$ e $\ell$ devem ser definidos em relaçao ao mesmo ponto}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento angular para uma partícula que se desloca em linha reta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{mostrar que $r\sen\phi = d$ ($d$ é a distância mínima entre a reta em que a partícula se desloca e a origem)}
+
+Assim como no caso do torque, o momento angular é calculado em relação a um ponto. Mesmo que a partícula se desloque em uma linha reta, sem executar uma rotação em torno de um ponto, podemos lhe atribuir um momento angular.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento angular de um sistema de partículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O momento angular de um sistema de partículas pode ser calculado somando-se o momento angular das várias partículas que o constituem:
+\begin{align}
+  \vec{L} &= \vec{\ell}_1 + \vec{\ell}_2 + \vec{\ell}_3 + \dots + \vec{\ell}_N \\
+  &= \sum_{i=1}^N \vec{\ell}_i.
+\end{align}
+%
+Esta propriedade é característica dos vetores, e já a utilizamos para definir o momento linear do centro de massa $\vec{P}_{\textrm{CM}}$ como sendo a soma do momento linear das partículas que o constituem.
+
+Se derivarmos a expressão acima em relação ao tempo, temos
+\begin{align}
+  \frac{d\vec{L}}{dt} &= \frac{d}{dt}\left(\sum_{i=1}^N\vec{\ell}_i\right) \\
+  &= \sum_{i=1}^N \frac{d\vec{\ell}_i}{dt}.
+\end{align}
+%
+De acordo com a Equação~\ref{Eq:SegLeiNewtonRotDLDT} para a Segunda Lei de Newton para Rotações, $d\vec{\ell}_i/dt = \vec{\tau}_i$, isto é, o torque que atua sobre a i-ésima partícula. No entanto, para um sistema de partículas que interagem através de forças, os torques devido a forças internas geram um par que se cancela na soma. Dessa forma, restarão somente os torques externos, logo
+\begin{equation}\label{Eq:SegLeiNewtonRotSisPartDLDT}
+  \vec{\tau}_R^{\textrm{Ext}} = \frac{d\vec{L}}{dt}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento angular de um corpo rígido}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{Figuras para explicar o cálculo do momento angular de um corpo rígido}
+
+Se um corpo gira em torno de um eixo, podemos calcular seu momento angular dividindo-o em várias partes e tratando-o como um sistema de partículas. Na Figura ??? ao lado, o momento angular de uma das partículas que compõe o corpo é mostrado. Segundo a definição do momento angular para uma partícula, temos
+\begin{align}
+  \vec{\ell}_i &= \vec{r}\times\vec{p} \\
+  &= r_i p_i \sen \grau{90} \\
+  &= r_i m_i v_i,
+\end{align}
+%
+onde as variáveis $r_i$, $m_i$ e $v_i$ se referem à posição, velocidade e massa da partícula em questão. Usamos ainda o índice $i$ pois calculamos o momento angular de somente uma partícula, porém vamos somar sobre as demais já que a expressão é a mesma para todas elas.
+
+Se o corpo for simétrico e homogêneo, podemos perceber facilmente que para toda partícula $P$ existe uma partícula $P'$ diametralmente oposta à primeira e que tem os mesmos valores para as componentes do momento angular para os eixos $x$ e $y$, porém com sentidos contrários. Logo, ao realizarmos a soma sobre todas as partículas, concluímos que tais componentes resultarão em zero, restando somente a componente $z$ do momento angular. Esta componente pode ser calculada utilizando o ângulo $\theta$ e obtemos
+\begin{align}
+  \ell_{iz} &= \ell_i \sen\theta \\
+  &= r_i m_i v_i \sen\theta.
+\end{align}
+%
+A distância $r_{\perp}$ pode ser escrita como
+\begin{equation}
+  \ell_{\perp} = r_i\sen\theta.
+\end{equation}
+%
+Consequentemente, 
+\begin{equation}
+  \ell_{iz} = m_i r_{\perp}^2 \omega,
+\end{equation}
+%
+onde utilizamos $v_i = \omega r_{\perp}$ (lembre-se que $\omega$ é constante e igual para todas as partículas que compôe um corpo rígido). Dessa forma, podemos escrever o momento angular total do corpo como
+\begin{equation}
+  L_z = \left[\sum_{i=1}^N m_i r_{\perp}^2\right] \omega.
+\end{equation}
+%
+O termo entre colchetes nada mais é que o momento de inércia do corpo. Além disso, sabemos que só resta a componente $z$ do momento angular, porém esta é a mesma direção da velocidade angular. Logo
+\begin{equation}
+  \vec{L}_z = I \vec{\omega}.
+\end{equation}
+
+É importante notar que se o corpo não for simétrico, restará uma componente do plano $xy$ que mudará constantemente de direção. No caso de um objeto assimétrico sofrer uma rotação, portanto, deve haver um torque que é realizado por um agente externo -- pois $\vec{\tau} = d\vec{L} / dt$ e se $\vec{L}$ não é constante, então $\vec{\tau} \neq 0$ --. Se o objeto em questão está prezo por mancais, por exemplo, tais suportes exercem força sobre o corpo que geram torques, possibilitanto que o momento angular varie. No entanto, existem as reações a essas forças, que são exercidas pelo corpo sobre os suportes, sendo responsáveis pelas \emph{vibrações} características de um corpo assimétrico submetido a rotações.
+
+\comment{Aqui entram exemplos (em um ambiente próprio, paragraph)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conservação do momento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A partir da Equação~\ref{Eq:SegLeiNewtonRotSisPartDLDT}, percebemos que se $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que $d\vec{L}/dt = 0$, ou seja,
+\begin{equation}
+  \vec{L} = \textrm{constante}.
+\end{equation}
+%
+Temos, portanto, uma nova lei de conservação -- a \emph{conservação do momento angular} --. Assim como nos casos da \emph{conservação da energia} e da \emph{conservação do momento linear}, o fato de termos uma lei de conservação envolvendo o momento angular nos permitirá analisar sistemas sem sabem em detalhes o que ocorre entre dois instantes quaisquer. Se um evento ocorre de forma que $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que o momento angular antes e depois de tal evento é o mesmo:
+\begin{equation}
+  L_i = L_f.
+\end{equation}
+%
+Logo, se temos informações sobre o sistema antes do evento, podemos relacioná-las ao estado final do sistema sem saber detalhes do que ocorreu durante o evento. Isso será muito útil na análise de várias situações.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Precessão de um giroscópio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{Fazer figuras,melhorar texto, descrições, o que é um giroscópio, falar como é impressionante, etc.}
+
+A Precessão de um giroscópio é um exemplo claro da razão pela qual o torque é uma grandeza vetorial. Se não fosse esse o caso, o movimento não poderia ser explicado. Na figura ao lado, mostramos um desenho esquemático de um giroscópio, com as forças e torques que atuam sobre ele quando ele está parado. Verificamos que há um torque na direção $y$ e que -- ao liberarmos a movimentação do sistema -- será responsável por girar o giroscópio em torno desse eixo, dotando-o de um momento angular $\vec{L}$ também na direção de $y$.
+
+No caso de o giroscópio já estar girando antes de o soltarmos, já teremos um momento angular inicial $\vec{L}$ na direção do eixo do disco do giroscópio. Sabemos que nesse caso 
+\begin{equation}
+  \vec{L} = I\vec{\omega}.
+\end{equation}
+%
+Se mantivermos a velocidade do disco constante, temos que o momento angular deve ser constante. Se soltarmos o sistema, o peso continuará exercendo um torque igual ao da situação anterior, na direção de $y$. Como $\vec{\tau}$ é perpendicular a $\vec{L}$, ele não pode mudar o \emph{módulo} do momento angular, porém pode mudar sua \emph{direção}. De fato, sabendo que
+\begin{equation}
+  \vec{\tau} = \frac{d\vec{L}}{dt},
+\end{equation}
+%
+podemos escrever
+\begin{equation}
+  d\vec{L} = \vec{\tau} dt,
+\end{equation}
+%
+o que nos indica que a \emph{variação} do vetor momento angular tem a mesma direção que o torque. Logo, após um intervalo de tempo $dt$, temos que o giroscópio aponta em uma nova direção no espaço.
+
+Podemos determinar a velocidade de precessão do giroscópio fazendo a seguinte análise: Sabemos que o módulo do torque é dado, nesse caso, por
+\begin{equation}
+  \tau = Mgr,
+\end{equation}
+%
+e portanto,
+\begin{equation}
+  dL = Mgr\,dt.
+\end{equation}
+%
+Além disso, analisando a figura ao lado, temos que o arco $s$ tem comprimento
+\begin{equation}
+  s = L \phi.
+\end{equation}
+%
+Para um ângulo muito pequeno,
+\begin{equation}
+  ds = L d\phi.
+\end{equation}
+%
+Logo,
+\begin{align}
+  d\phi &= \frac{dL}{L} \\
+  &= \frac{Mgr\,dt}{I\omega},
+\end{align}
+%
+e, consequentemente,
+\begin{equation}
+  \Omega \equiv \frac{d\phi}{dt} = \frac{Mgr}{I\omega}.
+\end{equation}

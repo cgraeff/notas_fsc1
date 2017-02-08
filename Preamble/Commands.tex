@@ -1,0 +1,32 @@
+\DeclareMathOperator{\sen}{sen}
+\newcommand{\mean}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\degree}[1]{\np[\tcdegree]{#1}}
+\renewcommand{\mod}[1]{\ensuremath{|#1|}}
+\newcommand{\versi}{\hat{\imath}}
+\newcommand{\versj}{\hat{\jmath}}
+\newcommand{\versk}{\hat{k}}
+\newcommand{\fat}{f_{at}}
+\newcommand{\vecfat}{\vec{f}_{at}}
+\newcommand{\comment}[1]{\marginnote{\footnotesize\textbf{\texttt{#1}}}}
+
+%\def\mathnote#1{%
+%  \stepcounter{equation}\tag{\theequation{\rlap{\hspace\marginparsep\smash{\parbox[c]{\marginparwidth}{%
+%  \footnotesize\emph{\textbf{#1}}}}}}}
+%}
+
+\newcommand{\mathnote}[2][0pt]{\marginnote{\footnotesize\emph{\textbf{#2}}}[#1]}
+
+\newcommand*\keystroke[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=1pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\footnotesize\sffamily
+    ](key) {#1\strut}
+  ;
+}

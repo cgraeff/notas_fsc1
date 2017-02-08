@@ -1,0 +1,276 @@
+\chapter{Centro de Massa e Momento Linear}
+
+%\minitoc
+%\clearpage
+
+\section{Centro de Massa}
+
+Ao analisarmos o movimento de um objeto, usamos a simplificação de que toda a sua massa se concetra em um ponto. Veremos agora como calcular a posição desse ponto. A dedução da fórmula para este cálculo é bastante simples, porém precisamos apresentar o conceito de \emph{torque}, que será de grande importância para o estudo de rotações.
+\comment{Ver no Marion a separação do movimento como deslocamento do CM mais movimentos em relação ao CM}
+
+\subsection{Torque}
+
+Sabemos que podemos equilibrar um objeto sobre um fulcro, ao distribuir a massa em torno do ponto de apoio de uma maneira simétrica. Se tomarmos uma balança com dois pratos, por exemplo\comment{Fig de balança de dois pratos pendurados}, para obter equilíbrio devemos ter a mesma quantidade de massa em cada um dos pratos --~ou, mais precisamente, a força peso dos objetos em cada um dos pratos deve ser igual\footnote{Apesar de não haver dependência direta no valor da aceleração da gravidade, se estivessemos em uma região do espaço onde não há força gravitacional, quaisquer dois objetos aparentemente seriam capazes de equilibrar a balança.}~--. 
+
+No caso de não haver simetria, a experiência nos mostra que ainda sim podemos obter equilíbrio. Na Figura~(???) temos uma balança com um prato e uma haste que não é simétrica, sendo menor no lado preso ao prato. No lado maior, temos um objeto com uma massa fixa e ao deslocá-lo podemos equilibrar o sistema. Nesse caso, podemos tomar o produto entre a força aplicada sobre a haste e a distância entre a o ponto de aplicação da força e o ponto de apoio e verificamos experimentalmente que no equilíbrio
+\begin{equation}
+  x_1 \ell_1 = x_2 \ell_2.
+\end{equation}
+%
+Vemos que no caso de não haver equilíbrio --~isto é, quando a equação acima não é respeitada~-- temos uma aceleração do sistema no sentido de fazê-lo girar. Uma outra maneira de verificar tal efeito é tomarmos uma porta e aplicarmos uma força $\vec{F}$ como mostrado na Figura (???, porta mostrada de cima). Nesse caso temos uma força que faz um ângulo $\phi$ em relação à reta que liga o ponto de rotação da porta e o ponto de aplicação da força. Decompondo $F$ em uma componente ao longo dessa reta e outra perpendicular a ela, fica evidente que a componente paralela à reta não é capaz de causar uma rotação. Logo, podemos determinar uma grandeza $\tau$ dada por
+\begin{align}
+  \tau &= F_t r \\
+  &= F r \sen \phi.
+\end{align}
+%
+Tal grandeza é denominada \emph{torque}, sendo que torques que tendem a fazer com que ocorra uma rotação no sentido horário são por definição negativos, enquanto torques que tendem a causar uma rotação no sentido antihorário são positivos. Para que haja equilíbrio no caso de uma balança de braços, verificamos que o torque total deverá ser nulo:
+\begin{equation}
+  \tau_1 + \tau_2 = 0.
+\end{equation}
+
+\subsection{Centro de massa de um conjunto de partículas}
+
+Em caso termos um sistema de $n$ partículas e desejarmos substitui-lo por outro, com somente uma partícula, de maneira que as propriedades dinâmicas sejam as mesmas, precisamos determinar em que ponto tal partícula deve ser disposta e também qual deverá ser sua massa. Tal posição de tal partícula é denominada como \emph{centro de massa} do conjunto de partículas e uma expressão pode ser calculada para determinar sua localização em um sistema de referência exigindo os seguintes requisitos
+\begin{itemize}
+  \item \emph{O torque em torno de uma uma origem $O$ devido ao peso da partícula que substitui o conjunto de partículas deve ser o mesmo que o torque total devido às forças peso de todas as partículas do conjunto.} 
+  
+  Matematicamente, tal exigência pode ser descrita como
+    \begin{equation}
+      \tau_{\textrm{CM}} = \sum_{i=1}^{n} \tau_i.
+    \end{equation}
+    o que resulta em
+    \begin{equation}
+      x_{\textrm{CM}} M_{\textrm{CM}} g = \sum_{i=1}^{n} x_i m_i g
+    \end{equation}
+    ou, dividindo toda a equação por $M_{\textrm{CM}}g$:
+    \begin{equation}
+      x_{\textrm{CM}} = \frac{\sum_{i=1}^{n}}{M_{\textrm{CM}}}.
+    \end{equation}
+    
+  \item \emph{Se uma força resultante externa causa uma aceleração no sistema de partículas, a mesma força deve causar a mesma aceleração na partícula que substitui o sistema.} 
+  
+  Nesse caso, a aceleração do sistema pode ser escrita como
+  \begin{equation}
+    a = \frac{F_R}{\sum m_i}.
+  \end{equation}
+  Por outro lado, a aceleração da partícula que substitui o sistema será dada por
+  \begin{equation}
+    a_{\textrm{CM}} = \frac{F_R}{M_{\textrm{CM}}}.
+  \end{equation}
+  Se ambas as acelerações são iguais, então
+  \begin{equation}
+    \frac{F_R}{M_{\textrm{CM}}} = \frac{F_R}{\sum m_i}.
+  \end{equation}
+  Consequentemente,
+  \begin{equation}
+    M_{\textrm{CM}} = \sum m_i.
+  \end{equation}
+\end{itemize}
+
+Portanto, juntando os dois resultados acima, concluímos que o sistema pode ser substituído por um ponto que contém toda a massa do sistema, sendo que sua localização é dada por
+\begin{equation}
+  x_{\textrm{CM}} = \frac{\sum x_i m_i}{\sum m_i}.
+\end{equation}
+%
+Generalizando o resultado acima para três dimensôes, obtemos
+\begin{equation}\label{Eq:CM}
+  \vec{r} = \frac{\sum m_i \vec{r}_i}{\sum m_i}. \mathnote{Expressão para a posição do Centro de Massa.}
+\end{equation}
+
+\section{Centro de Massa de um corpo extenso}
+
+Podemos utilizar o a expressão \eqref{Eq:CM} para calcular o centro de massa de qualquer objeto, porém esse cálculo não é prático se o número de partícular for muito grande. No entanto, podemos utilizá-la em conjunto com outras técnicas para determinar o centro de massa de alguns corpos extensos.
+
+\subsection{Discretização}
+
+Podemos calcular o centro de massa de alguns objetos através de um processo de discretização. 
+
+\paragraph{Centro de massa de uma barra}
+
+Podemos calcular o centro de massa de uma barra fina e de densidade homogênea se a dividirmos em $n$ ``fatias'' finas. Como essas fatias são finas, podemos considerar que o centro de massa fica localizado no meio da fatia (e podemos aumentar o número de fatias arbitrariamente caso essa aproximação seja ruim, mas veremos que ela não é). Nesse caso, podemos dizer que para o eixo $x$
+\begin{equation}
+  x_{CM} = \frac{1}{M_t} \sum x_i m_i
+\end{equation}
+%
+Se todas as fatias têm a mesma massa $m$, temos
+\begin{equation}
+  x_{CM} = \frac{m}{M_t} \sum x_i.
+\end{equation}
+%
+Também podemos verificar que $M_t = n m$. Logo
+\begin{equation}
+  x_{CM} = \frac{1}{n} \sum x_i.
+\end{equation}
+%
+A equação acima não passa de uma média das posições das fatias. Podemos pensar da seguinte forma: para uma fatia localizada a uma distância $a$ da origem, temos uma outra localizada a uma distância $a$ da extremidade oposta. Se a barra tem comprimento $L$, então a contribuição dessas duas para o somatório da equação acima é
+\begin{equation}
+  \sum x_i = (a) + (L - a) + \dots,
+\end{equation}
+%
+o que claramente resultará em
+\begin{equation}
+  \sum x_i = \frac{n}{2}L,
+\end{equation}
+%
+pois se temos $n$ fatias, temos $n/2$ pares de fatias. Consequentemente
+\begin{equation}
+  x_{CM} = \frac{L}{2}.
+\end{equation}
+
+\subsection{Distribuição contínua de massa}
+
+A princípio, podemos utilizar a expressão~\eqref{Eq:CM} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. Podemos aproximar um corpo extenso como uma distribuição contínua de massa. Nesse caso podemos substituir a soma por uma integral:
+\begin{equation}
+  \vec{r}_{\textrm{CM}} = \frac{1}{M} \int \vec{r} dm,
+\end{equation}
+%
+onde $M$ representa a massa total do corpo e a integral se dá sobre toda a distribuição de massa do corpo. Esse resultado pode ser interpretado de uma maneira mais simples se considerarmos que o elemento de massa está relacionado à densidade e ao volume do elemento de massa através de $dm = \rho(\vec{r}) dV$. Logo, basta considerarmos uma integral na região do espaço ocupada pelo corpo. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) dA$ ou $dm = \lambda(x) dx$ --~onde $sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~--.
+
+\subsection{Técnicas de simetria}
+
+Muitas vezes podemos encontrar o centro de massa de maneira bastante intuitiva. Nas Figuras\comment{Figuras simétricas (círculo, cilindro, esfera, quadrado, cubo, ...)} (???) a (???), por exemplo, caso os objetos tenham densidade uniforme, os pontos denotam a posição do centro de massa. Tal intuição se deve ao fato de que os objetos têm formas simétricas. 
+
+Podemos verificar matematicamente esse resultado analisando a Figura (???). Na figura o eixo $\overline{AB}$ divide o objeto em duas parte simétricas. Vamos assumir que o eixo $y$ tem a mesma orientação que o eixo de simetria. Nesse caso, a contribuição para o cálculo do centro de massa devido ao ponto $P$ é dada por $x_P m_P$, onde $x_P$ é a distância entre o eixo $y$ e o ponto $P$. Se o objeto é simétrico, existe um ponto $P'$ localizado em $x'_P$ e com massa $m'_P$, cuja contribuição para o centro de massa é $x'_Pm'_P$. Como os pontos se localizam em lados oposto em relação ao eixo de simetria, temos que $x'_P = - x_P$. Além disso, temos que $m_P = m'_P$. Consequentemente,
+\begin{align}
+  x_\textrm{CM} &= \frac{1}{M} (x_P m_P + x'_P m'_P + \dots) \\
+  &= 0,
+\end{align}
+%
+pois para cada ponto na soma acima, temos um ponto simétrico de forma que a soma total seja nula. Temos então que sempre que houver um eixo de simetria, ou um plano de simetria, o centro de massa estará localizado sobre esse eixo ou plano. Se pudermos determinar mais que um eixo ou plano de simetria, o centro de massa reside sobre o encontro de tais eixos ou planos, sendo que em muitos casos podemos determinar a posição do centro de massa em todos as três dimensões simplesmente utilizando argumentos de simetria.
+
+
+\section{Segunda Lei de Newton para o Centro de Massa}
+
+Verificamos que para um sistema qualquer de partículas o centro de massa pode ser calculado através da Equação~\eqref{Eq:CM}. Se derivarmos essa expressão em relação ao tempo, obtemos uma expressão para a velocidade do centro de massa:
+\begin{equation}\label{Eq:VelocidadeCM}
+  \vec{v}_{\textrm{CM}} = \frac{1}{M} \sum m_i \vec{v}_i.
+\end{equation}
+%
+Derivando novamente, obtemos uma expressão para a aceleração do centro de massa
+\begin{equation}
+  \vec{a}_{\textrm{CM}} = \frac{1}{M} \sum m_i \vec{a}_i.
+\end{equation}
+%
+Na equação acima, $m_i \vec{a}_i$ são as forças resultantes $\vec{F}_i$ que agem sobre cada uma das partículas que compõe o sistema:
+\begin{equation}
+  \vec{a}_{\textrm{CM}} = \frac{1}{M} \sum F_i.
+\end{equation}
+%
+Tais forças resultantes, no entanto, têm origem em interações entre cada partícula e as demais que a circundam o que faz com que na soma da equação acima tenhamos pares ação e reação que sempre se cancelarão. Logo, restarão somente as forças externas aplicadas ao sistema. Portanto,
+\begin{equation}\label{Eq:SegundaLeiCM}
+  \vec{F}_{\textrm{Res}}^{\textrm{Ext}} = M \vec{a}_{\textrm{CM}}. \mathnote{Segunda Lei de Newton para o Centro de Massa}
+\end{equation}
+%
+A equação acima tem a mesma forma que a segunda lei de Newton para uma partícula, que nesse caso é o centro de massa do corpo. Tal resultado justifica o tratamento dispensado a corpos extensos que não sofrem rotações: para translações de corpos extensos, podemos simplesmente tratar o movimento do centro de massa.
+
+\section{Momento Linear e conservação do momento linear}
+
+Segunda a Expressão~\eqref{Eq:SegundaLeiCM}, se a força resultante externa que atua sobre um sistema de partículas for nula, teremos uma aceleração nula. Nesse caso temos que a velocidade $v_{\textrm{CM}}$ do centro de massa deve ser constante, o que nos permite escrever, a partir da Equação~\eqref{Eq:VelocidadeCM}
+\begin{equation}
+  M\vec{v}_{\textrm{CM}} = \sum m_i \vec{v}_i = \textrm{constante}.
+\end{equation}
+%
+Essa expressão nos trás um resultado muito importante. Se o sistema é constituído de um conjunto de partículas que interagem entre si através de colisões ou de forças internas de qualquer tipo --~como partículas de um gás em uma região do espaço, bolas de bilhar que colidem, ou um sistema formado por uma estrela, planetas e satélites~--, mesmo que hajam alterações da velocidade das partículas a todo instante, podemos dizer que a \emph{soma dos produtos das massas pelas velocidades} será constante se a força resultante externa for nula.
+
+Para evidenciar esse resultado, definimos o \emph{momento linear}\footnote{Também denominado como \emph{quantidade de movimento}.}
+\begin{equation}
+  \vec{p} = m\vec{v}
+\end{equation}
+%
+de forma que o momento linear do centro de massa
+\begin{equation}
+  \vec{P}_{\textrm{CM}} = M\vec{v}_{\textrm{CM}}
+\end{equation}
+%
+é dado por
+\begin{equation}
+  \vec{P}_{\textrm{CM}} = \sum \vec{p}_i.
+\end{equation}
+%
+Além disso, se temos que a força resultante externa é zero ($\vec{F}_{\textrm{Res}^\textrm{Ext}} = 0$), o momento linear do centro de massa se mantém constante, não importando o que aconteça:
+\begin{equation}
+  \vec{P}_{\textrm{CM}}^i = \vec{P}_{\textrm{CM}}^f. \mathnote{Conservação do momento linear.}
+\end{equation}
+
+O princípio de conservação do momento linear é extremamente útil para analisarmos situações onde ocorrem colisões ou explosões, por exemplo: nesse tipo de evento, as forças envolvidas são internas, e por isso não deve haver alteração no momento linear do centro de massa, isto é, o momento linear do sistema se conserva.
+
+Podemos escrever a segunda lei de Newton em termos do momento linear se observarmos que
+\begin{align}
+  \frac{d}{dt} \vec{P}_{\textrm{CM}} &= \frac{d}{dt}(M\vec{v}_{\textrm{CM}}) \\
+  &= M\frac{d\vec{v}_{\textrm{CM}}}{dt} + \vec{v}_{\textrm{CM}}\frac{dM}{dt} \\
+  &= M\vec{a}_{\textrm{CM}} + \vec{v}_{\textrm{CM}}\frac{dM}{dt}
+\end{align}
+%
+Se temos que a massa é constante, a expressão acima se reduz a $d\vec{P}_{\textrm{CM}}/dt = M\vec{a}_{\textrm{CM}}$, ou
+\begin{equation}
+  \vec{F}_{\textrm{CM}}^{\textrm{Ext}} = \frac{d\vec{P}_{\textrm{CM}}}{dt}.
+\end{equation}
+%
+Essa expressão também é válida para uma partícula, sendo denotada como
+\begin{equation}\label{Eq:SegundaLeiDerMomento}
+  \vec{F} = \frac{d\vec{p}}{dt}
+\end{equation}
+%
+que é na verdade a enunciada por Newton como sua segunda lei para o movimento. Ela é mais geral pois é capaz de tratar o caso em que a massa varia, como em um foguete, ou mesmo em uma corda amontoada e que é puxada.
+
+
+%\section{Sistema sujeito a força externa nula} % ainda podemos ter trabalho, pois podemos ter uma compressão do sistema. Isso aumentaria a energia do sistema, mas não alteraria o momento linear. Pode ficar pra uma seção de exemplos mais avançados.
+
+\section{Impulso}
+
+Uma força externa qualquer $\vec{F}$ é capaz de causar uma variação no momento linear $\vec{p}$, como mostra a Equação~\eqref{Eq:SegundaLeiDerMomento}. Podemos verificar qual é variação total do momento reescrevendo tal equação como
+\begin{equation}
+  d\vec{p} = \vec{F} dt.
+\end{equation}
+%
+Se em um instante inicial $t_i$ temos um momento linear $\vec{p}_i$, em um instante final $t_f$ temos um momento linear final $\vec{p}_f$. Integrando a equação acima entre esses limites, temos
+\begin{equation}
+  \int_{p_i}^{p_f} d\vec{p} = \int_{t_i}^{t_f} \vec{F} dt.
+\end{equation}
+%
+A integral à esquerda nos dará simplesmente $\Delta\vec{p}$, logo
+\begin{equation}
+  \delta\vec{p} = \vec{J},
+\end{equation}
+%
+onde definimos o \emph{impulso} $\vec{J}$ como
+\begin{equation}
+  \vec{J} = \int_{t_i}^{t_f} \vec{F} dt.
+\end{equation}
+
+\subsection{Forças durante uma colisão}
+
+Sabemos que a duração de uma colisão é extremamente curta, mas podemos ter uma grande variação do momento linear em um evento deste tipo. Isso nos leva a concluir que as forças que agem nos corpos que colidem deve ser muito intensa. Não podemos calcular exatamente a forma para a força, pois temos uma interação muito complexa, no entanto sabemos que ela deve ter um pico muito pronunciado e um intervalo de duração muito pequeno, como mostrado na Figura~(???).
+
+Quando desejamos quebrar um objeto podemos utilizar um martelo. Para quebrar o objeto, basta exercer uma força sobre o martelo fazendo com que ele adquira velocidade e, consequentemente, sofra uma alteração de seu momento linear atingindo um valor $\vec{p}_i$ na iminência da colisão. Durante a colisão do martelo com o objeto, se assumirmos que ele ficará parado após a colisão, devemos ter um impulso de forma que o momento linear final seja nulo. Verificamos ainda que o tempo de duração da colisão é muito menor que o tempo que o martelo é acelerado, então a força durante a colisão deve ser muito mais intensa. Tal força é suficiente para causar a separação de moléculas e átomos que formam o objeto, quebrando-o.
+
+Por outro lado, quando desejamos ``amortecer'' o impacto de um objeto --~contra uma superfície, por exemplo~--, utilizamos um material capaz de se deformar durante a colisão. Isso tem o efeito de aumentar o tempo de atuação da força, fazendo com que a força máxima seja menor, impedindo que ela atinja valores capazes de causar danos ao objeto que desejamos proteger. Esse princípio é utilizado em \emph{air-bags}, por exemplo.
+
+\paragraph{Força média}
+
+Várias partículas colidem, qual é a força média? Aproveitar pra tratar o esquema de $\Delta p$ ser maior qd bate e volta o que causa uma força média maior.
+
+\section{Momento e energia cinética em colisões}
+
+Sabemos que sempre que a força resultante externa que atua sobre um sistema de partículas que colidem é nula, o momento linear do sistema se conserva. Podemos ainda verificar o que acontece com a energia cinética antes e depois de uma colisão. Podemos dividir as colisões quanto ao que acontece com a energia cinética em três possibilidades
+\begin{description}
+  \item[Colisões inelásticas] Nesse tipo de colisão, a energia cinética antes e depois da colisão não é a mesma, ocorrendo uma perda de energia cinética.
+  \item[Colisões completamente inelásticas] São as colisões onde os corpos que colidem permanecem unidos após a colisão, se movendo juntos. Nesse tipo de colisão a perda energética é máxima.\comment{Acho que é, verificar.} 
+  \item[Colisões elásticas] Nesse tipo de colisão a energia cinética total antes e depois da colisão é a mesma.
+\end{description}
+
+Nas colisões elásticas só podemos utilizar a conservação do momento linear, por isso é necessário saber informações acerca das velocidades antes e depois da colisão. No caso das colisões elásticas, no entanto, temos dois conjuntos de equações, assim podemos resolver o sistema
+\begin{equation}
+\begin{cases}
+m_1 v_1^{\textrm{ac}} + m_2 v_2^{\textrm{ac}} = m_1 v_1^{\textrm{dc}} + m_2 v_2^{\textrm{dc}} \\
+\frac{1}{2}m_1 (v_1^{\textrm{ac}})^2 + \frac{1}{2}m_2 (v_2^{\textrm{ac}})^2 = \frac{1}{2}m_1 (v_1^{\textrm{dc}})^2 + \frac{1}{2}m_2 (v_2^{\textrm{dc}})^2
+\end{cases}
+\end{equation}
+%
+cuja solução para $v_1^{\textrm{ac}}$ e $v_2^{\textrm{ac}}$ é
+\begin{align}
+v_1^{\textrm{dc}} = \frac{m_1 - m_2}{m_1+m_2} v_1^{\textrm{ac}} + \frac{2m_2}{m_1+m_2} v_2^{\textrm{ac}} \\
+v_2^{\textrm{dc}} = \frac{2m_1}{m_1+m_2} v_1^{\textrm{ac}} + \frac{m_2 - m_1}{m_1+m_2} v_2^{\textrm{ac}}
+\end{align}
+
+\section{Exemplos}

@@ -1,0 +1,340 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Movimento Unidimensional}
+\label{Chap:MovimentoUnidimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\minitoc
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%
+
+{\it
+O primeiro passo para que possamos estudar a mecânica é a definição das variáveis físicas que descrevem o movimento dos corpos. Vamos então definir precisamente posição, velocidade e aceleração. Nos capítulos seguintes, veremos que esta última está ligada à força a que o corpo está sujeito e que nos dará uma forma simples de prever seu movimento.
+\comment{TODO o que é um movimento unidimensional? (um que ocorre em uma reta) Definir direção e sentido. definir corpo rígido e dizer que vamos calcular tudo para uma partícula (corpo de dimensões desprezíveis) e que esse tratamento é condizente com a noção de centro de massa (dizer o que é e que vamos ver como calcular depois). Também dizer que vamos separar o movimento como do CM e mais uma rotação, tratando primeiro o mov. do CM.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Posição e Deslocamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Posição}
+%%%%%%%%%%%%%%%%%%%%
+
+O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é o eixo onde ocorre o movimento e então determinar um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância entre ele e o corpo. Para um deslocamento unidimensional, isto é, o deslocamento ao longo de uma reta, denominamos tal eixo como \emph{eixo $x$}\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.}:
+
+\comment{TODO Figura inline de uma reta com uma origem $O$}
+
+Marcamos como zero o ponto de referência, denominando-o como \emph{``origem''}. Se o corpo está a uma distância de três metros da origem, temos a situação abaixo, e dizemos que ele ocupa a posição $x = \np[m]{3}$.
+\comment{TODO Figura inline de bloco na posição 3 m, reta com 'tics'}
+
+\noindent{}Vamos considerar que o corpo tem dimensões desprezíveis se comparados à distância até a origem\footnote{Esse tratamento, que consiste em considerar que o objeto é um ponto, será utilizado nos próximos capítulos, porém sua justificativa será dada no Capítulo ???.}. Dizemos então que o corpo está na posição $x = \np[m]{3,0}$. Caso ele estivesse à esquerda da origem, diríamos que sua posição é negativa, por exemplo, $x = -\np[m]{2,5}$. A direção do eixo é arbitrária, podendo ser horizontal, vertical ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente.
+\comment{TODO depois de descrever direção e sentido acima, talvez seja necessário readequar esse parágrafo pra não ficar repetitivo. TODO falar que a posição 3m não é suficiente, precisamos deixar as características vetoriais pra fazer o gancho pra discutir o vetor posição mais adiante (dizer que '3m' quer dizer, direção: eixo x, sentido: positivo, módulo: 3m)}
+
+Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial.
+
+\comment{TODO Análise dimensional e dimensões no SI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Deslocamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Digamos que o primeiro corpo seja deslocado para a posição $x = - \np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo
+\begin{align}
+  \Delta x &= x_f - x_i \\
+  &= (-\np[m]{1,0}) - (\np[m]{3,0}) \\
+  &= -\np[m]{4,0}.
+\end{align}
+%
+Temos, portanto, que o deslocamento foi de quatro metros. O que dizer sobre o sinal negativo? Esse sinal significa que o deslocamento se deu no sentido negativo do eixo. Ao medirmos, o valor da medida não é suficiente para descrevermos o deslocamento. Temos que declarar que o deslocamento foi -- nesse caso -- para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou no sentido negativo do eixo), da mesma forma que a posição. Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.
+
+\comment{TODO Análise dimensional e dimensões no SI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Deslocamento escalar}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Algo importante a se notar é que o deslocamento é a diferença de posição entre duas posições quaisquer ocupadas por um corpo. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial -- a garagem, por exemplo -- será diferente para cada momento do dia. Quando o veículo retorna à garagem, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado de \emph{deslocamento escalar} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
+\begin{equation}
+  d_s = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
+\end{equation}
+
+\comment{TODO Análise dimensional e dimensões no SI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Posição como função do tempo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{TODO  discutir que podemos e vamos tratar a posição x como função do tempo x(t), depois falar que vamos fazer pra velocidade e aceleração (discutidas adiante) também.}
+
+Sabemos que a posição de uma partícula pode variar conforme o tempo passa, e isso nos permitirá uma descrição mais completa do movimento ao definir a \emph{velocidade} e a \emph{aceleração} mais adiante. Essas duas também podem variar conforme o tempo passa, portanto conferiremos um caráter especial ao tempo na descrição do movimento. Com isso podemos elaborar gráficos que mostram, por exemplo, a variação temporal da posição.
+
+\comment{TODO Separar a parte da interpretação gráfica em uma seção específica. Fazer marginfigure: Gráficos x(t) para objeto parado, objeto com v = cte}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Velocidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se considerarmos que um deslocamento sempre leva um tempo para ser efetuado, podemos calcular uma grandeza de grande interesse associada a ele: a \emph{velocidade}. Definimos a velocidade média como
+\begin{equation}
+  \mean{v} = \frac{\Delta x}{\Delta t}.
+\end{equation}
+%
+Temos agora outra variável que descreve o movimento. Se conhecemos a velocidade média, podemos então descrever a distância percorrida em função do tempo como
+\begin{equation}
+  \Delta x = \mean{v} \Delta t.
+\end{equation}
+
+\comment{TODO Análise dimensional e dimensões no SI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A Figura ??? mostra um gráfico da posição de uma partícula. Se estamos interessados em calcular a velocidade média dessa partícula entre os instantes $t_1$ e $t_2$ -- em que ela ocupa as posições $x_1$ e $x_2$, respectivamente --, podemos fazê-lo através de
+\begin{equation}
+  \mean{v} = \frac{x_2 - x_1}{t_2 - t_1}.
+\end{equation}
+
+É interessante observar que esta razão corresponde à inclinação da reta que passa pelos pontos $(t_1,x_1)$ e $(t_2,x_2)$. Se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea} como \comment{Discutir brevemente o conceito de limite de uma função.}
+\begin{equation}
+  v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
+\end{equation}
+%
+A velocidade instantânea é o valor de velocidade mostrado por um velocímetro de carro, por exemplo. Graficamente, podemos interpretar a velocidade instantânea como a inclinação de uma reta tangente à curva $x(t)$ no ponto em que estamos interessados em calculá-la, isto é no ponto $(t,x)$.
+
+\comment{TODO Gráfico de $x(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, x_1)$ , $(t_2, x_2)$, $(t_3, x_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, x_1)$ no limite de $\Delta t \to 0$}
+
+Se a velocidade for constante, claramente temos que a velocidade média será igual a essa constante e podemos escrever
+\begin{equation}
+  \Delta x = v \Delta t.
+\end{equation}
+
+\comment{TODO Interpretação gráfica em seção à parte. marginfig Gráficos v(t) para v = cte, objeto com v variável}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidades escalares média e instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se viajamos de uma cidade a outra e voltamos, temos um deslocamento nulo. Consequentemente, a velocidade média durante esse percurso será também nula. No entanto, podemos tomar o deslocamento escalar e dividi-lo pelo tempo transcorrido e definir uma \emph{velocidade escalar média}:
+\begin{equation}
+  \mean{v}_s = \frac{d_s}{\Delta t}.
+\end{equation}
+%
+A velocidade escalar média é o que o computador de bordo de um carro verifica como velocidade média em um trajeto. Apesar de ela corresponder a nossa intuição de ``velocidade média'', ela não é uma grandeza vetorial e -- portanto --, não será de grande interesse para a descrição de fenômenos físicos.
+
+Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção, portanto única diferença diferença possível entre a o deslocamento o deslocamento escalar é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
+\begin{equation}
+  v_s = |v|.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade como função do tempo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Gráficos, em analogia ao caso da posição (parado, vel. cte., etc). Mostrar a interpretação da velocidade média e da instantânea no gráfico.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aceleração}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Da mesma forma que podemos ter variações de posição em dados intervalos de tempo, implicando na definição da velocidade, podemos ter variações da velocidade. Tais variações resultam na definição da aceleração. Portanto, se temos uma variação de velocidade em um intervalo de tempo, temos que a aceleração média será dada por
+\begin{equation}
+  \mean{a} = \frac{\Delta v}{\Delta t}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{TODO em seção à parte: Gráfico de $v(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, v_1)$,  $(t_2, v_2)$, $(t_3, v_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, v_1)$ no limite de $\Delta t \to 0$}
+Em um gráfico da velocidade como função do tempo, podemos interpretar a aceleração média como a inclinação da reta que passa pelos pontos $(t_1,v_1)$ e $t_2,v_2$. Podemos definir a aceleração instantânea como
+\begin{equation}
+  a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t},
+\end{equation}
+%
+que graficamente pode ser interpretada como a inclinação da reta tangente à curva $v(t)$ no ponto $(t,v)$ em que estamos interessados em calcular a aceleração.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração como função do tempo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Gráficos, em analogia ao caso da posição (parado, vel. cte., etc). Mostrar a interpretação da aceleração média e da instantânea no gráfico.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sentidos dos eixos de referência e sinais das variáveis cinemáticas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{TODO  Discutir a questão do sinal das variáveis das equações, sua dependência no sentido do eixo e reforçar a arbitrariedade da escolha do sentido do eixo.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Interpretação da área de um gráfico $v \times t$ e $a \times t$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{TODO marginfig área gráfico $v \times t$}
+
+Se temos que um objeto se move com velocidade constante, a distância percorrida por ele será
+\begin{equation}
+  \Delta x = v \Delta t.
+\end{equation}
+%
+Ao fazer um gráfico de $v\times t$, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $x$ e os eixos verticais que passam por $t_1$ e $t_2$. Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_1$ e $t_2$ simplesmente calculando a área entre a curva, o eixo $x$ e os eixos verticais passando por $t_1$ e $t_2$. Devemos, no entanto, tomar o cuidado de subtrair as áreas das regiões que estejam abaixo do eixo $x$.
+
+\comment{TODO Gráfico $v(t)$ variável com fatias aproximando a área abaixo da curva}
+O raciocínio que justifica a ideia acima é que podemos considerar a velocidade como constante dentro de um determinado intervalo $\Delta t$ e, a partir dos valores de $v$ e $\Delta t$, calcular qual a distância percorrida. Somando a distância para todos os intervalos, podemos determinar a distância total percorrida -- pelo menos de forma aproximada --. Se a curva $v(t)$ está abaixo do eixo $x$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo. Se tomarmos intervalos $\Delta t$ sucessivamente menores, eventualmente conseguiremos calcular a área com grande precisão e verificaremos que nesse caso temos exatamente a área ``abaixo'' da curva.
+
+Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a aceleração for constante, a área entre a curva, o eixo $x$, e os eixos verticais passando por $t_1$ e $t_2$ será igual à variação da velocidade:
+\begin{equation}
+  \Delta v = a \Delta t.
+\end{equation}
+%
+Desenvolvendo um raciocínio análogo ao caso anterior para o cálculo da área entre a curva $a(t)$ e o eixo $x$, concluímos que a variação da velocidade para casos em que a aceleração não é constante pode ser calculada através da área ``abaixo'' da curva. Devemos, novamente, subtrair a área das regiões abaixo do eixo $x$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimentos com aceleração constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO Dedução das equações
+
+Apesar de ser perfeitamente aceitável tratar uma situação em que aceleração varia, isso não é uma tarefa muito fácil. Por isso, vamos tratar com mais detalhes o caso da aceleração constante. Um exemplo de movimento com aceleração constante é o caso de movimentos submetidos à aceleração da gravidade, que veremos neste capítulo para movimentos exclusivamente verticais, mas que serão vistos em duas dimensões no Capítulo ???. Antes vamos deduzir as fórmulas para aceleração constante
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações cinemáticas para movimentos com aceleração constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{Passar isso pra seção onde defino velocidade média, tratar aceleração constante como um subcaso da média. Fazer o mesmo para o caso da evolução da posição para o caso de velocidade constante.}
+Se a aceleração é constante, temos que $\mean{a} = a$ e, portanto,
+\begin{equation}
+  a = \frac{\Delta v}{\Delta t}.
+\end{equation}
+%
+Podemos escrever então
+\begin{equation}
+  a (t_f - t_i) = (v_f - v_i).
+\end{equation}
+%
+É muito comum, em equações de cinemática, utilizar $t_i = 0$ e $t_f = t$, o que corresponde a iniciar a cronometragem do tempo no início do evento físico que se está estudando. Dessa forma, podemos escrever
+\begin{equation}\label{Eq:VV0AT}
+  v_f = v_i + at.\mathnote{Evolução temporal da velocidade para aceleração constante.}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Posição}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{TODO marginfig gráfico $v = v_0 + at$.}
+Podemos calcular uma expressão para a evolução temporal da posição se considerarmos a Figura ???. Se a aceleração é constante, vimos que a velocidade deve ser descrita por uma reta em um gráfico $v\times t$. Sabemos ainda que o deslocamento é dado pela área abaixo da curva $v(t)$. Logo, temos que
+\begin{equation}
+  \Delta x = v_i\Delta t + \frac{(v_f - v_i)\Delta t}{2},
+\end{equation}
+%
+onde o primeiro termo à direita é área do quadrado e o segundo a área do triângulo. Utilizando a equação $v_f = v_i + at$, e fazendo ainda $t_i = 0$ e $t_f = t$, temos
+\begin{equation}
+  \Delta x = v_i t + \frac{(v_i + at - v_i) t}{2}
+\end{equation}
+%
+e, finalmente,
+\begin{equation}\label{Eq:XX0V0TAT22}
+  x_f = x_i + v_i t +\frac{at^2}{2}.\mathnote{Evolução temporal da posição para aceleração constante (1\textordfeminine~Equação).}
+\end{equation}
+
+Caso não haja informação sobre a velocidade inicial, a equação acima pode ser reescrita com o auxílio da $v_f = v_i + at$:
+\begin{align}
+  x_f &= x_i + (v_f - at) t + \frac{at^2}{2} \\
+  &= x_i + v_f t + \frac{at^2 - 2at^2}{2},
+\end{align}
+%
+resultando em
+\begin{equation}
+  x_f = x_i + v_f t - \frac{at^2}{2}.\mathnote{Evolução temporal da posição para aceleração constante (2\textordfeminine~Equação).}
+\end{equation}
+
+% Isso vai lá pra definição de velocidade.
+%Também podemos escrever
+%\begin{equation}
+%\mean{v} = \frac{x_f - x_i}{t_f - t_i},
+%\end{equation}
+%
+%ou, com $t_i = 0$ e $t_f = t$,
+%\begin{equation}
+%  x_f = x_i + \mean{v}t.
+%\end{equation}
+%
+Novamente considerando que para o caso especial de uma aceleração constante, temos que a velocidade é uma reta, podemos escrever a velocidade média como
+\begin{align}
+  \mean{v} &= \frac{\Delta x}{\Delta t} \\
+  &= \frac{v_i \Delta t + [(v_f - v_i)/2] \Delta t}{\Delta t} \\
+  &= \frac{v_i + v_f}{2},
+\end{align}
+%
+onde calculamos $\Delta x$ através da área de um triângulo e de um quadrado.
+Temos então
+\begin{equation}
+  x_f = x_i + \frac{v_i + v_f}{2} t.\mathnote{Evolução temporal da posição para aceleração constante (3\textordfeminine~Equação).}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Equação de Torricelli}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A partir da Equação~\ref{Eq:VV0AT}, podemos isolar o tempo e obter
+\begin{equation}
+  t = \frac{v_f-v_i}{a}.
+\end{equation}
+%
+Substituindo esta expressão na Equação~\ref{Eq:XX0V0TAT22}, obtemos
+\begin{align}
+  x_f - x_i &= v_i \left(\frac{v_f-v_i}{a}\right) + \frac{1}{2} a \left(\frac{v_f-v_i}{a}\right)^2 \\
+  &= \frac{v_f v_i - v_i^2}{a} + \frac{v_f^2 + v_i^2-2v_fv_i}{2a}.
+\end{align}
+%
+multiplicando os dois lados da equação por $2a$, temos
+\begin{equation}
+  2a\Delta x = 2v_i v_f - 2v_i^2 + v_f^2 +v_i^2 - 2v_f v_i.
+\end{equation}
+%
+Eliminando o primeiro e o quarto termos à direita e somando os restantes, obtemos
+\begin{equation}
+  v_f^2 = v_i^2 + 2 a \Delta x. \mathnote{Equação de Torricelli.}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Variáveis ausentes em cada equação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{margintable}[2cm]
+\centering
+\begin{tabular}{cc}
+\toprule
+Equação & Variável ausente\\
+\midrule
+$v_f = v_i + at$ & $\Delta x$ \\
+$x_f = x_i + v_i t +\frac{at^2}{2}$ & $v_f$ \\
+$x_f = x_i + v_f t - \frac{at^2}{2}$ & $v_i$ \\
+$x_f = x_i + \frac{v_i + v_f}{2} t$ & a \\
+$v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
+\bottomrule
+\end{tabular}
+\caption{Relação das equações para a cinemática unidimensional e a variável ausente em cada uma delas. \label{Tab:EqsCinematicasVarAusentes}}
+\end{margintable}
+
+As cinco equações obtidas para a cinemática com aceleração constante envolvem as variáveis $x_i$, $x_f$, $v_i$, $v_f$, $a$ e $t$. Porém cada uma das equações deixa algum desses parâmetros de fora. Isso pode ser usado para a solução de problemas quando tal informação não é conhecida. A Tabela~\ref{Tab:EqsCinematicasVarAusentes} apresenta as equações e destaca a variável ausente.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração da gravidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Quando um objeto cai livremente próximo da superfície da terra, ele sofre uma aceleração para baixo com módulo \np[m/s^2]{9,8}\footnote{Esse valor não é o mesmo em todos os pontos da superfície da Terra, porém vamos utilizar \np[m/s^2]{9,8} como um valor aproximado para qualquer ponto.}. Essa aceleração é comum a todos os objetos, independentemente de suas massas, caso a \emph{força de arrasto}\footnote{Esta força é a resistência ao deslocamento em um meio fluido, como o ar, e será discutida em detalhes no Capítulo ???.} seja desprezível. A existência dessa aceleração se deve à força fundamental da natureza denominada \emph{força gravitacional}, responsável pela atração entre corpos como um objeto qualquer e a Terra, a Terra e a Lua, ou o Sol e a Terra. Veremos adiante que essa força tem uma dependência direta na massa dos corpos, o que resulta na independência da aceleração gravitacional em relação à massa do corpo que é atraído pela Terra.
+
+A aceleração da gravidade próximo da superfície da Terra é a principal justificativa para o estudo de movimentos com aceleração constante. Em geral, não há razões para supor que um objeto qualquer (um veículo, por exemplo) esteja sujeito a uma aceleração constante, exceto no caso em que ele esteja sujeito à aceleração gravitacional. Além do módulo da aceleração, devemos destacar sua direção -- vertical -- e seu sentido -- para baixo --. Vamos nos ater, por enquanto, ao caso de movimentos de queda livre e de lançamentos verticais, isto é, movimentos que ocorrem somente na vertical.

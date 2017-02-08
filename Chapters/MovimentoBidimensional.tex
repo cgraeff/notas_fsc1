@@ -1,0 +1,401 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Movimentos bi e tridimensionais}
+\label{Chap:MovimentoBidimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\minitoc
+
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%
+
+{\it
+Intro ...
+\comment{TODO Enfatizar que podemos separar tudo em 3 eixos sempre}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vetores posição e deslocamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Quando tratamos do movimento unidimensional, utilizamos a distância até a origem (isto é, um ponto de referência) para descrever o movimento através da posição, velocidade e aceleração. Verificamos também que essas grandezas variavam no tempo e pudemos as definir como funções do tempo.
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Posição}
+%%%%%%%%%%%%%%%%%%%%
+Utilizando vetores, podemos fazer o mesmo para um movimento bidimensional ou tridimensional. Vamos escolher um ponto como origem de um sistema de coordenadas e descrever a posição por um vetor que parte da origem e termina no ponto onde o objeto se encontra. Como escolhemos a origem coincidindo com o início do vetor, a extremidade está no ponto $(x, y, z)$ do sistema de coordenadas. Além disso, o tamanho das componentes é igual aos valores de $x$, $y$, e $z$, logo, temos que o vetor posição será dado por
+\begin{equation}
+  \vec{r} = x \versi + y \versj + z \versk.
+\end{equation}
+%
+O conjunto de posições ocupadas por um corpo ao longo do tempo é representado pela evolução temporal do vetor posição $\vec{r}$. Como a posição pode variar no tempo, temos que tal vetor é uma função do tempo $\vec{r}(t)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Deslocamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O deslocamento $\Delta \vec{r}$ de uma partícula entre dois instantes quaisquer é dado por
+\begin{equation}
+  \Delta\vec{r} = \vec{r}_f - \vec{r}_i,
+\end{equation}
+%
+onde os vetores $\vec{r}_i$ e $\vec{r}_f$ são vetores que indicam as posições inicial e final da partícula entre dois instantes quaisquer. Utilizando a notação de versores temos para $\vec{r}_i$ e $\vec{r}_f$
+\begin{align}
+  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
+  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
+\end{align}
+%
+Consequentemente, o vetor deslocamento será dado por
+\begin{align}
+  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
+  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
+  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
+\end{align}
+%
+Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
+  
+%%%%%%%%%%%%%%%%%%%%
+\section{Velocidade}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em três dimensões, caso um corpo sofra um deslocamento, ele o faz com uma velocidade média dada por
+\begin{equation}\label{Eq:VelMediaVetorial}
+  \vec{\mean{v}} = \frac{\Delta\vec{r}}{\Delta t},
+\end{equation}
+%
+onde estendemos a definição de velocidade ao caso bi e tridimensional ao substituir o deslocamento ao longo de um eixo retilíneo $x$ pelo vetor deslocamento $\Delta \vec{r}$. Como, nesse caso, temos a divisão de um vetor por um escalar, \emph{a direção do vetor velocidade média é a mesma do deslocamento}. O módulo, no entanto, é diferente, assim como a dimensão: temos que $[v] = L/T$ e o módulo é dado pelo valor numérico obtido pela divisão do módulo do vetor deslocamento pelo valor do intervalo de tempo em que o movimento ocorre. Decompondo o vetor, temos
+\begin{align}
+  \vec{\mean{v}} &= \frac{\Delta x \versi + \Delta y\versj + \Delta z\versk}{\Delta t} \\
+  &= \frac{\Delta x}{\Delta t} \versi + \frac{\Delta y\versj}{\Delta t} + \frac{\Delta z\versk}{\Delta t} \\
+  &= \mean{v}_x \versi + \mean{v}_y \versj + \mean{v}_z \versk.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos definir a velocidade instantânea a partir da Equação~\ref{Eq:VelMediaVetorial}, bastando tomar o limite $\Delta t \to 0$:
+\begin{align}
+    \vec{v} &= \lim_{\Delta t \to 0} \vec{\mean{v}} \\
+    &= \lim_{\Delta t \to 0} \frac{\Delta\vec{r}}{\Delta t} \\
+    &= \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}\versi + \frac{\Delta y}{\Delta t}\versj + \frac{\Delta z}{\Delta t}\versk.
+\end{align}
+%
+Podemos utilizar a propriedade de que o limite da soma é a soma dos limites para escrever
+\begin{align}
+  \vec{v} &= \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}\versi + \lim_{\Delta t \to 0} \frac{\Delta y}{\Delta t}\versj + \lim_{\Delta t \to 0} \frac{\Delta z}{\Delta t}\versk \\
+  &= v_x \versi + v_y \versj + v_z \versk.
+\end{align}
+%
+Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
+
+\comment{figura da situação abaixo}
+Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~???, verificamos que para $\Delta t \to 0$, o vetor $\Delta \vec{r}$ é tangente à trajetória. Como a direção da velocidade é a mesma de $\Delta\vec{r}$, temos que o vetor velocidade instantânea é tangente à trajetória.
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Aceleração}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No caso do cálculo da velocidade média, bastou redefinirmos a velocidade em termos do vetor deslocamento $\Delta\vec{r}$ para verificarmos que a velocidade é uma grandeza vetorial. Devido a essa conclusão, temos que uma variação de velocidade pode ser uma variação tanto de módulo, quanto de direção ou sentido. Portanto, precisamos redefinir a aceleração em termos de um vetor $\Delta\vec{v}$:
+\begin{align}
+  \vec{\mean{a}} &= \frac{\Delta\vec{v}}{\Delta t} \\
+  &= \frac{\Delta v_x}{\Delta t}\versi + \frac{\Delta v_y}{\Delta t}\versj + \frac{\Delta v_z}{\Delta t}\versk \\
+  &= \mean{a}_x\versi + \mean{a}_y\versj + \mean{a}_z\versk.
+\end{align} 
+%
+A direção do vetor aceleração média é a própria direção do vetor $\Delta{\vec{v}}$. 
+\comment{fazer gráfico de uma trajetória no plano $xy$ com vetores velocidade tangentes em dois pontos e mostrar os vetores retirados em outro quadro e mostrando o vetor aceleração}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Velocidade instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Assim como no caso do cálculo da velocidade instantânea, podemos calcular a aceleração instantânea vetorial através do limite $\Delta t \to 0$:
+\begin{align}
+  \vec{a} &= \lim_{\Delta t \to 0} \vec{\mean{a}} \\
+  &= \lim_{\Delta t \to 0} \frac{\Delta \vec{v}}{\Delta t} \\
+  &= \lim_{\Delta t \to 0} \frac{\Delta {v_x}}{\Delta t}\versi + \lim_{\Delta t \to 0} \frac{\Delta {v_y}}{\Delta t}\versj + \lim_{\Delta t \to 0} \frac{\Delta {v_z}}{\Delta t}\versk,
+\end{align}
+%
+onde utilizamos novamente a propriedade de que o limite da soma é a soma dos limites. Obtemos então
+\begin{equation}
+  \vec{a} = a_x \versi + a_y \versj + a_z \versk,
+\end{equation}
+%
+e observamos que para o caso da aceleração, também temos que as componentes do vetor são dadas pelos valores de -- neste caso -- aceleração dos eixos $x$, $y$ e $z$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Independência do movimento em eixos perpendiculares}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Isso é uma característica da aceleração ser um vetor que pode ser decomposto em dois eixos diferentes. Fica fácil mostrar isso usando os versores, tomando a equação vetorial e transformando em equações conhecidas para os eixos $x$, $y$ e $z$, tipo $\vec{v} = (v_{ix} + a_x t)\versi + (v_{iy} + a_y t)\versj$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimento de projéteis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO Descrição
+
+O movimento de um projétil ao ser lançado com velocidade que faz um ângulo com a horizontal é conhecido como movimento balístico. Neste movimento, podemos usar a propriedade da decomposição da velocidade para analisar o movimento em cada eixo separadamente.
+
+Podemos decompor a velocidade em dois eixos, um horizontal (eixo $x$) e um vertical (eixo $y$), obtendo
+\begin{equation}
+  \vec{v}_i = v_{ix} \versi + v_{iy} \versj,
+\end{equation}
+%
+onde
+\begin{align}
+  v_{ix} &= v_i\cos\theta \\
+  v_{iy} &= v_i\sen\theta.
+\end{align}
+%
+Como a aceleração gravitacional está na direção vertical e é dirigida para baixo, a denotamos como
+\begin{equation}
+  \vec{g} = -g\versj,
+\end{equation}
+%
+onde $g$ denota o módulo da aceleração da gravidade, cujo valor é de aproximadamente \np[m/s^2]{9,8}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Eixo $x$: Movimento com velocidade constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Analisando o movimento no eixo $x$, temos uma velocidade inicial -- dada por $v_{ix} = v_i\cos\theta$ -- e \emph{não temos nenhuma aceleração}. Como podemos analisar o movimento em cada eixo de maneira completamente independente dos demais, concluímos que
+\begin{align}
+  v_{ix} &= \text{constante} \\
+  x_{f} &= x_{i} + v_{ix}t.\label{Eq:PosXProj}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Eixo $y$: Movimento com aceleração constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verticalmente, temos um movimento com aceleração constante, dirigida para baixo. Se adotarmos o eixo $y$ crescendo para cima, a partir das Equações~\eqref{Eq:VV0AT} e~\eqref{Eq:XX0V0TAT22}, temos
+\begin{align}
+  v_{fy} &= v_{iy} - gt \\
+  y_f &= y_i + v_{iy}t - \frac{g}{2}t^2. \label{Eq:PosYProj}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Altura máxima}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A partir da equação acima, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Utilizando a equação de Torricelli, obtemos\footnote[][-2cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
+\begin{equation}
+  v_{fy}^2 = v_{iy}^2 - 2 g \Delta y.
+\end{equation}
+%
+Substituindo $v_{fy} = 0$ e $v_{iy} = v_i\sen\theta$, obtemos
+\begin{equation}
+  v_i\sen\theta = 2g\Delta y,
+\end{equation}
+%
+e, finalmente, denotando a altura máxima por $H$ e sabendo que $H = \Delta y$,
+\begin{equation}
+  H = \frac{v_i^2\sen^2\theta}{2g}. \mathnote{Altura máxima.}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Alcance horizontal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O alcance horizontal de um projétil pode ser calculado se soubermos qual é o tempo decorrido entre o objeto ser lançado e voltar à mesma posição no eixo $y$ que ocupava no momento do lançamento. Temos então que o deslocamento $\Delta y$ será nulo, logo, à partir da Equação~\eqref{Eq:XX0V0TAT2}, temos
+\begin{equation}
+  y_f-y_i = v_{iy}t - \frac{g}{2}t^2,
+\end{equation}
+%
+ou, devido à nossa observação de que $\Delta y = 0$
+\begin{equation}
+  v_{iy}t = \frac{g}{2} t^2.
+\end{equation}
+%
+Esta equação admite a solução $t = 0$, que corresponde ao momento do lançamento (o que não é particularmente útil), ou -- dividindo ambos os membros da equação por $t$ e isolando a variável $t$ restante --
+\begin{align}
+  t &= \frac{2v_{iy}}{g} \\
+  &= 2\frac{v_i\sen\theta}{g}.
+\end{align}
+
+Para calcularmos a distância percorrida pelo projétil, basta utilizarmos a Equação~\eqref{Eq:PosXProj}, obtendo
+\begin{align}
+  R &\equiv \Delta x = v_{ix} t \\
+  &= \left(v_i\cos\theta\right) \left(2\frac{v_i\sen\theta}{g}\right) \\
+  &= \frac{2v_i^2}{g}\sen\theta\cos\theta.
+\end{align}
+%
+Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, podemos reescrever a expressão acima de uma maneira mais amigável:
+\begin{equation}
+  R = \frac{v_i^2}{g}\sen2\theta. \mathnote{Alcance horizontal.}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equação para a trajetória}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos determinar a forma da trajetória do projétil a escrevendo como uma função $y(x)$. Para isso, podemos isolar o tempo na Equação~\eqref{Eq:PosXProj}, obtendo
+\begin{equation}
+  t = \frac{x_f - x_i}{v_{ix}}.
+\end{equation}
+%
+Substituindo essa expressão na Equação~\eqref{Eq:PosYProj}, obtemos
+\begin{equation}
+  y_f = y_i + v_i\sen\theta \frac{x_f-x_i}{v_i\cos\theta} - \frac{g}{2}\frac{(x_f-x_i)^2}{(v_i\cos\theta)^2},
+\end{equation}
+%
+onde utilizamos $v_{ix} = v_i\cos\theta$ e $v_{iy} = v_i\sen\theta$. Para simplificar a expressão acima, vamos escolher $y_i = x_i = 0$, $y_f = y$ e $x_f = x$. Obtemos assim
+\begin{equation}
+  y = (\tan\theta) \; x - \left(\frac{g}{2v_i^2\cos^2\theta}\right) x^2. \mathnote{Equação da trajetória.}
+\end{equation}
+
+Se compararmos a equação acima a um polinômio de segundo grau, cuja forma característica é a de uma parábola, 
+\begin{equation}
+  y = A + B x + C x^2,
+\end{equation}
+%
+verificamos que a equação da trajetória segue o mesmo formato, porém com $A = 0$. Concluímos então que a trajetória seguida pelo projétil é tem a forma de uma parábola. A concavidade de tal parábola será voltada para baixo, como podemos observar na Figura~???. Na equação para a trajetória, isso pode ser verificado através do sinal negativo do termo quadrático\footnote{A concavidade de um polinômio de segundo grau é determinada através do sinal do coeficiente $C$.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimento circular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aceleração centrípeta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{Fazer p/ o caso de v = cte, TODO Figura}
+
+Analisando o movimento circular -- restrito ao primeiro quadrante e com velocidade constante --, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~??? vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores que têm o mesmo módulo, porém direções diferentes. Se calculamos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta para o centro da trajetória.
+
+Sabemos, no entanto, que o vetor aceleração média é dado por
+\begin{equation}
+  \vec{\mean{a}} = \frac{\Delta v}{\Delta t}.
+\end{equation}
+%
+Portanto, mesmo no caso de $v$ constante, temos uma aceleração caso ocorram mudanças na direção do vetor velocidade. 
+
+Podemos calcular o módulo desta aceleração se considerarmos a Figura~???. \comment{TODO Figura (serway)}
+Inicialmente uma partícula ocupa a posição $P$, com velocidade $\vec{v}_i$ no instante $t_i$. Após um intervalo de tempo, ela passa a ocupar a posição $Q$, com velocidade $\vec{v}_f$ no instante $t_f$. Vamos assumir que $v_i = v_f = v$. 
+
+Consideraremos agora os triângulos formados pelos pontos $O$, $P$ e $Q$, e pelos vetores $\vec{v}_i$, $\vec{v}_f$ e $\Delta \vec{v}$. 
+Se $\Delta t$ é pequeno, temos que o vetor $\Delta \vec{v}$ é pequeno e aproximadamente perpendicular aos vetores $\vec{v}_i$ e $\vec{v}_f$ (que são aproximadamente paralelos uma ao outro). Neste caso, podemos temos aproximadamente a situação mostrada na Figura~???. Desse triângulo, podemos escrever a seguinte relação para os lados:
+\begin{equation}
+  \frac{\Delta v}{v} = \frac{\Delta s}{r}.
+\end{equation}
+%
+Isolando $\Delta v$ e substituindo na expressão para a aceleração média, obtemos para o módulo
+\begin{equation}
+  \mean{a} = \vec{v}{r} \frac{\Delta s}{\Delta t}.
+\end{equation}
+%
+À medida  que $\Delta t$ diminui, aproximação mostrada na Figura~??? %dos triângulos semelhantes
+fica cada vez melhor. Ao tomar valores menores para o intervalo de tempo, estamos também nos aproximando da condição para a aceleração em um ponto específico, isto é, no ponto $P$. Tomamos então o limite $\Delta \to 0$, obtendo:
+\begin{equation}
+  a = \frac{v}{r} \lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t},
+\end{equation}
+%
+one usamos a propriedade $\lim_{\epsilon \to \xi} \alpha f(\epsilon) = \alpha \lim_{\epsilon\to \xi} f(\epsilon)$, onde $\alpha$ e $\xi$ são constantes quaisquer. Notamos que o limite que resta é a razão entre a distância percorrida pela partícula e o tempo necessário para efetuar tal deslocamento, ou seja, é a velocidade $v$. Logo
+\begin{equation}\label{Eq:AceleracaoCentripeta}
+  a_c = \frac{v^2}{r}. \mathnote{Módulo da aceleração centrípeta.}
+\end{equation}
+%
+Adotamos o índice $c$ para lembrar que a fórmula denota o módulo da \emph{aceleração centrípeta}, isto é, a aceleração que aponta para o centro de uma trajetória circular e que é responsável por alterar constantemente a direção do vetor velocidade, possibilitando que a partícula execute um movimento curvilíneo. Veremos adiante que ela está relacionada à força resultante que deve ser exercida por um agente externo para que uma partícula execute um movimento circular com velocidade $v$ e raio $r$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Decomposição da aceleração em componentes tangencial e centrípeta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos que em um movimento retilíneo, a aceleração é dada por
+\begin{equation}
+  \vec{a} = \lim_{\Delta t \to 0} \frac{\Delta \vec{v}}{\Delta t},
+\end{equation}
+%
+e no caso de um movimento circular com velocidade constante, a aceleração aponta para o centro da trajetória circular, com módulo dado pela Equação~\eqref{Eq:AceleracaoCentripeta}. No entanto, essas expressões não são gerais\comment{Essa aqui em cima é sim, é a própria definição! O que não é geral é o caso de termos uma aceleração que aponta sempre pro centro da trajetória.}: podemos ter um movimento circular com velocidade que muda constantemente, ou mesmo ter um movimento curvilíneo que não tem um formato circular.
+
+\comment{TODO figura meio cheia de curvas e com alguma aceleração decomposta}
+Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajetória circular, com um centro e um raio bem definido\footnote{Até mesmo uma reta pode ser interpretada dessa maneira, nesse caso temos um círculo de raio infinito!}. Levando isso em conta, de forma geral, podemos assumir que o vetor aceleração não aponta para o centro da trajetória, porém podemos o decompor em duas partes:
+\begin{description}
+  \item[Aceleração radial] Uma das componentes é a projeção do vetor aceleração na direção do eixo radial que liga a partícula ao centro da trajetória circular. Temos então uma componente radial $a_r$ cujo módulo é dado pela aceleração centrípeta:
+  \begin{equation}
+    a_r = a_c = \frac{v^2}{r}.
+  \end{equation}
+  Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade.
+  \item[Aceleração tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória -- ou seja, na direção perpendicular ao eixo radial --. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade.
+\end{description}
+
+Caso conheçamos ambas as componentes da aceleração, podemos determinar o vetor $\vec{a}$ utilizando as relações
+\begin{align}
+  \mod{\vec{a}} &= \sqrt{a_t^2 + a_r^2} \\
+  \theta &= \arctan \frac{a_r}{a_t},
+\end{align}
+%
+onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial. Essas relações são oriundas das propriedades vetoriais discutidas no capítulo anterior. Da mesma forma, podemos conhecer as componentes a partir do vetor $\vec{a}$ através de
+\begin{align}
+  a_t &= a\cos\theta \\
+  a_r &= a\sen\theta.
+\end{align}
+
+Através das componentes radial e tangencial, se -- por exemplo -- necessitarmos descrever o movimento de um carro que ganha velocidade com aceleração tangencial constante em uma pista circular, podemos utilizar as equações da cinemática para calcular a evolução temporal da velocidade. Assim, temos que
+\begin{align}
+  v_f = v_i + a_t t \\
+  s_f = s_i + v_i t + a_t t^2/2,
+\end{align}
+%
+dentre outras relações. Veja que nesse caso utilizamos somente a aceleração tangencial $a_t$, sem nos preocupar com a componente radial. Além disso, utilizamos $s$ ao invés de $x$ para lembrar que estamos descrevendo a distância percorrida, não um deslocamento. Nesse movimento, a velocidade não é constante e, portanto, temos que a componente radial $a_r$ da aceleração aumenta ou diminui à medida que o tempo passa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimento Relativo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo no solo. Assim, quando um ônibus passa, a velocidade que atribuímos a seus passageiros é a mesma do próprio ônibus, caso eles estejam sentados. Se fixarmos o referencial no piso do ônibus, veremos que a velocidade dos passageiros é nula. Portanto, a velocidade que medimos depende do referencial adotado. Isso se deve ao fato de que a própria posição depende do referencial.
+
+\comment{TODO figura com partícula com velocidade $v_p$ e dois referenciais ($S$ e $S'$), com $v_{SS'} \neq 0$}
+Vamos analisar a situação mostrada na Figura~???. A posição da partícula $P$ no referencial $S'$ é dada pelo vetor $\vec{r}_{S'}$. Se estivermos interessados em calcular a posição desta partícula em um referencial $S$, sendo que a posição do referencial $S'$ é dada por $\vec{r}_{SS'}$ em relação a $S$, temos
+\begin{equation}
+  \vec{r}_S = \vec{r}_S' + \vec{r}_{SS'},\mathnote{Transformação galileana de posição.}
+\end{equation}
+%
+ou seja, temos uma simples adição de dois vetores, como pode ser visto na própria figura. Esta transformação, juntamente com as equivalentes para velocidade e aceleração, são denominadas \emph{transformações galileanas}. Dentro de Mecânica Clássica essas são as transformações que devem ser utilizadas, já para o caso da mecânica relativística, devemos utilizar as \emph{transformações de Lorentz}, que levam em conta o fato de que a velocidade da luz tem um valor absoluto (igual em todos os referenciais) que que não pode ser ultrapassado.
+
+De maneira semelhante, se a partícula tem velocidade $v_{S'}$ em relação ao referencial $S'$ e temos que esse referencial se move com velocidade $\vec{v}_{SS'}$ em relação a $S$, temos
+\begin{equation}
+  \vec{v}_S = \vec{v}_{S'} + \vec{v}_{SS'}.
+\end{equation}
+Para obter esta relação, basta utilizarmos a definição da velocidade instantânea $\vec{v} = \lim_{\Delta t \to 0} \Delta \vec{r} / \Delta t$, escrevendo
+\begin{equation}
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_s}{\Delta t}.
+\end{equation}
+%
+Através da relação para a posição, podemos calcular o deslocamento no referencial $S$ como
+\begin{align}
+  \Delta \vec{r}_S &= \vec{r}_S^f - \vec{r}_S^i \\
+  &= (\vec{r}_{S'}^f + \vec{r}_{SS'}^f) - (\vec{r}_{S'}^i + \vec{r}_{SS'}^i) \\
+  &= (\vec{r}_{S'}^f - \vec{r}_{S'}^i) + (\vec{r}_{SS'}^f - \vec{r}_{SS'}^i) \\
+  &= \Delta \vec{r}_{S'} + \Delta \vec{r}_{SS'}.
+\end{align}
+%
+Substituindo esse resultado na equação anterior para a velocidade, temos
+\begin{equation}
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{S'} + \Delta \vec{r}_{SS'}}{\Delta t}.
+\end{equation}
+%
+Separando os termos do numerador em duas frações e sabendo que $\lim_{\epsilon \to \xi} f(\epsilon) + g(\epsilon) = \lim_{\epsilon \to \xi} f(\epsilon) + \lim_{\epsilon \to \xi} g(\epsilon)$, temos
+\begin{equation}
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta\vec{r}_{S'}}{\Delta t} + \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{SS'}}{\Delta t}.
+\end{equation}
+%
+Os limites acima definem as velocidades $\vec{v}_{S'}$ e $\vec{v}_{SS'}$, logo,
+\begin{equation}
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_s}{\Delta t}. \mathnote{Transformação galileana de velocidade.}
+\end{equation}
+
+Podemos ainda calcular as transformações para a aceleração através de um cálculo análogo ao utilizado para o caso da velocidade, obtendo
+\begin{equation}
+  \vec{a}_S = \vec{a}_{S'} + \vec{a}_{SS'}.
+\end{equation}
+%
+Temos um interesse particular nessa equação devido ao conceito de \emph{referencial inercial}. Veremos adiante que as Leis de Newton só têm validade dentro de um referencial inercial, que é um referencial que não está submetido a acelerações. Dessa forma, se -- por exemplo -- o referencial $S$ for um referencial inercial, o referencial $S'$ só será inercial se a aceleração $\vec{a}_{SS'}$ for igual a zero. Um referencial não inercial pode ser identificado quando surgem forças ``inexplicáveis''. Um exemplo disso é quando estamos em carro que acelera para a frente e verificamos que um objeto suspenso se desloca para trás, como se tivesse sido puxado através de um fio invisível. Esta força não tem origem dentro do referencial do carro, só podendo ser explicada quando levamos em conta o fato de que o referencial sofre uma aceleração em relação ao solo. Mesmo no caso do solo, como temos uma rotação da Terra em torno do próprio eixo, não temos um referencial verdadeiramente inercial. Este impasse pode ser resolvido através da Primeira Lei de Newton, que veremos no próximo capítulo.

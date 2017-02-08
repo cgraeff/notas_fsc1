@@ -1,0 +1,33 @@
+\documentclass[justified,a4paper,symmetric,nobib]{tufte-book}
+
+% Packages setup
+\input{Preamble/Bibliography_fix}
+\input{Preamble/Packages}
+\input{Preamble/Formatting}
+\input{Preamble/Commands}
+
+% Bibliographt file
+\addbibresource{Preamble/References.bib}
+
+% Book metadata
+\title{Notas de aula: \\ Física 1}
+\author{Clebson Abati Graeff}
+\publisher{Universidade Tecnológica Federal do Paraná\\câmpus Pato Branco}
+
+\begin{document}
+
+\input{Front_Matter/Front_Matter}
+
+\mainmatter
+
+\input{MovimentoUnidimensional}
+\input{Vetores}
+\input{MovimentoBidimensional}
+\input{Dinamica}
+\input{Energia}
+\input{CentroDeMassaEMomentoLinear}
+\input{Rotacoes}
+
+\printbibliography
+
+\end{document}
