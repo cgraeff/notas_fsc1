@@ -89,3 +89,13 @@
 \clearpage%
 }
 
+% Prints an epigraph and speaker
+\newcommand{\openepigraph}[2]{%
+  %\sffamily\fontsize{14}{16}\selectfont
+  \begin{fullwidth}
+  \begin{doublespace}
+  \noindent\it{#1}\\% epigraph
+  \noindent\smallcaps{#2}% author
+  \end{doublespace}
+  \end{fullwidth}
+}
