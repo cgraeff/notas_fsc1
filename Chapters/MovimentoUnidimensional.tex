@@ -13,8 +13,15 @@
 
 {\it
 O primeiro passo para que possamos estudar a mecânica é a definição das variáveis físicas que descrevem o movimento dos corpos. Vamos então definir precisamente posição, velocidade e aceleração. Nos capítulos seguintes, veremos que esta última está ligada à força a que o corpo está sujeito e que nos dará uma forma simples de prever seu movimento.
-\comment{TODO o que é um movimento unidimensional? (um que ocorre em uma reta) Definir direção e sentido. definir corpo rígido e dizer que vamos calcular tudo para uma partícula (corpo de dimensões desprezíveis) e que esse tratamento é condizente com a noção de centro de massa (dizer o que é e que vamos ver como calcular depois). Também dizer que vamos separar o movimento como do CM e mais uma rotação, tratando primeiro o mov. do CM.}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimento unidimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definimos como sendo unidimensional o movimento que ocorre ao longo de uma reta, que denominamos como \emph{direção} do movimento. Essa definição é útil por ser simples e -- como veremos nos capítulos seguintes -- é capaz de fornecer uma descrição geral ao simplesmente adicionarmos mais dois eixos de movimento.
+
+Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, isto é, corpos cujas partes que o constituem não se movem em relação umas às outras. Para tais corpos, podemos separar o movimento em uma translação do \emph{centro de massa} e uma rotação em torno do centro massa\footnote{Essa separação é conhecida como Teorema de Mozzi-Chasles.}. O centro de massa é um ponto que substitui o sistema para fins de determinação da translação do corpo, sendo que para corpos simétricos e de densidade uniforme ele se localiza no centro do corpo, como veremos no Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear}. Trataremos as rotações somente no Capítulo~\ref{Chap:Rotacoes}, nos preocupando somente com a translação do centro de massa até lá.\footnote{Uma maneira equivalente é tratar o corpo como uma partícula -- isto é, um corpo cujas dimensões são desprezíveis --, o que efetivamente elimina a rotação do corpo.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Posição e Deslocamento}
@@ -24,54 +31,99 @@ O primeiro passo para que possamos estudar a mecânica é a definição das vari
 \subsection{Posição}
 %%%%%%%%%%%%%%%%%%%%
 
-O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é o eixo onde ocorre o movimento e então determinar um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância entre ele e o corpo. Para um deslocamento unidimensional, isto é, o deslocamento ao longo de uma reta, denominamos tal eixo como \emph{eixo $x$}\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.}:
+O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é a direção onde ocorre o movimento. Podemos então colocar um objeto em um ponto qualquer de tal reta:
 
-\comment{TODO Figura inline de uma reta com uma origem $O$}
+\comment{Fig inline reta e bloco, mais nada}
 
-Marcamos como zero o ponto de referência, denominando-o como \emph{``origem''}. Se o corpo está a uma distância de três metros da origem, temos a situação abaixo, e dizemos que ele ocupa a posição $x = \np[m]{3}$.
-\comment{TODO Figura inline de bloco na posição 3 m, reta com 'tics'}
+\noindent{}Claramente, tal descrição é insuficiente. Para determinar a posição do corpo, precisamos de um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância, que denominamos como \emph{módulo}, entre ele e o corpo:
 
-\noindent{}Vamos considerar que o corpo tem dimensões desprezíveis se comparados à distância até a origem\footnote{Esse tratamento, que consiste em considerar que o objeto é um ponto, será utilizado nos próximos capítulos, porém sua justificativa será dada no Capítulo ???.}. Dizemos então que o corpo está na posição $x = \np[m]{3,0}$. Caso ele estivesse à esquerda da origem, diríamos que sua posição é negativa, por exemplo, $x = -\np[m]{2,5}$. A direção do eixo é arbitrária, podendo ser horizontal, vertical ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente.
-\comment{TODO depois de descrever direção e sentido acima, talvez seja necessário readequar esse parágrafo pra não ficar repetitivo. TODO falar que a posição 3m não é suficiente, precisamos deixar as características vetoriais pra fazer o gancho pra discutir o vetor posição mais adiante (dizer que '3m' quer dizer, direção: eixo x, sentido: positivo, módulo: 3m)}
+\comment{Fig inline reta e bloco e origem, mais medida entre origem e bloco}
+
+Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode estar à mesma distância da origem:
+
+\comment{mesma figura de antes, mas com mais um bloco à mesma distância, porém do outro lado}
+
+\noindent{}Podemos definir dois \emph{sentidos} na figura acima: à esquerda da origem, ou à direita dela. Com essas três informações -- direção, módulo, e sentido -- podemos determinar com exatidão a posição de um corpo qualquer.
+
+Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para descrever a posição:
+
+\comment{Fig com origem como zero, com números negativos e positivos, dois blocos numerados, um na região negativa e outro na positiva, seta para a direita}
+
+\noindent{}onde temos que as posições dos blocos são dadas por
+\begin{align}
+    x_1 &= \np[m]{-3} \\
+    x_2 &= \np[m]{4}.
+\end{align}
+
+Para um deslocamento unidimensional, isto é, o deslocamento ao longo de uma reta, denominamos tal eixo como \emph{eixo $x$}. A direção do eixo é arbitrária, podendo ser horizontal, vertical\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.} ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente.
 
 Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial.
 
-\comment{TODO Análise dimensional e dimensões no SI}
+Como visto no capítulo anterior, a maioria das medidas físicas tem uma dimensão. No caso da posição, como ela é descrita através de uma medida de distância entre a origem e a posição do corpo, tempos que a dimensão é a de \emph{comprimento} e -- no Sistema Internacional -- suas unidades são o metro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Digamos que o primeiro corpo seja deslocado para a posição $x = - \np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo
+Digamos que o segundo corpo na Figura ??? seja deslocado para a posição $x = -\np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena e obteríamos um deslocamento de \np[m]{5} para a esquerda ao longo da reta, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo
 \begin{align}
   \Delta x &= x_f - x_i \\
-  &= (-\np[m]{1,0}) - (\np[m]{3,0}) \\
-  &= -\np[m]{4,0}.
+  &= (-\np[m]{1,0}) - (\np[m]{4,0}) \\
+  &= -\np[m]{5,0}.
 \end{align}
 %
-Temos, portanto, que o deslocamento foi de quatro metros. O que dizer sobre o sinal negativo? Esse sinal significa que o deslocamento se deu no sentido negativo do eixo. Ao medirmos, o valor da medida não é suficiente para descrevermos o deslocamento. Temos que declarar que o deslocamento foi -- nesse caso -- para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou no sentido negativo do eixo), da mesma forma que a posição. Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.
+O que dizer sobre o sinal negativo? Esse sinal significa que o deslocamento se deu no \emph{sentido negativo do eixo}\footnote{Lembre-se que o sentido do eixo é arbitrário. Nesse caso o sentido positivo é para a diteita e o negativo, consequentemente, para a esquerda}. Ao medirmos, o valor da medida não é suficiente para descrevermos o deslocamento. Temos que declarar que o deslocamento foi -- nesse caso -- para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{5,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou no sentido negativo do eixo)\footnote{Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.}, da mesma forma que a posição. Se o deslocamento fosse no sentido positivo do eixo, o resultado do cálculo de $\Delta x$ seria positivo. 
 
-\comment{TODO Análise dimensional e dimensões no SI}
+O deslocamento é dado através da diferença entre posições. Como vimos no capítulo anterior, só podemos somar, subtratir e igualar termos que têm a mesma dimensão. Logo, concluímos que o deslocamento tem dimensão de \emph{comprimento} e suas unidades são o metro no SI, assim como a posição.
+
+Claramente temos que se as posições inicial e final são iguais, o deslocamento será zero. Apesar de a utilidade de tal definição ser pouco evidente agora, veremos adiante que isso faz sentido para as grandezas físicas, pois no caso de uma força conservativa -- por exemplo -- temos que o trabalho é nulo quando o deslocamento é zero.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento escalar}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Algo importante a se notar é que o deslocamento é a diferença de posição entre duas posições quaisquer ocupadas por um corpo. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial -- a garagem, por exemplo -- será diferente para cada momento do dia. Quando o veículo retorna à garagem, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado de \emph{deslocamento escalar} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
+Algo importante a se notar é que o deslocamento é a diferença de posição entre duas posições quaisquer ocupadas por um corpo. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial -- a garagem, por exemplo -- será diferente para cada momento do dia. Quando o veículo retorna à garagem, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado de \emph{deslocamento escalar}\footnote{Apesar de ser algo mais ligado à nossa experiência cotidiana de deslocamento, o deslocamento escalar será de pouca utilidade.} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
 \begin{equation}
   d_s = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
 \end{equation}
 
-\comment{TODO Análise dimensional e dimensões no SI}
+Novamente, temos que a dimensão é de \emph{comprimento} e as unidades no SI são metros, uma vez que o deslocamento escalar é determinado a partir de uma equação e da soma de termos com tais dimensões.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Posição como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{TODO  discutir que podemos e vamos tratar a posição x como função do tempo x(t), depois falar que vamos fazer pra velocidade e aceleração (discutidas adiante) também.}
 
-Sabemos que a posição de uma partícula pode variar conforme o tempo passa, e isso nos permitirá uma descrição mais completa do movimento ao definir a \emph{velocidade} e a \emph{aceleração} mais adiante. Essas duas também podem variar conforme o tempo passa, portanto conferiremos um caráter especial ao tempo na descrição do movimento. Com isso podemos elaborar gráficos que mostram, por exemplo, a variação temporal da posição.
+Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote{Lembre-se de que dois elementos do grupo $x$ podem levar a um mesmo elemento do grupo $y$, porém um elemento de $x$ não pode levar a dois elementos de $y$.}:
 
-\comment{TODO Separar a parte da interpretação gráfica em uma seção específica. Fazer marginfigure: Gráficos x(t) para objeto parado, objeto com v = cte}
+\comment{inline da classica figura com dois conjuntos com vários pontinhos e flechinhas que ligam os pontinhos do primeiro grupo a elementos do segundo grupo. Nas flechinhas, label $y = f(x)$, nos grupos, label $x$ e $y$. ligar dois pontos de $x$ a um mesmo ponto de $y$}
+
+Dessa forma, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:
+\begin{equation}
+    x: t \mapsto x(t).
+\end{equation}
+
+Sabemos que a posição de uma partícula pode variar conforme o tempo passa, e isso nos permitirá uma descrição mais completa do movimento ao definir a \emph{velocidade} e a \emph{aceleração} mais adiante. Essas duas também podem variar conforme o tempo passa, portanto conferiremos um caráter especial ao tempo na descrição do movimento. Com isso podemos elaborar gráficos que mostram, por exemplo, a variação temporal da posição (vide Figura~\ref{Fig:Graf_posicao_func_tempo}).
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+    plot(\x,{2});
+    
+    \draw[smooth, densely dashed, name path=plotb,samples=1000,domain=0:3.5]
+    plot(\x,{0.5*\x + 0.5});
+
+    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.5]
+    plot(\x,{0.15*\x^2});
+     
+\end{tikzpicture}
+\caption{Gráficos que exemplificam possíveis formas para os gráficos da função posição $x(t)$.\label{Fig:Graf_posicao_func_tempo}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Velocidade}
@@ -88,35 +140,300 @@ Se considerarmos que um deslocamento sempre leva um tempo para ser efetuado, pod
 %
 Temos agora outra variável que descreve o movimento. Se conhecemos a velocidade média, podemos então descrever a distância percorrida em função do tempo como
 \begin{equation}
-  \Delta x = \mean{v} \Delta t.
+  \Delta x = \mean{v} \Delta t,
+\end{equation}
+%
+ou
+\begin{equation}
+    x_f = x_i + \mean{v} \Delta t.
+\end{equation}
+%
+Em especial, se a velocidade é constante, então $v = \mean{v}$, e obtemos
+\begin{equation}
+    x_f = x_i + v \Delta t.
 \end{equation}
 
-\comment{TODO Análise dimensional e dimensões no SI}
+Podemos determinar a dimensão da velocidade através de
+\begin{align}
+    [\mean{v}] &= \left[\frac{\Delta x}{\Delta t}\right] \\
+    &= \frac{[\Delta x]}{[\Delta t]} \\
+    &= \frac{\rm{L}}{\rm{T}}.
+\end{align}
+%
+Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
+
+Podemos conferir uma interpretação gráfica à velocidade média. Para isso, vamos tomar a Figura~\ref{Fig:Interp_graf_vel_med}, onde marcamos dois pontos que correspondem à posição $x_i$ no instante $t_i$ e à posição $x_f$ no instante $t_f$. Ligamos esses dois pontos por uma reta.
+
+\begin{marginfigure}[-13cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]]
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \node[below](a)at(1.2,0){$t_i$};
+    \node[below](b)at(3,0){$t_f$};
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_1$};
+    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_2$};
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
+
+    % pontos nas interseções
+    \fill [opacity=1] (plot-a-intersection) circle (2pt);
+    \fill [opacity=1] (plot-b-intersection) circle (2pt);
+   
+\end{tikzpicture}
+\caption{Gráfico da posição em função do tempo. Podemos interpretar a velocidade média graficamente ao ligarmos os pontos da curva que representam os instantes/posições inicial e final.\label{Fig:Interp_graf_vel_med}}
+\end{marginfigure}
+
+Traçando uma reta horizontal e uma vertical, podemos completar um triângulo retângulo (Figura~\ref{Fig:Interp_graf_vel_med_b}). Nesse triângulo, temos que o tamanho da lateral direita é igual a $x_f - x_i$, ou seja, corresponde a $\Delta x$. Já a parte inferior é igual a $t_f - t_i$, correspondendo a $\Delta t$.
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]]
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick, gray] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,gray, name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \node[below, gray](a)at(1.2,0){$t_i$};
+    \node[below, gray](b)at(3,0){$t_f$};
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_1$};
+    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_2$};
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
+
+    % pontos nas interseções
+    \fill [opacity=1, gray] (plot-a-intersection) circle (2pt);
+    \fill [opacity=1, gray] (plot-b-intersection) circle (2pt);
+    
+    % linhas complementares
+    \path[name path=horiz-a] (plot-a-intersection)--+(4,0);
+    \path[name path=vert-b] (plot-b-intersection)--+(0,-2);
+    \draw[thin, name intersections={of=horiz-a and vert-b}] (plot-b-intersection) -- (intersection-1) coordinate (ang-reto);
+    
+    \draw[thin, name intersections={of=fromb and horiz-a}] (intersection-1) -- (plot-a-intersection);
+    
+    % marcar os ângulos
+    \tkzMarkRightAngle(plot-a-intersection,ang-reto,plot-b-intersection);
+    \path pic[draw, angle radius=4mm, pic text=$\theta$,angle eccentricity=1.3] {angle = ang-reto--plot-a-intersection--plot-b-intersection};
+    
+    % medidas
+    \draw[|-|] ($ (plot-b-intersection) + (0.2,0) $) -- node[right]{$\Delta x$} ($ (ang-reto) + (0.2,0) $);
+    
+    \draw[|-|] ($ (plot-a-intersection) + (0, -0.2) $) -- node[below]{$\Delta t$} ($ (ang-reto) + (0, -0.2) $);
+   
+\end{tikzpicture}
+\caption{Triângulo formado pela reta que liga os pontos e as linhas horizontal e vertical.\label{Fig:Interp_graf_vel_med_b}}
+\end{marginfigure}
+
+\noindent{}Ao calcularmos a tangente do ângulo $\theta$, temos
+\begin{align}
+    \tan\theta &= \frac{\Delta x}{\Delta t} \\
+    & = \mean{v},
+\end{align}
+%
+isto é, \emph{a inclinação da reta que une os pontos correspondentes aos instantes/posições inicial e final está relacionada à velocidade média através de}:\footnote{Um cálculo preciso necessitaria que levássemos em conta a escala do gráfico, porém estamos mais interessados na interpretação qualitativa.}
+\begin{equation}
+    \mean{v} = \tan\theta.
+\end{equation}
+%
+Assim, se a inclinação entre um par de pontos é maior que entre outro par, temos que a velocidade média é maior no primeiro caso (Figura~\ref{Fig:Interp_graf_vel_med_diff}).
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \coordinate (a) at (1.2,0);
+    \coordinate (b) at (3,0);
+    \coordinate (c) at (0.7,0);
+    \coordinate (d) at (2.3, 0);
+
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \path[name path=fromc](c)--+(0,4);
+    \path[name path=fromd](d)--+(0,4);
+
+
+    \path[name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromc and plot}](c)--(intersection-1) coordinate (plot-c-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromd and plot}](d)--(intersection-1) coordinate (plot-d-intersection)--(0,0|-intersection-1);
+
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
+    \draw[extended line, dashed] (plot-c-intersection) -- (plot-d-intersection);
+
+    % pontos nas interseções
+    \fill[opacity=1] (plot-a-intersection) circle (2pt) node[below right]{$A$};
+    \fill[opacity=1] (plot-b-intersection) circle (2pt) node[below right]{$B$};
+    \fill[opacity=1] (plot-c-intersection) circle (2pt) node[above right]{$C$};
+    \fill[opacity=1] (plot-d-intersection) circle (2pt) node[below right]{$D$};
+    
+\end{tikzpicture}
+\caption{As retas $\overline{AB}$ e $\overline{CD}$ representam valores de velocidade média diferentes, como pode ser visto devido às diferentes inclinações.\label{Fig:Interp_graf_vel_med_diff}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A Figura ??? mostra um gráfico da posição de uma partícula. Se estamos interessados em calcular a velocidade média dessa partícula entre os instantes $t_1$ e $t_2$ -- em que ela ocupa as posições $x_1$ e $x_2$, respectivamente --, podemos fazê-lo através de
-\begin{equation}
-  \mean{v} = \frac{x_2 - x_1}{t_2 - t_1}.
-\end{equation}
+Na Figura~\ref{Fig:Interp_graf_vel_med}, se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea}. Se estamos interessados em calcular a velocidade em um ponto $P$ (Figura~\ref{Fig:Interp_graf_vel_med_lim}), podemos tomar pares $(t_i, x_i)$, $(t_f, x_f)$ sucessivamente mais próximos até que a distância entre eles seja desprezível, ou seja, \emph{tenda a zero}. Nesse momento, a reta que liga os dois pontos passa a ser uma \emph{reta tangente à curva no ponto $P$}, isto é, uma reta que toca a curva $x(t)$ somente no ponto $P$.
 
-É interessante observar que esta razão corresponde à inclinação da reta que passa pelos pontos $(t_1,x_1)$ e $(t_2,x_2)$. Se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea} como \comment{Discutir brevemente o conceito de limite de uma função.}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \coordinate (a) at (1.2,0);
+    \coordinate (b) at (3,0);
+    \coordinate (c) at (0.7,0);
+    \coordinate (d) at (3.3, 0);
+    \coordinate (e) at (1.8,0);
+    \coordinate (f) at (2.8,0);
+    \coordinate (p) at (2.3,0);
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \path[name path=fromc](c)--+(0,4);
+    \path[name path=fromd](d)--+(0,4);
+    \path[name path=frome](e)--+(0,4);
+    \path[name path=fromf](f)--+(0,4);
+    \path[name path=fromp](p)--+(0,4);
+    \path[name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromc and plot}](c)--(intersection-1) coordinate (plot-c-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromd and plot}](d)--(intersection-1) coordinate (plot-d-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=frome and plot}](e)--(intersection-1) coordinate (plot-e-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromf and plot}](f)--(intersection-1) coordinate (plot-f-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromp and plot}](p)--(intersection-1) coordinate (plot-p-intersection)--(0,0|-intersection-1);
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, densely dotted] (plot-a-intersection) -- (plot-b-intersection);
+    \draw[extended line, densely dotted] (plot-c-intersection) -- (plot-d-intersection);
+    \draw[extended line, densely dotted] (plot-e-intersection) -- (plot-f-intersection);
+
+    % pontos nas interseções
+    \fill[opacity=1, gray] (plot-a-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-b-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-c-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-d-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-e-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-f-intersection) circle (2pt);
+    
+    \fill[opacity=1] (plot-p-intersection) circle (2pt);
+   
+    % tangente
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=1.5:3.1]
+    plot(\x,{0.94*\x - 1.016});
+     
+\end{tikzpicture}
+\caption{Gráfico da posição em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_vel_med_lim}}
+\end{marginfigure}
+
+Temos então que, graficamente, podemos interpretar a velocidade instantânea como a inclinação de uma reta tangente à curva $x(t)$ no ponto em que estamos interessados em calculá-la, isto é no ponto $(t,x)$.
+
+Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressivamente menor é o que chamamos -- quando tomamos \emph{$\Delta t$ tendendo a zero} -- de \emph{limite}. Denotamos esse processo como
 \begin{equation}
   v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
 \end{equation}
 %
-A velocidade instantânea é o valor de velocidade mostrado por um velocímetro de carro, por exemplo. Graficamente, podemos interpretar a velocidade instantânea como a inclinação de uma reta tangente à curva $x(t)$ no ponto em que estamos interessados em calculá-la, isto é no ponto $(t,x)$.
+A velocidade instantânea é o valor de velocidade no momento considerado. É o que é mostrado pelo velocímetro de um carro, por exemplo\footnote[][-15mm]{Isso é verdade somente para caros em que o sistema de medidas é analógico. Para medidas digitais, o valor é uma média de uma série de medidas tomadas em um curto intervalo de tempo}.
 
-\comment{TODO Gráfico de $x(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, x_1)$ , $(t_2, x_2)$, $(t_3, x_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, x_1)$ no limite de $\Delta t \to 0$}
+Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo que momentaneamente. Em um gráfico que mostre a posição em função do tempo para um objeto lançado verticalmente para cima -- por exemplo --, esse ponto corresponderia à posição de máxima altura, onde o objeto pára momentaneamente.
+\begin{marginfigure}[-1cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.2:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \coordinate (p) at (1.125,0);
+    \path[name path=fromp](p)--+(0,4);
+    \path[name intersections={of=fromp and plot}](p)--(intersection-1) coordinate (plot-p-intersection)--(0,0|-intersection-1);
+    
+    % pontos nas interseções   
+    \fill[opacity=1] (plot-p-intersection) circle (2pt) node[above]{$P$};
+   
+    % tangente   
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=0.6:1.8]
+    plot(\x,{0.59375});
+     
+\end{tikzpicture}
+\caption{No ponto $P$ temos que o ângulo de inclinação da reta tangente é nulo, portanto temos que momentaneamente a velocidade é nula.\label{Fig:Interp_graf_vel_med_zero}}
+\end{marginfigure}
 
-Se a velocidade for constante, claramente temos que a velocidade média será igual a essa constante e podemos escrever
-\begin{equation}
-  \Delta x = v \Delta t.
-\end{equation}
+Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}
 
-\comment{TODO Interpretação gráfica em seção à parte. marginfig Gráficos v(t) para v = cte, objeto com v variável}
+\begin{marginfigure}[-5mm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.2:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \coordinate (o) at (0.6,0);
+    \coordinate (p) at (2.3,0);
+    \path[name path=fromp](p)--+(0,4);
+    \path[name path=fromo](o)--+(0,4);
+    \path[name intersections={of=fromp and plot}](p)--(intersection-1) coordinate (plot-p-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromo and plot}](o)--(intersection-1) coordinate (plot-o-intersection)--(0,0|-intersection-1);
+    
+    % pontos nas interseções   
+    \fill[opacity=1] (plot-p-intersection) circle (2pt) node[above]{$P_2$};
+    \fill[opacity=1] (plot-o-intersection) circle (2pt) node[above]{$P_1$};
+   
+    % tangente
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=1.8:2.8]
+    plot(\x,{0.94*\x - 1.016});
+    
+%    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=0.6:1.8]
+%    plot(\x,{0.59375});
+    
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=0.05:1.2]
+    plot(\x,{0.956 - 0.42*\x});
+     
+\end{tikzpicture}
+\caption{As inclinações das retas tangentes indicam que em $P_1$ a velocidade é negativa, enquanto em $P_2$ temos uma velocidade positiva.\label{Fig:Interp_graf_vel_med_signs}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidades escalares média e instantânea}
@@ -127,7 +444,7 @@ Se viajamos de uma cidade a outra e voltamos, temos um deslocamento nulo. Conseq
   \mean{v}_s = \frac{d_s}{\Delta t}.
 \end{equation}
 %
-A velocidade escalar média é o que o computador de bordo de um carro verifica como velocidade média em um trajeto. Apesar de ela corresponder a nossa intuição de ``velocidade média'', ela não é uma grandeza vetorial e -- portanto --, não será de grande interesse para a descrição de fenômenos físicos.
+A velocidade escalar média é o que o computador de bordo de um carro verifica como velocidade média em um trajeto. Apesar de ela corresponder a nossa intuição de ``velocidade média'', ela não é uma grandeza vetorial -- como veremos adiante -- e não será de grande interesse para a descrição de fenômenos físicos.
 
 Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção, portanto única diferença diferença possível entre a o deslocamento o deslocamento escalar é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
 \begin{equation}
@@ -138,7 +455,7 @@ Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento ness
 \subsection{Velocidade como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Gráficos, em analogia ao caso da posição (parado, vel. cte., etc). Mostrar a interpretação da velocidade média e da instantânea no gráfico.
+Gráficos, em analogia ao caso da posição (parado, vel. cte., etc).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}
@@ -153,11 +470,14 @@ Da mesma forma que podemos ter variações de posição em dados intervalos de t
   \mean{a} = \frac{\Delta v}{\Delta t}
 \end{equation}
 
+\comment{Fazer a interpretação gráfica da aceleração média nos moldes da velocidade média.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{TODO em seção à parte: Gráfico de $v(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, v_1)$,  $(t_2, v_2)$, $(t_3, v_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, v_1)$ no limite de $\Delta t \to 0$}
+\comment{Gráfico de $v(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, v_1)$,  $(t_2, v_2)$, $(t_3, v_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, v_1)$ no limite de $\Delta t \to 0$. Fazer nos moldes da velocidade instantânea, mas ser mais direto.}
+
 Em um gráfico da velocidade como função do tempo, podemos interpretar a aceleração média como a inclinação da reta que passa pelos pontos $(t_1,v_1)$ e $t_2,v_2$. Podemos definir a aceleração instantânea como
 \begin{equation}
   a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t},
@@ -174,7 +494,7 @@ Gráficos, em analogia ao caso da posição (parado, vel. cte., etc). Mostrar a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sentidos dos eixos de referência e sinais das variáveis cinemáticas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{TODO  Discutir a questão do sinal das variáveis das equações, sua dependência no sentido do eixo e reforçar a arbitrariedade da escolha do sentido do eixo.}
+\comment{TODO  Discutir a questão do sinal das variáveis das equações, sua dependência no sentido do eixo e reforçar a arbitrariedade da escolha do sentido do eixo. Basicamente é desl positivo é no sentido positivo do eixo, negativo no sentido negativo, velocidades a mesma coisa, já que v = delta x / delta t e delta t é sempre positivo. Fazer uma figurinha com quatro possibilidades: sentido do eixo crescente para direita e esquerda, deslocamento maior e menor que zero. Aí falar da aceleração que depende de aumentar ou diminuir o módulo da velocidade para para ter sinal igual ou oposto ao da velocidade. Footnote dizendo que isso vai ficar mais fácil de entender quando dermos um caráter vetorial pra aceleração e relacionarmos com a força. De fato fazer isso quando falarmos de aceleração vetorialmente}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interpretação da área de um gráfico $v \times t$ e $a \times t$}
