@@ -33,21 +33,114 @@ Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, i
 
 O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é a direção onde ocorre o movimento. Podemos então colocar um objeto em um ponto qualquer de tal reta:
 
-\comment{Fig inline reta e bloco, mais nada}
+\begin{figure}
+\centering
+\begin{tikzpicture}[
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    % Interface
+    \draw[gray,line width=.5pt,interface](-4,0)--(4,0);
+    
+    % bloco
+    \draw[pattern=north west lines, pattern color=gray] (2.5,0) rectangle (3.5,1);
 
-\noindent{}Claramente, tal descrição é insuficiente. Para determinar a posição do corpo, precisamos de um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância, que denominamos como \emph{módulo}, entre ele e o corpo:
+\end{tikzpicture}
+\end{figure}
 
-\comment{Fig inline reta e bloco e origem, mais medida entre origem e bloco}
+\pagebreak
+\noindent{}Claramente, tal descrição é insuficiente. Para determinar a posição do corpo, precisamos de um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância entre ele e o corpo:
+
+\begin{figure}\forceversofloat
+\centering
+\begin{tikzpicture}[
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    % Interface
+    \draw[gray,line width=.5pt,interface](-4,0)--(4,0);
+    
+    % bloco
+    \draw[pattern=north west lines, pattern color=gray] (2.5,0) rectangle (3.5,1);
+    \fill (3,0.5) circle (1pt);
+
+    % origem
+    \draw[fill] (0,0) circle (2pt);
+        
+    % distância
+    \draw[|-|] (0,1.2)--node[above]{$D$}(3,1.2);
+\end{tikzpicture}
+\caption{Podemos utilizar um ponto de referência para ajudar a determinar a posição de um objeto.}
+\end{figure}
 
 Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode estar à mesma distância da origem:
 
-\comment{mesma figura de antes, mas com mais um bloco à mesma distância, porém do outro lado}
+\begin{figure}\forceversofloat
+\centering
+\begin{tikzpicture}[
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    % Interface
+    \draw[gray,line width=.5pt,interface](-4,0)--(4,0);
+    
+    % bloco
+    \draw[pattern=north west lines, pattern color=gray] (2.5,0) rectangle (3.5,1);
+    \fill (3,0.5) circle (1pt);
+    
+    \draw[pattern=north west lines, pattern color=gray, dotted] (-2.5,0) rectangle (-3.5,1);
+    \fill[gray] (-3,0.5) circle (1pt);
+
+    % origem
+    \draw[fill] (0,0) circle (2pt);
+        
+    % distância
+    \draw[|-|] (0,1.2)--node[above]{$D$}(3,1.2);
+    \draw[|-|,gray] (0,1.2)--node[above]{$D$}(-3,1.2);
+\end{tikzpicture}
+\caption{Somente as informações de direção e de distância não são suficientes para determinar a posição.}
+\end{figure}
 
 \noindent{}Podemos definir dois \emph{sentidos} na figura acima: à esquerda da origem, ou à direita dela. Com essas três informações -- direção, módulo, e sentido -- podemos determinar com exatidão a posição de um corpo qualquer.
 
 Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para descrever a posição:
 
-\comment{Fig com origem como zero, com números negativos e positivos, dois blocos numerados, um na região negativa e outro na positiva, seta para a direita}
+\begin{figure}\forceversofloat
+\centering
+\begin{tikzpicture}[
+     >=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    % Interface
+    \draw[gray,line width=.5pt,interface](-4,0)--(4,0);
+    
+    % bloco
+    \draw[pattern=north west lines, pattern color=gray] (2.5,0) rectangle (3.5,1);
+    \fill (3,0.5) circle (1pt);
+    
+    \draw[pattern=north west lines, pattern color=gray] (-2.5,0) rectangle (-3.5,1);
+    \fill (-3,0.5) circle (1pt);
+
+    % origem
+    \draw[fill] (0,0) circle (2pt);
+        
+    % reta real
+    \draw[->] (-4.5,-0.5)--(4.5,-0.5) node[below]{$x$};
+    \foreach \x in {-4,...,4}
+        \draw (\x cm,-0.4) -- (\x cm,-0.6)
+            node[below]{\small$\x$};
+\end{tikzpicture}
+\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferencias posições nos diferentes sentidos do eixo através do \emph{sinal positivo ou negativo}.}
+\end{figure}
 
 \noindent{}onde temos que as posições dos blocos são dadas por
 \begin{align}
@@ -65,7 +158,7 @@ Como visto no capítulo anterior, a maioria das medidas físicas tem uma dimens�
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Digamos que o segundo corpo na Figura ??? seja deslocado para a posição $x = -\np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena e obteríamos um deslocamento de \np[m]{5} para a esquerda ao longo da reta, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo
+Digamos que o segundo corpo na Figura ??? seja deslocado para a posição $x = -\np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena e obteríamos um deslocamento de \np[m]{5} para a esquerda ao longo da reta, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo\footnote{A notação usando $\Delta$ representa a variação de uma variável qualquer. Vamos utilizá-la para posição em vários eixos ($\Delta x$, $\Delta y$, $\Delta z$), tempo ($\Delta t$), vetores ($\Delta\vec{r}$), etc.}
 \begin{align}
   \Delta x &= x_f - x_i \\
   &= (-\np[m]{1,0}) - (\np[m]{4,0}) \\
@@ -94,9 +187,27 @@ Novamente, temos que a dimensão é de \emph{comprimento} e as unidades no SI s�
 \subsection{Posição como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote{Lembre-se de que dois elementos do grupo $x$ podem levar a um mesmo elemento do grupo $y$, porém um elemento de $x$ não pode levar a dois elementos de $y$.}:
-
-\comment{inline da classica figura com dois conjuntos com vários pontinhos e flechinhas que ligam os pontinhos do primeiro grupo a elementos do segundo grupo. Nas flechinhas, label $y = f(x)$, nos grupos, label $x$ e $y$. ligar dois pontos de $x$ a um mesmo ponto de $y$}
+Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote[][-2cm]{Lembre-se de que dois elementos do grupo $x$ podem levar a um mesmo elemento do grupo $y$, porém um elemento de $x$ não pode levar a dois elementos de $y$.}:
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$t$};
+\draw (3.1,0.5) node[above] {$x$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$x = x(t)$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{A cada valor de tempo $t$ temos um valor de posição $x$ associado. A função $x(t)$ é a operação que descreve a relação entre essas duas variáveis.}
+\end{figure}
 
 Dessa forma, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:
 \begin{equation}
@@ -302,7 +413,14 @@ Assim, se a inclinação entre um par de pontos é maior que entre outro par, te
 
 Na Figura~\ref{Fig:Interp_graf_vel_med}, se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea}. Se estamos interessados em calcular a velocidade em um ponto $P$ (Figura~\ref{Fig:Interp_graf_vel_med_lim}), podemos tomar pares $(t_i, x_i)$, $(t_f, x_f)$ sucessivamente mais próximos até que a distância entre eles seja desprezível, ou seja, \emph{tenda a zero}. Nesse momento, a reta que liga os dois pontos passa a ser uma \emph{reta tangente à curva no ponto $P$}, isto é, uma reta que toca a curva $x(t)$ somente no ponto $P$.
 
-\begin{marginfigure}
+Temos então que, graficamente, podemos interpretar a velocidade instantânea como a inclinação de uma reta tangente à curva $x(t)$ no ponto em que estamos interessados em calculá-la, isto é no ponto $(t,x)$.
+
+Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressivamente menor é o que chamamos -- quando tomamos \emph{$\Delta t$ tendendo a zero} -- de \emph{limite}. Denotamos esse processo como
+\begin{equation}
+  v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
+\end{equation}
+%
+\begin{marginfigure}[-8cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -358,17 +476,10 @@ Na Figura~\ref{Fig:Interp_graf_vel_med}, se tomarmos intervalos sucessivamente m
 \end{tikzpicture}
 \caption{Gráfico da posição em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_vel_med_lim}}
 \end{marginfigure}
-
-Temos então que, graficamente, podemos interpretar a velocidade instantânea como a inclinação de uma reta tangente à curva $x(t)$ no ponto em que estamos interessados em calculá-la, isto é no ponto $(t,x)$.
-
-Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressivamente menor é o que chamamos -- quando tomamos \emph{$\Delta t$ tendendo a zero} -- de \emph{limite}. Denotamos esse processo como
-\begin{equation}
-  v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
-\end{equation}
-%
 A velocidade instantânea é o valor de velocidade no momento considerado. É o que é mostrado pelo velocímetro de um carro, por exemplo\footnote[][-15mm]{Isso é verdade somente para caros em que o sistema de medidas é analógico. Para medidas digitais, o valor é uma média de uma série de medidas tomadas em um curto intervalo de tempo}.
 
 Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo que momentaneamente. Em um gráfico que mostre a posição em função do tempo para um objeto lançado verticalmente para cima -- por exemplo --, esse ponto corresponderia à posição de máxima altura, onde o objeto pára momentaneamente.
+
 \begin{marginfigure}[-1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
@@ -396,9 +507,9 @@ Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo q
 \caption{No ponto $P$ temos que o ângulo de inclinação da reta tangente é nulo, portanto temos que momentaneamente a velocidade é nula.\label{Fig:Interp_graf_vel_med_zero}}
 \end{marginfigure}
 
-Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}
+Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote[][2cm]{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}
 
-\begin{marginfigure}[-5mm]
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -451,11 +562,59 @@ Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento ness
   v_s = |v|.
 \end{equation}
 
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Gráficos, em analogia ao caso da posição (parado, vel. cte., etc).
+De maneira análoga ao caso da evolução temporal da posição, podemos dizer que para cada instante de tempo $t_i$ temos uma velocidade $v_i$ associada. Assim, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:
+\begin{equation}
+    x: t \mapsto x(t),
+\end{equation}
+%
+o que corresponde a
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$t$};
+\draw (3.1,0.5) node[above] {$v$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$v = v(t)$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{A cada valor de tempo $t$ temos um valor de velocidade $v$ associado. A função $v(t)$ descreve a relação entre essas duas variáveis.}
+\end{figure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+    plot(\x,{2});
+    
+    \draw[smooth, densely dashed, name path=plotb,samples=1000,domain=0:3.5]
+    plot(\x,{0.5*\x + 0.5});
+
+    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.5]
+    plot(\x,{0.15*\x^2 + 0.1 + 0.1*\x*sin(10*\x)});
+     
+\end{tikzpicture}
+\caption{Gráficos que exemplificam possíveis formas para os gráficos da velocidade $v(t)$. Note que não precisamos nos restringir a formas funcionais simples.\label{Fig:Graf_posicao_func_tempo}}
+\end{marginfigure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}
@@ -470,13 +629,55 @@ Da mesma forma que podemos ter variações de posição em dados intervalos de t
   \mean{a} = \frac{\Delta v}{\Delta t}
 \end{equation}
 
-\comment{Fazer a interpretação gráfica da aceleração média nos moldes da velocidade média.}
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]]
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick, gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,gray, name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x + 0.4*sin((2*\x - 0.5) r)});
+    
+    % linhas dos eixos à curva
+    \node[below, gray](a)at(1.2,0){$t_i$};
+    \node[below, gray](b)at(3,0){$t_f$};
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_1$};
+    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_2$};
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
+
+    % pontos nas interseções
+    \fill [opacity=1, gray] (plot-a-intersection) circle (2pt);
+    \fill [opacity=1, gray] (plot-b-intersection) circle (2pt);
+    
+    % linhas complementares
+    \path[name path=horiz-a] (plot-a-intersection)--+(4,0);
+    \path[name path=vert-b] (plot-b-intersection)--+(0,-2);
+    \draw[thin, name intersections={of=horiz-a and vert-b}] (plot-b-intersection) -- (intersection-1) coordinate (ang-reto);
+    
+    \draw[thin, name intersections={of=fromb and horiz-a}] (intersection-1) -- (plot-a-intersection);
+    
+    % marcar os ângulos
+    \tkzMarkRightAngle(plot-a-intersection,ang-reto,plot-b-intersection);
+    \path pic[draw, angle radius=4mm, pic text=$\theta$,angle eccentricity=1.3] {angle = ang-reto--plot-a-intersection--plot-b-intersection};
+    
+    % medidas
+    \draw[|-|] ($ (plot-b-intersection) + (0.2,0) $) -- node[right]{$\Delta v$} ($ (ang-reto) + (0.2,0) $);
+    
+    \draw[|-|] ($ (plot-a-intersection) + (0, -0.2) $) -- node[below]{$\Delta t$} ($ (ang-reto) + (0, -0.2) $);
+   
+\end{tikzpicture}
+\caption{Triângulo formado pela reta que liga os pontos e as linhas horizontal e vertical.\label{Fig:Interp_graf_vel_med_b}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\comment{Gráfico de $v(t)$ variável com $t_1$ fixo e várias retas entre $(t_1, v_1)$,  $(t_2, v_2)$, $(t_3, v_3)$, etc., para mostrar que a reta tente a uma tangente ao ponto $(t_1, v_1)$ no limite de $\Delta t \to 0$. Fazer nos moldes da velocidade instantânea, mas ser mais direto.}
 
 Em um gráfico da velocidade como função do tempo, podemos interpretar a aceleração média como a inclinação da reta que passa pelos pontos $(t_1,v_1)$ e $t_2,v_2$. Podemos definir a aceleração instantânea como
 \begin{equation}
@@ -484,6 +685,64 @@ Em um gráfico da velocidade como função do tempo, podemos interpretar a acele
 \end{equation}
 %
 que graficamente pode ser interpretada como a inclinação da reta tangente à curva $v(t)$ no ponto $(t,v)$ em que estamos interessados em calcular a aceleração.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.5:3.5]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x + 0.4*sin((2*\x - 0.5) r)});
+    
+    % linhas dos eixos à curva
+    \coordinate (a) at (1.2,0);
+    \coordinate (b) at (3,0);
+    \coordinate (c) at (0.7,0);
+    \coordinate (d) at (3.3, 0);
+    \coordinate (e) at (1.8,0);
+    \coordinate (f) at (2.8,0);
+    \coordinate (p) at (2.3,0);
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \path[name path=fromc](c)--+(0,4);
+    \path[name path=fromd](d)--+(0,4);
+    \path[name path=frome](e)--+(0,4);
+    \path[name path=fromf](f)--+(0,4);
+    \path[name path=fromp](p)--+(0,4);
+    \path[name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromc and plot}](c)--(intersection-1) coordinate (plot-c-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromd and plot}](d)--(intersection-1) coordinate (plot-d-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=frome and plot}](e)--(intersection-1) coordinate (plot-e-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromf and plot}](f)--(intersection-1) coordinate (plot-f-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromp and plot}](p)--(intersection-1) coordinate (plot-p-intersection)--(0,0|-intersection-1);
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line, densely dotted] (plot-a-intersection) -- (plot-b-intersection);
+    \draw[extended line, densely dotted] (plot-c-intersection) -- (plot-d-intersection);
+    \draw[extended line, densely dotted] (plot-e-intersection) -- (plot-f-intersection);
+
+    % pontos nas interseções
+    \fill[opacity=1, gray] (plot-a-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-b-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-c-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-d-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-e-intersection) circle (2pt);
+    \fill[opacity=1, gray] (plot-f-intersection) circle (2pt);
+    
+    \fill[opacity=1] (plot-p-intersection) circle (2pt);
+   
+    % tangente
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=1.5:3.1]
+    plot(\x,{0.480140842*\x - 0.285634781});
+     
+\end{tikzpicture}
+\caption{Gráfico da posição em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_vel_med_lim}}
+\end{marginfigure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração como função do tempo}
