@@ -139,7 +139,7 @@ Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para desc
         \draw (\x cm,-0.4) -- (\x cm,-0.6)
             node[below]{\small$\x$};
 \end{tikzpicture}
-\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferencias posições nos diferentes sentidos do eixo através do \emph{sinal positivo ou negativo}.}
+\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferencias posições nos diferentes sentidos do eixo através do \emph{sinal positivo ou negativo}.\label{Fig:dois_blocos}}
 \end{figure}
 
 \noindent{}onde temos que as posições dos blocos são dadas por
@@ -158,7 +158,7 @@ Como visto no capítulo anterior, a maioria das medidas físicas tem uma dimens�
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Digamos que o segundo corpo na Figura ??? seja deslocado para a posição $x = -\np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena e obteríamos um deslocamento de \np[m]{5} para a esquerda ao longo da reta, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo\footnote{A notação usando $\Delta$ representa a variação de uma variável qualquer. Vamos utilizá-la para posição em vários eixos ($\Delta x$, $\Delta y$, $\Delta z$), tempo ($\Delta t$), vetores ($\Delta\vec{r}$), etc.}
+Vamos considerar um deslocamento do bloco da direita na Figura~\ref{Fig:dois_blocos} para a posição $x = -\np[m]{1,0}$. Podemos medir seu deslocamento entre a posição inicial e a final utilizando uma trena e obteríamos um deslocamento de \np[m]{5} para a esquerda ao longo da reta, porém se sabemos os valores numéricos associados às posições inicial e final no eixo $x$, podemos calcular esse valor facilmente fazendo\footnote{A notação usando $\Delta$ representa a variação de uma variável qualquer. Vamos utilizá-la para posição em vários eixos ($\Delta x$, $\Delta y$, $\Delta z$), tempo ($\Delta t$), vetores ($\Delta\vec{r}$), etc.}
 \begin{align}
   \Delta x &= x_f - x_i \\
   &= (-\np[m]{1,0}) - (\np[m]{4,0}) \\
@@ -259,23 +259,7 @@ ou
     x_f = x_i + \mean{v} \Delta t.
 \end{equation}
 %
-Em especial, se a velocidade é constante, então $v = \mean{v}$, e obtemos
-\begin{equation}
-    x_f = x_i + v \Delta t.
-\end{equation}
-
-Podemos determinar a dimensão da velocidade através de
-\begin{align}
-    [\mean{v}] &= \left[\frac{\Delta x}{\Delta t}\right] \\
-    &= \frac{[\Delta x]}{[\Delta t]} \\
-    &= \frac{\rm{L}}{\rm{T}}.
-\end{align}
-%
-Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
-
-Podemos conferir uma interpretação gráfica à velocidade média. Para isso, vamos tomar a Figura~\ref{Fig:Interp_graf_vel_med}, onde marcamos dois pontos que correspondem à posição $x_i$ no instante $t_i$ e à posição $x_f$ no instante $t_f$. Ligamos esses dois pontos por uma reta.
-
-\begin{marginfigure}[-13cm]
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]]
@@ -304,6 +288,29 @@ Podemos conferir uma interpretação gráfica à velocidade média. Para isso, v
 \end{tikzpicture}
 \caption{Gráfico da posição em função do tempo. Podemos interpretar a velocidade média graficamente ao ligarmos os pontos da curva que representam os instantes/posições inicial e final.\label{Fig:Interp_graf_vel_med}}
 \end{marginfigure}
+
+\noindent{}Em especial, se a velocidade é constante, então $v = \mean{v}$, e obtemos
+\begin{equation}
+    x_f = x_i + v \Delta t.
+\end{equation}
+%
+Como podemos zerar um cronômetro e iniciar a medida de tempo a partir do valor zero no início de um experimento, podemos escolher $t_i = 0$ e $t_f = t$, logo
+\begin{equation}\label{Eq:VV0AT}
+  x_f = x_i + vt.\mathnote{Evolução temporal da posição para velocidade constante.}
+\end{equation}
+
+
+Podemos determinar a dimensão da velocidade através de
+\begin{align}
+    [\mean{v}] &= \left[\frac{\Delta x}{\Delta t}\right] \\
+    &= \frac{[\Delta x]}{[\Delta t]} \\
+    &= \frac{\rm{L}}{\rm{T}}.
+\end{align}
+%
+Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
+
+Podemos conferir uma interpretação gráfica à velocidade média. Para isso, vamos tomar a Figura~\ref{Fig:Interp_graf_vel_med}, onde marcamos dois pontos que correspondem à posição $x_i$ no instante $t_i$ e à posição $x_f$ no instante $t_f$. Ligamos esses dois pontos por uma reta.
+
 
 Traçando uma reta horizontal e uma vertical, podemos completar um triângulo retângulo (Figura~\ref{Fig:Interp_graf_vel_med_b}). Nesse triângulo, temos que o tamanho da lateral direita é igual a $x_f - x_i$, ou seja, corresponde a $\Delta x$. Já a parte inferior é igual a $t_f - t_i$, correspondendo a $\Delta t$.
 \begin{marginfigure}[-4cm]
@@ -358,7 +365,7 @@ Traçando uma reta horizontal e uma vertical, podemos completar um triângulo re
     & = \mean{v},
 \end{align}
 %
-isto é, \emph{a inclinação da reta que une os pontos correspondentes aos instantes/posições inicial e final está relacionada à velocidade média através de}:\footnote{Um cálculo preciso necessitaria que levássemos em conta a escala do gráfico, porém estamos mais interessados na interpretação qualitativa.}
+isto é, \emph{a inclinação da reta que une os pontos correspondentes aos instantes/posições inicial e final está relacionada à velocidade média através de}:\footnote[][-2cm]{Um cálculo preciso necessitaria que levássemos em conta a escala do gráfico, porém estamos mais interessados na interpretação qualitativa.}
 \begin{equation}
     \mean{v} = \tan\theta.
 \end{equation}
@@ -509,7 +516,7 @@ Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo q
 
 Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote[][2cm]{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -594,7 +601,7 @@ o que corresponde a
 \caption{A cada valor de tempo $t$ temos um valor de velocidade $v$ associado. A função $v(t)$ descreve a relação entre essas duas variáveis.}
 \end{figure}
 
-\begin{marginfigure}
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -609,7 +616,7 @@ o que corresponde a
     plot(\x,{0.5*\x + 0.5});
 
     \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.5]
-    plot(\x,{0.15*\x^2 + 0.1 + 0.1*\x*sin(10*\x)});
+    plot(\x,{0.15*\x^2 + 0.1 + 0.1*\x*sin(10*\x r)});
      
 \end{tikzpicture}
 \caption{Gráficos que exemplificam possíveis formas para os gráficos da velocidade $v(t)$. Note que não precisamos nos restringir a formas funcionais simples.\label{Fig:Graf_posicao_func_tempo}}
@@ -626,13 +633,29 @@ o que corresponde a
 
 Da mesma forma que podemos ter variações de posição em dados intervalos de tempo, implicando na definição da velocidade, podemos ter variações da velocidade. Tais variações resultam na definição da aceleração. Portanto, se temos uma variação de velocidade em um intervalo de tempo, temos que a aceleração média será dada por
 \begin{equation}
-  \mean{a} = \frac{\Delta v}{\Delta t}
+  \mean{a} = \frac{\Delta v}{\Delta t}.
 \end{equation}
+%
+Fazendo a análise dimensional temos
+\begin{align}
+	[\mean{a}] &= \left[\frac{\Delta v}{\Delta t}\right] \\
+		&= \frac{[\Delta v]}{[\Delta t]} \\
+		&= \frac{\rm{L}}{\rm{T}^2}.
+\end{align}
+%
+Logo, no Sistema Internacional, a aceleração é dada em $\rm{m}/\rm{s}^2$
+
+Assim como pudemos dar uma interpretação gráfica para a velocidade média $\mean{v}$, em um gráfico $x \times t$, podemos fazer o mesmo para a aceleração média. Observando a Figura~\ref{Fig:Interp_graf_acel_med_b}, temos que
+\begin{equation}
+	\mean{a} = \tan \theta = \frac{\Delta v}{\Delta t},
+\end{equation}
+%
+isto é, a aceleração média está relacionada à inclinação da reta que liga os pontos $(t_i, v_i)$ e $(t_f, v_f)$.
 
 \begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
- extended line/.default=3mm]]
+ extended line/.default=4mm]]
     % Draw axes: acho que o |- é pra desenhar um "canto", um L
     \draw [<->,thick, gray] (0,3) node (yaxis) [below left] {$v$}
         |- (4.3,0) node (xaxis) [below left] {$t$};
@@ -672,21 +695,21 @@ Da mesma forma que podemos ter variações de posição em dados intervalos de t
     \draw[|-|] ($ (plot-a-intersection) + (0, -0.2) $) -- node[below]{$\Delta t$} ($ (ang-reto) + (0, -0.2) $);
    
 \end{tikzpicture}
-\caption{Triângulo formado pela reta que liga os pontos e as linhas horizontal e vertical.\label{Fig:Interp_graf_vel_med_b}}
+\caption{Triângulo formado pela reta que liga os pontos e as linhas horizontal e vertical.\label{Fig:Interp_graf_acel_med_b}}
 \end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em um gráfico da velocidade como função do tempo, podemos interpretar a aceleração média como a inclinação da reta que passa pelos pontos $(t_1,v_1)$ e $t_2,v_2$. Podemos definir a aceleração instantânea como
+Podemos definir a aceleração instantânea como
 \begin{equation}
-  a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t},
+  a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t}.
 \end{equation}
 %
-que graficamente pode ser interpretada como a inclinação da reta tangente à curva $v(t)$ no ponto $(t,v)$ em que estamos interessados em calcular a aceleração.
+Novamente em analogia com a velocidade, tal limite graficamente pode ser interpretada como a inclinação da reta tangente à curva $v(t)$ no ponto $P = (t,v)$ em que estamos interessados em calcular a aceleração, Figura~\ref{Fig:Interp_graf_acel_med_lim}.
 
-\begin{marginfigure}
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -733,14 +756,14 @@ que graficamente pode ser interpretada como a inclinação da reta tangente à c
     \fill[opacity=1, gray] (plot-e-intersection) circle (2pt);
     \fill[opacity=1, gray] (plot-f-intersection) circle (2pt);
     
-    \fill[opacity=1] (plot-p-intersection) circle (2pt);
+    \fill[opacity=1] (plot-p-intersection) circle (2pt) node[below]{$P$};
    
     % tangente
     \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=1.5:3.1]
     plot(\x,{0.480140842*\x - 0.285634781});
      
 \end{tikzpicture}
-\caption{Gráfico da posição em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_vel_med_lim}}
+\caption{Gráfico da velocidade em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_acel_med_lim}}
 \end{marginfigure}
 
 
@@ -748,51 +771,332 @@ que graficamente pode ser interpretada como a inclinação da reta tangente à c
 \subsection{Aceleração como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Gráficos, em analogia ao caso da posição (parado, vel. cte., etc). Mostrar a interpretação da aceleração média e da instantânea no gráfico.
+Assim como podemos descrever a posição e a velocidade como funções do tempo, podemos fazer o mesmo para a aceleração:
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$t$};
+\draw (3.1,0.5) node[above] {$a$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$a = a(t)$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{A cada valor de tempo $t$ temos um valor de aceleração $a$ associado. A função $a(t)$ descreve a relação entre essas duas variáveis.}
+\end{figure}
+
+\noindent{}Podemos ter formas complicadas para a aceleração, porém, para que possamos trabalhar situações mais simples, nos limitaremos a movimentos com \emph{aceleração constante}. Faremos isso pois além de simplificarmos o tratamento, temos um caso importante de aceleração constante, a \emph{aceleração da gravidade} próximo à superfície da Terra.
+
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw[->] (0,-1.3) -- (0,1.5) node[below left] {$a$};
+	\draw[->] (0,0) -- (4,0) node[below left] {$t$};
+
+    % Desenhar função:
+    \draw[smooth, dashdotted, name path=plot,samples=1000,domain=0:3.5]
+    plot(\x,{sin((3 * \x) r)});
+
+	\end{tikzpicture}
+\caption{Em um sistema \emph{massa-mola}, um corpo oscila devido à força exercida pela mola e devido à sua própria inércia. Nesse sistema, a aceleração não é constante, variando de acordo com $a(t) = A\omega^2\sin(\omega t)$.\label{Fig:Exemplo_acel_complicada}}
+\end{marginfigure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sentidos dos eixos de referência e sinais das variáveis cinemáticas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{TODO  Discutir a questão do sinal das variáveis das equações, sua dependência no sentido do eixo e reforçar a arbitrariedade da escolha do sentido do eixo. Basicamente é desl positivo é no sentido positivo do eixo, negativo no sentido negativo, velocidades a mesma coisa, já que v = delta x / delta t e delta t é sempre positivo. Fazer uma figurinha com quatro possibilidades: sentido do eixo crescente para direita e esquerda, deslocamento maior e menor que zero. Aí falar da aceleração que depende de aumentar ou diminuir o módulo da velocidade para para ter sinal igual ou oposto ao da velocidade. Footnote dizendo que isso vai ficar mais fácil de entender quando dermos um caráter vetorial pra aceleração e relacionarmos com a força. De fato fazer isso quando falarmos de aceleração vetorialmente}
+
+Ao adotarmos a reta real para descrever a posição, utilizamos o \emph{sinal} para denotar o sentido: posições à direita da origem são positivas, enquanto posições à esquerda são negativas. Ao calcularmos o deslocamento $\Delta x = x_f - x_i$, temos que se o deslocamento é no sentido positivo do eixo, ele será positivo; se for no sentido negativo do eixo, então o deslocamento é negativo.
+
+Devido à própria definição da velocidade $\mean{v} = \Delta x / \Delta t$, sabendo que $\Delta t$ é sempre positivo, verificamos que se a velocidade é no sentido positivo do eixo, então ela tem valores positivos. Caso a velocidade seja no sentido negativo do eixo, então seu valor é negativo.
+
+Para a aceleração, no entanto, é mais complicado definirmos o sinal apropriado. Se temos um deslocamento para a direita, por exemplo, temos uma velocidade positiva enquanto ele ocorre. A aceleração, porém, pode ser positiva, negativa, ou nula, sem que haja mudança no sinal do deslocamento, ou da velocidade. Isso ocorre pois a aceleração descreve \emph{alterações na velocidade}. Um movimento no sentido positivo do eixo pode ocorrer de forma que a velocidade aumente, diminua, ou permaneça constante. As acelerações, nesses três casos seriam maior, menor, e igual a zero, respectivamente. Para percebermos o porque, basta verificarmos o sinal da variação da velocidade: no primeiro caso, $\Delta v > 0$, no segundo $\Delta v < 0$, no terceiro $\Delta v = 0$.
+
+No caso de termos uma velocidade no sentido negativo, temos uma situação análoga. No entanto, quando verificamos um aumento do valor numérico da velocidade, mantendo o sentido negativo, temos que $\Delta v < 0$. Isso representa o oposto da situação em que o deslocamento é no sentido positivo, onde tinhamos um valor positivo quando o valor da velocidade aumentava. Além disso, no deslocamento no sentido negativo, se o valor da velocidade diminui, então $\Delta v > 0$. Novamente, isso é o oposto do que acontece em um deslocamento no sentido positivo.
+
+Podemos agrupar essas observações acerca da aceleração nos seguintes casos:
+\begin{itemize}
+    \item Se não há variação da velocidade, então a aceleração é nula.
+    \item Se a velocidade aumenta em valor, então a aceleração tem o mesmo sinal que a velocidade.
+    \item Se a velocidade diminui em valor, então a aceleração tem o sinal oposto ao da velocidade.
+\end{itemize}
+
+Finalmente, devemos nos lembrar de que a escolha do sentido positivo do eixo é arbitrária. Podemos escolher de maneira que seja mais conveniente, o que em geral significa minimizar o número de grandezas com sinal negativo. Uma vez escolhido um sentido positivo, devemos nos ater a tal escolha, de maneira a garantir que a descrição do movimento seja consistente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interpretação da área de um gráfico $v \times t$ e $a \times t$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{TODO marginfig área gráfico $v \times t$}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3]
+    plot(\x,{2});
+    
+     \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
+      (0.5, 0) node[below]{$t_i$}
+      -- plot ({\x}, {2})
+      -- (2.5, 0) node[below]{$t_f$}
+      -- cycle;
+      
+      \draw[dashed] (0.5, 0) -- (0.5, 2);
+      \draw[dashed] (2.5, 0) -- (2.5, 2);
+      \path (0, 2) node[left]{$v_0$};
+      
+      \draw[|-|] (3.2, 0) -- node[right]{$v_0$} (3.2, 2);
+      \draw[|-|] (0.5, -0.6) -- node[below]{$\Delta t$} (2.5, -0.6);
+     
+\end{tikzpicture}
+\caption{A área hachurada está relacionada ao deslocamento em um movimento com velocidade $v_0$ no intervalo de tempo destacado.\label{Fig:Graf_area_graf_v}}
+\end{marginfigure}
 
 Se temos que um objeto se move com velocidade constante, a distância percorrida por ele será
 \begin{equation}
   \Delta x = v \Delta t.
 \end{equation}
 %
-Ao fazer um gráfico de $v\times t$, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $x$ e os eixos verticais que passam por $t_1$ e $t_2$. Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_1$ e $t_2$ simplesmente calculando a área entre a curva, o eixo $x$ e os eixos verticais passando por $t_1$ e $t_2$. Devemos, no entanto, tomar o cuidado de subtrair as áreas das regiões que estejam abaixo do eixo $x$.
+Ao fazer um gráfico de $v\times t$, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $t$ e os eixos verticais que passam por $t_1$ e $t_2$. Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_1$ e $t_2$ simplesmente calculando a área entre a curva, o eixo $x$ e os eixos verticais passando por $t_1$ e $t_2$. Se a curva $v(t)$ está abaixo do eixo $t$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo.
 
-\comment{TODO Gráfico $v(t)$ variável com fatias aproximando a área abaixo da curva}
-O raciocínio que justifica a ideia acima é que podemos considerar a velocidade como constante dentro de um determinado intervalo $\Delta t$ e, a partir dos valores de $v$ e $\Delta t$, calcular qual a distância percorrida. Somando a distância para todos os intervalos, podemos determinar a distância total percorrida -- pelo menos de forma aproximada --. Se a curva $v(t)$ está abaixo do eixo $x$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo. Se tomarmos intervalos $\Delta t$ sucessivamente menores, eventualmente conseguiremos calcular a área com grande precisão e verificaremos que nesse caso temos exatamente a área ``abaixo'' da curva.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:2.8]
+    plot(\x,{1.5 - 3.4*\x + 8.3 * \x*\x - 5.9 * \x*\x*\x + 1.2 * \x*\x*\x*\x});
 
-Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a aceleração for constante, a área entre a curva, o eixo $x$, e os eixos verticais passando por $t_1$ e $t_2$ será igual à variação da velocidade:
-\begin{equation}
-  \Delta v = a \Delta t.
-\end{equation}
-%
-Desenvolvendo um raciocínio análogo ao caso anterior para o cálculo da área entre a curva $a(t)$ e o eixo $x$, concluímos que a variação da velocidade para casos em que a aceleração não é constante pode ser calculada através da área ``abaixo'' da curva. Devemos, novamente, subtrair a área das regiões abaixo do eixo $x$.
+    \coordinate (a) at (0.25,0);
+    \coordinate (b) at (2.75,0);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \draw[dashed, name intersections={of=froma and plota}](a) node[below]{$t_i$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromb and plota}](b) node[below]{$t_f$} -- (intersection-1);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Movimentos com aceleração constante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO Dedução das equações
+    \fill [pattern=north west lines, pattern color=gray, domain=0.25:2.75, variable=\x]
+     	  (0.25, 0)
+    	  -- plot ({\x}, {1.5 - 3.4*\x + 8.3 * \x*\x - 5.9 * \x*\x*\x + 1.2 * \x*\x*\x*\x})
+          -- (2.75, 0)
+          -- cycle;
+\end{tikzpicture}
+\caption{Podemos utilizar a área para determinar o deslocamento em um caso mais complexo, onde a velocidade varia arbitrariamente.\label{Fig:Graf_area_graf_v_complicado}}
+\end{marginfigure}
 
-Apesar de ser perfeitamente aceitável tratar uma situação em que aceleração varia, isso não é uma tarefa muito fácil. Por isso, vamos tratar com mais detalhes o caso da aceleração constante. Um exemplo de movimento com aceleração constante é o caso de movimentos submetidos à aceleração da gravidade, que veremos neste capítulo para movimentos exclusivamente verticais, mas que serão vistos em duas dimensões no Capítulo ???. Antes vamos deduzir as fórmulas para aceleração constante
+Para determinar o valor numérico do deslocamento através da área, podemos dividir a região hachurada em várias barras de uma largura arbitrária $\Delta t$ e altura dada pela própria curva $v(t)$. Somando os valores obtidos para cada uma das barras, podemos determinar -- pelo menos de forma aproximada -- o deslocamento total. Se tomarmos intervalos $\Delta t$ sucessivamente menores, eventualmente conseguiremos calcular a área com grande precisão e verificaremos que nesse caso temos exatamente a área ``abaixo'' da curva.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:2.8]
+    plot(\x,{1.5 - 3.4*\x + 8.3 * \x*\x - 5.9 * \x*\x*\x + 1.2 * \x*\x*\x*\x});
+
+	\coordinate (a) at (0.25,0);
+    \coordinate (b) at (0.5,0);
+    \coordinate (c) at (0.75,0);
+    \coordinate (d) at (1,0);
+    \coordinate (e) at (1.25,0);
+    \coordinate (f) at (1.5,0);
+    \coordinate (g) at (1.75,0);
+    \coordinate (h) at (2,0);
+    \coordinate (i) at (2.25,0);
+    \coordinate (j) at (2.5,0);
+    \coordinate (k) at (2.75,0);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \path[name path=fromc](c)--+(0,3);
+    \path[name path=fromd](d)--+(0,3);
+    \path[name path=frome](e)--+(0,3);
+    \path[name path=fromf](f)--+(0,3);
+    \path[name path=fromg](g)--+(0,3);
+    \path[name path=fromh](h)--+(0,-0.6);
+    \path[name path=fromi](i)--+(0,-0.6);
+    \path[name path=fromj](j)--+(0,-0.6);
+    \path[name path=fromk](k)--+(0,3);
+    \path[dashed, name intersections={of=froma and plota}](a) -- (intersection-1) coordinate (int-a);
+	\path[dashed, name intersections={of=fromb and plota}](b) -- (intersection-1) coordinate (int-b);
+	\path[dashed, name intersections={of=fromc and plota}](c) -- (intersection-1) coordinate (int-c);
+	\path[dashed, name intersections={of=fromd and plota}](d) -- (intersection-1) coordinate (int-d);
+	\path[dashed, name intersections={of=frome and plota}](e) -- (intersection-1) coordinate (int-e);
+	\path[dashed, name intersections={of=fromf and plota}](f) -- (intersection-1) coordinate (int-f);
+	\path[dashed, name intersections={of=fromg and plota}](g) -- (intersection-1) coordinate (int-g);
+	\path[dashed, name intersections={of=fromh and plota}](h) -- (intersection-1) coordinate (int-h);
+	\path[dashed, name intersections={of=fromi and plota}](i) -- (intersection-1) coordinate (int-i);
+	\path[dashed, name intersections={of=fromj and plota}](j) -- (intersection-1) coordinate (int-j);
+	\path[dashed, name intersections={of=fromk and plota}](k) -- (intersection-1) coordinate (int-k);
+
+	\draw[very thin, pattern=north west lines, pattern color=gray] (b) rectangle (int-a);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (c) rectangle (int-b);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (d) rectangle (int-c);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (e) rectangle (int-d);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (f) rectangle (int-e);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (g) rectangle (int-f);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (h) rectangle (int-g);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (i) rectangle (int-h);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (j) rectangle (int-i);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (k) rectangle (int-j);
+
+	\draw[dashed] (a) node[below]{$t_i$} -- (int-a);
+	\draw[dashed] (k) node[below right]{$t_f$} -- (int-k);
+\end{tikzpicture}
+\caption{Para determinar o valor da área, basta dividirmos a região em barras com uma largura $\Delta t$ arbitrária e uma altura $v(t)$.\label{Fig:Graf_area_graf_v_complicado_barras}}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:2.8]
+    plot(\x,{1.5 - 3.4*\x + 8.3 * \x*\x - 5.9 * \x*\x*\x + 1.2 * \x*\x*\x*\x});
+
+	\coordinate (a) at (0.25,0);
+    \coordinate (b) at (0.35,0);
+    \coordinate (c) at (0.45,0);
+    \coordinate (d) at (0.55,0);
+    \coordinate (e) at (0.65,0);
+    \coordinate (f) at (0.75,0);
+    \coordinate (g) at (0.85,0);
+    \coordinate (h) at (0.95,0);
+    \coordinate (i) at (1.05,0);
+    \coordinate (j) at (1.15,0);
+    \coordinate (k) at (1.25,0);
+    \coordinate (l) at (1.35,0);
+    \coordinate (m) at (1.45,0);
+    \coordinate (n) at (1.55,0);
+    \coordinate (o) at (1.65,0);
+    \coordinate (p) at (1.75,0);
+    \coordinate (q) at (1.85,0);
+    \coordinate (r) at (1.95,0);
+    \coordinate (s) at (2.05,0);
+    \coordinate (t) at (2.15,0);
+    \coordinate (u) at (2.25,0);
+    \coordinate (v) at (2.35,0);
+    \coordinate (x) at (2.45,0);
+    \coordinate (w) at (2.55,0);
+    \coordinate (y) at (2.65,0);
+    \coordinate (z) at (2.75,0);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \path[name path=fromc](c)--+(0,3);
+    \path[name path=fromd](d)--+(0,3);
+    \path[name path=frome](e)--+(0,3);
+    \path[name path=fromf](f)--+(0,3);
+    \path[name path=fromg](g)--+(0,3);
+    \path[name path=fromh](h)--+(0,3);
+    \path[name path=fromi](i)--+(0,3);
+    \path[name path=fromj](j)--+(0,3);
+    \path[name path=fromk](k)--+(0,3);
+    \path[name path=froml](l)--+(0,3);
+    \path[name path=fromm](m)--+(0,3);
+    \path[name path=fromn](n)--+(0,3);
+    \path[name path=fromo](o)--+(0,3);
+    \path[name path=fromp](p)--+(0,3);
+    \path[name path=fromq](q)--+(0,3);
+    \path[name path=fromr](r)--+(0,3);
+    \path[name path=froms](s)--+(0,-0.6);
+    \path[name path=fromt](t)--+(0,-0.6);
+    \path[name path=fromu](u)--+(0,-0.6);
+    \path[name path=fromv](v)--+(0,-0.7);
+    \path[name path=fromx](x)--+(0,-0.6);
+    \path[name path=fromw](w)--+(0,-0.6);
+    \path[name path=fromy](y)--+(0,3);
+    \path[name path=fromz](z)--+(0,3);
+    \path[dashed, name intersections={of=froma and plota}](a) -- (intersection-1) coordinate (int-a);
+	\path[dashed, name intersections={of=fromb and plota}](b) -- (intersection-1) coordinate (int-b);
+	\path[dashed, name intersections={of=fromc and plota}](c) -- (intersection-1) coordinate (int-c);
+	\path[dashed, name intersections={of=fromd and plota}](d) -- (intersection-1) coordinate (int-d);
+	\path[dashed, name intersections={of=frome and plota}](e) -- (intersection-1) coordinate (int-e);
+	\path[dashed, name intersections={of=fromf and plota}](f) -- (intersection-1) coordinate (int-f);
+	\path[dashed, name intersections={of=fromg and plota}](g) -- (intersection-1) coordinate (int-g);
+	\path[dashed, name intersections={of=fromh and plota}](h) -- (intersection-1) coordinate (int-h);
+	\path[dashed, name intersections={of=fromi and plota}](i) -- (intersection-1) coordinate (int-i);
+	\path[dashed, name intersections={of=fromj and plota}](j) -- (intersection-1) coordinate (int-j);
+	\path[dashed, name intersections={of=fromk and plota}](k) -- (intersection-1) coordinate (int-k);
+	\path[dashed, name intersections={of=froml and plota}](l) -- (intersection-1) coordinate (int-l);
+	\path[dashed, name intersections={of=fromm and plota}](m) -- (intersection-1) coordinate (int-m);
+	\path[dashed, name intersections={of=fromn and plota}](n) -- (intersection-1) coordinate (int-n);
+	\path[dashed, name intersections={of=fromo and plota}](o) -- (intersection-1) coordinate (int-o);
+	\path[dashed, name intersections={of=fromp and plota}](p) -- (intersection-1) coordinate (int-p);
+	\path[dashed, name intersections={of=fromq and plota}](q) -- (intersection-1) coordinate (int-q);
+	\path[dashed, name intersections={of=fromr and plota}](r) -- (intersection-1) coordinate (int-r);
+	\path[dashed, name intersections={of=froms and plota}](s) -- (intersection-1) coordinate (int-s);
+	\path[dashed, name intersections={of=fromt and plota}](t) -- (intersection-1) coordinate (int-t);
+	\path[dashed, name intersections={of=fromu and plota}](u) -- (intersection-1) coordinate (int-u);
+	\path[dashed, name intersections={of=fromv and plota}](v) -- (intersection-1) coordinate (int-v);
+	\path[dashed, name intersections={of=fromx and plota}](x) -- (intersection-1) coordinate (int-x);
+	\path[dashed, name intersections={of=fromw and plota}](w) -- (intersection-1) coordinate (int-w);
+	\path[dashed, name intersections={of=fromy and plota}](y) -- (intersection-1) coordinate (int-y);
+	\path[dashed, name intersections={of=fromz and plota}](z) -- (intersection-1) coordinate (int-z);
+
+	\draw[very thin, pattern=north west lines, pattern color=gray] (b) rectangle (int-a);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (c) rectangle (int-b);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (d) rectangle (int-c);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (e) rectangle (int-d);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (f) rectangle (int-e);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (g) rectangle (int-f);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (h) rectangle (int-g);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (i) rectangle (int-h);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (j) rectangle (int-i);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (k) rectangle (int-j);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (l) rectangle (int-k);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (m) rectangle (int-l);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (n) rectangle (int-m);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (o) rectangle (int-n);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (p) rectangle (int-o);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (q) rectangle (int-p);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (r) rectangle (int-q);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (s) rectangle (int-r);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (t) rectangle (int-s);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (u) rectangle (int-t);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (v) rectangle (int-u);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (x) rectangle (int-v);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (w) rectangle (int-x);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (y) rectangle (int-w);
+	\draw[very thin, pattern=north west lines, pattern color=gray] (z) rectangle (int-y);
+
+	\draw[dashed] (a) node[below]{$t_i$} -- (int-a);
+	\draw[dashed] (z) node[below right]{$t_f$} -- (int-z);
+\end{tikzpicture}
+\caption{Podemos melhorar a aproximação diminuindo a largura das barras, obtendo um erro tão pequeno quanto necessário.\label{Fig:Graf_area_graf_v_complicado_barras_estreito}}
+\end{marginfigure}
+
+Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a aceleração for constante, a área entre a curva, o eixo $x$, e os eixos verticais passando por $t_1$ e $t_2$ será igual à variação da velocidade $\Delta v = a \Delta t$. Desenvolvendo um raciocínio análogo ao caso anterior para o cálculo da área entre a curva $a(t)$ e o eixo $x$, concluímos que a variação da velocidade para casos em que a aceleração não é constante pode ser calculada através da área ``abaixo'' da curva. Devemos, novamente, subtrair a área das regiões abaixo do eixo $t$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equações cinemáticas para movimentos com aceleração constante}
+\section{Equações cinemáticas para movimentos com aceleração constante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Apesar de ser perfeitamente aceitável tratar uma situação em que aceleração varia, isso não é uma tarefa muito fácil. Por isso, vamos tratar com mais detalhes o caso da aceleração constante. Um exemplo de movimento com aceleração constante é o caso de movimentos submetidos à aceleração da gravidade, que veremos neste capítulo para movimentos exclusivamente verticais, mas que serão vistos em duas dimensões no Capítulo~\ref{Chap:MovimentoBidimensional}. Antes vamos deduzir as fórmulas para aceleração constante
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Velocidade}
+\subsection{Velocidade}
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Passar isso pra seção onde defino velocidade média, tratar aceleração constante como um subcaso da média. Fazer o mesmo para o caso da evolução da posição para o caso de velocidade constante.}
 Se a aceleração é constante, temos que $\mean{a} = a$ e, portanto,
 \begin{equation}
   a = \frac{\Delta v}{\Delta t}.
@@ -809,16 +1113,65 @@ Podemos escrever então
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Posição}
+\subsection{Posição}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{TODO marginfig gráfico $v = v_0 + at$.}
-Podemos calcular uma expressão para a evolução temporal da posição se considerarmos a Figura ???. Se a aceleração é constante, vimos que a velocidade deve ser descrita por uma reta em um gráfico $v\times t$. Sabemos ainda que o deslocamento é dado pela área abaixo da curva $v(t)$. Logo, temos que
+Podemos calcular uma expressão para a evolução temporal da posição se considerarmos a Figura~\ref{Fig:Graf_area_acel_const}. Se a aceleração é constante, vimos que a velocidade deve ser descrita por uma reta em um gráfico $v\times t$. Sabemos ainda que o deslocamento é dado pela área abaixo da curva $v(t)$. Logo, temos que
+\begin{align}
+	\Delta x &= A \\
+			 &= A_1 + A_2.
+\end{align}
+%
+A área $A_1$ é dada por
 \begin{equation}
-  \Delta x = v_i\Delta t + \frac{(v_f - v_i)\Delta t}{2},
+	A_1 = v_i \Delta t,
 \end{equation}
 %
-onde o primeiro termo à direita é área do quadrado e o segundo a área do triângulo. Utilizando a equação $v_f = v_i + at$, e fazendo ainda $t_i = 0$ e $t_f = t$, temos
+enquanto $A_2$ é dada por
+\begin{equation}
+	A_2 = \frac{(v_f - v_i)\Delta t}{2}.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0:2.8]
+    plot(\x,{0.7 + 0.5 * \x});
+
+    \coordinate (a) at (0.5,0);
+    \coordinate (b) at (2.5,0);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+
+ 	\draw[dashed, name intersections={of=froma and plot}](a) node[below]{$t_i$} --(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1) node[left]{$v_i$};
+ 	\draw[dashed, name intersections={of=fromb and plot}](b) node[below]{$t_f$} --(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1) node[left]{$v_f$};
+
+    \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
+     	  (0.5, 0)
+    	  -- plot ({\x}, {0.7 + 0.5 * \x})
+          -- (2.5, 0)
+          -- cycle;
+
+	\draw[dashed](plot-a-intersection) -- +(2,0);
+
+	\node[circle, fill=white, scale=0.7] (anode) at (1.5,0.5) {$A_1$};
+	\node[circle, fill=white, scale=0.7] (anode) at (2,1.3) {$A_2$};
+
+\end{tikzpicture}
+\caption{Para o caso de aceleração constante, podemos calcular a área a dividindo em um retângulo e um triângulo.\label{Fig:Graf_area_acel_const}}
+\end{marginfigure}
+
+\noindent{}Logo,
+\begin{equation}
+  \Delta x = v_i\Delta t + \frac{(v_f - v_i)\Delta t}{2}.
+\end{equation}
+%
+Utilizando a equação $v_f = v_i + at$, e fazendo ainda $t_i = 0$ e $t_f = t$, temos
 \begin{equation}
   \Delta x = v_i t + \frac{(v_i + at - v_i) t}{2}
 \end{equation}
@@ -864,7 +1217,7 @@ Temos então
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Equação de Torricelli}
+\subsection{Equação de Torricelli}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A partir da Equação~\ref{Eq:VV0AT}, podemos isolar o tempo e obter
@@ -889,32 +1242,31 @@ Eliminando o primeiro e o quarto termos à direita e somando os restantes, obtem
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Variáveis ausentes em cada equação}
+\subsection{Variáveis ausentes em cada equação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{margintable}[2cm]
+As cinco equações obtidas para a cinemática com aceleração constante envolvem as variáveis $x_i$, $x_f$, $v_i$, $v_f$, $a$ e $t$. Porém cada uma das equações deixa algum desses parâmetros de fora. Isso pode ser usado para a solução de problemas quando tal informação não é conhecida. A Tabela~\ref{Tab:EqsCinematicasVarAusentes} apresenta as equações e destaca a variável ausente em cada uma delas.
+\begin{table}[!h]
 \centering
 \begin{tabular}{cc}
 \toprule
 Equação & Variável ausente\\
 \midrule
 $v_f = v_i + at$ & $\Delta x$ \\
-$x_f = x_i + v_i t +\frac{at^2}{2}$ & $v_f$ \\
-$x_f = x_i + v_f t - \frac{at^2}{2}$ & $v_i$ \\
-$x_f = x_i + \frac{v_i + v_f}{2} t$ & a \\
+$x_f = x_i + v_i t + at^2 / 2$ & $v_f$ \\
+$x_f = x_i + v_f t - at^2 / 2$ & $v_i$ \\
+$x_f = x_i + (v_i + v_f) t / 2$ & $a$ \\
 $v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
 \bottomrule
 \end{tabular}
 \caption{Relação das equações para a cinemática unidimensional e a variável ausente em cada uma delas. \label{Tab:EqsCinematicasVarAusentes}}
-\end{margintable}
-
-As cinco equações obtidas para a cinemática com aceleração constante envolvem as variáveis $x_i$, $x_f$, $v_i$, $v_f$, $a$ e $t$. Porém cada uma das equações deixa algum desses parâmetros de fora. Isso pode ser usado para a solução de problemas quando tal informação não é conhecida. A Tabela~\ref{Tab:EqsCinematicasVarAusentes} apresenta as equações e destaca a variável ausente.
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração da gravidade}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Quando um objeto cai livremente próximo da superfície da terra, ele sofre uma aceleração para baixo com módulo \np[m/s^2]{9,8}\footnote{Esse valor não é o mesmo em todos os pontos da superfície da Terra, porém vamos utilizar \np[m/s^2]{9,8} como um valor aproximado para qualquer ponto.}. Essa aceleração é comum a todos os objetos, independentemente de suas massas, caso a \emph{força de arrasto}\footnote{Esta força é a resistência ao deslocamento em um meio fluido, como o ar, e será discutida em detalhes no Capítulo ???.} seja desprezível. A existência dessa aceleração se deve à força fundamental da natureza denominada \emph{força gravitacional}, responsável pela atração entre corpos como um objeto qualquer e a Terra, a Terra e a Lua, ou o Sol e a Terra. Veremos adiante que essa força tem uma dependência direta na massa dos corpos, o que resulta na independência da aceleração gravitacional em relação à massa do corpo que é atraído pela Terra.
+Quando um objeto cai livremente próximo da superfície da Terra\footnote{Esse valor não é o mesmo em todos os pontos da superfície da Terra, porém vamos utilizar \np[m/s^2]{9,8} como um valor aproximado para qualquer ponto.}, ele sofre uma aceleração para baixo com módulo \np[m/s^2]{9,8}. Essa aceleração é comum a todos os objetos, independentemente de suas massas, caso a \emph{força de arrasto}\footnote{Esta força é a resistência ao deslocamento em um meio fluido, como o ar, e será discutida em detalhes no Capítulo~\ref{Chap:Dinâmica}.} seja desprezível. A existência dessa aceleração se deve à força fundamental da natureza denominada \emph{força gravitacional}, responsável pela atração entre corpos como um objeto qualquer e a Terra, a Terra e a Lua, ou o Sol e a Terra. Veremos adiante que essa força tem uma dependência direta na massa dos corpos, o que resulta na independência da aceleração gravitacional em relação à massa do corpo que é atraído pela Terra.
 
 A aceleração da gravidade próximo da superfície da Terra é a principal justificativa para o estudo de movimentos com aceleração constante. Em geral, não há razões para supor que um objeto qualquer (um veículo, por exemplo) esteja sujeito a uma aceleração constante, exceto no caso em que ele esteja sujeito à aceleração gravitacional. Além do módulo da aceleração, devemos destacar sua direção -- vertical -- e seu sentido -- para baixo --. Vamos nos ater, por enquanto, ao caso de movimentos de queda livre e de lançamentos verticais, isto é, movimentos que ocorrem somente na vertical.
 
