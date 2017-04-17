@@ -13,6 +13,7 @@
 {\it
 Intro ...
 }
+\comment{Fazer intro. Colocar exercícios de verificação onde for possível.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vetores e escalares}
@@ -25,10 +26,41 @@ Grandezas escalares são aquelas que não possuem direção e sentido. Podemos c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representação geométrica de um vetor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{TODO  Usar o deslocamento entre dois pontos em um plano pra explicar. Enfatizar direção e sentido, e o módulo como propriedades}
 
-\comment{TODO Sidefig da situação abaixo}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-60]
+
+    \draw[->, thick] (0,0) node[below left]{$A$} -- (0,2) node[above right]{$B$};
+    
+    \fill[opacity=1] (0,0) circle (2pt);
+    \fill[opacity=1] (0,2) circle (2pt);
+     
+    \draw [name path=curve 1, dashdotted] (0,0) .. controls (2,1) and (-2,1) .. (0,2);
+
+\end{tikzpicture}
+\caption{Ilustração de um deslocamento entre os pontos $A$ e $B$. Por mais que o caminho percorrido seja distinto da ``linha que liga os dois pontos'', o deslocamento é sempre ao longo de tal reta.}
+\end{marginfigure}
+
 O exemplo mais simples de vetor é o deslocamento. Se ocorre um deslocamento em um plano entre os pontos $A$ e $B$, o vetor deslocamento é simplesmente (geometricamente) uma ``flecha'' que liga os dois pontos, partindo de $A$ e apontando para $B$. Veja que \emph{não importa o caminho percorrido}, o vetor liga os pontos em linha reta. Nessa definição estão englobadas claramente duas das três propriedades vetoriais: direção (reta que liga $A$ a $B$) e sentido (de $A$ para $B$). 
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-60]
+
+    \draw[->, thick, gray] (0,0) node[below left]{$A$} -- (0,2) node[above right]{$B$};
+    
+    \fill[opacity=1, gray] (0,0) circle (2pt);
+    \fill[opacity=1, gray] (0,2) circle (2pt);
+     
+    \draw [name path=curve 1, dashdotted, gray] (0,0) .. controls (2,1) and (-2,1) .. (0,2);
+    
+    \draw[dashed] (0,-1) -- (0, 3);
+    \draw[|-|] (0.3,0) -- node[right]{$d$} (0.3,2);
+
+\end{tikzpicture}
+\caption{Destacamos nesta figura a direção do deslocamento através de uma linha reta pontilhada. Além disso, mostramos o valor do deslocamento, que é o próprio valor de distância.}
+\end{marginfigure}
 
 O módulo do vetor está associado ao seu comprimento e, para o deslocamento entre $A$ e $B$, é a própria distância em linha reta entre os dois pontos. No caso de uma outra grandeza, como a velocidade, também associamos o módulo ao comprimento do vetor, porém não temos uma relação direta entre seu tamanho geométrico e o módulo: podemos adotar que um vetor com \np[cm]{1,0} denote uma velocidade de \np[m/s]{1,0} ou \np[m/s]{20,0}. Mesmo para o deslocamento, ao fazermos um desenho, adotamos esse tipo de fator de escala: \np[cm]{1,0} pode denotar \np[m]{1,0}, ou \np[km]{1,0}, por exemplo. Apesar disso, ao representarmos vários vetores da mesma grandeza, devemos utilizar o mesmo fator de proporcionalidade.
 
@@ -40,15 +72,64 @@ O módulo do vetor está associado ao seu comprimento e, para o deslocamento ent
 \subsection{Soma}
 %%%%%%%%%%%%%%%%%
 
-\comment{TODO sidefigs da situação abaixo}
-Dados dois vetores $\vec{a}$ e $\vec{b}$\footnote{Matematicamente, um vetor é denotado por uma pequena flecha sobre um símbolo, ou por um símbolo em negrito.}, a soma $\vec{a}+\vec{b}$ pode ser ``calculada'' geometricamente da seguinte forma: tomamos o segundo vetor e efetuamos uma translação deste vetor de forma que sua origem coincida com o final do primeiro vetor; traçamos um vetor da origem do primeiro vetor até o final do segundo. 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-60]
+
+    \fill[opacity=1, gray] (0,0) circle (2pt);
+    \fill[opacity=1, gray] (0,2) circle (2pt);
+    \fill[opacity=1, gray] (1.5,3.5) circle (2pt);
+
+    \draw[->, thick] (0,0) node[below left]{$A$} -- node[above]{$\vec{a}$}(0,2) node[above right]{$B$};
+    \draw[->, thick] (0, 2) -- node[above]{$\vec{b}$} (1.5,3.5) node[right]{$C$};
+    \draw[->, thick] (0,0) -- node[below]{$\vec{c}$} (1.5,3.5);
+
+\end{tikzpicture}
+\caption{Soma de dois vetores.}
+\end{marginfigure}
+
+Dados dois vetores\footnote{Matematicamente, um vetor é denotado por uma pequena flecha sobre um símbolo, ou por um símbolo em negrito.} $\vec{a}$ e $\vec{b}$, a soma $\vec{a}+\vec{b}$ pode ser ``calculada'' geometricamente da seguinte forma: tomamos o segundo vetor e efetuamos uma translação deste vetor de forma que sua origem coincida com o final do primeiro vetor; traçamos um vetor da origem do primeiro vetor até o final do segundo. 
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-60]
+
+    \draw[->, thick, gray] (0,0) -- node[above]{$\vec{a}$} (0,2);
+    \draw[->, thick, gray] (0, 2) -- node[above]{$\vec{b}$} (1.5,3.5);
+    \draw[->, thick] (0,0) -- node[below]{$\vec{c}$} (1.5,3.5);
+    \draw[->, thick] (1.5,1.5) -- (1.5,3.5);
+    \draw[->, thick] (0,0) -- (1.5, 1.5);
+
+\end{tikzpicture}
+\caption{Soma de dois vetores.}
+\end{marginfigure}
 
 Se fizermos o contrário, isto é, transladarmos o primeiro vetor até que sua origem coincida com o final do segundo e traçarmos um vetor do início do segundo até o final do primeiro, veremos que o resultado obtido será o mesmo. Logo, concluímos que a soma é comutativa:
 \begin{equation}
   \vec{a} + \vec{b} = \vec{b} + \vec{a}.
 \end{equation}
 
-% TODO sidefig da situação abaixo
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.5]
+
+    \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,1);
+    \draw[->] (2, 1) -- node[right]{$\vec{b}$} (2,2);
+    \draw[->] (2,2) -- node[above]{$\vec{c}$} (1,3);
+    
+    \draw[->, thick] (0,0) -- node[left]{$\vec{d}$}(1,3);
+    
+    \draw[->] (0,0) -- node[below, sloped]{$\vec{a}+\vec{b}$}(2, 2);
+    \draw[->] (2,1) -- node[below, sloped]{$\vec{b}+\vec{c}$}(1, 3);
+    
+    \draw[->, dotted] (2,1) -- (1,2);
+    \draw[->, dotted] (1,2) -- (1,3);
+    \draw[->] (0,0) -- node[below right, sloped]{$\vec{a} + \vec{c}$} (1,2);
+
+\end{tikzpicture}
+\caption{Associatividade: note que $\vec{d} = (\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c}) = (\vec{a} + \vec{c}) + \vec{b}$.}
+\end{marginfigure}
+
 Graficamente podemos ver também que a soma de vetores é associativa:
 \begin{equation}
   (\vec{a}+\vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c}).
@@ -58,8 +139,38 @@ Graficamente podemos ver também que a soma de vetores é associativa:
 \subsection{Subtração}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\comment{TODO sidefig de $\vec{b}$ e $-\vec{b}$, subtração de vetores}
-A subtração de dois vetores é igual a soma do primeiro com menos o segundo, onde ``menos o segundo'' significa que esse vetor será tomado na direção contrária e somado ao primeiro. Graficamente podemos interpretar $\vec{a} - \vec{b}$ como o vetor que liga o final do segundo vetor ao final do primeiro. Note que $\vec{a} - \vec{b} = -(\vec{b}-\vec{a}$. \comment{TODO sidefig}
+A subtração de dois vetores é igual a soma do primeiro com menos o segundo, onde ``menos o segundo'' significa que esse vetor será tomado na direção contrária e somado ao primeiro. Graficamente podemos interpretar $\vec{a} - \vec{b}$ como o vetor que liga o final do segundo vetor ao final do primeiro. Note que $\vec{a} - \vec{b} = -(\vec{b}-\vec{a})$.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,0);
+    \draw[->,dashed] (2,0) -- node[below right]{$\vec{b}$} +(1,1);
+    \draw[->] (2,0) -- node[below right]{$-\vec{b}$} +(-1,-1);
+    
+    \draw[->] (0,0) -- node[below,sloped]{$\vec{a} - \vec{b}$} (1,-1);
+
+\end{tikzpicture}
+\caption{Subtração: tomamos o vetor $\vec{b}$ e determinamos o vetor $\vec{-b}$ e então realizamos a soma $\vec{a} + (-\vec{b})$.}
+\end{marginfigure}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,0);
+    \draw[->,dashed] (2,0) -- node[below right]{$\vec{b}$} +(1,1);
+    \draw[->] (2,0) -- node[below right]{$-\vec{b}$} +(-1,-1);
+    
+    \draw[->] (0,0) -- node[below,sloped]{$\vec{a} - \vec{b}$} (1,-1);
+    
+    \draw[->, dashdotted] (0,0) -- node[above left]{$\vec{b}$} +(1,1);
+    \draw[->, dashdotted] (1,1) -- node[above, sloped]{$\vec{a} - \vec{b}$} +(1,-1);
+
+\end{tikzpicture}
+\caption{Subtração: podemos calcular a subtração ligando as extremidades dos vetores, quando eles partem de uma mesma origem.\label{Fig:Macete_subtracao}}
+\end{marginfigure}
+%
 Podemos notar da subtração que se $\vec{a} = \vec{b}$ temos
 \begin{align}
   \vec{a} - \vec{b} & = \vec{a} - \vec{a} \\
@@ -67,7 +178,9 @@ Podemos notar da subtração que se $\vec{a} = \vec{b}$ temos
 \end{align}
 %
 onde $\vec{0}$ é denominado vetor nulo e é geralmente representado simplesmente por 0 (zero).
-Além disso, como definimos a subtração em termos da soma a propriedade de associação também é válida para o caso da subtração.
+Além disso, como definimos a subtração em termos da soma, a propriedade de associação também é válida para o caso da subtração.
+
+Uma observação que nos permite calcular a diferença $\vec{a} - \vec{b}$ entre dois vetores é ilustrada na Figura~\ref{Fig:Macete_subtracao}: podemos transladar o vetor $\vec{b}$ até que seu início coincida com o início do vetor $\vec{a}$ e então desenhamos uma seta iniciando na ponta do vetor que aparece após o sinal de menos e terminando na ponta do vetor que aparece antes do sinal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Outras propriedades}
@@ -97,31 +210,43 @@ onde $\alpha$ é um escalar. O módulo do vetor $\vec{c}$ será dado por $\mod{\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sistemas de referência (bases)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{ou Bases (sistemas de referência)}
+\comment{Seria melhor: bases, bases ortogonais, versores, sistema simplificado de referência (componentes, notação módulo ângulo)}
 
 Realizar operações com vetores geometricamente é possível, porém trabalhoso. Podemos utilizar as propriedades de soma de vetores e de multiplicação por um escalar para definir um sistema de coordenadas em relação a qual o vetores podem ser descritos em termos de componentes.
 
-\comment{TODO inlinefig da situação abaixo. Adaptar pra fazer parte do texto}
 Se tomarmos dois vetores não colineares em um plano, por exemplo, podemos escrever qualquer outro vetor em termos desses dois através de
 \begin{equation}
   \vec{v} = \alpha_1 \vec{e}_1 + \alpha_2 \vec{e}_2,
 \end{equation}
 %
-bastando determinar as constantes $\alpha_1$ e $\alpha_2$. Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetorial}. Podemos fazer isso calculando a \emph{projeção} do vetor $\vec{v}$ nos eixos determinados pelos vetores $\vec{e}_1$ e $\vec{e}_2$: 
-
-\comment{TODO inlinefig}
+bastando determinar as constantes $\alpha_1$ e $\alpha_2$. Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetorial}. Podemos fazer isso calculando a \emph{projeção} do vetor $\vec{v}$ nos eixos determinados pelos vetores $\vec{e}_1$ e $\vec{e}_2$. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Componentes vetoriais}\label{Sec:ComponentesVetoriais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\noindent{}Apesar de podermos utilizar dois vetores quaisquer -- desde que eles não sejam colineares --, é mais simples descrever os vetores em termos de uma base ortogonal, isto é, uma base em que o ângulo entre os vetores é de \degree{90}.\footnote{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt.} Nesse caso, temos que um vetor pode ser decomposto em termos de suas \emph{componentes} em duas direções perpendiculares uma à outra. Devido ao fato de que os eixos são perpendiculares, temos que as projeções nas direções dos eixos (isto é, as componentes) são independentes: podemos ter variações de uma das componentes sem alterar a outra. Isto resulta em uma independência no tratamento de cada eixo: Sempre que tivermos uma equação envolvendo vetores, podemos separá-la em três eixos distintos que podem ser tratados separadamente. 
+\noindent{}Apesar de podermos utilizar dois vetores quaisquer -- desde que eles não sejam colineares --, é mais simples descrever os vetores em termos de uma base ortogonal, isto é, uma base em que o ângulo entre os vetores é de \degree{90}.\footnote{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt.} Nesse caso, temos que um vetor pode ser decomposto em termos de suas \emph{componentes} em duas direções perpendiculares uma à outra. Devido ao fato de que os eixos são perpendiculares, temos que as projeções nas direções dos eixos (isto é, as componentes) são independentes, ou seja, podemos ter variações de uma das componentes sem alterar a outra. Isto resulta em uma independência no tratamento de cada eixo: \emph{sempre que tivermos uma equação envolvendo vetores, podemos separá-la em três eixos ortogonais distintos e que podem ser tratados separadamente}. 
 
-Podemos calcular as componentes através de funções trigonométricas, como mostra a figura abaixo:
+Podemos calcular as componentes através de funções trigonométricas, como mostra a Figura~\ref{Fig:sis_ref_orto}, onde
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
 
-\comment{TODO Vetor decomposto nos eixos $x$ e $y$}
+    \draw[->] (0,0) -- (3,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
 
-\noindent{}onde
+    \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (2,1);
+    
+    \draw[dotted] (2,1) -- (2,0);
+    \draw[dotted] (2,1) -- (0,1);
+    
+    \draw[|-|] (0,-0.3) -- node[below]{$a_x$} (2,-0.3);
+    \draw[|-|] (-0.3,0) -- node[left]{$a_y$} (-0.3, 1);
+
+\end{tikzpicture}
+\caption{Decomposição de vetores usando dois eixos coordenados.\label{Fig:sis_ref_orto}}
+\end{marginfigure}
+%
 \begin{align}
   a_x &= a \cos\theta \\
   a_y &= a \sen\theta.
@@ -135,6 +260,30 @@ Podemos então descrever o vetor em termos dessas componentes como $\vec{a} = (a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Notação módulo-ângulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0) -- (3,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+
+    \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (2,1);
+    
+    \draw[dotted] (2,1) -- (2,0);
+    \draw[dotted] (2,1) -- (0,1);
+    
+    \draw[|-|] (0,-0.3) -- node[below]{$a_x$} (2,-0.3);
+    \draw[|-|] (-0.3,0) -- node[left]{$a_y$} (-0.3, 1);
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (2,1);
+       
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+
+\end{tikzpicture}
+\caption{Decomposição de vetores usando dois eixos coordenados e notação módulo ângulo.\label{Fig:sis_ref_orto_mod_ang}}
+\end{marginfigure}
 
 Da seção anterior, fica evidente que além de podermos descrever um vetor através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente através do ângulo $\theta$ e do módulo do vetor $\mod{\vec{a}}$. Nesta notação, ainda nos valemos da definição dos eixos coordenados. Podemos observar que
 \begin{equation}
@@ -157,14 +306,42 @@ Portanto, se conhecemos o vetor em termos de duas componentes, podemos calcular 
 \subsection{Soma através de componentes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO figura abaixo
-Na figura abaixo, temos uma reprodução dos gráficos de soma geométrica de vetores vistos anteriormente. Temos agora, no entanto, um sistema de referência cartesiano sobre o qual calculamos as componentes dos vetores $\vec{a}$ e $\vec{b}$. Se tomarmos o vetor $\vec{c}$ vemos que
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0) -- (3.5,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2.5) node[below left]{$y$};
+
+    \draw[->, thick] (0,0) -- node[below]{$\vec{a}$} (1.3,0.8);
+    \draw[->, thick] (1.3,0.8) -- node[below]{$\vec{b}$} (2,2);
+    \draw[->, thick] (0,0) -- node[above]{$\vec{c}$} (2,2);
+    
+    \draw[dotted] (1.3,0.8) -- (1.3,0);
+    \draw[dotted] (1.3,0.8) -- (0,0.8);
+    \draw[dotted] (2,2) -- (2,0);
+    \draw[dotted] (2,2) -- (0,2);
+    
+    \draw[|-|] (0,-0.3) -- node[below]{$a_x$} (1.3,-0.3);
+    \draw[|-|] (-0.3,0) -- node[left]{$a_y$} (-0.3, 0.8);
+    
+    \draw[-|] (1.3,-0.3) -- node[below]{$b_x$} (2,-0.3);
+    \draw[-|] (-0.3, 0.8) -- node[left]{$b_y$} (-0.3,2);
+    
+    \draw[|-|] (0, -0.8) -- node[below]{$c_x$} (2,-0.8);
+    \draw[|-|] (-0.8, 0) -- node[left]{$c_y$} (-0.8,2);
+    
+\end{tikzpicture}
+\caption{Soma através de componentes vetoriais.\label{Fig:Soma_comp}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:Soma_comp}, temos uma soma geométrica de vetores. Temos também um sistema de referência cartesiano sobre o qual projetamos as componentes dos vetores $\vec{a}$ e $\vec{b}$. Se tomarmos o vetor $\vec{c}$ vemos que
 \begin{align}
   c_x &= a_x + b_x \\
   c_y &= a_y + b_y,
 \end{align}
 %
-ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular o vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações dos vetores.
+ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular as componentes do vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações dos vetores.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Vetores unitários}
@@ -172,7 +349,21 @@ ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para po
 
 Com o auxílio das componentes, podemos escrever um vetor de uma forma muito prática. Vamos definir \emph{vetores unitários}, também conhecidos como \emph{versores}, que são vetores cujo módulo é 1. Vamos escolher três eixos perpendiculares e definir três versores, um para cada eixo:
 
-\comment{TODO sistema cartesiano 3D com 3 versores.}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0,0) -- (2,0,0) node[below left]{$x$};
+    \draw[->] (0,0,0) -- (0,2,0) node[below left]{$y$};
+    \draw[->] (0,0,0) -- (0,0,2) node[below]{$z$};
+    
+    \draw[->, thick] (0,0,0) -- (0.7,0,0) node[below left]{$\versi$};
+    \draw[->, thick] (0,0,0) -- (0,0.7,0) node[below left]{$\versj$};
+    \draw[->, thick] (0,0,0) -- (0,0,0.7) node[below]{$\versk$};
+    
+\end{tikzpicture}
+\caption{Vetores unitários.\label{Fig:vetores_unitários}}
+\end{marginfigure}
 
 \noindent{}Adotamos a seguinte nomenclatura
 \begin{align}
