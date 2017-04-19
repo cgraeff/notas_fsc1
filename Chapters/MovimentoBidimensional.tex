@@ -24,16 +24,136 @@ Quando tratamos do movimento unidimensional, utilizamos a distância até a orig
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Posição}
 %%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->] (0,0,0) -- (2,0,0) node[below left]{$x$};
+    \draw[->] (0,0,0) -- (0,2,0) node[below left]{$y$};
+    \draw[->] (0,0,0) -- (0,0,2) node[below]{$z$};
+
+    \draw[->, thick] (0,0,0) -- (1,1,0.5);
+    \draw[dotted] (1,0,0.5) -- (1,1,0.5);
+    \draw[dotted] (1,0,0.5) -- (1,0,0);
+    \draw[dotted] (1,0,0.5) -- (0,0,0.5);
+    
+\end{tikzpicture}
+\caption{Um vetor posição em três dimensões.}
+\end{marginfigure}
+
 Utilizando vetores, podemos fazer o mesmo para um movimento bidimensional ou tridimensional. Vamos escolher um ponto como origem de um sistema de coordenadas e descrever a posição por um vetor que parte da origem e termina no ponto onde o objeto se encontra. Como escolhemos a origem coincidindo com o início do vetor, a extremidade está no ponto $(x, y, z)$ do sistema de coordenadas. Além disso, o tamanho das componentes é igual aos valores de $x$, $y$, e $z$, logo, temos que o vetor posição será dado por
 \begin{equation}
   \vec{r} = x \versi + y \versj + z \versk.
 \end{equation}
 %
-O conjunto de posições ocupadas por um corpo ao longo do tempo é representado pela evolução temporal do vetor posição $\vec{r}$. Como a posição pode variar no tempo, temos que tal vetor é uma função do tempo $\vec{r}(t)$.
+O conjunto de posições ocupadas por um corpo ao longo do tempo é representado pela evolução temporal do vetor posição $\vec{r}$. Como a posição pode variar no tempo, temos que tal vetor é uma função do tempo $\vec{r}(t)$:
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$t$};
+\draw (3.1,0.5) node[above] {$\vec{r}$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$\vec{r} = \vec{r}(t)$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{A cada valor de tempo $t$ temos um vetor posição $\vec{r}$ associado. A função $\vec{r}(t)$ descreve a relação entre essas duas variáveis.}
+\end{figure}
+
+% Adaptado de http://pgfplots.net/tikz/examples/spiral-cone/
+\def\Point{36.9}
+\begin{figure}\forceversofloat
+\centering
+\begin{tikzpicture}[>=Stealth]
+  \begin{axis}[
+    view       = {-25}{-25},
+    axis lines = center,
+    zmax       = 60,
+    height     = 8cm,
+    xtick      = \empty,
+    ytick      = \empty,
+    ztick      = \empty
+ ]
+  \addplot3+ [
+    ytick      = \empty,
+    yticklabel = \empty,
+    domain     = 8*pi:12*pi,
+    samples    = 400,
+    samples y  = 0,
+    mark       = none,
+    thick,
+    black
+  ]
+  ( {x*sin(0.28*pi*deg(x))},{x*cos(0.28*pi*deg(x)},{x}) coordinate [pos=0.18] (A)
+            coordinate [pos=0.28] (B) coordinate [pos=0.35] (C);
+  \addplot3+ [
+    mark options = {color=black},
+    mark         = none
+  ] 
+  coordinates {(0,0,0)};
+%  \addplot3+ [
+%    domain    = 0:12*pi,
+%    samples   = 100,
+%    samples y = 0,
+%    mark      = none,
+%    dashed,
+%  ]  
+%  ( {\Point*sin(0.28*pi*deg(\Point))}, {\Point*cos(0.28*pi*deg(\Point)}, {x} );
+%  \addplot3[
+%    mark=none,
+%    dashed
+%  ]
+%  coordinates {(0,0,0) ({\Point*sin(0.28*pi*deg(\Point))},
+%    {\Point*cos(0.28*pi*deg(\Point)}, {0})};
+
+%  \node (P1) at (axis cs:20,0,30) {$P$};
+%  \node (origin) at (0,0,0){};
+  
+%  \draw[->, thick] (axis cs:0,0,0) -- (axis cs:20,0,30);
+  \draw[->, thick] (axis cs:0,0,0) -- node[left]{$\vec{r}(t_1)$} (A);
+  \draw[->, thick] (axis cs:0,0,0) -- node[above left]{$\vec{r}(t_2)$} (B);
+  \draw[->, thick] (axis cs:0,0,0) -- node[below right]{$\vec{r}(t_3)$} (C);
+   
+  \end{axis}
+    
+\end{tikzpicture}
+\caption{A trajetória de um corpo pode ser descrita através do conjunto de posições $\vec{r}(t)$ ocupadas nos diferentes valores de tempo $t$. Na figura, destacamos três posições correspondentes a três valores diferentes de tempo.}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \path[name path=traj, draw] (0,2) .. controls (1,0.5) and (2,2.5) .. (3,1.5);
+    
+    \coordinate (a) at (0.1,0);
+    \coordinate (b) at (1.2,0);
+    
+    \path[name path=verta] (a)--+(0,3);
+    \path[name path=vertb] (b)--+(0,3);
+       
+    \path[draw, ->, name intersections={of=traj and verta}](0,0) -- node[left]{$\vec{r}_i$} (intersection-1) coordinate (intersec1);
+    \path[draw, ->, name intersections={of=traj and vertb}](0,0) -- node[right]{$\vec{r}_f$}(intersection-1) coordinate (intersec2);
+    
+    \draw[->] (intersec1) -- node[above]{$\Delta \vec{r}$} (intersec2);
+    
+    \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
+    
+\end{tikzpicture}
+\caption{O vetor deslocamento $\Delta \vec{r}$ pode ser calculado a partir da diferença entre os vetores $\vec{r}_f$ e $\vec{r}_i$.}
+\end{marginfigure}
 
 O deslocamento $\Delta \vec{r}$ de uma partícula entre dois instantes quaisquer é dado por
 \begin{equation}
@@ -94,8 +214,76 @@ Podemos utilizar a propriedade de que o limite da soma é a soma dos limites par
 %
 Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
 
-\comment{figura da situação abaixo}
-Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~???, verificamos que para $\Delta t \to 0$, o vetor $\Delta \vec{r}$ é tangente à trajetória. Como a direção da velocidade é a mesma de $\Delta\vec{r}$, temos que o vetor velocidade instantânea é tangente à trajetória.
+Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por
+\begin{equation}
+    \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
+\end{equation}
+%
+é tangente à trajetória. Como a direção da velocidade é a mesma de $\delta\vec{r}$, temos que o vetor velocidade instantânea é tangente à trajetória.
+
+% adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+    tangent/.style={
+        decoration={
+            markings,% switch on markings
+            mark=
+                at position #1
+                with
+                {
+                    \coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
+                    \coordinate (tangent unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (1,0pt);
+                    \coordinate (tangent orthogonal unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,1);
+                }
+        },
+        postaction=decorate
+    },
+    use tangent/.style={
+        shift=(tangent point-#1),
+        x=(tangent unit vector-#1),
+        y=(tangent orthogonal unit vector-#1)
+    },
+    use tangent/.default=1
+]
+
+%%%
+
+    \path[name path=traj, draw, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
+    \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
+    \draw [->, use tangent] (0,0) -- node[below]{$\delta\vec{r}$}(0.5,0);
+    \draw [->, use tangent] (0,0) -- node[below right]{$\vec{v}$}(1,0);
+    
+    \coordinate (a) at (0.1,0);
+    \coordinate (b) at (1.9,0);
+    
+    \path[name path=verta] (a)--+(0,3);
+    \path[name path=vertb] (b)--+(0,3);
+       
+    \path[draw, gray, ->, name intersections={of=traj and verta}](0,0) --  (intersection-1) coordinate (intersec1);
+    \path[draw, gray, ->, shorten >=1pt, name intersections={of=traj and vertb}](0,0) -- (intersection-1) coordinate (intersec2);
+    
+    \draw[->, gray, shorten >=1pt] (intersec1) -- (intersec2);
+    
+    \coordinate (c) at (0.3,0);
+    \coordinate (d) at (1.7,0);
+    
+    \path[name path=vertc] (c)--+(0,3);
+    \path[name path=vertd] (d)--+(0,3);
+       
+    \path[draw, gray, ->, name intersections={of=traj and vertc}](0,0) --  (intersection-1) coordinate (intersec3);
+    \path[draw, gray, ->, shorten >=1pt, name intersections={of=traj and vertd}](0,0) -- (intersection-1) coordinate (intersec4);
+    
+    \draw[->, gray, shorten >=1pt] (intersec3) -- (intersec4);
+    
+    
+    \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
+    \draw[fill, use tangent] (0,0) circle (1pt);
+    \draw[->] (0,0) -- node[above]{$\vec{r}$} (point);
+    
+\end{tikzpicture}
+\caption{No limite $\Delta t \to 0$, temos que a direção do vetor deslocamento instantâneo $\delta\vec{r}$ no ponto denotado por $\vec{r}$ é a mesma direção que a da reta que tange a curva no ponto.\label{Fig:Dir_vel}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}

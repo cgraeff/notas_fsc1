@@ -372,7 +372,6 @@ Com o auxílio das componentes, podemos escrever um vetor de uma forma muito pr�
   z &\to \versk.
 \end{align}
 
-\comment{TODO figura abaixo}
 Utilizando o exemplo bidimensional da Seção~\ref{Sec:ComponentesVetoriais}, podemos escrever o vetor $\vec{a}$ através da soma
 \begin{equation}
   \vec{a} = \vec{a}_x + \vec{a}_y,
@@ -383,6 +382,28 @@ onde os vetores $\vec{a}_x$ e $\vec{a}_y$ são dados por
   \vec{a}_x &= a_x \versi \\
   \vec{a}_y &= a_y \versj.
 \end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+
+    \draw[->, gray] (0,0) -- (3,0) node[below left]{$x$};
+    \draw[->, gray] (0,0) -- (0,2) node[below left]{$y$};
+
+    \draw[->] (0,0) -- node[above]{$\vec{a}$} (2,1);
+    
+    \draw[->] (0,0) -- node[below]{$\vec{a}_x$} (2,0);
+    \draw[->] (0,0) -- node[above left]{$\vec{a}_y$} (0,1);
+    
+    \draw[->, thick] (0,0) -- node[below]{$\versi$} (0.5,0);
+    \draw[->, thick] (0,0) -- node[left]{$\versj$} (0,0.5);
+    
+    \draw[dotted] (2,1) -- (2,0);
+    \draw[dotted] (2,1) -- (0,1);
+    
+\end{tikzpicture}
+\caption{Decomposição de vetores usando dois eixos coordenados e seus respectivos vetores unitários.\label{Fig:sis_ref_orto_vers}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equações e vetores unitários}
