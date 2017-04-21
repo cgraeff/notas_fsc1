@@ -214,7 +214,7 @@ Podemos utilizar a propriedade de que o limite da soma é a soma dos limites par
 %
 Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
 
-Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por
+Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to zero$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
 \begin{equation}
     \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
 \end{equation}
@@ -301,8 +301,22 @@ No caso do cálculo da velocidade média, bastou redefinirmos a velocidade em te
 \end{align} 
 %
 A direção do vetor aceleração média é a própria direção do vetor $\Delta{\vec{v}}$. 
-\comment{fazer gráfico de uma trajetória no plano $xy$ com vetores velocidade tangentes em dois pontos e mostrar os vetores retirados em outro quadro e mostrando o vetor aceleração}
 
+\begin{marginfigure}[-5cm]
+   \begin{tikzpicture}[>=Stealth]
+        \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
+        \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
+        \draw[->] (60:2) -- node[above]{$\vec{v}_i$} +(-30:1);
+        \draw[->] (0,0) -- node[below]{$\vec{r}_f$} (30:2);
+        \draw[->] (30:2) -- node[right]{$\vec{v}_f$}+(-60:0.7);
+        
+        \draw[->] (1, -1) -- node[above]{$\vec{v}_i$} +(-30:1) coordinate (A);
+        \draw[->] (1, -1) -- node[left]{$\vec{v}_f$} +(-60:0.7) coordinate (B);
+        \draw[->] (A) -- node[below]{$\Delta \vec{v}$} (B);
+        
+   \end{tikzpicture}
+   \caption{Velocidades em diferentes instantes e a correspondente variação da velocidade $\Delta\vec{v}$ determinada através da diferença entre os vetores.}
+\end{marginfigure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -325,7 +339,7 @@ e observamos que para o caso da aceleração, também temos que as componentes d
 \section{Independência do movimento em eixos perpendiculares}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Isso é uma característica da aceleração ser um vetor que pode ser decomposto em dois eixos diferentes. Fica fácil mostrar isso usando os versores, tomando a equação vetorial e transformando em equações conhecidas para os eixos $x$, $y$ e $z$, tipo $\vec{v} = (v_{ix} + a_x t)\versi + (v_{iy} + a_y t)\versj$.
+Isso é uma característica da aceleração ser um vetor que pode ser decomposto em dois eixos diferentes. Fica fácil mostrar isso usando os versores, tomando a equação vetorial e transformando em equações conhecidas para os eixos $x$, $y$ e $z$, tipo $\vec{v} = (v_{ix} + a_x t)\versi + (v_{iy} + a_y t)\versj$. \comment{reescrever isso}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento de projéteis}
@@ -376,6 +390,27 @@ Verticalmente, temos um movimento com aceleração constante, dirigida para baix
 \subsection{Altura máxima}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[dashed, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (63.434948823:1);
+       
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+        
+    \draw[dotted] (1.666, 1.666) -- +(2,0);
+    \draw[<->] (3.5, 0) -- node[right]{$H$} (3.5, 1.666);
+    
+\end{tikzpicture}
+\caption{Altura máxima em relação ao ponto de lançamento.}
+\end{marginfigure}
+
 A partir da equação acima, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Utilizando a equação de Torricelli, obtemos\footnote[][-2cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
 \begin{equation}
   v_{fy}^2 = v_{iy}^2 - 2 g \Delta y.
@@ -423,6 +458,26 @@ Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, 
   R = \frac{v_i^2}{g}\sen2\theta. \mathnote{Alcance horizontal.}
 \end{equation}
 
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[dashed, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (63.434948823:1);
+       
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+        
+    \draw[|<->|] (0, -0.3) -- node[below]{$R$} (3.33, -0.3);
+    
+\end{tikzpicture}
+\caption{Alcance em relação ao ponto de lançamento.}
+\end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equação para a trajetória}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -455,77 +510,252 @@ verificamos que a equação da trajetória segue o mesmo formato, porém com $A 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração centrípeta}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Fazer p/ o caso de v = cte, TODO Figura}
+\begin{marginfigure}
+\centering
+   \begin{tikzpicture}[>=Stealth, scale=1.3]
+        \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
+        \draw[->, gray] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
+        \draw[->] (60:2) -- node[above right]{$\vec{v}_i$} +(-30:0.51763809) coordinate (A);
+        \draw[->, gray] (0,0) -- node[below]{$\vec{r}_f$} (30:2);
+        \draw[->, dashed] (30:2) -- node[right]{$\vec{v}_f$}+(-60:0.51763809);
+        \draw[dashdotted] (0,0) -- (45:2.6);
+        
+        \draw[->] (60:2) -- node[below left]{$\vec{v}_f$} +(-60:0.51763809) coordinate (B);
+        \draw[->] (A) -- node[right]{$\Delta \vec{v}$} (B);
+        
+   \end{tikzpicture}
+   \caption{Em um movimento circular com velocidade constante, o vetor $\Delta\vec{v}$ aponta para o centro da trajetória quando disposto exatamente no ponto intermediário entre as posições inicial e final. Essa é a mesma direção que a aceleração média, consequentemente, quando tomamos o limite $\Delta t \to 0$ e aproximamos os pontos, verificamos que a aceleração instantânea aponta para o centro da trajetória.\label{Fig:Acel_mov_cir_unif}}
+\end{marginfigure}
 
-Analisando o movimento circular -- restrito ao primeiro quadrante e com velocidade constante --, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~??? vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores que têm o mesmo módulo, porém direções diferentes. Se calculamos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta para o centro da trajetória.
+Analisando o movimento circular -- restrito ao caso de velocidade constante em módulo --, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~\ref{Fig:Acel_mov_cir_unif} vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores velocidade que têm o mesmo módulo, porém direções diferentes. Se calculamos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta perpendicularmente à trajetória quando disposto na região central entre as posições inicial e final, isto é, ele aponta para o centro da trajetória circular.
 
-Sabemos, no entanto, que o vetor aceleração média é dado por
+Sabemos, que o vetor aceleração média é dado por
 \begin{equation}
   \vec{\mean{a}} = \frac{\Delta v}{\Delta t}.
 \end{equation}
 %
 Portanto, mesmo no caso de $v$ constante, temos uma aceleração caso ocorram mudanças na direção do vetor velocidade. 
 
-Podemos calcular o módulo desta aceleração se considerarmos a Figura~???. \comment{TODO Figura (serway)}
-Inicialmente uma partícula ocupa a posição $P$, com velocidade $\vec{v}_i$ no instante $t_i$. Após um intervalo de tempo, ela passa a ocupar a posição $Q$, com velocidade $\vec{v}_f$ no instante $t_f$. Vamos assumir que $v_i = v_f = v$. 
+Podemos calcular o módulo desta aceleração se considerarmos a Figura~\ref{Fig:Acel_mov_cir_unif_mod}. Inicialmente uma partícula ocupa a posição $\vec{r}_i$, com velocidade $\vec{v}_i$ no instante $t_i$. Após um intervalo de tempo, ela passa a ocupar a posição $\vec{r}_f$, com velocidade $\vec{v}_f$ no instante $t_f$. Vamos assumir que $v_i = v_f = v$ e que $r_i = r_f = r$. 
 
-Consideraremos agora os triângulos formados pelos pontos $O$, $P$ e $Q$, e pelos vetores $\vec{v}_i$, $\vec{v}_f$ e $\Delta \vec{v}$. 
-Se $\Delta t$ é pequeno, temos que o vetor $\Delta \vec{v}$ é pequeno e aproximadamente perpendicular aos vetores $\vec{v}_i$ e $\vec{v}_f$ (que são aproximadamente paralelos uma ao outro). Neste caso, podemos temos aproximadamente a situação mostrada na Figura~???. Desse triângulo, podemos escrever a seguinte relação para os lados:
+
+\begin{marginfigure}
+\centering
+   \begin{tikzpicture}[>=Stealth, scale=1.3]
+        \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
+        \coordinate (O) at (0,0);
+        
+        \draw[->] (O) -- node[left]{$\vec{r}_i$} (60:2) coordinate (A);
+        \draw[->] (O) -- node[below]{$\vec{r}_f$} (30:2) coordinate (B);
+        \draw[->] (A) -- node[above right]{$\Delta \vec{r}$} (B);
+        
+        \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = B--O--A};
+        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = O--A--B};
+        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = A--B--O};
+        
+        \coordinate (O) at (0, -1);    
+        
+        \draw[->] (O) -- node[above]{$\vec{v}_i$} +(-30:1.5) coordinate (A);
+        \draw[->] (O) -- node[left]{$\vec{v}_f$} +(-60:1.5) coordinate (B);
+        \draw[->] (A) -- node[right]{$\Delta \vec{v}$} (B);
+        
+        \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = B--O--A};
+        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = O--A--B};
+        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = A--B--O};
+    
+   \end{tikzpicture}
+   \caption{Triângulos formados pelos vetores $\vec{r}_i$, $\vec{r}_f$, e $\Delta \vec{r}$ e pelos vetores $\vec{v}_i$, $\vec{v}_f$, e $\Delta\vec{v}$. Note que este último foi ampliado em relação à Figura~\ref{Fig:Acel_mov_cir_unif} unicamente para facilitar a visualização.\label{Fig:Acel_mov_cir_unif_mod}}
+\end{marginfigure}
+
+Verificamos que existe um ângulo $\theta$ entre os vetores $\vec{r}_i$ e $\vec{r}_f$. Além disso, como $r_i = r_f = r$, temos que os outros dois ângulos do triângulo são $\alpha$. Podemos utilizar a lei dos senos para estabelecer a seguinte relação:
 \begin{equation}
-  \frac{\Delta v}{v} = \frac{\Delta s}{r}.
+    \frac{\Delta r}{\sen \theta} = \frac{r}{\sen \alpha},
+\end{equation}
+%
+ou, equivalentemente,
+\begin{equation}
+    \frac{\Delta r}{r} = \frac{\sen \theta}{\sen \alpha}.
+\end{equation}
+
+Os vetores velocidade inicial e final são perpendiculares aos vetores posição inicial e final, respectivamente. Portanto, o ângulo formado pelos vetores velocidade é o mesmo ângulo formado pelos vetores posição, isto é, o ângulo $\theta$ (imagine o seguinte: o vetor $\vec{r}_i$ é girado por um ângulo $\theta$ para se tornar o vetor $\vec{r}_f$. Essa rotação também afeta o vetor velocidade $\vec{v}_i$ o transformando no vetor $\vec{v}_f$, pois a relação de perpendicularidade entre o vetor velocidade e o vetor posição se mantém para todos os pontos em um movimento circular). Além disso, como $v_i = v_f = v$, os demais ângulos são iguais entre si e são iguais ao mesmo ângulo $\alpha$ que aparece no triângulo formado pelos vetores posição e deslocamento. Aplicando novamente a lei dos senos, obtemos
+\begin{equation}
+    \frac{\Delta v}{\sen \theta} = \frac{v}{\sen \alpha},
+\end{equation}
+%
+ou
+\begin{equation}
+    \frac{\Delta v}{v} = \frac{\sen\alpha}{\sen\theta}.
+\end{equation}
+
+A partir desses resultados, temos que
+\begin{equation}
+    \frac{\Delta v}{v} = \frac{\Delta r}{r}.
 \end{equation}
 %
 Isolando $\Delta v$ e substituindo na expressão para a aceleração média, obtemos para o módulo
 \begin{equation}
-  \mean{a} = \vec{v}{r} \frac{\Delta s}{\Delta t}.
+  \mean{a} = \frac{v}{r} \frac{\Delta r}{\Delta t}.
 \end{equation}
 %
-À medida  que $\Delta t$ diminui, aproximação mostrada na Figura~??? %dos triângulos semelhantes
-fica cada vez melhor. Ao tomar valores menores para o intervalo de tempo, estamos também nos aproximando da condição para a aceleração em um ponto específico, isto é, no ponto $P$. Tomamos então o limite $\Delta \to 0$, obtendo:
+Tomando o limite $\Delta t \to 0$, obtemos a aceleração instantânea:
 \begin{equation}
-  a = \frac{v}{r} \lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t},
+  a = \frac{v}{r} \lim_{\Delta t \to 0} \frac{\Delta r}{\Delta t},
 \end{equation}
 %
-one usamos a propriedade $\lim_{\epsilon \to \xi} \alpha f(\epsilon) = \alpha \lim_{\epsilon\to \xi} f(\epsilon)$, onde $\alpha$ e $\xi$ são constantes quaisquer. Notamos que o limite que resta é a razão entre a distância percorrida pela partícula e o tempo necessário para efetuar tal deslocamento, ou seja, é a velocidade $v$. Logo
+onde usamos a propriedade
+\begin{equation}
+    \lim_{\epsilon \to \xi} \lambda f(\epsilon) = \lambda \lim_{\epsilon\to \xi} f(\epsilon),
+\end{equation}
+%
+$\lambda$ e $\xi$ representandos constantes quaisquer. Notamos que o limite que resta é a razão entre a distância percorrida pela partícula e o tempo necessário para efetuar tal deslocamento, ou seja, é a velocidade $v$. Logo,
 \begin{equation}\label{Eq:AceleracaoCentripeta}
-  a_c = \frac{v^2}{r}. \mathnote{Módulo da aceleração centrípeta.}
+  a = \frac{v^2}{r}.
+\end{equation}
+
+Verificamos no início desta seção que a aceleração média aponta para o centro da trajetória quando a dispomos exatamente na região central entre os pontos inicial e final (para o cálculo da aceleração média em questão). Quando tomamos o limite $\Delta t \to 0$, o que fazemos é mover tais pontos de forma que eles se tornam infinitamente próximos e se tornem o mesmo ponto, o que faz com que \emph{a aceleração instantânea aponte para o centro da trajetória circular}. Denominamos essa aceleração como \emph{aceleração centrípeta} $a_c$, cujo módulo é dado por
+\begin{equation}\label{Eq:AceleracaoCentripeta}
+  a_c = \frac{v^2}{r}. \mathnote{Módulo da aceleração centrípeta}
 \end{equation}
 %
-Adotamos o índice $c$ para lembrar que a fórmula denota o módulo da \emph{aceleração centrípeta}, isto é, a aceleração que aponta para o centro de uma trajetória circular e que é responsável por alterar constantemente a direção do vetor velocidade, possibilitando que a partícula execute um movimento curvilíneo. Veremos adiante que ela está relacionada à força resultante que deve ser exercida por um agente externo para que uma partícula execute um movimento circular com velocidade $v$ e raio $r$.
+Essa aceleração é responsável por alterar constantemente a direção do vetor velocidade, possibilitando que a partícula execute um movimento curvilíneo. Veremos adiante que ela está relacionada à força resultante que deve ser exercida por um agente externo para que uma partícula execute um movimento circular com velocidade $v$ e raio $r$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Decomposição da aceleração em componentes tangencial e centrípeta}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verificamos que em um movimento retilíneo, a aceleração é dada por
-\begin{equation}
+Verificamos que a aceleração é dada por
+\begin{displaymath}
   \vec{a} = \lim_{\Delta t \to 0} \frac{\Delta \vec{v}}{\Delta t},
-\end{equation}
+\end{displaymath}
 %
-e no caso de um movimento circular com velocidade constante, a aceleração aponta para o centro da trajetória circular, com módulo dado pela Equação~\eqref{Eq:AceleracaoCentripeta}. No entanto, essas expressões não são gerais\comment{Essa aqui em cima é sim, é a própria definição! O que não é geral é o caso de termos uma aceleração que aponta sempre pro centro da trajetória.}: podemos ter um movimento circular com velocidade que muda constantemente, ou mesmo ter um movimento curvilíneo que não tem um formato circular.
+e no caso específico de um movimento circular com velocidade constante, ela aponta para o centro da trajetória circular, com módulo dado pela Equação~\eqref{Eq:AceleracaoCentripeta}. No entanto, o caso de velocidade constante não é geral: podemos ter um movimento circular com velocidade que muda constantemente, ou mesmo ter um movimento curvilíneo que não tem um formato circular.
 
-\comment{TODO figura meio cheia de curvas e com alguma aceleração decomposta}
+No caso de termos um movimento curvilíneo com velocidade constante, porém não circular, temos que a aceleração centrípeta não é constante. Se temos uma curvatura que se ``fecha'' paulatinamente, isto é, se o raio de curvatura diminui progressivamente, a aceleração centrípeta aumenta. Se ocorre o contrário, a curvatura se ``abre'' e o raio aumenta, temos que a aceleração centrípeta diminui. De qualquer forma, podemos calcular \emph{instantaneamente} a aceleração através da Expressão~\ref{Eq:AceleracaoCentripeta}.
+
+Quando ocorre uma alteração do módulo da velocidade, podemos determinar a aceleração simplesmente calculando a razão $\Delta v/\Delta t$. Temos então dois efeitos possíveis da aceleração: um deles é alterar o módulo da velocidade, o outra é alterar a direção do vetor velocidade. Tais efeitos podem ocorrer isoladamente, como num movimento retilíneo com velocidade variável -- onde ocorre somente o primeiro --, ou num movimento circular com velocidade constante -- onde ocorre somente o segundo --, ou podem ocorrer \emph{ao mesmo tempo}.
+
+O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum: um carro que trafega por uma rodovia, por exemplo, executa curvas e altera sua velocidade a todo momento, e em inúmeras vezes, essas mudandas de direção e de módulo da velocidade acontecem concomitantemente. Apesar de termos dois papéis distintos para a aceleração, temos \emph{somente um vetor aceleração} -- dado pela equação para $\vec{a}$ definida acima --. No entanto, \emph{podemos decompor o vetor aceleração em duas componentes} cujos efeitos correspondem aos discutidos acima, isto é, mudar a direção e o módulo da velocidade. 
+
+% adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,scale=1.4,
+    tangent/.style={
+        decoration={
+            markings,% switch on markings
+            mark=
+                at position #1
+                with
+                {
+                    \coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
+                    \coordinate (tangent unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (1,0pt);
+                    \coordinate (tangent orthogonal unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,1);
+                }
+        },
+        postaction=decorate
+    },
+    use tangent/.style={
+        shift=(tangent point-#1),
+        x=(tangent unit vector-#1),
+        y=(tangent orthogonal unit vector-#1)
+    },
+    use tangent/.default=1
+]
+
+%%%
+
+    \path[name path=traj, draw, dotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
+    \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
+    \draw [->, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
+    \draw [->, use tangent] (0,0) -- node[above right]{$a_c$}(0,0.5);
+    \draw [use tangent, thin, dashed] (0,-1) -- (0,1);
+    \draw[thin, use tangent] ([shift={(0,0.75)}]210:0.75) arc[radius=0.75, start angle=210, end angle= 330];
+    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (1pt);
+   
+\end{tikzpicture}
+\caption{Podemos aproximar uma região qualquer de uma curva por um círculo. Assim, é possível se decompor o vetor aceleração em uma componente \emph{centrípeta} (que aponto para o centro $C$ do círculo), cujo papel é o de alterar a direção, e uma componente tangencial (que aponta tangencialmente à trajetória, na mesma direção da velocidade instantânea), cujo papel é o de alterar o módulo da velocidade.\label{Fig:Dir_vel}}
+\end{marginfigure}
+
 Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajetória circular, com um centro e um raio bem definido\footnote{Até mesmo uma reta pode ser interpretada dessa maneira, nesse caso temos um círculo de raio infinito!}. Levando isso em conta, de forma geral, podemos assumir que o vetor aceleração não aponta para o centro da trajetória, porém podemos o decompor em duas partes:
 \begin{description}
-  \item[Aceleração radial] Uma das componentes é a projeção do vetor aceleração na direção do eixo radial que liga a partícula ao centro da trajetória circular. Temos então uma componente radial $a_r$ cujo módulo é dado pela aceleração centrípeta:
+  \item[Componente radial] Uma das componentes é a projeção do vetor aceleração na direção do eixo radial que liga a partícula ao centro da trajetória circular. Temos então uma componente radial $a_r$ cujo módulo é dado pela aceleração centrípeta:
   \begin{equation}
     a_r = a_c = \frac{v^2}{r}.
   \end{equation}
-  Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade.
-  \item[Aceleração tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória -- ou seja, na direção perpendicular ao eixo radial --. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade.
+  Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade. Podemos entender isso se considerarmos que se só existisse essa componente, então teríamos um movimento circular, onde somente a direção do vetor velocidade é alterada.
+  \item[Componente tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória -- ou seja, na direção perpendicular ao eixo radial --. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade. Isso pode ser entendido se imaginarmos que houvesse somente essa componente da aceleração. Nesse caso, a aceleração seria na própria direção da velocidade, portanto ao calcularmos a velocidade final após um intervalo $\delta t$,
+  \begin{equation}
+    \vec{v}_f = \vec{v}_i + \vec{a} \delta t,
+  \end{equation}
+%
+percebemos que estamos somando dois vetores colineares. Logo, o resultado $\vec{v}_f$ de tal soma se mantém na mesma direção que os termos do lado direito na equação acima.
 \end{description}
 
-Caso conheçamos ambas as componentes da aceleração, podemos determinar o vetor $\vec{a}$ utilizando as relações
+\begin{marginfigure}
+\centering
+
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- node[above]{$\vec{v}_0$} +(1,0);
+    \draw[->] (1,0) -- node[above]{$\vec{a} \delta t$} +(0.5,0);
+    \draw[->] (0,-0.3) -- node[below]{$\vec{v}_f$} +(1.5,0);
+\end{tikzpicture}
+\caption{Caso o vetor aceleração seja colinear à velocidade instantânea, o vetor velocidade final também o é. Isto é, a aceleração só poderá mudar o módulo da velocidade. Esse raciocínio também vale quando estamos tratando o eixo tangencial à trajetória, que é justamente o eixo da velocidade instantânea; nesse caso utilizamos a aceleração tangencial para determinar a variação da velocidade (em módulo).}
+\end{marginfigure}
+
+Caso conheçamos ambas as componentes da aceleração -- o que é bastante comum, uma vez que é mais fácil determinar o módulo da velocidade e eventuais alterações desse valor, o que nos dará os valores de $a_c$ e de $a_t$ -- podemos determinar o vetor $\vec{a}$ utilizando as relações
 \begin{align}
-  \mod{\vec{a}} &= \sqrt{a_t^2 + a_r^2} \\
-  \theta &= \arctan \frac{a_r}{a_t},
+  \mod{\vec{a}} &= \sqrt{a_t^2 + a_c^2} \\
+  \theta &= \arctan \frac{a_c}{a_t},
 \end{align}
 %
 onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial. Essas relações são oriundas das propriedades vetoriais discutidas no capítulo anterior. Da mesma forma, podemos conhecer as componentes a partir do vetor $\vec{a}$ através de
 \begin{align}
   a_t &= a\cos\theta \\
-  a_r &= a\sen\theta.
+  a_c &= a\sen\theta.
 \end{align}
+
+% adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.4,
+    tangent/.style={
+        decoration={
+            markings,% switch on markings
+            mark=
+                at position #1
+                with
+                {
+                    \coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
+                    \coordinate (tangent unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (1,0pt);
+                    \coordinate (tangent orthogonal unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,1);
+                }
+        },
+        postaction=decorate
+    },
+    use tangent/.style={
+        shift=(tangent point-#1),
+        x=(tangent unit vector-#1),
+        y=(tangent orthogonal unit vector-#1)
+    },
+    use tangent/.default=1
+]
+
+%%%
+
+    \path[name path=traj, draw, dotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
+    \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
+    \draw [->, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
+    \draw [->, use tangent] (0,0) -- node[above left]{$a_c$}(0,0.5);
+    \draw [use tangent, thin, dashed] (0,-1) -- (0,1);
+    \draw[thin, use tangent, gray] ([shift={(0,0.75)}]210:0.75) arc[radius=0.75, start angle=210, end angle= 330];
+    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (1pt);
+    \draw[use tangent, ->] (0,0) -- node[above]{$\vec{a}$}(0.5,0.5);
+    \draw[thin, use tangent] ([shift={(0,0)}]45:0.3) arc[radius=0.3, start angle=45, end angle= 0] node[above right]{$\theta$};
+   
+    
+\end{tikzpicture}
+\caption{Se conhecermos as componentes, podemos determinar o vetor aceleração através das propriedades dos vetores.\label{Fig:Dir_vel}}
+\end{marginfigure}
 
 Através das componentes radial e tangencial, se -- por exemplo -- necessitarmos descrever o movimento de um carro que ganha velocidade com aceleração tangencial constante em uma pista circular, podemos utilizar as equações da cinemática para calcular a evolução temporal da velocidade. Assim, temos que
 \begin{align}
