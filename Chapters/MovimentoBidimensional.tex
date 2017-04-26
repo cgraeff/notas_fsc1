@@ -133,7 +133,27 @@ O conjunto de posições ocupadas por um corpo ao longo do tempo é representado
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+O deslocamento $\Delta \vec{r}$ de uma partícula entre dois instantes quaisquer é dado por
+\begin{equation}
+  \Delta\vec{r} = \vec{r}_f - \vec{r}_i,
+\end{equation}
+%
+onde os vetores $\vec{r}_i$ e $\vec{r}_f$ são vetores que indicam as posições inicial e final da partícula entre dois instantes quaisquer. Utilizando a notação de versores temos para $\vec{r}_i$ e $\vec{r}_f$
+\begin{align}
+  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
+  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
+\end{align}
+%
+Consequentemente, o vetor deslocamento será dado por
+\begin{align}
+  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
+  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
+  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
+\end{align}
+%
+Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
+ 
+\begin{marginfigure}[-10cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \path[name path=traj, draw] (0,2) .. controls (1,0.5) and (2,2.5) .. (3,1.5);
@@ -155,26 +175,6 @@ O conjunto de posições ocupadas por um corpo ao longo do tempo é representado
 \caption{O vetor deslocamento $\Delta \vec{r}$ pode ser calculado a partir da diferença entre os vetores $\vec{r}_f$ e $\vec{r}_i$.}
 \end{marginfigure}
 
-O deslocamento $\Delta \vec{r}$ de uma partícula entre dois instantes quaisquer é dado por
-\begin{equation}
-  \Delta\vec{r} = \vec{r}_f - \vec{r}_i,
-\end{equation}
-%
-onde os vetores $\vec{r}_i$ e $\vec{r}_f$ são vetores que indicam as posições inicial e final da partícula entre dois instantes quaisquer. Utilizando a notação de versores temos para $\vec{r}_i$ e $\vec{r}_f$
-\begin{align}
-  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
-  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
-\end{align}
-%
-Consequentemente, o vetor deslocamento será dado por
-\begin{align}
-  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
-  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
-  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
-\end{align}
-%
-Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
-  
 %%%%%%%%%%%%%%%%%%%%
 \section{Velocidade}
 %%%%%%%%%%%%%%%%%%%%
@@ -214,7 +214,7 @@ Podemos utilizar a propriedade de que o limite da soma é a soma dos limites par
 %
 Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
 
-Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to zero$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
+Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
 \begin{equation}
     \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
 \end{equation}
@@ -302,7 +302,7 @@ No caso do cálculo da velocidade média, bastou redefinirmos a velocidade em te
 %
 A direção do vetor aceleração média é a própria direção do vetor $\Delta{\vec{v}}$. 
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}
    \begin{tikzpicture}[>=Stealth]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
         \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
@@ -771,17 +771,43 @@ dentre outras relações. Veja que nesse caso utilizamos somente a aceleração 
 
 Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo no solo. Assim, quando um ônibus passa, a velocidade que atribuímos a seus passageiros é a mesma do próprio ônibus, caso eles estejam sentados. Se fixarmos o referencial no piso do ônibus, veremos que a velocidade dos passageiros é nula. Portanto, a velocidade que medimos depende do referencial adotado. Isso se deve ao fato de que a própria posição depende do referencial.
 
-\comment{TODO figura com partícula com velocidade $v_p$ e dois referenciais ($S$ e $S'$), com $v_{SS'} \neq 0$}
-Vamos analisar a situação mostrada na Figura~???. A posição da partícula $P$ no referencial $S'$ é dada pelo vetor $\vec{r}_{S'}$. Se estivermos interessados em calcular a posição desta partícula em um referencial $S$, sendo que a posição do referencial $S'$ é dada por $\vec{r}_{SS'}$ em relação a $S$, temos
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \coordinate (OS) at (0,0) node[below left]{$S$};
+    
+    \draw[->] (OS) -- +(4,0) node[below left]{$x$};
+    \draw[->] (OS) -- +(0,3) node[below left]{$y$};
+    
+    \coordinate (OSP) at (2,1.1);
+    
+    \draw[->] (OSP) node[below]{$S'$} -- +(4,0) node[below left]{$x'$};
+    \draw[->] (OSP) -- +(0,3) node[below left]{$y'$};
+    
+    \coordinate (P) at (3,2.5);
+    
+    \draw[fill] (P) circle (1pt) node[above right]{$P$};
+
+    \draw[->] (OS) -- node[above]{$\vec{r}_S$} (P);
+    \draw[->] (OSP) -- node[right]{$\vec{r}_{S'}$} (P);
+    \draw[->] (OS) -- node[below right]{$\vec{r}_{S'S}$}(OSP);
+    
+    \draw[->] (OSP) ++(0,2.5) -- node[above]{$\vec{v}_{S'S}$} +(1,0);
+\end{tikzpicture}
+\caption{Posião de uma partícula $P$ em dois referenciais diferentes. \label{Fig:Ref_mov_relativo}}
+\end{figure}
+
+Vamos analisar a situação mostrada na Figura~\ref{Fig:Ref_mov_relativo}. A posição da partícula $P$ no referencial $S'$ é dada pelo vetor $\vec{r}_{S'}$. Se estivermos interessados em calcular a posição desta partícula em um referencial $S$, sendo que a posição do referencial $S'$ é dada por $\vec{r}_{S'S}$ em relação a $S$, temos
 \begin{equation}
-  \vec{r}_S = \vec{r}_S' + \vec{r}_{SS'},\mathnote{Transformação galileana de posição.}
+  \vec{r}_S = \vec{r}_S' + \vec{r}_{S'S},\mathnote{Transformação galileana de posição.}
 \end{equation}
 %
-ou seja, temos uma simples adição de dois vetores, como pode ser visto na própria figura. Esta transformação, juntamente com as equivalentes para velocidade e aceleração, são denominadas \emph{transformações galileanas}. Dentro de Mecânica Clássica essas são as transformações que devem ser utilizadas, já para o caso da mecânica relativística, devemos utilizar as \emph{transformações de Lorentz}, que levam em conta o fato de que a velocidade da luz tem um valor absoluto (igual em todos os referenciais) que que não pode ser ultrapassado.
+ou seja, temos uma simples adição de dois vetores, como pode ser visto na própria figura. Esta transformação, juntamente com as equivalentes para velocidade e aceleração, são denominadas \emph{transformações galileanas}. Dentro de Mecânica Clássica essas são as transformações que devem ser utilizadas, já para o caso da mecânica relativística, devemos utilizar as \emph{transformações de Lorentz}, que levam em conta o fato de que a velocidade da luz tem um valor absoluto (igual em todos os referenciais) e que não pode ser ultrapassado.
 
-De maneira semelhante, se a partícula tem velocidade $v_{S'}$ em relação ao referencial $S'$ e temos que esse referencial se move com velocidade $\vec{v}_{SS'}$ em relação a $S$, temos
+De maneira semelhante, se a partícula tem velocidade $v_{S'}$ em relação ao referencial $S'$ e temos que esse referencial se move com velocidade $\vec{v}_{S'S}$ em relação a $S$, temos
 \begin{equation}
-  \vec{v}_S = \vec{v}_{S'} + \vec{v}_{SS'}.
+  \vec{v}_S = \vec{v}_{S'} + \vec{v}_{S'S}.
 \end{equation}
 Para obter esta relação, basta utilizarmos a definição da velocidade instantânea $\vec{v} = \lim_{\Delta t \to 0} \Delta \vec{r} / \Delta t$, escrevendo
 \begin{equation}
@@ -791,32 +817,32 @@ Para obter esta relação, basta utilizarmos a definição da velocidade instant
 Através da relação para a posição, podemos calcular o deslocamento no referencial $S$ como
 \begin{align}
   \Delta \vec{r}_S &= \vec{r}_S^f - \vec{r}_S^i \\
-  &= (\vec{r}_{S'}^f + \vec{r}_{SS'}^f) - (\vec{r}_{S'}^i + \vec{r}_{SS'}^i) \\
-  &= (\vec{r}_{S'}^f - \vec{r}_{S'}^i) + (\vec{r}_{SS'}^f - \vec{r}_{SS'}^i) \\
-  &= \Delta \vec{r}_{S'} + \Delta \vec{r}_{SS'}.
+  &= (\vec{r}_{S'}^f + \vec{r}_{S'S}^f) - (\vec{r}_{S'}^i + \vec{r}_{S'S}^i) \\
+  &= (\vec{r}_{S'}^f - \vec{r}_{S'}^i) + (\vec{r}_{S'S}^f - \vec{r}_{S'S}^i) \\
+  &= \Delta \vec{r}_{S'} + \Delta \vec{r}_{S'S}.
 \end{align}
 %
 Substituindo esse resultado na equação anterior para a velocidade, temos
 \begin{equation}
-  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{S'} + \Delta \vec{r}_{SS'}}{\Delta t}.
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{S'} + \Delta \vec{r}_{S'S}}{\Delta t}.
 \end{equation}
 %
 Separando os termos do numerador em duas frações e sabendo que $\lim_{\epsilon \to \xi} f(\epsilon) + g(\epsilon) = \lim_{\epsilon \to \xi} f(\epsilon) + \lim_{\epsilon \to \xi} g(\epsilon)$, temos
 \begin{equation}
-  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta\vec{r}_{S'}}{\Delta t} + \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{SS'}}{\Delta t}.
+  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta\vec{r}_{S'}}{\Delta t} + \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_{S'S}}{\Delta t}.
 \end{equation}
 %
-Os limites acima definem as velocidades $\vec{v}_{S'}$ e $\vec{v}_{SS'}$, logo,
+Os limites acima definem as velocidades $\vec{v}_{S'}$ e $\vec{v}_{S'S}$, logo,
 \begin{equation}
-  \vec{v}_S = \lim_{\Delta t \to 0} \frac{\Delta \vec{r}_s}{\Delta t}. \mathnote{Transformação galileana de velocidade.}
+  \vec{v}_S = \vec{v}_{S'} + \vec{v}_{S'S}. \mathnote{Transformação galileana de velocidade}
 \end{equation}
 
 Podemos ainda calcular as transformações para a aceleração através de um cálculo análogo ao utilizado para o caso da velocidade, obtendo
 \begin{equation}
-  \vec{a}_S = \vec{a}_{S'} + \vec{a}_{SS'}.
+  \vec{a}_S = \vec{a}_{S'} + \vec{a}_{S'S}.  \mathnote{Transformação galileana de aceleração}
 \end{equation}
 %
-Temos um interesse particular nessa equação devido ao conceito de \emph{referencial inercial}. Veremos adiante que as Leis de Newton só têm validade dentro de um referencial inercial, que é um referencial que não está submetido a acelerações. Dessa forma, se -- por exemplo -- o referencial $S$ for um referencial inercial, o referencial $S'$ só será inercial se a aceleração $\vec{a}_{SS'}$ for igual a zero. Um referencial não inercial pode ser identificado quando surgem forças ``inexplicáveis''. Um exemplo disso é quando estamos em carro que acelera para a frente e verificamos que um objeto suspenso se desloca para trás, como se tivesse sido puxado através de um fio invisível. Esta força não tem origem dentro do referencial do carro, só podendo ser explicada quando levamos em conta o fato de que o referencial sofre uma aceleração em relação ao solo. Mesmo no caso do solo, como temos uma rotação da Terra em torno do próprio eixo, não temos um referencial verdadeiramente inercial. Este impasse pode ser resolvido através da Primeira Lei de Newton, que veremos no próximo capítulo.
+Temos um interesse particular nessa equação devido ao conceito de \emph{referencial inercial}. Veremos adiante que as Leis de Newton só têm validade dentro de um referencial inercial, que é um referencial que não está submetido a acelerações. Dessa forma, se -- por exemplo -- o referencial $S$ for um referencial inercial, o referencial $S'$ só será inercial se a aceleração $\vec{a}_{S'S}$ for igual a zero. Um referencial não inercial pode ser identificado quando surgem forças ``inexplicáveis''. Um exemplo disso é quando estamos em carro que acelera para a frente e verificamos que um objeto suspenso se desloca para trás, como se tivesse sido puxado através de um fio invisível. Esta força não tem origem dentro do referencial do carro, só podendo ser explicada quando levamos em conta o fato de que o referencial sofre uma aceleração em relação ao solo. Mesmo no caso do solo, como temos uma rotação da Terra em torno do próprio eixo, não temos um referencial verdadeiramente inercial. Este impasse pode ser resolvido através da Primeira Lei de Newton, que veremos no próximo capítulo.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Questionário}

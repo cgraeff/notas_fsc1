@@ -49,7 +49,7 @@ Galileu analisou o movimento de esferas que podem subir ou descer rampas, tecend
   \item Se tomarmos uma superfície perfeitamente horizontal, não existe tendência a ganhos de velocidade, nem de perdas de velocidade. Se colocarmos a esfera de forma que ela fique parada sobre a superfície, ela deve permanecer parada. Se a colocarmos em movimento, não havendo impedimentos, ela deve permanecer em movimento. Não havendo inclinação do plano, não há razão para haver aumento ou diminuição da velocidade. Se o plano horizontal for infinito, ela deve continuar nesse movimento indefinidamente. A razão disto é que existe uma tendência dos corpos a se moverem em direção ao centro da Terra. Como em um plano horizontal todas as partes estão à mesma distância em relação ao centro, não existe um lugar preferencial da superfície para o qual a esfera tem uma tendência a se dirigir. Tal superfície seria, na realidade, uma esfera lisa e concêntrica com a Terra. Uma vez posta em movimento em direção ao norte, por exemplo, a esfera continuaria a se mover em tal direção até atingi-lo e passar a se mover para o sul, descrevendo um circulo em torno da Terra.
 \end{itemize}
 %
-Resumindo, podemos afirmar que -- segundo Galileu -- \emph{um corpo sobre uma superfície horizontal continuará se movendo na mesma direção com velocidade constante a não ser que seja perturbado}. Portanto, pela primeira vez se vislumbra o princípio da inércia. Devemos destacar que para Galileu, \emph{o movimento horizontal do corpo não é retilíneo}, mas um círculo em torno da Terra. Finalmente, através de tais observações, Galileu concluiu que é impossível distinguir um corpo em movimento com velocidade constante de outro parado, a não ser que tenhamos uma referência externa.
+Resumindo, podemos afirmar que -- segundo Galileu -- \emph{um corpo sobre uma superfície horizontal continuará se movendo na mesma direção com velocidade constante a não ser que seja perturbado}. Portanto, pela primeira vez se vislumbra o princípio da inércia. Devemos destacar que para Galileu, \emph{o movimento horizontal do corpo não é retilíneo}, mas um círculo em torno da Terra -- essa é a interpretação mais comum das principais obras de Galileu, porém há controvérsias sobre isso: veja \cite{Vasconcelos2005} --. Finalmente, através de tais observações, Galileu concluiu que é impossível distinguir um corpo em movimento com velocidade constante de outro parado, a não ser que tenhamos uma referência externa.
 
 Em seu livro, \emph{Principia}, Newton declara a primeira lei do movimento como
 \begin{quote}
@@ -63,7 +63,7 @@ A diferença fundamental em relação ao proposto por Galileu é o fato de que o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Origem do termo inércia}
+% \subsection{Origem do termo inércia} % wikipedia
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % sobre a inércia:
@@ -220,13 +220,76 @@ Tais forças são denominadas fundamentais pois todas as demais podem ser interp
 \paragraph{Diagramas de força} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pra resolver problemas
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-1,0) -- (1,0);
+    
+    \draw[pattern= north west lines] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- (0,-0.5) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- (0,2) node[left]{$\vec{N}$};
+    
+    \draw[fill] (2,0.5) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(0,1) node[right]{$\vec{N}$};
+    \draw[->, thick] (2,0.5) -- +(0,-1) node[right]{$\vec{P}$};
+    
+\end{tikzpicture}
+\caption{Esboço de um problema e o diagrama de forças do problema. Apesar de a rigor devermos utilizar o diagrama, é mais ilustrativo utilizar a representação da esquerda, porém ela tem problemas conceituais: a força normal é exercida na parte inferior do bloco, não no topo, como ilustrado.}
+\end{marginfigure}
+
+falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pra resolver problemas, falar da escolha do sistema de coordenadas: minimizar forças a serem decompostas, colocar a aceleração em um eixo só.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+   
+    \draw[dashed, ->] (0,0.5) -- (4,0.5) node[below left]{$x$};
+    \draw[dashed, ->] (2,-1) -- (2,2.2) node[below right]{$y$};
+    
+    \draw[interface] (0,0) -- (4,0);
+    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill] (2,0.5) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    
+    \draw[->] (3,1) -- node[above]{$\vec{a}$}(3.7,1);
+
+\end{tikzpicture}
+\caption{Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Força gravitacional e força peso} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{ilustrar a situação com um exemplo a ser discutido na aula, coisa simples}
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 0];
+    \draw[fill] (0,0) circle (1pt) node[left]{$C$};
+    \draw[->, thick] (0,0) -- node[right]{$\vec{P}'$} +(0,1);
+    
+    \draw[pattern= north west lines] (0,3.5) circle (3mm);
+    \draw[fill] (0,3.5) circle (1pt);
+    \draw[->, thick] (0,3.5) -- node[right]{$\vec{P}$} +(0,-1);
+\end{tikzpicture}
+\caption{Par ação-reação para a força peso: a interação gravitacional se dá entre o planeta e o objeto, logo temos uma reação que atua na Terra. Como tratamos corpos rígidos como pontos, podemos representar a reação como uma força que atua no centro de massa do planeta.}
+\end{marginfigure}
 Sabemos que próximo da superfície da Terra, todos os corpos estão sujeitos a uma aceleração de aproximadamente \np[m/s^2]{9,8} (ignorando-se os efeitos da resistência do ar). A origem dessa aceleração sua independência em relação à massa podem ser explicadas através da Teoria da Gravitação Universal, também proposta por Newton. Segundo ela, dois corpos quaisquer está sujeitos a uma força de atração mútua -- isto é, atuando sobre ambos os corpos, constituindo um par ação-reação -- dada por
 \begin{equation}\label{Eq:LeiGravitacaoUniversal}
   F_g = G \frac{m_1 m_2}{r^2}.
@@ -262,14 +325,104 @@ Portanto, o valor $g$ a que nos referimos ao estudar a queda livre é dado pela 
 %%%%%%%%%%%%%%%%%%%
 \subsection{Normal} 
 %%%%%%%%%%%%%%%%%%%
-\comment{ilustrar a situação com um exemplo a ser discutido na aula, coisa simples, bloco sobre mesa, por ex.}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-1,0) -- (1,0);
+    
+    \draw[pattern = north west lines, pattern color = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[->, thick] (-0.3,0) -- node[left]{$\vec{N}'$} +(0,-1);
+\end{tikzpicture}
+\caption{A força normal é resultado de uma interação entre a superfície e o corpo. A reação $\vec{N}'$ atua sobre a superfície, na mesma direção que $\vec{N}$, com a mesma intensidade, porém com sentido oposto.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (0,-1) -- (0,1);
+    
+    \draw[pattern = north west lines, pattern color = gray] (0,-0.5) rectangle (-1,0.5);
+    \draw[fill] (-0.5,0) circle (1pt);
+    
+    \draw[->, thick] (-0.5, 0) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (-1,0) -- +(-1,0) node[above]{$\vec{N}$};
+    
+    \draw[<-, thick] (-1,-0.5) -- node[below]{$\vec{F}$} +(-135:1);
+\end{tikzpicture}
+\caption{No caso de contato com uma superfície vertical, temos uma força normal horizontal.}
+\end{marginfigure}
 
 Qualquer objeto próximo da Terra sofre uma atração em direção ao centro da Terra, mas nem todos são acelerados por tal força. Um objeto que repousa sobre o solo, por exemplo, se mantém parado, sem afundar no chão. Acontece que, nesse caso, as forças de origem eletromagnéticas de interação entre os átomos do solo e do objeto atuam de maneira a impedir que ele afunde. Isso, no entanto, não ocorre em todas as superfícies: se colocarmos um bloco de concreto sobre a água, por exemplo, ele afunda, indo em direção ao centro da Terra. No primeiro caso, denominamos a força resultante da interação entre os átomos da superfície e do bloco como \emph{força normal}. Ela recebe esse nome pois é sempre perpendicular à superfície e um vetor perpendicular a uma superfície é denominado em matemática como um vetor normal. No segundo caso, a interação eletromagnética não é suficiente para o manter em equilíbrio, porém ainda temos uma força resultante exercida pelos átomos, denominada de \emph{empuxo}.
+
 
 % TODO ilustrar a situação
 Se a força normal é o resultado da interação de um corpo com uma superfície, sendo que a primeira força atua sobre o corpo, temos que a reação atua sobre a superfície. Se, por exemplo, colocamos uma caixa sobre uma mesa e o sistema se mantém em equilíbrio, temos que a força normal está dirigida para cima, perpendicularmente à superfície de contato e equilibrando a caixa. Sobre a mesa, dirigida perpendicularmente à superfície, mas dirigida para a mesa, temos a reação da força normal. Outro exemplo que vale a pena citar é o de uma balança de farmácia: quando subimos nela, e permanecemos imóveis, temos que a normal exercida pela balança equilibra nosso peso.  Devido ao fato de que nenhum dispositivo consegue verificar o valor de uma grandeza que não atue sobre ele, temos que a balança deve verificar o valor da reação à força normal, já que tal reação atua sobre a balança. O fato de termos que ficar parados para evitar a mudança da leitura da balança já nos dá um indício de que os valores indicados não se referem ao peso, pois $P = mg$ -- considerando que $m$ e $g$ são constantes durante a medida -- e é constante.
 
 Finalmente, devemos indicar que a força normal não pode ser encontrada por outra maneira além de resolver a Segunda Lei de Newton. Se desejamos saber o valor do peso de um objeto, podemos calculá-lo sabendo a massa e da aceleração da gravidade. Já para a força normal, não existe uma expressão que a relacione a outras grandezas, exceto pela própria Segunda Lei. Podemos afirmar de maneira simplificada que a força normal cresce de modo a equilibrar outras forças que atuam perpendicularmente em direção à superfície, porém limitando-se a um valor máximo de intensidade de força. Por exemplo, quando colocamos uma caixa leve sobre uma mesa frágil, verificamos que o sistema permanece em equilíbrio. Se passamos a depositar objetos no interior da caixa, verificamos que a força normal exercida pela mesa sobre a caixa deve aumentar progressivamente, mantendo o sistema em equilíbrio. Eventualmente, a caixa se tornará muito pesada e -- lembrando-se de que existe uma reação à força normal e que esta reação atua sobre a mesa -- excederemos o valor máximo de força tolerado pela mesa, que acaba se quebrando.
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-1,0) -- (1,0);
+    
+    \draw[pattern= north west lines] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1.5) node[left]{$\vec{N}$};
+    
+    \draw[->] (0.7, 0.5) -- node[right]{$\vec{a}$} +(0,1);
+    
+    %
+    
+    \draw[interface] (2,0) -- (4,0);
+    
+    \draw[pattern= north west lines] (2.5,0) rectangle (3.5,1);
+    \draw[fill] (3,0.5) circle (1pt);
+    
+    \draw[->, thick] (3, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (3,1) -- +(0,0.5) node[left]{$\vec{N}$};
+    
+    \draw[->] (3.7, 1.5) -- node[right]{$\vec{a}$} +(0,-1);
+        
+    %
+    
+    \draw[interface] (5,0) -- (7,0);
+    
+    \draw[pattern= north west lines] (5.5,0) rectangle (6.5,1);
+    \draw[fill] (6,0.5) circle (1pt);
+    
+    \draw[->, thick] (6, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (6,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \node (A) at (7.1, 0.5) {$\vec{a} = 0$};
+\end{tikzpicture}
+\caption{O valor da normal depende da aceleração do sistema.}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%
 \subsection{Tensão} 
@@ -277,8 +430,31 @@ Finalmente, devemos indicar que a força normal não pode ser encontrada por out
 \comment{ilustrar a situação com um exemplo a ser discutido na aula, coisa simples, balde pendurado, por exemplo. verificar esse footnote direito e tb verificar essa ideia de dizer que há um valor máximo de força de tensão}
 Ao pendurarmos um objeto utilizando uma corda, se temos equilíbrio, existe uma \emph{tensão} exercida pela corda que equilibra a força peso do objeto. As forças de tensão também têm origem eletromagnética (se originam das interações eletromagnética entre os átomos que compõe as fibras da corda) e têm características parecidas com as da força normal: podemos determiná-las somente com mais detalhes da situação e temos um valor máximo de força, sendo que a corda se rompe ao excedê-lo\footnote{Na verdade a corda não se rompe repentinamente, suas fibras se partem e a corda estica, cedendo aos poucos e diminuindo (mesmo que momentaneamente) a tensão exercida. Eventualmente muitas fibras se rompem e dão início a uma ``reação em cadeia''. O valor máximo de força exercido certamente ocorre antes de esse processo ocorrer.}. Outra consideração importante é que uma corda só consegue exercer forças quando são esticadas, não exercendo -- portanto -- forças laterais ou no sentido de ``dobrá-la'' (no sentido contrário ao de esticá-la). 
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    \draw[interface, gray] (1,0) -- (-1,0);
+    \draw[pattern = north west lines, pattern color = gray] (-0.05,0) rectangle (0.05,-3);
+    
+    \draw[->, thick] (0,0) -- node[right]{$\vec{T}'_s$} +(0,0.6);
+    \draw[->, thick] (0,0) -- node[right]{$\vec{T}_s$} +(0,-0.6);
+    
+    \draw (-0.5, -3) rectangle (0.5, -4);
+    \draw[->, thick] (0, -3) -- node[above right]{$\vec{T}_i$} +(0,0.4);
+    \draw[->, thick] (0, -3) -- node[below right]{$\vec{T}'_i$} +(0, -0.4);
+    
+    \draw[fill, gray] (0, -3.5) circle (1pt);
+    \draw[->, gray] (0, -3.5) -- +(0,-1) node[right]{$\vec{P}$};
+\end{tikzpicture}
+\caption{Se a massa da corda não puder ser desprezada, não faz sentido falarmos em uma ``tensão na corda'': a tensão será diferente em cada ponto dela. Em especial, no ponto inferior, vemos que a tensão exercida deve sustentar somente o peso da caixa. No ponto superior, a tensão deve sustentar tanto o peso da caixa, como o da corda. Vemos, também que as tensões nos pontos superior e inferior não são pares ação-reação, pois tais tensões não tem o mesmo módulo. Se a massa da corda for negligível, é possível mostrar que as tensões superior e inferior terão o mesmo valor, porém continuarão não sendo um par ação-reação: em tal par, cada uma das forças atua em um dos corpos que interagem (corda-teto, ou corda-caixa), mas $\vec{T}'_s$ e $\vec{T}'_i$ atuam no teto e na caixa, que não interagem diretamente. Além disso, $\vec{T}_s$ e $\vec{T}_i$ atuam no mesmo corpo.}
+\end{marginfigure}
+
 Vamos considerar aqui cordas ideais, que não esticam e que têm massas desprezíveis. Nesse caso, as forças de ação e reação atuam nos corpos presos às extremidades da corda, ambas na direção da corda, porém em sentidos opostos. Se considerássemos uma corda real, com massa, teríamos que as forças exercidas em ambas as extremidades de uma corda disposta verticalmente e que suspende um objeto seriam diferentes. Isso é natural, pois a força exercida para cima, no topo, deve sustentar o peso do objeto pendurado e o peso da corda. Já na parte inferior, a força só deve sustentar o peso do objeto. Na verdade, o par ação-reação ocorre nos pontos de interação entre dois corpos e, portanto, temos um par ação-reação para uma das extremidades e outro par ação-reação que atua na outra extremidade, em cada caso com uma força na corda e outra no objeto. Se consideramos a corda como de massa desprezível, estamos considerando que os dois corpos ao quais ela está amarrada interagem diretamente, o que não é verdade (apesar de ser o caso que vamos considerar aqui). 
-\comment{TODO Fig explicando o caso da corda com massa disposta verticalmente}
 
 Outro caso em que a massa de uma corda é importante, é aquele em que ela fica disposta horizontalmente. Nesse caso, se tomarmos um segmento qualquer da corda, verificamos que para que ele se mantenha em equilíbrio, deve haver alguma força que equilibre a força peso do segmento. Tal força é a própria tensão na corda, que atua para ambos os lados do segmento, porém tem pequenas componentes dirigidas para cima e, dessa forma, se estabelece um equilíbrio. Cada segmento, no entanto está submetido a forças que fazem ângulos diferentes em relação à horizontal. Isso da origem a uma forma específica para a curva de posição vertical em função da posição horizontal, conhecida como \emph{catenária}. Essa forma corresponde àquela dos fios pendurados entre dois postes. \comment{figura}
 
@@ -460,10 +636,11 @@ O resultado acima é conhecido como \emph{Lei de Hooke}, em homenagem ao físico
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Forças no movimento circular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Impossível ser mais claro que isso:
 
-A Centripetal force is that by which bodies are drawn or impelled, or any way tend, towards a point as to a centre.
-[A força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma forma, em direção a um ponto como um centro.]
+De acordo com Newton:
+\begin{quote}
+    Uma força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma maneira, em direção a um ponto como um centro.
+\end{quote}
 
 Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
 
@@ -670,3 +847,160 @@ isto é, a força peso nada mais é do que a força de atração gravitacional q
 \end{tikzpicture}
 \caption{Teste Tikz.}
 \end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%
+\section{Apêndice}
+%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Diálogo}
+%%%%%%%%%%%%%%%%%%%%
+
+Segue abaixo uma tradução do trecho do \emph{Diálogo sobre os dois máximos sistemas do mundo: ptolomaico e copernicano} de Galileu Galilei, onde encontramos a discussão acerca do movimento contínuo e uniforme que ocorreria caso tivéssemos uma superfície horizontal de onde retirássemos todos os ``impedimentos ao movimento''.
+% Dialogo, p. 83
+\begin{description}
+%\item[Salviati:]  Io non desidero che voi diciate o rispondiate di saper niente altro che quello che voi
+%sicuramente sapete. Però ditemi: quando voi aveste una superficie piana, pulitissima come uno
+%specchio e di materia dura come l'acciaio, e che fusse non parallela all'orizonte, ma alquanto
+%inclinata, e che sopra di essa voi poneste una palla perfettamente sferica e di materia grave e
+%durissima, come, verbigrazia, di bronzo, lasciata in sua libertà che credete voi che ella facesse? non
+%credete voi (sí come credo io) che ella stesse ferma?
+\item[Salviati:] [\dots] diga-me: quando você tem uma superfície plana, polidíssima com um espelho e de matéria dura como o aço, e que seja não paralela ao horizonte, mas um pouco inclinada, e que sobre ela você colocasse uma bola perfeitamente esférica e de material \emph{grave}\footnote{Um corpo \emph{grave} para Galileu é aquele que está sujeito à gravidade, ou seja, que se dirige ao centro da Terra quando pode se mover livremente.} e duríssima, como, por exemplo, de bronze, deixada em sua liberdade[,] o que você acredita que  ela faria? você não acredita (assim como creio eu) que ela continuaria parada?
+
+%\item[Simplicio:]  Se quella superficie fusse inclinata?
+\item[Simplicio:] Se aquela superfície fosse inclinada?
+
+%\item[Salviati:]  Sí, ché cosí già ho supposto.
+\item[Salviati:] Sim, é assim que supomos.
+
+%\item[Simplicio:]  Io non credo che ella si fermasse altrimente, anzi pur son sicuro ch'ella si moverebbe
+%verso il declive spontaneamente.
+\item[Simplicio:] Eu não acredito que ela permaneça parada, antes estou seguro que ela se moverá para o declive espontaneamente.
+
+%\item[Salviati:]  Avvertite bene a quel che voi dite, signor Simplicio, perché io son sicuro ch'ella si
+%fermerebbe in qualunque luogo voi la posaste.
+\item[Salviati:] Pense bem no que você disse, senhor Simplicio, por que eu estou seguro que ela ficará em qualquer lugar que você a colocar.
+
+%\item[Simplicio:]  Come voi, signor Salviati, vi servite di questa sorte di supposizioni, io comincierò a non
+%mi maravigliar che voi concludiate conclusioni falsissime.
+\item[Simplicio:] Como você, senhor Salviati, se serve desse tipo de suposição, não me impressiona que você chegue a conclusões falsas.
+
+%\item[Salviati:]  Avete dunque per sicurissimo ch'ella si moverebbe verso il declive spontaneamente?
+\item[Salviati:] Você tem então por seguro que ela se moverá para o declive espontaneamente?
+
+%\item[Simplicio:]  Che dubbio?
+\item[Simplicio:] Que dúvidas?
+
+%\item[Salviati:]  E questo lo tenete per fermo, non perché io ve l'abbia insegnato (perché io cercavo di
+%persuadervi il contrario), ma per voi stesso e per il vostro giudizio naturale.
+\item[Salviati:] E você tem isso por firme, não por que eu o tenha ensinado (por que eu tentava o persuadir do contrário), mas por você somente e pelo seu juízo natural.
+
+%\item[Simplicio:]  Ora intendo il vostro artifizio: voi dicevi cosí per tentarmi e (come si dice dal vulgo) per
+%iscalzarmi, ma non che in quella guisa credeste veramente.
+\item[Simplicio:] Ora[,] entendo o seu artifício: você diz assim para me tentar e (como diz o povo) me desgastar, mas não que acredite verdadeiramente que seja assim. 
+
+%\item[Salviati:]  Cosí sta. E quanto durerebbe a muoversi quella palla, e con che velocità? E avvertite che
+%io ho nominata una palla perfettissimamente rotonda ed un piano esquisitamente pulito, per
+%rimuover tutti gli impedimenti esterni ed accidentarii: e cosí voglio che voi astragghiate
+%dall'impedimento dell'aria, mediante la sua resistenza all'essere aperta, e tutti gli altri ostacoli
+%accidentarii, se altri ve ne potessero essere.
+\item[Salviati:] De fato. E quanto duraria o movimento daquela bola, e com que velocidade? E perceba que eu supus uma bola perfeitissimamente redonda e um plano requintadamente polido, para remover todos os impedimentos externos e acidentais: e assim eu desejo que você [abstraia] o impedimento do ar, mediante à sua resistência em ser aberto, e todos os outros obstáculos acidentais, se outros puderem haver.
+
+%\item[Simplicio:]  Ho compreso il tutto benissimo: e quanto alla vostra domanda, rispondo che ella
+%continuerebbe a muoversi in infinito, se tanto durasse la inclinazione del piano, e con movimento
+%accelerato continuamente; ché tale è la natura de i mobili gravi, che vires acquirant eundo: e quanto
+%maggior fusse la declività, maggior sarebbe la velocità.
+\item[Simplicio:] Compreendi tudo muito bem: e quanto à sua pergunta, respondo que ela continuará se movendo infinitamente, se tanto durasse a inclinação do plano, e com movimento acelerado continuamente; pois tal é a natureda dos corpos graves, que ``vai ganhar força'': e quanto maior for o declive, maior será a velocidade.
+
+%\item[Salviati:]  Ma quand'altri volesse che quella palla si movesse all'insú sopra quella medesima
+%superficie, credete voi che ella vi andasse?
+\item[Salviati:] Mas quando outros desejassem que aquela bola se movesse para cima sobre aquela mesma superfície, você acredita que ela o faria?
+
+%\item[Simplicio:]  Spontaneamente no, ma ben strascinatavi o con violenza gettatavi.
+\item[Simplicio:] Espontaneamente não, mas arrastada ou jogada violentamente.
+
+%\item[Salviati:]  E quando da qualche impeto violentemente impressole ella fusse spinta, quale e quanto
+%sarebbe il suo moto?
+\item[Salviati:] E quando de qualquer ímpeto violentamente impresso ela fosse impulsionada, qual e quanto seria seu movimento?
+
+%\item[Simplicio:]  Il moto andrebbe sempre languendo e ritardandosi, per esser contro a natura, e sarebbe piú
+%lungo o piú breve secondo il maggiore o minore impulso e secondo la maggiore o minore acclività.
+\item[Simplicio:] O movimento seguiria sempre se abatendo e se retardando, pois ser contra a natureza, e será mais longo ou mais curto segundo o maior ou menor impulso e segundo maior ou menor for o aclive.
+
+%\item[Salviati:]  Parmi dunque sin qui che voi mi abbiate esplicati gli accidenti d'un mobile sopra due
+%diversi piani; e che nel piano inclinato il mobile grave spontaneamente descende e va continuamente
+%accelerandosi, e che a ritenervelo in quiete bisogna usarvi forza; ma sul piano ascendente ci vuol
+%forza a spignervelo ed anco a fermarvelo, e che 'l moto impressogli va continuamente scemando, sí
+%che finalmente si annichila. Dite ancora di piú che nell'un caso e nell'altro nasce diversità dall'esser
+%la declività o acclività del piano, maggiore o minore; sí che alla maggiore inclinazione segue
+%maggior velocità, e, per l'opposito, sopra 'l piano acclive il medesimo mobile cacciato dalla
+%medesima forza in maggior distanza si muove quanto l'elevazione è minore. Ora ditemi quel che
+%accaderebbe del medesimo mobile sopra una superficie che non fusse né acclive né declive.
+\item[Salviati:] Para mim até agora você me explicou os acidentes de um corpo que se movimenta sobre dois planos diferentes; e que no plano inclinado o corpo grave desce espontaneamente e vai continuamente acelerando-se, e que para o reter em repouso é necessário usar força; mas sobre o plano ascendente é necessário força para impulsioná-lo e também para o reter, e que o movimento impresso vai continuamente diminuindo, até que finalmente se aniquila. Ainda diz agora que num caso e no outro há diferença devida ao aclive ou declive do plano, [quanto a] ser maior ou menor; que à maior inclinação segue maior velocidade, e, pelo contrário, sobre o plano em aclive o mesmo corpo [sujeito] à mesma força se move em distância tanto maior quanto menor é a elevação. Ora[,] diga-me o que aconteceria com o mesmo corpo sobre uma superfície que não é nem em aclive[,] nem em declive?
+
+%\item[Simplicio:]  Qui bisogna ch'io pensi un poco alla risposta. Non vi essendo declività, non vi può essere
+%inclinazione naturale al moto, e non vi essendo acclività, non vi può esser resistenza all'esser mosso,
+%talché verrebbe ad essere indifferente tra la propensione e la resistenza al moto: parmi dunque che e'
+%dovrebbe restarvi naturalmente fermo. Ma io sono smemorato, perché non è molto che 'l signor
+%Sagredo mi fece intender che cosí seguirebbe.
+\item[Simplicio:] Aqui é necessário que eu pense um pouco sobre a resposta. Não havendo declividade, não pode haver inclinação natural ao movimento, e não havendo aclive, não pode existir resistência ao movimento, tal que se faria indiferente entre à propensão e à resistência ao movimento: para mim então o que deve acontecer é permanecer naturalmente parado. [...]
+
+%\item[Salviati:]  Cosí credo, quando altri ve lo posasse fermo; ma se gli fusse dato impeto verso qualche
+%parte, che seguirebbe?
+\item[Salviati:] Assim o creio, quando alguém o colocar parado: mas e se lhe fosse dado ímpeto para qualquer parte, o que aconteceria?
+
+%\item[Simplicio:]  Seguirebbe il muoversi verso quella parte.
+\item[Simplicio:] Seguiria se movendo em direção àquela parte.
+
+%\item[Salviati:]  Ma di che sorte di movimento? di continuamente accelerato, come ne' piani declivi, o di
+%successivamente ritardato, come negli acclivi?
+\item[Salviati:] Mas que tipo de movimento? continuamente acelerado, como num plano em declive, ou sucessivamente retardado, como num aclive?
+
+%\item[Simplicio:]  Io non ci so scorgere causa di accelerazione né di ritardamento, non vi essendo né
+%declività né acclività.
+\item[Simplicio:] Eu não decifro nenhuma causa de aceleração[,] nem de retardamento, não havendo aclive ou declive.
+
+%\item[Salviati:]  Sì. Ma se non vi fusse causa di ritardamento, molto meno vi dovrebbe esser di quiete:
+%quanto dunque vorreste voi che il mobile durasse a muoversi?
+\item[Salviati:] Sim. Mas se não existisse causas para o retardamento, muito menos deveria estar em repouso: então quanto tempo você [acha] que o movimento do corpo deve durar?
+
+%\item[Simplicio:]  Tanto quanto durasse la lunghezza di quella superficie né erta né china.
+\item[Simplicio:] Tanto quanto durasse a extensão daquela superfície [...]
+
+%\item[Salviati:]  Adunque se tale spazio fusse interminato, il moto in esso sarebbe parimente senza
+termine, cioè perpetuo?
+\item[Salviati:] Portanto se tal espaço fosse interminável, o movimento nele seria também sem fim, seria perpétuo?
+
+%\item[Simplicio:]  Parmi di sí, quando il mobile fusse di materia da durare.
+\item[Simplicio:] Para mim sim, quando o corpo for de material que durasse.
+
+%\item[Salviati:]  Già questo si è supposto, mentre si è detto che si rimuovano tutti gl'impedimenti
+%accidentarii ed esterni, e la fragilità del mobile, in questo fatto, è un degli impedimenti accidentarii.
+%Ditemi ora: quale stimate voi la cagione del muoversi quella palla spontaneamente sul piano
+%inclinato, e non, senza violenza, sopra l'elevato?
+\item[Salviati:] Isso já é suposto, enquanto e é dido que se removem todos os impedimentos acidentais e esternos, e a fragilidade do corpo, e este fato é um dos impedimentos acidentais. Diga-me agora: qual você acha ser a razão  daquela bola se mover espontaneamente sobre o plano inclinado, e não, sem violência, sobre o elevado?
+
+%\item[Simplicio:]  Perché l'inclinazion de' corpi gravi è di muoversi verso 'l centro della Terra, e solo per
+%violenza in su verso la circonferenza; e la superficie inclinata è quella che acquista vicinità al centro,
+%e l'acclive discostamento.
+\item[Simplicio:] Por que a tendência dos corpos graves é de se mover para o centro da Terra, e somente por violência contra a circunferência [isto é, para cima]; e a superfície inclinada é aquela que dá proximidade com o centro, e o aclive distanciamento.
+
+%\item[Salviati:]  Adunque una superficie che dovesse esser non declive e non acclive, bisognerebbe che in
+%tutte le sue parti fusse egualmente distante dal centro. Ma di tali superficie ve n'è egli alcuna al
+%mondo?
+\item[Salviati:] Portanto uma superfície que devesse ser sem declive e sem aclive, necessita que todas as suas partes sejam igualmente distantes do centro. Mas tal superfície, há alguma no mundo?\footnote{A interpretação usual dessa afirmação é de que para Galileu o movimento ocorre naturalmente como um círculo sobre a superfície da Terra. No entanto, essa interpretação de inércia circular é contestada com base em outros trabalhos de Galileu. Vide referência abaixo.}\cite{Vasconcelos2005}
+
+%\item[Simplicio:]  Non ve ne mancano: ècci quella del nostro globo terrestre, se però ella fusse ben pulita, e
+%non, quale ella è, scabrosa e montuosa; ma vi è quella dell'acqua, mentre è placida e tranquilla.
+\item[Simplicio:] [\dots] é aquela do nosso globo terrestre, se no entanto ela fosse bem polida, e não, qual ela é, escabrosa e montanhosa; mas como é aquela da água, enquanto está plácida e tranquíla.
+
+%\item[Salviati:]  Adunque una nave che vadia movendosi per la bonaccia del mare, è un di quei mobili che
+%scorrono per una di quelle superficie che non sono né declivi né acclivi, e però disposta, quando le
+%fusser rimossi tutti gli ostacoli accidentarii ed esterni, a muoversi, con l'impulso concepito una
+%volta, incessabilmente e uniformemente
+\item[Salviati:] Portanto um navio que vai movendo-se pela calmaria do mar, é um dos corpos que escorrem por uma dessas superfícies que não são nem aclives nem declives, e assim disposta, quando lhe removermos todos os obstáculos acidentais e externos, a mover-se, com o impulso concebo um movimento, incessante e uniforme.
+
+%\item[Simplicio:] Par che deva esser cosí.
+\item[Simplicio:] É assim que deve ser.
+
+\end{description}
