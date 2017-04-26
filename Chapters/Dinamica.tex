@@ -267,7 +267,87 @@ falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pr
     \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
     
     \draw[->] (3,1) -- node[above]{$\vec{a}$}(3.7,1);
+    
+    \coordinate (A) at (4,0);
+    \draw[dashed] (A) -- +(-145:1) coordinate (B);
+    \coordinate (O) at (0,0);
+    
+    \draw[dashed] (A) -- (B);
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
 
+\end{tikzpicture}
+\caption{Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.}
+\end{marginfigure}
+
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+     
+    \draw[interface, gray] (0,0) -- (4,0);
+    \draw[pattern= dots, pattern color = gray] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill, gray] (2,0.5) circle (1pt);
+    \draw[->, thick, gray] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+       
+    \path[name path = solo] (4,0)+(-145:3) -- +(35:1);
+    \path[name path = eixop] (2,0.5) -- +(-55:1.75);
+    \path[name path = eixox] (2,0.5) -- (5,0.5);
+    \path[name path = eixoy] (2,0.5) -- +(0,-2);
+    
+    \draw[dashed, name intersections={of=solo and eixox}] (2,0.5) -- (intersection-1) coordinate (A);
+    \draw[dashed, name intersections={of=solo and eixop}] (2,0.5) -- (intersection-1);
+    \draw[dashed, name intersections={of=solo and eixoy}] (2,0.5) -- (intersection-1) coordinate (B);
+    \draw[dashed] (A) -- (B);
+
+    \coordinate (O) at (0,0.5);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
+    
+    \coordinate (C) at (4,0);
+    \coordinate (OS) at (0,0);
+    \pic [draw, "$\theta$", angle eccentricity=1.5, gray] {angle = OS--C--B};
+    
+\end{tikzpicture}
+\caption{Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+           
+    \path[name path = solo] (4,0)+(-145:3) -- +(35:1);
+    \path[name path = eixop] (2,0.5) -- +(-55:1.75);
+    \path[name path = eixox] (2,0.5) -- (5,0.5);
+    \path[name path = eixoy] (2,0.5) -- +(0,-2);
+    
+    \draw[name intersections={of=solo and eixox}] (2,0.5) -- (intersection-1) coordinate (A);
+    \draw[name intersections={of=solo and eixop}] (2,0.5) -- (intersection-1) coordinate (P);
+    \draw[name intersections={of=solo and eixoy}] (2,0.5) -- (intersection-1) coordinate (B);
+    \draw (A) -- (B);
+
+    \coordinate (O) at (2,0.5);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = B--O--P};
+    
+    \pic [draw, "$\alpha$", angle eccentricity=1.5] {angle = P--O--A};
+    
+    \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = A--P--O};
+    \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = B--O--A};
+    \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = O--P--B};
+        
 \end{tikzpicture}
 \caption{Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.}
 \end{marginfigure}
@@ -462,6 +542,31 @@ Outro caso em que a massa de uma corda é importante, é aquele em que ela fica 
 \subsection{Atrito}
 %%%%%%%%%%%%%%%%%%%
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-1,0) -- (1,0);
+    
+    \draw[pattern= north west lines] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
+    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
+    \node (A) at (1.2,1){$\vec{a} = 0$};
+
+\end{tikzpicture}
+\caption{Numa situação com atrito, podemos ter um bloco sujeito a uma força lateral sem que haja aceleração. A força que garante o equilíbrio é a força de atrito e seu valor será igual ao da força $\vec{F}$, seja ele qual for. Sabemos, no entanto, que existe um valor máximo para a força de atrito, a partir do qual ela não será mais capaz de equilibrar a força lateral e o movimento iniciará.}
+\end{marginfigure}
+
 Quando dois corpos interagem através de contato, além da força de interação normal à superfície -- isto é, a força normal --, temos outra força de interação. Essa força ocorre paralelamente às superfícies de contato e ocorre sempre no sentido oposto ao deslizamento ou à \emph{tendência} de deslizamento entre elas e é denominada como \emph{força de atrito}.
 
 A origem da força de atrito, assim como para a força normal, é a interação eletromagnética entre os átomos que compõe as superfícies em contato. Essa força, em alguns casos, pode ser devida a pequenas irregularidades que se ``encaixam'', dificultando ou mesmo impedindo o movimento. Nesse caso, se polirmos as superfícies, teremos uma diminuição do atrito entre elas. Em outros casos, quando temos superfícies muito regulares, como no caso de um metal altamente polido ou de cristais \footnote{Átomos e alguns tipos de moléculas tem a tendência a se organizarem em estruturas regulares que se repetem. Tais estruturas são denominadas cristais. O sal de cozinha, por exemplo, é composto por átomos de sódio e de cloro que se organizam de forma cúbica. Essa organização tende a se elevar à escala macroscópica, explicando -- por exemplo -- as faces planas e a organização em prisma hexagonal de um cristal de quartzo.}. Apesar de eliminarmos a possibilidade de o movimento ser dificultado ou impedido por irregularidades das superfícies, temos uma forte interação entre os átomos das duas superfícies -- a mesma interação que mantém ligados os átomos de qualquer um dos corpos --. Se tomarmos dois cristais ``perfeitos'', sem nenhum defeito na superfície, e tocarmos suas superfícies no vácuo, com a orientação correta, teremos uma ``solda a frio''. Nessa situação, a interação dos átomos da superfície de um dos cristais com os átomos da superfície do outro cristal é a mesma que entre os átomos da superfície do primeiro cristal com os demais átomos que o compõe. Deslocar um plano de átomos em relação ao outro significa agora \emph{cisalhar}, ou cortar, o objeto -- o que certamente exige uma força muito grande--. Esse tipo de interação pode ocorrer mesmo no caso de termos superfícies irregulares, pois em alguns pontos teremos o contato entre os átomos de maneira que eles interajam eletromagneticamente. Lubrificantes agem de forma a impedir ambos os tipos de interação, dificultando o ``encaixe'' entre as irregularidades devido ao preenchimento com as moléculas do lubrificante, e impedindo a formação de ``soldas frias'', pois as superfícies interagem com o lubrificante, que em geral é um líquido e não suporta forças de cisalhamento.
@@ -474,12 +579,41 @@ A origem da força de atrito, assim como para a força normal, é a interação 
 
 Explicar, usar exemplo de bloco sobre camionete que acelera, carro que acelera/freia. Atrito é contra a \textbf{tendência de deslisamento}, no caso estático, ou contra o deslocamento relativo entre as superfícies, no caso cinético.
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Força de atrito estático} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{ilustrar com objeto sobre uma rampa, mostrar que $\fat = P_x$ se $a=0$.}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface] (0,0) -- (4,0);
+    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill] (2,0.5) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
+    
+    \node at (3,1) {$\vec{a} = 0$};
+    
+    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
+
+\end{tikzpicture}
+\caption{Situação envolvendo equilíbrio devido à força de atrito.}
+\end{marginfigure}
+
+
 
 Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para qualquer valor da força aplicada. De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a segunda lei de Newton:
 \begin{equation}
@@ -571,6 +705,22 @@ Se a velocidade de escoamento for muito alta, podemos ter uma dependência linea
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Velocidade terminal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[->, dashed] (0,1.5) -- (0,2.5) node[below left]{$y$};
+    \draw[dashed] (0,-1.5) -- (0,-2);
+        
+    \draw[pattern = north west lines] (0,0) circle (0.5);
+    
+    \draw[->] (0,0.5) -- +(0,1) node[below right]{$\vec{F}_a$};
+    \draw[->] (0,-0.5) -- +(0,-1) node[above right]{$\vec{P}$};
+    
+\end{tikzpicture}
+\caption{Na condição de velocidade terminal, temos que a força de arrasto é igual ao peso. Consequentemente, temos equilíbrio, isto é, a aceleração é zero. Dessa forma, temos velocidade constante.}
+\end{marginfigure}
+
 Se um objeto é solto a partir do repouso, caindo sob efeito da força peso e da força de arrasto, podemos escrever -- utilizando a segunda lei de Newton --
 \begin{equation}
   P - F_A = ma.
@@ -614,7 +764,14 @@ Para uma mola, se realizássemos o mesmo procedimento, verificaríamos uma \emph
 	\vec{F}_e = -\vec{P}.
 \end{equation}
 
-\comment{TODO Figs}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,0) -- +(0,3); 
+\draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=2mm,coil},decorate] (2,0) -- +(0,2); 
+\end{tikzpicture}
+\caption{Coils}
+\end{marginfigure}
 
 Verificando ainda a distensão da mola, podemos relacionar uma maior distensão a uma carga maior na caixa, isto é, quanto maior a força peso dos objetos pendurados na mola, maior a distensão. Experimentalmente, verifica-se que a relação entre o peso aplicado à mola e sua distensão são \emph{diretamente proporcionais}:
 \begin{equation}

@@ -510,6 +510,14 @@ verificamos que a equação da trajetória segue o mesmo formato, porém com $A 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração centrípeta}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%TiKZ 3.0 introduces angles and quotes libraries which simplifies this task.
+%A command like
+%\draw pic[draw] {angle=A--O--C};
+%will draw a sector line between line A--O and O--C with center at O and anticlockwise. Sector radius is 5mm by default but can be changed with angle radius parameter.
+%This sector line can be labelled with label or with new quotes syntax. The label is placed with certain angle eccentricity (default = 0.6) which is a factor to be applied to angle radius.
+%Next example is similar to student's code but using angle pic. 
+
 \begin{marginfigure}
 \centering
    \begin{tikzpicture}[>=Stealth, scale=1.3]
