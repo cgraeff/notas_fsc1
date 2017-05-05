@@ -49,7 +49,7 @@ Galileu analisou o movimento de esferas que podem subir ou descer rampas, tecend
   \item Se tomarmos uma superfície perfeitamente horizontal, não existe tendência a ganhos de velocidade, nem de perdas de velocidade. Se colocarmos a esfera de forma que ela fique parada sobre a superfície, ela deve permanecer parada. Se a colocarmos em movimento, não havendo impedimentos, ela deve permanecer em movimento. Não havendo inclinação do plano, não há razão para haver aumento ou diminuição da velocidade. Se o plano horizontal for infinito, ela deve continuar nesse movimento indefinidamente. A razão disto é que existe uma tendência dos corpos a se moverem em direção ao centro da Terra. Como em um plano horizontal todas as partes estão à mesma distância em relação ao centro, não existe um lugar preferencial da superfície para o qual a esfera tem uma tendência a se dirigir. Tal superfície seria, na realidade, uma esfera lisa e concêntrica com a Terra. Uma vez posta em movimento em direção ao norte, por exemplo, a esfera continuaria a se mover em tal direção até atingi-lo e passar a se mover para o sul, descrevendo um circulo em torno da Terra.
 \end{itemize}
 %
-Resumindo, podemos afirmar que -- segundo Galileu -- \emph{um corpo sobre uma superfície horizontal continuará se movendo na mesma direção com velocidade constante a não ser que seja perturbado}. Portanto, pela primeira vez se vislumbra o princípio da inércia. Devemos destacar que para Galileu, \emph{o movimento horizontal do corpo não é retilíneo}, mas um círculo em torno da Terra -- essa é a interpretação mais comum das principais obras de Galileu, porém há controvérsias sobre isso: veja \cite{Vasconcelos2005} --. Finalmente, através de tais observações, Galileu concluiu que é impossível distinguir um corpo em movimento com velocidade constante de outro parado, a não ser que tenhamos uma referência externa.
+Resumindo, podemos afirmar que -- segundo Galileu -- \emph{um corpo sobre uma superfície horizontal continuará se movendo na mesma direção com velocidade constante a não ser que seja perturbado}. Portanto, pela primeira vez se vislumbra o princípio da inércia. Devemos destacar que para Galileu, \emph{o movimento horizontal do corpo não é retilíneo}, mas um círculo em torno da Terra -- essa é a interpretação mais comum das principais obras de Galileu, porém há controvérsias sobre isso: veja \cite{VASCONCELOS2005} --. Finalmente, através de tais observações, Galileu concluiu que é impossível distinguir um corpo em movimento com velocidade constante de outro parado, a não ser que tenhamos uma referência externa.
 
 Em seu livro, \emph{Principia}, Newton declara a primeira lei do movimento como
 \begin{quote}
@@ -179,6 +179,55 @@ A Terceira Lei de Newton foi por ele enunciada como
 Qualquer coisa que puxa ou empurra outra é tão puxado ou pressionado quanto pela outra. Se você pressionar uma pedra com seu dedo, o dedo também é pressionado pela pedra. Se um cavalo puxa uma pedra amarrada a uma corda, o cavalo (se posso assim dizer) será igualmente puxado para trás em direção à pedra: pois a corda distendida, pelo mesmo esforço para relaxar ou se afrouxar, tanto puxará o cavalo em direção à pedra, quanto puxará a pedra em direção ao cavalo, e obstruirá o progresso de um tanto quanto avança aquele do outro. Se um corpo colide com outro, e por meio de sua força muda o movimento do segundo, o segundo corpo também (devido à igualdade da pressão mútua) sofrerá uma mudança igual, em seu próprio movimento, em direção à parte contrária. As mudanças feitas por essas ações são iguais, não nas velocidades, mas nos movimentos dos corpos; isto se os corpos não são obstados por outros impedimentos. Pois, devido ao fato de que os movimentos são igualmente alterados, as mudanças das velocidades efetuadas em direções a partes contrárias são reciprocamente proporcionais aos corpos [massas]. Esta lei também ocorre em atrações, como será provado adiante.
 \end{quote}
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface](-2,0) -- (2,0);
+    
+    \draw[pattern = north west lines, pattern color = gray] (-1,0) rectangle (0,1);
+    \draw[pattern = north east lines, pattern color = gray] (0,1) rectangle (1,0);
+    
+    \draw[->] (-2, 0.5) -- node[above]{$\vec{F}$} +(1,0);
+    \draw[->] (0,0.5) -- node [above]{$\vec{F}_{12}$} +(0.5,0);
+    \draw[->] (0,0.5) -- node [above]{$\vec{F}_{21}$} +(-0.5,0);
+    
+    \draw[->] (-0.5,1.25) -- node[above]{$\vec{a}$} +(1,0);
+\end{tikzpicture}
+\caption{Ao submetermos dois blocos a uma força $\vec{F}$, ocorrerá uma interação na superfície de contato entre eles. Tal interação resultará na força $\vec{F}_{12}$ para a direita atuando no bloco da direita, fazendo com que ele acelere, e na força $\vec{F}_{21}$ para a esquerda atuando no bloco da esquerda. No caso do bloco da esquerda a \emph{força resultante} $\vec{F} - \vec{F}_{21}$ será a responsável pela aceleração.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-2.5,0) -- (2.5,0);
+    
+    \draw (-2, 0) rectangle node[rotate=90]{N} (-1.5,0.5);
+    \draw[fill] (-1.5,0.5) rectangle (-1,0);
+    
+    \draw (1, 0) rectangle node[rotate=90]{N} (1.5,0.5);
+    \draw[fill] (1.5,0.5) rectangle (2,0);
+    
+    \draw[->] (-1,0.25) -- node[above]{$\vec{F}_{12}$} +(0.75,0);
+    \draw[->] (1,0.25) -- node[above]{$\vec{F}_{21}$} +(-0.75,0);
+    
+    \draw[->] (-1.75,0.75) -- node[above]{$\vec{a}$} +(+0.5,0);
+    \draw[->] (1.75,0.75) -- node[above]{$\vec{a}$} +(-0.5,0);
+\end{tikzpicture}
+\caption{Mesmo no caso de uma interação à distância, temos um par ação-reação: Na situação mostrada na figura, ambos os imãs se deslocariam na ausência de atrito estando sujeitos a uma aceleração $a = F_{12}/m_1 = F_{21}/{m_2}$.}
+\end{marginfigure}
+
 Newton contempla a interação entre dois corpos quaisquer, seja por contato, seja à distância. Na interação um corpo exerce uma força sobre outro, porém sente os efeitos de uma força de mesmo módulo e direção, porém de sentido contrário. Se, por exemplo, um patinador arremessa uma bola com força, verificamos que a bola sofre uma grande alteração de sua velocidade. O patinador, por sua vez, sofre uma aceleração no sentido contrário -- no entanto, observamos que sua velocidade final é muito menor --. Isto pode ser entendido através da segunda lei de Newton, pois, como as forças que atuam são iguais em módulo
 \begin{align}
   F &= m_1 a_1 \\
@@ -193,12 +242,6 @@ e, consequentemente,
 Logo, se supomos que a massa $m_1$ da bola é muito menor que a massa $m_2$ do patinador, temos que $m_1/m_2 \ll 1$ e -- consequentemente -- $a_2 \ll a_1$. Como ambos os corpos estão sujeitos às acelerações durante o mesmo intervalo de tempo, observamos que $v_2 \ll v_1$, pois a velocidade é diretamente proporcional à duração da aceleração.
 
 Finalmente, é importante notar que o par ação-reação oriundo de uma interação nunca atua sobre o mesmo corpo. Devido ao fato de que uma força resulta da interação de dois corpos, não faz sentido supor que pudéssemos ter uma situação diferente. No caso de uma força interna, podemos recorrer à interpretação de que todos os corpos são constituídos de átomos, de onde verificamos que uma interação entre partes diferentes de um corpo são interações entre átomos (ou grupos de átomos, como moléculas) diferentes. Consequentemente, podemos afirmar que as forças de um par ação-reação, se dão entre corpos diferentes, mesmo no caso de forças internas.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Limitação da terceira lei de Newton}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Problema na força de Lorentz (ver Griffiths, Eletromagnetismo). Problema é resolvido se considerarmos a conservação do momento linear pois é possível se mostrar que há momento linear nos campos eletromagnéticos.
 
 %%%%%%%%%%%%%%%%
 \section{Forças}
@@ -216,9 +259,11 @@ A partir de experimentos, se tem o conhecimento de um pequeno número de forças
 %
 Tais forças são denominadas fundamentais pois todas as demais podem ser interpretadas através delas. Em geral, no entanto, a descrição de fenômenos através delas não é prática. Do ponto de vista macroscópico, é mais útil trabalharmos com forças que surgem a partir de interações complexas dos átomos através das forças fundamentais. As duas primeiras são responsáveis pelas forças que estudaremos em mecânica, como a força peso (oriunda da força gravitacional) e as forças normal, de tensão, atrito, arrasto e elástica (oriundas da força eletromagnética). Outras expressões podem ser encontradas para outras situações, no entanto não as estudaremos a fundo aqui. Podemos citar como exemplo as forças que atuam sobre cargas elétricas, entre condutores portando corrente, entre moléculas (força de van der Waals), etc. Em alguns casos, vamos tratar de forças de contato que tem origem eletromagnética, porém que não nos damos ao trabalho de nomear, como as forças que atuam entre duas esferas que colidem.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Diagramas de força} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação de força resultante e diagramas de força} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Enfatizar o fato de que a segunda lei trata da força resultante. Explicar como calcular a resultante. Falar de equilíbrio. Falar dos diagramas de força. Falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pra resolver problemas, falar da escolha do sistema de coordenadas: minimizar forças a serem decompostas, colocar a aceleração em um eixo só.
 
 \begin{marginfigure}
 \centering
@@ -245,7 +290,61 @@ Tais forças são denominadas fundamentais pois todas as demais podem ser interp
 \caption{Esboço de um problema e o diagrama de forças do problema. Apesar de a rigor devermos utilizar o diagrama, é mais ilustrativo utilizar a representação da esquerda, porém ela tem problemas conceituais: a força normal é exercida na parte inferior do bloco, não no topo, como ilustrado.}
 \end{marginfigure}
 
-falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pra resolver problemas, falar da escolha do sistema de coordenadas: minimizar forças a serem decompostas, colocar a aceleração em um eixo só.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Força gravitacional e força peso} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 0];
+    \draw[fill] (0,0) circle (1pt) node[left]{$C$};
+    \draw[->, thick] (0,0) -- node[right]{$\vec{P}'$} +(0,1);
+    
+    \draw[pattern= north west lines] (0,3.5) circle (3mm);
+    \draw[fill] (0,3.5) circle (1pt);
+    \draw[->, thick] (0,3.5) -- node[right]{$\vec{P}$} +(0,-1);
+\end{tikzpicture}
+\caption{Par ação-reação para a força peso: a interação gravitacional se dá entre o planeta e o objeto, logo temos uma reação que atua na Terra. Como tratamos corpos rígidos como pontos, podemos representar a reação como uma força que atua no centro de massa do planeta.}
+\end{marginfigure}
+Sabemos que próximo da superfície da Terra, todos os corpos estão sujeitos a uma aceleração de aproximadamente \np[m/s^2]{9,8} (ignorando-se os efeitos da resistência do ar). A origem dessa aceleração sua independência em relação à massa podem ser explicadas através da Teoria da Gravitação Universal, também proposta por Newton. Segundo ela, dois corpos quaisquer está sujeitos a uma força de atração mútua -- isto é, atuando sobre ambos os corpos, constituindo um par ação-reação -- dada por
+\begin{equation}\label{Eq:LeiGravitacaoUniversal}
+  F_g = G \frac{m_1 m_2}{r^2}.
+\end{equation}
+%
+Nesta expressão, $G$ representa uma constante universal cujo valor é de \np[N\cdot m^2/kg^2]{6.6725985e-11}, $m_1$ e $m_2$ representam as massas dos corpos que interagem, e $r$ representa a distância de separação entre os dois corpos.
+
+Aplicando a expressão acima para o caso de um corpo de massa $m$ nas imediações da superfície da Terra, temos
+\begin{equation}
+  F_g = \left[G \frac{m_T}{r_T^2}\right]m,
+\end{equation}
+%
+onde $m_T$ e $r_T$ representam a massa e o raio da Terra, respectivamente. Utilizamos o raio da Terra pois quando temos um corpo extenso, podemos substituí-lo por um ponto denominado \emph{centro de massa} localizado no centro de simetria (para corpos homogêneos). Se aproximarmos a Terra como uma esfera homogênea, tal ponto dista da superfície pelo raio da esfera. Um corpo sujeito a tal força terá então uma aceleração dada por
+\begin{equation}
+  F_g = ma
+\end{equation}
+%
+ou,
+\begin{equation}\label{Eq:EliminaM}
+  ma = m \left[G \frac{m_T}{r_T^2}\right].
+\end{equation}
+%
+Dividindo ambos os lados da equação por $m$, temos que a aceleração será dada por
+\begin{equation}
+  a = \left[G \frac{m_T}{r_T^2}\right] \approx \np[m/s^2]{9,8}.
+\end{equation}
+%
+Portanto, o valor $g$ a que nos referimos ao estudar a queda livre é dado pela equação acima, isto é,
+\begin{equation}
+  g = \left[G \frac{m_T}{r_T^2}\right].
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aceleração em um plano inclinado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Determinar a aceleração em um plano inclinado e discutir a questão do ângulo entre o peso e a direção da normal.
 
 \begin{marginfigure}
 \centering
@@ -351,57 +450,6 @@ falar de dividir a segunda lei em três eixos e utilizar o diagrama de força pr
 \end{tikzpicture}
 \caption{Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.}
 \end{marginfigure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Força gravitacional e força peso} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 0];
-    \draw[fill] (0,0) circle (1pt) node[left]{$C$};
-    \draw[->, thick] (0,0) -- node[right]{$\vec{P}'$} +(0,1);
-    
-    \draw[pattern= north west lines] (0,3.5) circle (3mm);
-    \draw[fill] (0,3.5) circle (1pt);
-    \draw[->, thick] (0,3.5) -- node[right]{$\vec{P}$} +(0,-1);
-\end{tikzpicture}
-\caption{Par ação-reação para a força peso: a interação gravitacional se dá entre o planeta e o objeto, logo temos uma reação que atua na Terra. Como tratamos corpos rígidos como pontos, podemos representar a reação como uma força que atua no centro de massa do planeta.}
-\end{marginfigure}
-Sabemos que próximo da superfície da Terra, todos os corpos estão sujeitos a uma aceleração de aproximadamente \np[m/s^2]{9,8} (ignorando-se os efeitos da resistência do ar). A origem dessa aceleração sua independência em relação à massa podem ser explicadas através da Teoria da Gravitação Universal, também proposta por Newton. Segundo ela, dois corpos quaisquer está sujeitos a uma força de atração mútua -- isto é, atuando sobre ambos os corpos, constituindo um par ação-reação -- dada por
-\begin{equation}\label{Eq:LeiGravitacaoUniversal}
-  F_g = G \frac{m_1 m_2}{r^2}.
-\end{equation}
-%
-Nesta expressão, $G$ representa uma constante universal cujo valor é de \np[N\cdot m^2/kg^2]{6.6725985e-11}, $m_1$ e $m_2$ representam as massas dos corpos que interagem, e $r$ representa a distância de separação entre os dois corpos.
-
-Aplicando a expressão acima para o caso de um corpo de massa $m$ nas imediações da superfície da Terra, temos
-\begin{equation}
-  F_g = \left[G \frac{m_T}{r_T^2}\right]m,
-\end{equation}
-%
-onde $m_T$ e $r_T$ representam a massa e o raio da Terra, respectivamente. Utilizamos o raio da Terra pois quando temos um corpo extenso, podemos substituí-lo por um ponto denominado \emph{centro de massa} localizado no centro de simetria (para corpos homogêneos). Se aproximarmos a Terra como uma esfera homogênea, tal ponto dista da superfície pelo raio da esfera. Um corpo sujeito a tal força terá então uma aceleração dada por
-\begin{equation}
-  F_g = ma
-\end{equation}
-%
-ou,
-\begin{equation}\label{Eq:EliminaM}
-  ma = m \left[G \frac{m_T}{r_T^2}\right].
-\end{equation}
-%
-Dividindo ambos os lados da equação por $m$, temos que a aceleração será dada por
-\begin{equation}
-  a = \left[G \frac{m_T}{r_T^2}\right] \approx \np[m/s^2]{9,8}.
-\end{equation}
-%
-Portanto, o valor $g$ a que nos referimos ao estudar a queda livre é dado pela equação acima, isto é,
-\begin{equation}
-  g = \left[G \frac{m_T}{r_T^2}\right].
-\end{equation}
-
 %%%%%%%%%%%%%%%%%%%
 \subsection{Normal} 
 %%%%%%%%%%%%%%%%%%%
@@ -445,7 +493,7 @@ Portanto, o valor $g$ a que nos referimos ao estudar a queda livre é dado pela 
     \draw[->, thick] (-0.5, 0) -- +(0,-1) node[right]{$\vec{P}$};
     \draw[->, thick] (-1,0) -- +(-1,0) node[above]{$\vec{N}$};
     
-    \draw[<-, thick] (-1,-0.5) -- node[below]{$\vec{F}$} +(-135:1);
+    \draw[<-, thick] (-1,-0.5) -- node[below]{$\vec{F}$} +(-135:1.41421);
 \end{tikzpicture}
 \caption{No caso de contato com uma superfície vertical, temos uma força normal horizontal.}
 \end{marginfigure}
@@ -507,7 +555,7 @@ Finalmente, devemos indicar que a força normal não pode ser encontrada por out
 %%%%%%%%%%%%%%%%%%%
 \subsection{Tensão} 
 %%%%%%%%%%%%%%%%%%%
-\comment{ilustrar a situação com um exemplo a ser discutido na aula, coisa simples, balde pendurado, por exemplo. verificar esse footnote direito e tb verificar essa ideia de dizer que há um valor máximo de força de tensão}
+
 Ao pendurarmos um objeto utilizando uma corda, se temos equilíbrio, existe uma \emph{tensão} exercida pela corda que equilibra a força peso do objeto. As forças de tensão também têm origem eletromagnética (se originam das interações eletromagnética entre os átomos que compõe as fibras da corda) e têm características parecidas com as da força normal: podemos determiná-las somente com mais detalhes da situação e temos um valor máximo de força, sendo que a corda se rompe ao excedê-lo\footnote{Na verdade a corda não se rompe repentinamente, suas fibras se partem e a corda estica, cedendo aos poucos e diminuindo (mesmo que momentaneamente) a tensão exercida. Eventualmente muitas fibras se rompem e dão início a uma ``reação em cadeia''. O valor máximo de força exercido certamente ocorre antes de esse processo ocorrer.}. Outra consideração importante é que uma corda só consegue exercer forças quando são esticadas, não exercendo -- portanto -- forças laterais ou no sentido de ``dobrá-la'' (no sentido contrário ao de esticá-la). 
 
 \begin{marginfigure}
@@ -536,7 +584,130 @@ Ao pendurarmos um objeto utilizando uma corda, se temos equilíbrio, existe uma 
 
 Vamos considerar aqui cordas ideais, que não esticam e que têm massas desprezíveis. Nesse caso, as forças de ação e reação atuam nos corpos presos às extremidades da corda, ambas na direção da corda, porém em sentidos opostos. Se considerássemos uma corda real, com massa, teríamos que as forças exercidas em ambas as extremidades de uma corda disposta verticalmente e que suspende um objeto seriam diferentes. Isso é natural, pois a força exercida para cima, no topo, deve sustentar o peso do objeto pendurado e o peso da corda. Já na parte inferior, a força só deve sustentar o peso do objeto. Na verdade, o par ação-reação ocorre nos pontos de interação entre dois corpos e, portanto, temos um par ação-reação para uma das extremidades e outro par ação-reação que atua na outra extremidade, em cada caso com uma força na corda e outra no objeto. Se consideramos a corda como de massa desprezível, estamos considerando que os dois corpos ao quais ela está amarrada interagem diretamente, o que não é verdade (apesar de ser o caso que vamos considerar aqui). 
 
-Outro caso em que a massa de uma corda é importante, é aquele em que ela fica disposta horizontalmente. Nesse caso, se tomarmos um segmento qualquer da corda, verificamos que para que ele se mantenha em equilíbrio, deve haver alguma força que equilibre a força peso do segmento. Tal força é a própria tensão na corda, que atua para ambos os lados do segmento, porém tem pequenas componentes dirigidas para cima e, dessa forma, se estabelece um equilíbrio. Cada segmento, no entanto está submetido a forças que fazem ângulos diferentes em relação à horizontal. Isso da origem a uma forma específica para a curva de posição vertical em função da posição horizontal, conhecida como \emph{catenária}. Essa forma corresponde àquela dos fios pendurados entre dois postes. \comment{figura}
+Outro caso em que a massa de uma corda é importante, é aquele em que ela fica disposta horizontalmente. Nesse caso, se tomarmos um segmento qualquer da corda, verificamos que para que ele se mantenha em equilíbrio, deve haver alguma força que equilibre a força peso do segmento. Tal força é a própria tensão na corda, que atua para ambos os lados do segmento, porém tem pequenas componentes dirigidas para cima e, dessa forma, se estabelece um equilíbrio. Cada segmento, no entanto está submetido a forças que fazem ângulos diferentes em relação à horizontal. Isso da origem a uma forma específica para a curva de posição vertical em função da posição horizontal, conhecida como \emph{catenária}. Essa forma corresponde àquela dos fios pendurados entre dois postes.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (2,0) -- (-2,0);
+    
+    \coordinate (knot) at (0,-1);
+    \draw[fill] (knot) circle (1pt);
+    
+    \coordinate (fix-l) at (-1.5,0);
+    \coordinate (fix-r) at (1,0);
+    
+    \draw (knot) -- (fix-l);
+    \draw (knot) -- (fix-r);
+    
+    \draw (knot) -- +(0,-2);
+    
+    \draw[pattern = north west lines] (-0.5,-3) rectangle (0.5,-4);
+    \draw[fill] (0,-3.5) circle (1pt);
+    \draw[->, thick] (0,-3.5) -- +(0,-0.75) node[right]{$\vec{P}$};
+    
+    \pic [draw, "$\alpha$", angle eccentricity=1.5] {angle = knot--fix-l--fix-r};
+    \pic [draw, "$\beta$", angle eccentricity=1.5] {angle = fix-l--fix-r--knot};
+\end{tikzpicture}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (2,0) -- (-2,0);
+    
+    \coordinate (knot) at (0,-1);
+    \draw[fill] (knot) circle (1pt);
+    
+    \coordinate (fix-l) at (-1.5,0);
+    \coordinate (fix-r) at (1,0);
+    
+    \draw[gray] (knot) -- (fix-l);
+    \draw[gray] (knot) -- (fix-r);
+    
+    \draw[gray] (knot) -- +(0,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (-0.5,-3) rectangle (0.5,-4);
+    \draw[fill, gray] (0,-3.5) circle (1pt);
+    \draw[->, thick] (0,-3.5) -- +(0,-0.75) node[right]{$\vec{P}$};
+    
+    \pic [gray, draw, "$\alpha$", angle eccentricity=1.5] {angle = knot--fix-l--fix-r}; % 33.69 graus
+    \pic [gray, draw, "$\beta$", angle eccentricity=1.5] {angle = fix-l--fix-r--knot}; % 45
+    
+    \draw[->] (knot) -- node[right]{$\vec{T}_{nb}$} +(0,-0.75);
+    \draw[->] (0,-3) -- node[right]{$\vec{T}_{bn}$} +(0,0.75);
+    
+    \draw[->] (knot) -- ($ (knot) !.6364! (fix-r) $) node[below]{$\vec{T}_2$};
+    \draw[->] (knot) -- ($ (knot) !.5408! (fix-l) $) node[below]{$\vec{T}_1$}; 
+    
+    \draw[dashed, ->] (knot)++(-1,0) -- +(2,0) node[below left]{$x$};
+    \draw[dashed, ->] (knot)++(0,-0.85) -- +(0,1.8) node[below left]{$y$};
+    
+    \draw[dashed, <-] (0,-2) node[below left]{$y$} -- +(0,-3);
+    \draw[dashed, ->] (-1,-3.5) -- (1,-3.5) node[below left]{$x$};
+    
+\end{tikzpicture}
+\end{marginfigure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-2,0) -- (2.4,0);
+    
+    \draw[pattern = north west lines] (-1.8,0) rectangle (-1.2,0.6);
+    \draw[pattern = north west lines] (0.4,0.8) rectangle (1.2,0);
+    
+    \draw (-1.2,0.4) -- (0.4,0.4);
+    \draw[->, thick] (1.2, 0.4) -- node[above right]{$\vec{T}$} +(0.8,0);
+    \draw (1.2, 0.4) -- (2.4,0.4);
+    
+    \draw[->] (-0.8,1.1) -- node[above]{$\vec{a}$} +(1,0);
+\end{tikzpicture}
+\caption{Fazer caso de aceleração para tensão. Diminuir o tamanho dos blocos.}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-2,0) -- (2.4,0);
+    
+    \draw[pattern = north west lines] (-1.8,0) rectangle (-1.2,0.6);
+    \draw[pattern = north west lines] (0.4,0.8) rectangle (1.2,0);
+    
+    \draw (-1.2,0.4) -- (0.4,0.4);
+    \draw[->, thick] (1.2, 0.4) -- node[above right]{$\vec{T}$} +(0.8,0);
+    \draw (1.2, 0.4) -- (2.4,0.4);
+    \draw[->, thick] (-1.2,0.4) -- node[above]{$\vec{T}_{21}$} +(0.6,0);
+    \draw[->, thick] (0.4,0.4) -- node[above]{$\vec{T}_{12}$} +(-0.6,0);
+    
+    \draw[->] (-0.8,1.1) -- node[above]{$\vec{a}$} +(1,0);
+\end{tikzpicture}
+\caption{Fazer caso de aceleração para tensão. Diminuir o tamanho dos blocos.}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%
 \subsection{Atrito}
@@ -612,8 +783,6 @@ Explicar, usar exemplo de bloco sobre camionete que acelera, carro que acelera/f
 \end{tikzpicture}
 \caption{Situação envolvendo equilíbrio devido à força de atrito.}
 \end{marginfigure}
-
-
 
 Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para qualquer valor da força aplicada. De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a segunda lei de Newton:
 \begin{equation}
@@ -736,6 +905,62 @@ Como vimos acima, a força de arrasto é sempre proporcional de alguma forma à 
   a = g.
 \end{equation}
 %
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    % Solução para F_a = -bv:
+    % m dv/dt = mg - b v
+    % m dv/dt / (mg -bv) = 1
+    % m\int [dv/dt / (mg - bv)] dt = \Delta t ;
+    %   y(t) = mg - b v(t) 
+    %   b v(t) = mg - y(t)
+    %   v(t) = mg/b - y(t)/b
+    %   dv/dt = -(1/b)dy/dt
+    % -m/b \int (dy/dt / y) dt = \Delta t
+    % -m/b ln y |_y_0^y = \Delta t
+    % ln y |_y0^y = -b/m \Delta t
+    % y/y_0 = exp(-b/m \Delta t)
+    % y = y_0 exp(-b/m \Delta t)
+    % mg - b v(t) = (mg - b v_0) exp(-b/m \Delta t)
+    % mg - (mg - b v_0)exp (-b/m \Delta t) = b v(t)
+    % v(t) = mg/b - (mg/b - v_0) exp (-b/m \Delta t)
+    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+        plot(\x,{2 * (1 - exp(-2*\x))});
+        
+    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
+    
+\end{tikzpicture}
+\caption{Velocidade de um objeto solto a partir do repouso em função do tempo em uma situação onde a força de arrasto não pode ser desprezada. Note que inicialmente a velocidade aumenta linearmente, pois para velocidades baixas temos (aproximadamente) um movimento com aceleração constante $g$. Após um longo tempo, no entanto, atinge-se uma velocidade terminal $v_t$.}
+\end{marginfigure}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+
+    \draw[smooth,name path=plota,samples=1000,domain=0:1.5]
+        plot(\x,{2 * (1 - exp(-4*\x))});
+       
+    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
+    \draw[smooth,name path=plota,samples=1000,domain=1.5:3.5]
+        plot(\x,{1 + (2 - 1) * exp(-8*(\x - 1.5))});
+        
+    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
+    \draw[dashed] (0,1) node[left]{$v_t^p$} -- (3.5,1);
+    
+\end{tikzpicture}
+\caption{Em um salto de para-quedas, temos uma velocidade que aumenta até uma certa velocidade terminal $v_t$. Após a abertura do para quedas, a velocidade diminui até uma nova velocidade terminal $v_t^p$, menor do que a anterior.}
+\end{marginfigure}
+%
 A partir do momento que a velocidade não é mais nula, temos uma força de arrasto que equilibra parcialmente o peso, o que diminuirá a força resultante e, consequentemente, diminuirá a aceleração. Mesmo com a diminuição da aceleração, o objeto continua ganhando velocidade, o que leva a um aumento na força de arrasto. Esse processo continua até que a força de arrasto cresça o suficiente para equilibrar o peso. Nessa situação, não existe mais aceleração, portanto atingimos um valor de velocidade máxima, que denominamos como \emph{velocidade terminal}. Podemos obter tal valor de velocidade através de
 \begin{equation}
   a = \frac{mg - F_A}{m} = 0,
@@ -764,15 +989,6 @@ Para uma mola, se realizássemos o mesmo procedimento, verificaríamos uma \emph
 	\vec{F}_e = -\vec{P}.
 \end{equation}
 
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}
-\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,0) -- +(0,3); 
-\draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=2mm,coil},decorate] (2,0) -- +(0,2); 
-\end{tikzpicture}
-\caption{Coils}
-\end{marginfigure}
-
 Verificando ainda a distensão da mola, podemos relacionar uma maior distensão a uma carga maior na caixa, isto é, quanto maior a força peso dos objetos pendurados na mola, maior a distensão. Experimentalmente, verifica-se que a relação entre o peso aplicado à mola e sua distensão são \emph{diretamente proporcionais}:
 \begin{equation}
 	\Delta x \propto P.
@@ -788,12 +1004,96 @@ onde $\vec{d}$ representa o deslocamento $\Delta \vec{r}$ sofrido pela mola em m
 	\vec{F}_e = -k \vec{d}.
 \end{equation}
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (1,0) -- (-1,0);
+    
+    \draw (0,0) -- (0,-0.2);
+    \draw[gray,decoration={aspect=0.3, segment length=1.5mm, amplitude=2mm,coil},decorate] (0,-0.2) -- +(0,-2);
+    \draw (0,-2.2) -- (0,-2.4);
+    
+    \draw[pattern = north west lines] (-0.5, -2.4) rectangle (0.5,-3.4);
+    
+    \draw[fill] (0,-2.9) circle (1pt);
+    \draw[->, thick] (0, -2.9) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (0, -2.4) -- +(0,1) node[right]{$\vec{F}_e$};
+\end{tikzpicture}
+\caption{Sistema em equilíbrio devido à força exercida por uma mola.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (0,1.5) -- (0,0);
+    \draw[interface] (0,0) -- (4.8,0);
+    
+    \draw (0,0.5) -- (0.2,0.5);
+    \draw[decoration={aspect=0.3, segment length=1.2mm, amplitude=2mm,coil},decorate] (0.2,0.5) -- +(1.6,0);
+    \draw (1.8, 0.5) -- (2,0.5);
+    
+    \draw[pattern = north west lines, pattern color = gray] (2,0) rectangle (3,1);
+    
+    \draw[fill] (2.5,0.5) circle (1pt);
+    \draw[->, thick] (2.5,0.5) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (2.5,1) -- node [right]{$\vec{N}$} +(0,1);
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2) -- node[below]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) node[below]{$x_i$} -- (4,-3.5) node[below]{$x_f$};
+        
+\end{tikzpicture}
+\caption{Ao distendermos a mola por uma distância $\Delta x$, surge uma força que tende a restaurar a posição original. Tal força é proporcional ao deslocamento.}
+\end{marginfigure}
+
 O resultado acima é conhecido como \emph{Lei de Hooke}, em homenagem ao físico inglês Robert Hooke, que o enunciou em 1660. Tal relação, no entanto, só é válida para pequenas distensões da mola. As distensões dentro deste limite são denominadas \emph{elásticas} e não deformam a mola permanentemente, caso contrário ao das distensões \emph{plásticas}. Apesar de a validade da Lei de Hooke ser limitada, ela é o modelo mais comum ao se analisar a resposta de um meio a uma deformação e pode ser utilizada como uma primeira aproximação mesmo para casos mais complexos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Forças no movimento circular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines] (0,0) circle (1);
+    
+    \draw[dashed] (0,0) circle (2);
+    
+    \draw[fill] (0,2) circle (2pt);
+    
+    \draw[->, thick] (0,2) -- +(0,-0.5) node[right]{$\vec{P}$};
+\end{tikzpicture}
+\caption{Um movimento curvilíneo é sempre uma situação em que não há equilíbrio de forças, pois é sempre necessária uma aceleração perpendicular à direção da velocidade instantânea para que haja mudança na direção do deslocamento. No caso de satélite em um movimento orbital circular, por exemplo, a força peso causa uma aceleração centrípeta.}
+\end{marginfigure}
+    
 De acordo com Newton:
 \begin{quote}
     Uma força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma maneira, em direção a um ponto como um centro.
@@ -802,6 +1102,76 @@ De acordo com Newton:
 Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
 
 Analisando um movimento unidimensional, temos que um objeto que se move em linha reta com certa velocidade precisa sofrer a atuação de uma força resultante para sofrer uma mudança no módulo de sua velocidade. Para um corpo que realiza um movimento circular, analogamente, se sua velocidade sofre uma mudança de direção -- mantendo constante seu módulo $\vec{v}$ --, o corpo também deve estar sujeito a atuação de uma força. No primeiro caso, a direção da força é a mesma do movimento (caso contrário o corpo sofreria uma alteração também da direção de seu movimento). No segundo caso, a força precisa atuar perpendicularmente à direção da velocidade (caso contrário sofreria uma alteração no módulo da velocidade). Da mesma forma que diferenciamos o papel exercido pelas acelerações tangencial e centrípeta, podemos diferenciar o papel entre uma força que aponta tangencialmente à trajetória e uma que aponta para o centro da trajetória circular: a primeira causa aceleração tangencial, alterando então o módulo da velocidade, já a segunda causa aceleração centrípeta, alterando então a direção do movimento. Denominamos a resultante de forças em direção ao centro da trajetória como \emph{Força centrípeta}. Podemos ter o resultado combinado dessas duas alterações (módulo e direção) quando exercemos uma força que faz um ângulo diferente de \degree{0} ou \degree{90} com a direção da velocidade.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+  
+    \draw[dashed] (0,0) circle (2);
+    
+    \draw[pattern = north west lines] (0,1.75) circle (0.25);
+    \draw[fill] (0,1.75) circle (1pt);
+    \draw[->, thick, gray] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{N}$};
+    
+    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
+    \draw[fill] (0,-1.75) circle (1pt);
+    \draw[->, thick, gray] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,-1.5) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
+    \draw[fill] (1.75,0) circle (1pt);
+    \draw[->, thick, gray] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above]{$\vec{N}$};
+    
+    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
+    \draw[fill] (-1.75,0) circle (1pt);
+    \draw[->, thick, gray] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above]{$\vec{N}$};
+    
+    \draw[fill] (0,0) circle (1pt);
+\end{tikzpicture}
+\caption{Fazer contas para que as proporções estejam corretas.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+  
+    \draw[dashed] (0,0) circle (2);
+    
+    % Topo
+    \draw[pattern = north west lines] (0,1.75) circle (0.25);
+    \draw[fill] (0,1.75) circle (1pt);
+    \draw[->, thick, gray] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{N}$};
+    \draw[dotted, ->] (0,1.75)++(0,0.5) -- +(0, -2) node[above right]{$x$};
+    
+    % Fundo
+    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
+    \draw[fill] (0,-1.75) circle (1pt);
+    \draw[->, thick, gray] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,-1.5) -- +(0,1) node[below right]{$\vec{N}$};
+    \draw[dotted, ->] (0,-1.75)++(0,-0.5) -- +(0, 2) node[below left]{$x$};
+    
+    % Direita
+    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
+    \draw[fill] (1.75,0) circle (1pt);
+    \draw[->, thick, gray] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above right]{$\vec{N}$};
+    \draw[dotted, ->] (1.75,0)++(0.5,0) -- +(-2,0) node[below right]{$x$};
+    
+    % Esquerda
+    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
+    \draw[fill] (-1.75,0) circle (1pt);
+    \draw[->, thick, gray] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above left]{$\vec{N}$};
+    \draw[dotted, ->] (-1.75,0)++(-0.5,0) -- +(2,0) node[above left]{$x$};
+    
+    \draw[fill] (0,0) circle (1pt);
+\end{tikzpicture}
+\caption{Para cada uma das posições, devemos escolher um eixo $x$ que aponte para o centro da trajetória, pois isso facilitará o tratamento do problema.}
+\end{marginfigure}
 
 Podemos utilizar a segunda lei de Newton e a expressão para a aceleração centrípeta
 \begin{align}
@@ -817,42 +1187,208 @@ para relacionar a força exercida para manter um objeto em uma trajetória circu
 Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$. Se temos um corpo que gira preso a um fio, a força é uma tensão; Se temos um satélite em órbita em torno da Terra, temos a força gravitacional; Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito. Em algumas situações, temos mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular. Em um ``loop'' (uma curva vertical em uma pista), temos a atuação da força peso e da normal, porém em cada ponto da trajetória essas forças atuam de maneira diferente -- no topo ambas apontam para o centro da trajetória. Na parte inferior, a normal aponta para o centro e o peso para fora (sentido oposto ao centro) --. Em uma estrada com uma curva inclinada, temos uma \emph{componente} da normal e uma \emph{componente} da força de atrito. Note que a força centrípeta não é uma força nova, ela é uma \emph{força resultante que aponta para o centro da trajetória circular}.
 
 Para facilitar a análise desse tipo de movimento, podemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^4/R$. Veja a Figura ??? 
-\comment{mega figura fullwidth (com equações) com uns três exemplos complicados com diagramas de força e o cálculo da força resultante que aponta no sentido do eixo radial, igualando-a depois a m $v^2/R$}
 
-%%%%%%%%%%%%%%%%%%
-\section{Aplicações} % na minha nova ideia, seria basicamente o que as aulas de dinâmica seriam
-%%%%%%%%%%%%%%%%%%
 
-\subsection{Leitura de uma balança em um elevador} 
-Balança de subir (normal) e de pendurar (tensão).
+%%%%%%%%%%%%%%%%%%%%
+\section{Aplicações}
+%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Blocos em contato}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação do coeficiente de atrito estático}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Plano inclinado, determinar $\mu_e$
 
-\subsection{Bloco em plano inclinado}
-Sem atrito, com atrito. Determinar $\mu_e$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simplificações dos sistemas de referências}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Blocos ligados por cordas}
-Mostrar que podemos tratar tudo como um sistema unidimensional com um eixo x curvo
+Mostrar que podemos tratar tudo como um sistema unidimensional com um eixo x curvo, usar máquina de Atwood.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sistemas de roldanas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Blá blá blá.
 
-\subsection{Governador centrífugo} %ver wikipedia, tb é usado em geradores de eletricidade a gasolina
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Movimento circular vertical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Looping the loop}
-Condição de perder contato e velocidade mínima
+Condição de perder contato e velocidade mínima, fazer para tensão e para normal.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pendulo cônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+\def\h{3}% altura
+\def\r{2}% raio
+
+\draw[interface] (2,0,0) -- (-2,0,0);
+
+\coordinate (bob) at (\r,-\h,0);
+
+\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
+\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
+
+\draw[dotted] (0,0,0) -- (0,-\h,0);
+\coordinate (center) at (0,-\h,0);
+\draw[fill] (center) circle (1pt);
+
+\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
+
+\draw[->] (bob) -- +(0,0,1.75) node[below right]{$\vec{v}$};
+
+\draw[fill] (\r,-\h,0) circle (3pt);
+ 
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
+
+\draw (bob)++(0,-0.3,0) -- +(0,0,0.3);
+\draw (bob)++(0,0,0.3) -- +(0,-0.3,0);
+
+\end{tikzpicture}
+\caption{Pêndulo cônico.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+\def\h{3}% altura
+\def\r{2}% raio
+
+\draw[interface] (2,0,0) -- (-2,0,0);
+
+\coordinate (bob) at (\r,-\h,0);
+
+\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
+\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
+
+\draw[dotted] (0,0,0) -- (0,-\h,0);
+\coordinate (center) at (0,-\h,0);
+\draw[fill] (center) circle (1pt);
+
+\draw[->, thick] (bob) -- ($ (bob) !.333! (origin) $) coordinate (tension) node[left]{$\vec{T}$};
+\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
+
+\draw[->, dashed] (bob) -- (0.2,-\h,0) node[below right]{$x$};
+\draw[->, dashed] (bob) -- +(0,1.5,0) node[below right]{$y$};
+
+\draw[dotted] (tension) -- +(0.666,0,0);
+\draw[dotted] (tension) -- +(0,-1,0);
+\draw[->, thick, gray] (bob) -- +(-0.666,0,0);
+\draw[->, thick, gray] (bob) -- +(0,1,0);
+
+\draw[fill] (\r,-\h,0) circle (3pt);
+  
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
+\end{tikzpicture}
+\caption{Diagrama de forças do pêndulo cônico. Note que a força centrípeta pode ser identificada nesse caso com a componente da tensão no eixo $x$ apresentado na figura.}
+\end{marginfigure}
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Curva compensada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=30,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+    \draw[interface, gray] (-2,0) coordinate (bot) -- (2,0) coordinate (top);
+    
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-0.5,0) rectangle (0.5,1);
+    
+    \draw[->, thick] (0,0.5) coordinate (O) -- +(-120:1) node[right]{$\vec{P}$};
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0,1) -- +(0,1.1547) node[left]{$\vec{N}$} coordinate (N);
+    \draw[->, thick] (0.5,0) -- +(0.8,0) node[above]{$\vec{f}_{at}$};
+    \draw[->, thick] (-0.5,0) -- +(-0.8,0) node[above left]{$\vec{f}_{at}$};
+    
+    \draw[->, dashed] (0,0.5) +(-30:2) -- +(150:2) node[above]{$x$};
+    \draw[->, dashed] (0,0.5) +(-120:1.5) -- +(60:1.5) node[right]{$y$} coordinate (Y);
+    
+    \draw[dashed, gray] (bot) -- +(-30:1) coordinate (horiz);
+    
+    \pic [draw, "$\theta$", angle radius = 8mm, angle eccentricity = 1.5] {angle = Y--O--N};
+    \pic [draw, gray, "$\theta$", angle eccentricity = 1.5] {angle = horiz--bot--top};
+
+\end{tikzpicture}
+\caption{Visão em seção reta de uma curva compensada (a velocidade é tal que o bloco entra na página). Verificamos que existem duas possibilidades para o atrito neste movimento: ou ele aponta para baixo, o que corresponde ao caso em que o corpo tende a escapar pela parte externa da curva, ou ele aponta para cima, o que corresponde ao caso em que o corpo tende a escapar para baixo. Note que as forças de atrito mostradas não podem ocorrer simultaneamente. O eixo $x$ indicado aponta para o centro da trajetória circular.}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Seções opcionais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistemas de massa variável}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema de Lamy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em uma situação de equilíbrio, temos no caso de três forças
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.2, rotate=-10]
+
+    \draw[->,thick] (0,0) coordinate (origin) -- (1,0.5) coordinate (A) node[above]{$\vec{F}_1$};
+    \draw[->,thick] (0,0) -- (-0.75,1) coordinate (B) node[left]{$\vec{F}_2$};
+    \draw[->,thick] (0,0) -- (-0.25, -1.5) coordinate (C) node[below]{$\vec{F}_3$};
+    
+    \pic[draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 3mm] {angle = A--origin--B};
+    \pic[draw, "$\beta$", angle eccentricity = 1.5, angle radius = 3mm] {angle = B--origin--C};
+    \pic[draw, "$\gamma$", angle eccentricity = 1.5, angle radius = 3mm] {angle = C--origin--A};
+    
+    \draw[->,thick,gray] (3,0) coordinate (originp) -- +(1,0.5) coordinate (Ap);
+    \draw[->,thick] (3,0) -- +(-0.75,1) coordinate (Bp) node[right]{$\vec{F}_2$};
+    \draw[->,thick,gray] (3,0) -- +(-0.25, -1.5) coordinate (Cp);
+    \path[dashed] (3,0) -- ($ (originp) !-1.45! (Ap) $) coordinate (App);
+    \draw[dashed] (3,0) -- ($ (originp) !1.45! (Bp) $) coordinate (Bpp);
+    
+    \draw[->,thick] (3,0) --  node[below]{$\vec{F}_1$} +(-1,-0.5);
+    \draw[<-,thick] (3,0)++(-1,-0.5) coordinate (m) node[above left]{$\vec{F}_3$} -- +(0.25,1.5) coordinate (n);
+    
+    \draw[dashed] ($ (m) !-0.45! (n) $) coordinate (mpp) -- (n) coordinate (npp);    
+    
+    \pic [draw, "$\beta$", angle eccentricity = 1.5, angle radius = 3mm] {angle = Bpp--Bp--mpp};
+    \pic [draw, "$\gamma$", angle eccentricity = 1.5, angle radius = 3mm] {angle = mpp--m--originp};
+    \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 3mm] {angle = Ap--originp--Bp};
+\end{tikzpicture}
+\end{figure}
+%
+usando a lei dos senos:
+\begin{equation}
+    \frac{F_1}{\sen (\np[\tcdegree]{180} - \beta)} = \frac{F_2}{\sen (\np[\tcdegree]{180} - \gamma)} = \frac{F_3}{\sen (\np[\tcdegree]{180} - \alpha)}.
+\end{equation}
+%
+Como $\sen (\np[\tcdegree]{180} - \theta) = \sen\theta$, temos
+\begin{equation}
+    \frac{F_1}{\sen \beta} = \frac{F_2}{\sen \gamma} = \frac{F_3}{\sen \alpha}.
+\end{equation}
+
+\textbf{Deve ter um caso especial que recaia em pitágoras quando um ângulo é de 90.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Sistemas de massa variável}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Justificativa para a Lei de Hooke}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -880,9 +1416,9 @@ e se fizermos $k \equiv f'(0)$,
 %
 Essa relação é a própria lei de Hooke, porém para o caso unidimensional, com $x_i = 0$ e $x_f = x$. Além disso, falta o sinal que indica que a força é no sentido contrário ao deslocamento. A partir da análise acima, concluímos que quando falamos em pequenos deslocamentos, estamos restringindo os valores de termos de ordens quadrática ou superiores a valores muito menores que o termo de ordem linear. Respeitada essa condição, o que poder ser feito através da escolha de uma distensão máxima adequada, podemos tratar \emph{qualquer} deformação de um objeto como sendo linear.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Segunda lei do movimento de acordo com o Principia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \comment{TODO No parágrafo abaixo, fazer um footnote dizendo que não se justifica uma lei física, pois não há como fazer isso, isto é, uma lei fundamental é enunciada, não deduzida de algum outro lugar. (verificar se no The Character of the Physical Law do Feynmann tem alguma coisa do gênero). Como diz o M. Fiolhais, "tem-se que dar uma injeção".}
 No \emph{Principia}, Newton não utiliza a discussão realizada acima para chegar à segunda lei. Após a definição de massa, ele apresenta a definição de \emph{movimento}, ou \emph{quantidade de movimento}, que atualmente denominamos como momento linear
@@ -920,9 +1456,9 @@ ou, considerando $m$ como constante
   &= ma.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equivalência das massas gravitacional e inercial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Veja que o fato de a aceleração gravitacional independer da massa se deve ao fato de que ela aparece em ambos os lados da igualdade na Equação~\eqref{Eq:EliminaM} acima. No entanto, isso se deve diretamente ao fato de que a força gravitacional depende da massa do corpo. Podemos citar um exemplo para deixar isso mais claro: a força entre duas cargas elétricas é dada por
 \begin{equation}
@@ -957,53 +1493,12 @@ ou, se $r \approx r_T$
 \end{align}
 %
 isto é, a força peso nada mais é do que a força de atração gravitacional que atua sobre o corpo quando ele se encontra próximo da superfície da Terra. Notamos ainda que se o peso é o resultado da interação do corpo com a Terra, \emph{a reação à força peso é uma força que atua na Terra} -- ou, de maneira simplificada, no centro de massa da Terra --. Portanto, quando um objeto cai, sendo submetido a uma aceleração devida à força peso, temos que a reação ao peso atua na Terra, acelerando-a em direção ao objeto. Como vimos, no entanto, a aceleração é inversamente proporcional à massa e, devido ao fato de que a massa da Terra é muito grande, temos uma aceleração muito pequena por parte do Planeta.
-\begin{marginfigure}[-5cm]
-\begin{tikzpicture}[
-    force/.style={>=latex,draw=blue,fill=blue},
-    axis/.style={densely dashed,gray,font=\small},
-    M/.style={circle,draw,fill=lightgray,minimum size=0.5cm,thin},
-    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
-    plane/.style={draw=black,fill=blue!10},
-    string/.style={draw=red, thick},
-    pulley/.style={thick},
-	]
-\def\iangle{35} % Angle of the inclined plane
 
-\def\down{-90}
-\def\arcr{0.5cm} % Radius of the arc used to indicate angles
- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Limitação da terceira lei de Newton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    %% Free body diagram of M
-    \begin{scope}[rotate=\iangle]
-        \node[M,transform shape] (M) {};
-        % Draw axes and help lines
-
-        {[axis,->]
-            \draw (0,-1) -- (0,2) node[right] {$y$};
-            \draw (-2,0) node[left] {$x$} -- ++(4,0);
-            % Indicate angle. The code is a bit awkward.
-
-            \draw[solid,shorten >=0.5pt] (\down-\iangle:\arcr)
-                arc(\down-\iangle:\down:\arcr);
-            \node at (\down-0.5*\iangle:1.3*\arcr) {$\theta$};
-        }
-
-        % Forces
-        {[force,->]
-            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
-            \draw (M.north) -- ++(0,{cos(\iangle)}) node[above right] {$N$};
-            \draw (M.west) -- ++(-{sin(\iangle)},0) node[left] {$P_x$};
-            \draw (M.east) -- ++(1,0) node[above] {$F_a$};
-        }
-
-    \end{scope}
-    % Draw gravity force. The code is put outside the rotated
-    % scope for simplicity. No need to do any angle calculations. 
-    \draw[force,->] (M.center) -- ++(0,-1) node[below] {$Mg$};
-    %%
-\end{tikzpicture}
-\caption{Teste Tikz.}
-\end{marginfigure}
+%Problema na força de Lorentz (ver Griffiths, Eletromagnetismo). Problema é resolvido se considerarmos a conservação do momento linear pois é possível se mostrar que há momento linear nos campos eletromagnéticos.
 
 %%%%%%%%%%%%%%%%%%
 \section{Apêndice}
@@ -1145,7 +1640,7 @@ termine, cioè perpetuo?
 %\item[Salviati:]  Adunque una superficie che dovesse esser non declive e non acclive, bisognerebbe che in
 %tutte le sue parti fusse egualmente distante dal centro. Ma di tali superficie ve n'è egli alcuna al
 %mondo?
-\item[Salviati:] Portanto uma superfície que devesse ser sem declive e sem aclive, necessita que todas as suas partes sejam igualmente distantes do centro. Mas tal superfície, há alguma no mundo?\footnote{A interpretação usual dessa afirmação é de que para Galileu o movimento ocorre naturalmente como um círculo sobre a superfície da Terra. No entanto, essa interpretação de inércia circular é contestada com base em outros trabalhos de Galileu. Vide referência abaixo.}\cite{Vasconcelos2005}
+\item[Salviati:] Portanto uma superfície que devesse ser sem declive e sem aclive, necessita que todas as suas partes sejam igualmente distantes do centro. Mas tal superfície, há alguma no mundo?\footnote{A interpretação usual dessa afirmação é de que para Galileu o movimento ocorre naturalmente como um círculo sobre a superfície da Terra. No entanto, essa interpretação de inércia circular é contestada com base em outros trabalhos de Galileu. Vide referência abaixo.}\cite{VASCONCELOS2005}
 
 %\item[Simplicio:]  Non ve ne mancano: ècci quella del nostro globo terrestre, se però ella fusse ben pulita, e
 %non, quale ella è, scabrosa e montuosa; ma vi è quella dell'acqua, mentre è placida e tranquilla.
@@ -1161,3 +1656,67 @@ termine, cioè perpetuo?
 \item[Simplicio:] É assim que deve ser.
 
 \end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação de $v(t)$ para um movimento sujeito ao peso e à força de arrasto}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Solução para $F_a = -bv$:
+\begin{equation}
+    m dv/dt = mg - b v
+\end{equation}
+\begin{equation}
+    m dv/dt / (mg -bv) = 1
+\end{equation}
+\begin{equation}
+    m\int [dv/dt / (mg - bv)] dt = \int dt ;
+\end{equation}
+%
+Definindo uma nova função $y(t)$ e fazendo uma mudança de variáveis:
+\begin{equation}
+    y(t) = mg - b v(t) 
+\end{equation}
+\begin{equation}
+    b v(t) = mg - y(t)
+\end{equation}
+\begin{equation}
+    v(t) = \frac{mg}{b} - \frac{y(t)}{b}
+\end{equation}
+%
+Logo:
+\begin{equation}
+    \frac{dv}{dt} = -\frac{1}{b} \frac{dy}{dt}
+\end{equation}
+%
+e então
+\begin{equation}
+    -\frac{m}{b} \int \frac{dy/dt}{y} dt = \Delta t
+\end{equation}
+\begin{equation}
+    -\frac{m}{b} \ln y |_{y_0}^y = \Delta t
+\end{equation}
+\begin{equation}
+    \ln y |_{y_0}^y = -\frac{b}{m} \Delta t
+\end{equation}
+\begin{equation}
+    \frac{y}{y_0} = \exp\left(-\frac{b}{m} \Delta t\right)
+\end{equation}
+\begin{equation}
+    y = y_0 \exp\left(-\frac{b}{m} \Delta t\right)
+\end{equation}
+\begin{equation}
+    mg - b v(t) = (mg - b v_0) \exp\left(-\frac{b}{m} \Delta t\right)
+\end{equation}
+\begin{equation}
+    mg - (mg - b v_0) \exp\left(-\frac{b}{m} \Delta t\right) = b v(t)
+\end{equation}
+\begin{equation}
+    v(t) = \frac{mg}{b} - \left(\frac{mg}{b} - v_0\right) \exp\left(-\frac{b}{m} \Delta t\right)
+\end{equation}
+\begin{equation}
+    v(t) = \frac{mg}{b} + \left(v_0 - \frac{mg}{b}\right) \exp \left(-\frac{b}{m} \Delta t\right)
+\end{equation}
+
+\textbf{Segundo o WolframAlpha, tem solução analítica para $F_a = -b v^2$. Tentar fazer.}
+% Seria a seguinte:
+%v(t) = (sqrt(c) tanh((sqrt(b) sqrt(c) k_1 m + sqrt(b) sqrt(c) t)/m))/sqrt(b)
