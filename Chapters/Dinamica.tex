@@ -754,36 +754,6 @@ Explicar, usar exemplo de bloco sobre camionete que acelera, carro que acelera/f
 \paragraph{Força de atrito estático} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, rotate=-35,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-      
-    \draw[interface] (0,0) -- (4,0);
-    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
-        
-    \draw[fill] (2,0.5) circle (1pt);
-    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
-    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
-    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
-    
-    \node at (3,1) {$\vec{a} = 0$};
-    
-    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
-    
-    \coordinate (B) at (4,0);
-    \coordinate (C) at (0,0);
-    
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
-
-\end{tikzpicture}
-\caption{Situação envolvendo equilíbrio devido à força de atrito.}
-\end{marginfigure}
-
 Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para qualquer valor da força aplicada. De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a segunda lei de Newton:
 \begin{equation}
   F - f_{at}^e = ma,
@@ -1198,6 +1168,36 @@ Para facilitar a análise desse tipo de movimento, podemos tomar um eixo coorden
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Plano inclinado, determinar $\mu_e$
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface] (0,0) -- (4,0);
+    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill] (2,0.5) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
+    
+    \node at (3,1) {$\vec{a} = 0$};
+    
+    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
+
+\end{tikzpicture}
+\caption{Situação envolvendo equilíbrio devido à força de atrito.}
+\end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simplificações dos sistemas de referências}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1255,9 +1255,13 @@ Condição de perder contato e velocidade mínima, fazer para tensão e para nor
 \draw (bob)++(0,0,0.3) -- +(0,-0.3,0);
 
 \end{tikzpicture}
-\caption{Pêndulo cônico.}
+\caption{Pêndulo cônico.\label{Fig:PenduloConico}}
 \end{marginfigure}
 
+Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como mostra a Figura~\ref{Fig:PenduloConico}. O corpo descreve uma trajetória circular em um plano horizontal, sendo que o fio descreve um cone. Podemos relacionar a velocidade do corpo ao ângulo $\theta$ e ao comprimento $\ell$ do fio.
+
+Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertial e um que aponta para o centro da trajetória temos:
+%
 \begin{marginfigure}
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1284,7 +1288,7 @@ Condição de perder contato e velocidade mínima, fazer para tensão e para nor
 \draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
 
 \draw[->, dashed] (bob) -- (0.2,-\h,0) node[below right]{$x$};
-\draw[->, dashed] (bob) -- +(0,1.5,0) node[below right]{$y$};
+\draw[->, dashed] (bob) -- +(0,1.5,0) node[below right]{$y$} coordinate (Y);
 
 \draw[dotted] (tension) -- +(0.666,0,0);
 \draw[dotted] (tension) -- +(0,-1,0);
@@ -1294,11 +1298,46 @@ Condição de perder contato e velocidade mínima, fazer para tensão e para nor
 \draw[fill] (\r,-\h,0) circle (3pt);
   
 \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
-\end{tikzpicture}
-\caption{Diagrama de forças do pêndulo cônico. Note que a força centrípeta pode ser identificada nesse caso com a componente da tensão no eixo $x$ apresentado na figura.}
-\end{marginfigure}
 
-\pagebreak
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = Y--bob--tension};
+
+\end{tikzpicture}
+\caption{Diagrama de forças do pêndulo cônico. Note que a força centrípeta pode ser identificada nesse caso com a componente da tensão no eixo $x$ apresentado na figura.\label{Fig:PenduloConicoDiag}}
+\end{marginfigure}
+%
+\begin{description}
+    \item{Eixo $x$:}
+        \begin{align}
+            F_R^x &= m a_x \\
+            T_x &= m a_c \\
+            T \sen\theta &= m \frac{v^2}{r}.
+        \end{align} 
+    \item{Eixo $y$:}
+        \begin{align}
+            F_R^y &= m a_y \\
+            T_y - P &= 0 \\
+            T \cos\theta &= P \\
+            T \cos\theta &= mg.
+        \end{align}
+\end{description}
+%
+Nas expressões acima assumimos que a aceleração no eixo vertical $y$ será zero, pois se a velocidade for constante o plano horizontal descrito pela trajetória circular não se desloca verticalmente. A partir dessas expressões, podemos escrever
+\begin{align}
+    m\frac{v^2}{r} &= \frac{mg}{\cos\theta} \sen\theta \\
+    v^2 &= rg \tan\theta \\
+    v &= \sqrt{rg\tan\theta}.
+\end{align}
+
+Finalmente, podemos escrever o raio $r$ usando a função trigonométrica $\sen\theta$ como
+\begin{equation}
+    r = \ell \sen\theta,
+\end{equation}
+%
+logo
+\begin{equation}
+    v = \sqrt{\ell g \sen\theta\tan\theta}.
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Curva compensada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
