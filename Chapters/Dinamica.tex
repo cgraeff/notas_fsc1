@@ -6,75 +6,65 @@
 %\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introdução}
+\begin{fullwidth}
 {\it
 
-Para descrever o movimento de um corpo, precisamos de um referencial. O movimento é então descrito a partir de vetores que partem da origem do sistema de referência e terminam na posição do corpo. Outra característica interessante do movimento, é a velocidade com que ele ocorre. Ambas estão ligadas a situações práticas do tipo ``tenho \np[min]{15} para chegar à sala de aula antes que a aula comece.'': você ocupa uma posição, deseja ir para outra e tem um certo tempo para realizar tal deslocamento.
+Nos capítulos anteriores, nos preocupamos em descrever o movimento. Determinamos três variáveis que podem ser escritas como funções do tempo e que descrevem o movimento: a posição, a velocidade, e a aceleração. Verificamos também que essas variáveis são vetores, sendo que podemos separar a descrição do movimento em três eixos ortogonais independentes.
 
-Também descrevemos a aceleração, que é a ``taxa de variação da velocidade por unidade de tempo'', ou seja, quanto a velocidade muda em uma unidade de tempo. Dentro da cinemática, tal grandeza se limitou -- ao menos no nosso estudo -- a ser uma constante. Entretanto, em uma freada brusca de um ônibus, situação onde temos uma grande desaceleração, observamos a atuação de forças muito intensas. Se estivermos em pé dentro do ônibus, precisamos fazer um grande esforço para não cair, segurando-se aos apoios afixados ao teto ou aos bancos. Em uma freada mais moderada, o esforço já não é tão grande. Vemos, através disso, que a força e a aceleração estão ligadas de alguma maneira. Vamos então tratar do problema da \emph{dinâmica}, nos preocupando com as causas do movimento.
+Vamos passar agora a nos preocupar com as causas do movimento. Para isso, vamos estudar as Leis de Newton, que relacionam a força resultante exercida sobre um objeto com a sua consequente aceleração. Isso é fundamental pois é raro que possamos afirmar qual será a aceleração a que um corpo estará sujeito através de uma simples análise de uma situação, mas é comum que possamos determinar quais as forças atuam sobre um corpo na mesma situação.
 }
+\end{fullwidth}
 
-\comment{sumário do que conseguimos com cinemática, enfatizar a questão de referencial, objetivos da dinâmica}
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%
+
+Teorias para a descrição das causas do movimento são muito antigas, remontando aos gregos\footnote{E talvez a outros grupos que nunca ouvimos falar.}. Dentre as teorias que foram mais bem aceitas, até que a teoria de Newton as suplantasse, podemos citar a Física Aristotélica.
+
+Nessa teoria, acreditava-se que para que houvesse movimento, deveria haver uma força sendo exercida constantemente. Essa observação parece razoável quando empurramos uma caixa sobre uma mesa. Enquanto exercemos uma força, há movimento; assim que a força cessa, o movimento cessa. No entanto, no caso de um objeto que é atirado, como uma bola ou uma flecha, percebemos que o movimento não cessa após deixarmos de exercer uma força sobre o corpo.
+
+Galileu foi o primeiro a contestar tal visão. Ele percebeu que na verdade o que ocorre é que, no caso da caixa que é arrastada, o movimento só cessa pois outras forças atuam de maneira a ``impedir'' o movimento. Se ``removermos os impedimentos'', como por exemplo utilizando superfícies progressivamente mais lisas, verificamos que o movimento após empurrar a caixa perdurará por cada vez mais tempo. No caso de um objeto que é atirado, temos só a resistência do ar ao movimento, mas essa resistência é pequena, o que faz com que o movimento se mantenha por mais tempo.
+
+Newton formulou a teoria definitiva que descreve o movimento no âmbito da Física Clássica. Ele determinou três leis que descrevem propriedades das forças e a relação delas com a aceleração, bem como à massa de um corpo. Veremos a seguir essas três leis, bem como aplicações delas a alguns exemplos de fenômenos físicos interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conceitos de força e massa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Não adianta, precisamos discutir isso antes de qq coisa. Falar sobre força com noções de senso comum, mas argumentar que dois objetos podem ou não estar exercendo força um sobre o outro quando em contato (imagine dois blocos, um sobre o outro, ou um ao lado do outro, sobre uma mesa). 
+Para que possamos analisar as Leis de Newton, devemos antes de mais nada verificar dois conceitos importantes: o que é força e o que é massa. Segundo Newton:
 
+\begin{quote}
+    Uma força impressa é uma ação exercida sobre um corpo com o intuito de mudar seu estado, seja de repouso, seja de movimento uniforme em uma linha reta.
+\end{quote}
 
+\noindent{}O conceito de força em Física é bastante próximo do que entendemos por força na vida cotidiana. Por exemplo, sabemos que para cada direção e sentido da força que aplicamos sobre um objeto, temos a movimentos diferentes. Sabemos ainda que a composição de dois esforços, em laterais diferentes de um objeto, dá origem a um movimento diagonal. Tais características indicam que as forças são vetores, pois possuem módulo (intensidade da força), direção e sentido.
 
-An impress'd force is an action exerted upon a body, in order to change its state, either of rest, or of moving uniformly forward in a right line.
-This force consists in the action only; and remains no longer in the body, when the action is over. For a body maintains every new state it acquires, by its Vis Inertiæ only. Impress'd forces are of different origines; as from percussion, from pressure, from centripetal force. 
+Sobre a massa, Newton afirma que ela é uma \emph{medida da quantidade de matéria}. Veremos que a massa atuará como uma constante de proporcionalidade entre a força aplicada sobre um corpo, e a aceleração experimentada por ele.
 
-ao falar de massa, tomar a definição de Newton tb:
+Ao contrário da força, a massa é uma quantidade escalar, por isso a determinação da massa de um sistema composto por vários corpos é bastante simples: basta somarmos os valores de massa de cada um dos membros do sistema. Além disso, a massa é estritamente positiva, não havendo valores negativos, ou mesmo nulos. Em alguns casos, no entanto podemos considerar que a massa de um corpo é desprezível em comparação com outros corpos.
 
-
-The Quantity of Matter is the measure of the same, arising from its density and bulk conjunctly.
-
-Principia - 1729 - Definitions - Illuminated T.pngHUS AIR of a double density, in a double space, is quadruple in quantity; in a triple space, sextuple in quantity. The same thing is to be understood of snow, and fine dust or powders, that are condensed by compression or liquefaction; and of all bodies that are by any causes whatever differently condensed. I have no regard in this place to a medium, if any such there is, that freely pervades the interstices between the parts of bodies. It is this quantity that I mean hereafter everywhere under the name of Body or Mass. And the same is known by the weight of each body, for it is proportional to the weight, as I have found by experiments on pendulums, very accurately made, which shall be shewn hereafter.
-
+Cabe aqui uma discussão acerca da confusão entre massa e peso. Newton deixa claro\footnote{Verifique os enunciados de Newton na Seção~\ref{Sec:EnunciadosNewton}} que a massa é uma medida da quantidade de matéria que um corpo possui, e que tal grandeza é \emph{proporcional} ao peso. Veja que o peso de um corpo possui características vetoriais, pois é dirigido verticalmente para baixo e possui um módulo que é tão maior quanto maior for sua quantidade de matéria, ou massa. Além disso, como veremos adiante, um corpo que se encontra longe da superfície da Terra é atraído por uma força que varia com a distância de separação, sendo, portanto diferente para cada posição. A massa, por outro lado, é uma constante característica do corpo e não está sujeita a mudanças, exceto se o corpo perde matéria.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Princípio da Inércia segundo Galileu e segundo Newton}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Segundo a física aristotélica, para que haja movimento, existe a necessidade de que uma força atue sobre um objeto. Assim, para que um bloco se mantenha em movimento, é necessário que sobre ele haja uma força. Aparentemente esta observação descreve razoavelmente um experimento cotidiano, afinal, se empurramos uma caixa sobre um piso, ela certamente para após cessarmos a força aplicada sobre ela. Ao atirarmos um objeto -- como uma flecha ou uma pedra -- no entanto, observamos algo diferente: cessamos a interação com o objeto, cessando a força sobre ele aplicada, porém o movimento não cessa.
-
-\comment{Colocar o texto aqui, como no Moysés, depois enumerar as observações importantes}
-Galileu analisou o movimento de esferas que podem subir ou descer rampas, tecendo as seguintes observações:
+Ao analisar o movimento, Galileu em seu \emph{Diálogo sobre os dois principais sistemas do mundo} tece as seguintes observações:\footnote{O texto completo se encontra na Seção~\ref{Sec:TextoDialogo}}
 \begin{itemize}
-  \item Se tomarmos uma superfície inclinada lisa e resistente, juntamente com uma esfera também lisa e resistente. Colocamos segunda sobre a primeira, de forma que fique livre para rolar tomando cuidado para remover todos os possíveis ``impedimentos'' ao movimento. Desprezamos também a resistência do ar. Observamos que a esfera rola em direção à parte mais baixa da superfície, ganhando velocidade continuamente enquanto dura a descida. Quanto maior a inclinação do plano em relação à horizontal, maior é o ganho de velocidade da esfera após percorrer uma dada distância.
+  \item Tomamos uma superfície inclinada lisa e resistente, juntamente com uma esfera também lisa e resistente e colocamos a segunda sobre a primeira, de forma que fique livre para rolar tomando cuidado para remover todos os possíveis ``impedimentos'' ao movimento. Desprezamos também a resistência do ar. Observamos que a esfera rola em direção à parte mais baixa da superfície, ganhando velocidade continuamente enquanto dura a descida. Quanto maior a inclinação do plano em relação à horizontal, maior é o ganho de velocidade da esfera após percorrer uma dada distância.
   \item Para que a esfera suba o plano, é necessário que ela seja atirada com velocidade, ou arrastada, plano acima. Sendo atirada, o seu movimento natural é perder velocidade continuamente, eventualmente parando. Se aumentamos ou diminuímos a inclinação do plano, mantendo constante a velocidade com que a esfera foi atirada, temos que ela percorrerá uma distância maior ou menor, sendo tanto maior quanto menor for a inclinação e vice-versa.
   \item Se tomarmos uma superfície perfeitamente horizontal, não existe tendência a ganhos de velocidade, nem de perdas de velocidade. Se colocarmos a esfera de forma que ela fique parada sobre a superfície, ela deve permanecer parada. Se a colocarmos em movimento, não havendo impedimentos, ela deve permanecer em movimento. Não havendo inclinação do plano, não há razão para haver aumento ou diminuição da velocidade. Se o plano horizontal for infinito, ela deve continuar nesse movimento indefinidamente. A razão disto é que existe uma tendência dos corpos a se moverem em direção ao centro da Terra. Como em um plano horizontal todas as partes estão à mesma distância em relação ao centro, não existe um lugar preferencial da superfície para o qual a esfera tem uma tendência a se dirigir. Tal superfície seria, na realidade, uma esfera lisa e concêntrica com a Terra. Uma vez posta em movimento em direção ao norte, por exemplo, a esfera continuaria a se mover em tal direção até atingi-lo e passar a se mover para o sul, descrevendo um circulo em torno da Terra.
 \end{itemize}
 %
 Resumindo, podemos afirmar que -- segundo Galileu -- \emph{um corpo sobre uma superfície horizontal continuará se movendo na mesma direção com velocidade constante a não ser que seja perturbado}. Portanto, pela primeira vez se vislumbra o princípio da inércia. Devemos destacar que para Galileu, \emph{o movimento horizontal do corpo não é retilíneo}, mas um círculo em torno da Terra -- essa é a interpretação mais comum das principais obras de Galileu, porém há controvérsias sobre isso: veja \cite{VASCONCELOS2005} --. Finalmente, através de tais observações, Galileu concluiu que é impossível distinguir um corpo em movimento com velocidade constante de outro parado, a não ser que tenhamos uma referência externa.
 
-Em seu livro, \emph{Principia}, Newton declara a primeira lei do movimento como
+No \emph{Principia}, Newton declara a primeira lei do movimento como
 \begin{quote}
   Todo corpo permanece em estado de repouso, ou de movimento uniforme em uma linha reta, a não ser que seja compelido a mudar tal estado por forças que atuam sobre ele.
 \end{quote}
 %
-A diferença fundamental em relação ao proposto por Galileu é o fato de que o movimento, na ausência de forças, se dá em \emph{linha reta}. Verificamos no Capítulo ?? que se temos uma mudança na direção da velocidade, temos uma aceleração, mesmo que o módulo desse vetor se mantenha constante. Veremos através da Segunda Lei de Newton, a seguir, que se não temos força, não temos aceleração. Consequentemente, na ausência de forças atuando sobre um corpo que se desloca, o movimento deve ser retilíneo e com o módulo da velocidade constante.
+A diferença fundamental em relação ao proposto por Galileu é o fato de que o movimento, na ausência de forças, se dá em \emph{linha reta}. Verificamos no Capítulo~\ref{Chap:MovimentoBidimensional} que se temos uma mudança na direção da velocidade, temos uma aceleração, mesmo que o módulo desse vetor se mantenha constante. Veremos através da Segunda Lei de Newton, a seguir, que se não temos força, não temos aceleração. Consequentemente, na ausência de forças atuando sobre um corpo que se desloca, o movimento deve ser retilíneo e com o módulo da velocidade constante.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Referenciais inerciais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Origem do termo inércia} % wikipedia
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% sobre a inércia:
-% The vis insita, or innate force of matter, is a power of resisting, by which every body, as much as in it lies, endeavours to persevere in its present state, whether it be of rest, or of moving uniformly forward in a right line.
-% 
-% This force is ever proportional to the body whose force it is; and differs nothing from the inactivity of the mass, but in our manner of conceiving it. A body, from the inactivity of matter, is not without difficulty put out of its state of rest or motion. Upon which account, this vis insita, may, by a most significant name, be called vis inertiæ, or force of inactivity. But a body exerts this force only, when another force, impressed upon it, endeavours to change its condition; and the exercise of this force may be considered both as resistance and impulse; it is resistance, in so far as the body, for maintaining its present state, withstands the force impressed; it is impulse, in so far as the body, by not easily giving way to the impressed force of another, endeavours to change the state of that other. Resistance is usually ascribed to bodies at rest, and impulse to those in motion; but motion and rest, as commonly conceived, are only relatively distinguished; nor are those bodies always truly at rest, which commonly are taken to be so.
-% 
-% The actual term "inertia" was first introduced by Johannes Kepler in his Epitome Astronomiae Copernicanae (published in three parts from 1618–1621); however, the meaning of Kepler's term (which he derived from the Latin word for "idleness" or "laziness") was not quite the same as its modern interpretation. Kepler defined inertia only in terms of a resistance to movement, once again based on the presumption that rest was a natural state which did not need explanation. It was not until the later work of Galileo and Newton unified rest and motion in one principle that the term "inertia" could be applied to these concepts as it is today.[citation needed]
-% 
-% Nevertheless, despite defining the concept so elegantly in his laws of motion, even Newton did not actually use the term "inertia" to refer to his First Law. In fact, Newton originally viewed the phenomenon he described in his First Law of Motion as being caused by "innate forces" inherent in matter, which resisted any acceleration. Given this perspective, and borrowing from Kepler, Newton actually attributed the term "inertia" to mean "the innate force possessed by an object which resists changes in motion"; thus Newton defined "inertia" to mean the cause of the phenomenon, rather than the phenomenon itself. However, Newton's original ideas of "innate resistive force" were ultimately problematic for a variety of reasons, and thus most physicists no longer think in these terms. As no alternate mechanism has been readily accepted, and it is now generally accepted that there may not be one which we can know, the term "inertia" has come to mean simply the phenomenon itself, rather than any inherent mechanism. Thus, ultimately, "inertia" in modern classical physics has come to be a name for the same phenomenon described by Newton's First Law of Motion, and the two concepts are now considered to be equivalent.
-% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Segunda Lei de Newton}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,69 +72,75 @@ A diferença fundamental em relação ao proposto por Galileu é o fato de que o
 \subsection{Relação entre força e aceleração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Através da Lei da Inércia, damos um passo adiante no estudo do movimento dos corpos, associando força a aceleração. Segundo Newton
+Através da Lei da Inércia, damos um passo adiante no estudo do movimento dos corpos, associando força a aceleração. Na Segunda Lei, Newton dá uma forma mais precisa para a dependência entre aceleração e força:
 \begin{quote}
-  A alteração do movimento é sempre proporcional à força motriz a ele aplicada; e é feita na direção da linha reta em que tal força atua.\footnote{Newton usa o termo \emph{movimento} para o que conhecemos hoje como \emph{quantidade de movimento} ou \emph{momento linear}, representado por $p$. Tal definição, dada por $p = mv$ engloba tanto a massa quanto a velocidade, sendo que sua alteração pode se dar por meio de uma \emph{variação} da massa ou da velocidade, ou seja, sua alteração se dá através da aceleração, se $m$ for mantido constante.}
+  A alteração do movimento é sempre proporcional à força motriz a ele aplicada; e é feita na direção da linha reta em que tal força atua.\footnote{Newton usa o termo \emph{movimento} para o que conhecemos hoje como \emph{quantidade de movimento} ou \emph{momento linear}, representado por $\vec{p}$. Tal definição, dada por $\vec{p} = m\vec{v}$ engloba tanto a massa quanto a velocidade, sendo que sua alteração pode se dar por meio de uma \emph{variação} da massa ou da velocidade, ou seja, sua alteração se dá através da aceleração, se $m$ for mantido constante.}
 \end{quote}
 %
 
 Experimentalmente, podemos verificar que a aceleração de um objeto é maior caso a força que exercemos sobre ele seja maior. Se temos uma alteração da velocidade quando um corpo se desloca por certo tempo sob ação de uma força, ao dobrarmos ou triplicarmos a intensidade da força, teremos que a alteração da velocidade dobrará ou triplicará, respectivamente. Podemos então dizer que
-\comment{falar sobre características vetoriais da força e já escrever essa relação vetorialmente}
 \begin{equation}
-  a \propto F.
+  a \propto F,
+\end{equation}
+%
+ou, considerando que --~como explicitado por Newton~-- a alteração é sempre na mesma direção que a força motriz,\footnote{O símbolo $\propto$ denota \emph{proporcionalidade}.}
+\begin{equation}
+    \vec{a} \propto \vec{F}.
 \end{equation}
 
-\begin{marginfigure}[1cm]
-\includegraphics{Fig/177px-Principia1846-084.png}
-\caption{Figura utilizada por Newton para explicar a composição da ação das forças.}
+Newton ainda considera a possibilidade de que das forças atuem sobre um corpo ao mesmo tempo. Nesse caso, se considerarmos a atuação de uma só força, o corpo se deslocará, em um dado tempo, uma certa distância na direção da força ($A$ até $B$ na Figura~\ref{Fig:ComposicaoForcasNewton}). Analogamente, quando a outra atua sozinha sobre o corpo, temos um deslocamento na direção da segunda, ainda considerando o mesmo intervalo de tempo ($A$ até $C$ na figura). Se ambas as forças atuarem sobre o corpo, no mesmo intervalo de tempo, o deslocamento resultante será dado pela reta que forma a diagonal do paralelogramo formado pelos dois deslocamentos individuais ($A$ até $D$ na figura).
+
+\begin{marginfigure}
+\centering
+\includegraphics[width= 0.7\linewidth]{Fig/177px-Principia1846-084.png}
+\caption{Figura utilizada por Newton para explicar a composição da ação das forças.\label{Fig:ComposicaoForcasNewton}}
 \end{marginfigure}
 
-\comment{Quote do texto deo Newton, mostrar que as distâncias estão relacionadas às acelerações. Mostrar modernamente com vetores. Figure vetorial com aceleração e deslocamento.}
-Newton ainda considera a possibilidade de que das forças atuem sobre um corpo ao mesmo tempo. Nesse caso, se considerarmos a atuação de uma só força, o corpo se deslocará, em um dado tempo, uma certa distância na direção da força. Analogamente, quando a outra atua sozinha sobre o corpo, temos um deslocamento na direção da segunda, ainda considerando o mesmo intervalo de tempo. Se ambas as forças atuarem sobre o corpo, no mesmo intervalo de tempo, o deslocamento resultante será dado pela reta que forma a diagonal do paralelogramo formado pelos dois deslocamentos individuais. De uma maneira mais direta, podemos dizer que a aceleração sofrida pelo corpo é dada pela soma vetorial das acelerações individuais que as forças -- agindo sozinhas, uma de cada vez -- imprimem sobre o corpo. O que, por sua vez, define uma força resultante que é dada pela soma das duas forças.
-
-\comment{concluir alguma coisa a partir do parágrafo, se possível (que essas são as propriedades de um vetor); Temos que falar sobre força resultante tb. e discutir que é ela que determina a aceleração (fácil se pensarmos em um bloco submetido a duas forças, por exemplo)}
+De uma maneira mais direta, podemos dizer que a aceleração sofrida por um corpo sujeito a um conjunto de forças é dada pela soma vetorial das acelerações individuais que as forças -- agindo sozinhas, uma de cada vez -- imprimem sobre o corpo. O que, por sua vez, define uma força resultante que é dada pela soma das duas forças. Ou seja, existe uma força resultante $F_R$ tal que
+\begin{align}
+    \vec{F}_R &= \vec{F}_1 + \vec{F}_2 + \dots \\
+    &= \sum_{i = 1}^n \vec{F}_i
+\end{align}
+%
+e
+\begin{equation}
+    \vec{a} \propto \vec{F}_R.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Relação entre massa e aceleração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Newton define a noção de \emph{quantidade de matéria}, ou \emph{massa}:
-\begin{quote}
-\emph{A quantidade de matéria é uma medida da mesma, advindo de sua densidade e volume conjuntamente.}
-  
-Portanto, ar com o dobro da densidade, no dobro do volume, é o quadruplo em quantidade\footnote{A densidade é uma variável intensiva, enquanto o volume é uma variável extensiva. A segunda pode ser somada ao juntarmos dois sistemas, a primeira não.}; no triplo do volume, o sêxtuplo em quantidade. O mesmo se deve entender de neve, e poeira fina ou pós, que seja condensados por compressão ou liquefação; e de todos os corpos que sejam por qualquer motivo de alguma maneira condensados. [\dots]. É essa quantidade a que me refiro doravante [\dots] como corpo ou massa. E o mesmo é conhecido como peso de cada corpo; pois é proporcional ao peso, como descobri por experimentos em pêndulos, executados com muito cuidado, que serão mostrados adiante.
-\end{quote}
-%
-Cabe aqui uma discussão acerca da confusão entre massa e peso. Como mostrado acima, Newton deixa claro que a massa é uma medida da quantidade de matéria que um corpo possui, estando associada tanto ao seu volume quanto à sua densidade, e que tal grandeza é \emph{proporcional} ao peso. Veja que o peso possui características vetoriais, pois é dirigido verticalmente para baixo e possui um módulo que é tão maior quanto maior forem sua densidade e seu volume -- isto é, quanto maior for sua quantidade de matéria, ou massa --. Além disso, como veremos adiante, um corpo que se encontra longe da superfície da Terra é atraído por uma força que varia com a distância de separação, sendo, portanto diferente para cada posição. A massa, por outro lado, é uma constante característica do corpo e não está sujeita a mudanças.
 
 Se aplicarmos uma força resultante em um corpo, temos que ele estará sujeito a uma aceleração. No entanto, se aplicarmos uma dada força em um corpo muito massivo, teremos uma aceleração pequena, ao passo que se aplicarmos tal força em um corpo com uma massa pequena, teremos uma aceleração maior. Percebemos então que a aceleração assume uma proporcionalidade inversa em relação à massa:
 \begin{equation}
   a \propto \frac{1}{m},
 \end{equation}
 %
-ou, considerando a dependência em relação à força
+ou, considerando a dependência em relação à força e o caráter vetorial das grandezas,
 \begin{equation}
-  a \propto \frac{F}{m}.
+  \vec{a} \propto \frac{\vec{F}_R}{m}.
 \end{equation}
 %
 Considerando que a aceleração só dependa de $F$ e $m$, e também o fato de que uma proporcionalidade pode ser escrita como uma igualdade se utilizarmos uma constante de proporcionalidade $C$ qualquer -- cujo valor precisamos determinar -- temos
 \begin{equation}
-  a = C \frac{F}{m}.
+  \vec{a} = C \frac{\vec{F}_R}{m}.
 \end{equation}
 
 Apesar de termos unidades para a aceleração e para a massa, não temos para a força. Nesse caso, podemos englobar a constante $C$ na própria definição das unidades da força e obter
-\begin{equation}
-  a = \frac{F}{m},
-\end{equation}
-%
-ou seja,
-\begin{equation}
-  F = m a. \mathnote{Segunda Lei de Newton.}
+\begin{equation}\label{Eq:SegundaLeiDeNewton}
+  \vec{a} = \frac{\vec{F}_R}{m} \mathnote{Segunda Lei de Newton.}
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Medidas de massa}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A forma acima não é a mais conhecida, mas sim 
+\begin{equation}
+  \vec{F}_R = m \vec{a}.
+\end{equation}
+%
+Matematicamente, as expressões são completamente equivalentes, porém a Equação~\ref{Eq:SegundaLeiDeNewton} deixa mais evidente a relação causa e efeito: \emph{a existência de uma força resultante causa uma aceleração}.\footnote{A inversão dessa causa e efeito é particularmente problemática ao tratarmos de forças no movimento circular, onde um erro comum é achar que existe uma força \emph{adicional} em movimentos circulares, denominada como \emph{força centrípeta}. Na verdade, alguma força, ou componente de força, exerce o papel de força centrípeta e \emph{causa} o movimento circular. Discutiremos isso em detalhes adiante.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unidades e medidas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Através da Segunda Lei de Newton, podemos determinar a massa de um objeto em relação à massa de outro. Suponha que tomamos um objeto qualquer e a ele aplicamos uma força resultante $F$. Sabemos que ele será submetido a uma aceleração de tal maneira que
 \begin{equation}
@@ -166,7 +162,17 @@ ou
   m_2 = \frac{a_1}{a_2}m_1.
 \end{equation}
 
-Este resultado é relevante pois não temos um método de determinar a massa de um objeto a não ser por comparação com outro. No Sistema Internacional, utiliza-se a massa de um cilindro metálico como massa padrão em relação a qual as demais massas são medidas, sendo atribuída a ele a massa de \np[kg]{1}. Utilizando o processo acima, podemos determinar a massa de um objeto qualquer em relação ao padrão de referência.
+Este resultado é relevante pois não temos um método de determinar a massa de um objeto a não ser por comparação com outro. No Sistema Internacional (SI), utiliza-se a massa de um cilindro metálico como massa padrão em relação a qual as demais massas são medidas, sendo atribuída a ele a massa de \np[kg]{1}. Utilizando o processo acima, podemos determinar a massa de um objeto qualquer em relação ao padrão de referência.
+
+As medidas de força podem ser feitas através de uma mola. Veremos adiante que a força exercida por uma mola é proporcional à distensão que ela sofre. Assim, é possível elaborar um equipamento simples --~um dinamômetro~-- que consiste em uma mola associada a uma escala graduada. Dentro so SI, as unidades de força são
+\begin{align}
+    [F] &= [m a] \\
+    &= [m] [a] \\
+    &= \rm{kg} \frac{\rm{m}}{\rm{s}^2} \\
+    &\equiv \rm{N},
+\end{align}
+%
+onde utilizamos a definição $N \equiv \rm{kg}\cdot\rm{m}/\rm{s}^2$ para nomear a unidade da força como \emph{Newton}, isto é, $\np[N]{1} \equiv \np[kg\cdot m/s^2]{1}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Terceira Lei de Newton}
@@ -174,9 +180,7 @@ Este resultado é relevante pois não temos um método de determinar a massa de 
 
 A Terceira Lei de Newton foi por ele enunciada como
 \begin{quote}
-\emph{Para cada ação há sempre uma reação igual oposta: ou as ações mutuas de dois corpos um sobre o outro são sempre iguais, e dirigidas a partes contrárias.}
-
-Qualquer coisa que puxa ou empurra outra é tão puxado ou pressionado quanto pela outra. Se você pressionar uma pedra com seu dedo, o dedo também é pressionado pela pedra. Se um cavalo puxa uma pedra amarrada a uma corda, o cavalo (se posso assim dizer) será igualmente puxado para trás em direção à pedra: pois a corda distendida, pelo mesmo esforço para relaxar ou se afrouxar, tanto puxará o cavalo em direção à pedra, quanto puxará a pedra em direção ao cavalo, e obstruirá o progresso de um tanto quanto avança aquele do outro. Se um corpo colide com outro, e por meio de sua força muda o movimento do segundo, o segundo corpo também (devido à igualdade da pressão mútua) sofrerá uma mudança igual, em seu próprio movimento, em direção à parte contrária. As mudanças feitas por essas ações são iguais, não nas velocidades, mas nos movimentos dos corpos; isto se os corpos não são obstados por outros impedimentos. Pois, devido ao fato de que os movimentos são igualmente alterados, as mudanças das velocidades efetuadas em direções a partes contrárias são reciprocamente proporcionais aos corpos [massas]. Esta lei também ocorre em atrações, como será provado adiante.
+    Para cada ação há sempre uma reação igual oposta: ou as ações mutuas de dois corpos um sobre o outro são sempre iguais, e dirigidas a partes contrárias.
 \end{quote}
 
 \begin{marginfigure}
@@ -201,6 +205,8 @@ Qualquer coisa que puxa ou empurra outra é tão puxado ou pressionado quanto pe
 \end{tikzpicture}
 \caption{Ao submetermos dois blocos a uma força $\vec{F}$, ocorrerá uma interação na superfície de contato entre eles. Tal interação resultará na força $\vec{F}_{12}$ para a direita atuando no bloco da direita, fazendo com que ele acelere, e na força $\vec{F}_{21}$ para a esquerda atuando no bloco da esquerda. No caso do bloco da esquerda a \emph{força resultante} $\vec{F} - \vec{F}_{21}$ será a responsável pela aceleração.}
 \end{marginfigure}
+
+\noindent{}Denominamos tal par como um \emph{par ação--reação}. Note que as forças do par nunca atuam sobre o mesmo corpo: em uma interação entre dois corpos quaisquer, uma delas, $\vec{F}$, atua sobre um dos corpos, enquanto a outra\footnote{Sempre que tivermos um par ação--reação, denotaremos uma das forças usando a ``linha'', de forma a diferenciá-las.}, $\vec{F}'$, atua sobre o outro. Além disso, as forças têm o mesmo módulo. Finalmente, Newton contempla a interação por quaisquer meios, seja por contato, seja à distância.
 
 \begin{marginfigure}
 \centering
@@ -228,10 +234,10 @@ Qualquer coisa que puxa ou empurra outra é tão puxado ou pressionado quanto pe
 \caption{Mesmo no caso de uma interação à distância, temos um par ação-reação: Na situação mostrada na figura, ambos os imãs se deslocariam na ausência de atrito estando sujeitos a uma aceleração $a = F_{12}/m_1 = F_{21}/{m_2}$.}
 \end{marginfigure}
 
-Newton contempla a interação entre dois corpos quaisquer, seja por contato, seja à distância. Na interação um corpo exerce uma força sobre outro, porém sente os efeitos de uma força de mesmo módulo e direção, porém de sentido contrário. Se, por exemplo, um patinador arremessa uma bola com força, verificamos que a bola sofre uma grande alteração de sua velocidade. O patinador, por sua vez, sofre uma aceleração no sentido contrário -- no entanto, observamos que sua velocidade final é muito menor --. Isto pode ser entendido através da segunda lei de Newton, pois, como as forças que atuam são iguais em módulo
+Muitas vezes, devido às diferentes massas dos corpos que interagem, pode ser difícil perceber que um deles está sujeito a uma força quando interage com outro. Se, por exemplo, um patinador arremessa uma bola com força, verificamos que a bola sofre uma grande alteração de sua velocidade. O patinador, por sua vez, sofre uma aceleração no sentido contrário -- no entanto, observamos que sua velocidade final é muito menor --. Isto pode ser entendido através da Segunda Lei de Newton, pois, como as forças que atuam  em cada um dos corpos são iguais em módulo
 \begin{align}
   F &= m_1 a_1 \\
-  F &= m_2 a_2
+  F' &= m_2 a_2
 \end{align}
 %
 e, consequentemente,
@@ -239,15 +245,13 @@ e, consequentemente,
   a_2 = \frac{m_1}{m_2} a_1.
 \end{equation}
 %
-Logo, se supomos que a massa $m_1$ da bola é muito menor que a massa $m_2$ do patinador, temos que $m_1/m_2 \ll 1$ e -- consequentemente -- $a_2 \ll a_1$. Como ambos os corpos estão sujeitos às acelerações durante o mesmo intervalo de tempo, observamos que $v_2 \ll v_1$, pois a velocidade é diretamente proporcional à duração da aceleração.
-
-Finalmente, é importante notar que o par ação-reação oriundo de uma interação nunca atua sobre o mesmo corpo. Devido ao fato de que uma força resulta da interação de dois corpos, não faz sentido supor que pudéssemos ter uma situação diferente. No caso de uma força interna, podemos recorrer à interpretação de que todos os corpos são constituídos de átomos, de onde verificamos que uma interação entre partes diferentes de um corpo são interações entre átomos (ou grupos de átomos, como moléculas) diferentes. Consequentemente, podemos afirmar que as forças de um par ação-reação, se dão entre corpos diferentes, mesmo no caso de forças internas.
+Logo, se supomos que a massa $m_1$ da bola é muito menor que a massa $m_2$ do patinador, temos que $m_1/m_2 \ll 1$ e, consequentemente, $a_2 \ll a_1$. Como ambos os corpos estão sujeitos às acelerações durante o mesmo intervalo de tempo, observamos que $v_2 \ll v_1$, pois a velocidade é diretamente proporcional à duração da aceleração.
 
 %%%%%%%%%%%%%%%%
 \section{Forças}
 %%%%%%%%%%%%%%%%
 
-Através das Leis de Newton, fica evidente que transferimos o problema da determinação do movimento dos corpos para a determinação das forças que atuam sobre ele. Infelizmente, não existe uma lei que determine quais são as forças que atuam sobre um corpo, restando como única saída uma análise cuidadosa do fenômeno estudado.
+Através das Leis de Newton, fica evidente que transferimos o problema da determinação do movimento dos corpos para a determinação das forças que atuam sobre eles. Infelizmente, não existe uma lei que determine quais são as forças que atuam sobre um corpo, restando como única saída uma análise cuidadosa do fenômeno estudado.
 
 A partir de experimentos, se tem o conhecimento de um pequeno número de forças que podem ser consideradas \emph{fundamentais}:
 \begin{itemize}
@@ -257,13 +261,15 @@ A partir de experimentos, se tem o conhecimento de um pequeno número de forças
   \item força nuclear fraca.
 \end{itemize}
 %
-Tais forças são denominadas fundamentais pois todas as demais podem ser interpretadas através delas. Em geral, no entanto, a descrição de fenômenos através delas não é prática. Do ponto de vista macroscópico, é mais útil trabalharmos com forças que surgem a partir de interações complexas dos átomos através das forças fundamentais. As duas primeiras são responsáveis pelas forças que estudaremos em mecânica, como a força peso (oriunda da força gravitacional) e as forças normal, de tensão, atrito, arrasto e elástica (oriundas da força eletromagnética). Outras expressões podem ser encontradas para outras situações, no entanto não as estudaremos a fundo aqui. Podemos citar como exemplo as forças que atuam sobre cargas elétricas, entre condutores portando corrente, entre moléculas (força de van der Waals), etc. Em alguns casos, vamos tratar de forças de contato que tem origem eletromagnética, porém que não nos damos ao trabalho de nomear, como as forças que atuam entre duas esferas que colidem.
+Tais forças são denominadas fundamentais pois todas as demais podem ser interpretadas através delas. Em geral, no entanto, a descrição de fenômenos através delas não é prática. Do ponto de vista macroscópico, é mais útil trabalharmos com forças que surgem a partir de interações complexas dos átomos através das forças fundamentais.
+
+Na lista acima, as duas primeiras são responsáveis pelas forças que estudaremos em mecânica, como a força peso (oriunda da força gravitacional) e as forças normal, de tensão, atrito, arrasto e elástica (oriundas da força eletromagnética). Outras expressões podem ser encontradas para outras situações, no entanto não as estudaremos a fundo aqui, como por exemplo as forças que atuam sobre cargas elétricas, entre condutores portando corrente, entre moléculas (força de van der Waals), etc. Em alguns casos, vamos tratar de forças de contato que tem origem eletromagnética, porém que não nos damos ao trabalho de nomear, como as forças que atuam entre duas esferas que colidem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%s
 \subsection{Determinação de força resultante e diagramas de forças} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%s
 
-Quando mais que uma força atua sobre um corpo, devemos determinar a \emph{força resultante} que atua sobre ele para que possamos determinar qual será a aceleração a qual eele estará submetido. Isso pode ser feito de maneira relativamente simples, bastanto utilizar as propriedades vetoriais, já que as forças são vetores. Assim,
+Quando mais que uma força atua sobre um corpo, devemos determinar a \emph{força resultante} que atua sobre ele para que possamos determinar qual será a aceleração a qual ele estará submetido. Isso pode ser feito de maneira relativamente simples, bastanto utilizar as propriedades vetoriais. Assim,
 \begin{equation}
     \vec{F}_R = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \dots,
 \end{equation}
@@ -310,19 +316,15 @@ Uma vez escolhido um sistema de coordenadas, devemos aplicar a Segunda Lei de Ne
 \caption{Esboço de um problema e o diagrama de forças do problema. Apesar de a rigor devermos utilizar o diagrama, é mais ilustrativo utilizar a representação da esquerda, porém ela tem problemas conceituais: a força $\vec{N}$ exercida pela mesa é exercida na parte inferior do bloco, não no topo, como ilustrado.\label{Fig:DiagramaDeForcasEEsboco}}
 \end{marginfigure}
 
-Um artifício fundamental para a interpretação e solução de problemas de dinâmica é o \emph{diagrama de corpo livre}, ou \emph{diagrama de forças}. Tal diagrama consiste em um ponto que representa um corpo, sendo que todas as forças que atuam sobre tal corpo são representadas como atuando sobre o ponto (veja a parte à direita
-na Figura~\ref{Fig:DiagramaDeForcasEEsboco}). Além disso, não devemos incluir acelerações, velocidades, ou quaisquer outros vetores no diagrama de forças.
+Um artifício fundamental para a interpretação e solução de problemas de dinâmica é o \emph{diagrama de corpo livre}, ou \emph{diagrama de forças}. Tal diagrama consiste em um ponto que representa um corpo, sendo que todas as forças que atuam sobre tal corpo são representadas como atuando sobre um ponto, que representa o centro de massa do corpo (veja a parte à direita na Figura~\ref{Fig:DiagramaDeForcasEEsboco}). Além disso, não devemos incluir acelerações, velocidades, ou quaisquer outros vetores no diagrama de forças.
 
-Podemos, ao invés de utilizar um diagrama de forças como descrito acima, fazer um esboço da situação (veja a parte à esquerda
-na Figura~\ref{Fig:DiagramaDeForcasEEsboco}). Isso em geral é mais interessante, pois ele reúne as principais características de um diagrama de forças e ao mesmo tempo permite uma visualização do problema. Esse artifício exige algumas adaptações, como representar forças em posições diferentes das ideais para que elas possam ser representadas confortavelmente no esboço.
+Podemos, ao invés de utilizar um diagrama de forças como descrito acima, fazer um esboço da situação (veja a parte à esquerda na Figura~\ref{Fig:DiagramaDeForcasEEsboco}). Isso em geral é mais interessante, pois ele reúne as principais características de um diagrama de forças e ao mesmo tempo permite uma visualização do problema. Esse artifício exige algumas adaptações, como representar forças em posições diferentes das ideais para que elas possam ser representadas confortavelmente no esboço.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Equilíbrio de forças}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma situação particularmente comum é quando a força resultante sobre um corpo é nula. Nesse caso, temos o que chamamos de uma \emph{situação de equilíbrio}. Através da Segunda Lei de Newton, verificamos que a aceleração do corpo nessa situação é zero. Note que o equilíbrio não significa que a velocidade é necessariamente zero, pois uma velocidade constante satisfaz a condição de ``aceleração nula'' perfeitamente.
-
-\begin{marginfigure}
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines] (0,0) rectangle (1,1);
@@ -338,7 +340,9 @@ Uma situação particularmente comum é quando a força resultante sobre um corp
 \caption{Um corpo submetido a um conjunto de forças e em equilíbrio.\label{Fig:ExemploEquilibrio}}
 \end{marginfigure}
 
-Na Figura~\label{Fig:ExemploEquilibrio} temos um corpo sujeito a um conjunto de forças e em equilíbrio. Podemos determinar a relação entre as forças através da Segunda Lei de Newton. Para isso, vamos adotar um sistema de referência e determinar o ângulo entre as forças e os eixos. Veja a Figura~\ref{Fig:ExemploEquilibrioRef}. Aplicando a Segunda Lei de Newton a cada eixo, temos
+Uma situação particularmente comum é quando a força resultante sobre um corpo é nula. Nesse caso, temos o que chamamos de uma \emph{situação de equilíbrio}. Através da Segunda Lei de Newton, verificamos que a aceleração do corpo nessa situação é zero. Note que o equilíbrio não significa que a velocidade é necessariamente zero, pois uma velocidade constante satisfaz a condição de ``aceleração nula'' perfeitamente.
+
+Na Figura~\ref{Fig:ExemploEquilibrio} temos um corpo sujeito a um conjunto de forças e em equilíbrio. Podemos determinar a relação entre as forças através da Segunda Lei de Newton. Para isso, vamos adotar um sistema de referência e determinar o ângulo entre as forças e os eixos. Veja a Figura~\ref{Fig:ExemploEquilibrioRef}. Aplicando a Segunda Lei de Newton a cada eixo, temos:
 \begin{description}
     \item[Eixo $x$:]
         \begin{align}
@@ -354,7 +358,7 @@ Na Figura~\label{Fig:ExemploEquilibrio} temos um corpo sujeito a um conjunto de 
         \end{align}
 \end{description}
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines] (0,0) rectangle (1,1);
@@ -384,7 +388,7 @@ Note que a escolha do sistema de referências foi feita com base no ângulo dado
 \subsection{Força gravitacional e força peso} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sabemos que próximo da superfície da Terra, todos os corpos estão sujeitos a uma aceleração de aproximadamente \np[m/s^2]{9,8} (ignorando-se os efeitos da resistência do ar). A origem dessa aceleração sua independência em relação à massa podem ser explicadas através da Teoria da Gravitação Universal, também proposta por Newton. Segundo ela, dois corpos quaisquer está sujeitos a uma força de atração mútua -- isto é, atuando sobre ambos os corpos, constituindo um par ação-reação -- dada por
+Sabemos que próximo da superfície da Terra, todos os corpos estão sujeitos a uma aceleração de aproximadamente \np[m/s^2]{9,8} (ignorando-se os efeitos da resistência do ar). A origem dessa aceleração e sua independência em relação à massa podem ser explicadas através da Teoria da Gravitação Universal, também proposta por Newton. Segundo ela, dois corpos quaisquer está sujeitos a uma força de atração mútua -- isto é, atuando sobre ambos os corpos, constituindo um par ação-reação -- dada por
 
 \begin{marginfigure}
 \centering
@@ -412,7 +416,7 @@ Aplicando a expressão acima para o caso de um corpo de massa $m$ nas imediaçõ
   F_g = \left[G \frac{m_T}{r_T^2}\right]m,
 \end{equation}
 %
-onde $m_T$ e $r_T$ representam a massa e o raio da Terra, respectivamente. Utilizamos o raio da Terra pois quando temos um corpo extenso, podemos substituí-lo por um ponto denominado \emph{centro de massa} localizado no centro de simetria (para corpos homogêneos). Se aproximarmos a Terra como uma esfera homogênea, tal ponto dista da superfície pelo raio da esfera. Um corpo sujeito a tal força terá então uma aceleração dada por
+onde $m_T$ e $r_T$ representam a massa e o raio da Terra, respectivamente. Utilizamos o raio da Terra pois consideramos que toda a massa está contida no centro de massa. Se aproximarmos a Terra como uma esfera homogênea, tal ponto dista da superfície pelo raio da esfera. Um corpo sujeito a tal força terá então uma aceleração dada por
 \begin{equation}
   F_g = ma
 \end{equation}
@@ -544,9 +548,9 @@ onde usamos o fato de que a soma dos ângulos internos de um triângulo é sempr
     \coordinate (O) at (2,0.5);
     
     \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
-    \pic [draw, "$\beta$", angle eccentricity=1.5] {angle = B--O--P};
+    \pic [draw, "$\beta$", angle eccentricity=1.5, angle radius = 5.5 mm] {angle = B--O--P};
     
-    \pic [draw, "$\alpha$", angle eccentricity=1.5] {angle = P--O--A};
+    \pic [draw, "$\alpha$", angle eccentricity=1.5, angle radius = 4.5 mm] {angle = P--O--A};
     
     \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = A--P--O};
     \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = B--O--A};
@@ -564,7 +568,7 @@ que podemos substituir na equação obtida para o triângulo da direita, o que r
 \begin{align}
         \theta + \np[\tcdegree]{90} - \beta + \np[\tcdegree]{90} &= \np[\tcdegree]{180} \\
         \theta - \beta &= 0 \\
-        \theta & \beta.
+        \theta &= \beta.
 \end{align}
 %
 Concluímos então que o ângulo entre o eixo perpendicular ao plano e a direção da força peso é igual ao ângulo entre o plano e a horizontal. Esse resultado será fundamental para avaliarmos todas as situações envolvendo planos inclinados.
@@ -576,12 +580,8 @@ Agora podemos aplicar a Segunda Lei de Newton para os dois eixos
             F_R^x &= m a_x \\
             P_x &= m a_x \\
             P \sen\theta &= m a_x \\
-            mg \sen\theta &= ma_x,
+            mg \sen\theta &= ma_x,\label{Eq:AceleracaoPlanoInclinadoM}
         \end{align}
-        onde utilizamos as funções trigonométricas para determinar a componente do vetor peso na direção do eixo $x$. Finalmente, ao dividirmos ambos os lados da equação pela massa, obtemos
-        \begin{equation}
-            a_x = g \sen\theta.
-        \end{equation}
     \item[Eixo $y$:] No eixo perpendicular ao plano temos
         \begin{align}
             F_R^y &= m a_y \\
@@ -589,15 +589,20 @@ Agora podemos aplicar a Segunda Lei de Newton para os dois eixos
             N &= P \cos\theta \\
             N &= mg \cos\theta,
         \end{align}
-        onde utilizamos o fato de que não há aceleração no eixo perpendicular ao plano para escrever o termo à direita da igualdade no segundo passo.
 \end{description}
+%
+Nas equações acima, utilizamos o fato de que não há aceleração no eixo perpendicular ao plano para escrever o termo à direita da igualdade no segundo passo. Além disso, utilizamos as funções trigonométricas para determinar as componentes da força peso.
 
-Verificamos, portanto, que a aceleração em um plano inclinado varia conforme alteramos a inclinação deste.
+Finalmente, ao dividirmos ambos os lados da Equação~\ref{Eq:AceleracaoPlanoInclinadoM} pela massa, obtemos
+\begin{equation}
+    a_x = g \sen\theta.
+\end{equation}
+%
+Verificamos, portanto, que a aceleração em um plano inclinado varia conforme alteramos a inclinação deste em relação à horizontal.
 
-
-%%%%%%%%%%%%%%%%%%%
-\subsection{Normal} 
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Força Normal} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Qualquer objeto próximo da Terra sofre uma atração em direção ao centro da Terra, mas nem todos são acelerados por tal força. Um objeto que repousa sobre o solo, por exemplo, se mantém parado, sem afundar no chão. Acontece que, nesse caso, as forças de origem eletromagnéticas de interação entre os átomos do solo e do objeto atuam de maneira a impedir que ele afunde. Isso, no entanto, não ocorre em todas as superfícies: se colocarmos um bloco de concreto sobre a água, por exemplo, ele afunda, indo em direção ao centro da Terra. No primeiro caso, denominamos a força resultante da interação entre os átomos da superfície e do bloco como \emph{força normal}. Ela recebe esse nome pois é sempre perpendicular à superfície e um vetor perpendicular a uma superfície é denominado em matemática como um vetor normal. No segundo caso, a interação eletromagnética não é suficiente para o manter em equilíbrio, porém ainda temos uma força resultante exercida pelos átomos, denominada de \emph{empuxo}.
 
@@ -702,7 +707,7 @@ Se um objeto está disposto sobre o piso de um elevador e este passa a acelerar,
 \end{figure}
 
 Vamos tomar a primeira situação na Figura~\ref{Fig:NormalVariaComAceleracao} e definir um sistema de referência de forma que o eixo $y$ seja na direção e sentido da aceleração. Analisando o movimento nos eixos $x$ e $y$, temos
-\begin{marginfigure}
+\begin{marginfigure}[5cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -770,7 +775,7 @@ Vemos da expressão acima que ao acelerarmos para baixo, o valor da normal \emph
 
 Ao pendurarmos um objeto utilizando uma corda, se temos equilíbrio, existe uma \emph{tensão} exercida pela corda que equilibra a força peso do objeto. As forças de tensão também têm origem eletromagnética (se originam das interações eletromagnética entre os átomos que compõe as fibras da corda) e têm características parecidas com as da força normal: podemos determiná-las somente com mais detalhes da situação e temos um valor máximo de força, sendo que a corda se rompe ao excedê-lo\footnote{Na verdade a corda não se rompe repentinamente, suas fibras se partem e a corda estica, cedendo aos poucos e diminuindo (mesmo que momentaneamente) a tensão exercida. Eventualmente muitas fibras se rompem e dão início a uma ``reação em cadeia'' de rompimento das fibras. O valor máximo de força exercido certamente ocorre antes de esse processo ocorrer.}. Outra consideração importante é que uma corda só consegue exercer forças quando são esticadas, não exercendo -- portanto -- forças laterais ou no sentido de ``dobrá-la'' (no sentido contrário ao de esticá-la). 
 
-Vamos considerar aqui cordas ideais, que não esticam e que têm massas desprezíveis. Nesse caso, as forças de ação e reação atuam nos corpos presos às extremidades da corda, ambas na direção da corda, porém em sentidos opostos. Se a massa da corda não puder ser desprezada, não faz sentido falarmos em uma ``tensão na corda'': a tensão será diferente em cada ponto dela. Em especial, no ponto inferior, vemos que a tensão exercida deve sustentar somente o peso da caixa. No ponto superior, a tensão deve sustentar tanto o peso da caixa, como o da corda. Vemos, também que as tensões nos pontos superior e inferior não são pares ação-reação, pois tais tensões não tem o mesmo módulo. Na verdade, o par ação-reação ocorre nos pontos de interação entre dois corpos e, portanto, temos um par ação-reação para uma das extremidades e outro par ação-reação que atua na outra extremidade, em cada caso com uma força na corda e outra no objeto. Se a massa da corda for negligível\footnote[][-5cm]{Se consideramos a corda como de massa desprezível, estamos considerando que os dois corpos ao quais ela está amarrada interagem diretamente, o que não é verdade (apesar de ser o caso que vamos considerar aqui).}, é possível mostrar que as tensões superior e inferior terão o mesmo valor, porém continuarão não sendo um par ação-reação: em tal par, cada uma das forças atua em um dos corpos que interagem (corda-teto, ou corda-caixa), mas $\vec{T}'_s$ e $\vec{T}'_i$ atuam no teto e na caixa, que não interagem diretamente. Além disso, $\vec{T}_s$ e $\vec{T}_i$ atuam no mesmo corpo.
+Se a massa da corda não puder ser desprezada, não faz sentido falarmos em uma ``tensão na corda'': a tensão será diferente em cada ponto dela. Em especial, no ponto inferior, vemos que a tensão exercida deve sustentar somente o peso da caixa. No ponto superior, a tensão deve sustentar tanto o peso da caixa, como o da corda. Vemos, também que as tensões nos pontos superior e inferior não são pares ação-reação, pois tais tensões não tem o mesmo módulo. Na verdade, o par ação-reação ocorre nos pontos de interação entre dois corpos e, portanto, temos um par ação-reação para uma das extremidades e outro par ação-reação que atua na outra extremidade, em cada caso com uma força na corda e outra no objeto. Se a massa da corda for negligível\footnote{Se consideramos a corda como de massa desprezível, na prática estamos considerando que os dois corpos ao quais ela está amarrada interagem diretamente, o que não é verdade (apesar de ser o caso que vamos considerar aqui).}, é possível mostrar que as tensões superior e inferior terão o mesmo valor, porém continuarão não sendo um par ação-reação: em tal par, cada uma das forças atua em um dos corpos que interagem (corda-teto, ou corda-caixa), mas $\vec{T}'_s$ e $\vec{T}'_i$ atuam no teto e na caixa, que não interagem diretamente. Além disso, $\vec{T}_s$ e $\vec{T}_i$ atuam no mesmo corpo.
 
 \begin{marginfigure}
 \centering
@@ -833,7 +838,7 @@ Para um bloco suspenso por uma corda (Figura~\ref{Fig:TensaoBlocoAcelVertical}),
         \end{align}
 \end{description}
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines] (0,0) rectangle (1,1);
@@ -853,10 +858,10 @@ Para um bloco suspenso por uma corda (Figura~\ref{Fig:TensaoBlocoAcelVertical}),
 \paragraph{Tensão em uma corda que liga dois blocos que aceleram lateralmente}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Outra situação interessante é a mostrada na Figura~\ref{Fig:BlocosAcelLateral}: uma força $\vec{F}$ acelera dois blocos ligados por uma corda de massa desprezível. Como estamos considerando que a massa da corda é desprezível, temos que as forças efetuadas pela corda em cada caixa têm o mesmo módulo. Nessas condições, qual devem ser os valores da aceleração e da tensão na corda, em função das massas dos blocos e do módulo da força $F$?
+Outra situação interessante é a mostrada na Figura~\ref{Fig:BlocosAcelLateral}: uma força $\vec{F}$ acelera dois blocos ligados por uma corda de massa desprezível. Como estamos considerando que a massa da corda é desprezível, temos que as forças efetuadas pela corda em cada caixa têm o mesmo módulo. Nessas condições, quais são os valores da aceleração e da tensão na corda, em função das massas dos blocos e do módulo da força $\vec{F}$?
 
 Aplicando a Segunda Lei de Newton para cada bloco temos:
-\begin{marginfigure}[4cm]
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1031,7 +1036,7 @@ e finalmente,
 \paragraph{Equilíbrio de um sistema que envolve um nó}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Um tipo de problema relativamente comum envolve um objeto sustendado por cordas. As cordas podem estar atadas umas às outras, o que nos leva uma uma situação como a da Figura~\ref{Fig:BlocoSustentadoPorCordas}. Nesse tipo de situação, podemos imaginar que as cordas estão ligadas a um anel, por exemplo. Precisamos, portanto, aplicar a Segunda Lei de Newton ao anel, para que possamos relacionar as forças exercidas pelas cordas.
+Um tipo de problema relativamente comum envolve um objeto sustendado por cordas. As cordas podem estar atadas umas às outras através de um nó, o que nos leva uma uma situação como a da Figura~\ref{Fig:BlocoSustentadoPorCordas}. Nesse tipo de problema, podemos imaginar que as cordas estão ligadas a um anel, por exemplo. Precisamos, portanto, aplicar a Segunda Lei de Newton ao anel, para que possamos relacionar as forças exercidas pelas cordas.
 
 \begin{marginfigure}
 \centering
@@ -1183,7 +1188,37 @@ Substituindo o resultado acima na Equação~\eqref{Eq:BlocoSustentadoPorCordasT1
 \subsection{Atrito}
 %%%%%%%%%%%%%%%%%%%
 
-Quando dois corpos interagem através de contato, além da força de interação normal à superfície -- isto é, a força normal --, temos outra força de interação. Essa força ocorre paralelamente às superfícies de contato e ocorre sempre no sentido oposto ao deslizamento ou à \emph{tendência} de deslizamento entre elas e é denominada como \emph{força de atrito}.
+Quando dois corpos interagem através de contato, além da força de interação normal à superfície -- isto é, a força normal --, temos outra força de interação. Essa força ocorre paralelamente às superfícies de contato e é sempre no sentido oposto ao deslizamento ou à \emph{tendência} de deslizamento entre elas, sendo denominada como \emph{força de atrito}.
+
+A origem da força de atrito, assim como para a força normal, é a interação eletromagnética entre os átomos que compõe as superfícies em contato. Podemos determinar a direção da força de atrito fazendo os seguintes raciocínios:
+\begin{itemize}
+    \item Se colocamos um bloco em um plano inclinado, ele desliza se não houver atrito. Se houver, no entanto, ele permanece em equilíbrio.
+    \item Se colocarmos um bloco sobre uma esteira parada e depois fizermos com que ela se mova, o bloco acelerará, sempre se movendo junto\footnote{Para que dois corpos se movam juntos, sem perder contato, é necessário que suas posições, velocidades, e acelerações sejam sempre as mesmas.} com a esteira.
+    \item Se lançarmos um bloco sobre uma superfície plana, eventualmente ele para.
+\end{itemize}
+%
+Em todas essas situações, temos a atuação de forças de atrito. Nelas vemos que o atrito é sempre contra o deslocamento relativo entre as superfícies, ou à tendência de deslocamento relativo. Isto é, a força de atrito é contra o \emph{deslizamento} ou a \emph{tendência de deslizamento}.
+
+%Na Figura ??? temos um gráfico que mostra o valor da força de atrito em função da força aplicada a um bloco. Verificamos que $F = f_{at}$ até uma valor máximo, à partir do qual ela diminui e atinge um valor constante. Esse valor constante é o valor da força de atrito no regime cinético, que discutiremos adiante. Antes vamos discutir o valor máximo da força.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito estático} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para um valor qualquer da força aplicada (Veja a Figura~\ref{Fig:BlocoEmEquilbrioDevidoAoAtrito}). De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a Segunda Lei de Newton:
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            F - f_{at}^e &= 0 \\
+            F &= f_{at}^e.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P &= 0 \\
+            N &= P.
+        \end{align}
+\end{description}
 
 \begin{marginfigure}
 \centering
@@ -1194,9 +1229,9 @@ Quando dois corpos interagem através de contato, além da força de interação
                     amplitude=0.2cm,segment length=2mm}}},
     ]
     
-    \draw[interface] (-1,0) -- (1,0);
+    \draw[interface, gray] (-2,0) -- (2,0);
     
-    \draw[pattern= north west lines] (-0.5,0) rectangle (0.5,1);
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
     \draw[fill] (0,0.5) circle (1pt);
     
     \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
@@ -1205,150 +1240,209 @@ Quando dois corpos interagem através de contato, além da força de interação
     \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
     \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
     \node (A) at (1.2,1){$\vec{a} = 0$};
+    
+    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
 
 \end{tikzpicture}
-\caption{Numa situação com atrito, podemos ter um bloco sujeito a uma força lateral sem que haja aceleração. A força que garante o equilíbrio é a força de atrito e seu valor será igual ao da força $\vec{F}$, seja ele qual for. Sabemos, no entanto, que existe um valor máximo para a força de atrito, a partir do qual ela não será mais capaz de equilibrar a força lateral e o movimento iniciará.}
+\caption{Numa situação com atrito, podemos ter um bloco sujeito a uma força lateral sem que haja aceleração. A força que garante o equilíbrio é a força de atrito e seu valor será igual ao da força $\vec{F}$, seja ele qual for. Sabemos, no entanto, que existe um valor máximo para a força de atrito, a partir do qual ela não será mais capaz de equilibrar a força lateral e o movimento iniciará.\label{Fig:BlocoEmEquilbrioDevidoAoAtrito}}
 \end{marginfigure}
 
-A origem da força de atrito, assim como para a força normal, é a interação eletromagnética entre os átomos que compõe as superfícies em contato. Essa força, em alguns casos, pode ser devida a pequenas irregularidades que se ``encaixam'', dificultando ou mesmo impedindo o movimento. Nesse caso, se polirmos as superfícies, teremos uma diminuição do atrito entre elas. Em outros casos, quando temos superfícies muito regulares, como no caso de um metal altamente polido ou de cristais \footnote{Átomos e alguns tipos de moléculas tem a tendência a se organizarem em estruturas regulares que se repetem. Tais estruturas são denominadas cristais. O sal de cozinha, por exemplo, é composto por átomos de sódio e de cloro que se organizam de forma cúbica. Essa organização tende a se elevar à escala macroscópica, explicando -- por exemplo -- as faces planas e a organização em prisma hexagonal de um cristal de quartzo.}. Apesar de eliminarmos a possibilidade de o movimento ser dificultado ou impedido por irregularidades das superfícies, temos uma forte interação entre os átomos das duas superfícies -- a mesma interação que mantém ligados os átomos de qualquer um dos corpos --. Se tomarmos dois cristais ``perfeitos'', sem nenhum defeito na superfície, e tocarmos suas superfícies no vácuo, com a orientação correta, teremos uma ``solda a frio''. Nessa situação, a interação dos átomos da superfície de um dos cristais com os átomos da superfície do outro cristal é a mesma que entre os átomos da superfície do primeiro cristal com os demais átomos que o compõe. Deslocar um plano de átomos em relação ao outro significa agora \emph{cisalhar}, ou cortar, o objeto -- o que certamente exige uma força muito grande--. Esse tipo de interação pode ocorrer mesmo no caso de termos superfícies irregulares, pois em alguns pontos teremos o contato entre os átomos de maneira que eles interajam eletromagneticamente. Lubrificantes agem de forma a impedir ambos os tipos de interação, dificultando o ``encaixe'' entre as irregularidades devido ao preenchimento com as moléculas do lubrificante, e impedindo a formação de ``soldas frias'', pois as superfícies interagem com o lubrificante, que em geral é um líquido e não suporta forças de cisalhamento.
+\noindent{}Nas equações acima, utilizamos o fato de que as acelerações em ambos os eixos são nulas, já que o corpo está em equilíbrio.
 
-\comment{Podemos dividir a força de atrito em dois casos distintos: força de atrito \emph{estático} e força de atrito \emph{cinético} ... Falar da proporcionalidade com a força normal de forma geral, pra não ter que fazer abaixo}
+Note que o fato de que temos aceleração nula implica que a força de atrito, além de ter a mesma intensidade que a força aplicada, tem a mesma direção, porém sentido contrário. Em situações mais complexas podemos ter uma relação menos direta do que essa acima, porém a análise necessária para obter seu valor é a mesma.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Direção e sentido da força de atrito}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Explicar, usar exemplo de bloco sobre camionete que acelera, carro que acelera/freia. Atrito é contra a \textbf{tendência de deslisamento}, no caso estático, ou contra o deslocamento relativo entre as superfícies, no caso cinético.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito estático} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para qualquer valor da força aplicada. De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a segunda lei de Newton:
-\begin{equation}
-  F - f_{at}^e = ma,
-\end{equation}
-%
-o que resuta, considerando o fato de que $a = 0$, em
-\begin{equation}
-  F = f_{at}^e.
-\end{equation}
-%
-Note que o fato de que temos aceleração nula implica que a força de atrito, além de ter a mesma intensidade que a força aplicada, tem a mesma direção, porém sentido contrário. Em situações mais complexas podemos ter uma relação menos direta do que essa acima, porém a análise necessária para obter seu valor é a mesma, no entanto temos que a força de atrito estará relacionada à força resultante:
-\begin{equation}
-  f_{at}^e = F_R.
-\end{equation}
-%
-A direção da força de atrito que atua sobre o corpo será a mesma de $F_R$, porém com o sentido contrário. Se o sistema pudesse se mover, ele o faria na direção de $F_R$, portanto podemos dizer que a força de atrito estático é sempre no sentido contrário à ``tendência de deslisamento''. De acordo com a terceira lei de Newton, a força de atrito deve ter uma reação com mesmo módulo e direção, porém sentido contrário, e que atua sobre o outro corpo -- isto é, a superfície --.
-
-Na Figura ??? temos um gráfico que mostra o valor da força de atrito em função da força aplicada a um bloco. Verificamos que $F = f_{at}$ até uma valor máximo, à partir do qual ela diminui e atinge um valor constante. Esse valor constante é o valor da força de atrito no regime cinético, que discutiremos adiante. Antes vamos discutir o valor máximo da força.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito estático máxima} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{ilustrar com problema do bloco sobre plano inclinado, porém na iminência de se mover, mostrar que $\tan \theta = \mu_e$, rever pra não ficar redundante com descrição de proporcionalidade com a normal que falamos acima. Tb discutir que o atrito é na direção contrária à tendência de deslisamento, no caso estático. Discutir isso no caso do bloco, se ele for puxado por uma força, falar sobre atrito nos pneus de um carro (diferenças entre 4x2 e 4x4, hehe).}
-
-
-Se na situação anterior tomássemos um bloco mais pesado, porém feito do mesmo material -- ou mesmo colocarmos um segundo bloco sobre o primeiro --, verificaremos que a força necessária para que o bloco passe a se mover será maior. Isso nos leva à conclusão de que a \emph{força de atrito estático máxima} aumentou --. Em um primeiro momento poderíamos relacionar a intensidade da força de atrito ao valor do peso do bloco, porém isso não contempla a possibilidade de o empurrarmos para baixo, por exemplo. No entanto, sabemos que em qualquer desses casos, existe uma relação direta da força de atrito estático máxima com o valor da normal, pois, analisando o eixo $y$ na Figura ??? temos
-\begin{equation}
-  N - P - F = ma,
-\end{equation}
-%
-ou
-\begin{equation}
-  N = P + F,
-\end{equation}
-onde usamos $a = 0$, e $N$, $P$ e $F$ representam a intensidade da força normal,  do peso do bloco e da força aplicada, respectivamente. Assim, se $F$ faz aumentar ou diminuir o valor da força normal, temos uma variação correspondente da força de atrito máxima. Outras situações que evidenciam a dependência da força de atrito em relação à força normal são um plano inclinado, pois o peso do bloco se mantém constante e podemos variar a intensidade da força de atrito máxima através da inclinação da rampa (para \degree{90}, por exemplo, não temos força de atrito), e a possibilidade de colocarmos o sistema dentro de um elevador que sofre uma aceleração vertical (se o elevador acelera para cima, a normal aumenta e verificamos um aumento correspondente da força de atrito estático máxima). Também podemos argumentar que a força de atrito é oriunda da interação entre as duas superfícies e deve depender de alguma propriedade de tal interação, não da interação gravitacional de um dos corpos com a Terra. Concluímos então que
-\begin{equation}
-  f_{at}^{e, \textrm{Max}} \propto N.
-\end{equation}
-
-Podemos transformar a proporcionalidade acima em uma equação se adotarmos uma constante, então escrevemos
-\begin{equation}
-  f_{at}^{e, \textrm{Max}} = \mu_e N.
-\end{equation}
-%
-A constante de proporcionalidade $\mu_e$ varia para cada par de superfícies que interagem e deve ser calculada experimentalmente.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito cinético} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{discutir problema de bloco em plano inclinado, mostrando que a força é contrária ao sentido do movimento, esteja o bloco subindo ou descendo}
-
-Como vimos na Figura ???, após o bloco passar a se mover, temos uma força de atrito constante. Essa força de atrito \emph{cinético} também depende da força normal, pois se utilizarmos um bloco mais pesado ou dois blocos, um sobre o outro, verificamos que a distância necessária para pará-lo é proporcional à força normal. Em uma rampa temos uma diminuição da força normal, correspondendo a uma diminuição da força de atrito cinético, etc. Logo,
-\begin{equation}
-  f_{at}^c \propto N.
-\end{equation}
-%
-Escrevendo a proporção acima como uma igualdade, empregando uma constante $\mu_c$, temos
-\begin{equation}
-  f_{at} = \mu_c N.
-\end{equation}
-%
-A direção da força de atrito cinético é sempre na direção contrária ao movimento. Além disso, pela terceira lei de Newton, temos uma força que atua em cada uma das superfícies, sendo que elas possuem mesmo módulo e direção, porém sentidos contrários, constituindo um par ação-reação.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Atrito e equilíbrio}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Na Figura~\ref{Fig:BlocoPlanoInclinadoAtritoEquil} temos uma situação baste comum: um sistema em equilíbrio devido à força de atrito. Neste problema, apesar de o atrito ser estático, ele não é --~ao menos a princípio~ estático máximo. Assim, só podemos extrair informações dele através da Segunda Lei de Newton:
+A força de atrito não surge simplesmente em oposição a uma força aplicada ao sistema. Uma outra possibilidade é a termos uma superfície que acelera --~uma esteira--, sobre a qual se apoia um bloco. Como o atrito é contrario ao deslocamento relativo entre as superfícies, quando a esteira acelera, surje uma força que tende a acelerar o bloco. Novamente, para determinar o valor da força de atrito, é necessário aplicar a Segunda Lei de Newton:
 \begin{description}
     \item[Eixo $x$:]
         \begin{align}
             F_R^x &= m a_x \\
-            P_x - f_{at} &= 0 \\
-            P_x &= f_{at}.
+            f_{at}^e &= m a_x.
         \end{align}
     \item[Eixo $y$:]
         \begin{align}
             F_R^y &= m a_y \\
-            N - P_y &= 0 \\
-            N &= P_y.
+            N - P &= 0.
         \end{align}
 \end{description}
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, rotate=-35,
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[->, thick] (0.5,0) -- node[below]{$\vec{f}_{at}$} +(1,0);
+    
+    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
+    
+    \draw[->] (0.5, -1) -- node[below]{$\vec{a}$} +(1,0);
+
+\end{tikzpicture}
+\caption{Bloco apoiado sobre uma superfície que se desloca para a direita com aceleração $\vec{a}$}
+\end{marginfigure}
+%
+Nas equações acima utilizamos o fato de que a aceleração no eixo vertical é nula. Vemos, que nesse caso a força de atrito está relacionada à aceleração do sistema.
+
+Concluímos então que a força de atrito será \emph{nula}, caso não haja tendência ao deslizamento das superfícies, e alterará seu valor de maneira a evitar que um deslizamento ocorra. No entanto, sabemos que --~a partir de algum valor limite~-- o sistema sai do equilíbrio: se a força $\vec{F}$ ou a aceleração $\vec{a}$ nos exemplos acima forem intensas o suficiente, o deslizamento das superfícies ocorrerá. Logo, existe um \emph{valor máximo} para a força de atrito estático.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito estático máxima} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No exemplo do bloco submetido a uma força $\vec{F}$ na seção anterior, se tomássemos um bloco mais pesado, porém feito do mesmo material -- ou mesmo colocarmos um segundo bloco sobre o primeiro, ou o empurrarmos para baixo de alguma forma --, verificaremos que a força necessária para que o bloco passe a se mover será maior do que quando temos só o bloco original. Isso nos leva à conclusão de que a \emph{força de atrito estático máxima} aumentou.
+
+Em um primeiro momento poderíamos relacionar a intensidade da força de atrito ao valor do peso do bloco, porém isso não contempla a possibilidade de o empurrarmos para baixo, por exemplo\footnote{A interação entre duas superfícies dá origem tanto à força normal, quanto ao atrito. A dependência do atrito deve ser dependente de características ou dos dois corpos que interagem, ou da interface de interação. O peso é resultado da interação dos corpos com a Terra, não faria sentido que a força de atrito entre as duas superfícies tivesse relação com um corpo externo ao sistema.}. No entanto, através das Leis de Newton, vemos que existe um aumento da normal para todos os casos onde ``forçamos'' o bloco contra a superfície. Analizando a Figura~\ref{Fig:BlocoEmpurradoParaBaixo}:
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1.5) node[left]{$\vec{N}$};
+    
+    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
+    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
+    \node (A) at (1.2,1){$\vec{a} = 0$};
+    
+    \draw[->, thick] (-0.3, 1.5) -- node[left]{$\vec{F}_a$} (-0.3,1);
+    
+    \draw[->, dashed] (-2, 0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0,-1) -- (0, 3) node[below right]{$y$};
+
+\end{tikzpicture}
+\caption{Bloco sujeito a duas forças, uma o empurrando contra a superfície e outra tendendo a fazer com que ele deslize.\label{Fig:BlocoEmpurradoParaBaixo}}
+\end{marginfigure}
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            F - f_{at}^e|_{\textrm{Max}} &= 0
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P - F_a &= ma \\
+            N &= P + F_a
+        \end{align}
+\end{description}
+
+\noindent{}Nas equações acima, estamos considerando que a aceleração no eixo vertical $y$ é nula, pois não há movimento em tal eixo. Logo, temos que
+\begin{equation}
+    N = P + F_a.
+\end{equation}
+%
+No eixo horizontal $x$, \emph{também consideramos que a aceleração é nula}. Fazemos isso pois estamos considerando a hipótese de que estamos exatamente no valor máximo de força de atrito, não o excedendo. Nesse caso, verificamos que ainda não temos movimento e então
+\begin{equation}
+    F = f_{at}^e|_{\textrm{Max}}.
+\end{equation}
+
+% Será que isso é verdade? Nunca fiz isso!
+Finalmente, se fizermos um experimento onde alteramos o módulo da força $\vec{F}_a$ e registramos o valor do módulo de $\vec{F}$ para o qual o movimento inicia, vemos que --~utilizando as duas equações acima~--, podemos chegar na seguinte proporcionalidade:
+\begin{equation}
+    f_{at}^e|_{\textrm{Max}} \propto N.
+\end{equation}
+%
+Podemos transformar a proporcionalidade acima em uma equação se adotarmos uma constante, então escrevemos
+\begin{equation}
+  f_{at}^e|_{\textrm{Max}} = \mu_e N. \mathnote{Força de atrito estático máxima}
+\end{equation}
+%
+A constante de proporcionalidade $\mu_e$, denominada \emph{coeficiente de atrito estático} varia para cada par de superfícies que interagem e deve ser calculada experimentalmente.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito cinético} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Após o bloco passar a se mover, a força de atrito entra em um novo regime, denominado \emph{atrito cinético}. Experimentalmente, podemos verificar que o atrito cinético também depende de nomal: se tomarmos um aparato como o da Figura~\ref{Fig:AparatoAtritoCinetico}, verificamos que quanto maior for o valor da força $\vec{F}_a$ aplicada, maior será a distensão da mola\footnote{Veremos adiante a relação entre a força exercida por uma mola e a sua distensão.}, demonstrando o consequente aumento de $\vec{F}_e$ necessário para manter o sistema em equilíbrio. Aplicando a Segunda Lei de Newton para ambos os eixos:
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            f_{at}^c - F_e &= 0 \\
+            f_{at}^c &= F_e.
+        \end{align}
+    \item{Eixo $y$:}
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - F_a - P &= 0 \\
+            N &= F_a + P.
+        \end{align}
+\end{description}
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
                     amplitude=0.2cm,segment length=2mm}}},
     ]
    
-    \draw[dashed, ->] (0,0.5) -- (4,0.5) node[below left]{$x$};
-    \draw[dashed, ->] (2,-1) -- (2,2.5) node[below right]{$y$};
+    \draw[interface, gray] (1,-1.5) -- (1,-2.2);
+    \draw[interface, gray] (0.7,-2.5) -- (5.5, -2.5);
     
-    \draw[interface, gray] (0,0) -- (4,0);
-    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
-        
-    \draw[fill] (2,0.5) circle (1pt);
-    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
-    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[gray] (1,-2) -- (1.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate,gray] (1.2,-2) -- (3.3,-2);
+    \draw[gray] (3.3, -2) -- (3.5,-2);
     
-    \draw[->, thick] (1.5,0) -- +(-0.5735,0) node[above]{$\vec{f}_{at}$};
-       
-    \coordinate (A) at (4,0);
-    \draw[dashed] (A) -- +(-145:1) coordinate (B);
-    \coordinate (O) at (0,0);
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
+   % \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
     
-    \draw[dashed] (A) -- (B);
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1.5);
+    \draw[->, thick] (3.5, -2) -- node[above]{$\vec{F}_e$} +(-0.5,0);
+    \draw[->, thick] (4.5,-2.5) -- node[above]{$\vec{f}_{at}$} +(1,0);
+    \draw[<-, thick] (3.7,-1.5) -- node[left]{$\vec{F}_a$} +(0,0.5);
 
+    \draw[->] (2.4, -2.8) +(-0.5,0) -- node[below]{$\vec{v}$} +(0.5,0);
+    
+    \draw[->, dashed] (4,-2) +(-1.5,0) -- +(1.5,0) node[above]{$x$};
+    \draw[->, dashed] (4,-2) +(0,-1) -- +(0,2) node[right]{$y$};
+        
 \end{tikzpicture}
-\caption{Bloco sobre plano inclinado, em equilíbrio devido à força de atrito.\label{Fig:BlocoPlanoInclinadoAtritoEquil}}
+\caption{Aparato para a determinação do coeficiente de atrito cinético: dispomos um bloco preso a uma mola e apoiado em um disco que gira, de forma que o bloco desliza sobre ele. Aplicando uma força $\vec{F}_a$ conhecida sobre o bloco e medindo a distensão da mola, podemos determinar a constante de proporcionalidade entre a força de atrito e a normal.\label{Fig:AparatoAtritoCinetico}}
 \end{marginfigure}
 
-\noindent{}Usamos nas equações acima o fato de que a aceleração é zero. Decompondo o peso,  sabendo que o ângulo entre o peso e o eixo $y$ é $\theta$, concluímos que
+Se variarmos a força $\vec{F}_a$ e verificarmos a distensão correspondente da mola, verificamos, com o auxílio das equações obtidas acima, que existe uma proporcionalidade entre a força de atrito e a força normal:
 \begin{equation}
-    f_{at} = P\sen\theta.
+    f_{at}^c \propto N.
 \end{equation}
+%
+Novamente, podemos transformar a proporcionalidade em uma equação com o auxílio de uma constante, obtendo
+\begin{equation}
+    f_{at}^c = \mu_c N,
+\end{equation}
+%
+onde $\mu_c$ é conhecido como \emph{coeficiente de atrito cinético}. Assim como no caso do coeficiente de atrito estático, tal constante é uma propriedade do par de superfícies que interagem e deve ser determinado experimentalmente. Vale ainda notar que $\mu_c$ deve ser menor ou igual a $\mu_e$: se a força de atrito cinético fosse maior que a força de atrito estático máximo, tão logo um objeto passasse a se mover, ele encontraria uma força de resistência maior, que faria com que ele voltasse a ficar parado, ou seja, ele não poderia iniciar o movimento.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Determinação do coeficiente de atrito estático}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[4cm]
+\begin{marginfigure}[5cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -1375,14 +1469,30 @@ Na Figura~\ref{Fig:BlocoPlanoInclinadoAtritoEquil} temos uma situação baste co
     \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
 
 \end{tikzpicture}
-\caption{Situação envolvendo equilíbrio devido à força de atrito.}
+\caption{Bloco em equilíbrio devido à força de atrito sobre um plano inclinado.}
 \end{marginfigure}
 
 Uma maneira simples de determinar o coeficiente de atrito estático entre dois tipos de superfícies consiste em utilizar um plano cuja inclinação pode ser alterada, sobre o qual apoiamos um bloco. Quando o plano for inclinado até que o bloco esteja na iminência de se mover, podemos analisar o sistema ainda como uma situação de equilíbrio.
 
-Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado. Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente.
-
-\begin{marginfigure}[4cm]
+Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado (Veja a Figura~\ref{Fig:DetCoefAtEstatico}). Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente. Aplicando a Segunda Lei de Newton aos eixos, temos:
+\begin{description}
+    \item[Eixo $x$:] Neste eixo temos, sabendo que $a_x = 0$,
+        \begin{align}
+            F_R^x &= m a_x \\
+            P_x - f_{at} &= 0 \\
+            P \sen\theta - \mu_e N &= 0 \\
+            mg \sen\theta - \mu_e N &= 0 \\
+            mg \sen\theta &= \mu_e N \label{coef_atrito_deduc}
+        \end{align}
+    \item[Eixo $y$:] Novamente, a aceleração é nula,
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P_y &= 0 \\
+            N &= P\cos\theta \\
+            N &= mg \cos\theta
+        \end{align}
+\end{description}
+\begin{marginfigure}[-7cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -1411,29 +1521,11 @@ Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclin
     \draw[dashed, ->] (0.5,0.5) -- (3.5,0.5) node[below left]{$x$};
     \draw[dashed, ->] (2,-1) coordinate (X) -- (2,2.5) node[left]{$y$};
     
-    \pic[draw, "$\theta$", angle eccentricity=1.5] {angle = X--center--P};
-
 \end{tikzpicture}
-\caption{Situação envolvendo equilíbrio devido à força de atrito.}
+\caption{Sistema de referência para a análise do sistema.\label{Fig:DetCoefAtEstatico}}
 \end{marginfigure}
 
-\begin{description}
-    \item[Eixo $x$:] Neste eixo temos, sabendo que $a_x = 0$,
-        \begin{align}
-            F_R^x &= m a_x \\
-            P_x - f_{at} &= 0 \\
-            P \sen\theta - \mu_e N &= 0 \\
-            mg \sen\theta - \mu_e N &= 0 \\
-            mg \sen\theta &= \mu_e N \label{coef_atrito_deduc}
-        \end{align}
-    \item[Eixo $y$:] Novamente, a aceleração é nula,
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P_y &= 0 \\
-            N &= P\cos\theta \\
-            N &= mg \cos\theta
-        \end{align}
-\end{description}
+\noindent{}Utilizamos acima o fato de que o ângulo entre o peso e o eixo $y$ é igual ao ângulo $\theta$ entre a superfície do plano inclinado e a horizontal.
 
 Substituindo a expressão acima para a força normal na Equação~\eqref{coef_atrito_deduc}, obtemos
 \begin{equation}
@@ -1447,74 +1539,28 @@ o que resulta em
 %
 Experimentalmente, basta elevar lentamente a inclinação do plano até que o bloco comece a deslisar. Registrando o ângulo para o qual o movimento inicia, temos um valor limite para o ângulo. Repetindo o procedimento algumas vezes, podemos determinar com alguma precisão qual é o ângulo para o qual temos iminência de movimento.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Atrito e aceleração}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A força de atrito pode ser a \emph{causa} da aceleração de um sistema. Um exemplo simples disso é um bloco que é impulsionado e passa a se mover sujeito a uma força de atrito cinético. Outro exemplo é o de um bloco sobre uma esteira, sendo que esta acelera o bloco através do atrito. Nesse casos temos, através da Segunda Lei de Newton:
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x = m a_x \\
-            f_{at}^e = m a_x.\label{Eq:BlocoAceleradoPeloAtritoX}
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P &= 0 \\
-            N &= P.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-    \draw[interface] (-2,0) -- (2,0);
-    
-    \draw[pattern = north west lines] (-0.5,0) rectangle (0.5,1);
-    
-    \draw[fill] (0, 0.5) circle (1pt);
-    \draw[->, thick] (0, 0.5) -- +(0,-1) node[right]{$\vec{P}$};
-    \draw[->] (0,1) -- +(0,1) node[below right]{$\vec{N}$};
-    
-    \draw[->, thick] (0.5,0) -- +(1,0) node[above]{$\vec{f}_{at}^e$};
-    \draw[->, thick, gray] (-0.5,0) -- +(-1,0) node[above]{$\vec{f}_{at}^c$};
-    
-    \draw[->](-0.6, 2.8) -- node[above]{$\Delta\vec{r}$} +(1.2,0);
-    \draw[|->](0,2.5) -- node[below]{$\vec{a}$}+(0.4,0);
-    \draw[->,gray](0,2.5) -- node[below]{$\vec{a}$}+(-0.4,0);
-\end{tikzpicture}
-\caption{Exemplos de acelerações causadas pelo atrito: no caso de um bloco que se desloca para a direita, sujeito a uma força de atrito estático que o acelera --~como, por exemplo no caso de o bloco estar sobre uma esteira~--, temos uma aceleração \emph{devido ao atrito}. Outra possibilidade é a de o atrito ser cinético, e nesse caso ele apontaria na direção oposta ao movimento (em cinza na figura).}
-\end{marginfigure}
-
-\noindent{}Utilizamos acima o fato de que a aceleração é zero no eixo $y$. Além disso, tratamos o caso em que a força de atrito é $f_{at}^e$ na figura. O resultado seria idêntico, somente alterando o sentido da aceleração, se tivéssemos escolhido $f_{at}^c$.
-
-Note que, no caso em que temos uma aceleração devido à força de atrito estático, não podemos afirmar ser uma força de atrito estático máxima. Logo, o módulo da força deve ser obtido através da Equação~\eqref{Eq:BlocoAceleradoPeloAtritoX}. No entanto, se estivermos tratando do atrito cinético, podemos afirmar que $f_{at}^c = \mu_c N$.
-
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Arrasto}
 %%%%%%%%%%%%%%%%%%%%
-\comment{falar que a direção da força é a mesma e o sentido contrário ao da velocidade relativa entre o objeto e o fluido, discutir na seção de exemplos o cálculo da expressão para a velocidade em função do tempo usando equações diferenciais}
 
 Sabemos que um para-quedista é atraído pela força gravitacional da Terra e, portanto, deve estar submetido a uma aceleração na mesma direção dessa força. Se considerarmos somente esta força, teremos um movimento com aceleração constante, levando a um aumento linear da velocidade com o tempo. No entanto, não é o que se observa na realidade: a velocidade aumenta até certo ponto e se torna constante. Quando o para-quedas abre, a velocidade diminui progressivamente até chegar a outro valor constante.
 
-Para explicarmos essa situação, precisamos levar em conta a \emph{força de arrasto}. Essa força é notável para um ciclista que se move em grande velocidade, ou para um passageiro de um automóvel que coloca a mão para fora da janela em velocidades elevadas. Sempre que um objeto se move através de um meio fluido, ele estará sujeito a uma força no sentido contrário ao do movimento que realiza. A intensidade dessa força aumenta com a velocidade, o que -- como veremos adiante -- explica a existência de uma velocidade máxima. Além dessa dependência na velocidade, temos uma dependência na densidade do meio (o arrasto é maior na água que no ar, por exemplo) e na área de seção reta do objeto que se desloca no meio fluido. Essa área é a ``área frontal'' do objeto, isto é, a área máxima que ele tem quando cortado por um plano perpendicular à direção do movimento. Tal dependência explica o funcionamento do para-quedas, pois a área aumenta significativamente quando ele é aberto. Portanto, podemos escrever
+Para explicarmos essa situação, precisamos levar em conta a \emph{força de arrasto}. Essa força é notável para um ciclista que se move em grande velocidade, ou para um passageiro de um automóvel que coloca a mão para fora da janela em velocidades elevadas. Sempre que um objeto se move através de um meio fluido, ele estará sujeito a uma força no sentido contrário ao do movimento relativo entre o objeto e o meio. A intensidade dessa força aumenta com a velocidade, o que -- como veremos adiante -- explica a existência de uma velocidade máxima. Além dessa dependência na velocidade, temos uma dependência na densidade do meio (o arrasto é maior na água que no ar, por exemplo) e na área de seção reta do objeto que se desloca no meio fluido. Essa área é a ``área frontal'' do objeto, isto é, a área máxima que ele tem quando cortado por um plano perpendicular à direção do movimento. Tal dependência explica o funcionamento do para-quedas, pois a área aumenta significativamente quando ele é aberto. Portanto, podemos escrever
 \begin{equation}\label{Eq:ExpPadraoArrasto}
-  F_A = \frac{1}{2}C_D \rho A v^2. \mathnote{Equação padrão para o arrasto.}
+  F_A = \frac{1}{2}C_D \rho A v^2. \mathnote{Força de arrasto}
 \end{equation}
 %
-\comment{Figura de escoamento no sentido do eixo do cilindro, "batendo na base"}
- A força de arrasto é uma força muito complexa e essa expressão tem interpretações diferentes de acordo com a velocidade. O valor de $C_D$ pode ser considerado constante somente no caso em que consideramos a força de arrasto que atua em um objeto com formas ``angulosas'', como um cilindro cuja base faz um ângulo de \degree{90} com a lateral, e quanto temos velocidade suficiente para que -- após passar pelo objeto -- o escoamento do fluido seja turbulento. 
- 
+ A força de arrasto é uma força muito complexa e essa expressão tem interpretações diferentes de acordo com a velocidade. O valor de $C_D$ pode ser considerado constante somente no caso em que consideramos a força de arrasto que atua em um objeto com formas ``angulosas'', como um cilindro cuja base faz um ângulo de \degree{90} com a lateral, e quando temos velocidade suficiente para que -- após passar pelo objeto -- o escoamento do fluido seja turbulento. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\paragraph{Arrasto de Stokes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A força de arrasto é uma força que não tem uma forma bem definida. Uma determinação precisa dessa força exige a solução de equações complexas de mecânica dos fluidos. A expressão dada na seção anterior é uma aproximação que é válida para alguns regimes de velocidade e de escoamento do fluido.
+
 Se temos velocidades pequenas e objetos com formas mais suaves,  como uma esfera, a ``constante'' $C_D$ -- que é na verdade uma função da velocidade -- poderá assumir uma dependência com o inverso da velocidade, o que se reflete em uma dependência linear na velocidade:
 \begin{equation}
-  F_A = 6 \pi R \eta v, \mathnote{Arrasto de Stokes.}
+  F_A = 6 \pi R \eta v, \mathnote{Arrasto de Stokes}
 \end{equation}
 %
 onde $R$ é o raio da esfera e $\eta$ é a viscosidade dinâmica do fluido. Essa equação assume que o escoamento do fluido não sofre turbulência após passar pelo objeto, e que a superfície da esfera seja lisa.
@@ -1524,7 +1570,7 @@ Se a velocidade de escoamento for muito alta, podemos ter uma dependência linea
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Velocidade terminal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1634,7 +1680,7 @@ Mesmo que para o caso do arrasto de Stokes tenhamos uma expressão diferente, a 
 
 Se usarmos uma corda para pendurar uma caixa ao teto de uma sala e passarmos a colocar objetos em tal caixa, não temos nenhuma indicação visual de qual é a força exercida pela corda. Poderíamos aferir a massa de cada objeto antes de os colocar na caixa e -- utilizando a segunda lei de Newton -- determinar a tensão exercida.
 
-Para uma mola, se realizássemos o mesmo procedimento, verificaríamos uma \emph{distensão} gradual da mola. Fazendo um \emph{diagrama de corpo livre} (Figura ???), sabendo ainda que a aceleração do sistema é zero em uma condição de equilíbrio, concluímos que a força exercida pela mola sobre a caixa é igual em módulo e tem direção contrária à força peso da caixa (juntamente com sua carga):
+Para uma mola, se realizássemos o mesmo procedimento, verificaríamos uma \emph{distensão} gradual da mola. Fazendo um \emph{diagrama de corpo livre} (Figura~\ref{Fig:BlocoEquilDevidoForcaElastica}), sabendo ainda que a aceleração do sistema é zero em uma condição de equilíbrio, concluímos que a força exercida pela mola sobre a caixa é igual em módulo e tem direção contrária à força peso da caixa (juntamente com sua carga):
 \begin{equation}
 	\vec{F}_e = -\vec{P}.
 \end{equation}
@@ -1660,7 +1706,7 @@ Para uma mola, se realizássemos o mesmo procedimento, verificaríamos uma \emph
     \draw[->, thick] (0, -2.9) -- +(0,-1) node[right]{$\vec{P}$};
     \draw[->, thick] (0, -2.4) -- +(0,1) node[right]{$\vec{F}_e$};
 \end{tikzpicture}
-\caption{Sistema em equilíbrio devido à força exercida por uma mola.}
+\caption{Sistema em equilíbrio devido à força exercida por uma mola.\label{Fig:BlocoEquilDevidoForcaElastica}}
 \end{marginfigure}
 
 Verificando ainda a distensão da mola, podemos relacionar uma maior distensão a uma carga maior na caixa, isto é, quanto maior a força peso dos objetos pendurados na mola, maior a distensão. Experimentalmente, verifica-se que a relação entre o peso aplicado à mola e sua distensão são \emph{diretamente proporcionais}:
@@ -1729,6 +1775,8 @@ O resultado acima é conhecido como \emph{Lei de Hooke}, em homenagem ao físico
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças no movimento circular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
 
 \begin{marginfigure}
 \centering
@@ -1743,17 +1791,11 @@ O resultado acima é conhecido como \emph{Lei de Hooke}, em homenagem ao físico
 \end{tikzpicture}
 \caption{Um movimento curvilíneo é sempre uma situação em que não há equilíbrio de forças, pois é sempre necessária uma aceleração perpendicular à direção da velocidade instantânea para que haja mudança na direção do deslocamento. No caso de satélite em um movimento orbital circular, por exemplo, a força peso causa uma aceleração centrípeta.}
 \end{marginfigure}
-    
-De acordo com Newton:
+
+Analisando um movimento unidimensional, temos que um objeto que se move em linha reta com certa velocidade precisa sofrer a atuação de uma força resultante para sofrer uma mudança no módulo de sua velocidade. Para um corpo que realiza um movimento circular, analogamente, se sua velocidade sofre uma mudança de direção -- mantendo constante seu módulo $\vec{v}$ --, o corpo também deve estar sujeito a atuação de uma força. No primeiro caso, a direção da força é a mesma do movimento (caso contrário o corpo sofreria uma alteração também da direção de seu movimento). No segundo caso, a força precisa atuar perpendicularmente à direção da velocidade (caso contrário sofreria uma alteração no módulo da velocidade). Da mesma forma que diferenciamos o papel exercido pelas acelerações tangencial e centrípeta, podemos diferenciar o papel entre uma força que aponta tangencialmente à trajetória e uma que aponta para o centro da trajetória circular: a primeira causa aceleração tangencial, alterando então o módulo da velocidade, já a segunda causa aceleração centrípeta, alterando então a direção do movimento\footnote{Podemos ter o resultado combinado dessas duas alterações (módulo e direção) quando exercemos uma força que faz um ângulo diferente de \np[\tcdegree]{0} ou \np[\tcdegree]{90} com a direção da velocidade.}. Denominamos a componente da força resultante que aponta em direção ao centro da trajetória como \emph{força centrípeta}. De acordo com Newton:
 \begin{quote}
     Uma força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma maneira, em direção a um ponto como um centro.
 \end{quote}
-
-Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
-
-Analisando um movimento unidimensional, temos que um objeto que se move em linha reta com certa velocidade precisa sofrer a atuação de uma força resultante para sofrer uma mudança no módulo de sua velocidade. Para um corpo que realiza um movimento circular, analogamente, se sua velocidade sofre uma mudança de direção -- mantendo constante seu módulo $\vec{v}$ --, o corpo também deve estar sujeito a atuação de uma força. No primeiro caso, a direção da força é a mesma do movimento (caso contrário o corpo sofreria uma alteração também da direção de seu movimento). No segundo caso, a força precisa atuar perpendicularmente à direção da velocidade (caso contrário sofreria uma alteração no módulo da velocidade). Da mesma forma que diferenciamos o papel exercido pelas acelerações tangencial e centrípeta, podemos diferenciar o papel entre uma força que aponta tangencialmente à trajetória e uma que aponta para o centro da trajetória circular: a primeira causa aceleração tangencial, alterando então o módulo da velocidade, já a segunda causa aceleração centrípeta, alterando então a direção do movimento. Denominamos a componente da força resultante que aponta em direção ao centro da trajetória como \emph{força centrípeta}. Podemos ter o resultado combinado dessas duas alterações (módulo e direção) quando exercemos uma força que faz um ângulo diferente de \np[\tcdegree]{0} ou \np[\tcdegree]{90} com a direção da velocidade.
-
-\comment{Ver o que precisa ser ilustrado aqui. tentar usar um pêndulo}
 
 Podemos utilizar a segunda lei de Newton e a expressão para a aceleração centrípeta
 \begin{align}
@@ -1766,7 +1808,22 @@ para relacionar a força exercida para manter um objeto em uma trajetória circu
   F_c = m \frac{v^2}{R}. \mathnote{Força centrípeta.}
 \end{equation}
 %
-Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$. Se temos um corpo que gira preso a um fio, a força é uma tensão; Se temos um satélite em órbita em torno da Terra, temos a força gravitacional; Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito. Em algumas situações, temos mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular. Em um ``loop'' (uma curva vertical em uma pista), temos a atuação da força peso e da normal, porém em cada ponto da trajetória essas forças atuam de maneira diferente -- no topo ambas apontam para o centro da trajetória; na parte inferior, a normal aponta para o centro e o peso para fora (sentido oposto ao centro); nas laterais a força normal aponta para o centro, enquanto o peso aponta para baixo, ou seja, a normal é a causa da aceleração centrípeta, enquanto o peso causa a aceleração tangencial --. Em uma estrada com uma curva inclinada, temos uma \emph{componente} da normal e uma \emph{componente} da força de atrito. Note que a força centrípeta não é uma força nova, ela é uma \emph{componente da força resultante}, aquela que aponta para o centro da trajetória circular.
+Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$:
+\begin{itemize}
+    \item Se temos um corpo que gira preso a um fio, a força é uma tensão;
+    \item Se temos um satélite em órbita em torno da Terra, temos a força gravitacional;
+    \item Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito.
+\end{itemize}
+%
+Note que a força centrípeta não é uma nova força.
+
+Em algumas situações, temos mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular: 
+\begin{itemize}
+    \item Em uma estrada com uma curva inclinada, temos uma \emph{componente} da normal e uma \emph{componente} da força de atrito. A soma dessas duas componentes atua como força centrípeta.
+    \item No caso de um corpo que executa um movimento circular vertical, como na Figura~\ref{Fig:MovimentoCircularVerticalCorpoFio.}, a tensão sempre aponta para o centro da trajetória, mas o peso tem uma componente que aponta para o centro que muda de acordo com a posição. A soma da tensão e do valor instantâneo dessa componente atua como força centrípeta.
+\end{itemize}
+%
+De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}.
 
 \begin{marginfigure}
 \centering
@@ -1809,10 +1866,10 @@ Note, no entanto, que essa relação não nos diz nada sobre a natureza da forç
     
     \draw[fill] (0,0) circle (1pt);
 \end{tikzpicture}
-\caption{Forças em um movimento circular vertical executado por um corpo preso a um fio.}
+\caption{Forças em um movimento circular vertical executado por um corpo preso a um fio.\label{Fig:MovimentoCircularVerticalCorpoFio.}}
 \end{marginfigure}
 
-Para facilitar a análise desse tipo de movimento, podemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^2/R$.
+Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^2/R$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Força centrípeta em um pêndulo}
@@ -1884,16 +1941,8 @@ Finalmente, verificamos que no eixo $y$ a aceleração é \emph{tangencial}, e �
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Verificamos anteriormente que se um objeto estiver em repouso sobre uma mesa, temos que a força normal é igual ao peso. No entanto, devido à rotação do planeta, bem como a qualquer movimento sobre a superfície, temos um movimento circular.
-\begin{description}
-    \item[Eixo $x$:] 
-        \begin{align}
-            F_R^x &= m a_x \\
-            P - N &= m \frac{v^2}{R}.
-        \end{align}
-    \item[Eixo $y$:] Não há forças.
-\end{description}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.3]
     \draw[pattern = north west lines, pattern color = gray] (0,0) circle (1);
@@ -1913,6 +1962,15 @@ Verificamos anteriormente que se um objeto estiver em repouso sobre uma mesa, te
 \caption{Movimento sobre a superfície do planeta.}
 \end{marginfigure}
 
+\begin{description}
+    \item[Eixo $x$:] 
+        \begin{align}
+            F_R^x &= m a_x \\
+            P - N &= m \frac{v^2}{R}.
+        \end{align}
+    \item[Eixo $y$:] Não há forças.
+\end{description}
+
 \noindent{}A partir da equação para o eixo $x$ podemos escrever para a normal
 \begin{align}
     N &= mg-m\frac{v^2}{R} \\
@@ -1925,12 +1983,7 @@ Note que a alteração na normal não é perceptível devido ao fato de que o ra
 \paragraph{Movimento circular vertical}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
-
-O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
-
-
-\begin{marginfigure}
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
   
@@ -1970,11 +2023,15 @@ O que ocorre nessas situações é que, para que haja um movimento circular, é 
 \caption{Para cada uma das posições, temos uma componente da força resultante que aponta para o centro da trajetória. A componente tangencial será a responsável pela alteração do módulo da velocidade. \label{Fig:LoopVertical}}
 \end{marginfigure}
 
+Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
+
+O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote[][-2cm]{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Condição de perder contato e velocidade mínima}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma situação de particular interesse é a de determinar qual é a velocidade mínima necessária para que um corpo qualquer execute o movimento circular sem perder contato com a superfície. Nosso ponto de interesse em particular é o ponto mais alto na Figura~\ref{Fig:LoopVertical}. A força que precisa ser exercida sobre o corpo para que ele se mantenha na trajetória circular determinada pela pista é dada por
+Uma situação de particular interesse no movimento circular vertical é a de determinar qual é a velocidade mínima necessária para que um corpo qualquer execute o movimento circular sem perder contato com a superfície. Nosso ponto de interesse em particular é o ponto mais alto na Figura~\ref{Fig:LoopVertical}. A força que precisa ser exercida sobre o corpo para que ele se mantenha na trajetória circular determinada pela pista é dada por
 \begin{equation}
     F_R = m \frac{v^2}{r}.
 \end{equation}
@@ -2030,7 +2087,7 @@ Uma outra possibilidade de movimento em que pode ocorrer perda de contato é se 
     g &= \frac{v^2}{r},
 \end{align}
 %
-ou seja, a velocidade máxima com que podemos fazer a trajetória circular sem perder contato\footnote{Isto é, estamos na iminência de perder contato.} é
+ou seja, a velocidade máxima com que podemos fazer a trajetória circular sem perder contato\footnote[][-2cm]{Isto é, estamos na iminência de perder contato.} é
 \begin{equation}
     v = \sqrt{rg}.
 \end{equation}
@@ -2041,7 +2098,7 @@ ou seja, a velocidade máxima com que podemos fazer a trajetória circular sem p
 
 Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como mostra a Figura~\ref{Fig:PenduloConico}. O corpo descreve uma trajetória circular em um plano horizontal, sendo que o fio descreve um cone. Podemos relacionar a velocidade do corpo ao ângulo $\theta$ e ao comprimento $\ell$ do fio.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -2079,7 +2136,7 @@ Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como m
 \caption{Pêndulo cônico.\label{Fig:PenduloConico}}
 \end{marginfigure}
 
-Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertial e um que aponta para o centro da trajetória temos:
+Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertical e um que aponta para o centro da trajetória temos:
 
 \begin{description}
     \item{Eixo $x$:}
@@ -2097,7 +2154,7 @@ Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam so
         \end{align}
 \end{description}
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -2161,7 +2218,7 @@ logo
 \paragraph{Curva compensada}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em estradas, é essencial que as curvas tenham uma inclinação. Tal inclinação faz com que uma componente da força normal atue de maneira a, junto com a força de atrito, fazer com que os veículos possam executar a curva com segurança. Podemos determinar as velocidades máxima e mínima para executar a curva sem deslisar através de uma análise das forças presentes no sistema.
+Em estradas, é essencial que as curvas tenham uma inclinação. Tal inclinação faz com que uma componente da força normal atue de maneira a, junto com a força de atrito, fazer com que os veículos possam executar a curva com segurança. Podemos determinar as velocidades máxima e mínima para executar a curva sem deslizar através de uma análise das forças presentes no sistema.
 
 Na Figura~\ref{Fig:CurvaCompensadaRef} mostramos representação de uma visão frontal de um veículo que executa uma curva, mostrando as forças que atuam nesse movimento. Verificamos que existem duas possibilidades para o atrito: ou ele aponta para baixo, o que corresponde ao caso em que o corpo tende a escapar pela parte externa da curva, ou ele aponta para cima, o que corresponde ao caso em que o corpo tende a escapar para baixo. As forças de atrito são estáticas, já que não deve ocorrer deslizamento do veículo. Logo, considerando as forças de atrito são estático máxima, as situações indicadas correspondem à velocidade máxima e à velocidade mínima para as quais a curva pode ser executada sem deslizar. Note que as forças de atrito mostradas não podem ocorrer simultaneamente.
 
@@ -2238,7 +2295,7 @@ Da segunda equação do sistema acima, temos
     N = \frac{mg}{\cos\theta \mp \mu_e\sen\theta}.
 \end{equation}
 %
-Substituindo essa equação a primeira equação do sistema, resulta em
+Substituindo essa equação na primeira equação do sistema, resulta em
 \begin{equation}
     \frac{mg}{\cos\theta \mp \mu_e\sen\theta} (\sen\theta \pm \mu_e \cos\theta) = m\frac{v^2}{r}.
 \end{equation}
@@ -2383,7 +2440,7 @@ T - P_2 &= -m_2 a,
 \end{system}
 \end{equation}
 %
-o que resulta, a partir da soma da primeira equação com o negativo da segunda equação em
+o que resulta, a partir da soma da primeira equação com o negativo da segunda equação, em
 \begin{align}
     T - T + P_2 &= m_1 a + m_2 a \\
     m_2 g &= (m_1 + m_2) a.
@@ -2404,42 +2461,14 @@ Para obtermos a tensão, basta retornar às equações do sistema e substituir o
 \paragraph{Sistemas de eixos orientados pelo movimento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma escolha comum de eixos é aquela que se vale da orientação geral do movimento do sistema. Na Figura~\ref{Fig:MaquinaAtwoodHorizEixosComuns} adotamos o eixo $x$ como sendo aquele em que ocorre o movimento para cada bloco. Como temos que\footnote{Os índices 1 e 2 em $a$ se referem às acelerações dos blocos 1 e 2, respectivamente. Os índices $x_1$ e $x_2$ se referem aos eixos $x$ na posição de cada bloco, pois eles são eixos diferentes. Note que na figura já omitimos tal diferenciação pois estamos interessados no cálculo do módulo somente, já que a direção e o sentido podem ser determinados a partir da própria figura.} 
+Uma escolha comum de eixos é aquela que se vale da orientação geral do movimento do sistema. Na Figura~\ref{Fig:MaquinaAtwoodHorizEixosComuns} adotamos o eixo $x$ como sendo aquele em que ocorre o movimento para cada bloco. Como temos que\footnote[][-2cm]{Os índices 1 e 2 em $a$ se referem às acelerações dos blocos 1 e 2, respectivamente. Os índices $x_1$ e $x_2$ se referem aos eixos $x$ na posição de cada bloco, pois eles são eixos diferentes. Note que na figura já omitimos tal diferenciação pois estamos interessados no cálculo do módulo somente, já que a direção e o sentido podem ser determinados a partir da própria figura.} 
 \begin{equation}
     a_1^{x_1} = a_2^{x_2} \equiv a_x,
 \end{equation}
 %
 uma distinção da aceleração de cada bloco não é necessária. No eixo $y$, para ambos os blocos temos aceleração nula.
 
-Assim, temos ao analisar o sistema:
-\begin{description}
-    \item[Bloco 1:] Aplicando a Segunda Lei de Newton para cada eixo:
-        \begin{description}
-            \item[Eixo $x$:]
-                \begin{align}
-                    F_R^{x} &= m_1 a^{x} \\
-                    T & = m_1 a^{x}.
-                \end{align}
-            \item[Eixo $y$:]
-                \begin{align}
-                    F_R^{y} &= m_1 a^{y} \\
-                    N_1 - P_1 &= m_1 a^{y} \\
-                    N_1 - P_1 &= 0 \\
-                    N_1 = P_1.
-                \end{align}
-        \end{description}
-    \item[Bloco 2:] Novamente, aplicando a Segunda Lei de Newton para cada eixo:
-        \begin{description}
-            \item[Eixo $x$:]
-                \begin{align}
-                    F_R^{x} &= m_2 a^{x} \\
-                    T - P_2 &= m_2 a^{x}.
-                \end{align}
-            \item[Eixo $y$:] Não há nenhuma força nesse eixo.
-        \end{description}
-\end{description}
-
-\begin{marginfigure}[-8cm]
+\begin{marginfigure}[5cm]
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -2484,11 +2513,40 @@ Assim, temos ao analisar o sistema:
 \caption{O mesmo sistema da Figura~\ref{Fig:MaquinaAtwoodHoriz}, porém com uma escolha diferente de eixos. Como as acelerações são iguais em módulo para ambos os blocos nos mesmos eixos, podemos simplesmente ignorar a diferenciação entre eles se estamos interessados em determinar somente o módulo da aceleração. A direção e o sentido podem ser prontamente determinados ao vermos a figura.\label{Fig:MaquinaAtwoodHorizEixosComuns}}
 \end{marginfigure}
 
+Assim, temos ao analisar o sistema:
+\begin{description}
+    \item[Bloco 1:] Aplicando a Segunda Lei de Newton para cada eixo:
+        \begin{description}
+            \item[Eixo $x$:]
+                \begin{align}
+                    F_R^{x} &= m_1 a^{x} \\
+                    T & = m_1 a^{x}.
+                \end{align}
+            \item[Eixo $y$:]
+                \begin{align}
+                    F_R^{y} &= m_1 a^{y} \\
+                    N_1 - P_1 &= m_1 a^{y} \\
+                    N_1 - P_1 &= 0 \\
+                    N_1 = P_1.
+                \end{align}
+        \end{description}
+    \item[Bloco 2:] Novamente, aplicando a Segunda Lei de Newton para cada eixo:
+        \begin{description}
+            \item[Eixo $x$:]
+                \begin{align}
+                    F_R^{x} &= m_2 a^{x} \\
+                    - T + P_2 &= m_2 a^{x}.
+                \end{align}
+            \item[Eixo $y$:] Não há nenhuma força nesse eixo.
+        \end{description}
+\end{description}
+
+
 \noindent{}Isso resulta no sistema
 \begin{equation}
 \begin{system}
     T & = m_1 a^{x} \\
-    T - P_2 &= m_2 a^{x},
+    - T + P_2 &= m_2 a^{x},
 \end{system}
 \end{equation}
 %
@@ -2526,7 +2584,7 @@ Para resolver este sistema, isto é, para determinar a aceleração para a qual 
         \end{description}
 \end{description}
 
-\begin{marginfigure}[-6cm]
+\begin{marginfigure}[-10cm]
 \begin{tikzpicture}[>=Stealth, scale = 0.8,
      interface/.style={
         % superfície
@@ -2597,7 +2655,7 @@ Para resolver este sistema, isto é, para determinar a aceleração para a qual 
 
 \noindent{}Através das duas equações envolvendo $T$, concluímos que
 \begin{equation}
-    a = \frac{m_i}{m_s} g.
+    a = a_x = a_{x'}= \frac{m_i}{m_s} g.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2607,6 +2665,50 @@ Para resolver este sistema, isto é, para determinar a aceleração para a qual 
 Quando precisamos determinar a aceleração de um corpo, as forças que devem ser levadas em conta são as \emph{forças externas} -- mais precisamente, a \emph{força resultante externa} --. Essa observação pode ser muito útil em problemas que envolvem diversos corpos: muitas vezes eles podem ser considerados como componentes de um corpo composto, dessa forma as forças através das quais interagem passam a ser forças internas, que não influenciam na aceleração.
 
 Na Figura~\ref{Fig:BlocosForcasExternas}, temos diversas forças internas e externas. Caso estejamos interessados em calcular a aceleração do sistema, podemos fazê-lo determinando as equações para cada bloco em cada eixo. Isso resultará em seis equações que devem ser resolvidas:
+
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	% mesa
+	\draw[lightgray,interface] (0,0) -- (4,0);
+	
+    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (1,0) rectangle (2,1);
+    \draw[pattern = north east lines, pattern color = lightgray, draw = lightgray] (2,0) rectangle +(1.5,1.5);
+    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (2.25,1.5) rectangle +(1,1);
+    
+    % forças externas
+    \draw[fill] (1.5,0.5) circle (1pt);
+    \draw[->, thick] (1.5,0.5) -- +(0,-0.75) node[left]{$\vec{P}_1$};
+    \draw[fill] (2.75, 0.75) circle (1pt);
+    \draw[thick, ->] (2.75,0.75) -- +(0, -1.25) node[left]{$\vec{P}_2$};
+    \draw[fill] (2.75,2) circle (1pt);
+    \draw[thick, ->] (2.75, 2) -- node[right]{$\vec{P}_3$} +(0,-0.5);
+    
+    \draw[thick, ->] (1.5, 1) -- +(0,0.75) node[left]{$\vec{N}_1$};
+    \draw[thick, ->] (2.2, 1.5) -- +(0,1.75) node [left]{$\vec{N}_2$};
+    \draw[thick, ->] (2.45,2.5) -- +(0,0.5) node[right]{$\vec{N}_3$};
+    
+    \draw[thick, ->] (2.45, 1.5) -- +(0,-0.5) node[above right]{$\vec{N}'_3$};
+    
+    \draw[thick, ->] (3.25, 1.6) -- +(0.5,0) node[above]{$\vec{f}_{at}$};
+    \draw[thick, ->] (2,1.4) -- node[above]{$\vec{f}'_{at}$} +(-0.5,0);
+    
+    \draw[thick, ->] (2,0.85) node[above left]{$\vec{F}_{12}$} -- +(0.65,0);
+    \draw[thick, ->] (2,0.85) node[above right]{$\vec{F}'_{12}$} -- +(-0.65,0);
+    
+    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
+    
+    \draw[->, dashed] (0,0.5) -- (4,0.5) node[above]{$x$};
+    \draw[->, dashed] (2,-1) -- (2,3) node[below left]{$y$};
+\end{tikzpicture}
+\caption{Sistema composto por três blocos que interagem sujeitos às forças, peso, normal, de atrito, e a uma força $\vec{F}$ que empurra os blocos lateralmente. Desconsideramos o atrito na superfície da mesa e omitimos as reações das normais $\vec{N}_1$ e $\vec{N}_2$ exercidas pelos blocos sobre a mesa.\label{Fig:BlocosForcasExternas}}
+\end{marginfigure}
 \begin{description}
     \item[Bloco 1:] Assumindo que o eixo $x$ é horizontal (paralelo à superfície onde se apoiam os blocos) e o eixo $y$ vertical:
         \begin{description}
@@ -2648,47 +2750,6 @@ Na Figura~\ref{Fig:BlocosForcasExternas}, temos diversas forças internas e exte
                 \end{align}
         \end{description}
 \end{description}
-
-\begin{marginfigure}[-14cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.2,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-	% mesa
-	\draw[gray,interface] (0,0) -- (4,0);
-	
-    \draw[pattern = north west lines, pattern color = gray, draw = gray] (1,0) rectangle (2,1);
-    \draw[pattern = north east lines, pattern color = gray, draw = gray] (2,0) rectangle +(1.5,1.5);
-    \draw[pattern = north west lines, pattern color = gray, draw = gray] (2.25,1.5) rectangle +(1,1);
-    
-    % forças externas
-    \draw[fill] (1.5,0.5) circle (1pt);
-    \draw[->, thick] (1.5,0.5) -- +(0,-0.75) node[left]{$\vec{P}_1$};
-    \draw[fill] (2.75, 0.75) circle (1pt);
-    \draw[thick, ->] (2.75,0.75) -- +(0, -1.25) node[left]{$\vec{P}_2$};
-    \draw[fill] (2.75,2) circle (1pt);
-    \draw[thick, ->] (2.75, 2) -- node[right]{$\vec{P}_3$} +(0,-0.5);
-    
-    \draw[thick, ->] (1.5, 1) -- +(0,0.75) node[left]{$\vec{N}_1$};
-    \draw[thick, ->] (2.2, 1.5) -- +(0,1.75) node [left]{$\vec{N}_2$};
-    \draw[thick, ->] (2.45,2.5) -- +(0,0.5) node[right]{$\vec{N}_3$};
-    
-    \draw[thick, ->] (2.45, 1.5) -- +(0,-0.5) node[right]{$\vec{N}'_3$};
-    
-    \draw[thick, ->] (3.25, 1.6) -- +(0.5,0) node[above]{$\vec{f}_{at}$};
-    \draw[thick, ->] (2,1.4) -- node[above]{$\vec{f}'_{at}$} +(-0.5,0);
-    
-    \draw[thick, ->] (2,0.85) -- node[below]{$\vec{F}_{12}$} +(0.65,0);
-    \draw[thick, ->] (2,0.85) -- node[below]{$\vec{F}'_{12}$} +(-0.65,0);
-    
-    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
-\end{tikzpicture}
-\caption{Sistema composto por três blocos que interagem sujeitos às forças, peso, normal, de atrito, e a uma força $\vec{F}$ que empurra os blocos lateralmente. Desconsideramos o atrito na superfície da mesa e omitimos as reações das normais $\vec{N}_1$ e $\vec{N}_2$ exercidas pelos blocos sobre a mesa.\label{Fig:BlocosForcasExternas}}
-\end{marginfigure}
 
 \noindent{}Através das equações para o eixo vertical, podemos concluir que
 \begin{align}
@@ -2770,6 +2831,7 @@ A ideia de considerar um bloco composto é bastante útil para calcular a aceler
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 No caso de termos três forças coplanares atuando em um corpo em equilíbrio --~como na figura abaixo, à esquerda~-- podemos as transladar de forma a reorganizá-las como um triângulo --~abaixo, à direita~--.
+
 \begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.2, rotate=-10]
@@ -2797,8 +2859,9 @@ No caso de termos três forças coplanares atuando em um corpo em equilíbrio --
     \pic [draw, "$\gamma$", angle eccentricity = 1.5, angle radius = 3mm] {angle = mpp--m--originp};
     \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 3mm] {angle = Ap--originp--Bp};
 \end{tikzpicture}
+\caption{Esquerda: Três forças coplanares atuando sobre um corpo em equilíbrio. Direita: As mesmas três forças dispostas formando um triângulo.}
 \end{figure}
-%
+
 \noindent{}Aplicando a lei dos senos no triângulo, temos
 \begin{equation}
     \frac{F_1}{\sen (\np[\tcdegree]{180} - \beta)} = \frac{F_2}{\sen (\np[\tcdegree]{180} - \gamma)} = \frac{F_3}{\sen (\np[\tcdegree]{180} - \alpha)}.
@@ -2812,7 +2875,7 @@ Como $\sen (\np[\tcdegree]{180} - \theta) = \sen\theta$, temos
 \noindent{}Esse resultado é conhecido como \emph{Teorema de Lamy} e deve ser aplicado exclusivamente para o caso em três forças atuam sobre um corpo em equilíbrio.
 
 No caso especial de um dos ângulos ser \np[\tcdegree]{90}, temos um triângulo retângulo:
-\begin{figure}[!h]\forceversofloat
+\begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.3]
 
@@ -2825,7 +2888,7 @@ No caso especial de um dos ângulos ser \np[\tcdegree]{90}, temos um triângulo 
 \caption{Caso específico de três forças coplanares que atuam sobre um corpo em equilíbrio, sendo que duas delas formam um ângulo de \np[\tcdegree]{90} entre si.\label{Fig:LamyTrianguloRetangulo}}
 \end{figure}
 
-\noindent{}Aplicando o teorema de Pitágoras, temos que
+\noindent{}e, aplicando o teorema de Pitágoras, temos que
 \begin{equation}
     F_3^2 = F_1^2 + F_2^2.
 \end{equation}
@@ -2861,51 +2924,17 @@ e se fizermos $k \equiv f'(0)$,
 %
 Essa relação é a própria lei de Hooke, com $x_i = 0$ e $x_f = x$, faltando somente o sinal que indica que a força é no sentido contrário ao deslocamento. A partir da análise acima, concluímos que quando falamos em pequenos deslocamentos, estamos restringindo os valores de termos de ordens quadrática ou superiores a valores muito menores que o termo de ordem linear. Respeitada essa condição, o que poder ser feito através da escolha de uma distensão máxima adequada, podemos tratar --~em primeira aproximação~-- uma deformação de um objeto qualquer como sendo linear.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Segunda lei do movimento de acordo com o Principia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Referenciais inerciais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{TODO No parágrafo abaixo, fazer um footnote dizendo que não se justifica uma lei física, pois não há como fazer isso, isto é, uma lei fundamental é enunciada, não deduzida de algum outro lugar. (verificar se no The Character of the Physical Law do Feynmann tem alguma coisa do gênero). Como diz o M. Fiolhais, "tem-se que dar uma injeção".}
-No \emph{Principia}, Newton não utiliza a discussão realizada acima para chegar à segunda lei. Após a definição de massa, ele apresenta a definição de \emph{movimento}, ou \emph{quantidade de movimento}, que atualmente denominamos como momento linear
-\begin{quote}
-\emph{A quantidade de movimento é a medida do mesmo, advindo da velocidade e da quantidade de matéria conjuntamente.}
-
-O movimento do todo é a soma dos movimentos de todas as partes; e -- portanto -- em um corpo [com] o dobro em quantidade [de massa], com velocidade igual, o movimento é o dobro; com duas vezes a velocidade, é o quádruplo.
-\end{quote}
-
-Tendo em mente tais definições, Newton declara sua segunda lei do movimento como
-\begin{quote}
-\emph{A alteração do movimento é sempre proporcional à força motriz a ele aplicada; e é feita na direção da linha reta em que tal força atua.}
-
-Se uma força qualquer gera um movimento, o dobro de força gerará o dobro de movimento, o triplo de força gera o triplo de movimento, seja a força aplicada subitamente, ou gradualmente. E este movimento (sendo sempre direcionado no mesmo sentido que a força geradora), se o corpo se encontrava em movimento, é adicionado a ele ou subtraído do movimento anterior, de acordo com eles conspirarem diretamente ou diretamente contrário um ao outro; ou composto obliquamente, quando são oblíquos, de tal forma a produzir um novo movimento composto pela determinação de ambos.
-\end{quote}
-%
-Matematicamente, podemos escrever
-\begin{equation}
-  \Delta p \propto F.
-\end{equation}
-%
-É claro também que $\Delta p \propto \Delta t$. Logo, se assumirmos que somente essas duas variáveis tem influência sobre a alteração do momento linear e considerando que a constante de proporcionalidade seja 1 (podemos engloba-la na própria definição da unidade de força), temos
-\begin{equation}
-  \Delta p = F \Delta t.
-\end{equation}
-%
-Tomando o limite $\Delta t \to 0$, podemos escrever
-\begin{equation}
-  F = \frac{dp}{dt},
-\end{equation}
-%
-ou, considerando $m$ como constante
-\begin{align}
-  F &= m\frac{dv}{dt} \\
-  &= ma.
-\end{align}
+% talvez discutir o referencial em queda livre do einstei aqui e tirar da parte e baixo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equivalência das massas gravitacional e inercial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Veja que o fato de a aceleração gravitacional independer da massa se deve ao fato de que ela aparece em ambos os lados da igualdade na Equação~\eqref{Eq:EliminaM} acima. No entanto, isso se deve diretamente ao fato de que a força gravitacional depende da massa do corpo. Podemos citar um exemplo para deixar isso mais claro: a força entre duas cargas elétricas é dada por
+Veja que o fato de a aceleração gravitacional independer da massa se deve ao fato de que ela aparece em ambos os lados da igualdade na Equação~\eqref{Eq:EliminaM}. No entanto, isso se deve diretamente ao fato de que a força gravitacional depende da massa do corpo. Podemos citar um exemplo para deixar isso mais claro: a força entre duas cargas elétricas é dada por
 \begin{equation}
   F_c = k \frac{q_1q_2}{r^2},
 \end{equation}
@@ -2924,20 +2953,9 @@ Isto é, existe uma dependência da aceleração com a massa da partícula.
 
 A independência da aceleração gravitacional com a massa do corpo se deve ao fato de que a \emph{massa inercial} -- isto é, aquela que aparece na segunda lei de Newton -- é igual à \emph{massa gravitacional}. Isso não tem uma fundamentação teórica dentro da mecânica clássica pois ambos os fenômenos (a aceleração de um objeto submetido a uma força e a força entre tal objeto e a Terra) não têm nenhuma relação um com o outro. Para Newton, esta é uma verdade verificada experimentalmente.
 
-\comment{Falar da interpretação do Einstein, da questão do elevador}
+Essa equivalência foi explicada em termos teóricos por Einstein, na Teoria da Relatividade Geral. Essa teoria reinterpreta a gravidade como uma deformação do espaço. Segundo Einstein, um referencial acelerado em uma direção com aceleração $a$ é completamente equivalente a uma aceleração gravitacional de módulo $a$ no sentido contrário ao da aceleração do referencial.
 
-Voltando à expressão para a força gravitacional, vemos que a intensidade da força que atrai um objeto qualquer em direção à Terra é dada por
-\begin{equation}
-  F_g = m \left[G \frac{m_T}{r^2}\right],
-\end{equation}
-%
-ou, se $r \approx r_T$
-\begin{align}
-  F_g &= mg \\
-  &\equiv P,
-\end{align}
-%
-isto é, a força peso nada mais é do que a força de atração gravitacional que atua sobre o corpo quando ele se encontra próximo da superfície da Terra. Notamos ainda que se o peso é o resultado da interação do corpo com a Terra, \emph{a reação à força peso é uma força que atua na Terra} -- ou, de maneira simplificada, no centro de massa da Terra --. Portanto, quando um objeto cai, sendo submetido a uma aceleração devida à força peso, temos que a reação ao peso atua na Terra, acelerando-a em direção ao objeto. Como vimos, no entanto, a aceleração é inversamente proporcional à massa e, devido ao fato de que a massa da Terra é muito grande, temos uma aceleração muito pequena por parte do Planeta.
+Além disso, Einstein postula que um referencial em queda livre em um campo gravitacional é um referencial inercial. Dentro desse referencial, para velocidades muito menores do que a da luz, temos o referencial inercial que é fundamental para as Leis de Newton.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Limitação da terceira lei de Newton}
@@ -2951,9 +2969,10 @@ isto é, a força peso nada mais é do que a força de atração gravitacional q
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Diálogo}
+\label{Sec:TextoDialogo}
 %%%%%%%%%%%%%%%%%%%%
 
-Segue abaixo uma tradução do trecho do \emph{Diálogo sobre os dois máximos sistemas do mundo: ptolomaico e copernicano} de Galileu Galilei, onde encontramos a discussão acerca do movimento contínuo e uniforme que ocorreria caso tivéssemos uma superfície horizontal de onde retirássemos todos os ``impedimentos ao movimento''.
+Segue abaixo uma tradução do trecho do \emph{Diálogo sobre os dois máximos sistemas do mundo: ptolomaico e copernicano} de Galileu Galilei, onde encontramos a discussão acerca do movimento contínuo e uniforme que ocorreria caso tivéssemos uma superfície horizontal de onde retirássemos todos os ``impedimentos ao movimento''. O texto see dá como um diálogo entre duas pessoas, Salviati e  Simplício:
 % Dialogo, p. 83
 \begin{description}
 %\item[Salviati:]  Io non desidero che voi diciate o rispondiate di saper niente altro che quello che voi
@@ -3022,7 +3041,7 @@ Segue abaixo uma tradução do trecho do \emph{Diálogo sobre os dois máximos s
 
 %\item[Simplicio:]  Il moto andrebbe sempre languendo e ritardandosi, per esser contro a natura, e sarebbe piú
 %lungo o piú breve secondo il maggiore o minore impulso e secondo la maggiore o minore acclività.
-\item[Simplicio:] O movimento seguiria sempre se abatendo e se retardando, pois ser contra a natureza, e será mais longo ou mais curto segundo o maior ou menor impulso e segundo maior ou menor for o aclive.
+\item[Simplicio:] O movimento seguiria sempre se abatendo e se retardando, por ser contra a natureza, e será mais longo ou mais curto segundo o maior ou menor impulso e segundo maior ou menor for o aclive.
 
 %\item[Salviati:]  Parmi dunque sin qui che voi mi abbiate esplicati gli accidenti d'un mobile sopra due
 %diversi piani; e che nel piano inclinato il mobile grave spontaneamente descende e va continuamente
@@ -3064,8 +3083,7 @@ Segue abaixo uma tradução do trecho do \emph{Diálogo sobre os dois máximos s
 %\item[Simplicio:]  Tanto quanto durasse la lunghezza di quella superficie né erta né china.
 \item[Simplicio:] Tanto quanto durasse a extensão daquela superfície [...]
 
-%\item[Salviati:]  Adunque se tale spazio fusse interminato, il moto in esso sarebbe parimente senza
-termine, cioè perpetuo?
+%\item[Salviati:]  Adunque se tale spazio fusse interminato, il moto in esso sarebbe parimente senza termine, cioè perpetuo?
 \item[Salviati:] Portanto se tal espaço fosse interminável, o movimento nele seria também sem fim, seria perpétuo?
 
 %\item[Simplicio:]  Parmi di sí, quando il mobile fusse di materia da durare.
@@ -3075,7 +3093,7 @@ termine, cioè perpetuo?
 %accidentarii ed esterni, e la fragilità del mobile, in questo fatto, è un degli impedimenti accidentarii.
 %Ditemi ora: quale stimate voi la cagione del muoversi quella palla spontaneamente sul piano
 %inclinato, e non, senza violenza, sopra l'elevato?
-\item[Salviati:] Isso já é suposto, enquanto e é dido que se removem todos os impedimentos acidentais e esternos, e a fragilidade do corpo, e este fato é um dos impedimentos acidentais. Diga-me agora: qual você acha ser a razão  daquela bola se mover espontaneamente sobre o plano inclinado, e não, sem violência, sobre o elevado?
+\item[Salviati:] Isso já é suposto, pois foi dito que se removem todos os impedimentos acidentais e esternos, e a fragilidade do corpo, e este fato é um dos impedimentos acidentais. Diga-me agora: qual você acha ser a razão  daquela bola se mover espontaneamente sobre o plano inclinado, e não, sem violência, sobre o elevado?
 
 %\item[Simplicio:]  Perché l'inclinazion de' corpi gravi è di muoversi verso 'l centro della Terra, e solo per
 %violenza in su verso la circonferenza; e la superficie inclinata è quella che acquista vicinità al centro,
@@ -3101,6 +3119,88 @@ termine, cioè perpetuo?
 \item[Simplicio:] É assim que deve ser.
 
 \end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enunciados de Newton de acordo com o Princípia}
+\label{Sec:EnunciadosNewton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Apesar de procurarmos alguma linha de raciocínio que nos leve de observações simples a leis complexas da Física, a verdade é que uma lei Física não pode ser justificada. Mesmo que haja uma conexão evidente entre uma grandeza e outra, é difícil determinar quais das muitas variáveis devem ser deixadas de fora e quais devem incluídas --~talvez a dependência em uma delas pode ser difícil de detectar, mas não quer dizer que não exista dependência~--. Assim, o que ocorre é que as leis são \emph{enunciadas}. Abaixo seguem as Leis de Newton, tal qual foram enunciadas no \emph{Principia}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Massa, quantidade de movimento, força}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Newton inicia definindo algumas grandezas, sendo as mais relevantes a massa, quantidade de movimento, e força:
+
+% massa
+\begin{quote}
+\emph{A quantidade de matéria é a medida da mesma, advindo de sua densidade e volume conjuntamente.}
+  
+Portanto, ar com o dobro da densidade, no dobro do volume, é o quadruplo em quantidade\footnote{A densidade é uma variável intensiva, enquanto o volume é uma variável extensiva. A segunda pode ser somada ao juntarmos dois sistemas, a primeira não.}; no triplo do volume, o sêxtuplo em quantidade. O mesmo se deve entender de neve, e poeira fina ou pós, que seja condensados por compressão ou liquefação; e de todos os corpos que sejam por qualquer motivo de alguma maneira condensados. Eu não considero neste trabalho nenhum meio, se existe algum, que preencha livremente os interstícios entre as partes dos corpos. É essa quantidade a que me refiro doravante como corpo ou massa. E o mesmo é conhecido como peso de cada corpo; pois é proporcional ao peso, como descobri por experimentos em pêndulos, executados com muito cuidado, que serão mostrados adiante.
+\end{quote}
+
+% quantidade de movimento
+\begin{quote}
+\emph{A quantidade de movimento é a medida do mesmo, advindo da velocidade e da quantidade de matéria conjuntamente.}
+
+O movimento\footnote{Newton usa o termo \emph{movimento} como sinônimo de \emph{quantidade de movimento}.} do todo é a soma do movimento de todas as partes; e então em um corpo com o dobro da densidade, com igual velocidade, o movimento é o dobro; com o dobro da velocidade, é o quadruplo.\footnote{Considerando tanto que foram dobrados a densidade, quanto a velocidade concomitantemente.}
+\end{quote}
+
+% força
+\begin{quote}
+\emph{Uma força impressa é uma ação exercida sobre um corpo, com o intuito de mudar seu estado, seja de repouso, ou de movimento uniforme para frente em uma linha reta.}
+
+Essa força consiste na ação somente; e não permanece no corpor, quanto a ação é finalizada. Pois um corpo mantém cada novo estado que adquire por sua inércia\footnote{Aqui cabe alertar que Newton acreditava que existiria uma \emph{força de inércia} cujo papel era o de manter o estado atual de movimento do corpo, resistindo a mudanças. Hoje utilizamos a interpretação mais simples de que tal força não existe, mas sim que para alterar o estado de movimento, é necessário aplicar uma força, sendo que se o ele se mantém se nenhuma força atua sobre o corpo.} somente. Forças impressas são de diferentes origens [\dots]
+\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Leis do movimento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Após tais definições, Newton propõe as três leis do movimento. A Primeira Lei é enunciada como:
+\begin{quote}
+\emph{Todo corpo persevera em seu estado de repouso, ou de movimento uniforme em uma linha reta, a não ser que seja compelido a mudar tal estado por forças exercidas sobre ele.}
+
+Projéteis perseveram em seus movimentos, desde que não sejam retardados pela resistência do dar, ou impelidos para baixo pela força da gravidade. Um pião, cujas partes por sua coesão são perpetuamente puxadas lateralmente de movimentos lineares, não cessa sua rotação, a não ser pelo retardamento devido ao ar. Os grandes corpos de planetas e cometas, encontrando menos resistência  em espaços mais livres, preservam seus movimentos tanto progressivo quanto circular por muito mais tempo.
+\end{quote}
+
+\noindent{}Note que para que haja um movimento circular, deve haver uma força. No caso do movimento dos planetas, citado por Newton, a grandeza que se conserva no movimento é o \emph{momento angular}, que será visto no capítulo sobre rotações.
+
+A Segunda Lei é enunciada como
+\begin{quote}
+\emph{A alteração do movimento é sempre proporcional à força motriz a ele aplicada; e é feita na direção da linha reta em que tal força atua.}
+
+Se uma força qualquer gera um movimento, o dobro de força gerará o dobro de movimento, o triplo de força gera o triplo de movimento, seja a força aplicada subitamente, ou gradualmente. E este movimento (sendo sempre direcionado no mesmo sentido que a força geradora), se o corpo se encontrava em movimento, é adicionado a ele ou subtraído do movimento anterior, de acordo com eles conspirarem diretamente ou diretamente contrário um ao outro; ou composto obliquamente, quando são oblíquos, de tal forma a produzir um novo movimento composto pela determinação de ambos.
+\end{quote}
+%
+Matematicamente, podemos escrever
+\begin{equation}
+  \Delta p \propto F.
+\end{equation}
+%
+É claro também que $\Delta p \propto \Delta t$. Logo, se assumirmos que somente essas duas variáveis tem influência sobre a alteração do momento linear e considerando que a constante de proporcionalidade seja 1 (podemos engloba-la na própria definição da unidade de força), temos
+\begin{equation}
+  \Delta p = F \Delta t.
+\end{equation}
+%
+Tomando o limite $\Delta t \to 0$, podemos escrever
+\begin{equation}
+  F = \frac{dp}{dt},
+\end{equation}
+%
+ou, considerando $m$ como constante
+\begin{align}
+  F &= m\frac{dv}{dt} \\
+  &= ma.
+\end{align}
+
+A Terceira Lei de Newton é enunciada como
+\begin{quote}
+\emph{Para cada ação há sempre uma reação igual oposta: ou as ações mutuas de dois corpos um sobre o outro são sempre iguais, e dirigidas a partes contrárias.}
+
+Qualquer coisa que puxa ou empurra outra é tão puxado ou pressionado quanto pela outra. Se você pressionar uma pedra com seu dedo, o dedo também é pressionado pela pedra. Se um cavalo puxa uma pedra amarrada a uma corda, o cavalo (se posso assim dizer) será igualmente puxado para trás em direção à pedra: pois a corda distendida, pelo mesmo esforço para relaxar ou se afrouxar, tanto puxará o cavalo em direção à pedra, quanto puxará a pedra em direção ao cavalo, e obstruirá o progresso de um tanto quanto avança aquele do outro. Se um corpo colide com outro, e por meio de sua força muda o movimento do segundo, o segundo corpo também (devido à igualdade da pressão mútua) sofrerá uma mudança igual, em seu próprio movimento, em direção à parte contrária. As mudanças feitas por essas ações são iguais, não nas velocidades, mas nos movimentos dos corpos; isto se os corpos não são obstados por outros impedimentos. Pois, devido ao fato de que os movimentos são igualmente alterados, as mudanças das velocidades efetuadas em direções a partes contrárias são reciprocamente proporcionais aos corpos [massas]. Esta lei também ocorre em atrações, como será provado adiante.
+\end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinação de $v(t)$ para um movimento sujeito ao peso e à força de arrasto}
@@ -3162,6 +3262,6 @@ e então
     v(t) = \frac{mg}{b} + \left(v_0 - \frac{mg}{b}\right) \exp \left(-\frac{b}{m} \Delta t\right)
 \end{equation}
 
-\textbf{Segundo o WolframAlpha, tem solução analítica para $F_a = -b v^2$. Tentar fazer.}
+%\textbf{Segundo o WolframAlpha, tem solução analítica para $F_a = -b v^2$. Tentar fazer.}
 % Seria a seguinte:
 %v(t) = (sqrt(c) tanh((sqrt(b) sqrt(c) k_1 m + sqrt(b) sqrt(c) t)/m))/sqrt(b)
