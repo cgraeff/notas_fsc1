@@ -7,13 +7,23 @@
 
 %\clearpage
 
+\begin{fullwidth}
+{\it
+O primeiro passo para que possamos estudar a mecânica é a definição das variáveis físicas que descrevem o movimento dos corpos e a caracterização de tais grandezas como funções do tempo. Vamos definir precisamente posição, velocidade e aceleração, estudando a relação entre tais grandezas em casos simples. 
+
+Nos capítulos seguintes, veremos que tais grandezas são vetoriais, ou seja, têm um valor, uma direção e um sentido. Além disso, veremos que a aceleração está ligada à força a que um corpo está sujeito o que nos dará uma forma de prever seu movimento a partir de observações gerais acerca das circustâncias em que o corpo está inserido.
+}
+\end{fullwidth}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-{\it
-O primeiro passo para que possamos estudar a mecânica é a definição das variáveis físicas que descrevem o movimento dos corpos. Vamos então definir precisamente posição, velocidade e aceleração. Nos capítulos seguintes, veremos que esta última está ligada à força a que o corpo está sujeito e que nos dará uma forma simples de prever seu movimento.
-}
+Diversos sistemas físicos interessantes exibem movimento. A \emph{cinemática} é a área da física que se preocupa em descrever o movimento sem se preocupar com a causa de tal fenômeno: Estamos interessados em descrever a série de posições diferentes ocupadas por um corpo qualquer no espaço conforme o tempo progride. Além disso, também estamos interessados em descrever como é essa evolução temporal da posição. Para isso, basta definir três grandezas principais --~a posição, a velocidade, e a aceleração~--.
+
+Apesar de termos uma noção cotidiana de tais grandezas, veremos que em alguns casos teremos definições que diferem dessas noções devido ao fato de que elas não são úteis ou precisas. Como estamos interessados em uma descrição \emph{quantitativa}, utilizaremos a linguagem matemática como base para tais definições, nos valendo de vários objetos matemáticos (números, equações, funções, gráficos, limites, vetores, etc.), bem como de técnicas para trabalhar com tais objetos.
+
+O tratamento matemático utilizado neste texto é propositalmente simplificado, sendo adequado a um nível de Física Básica do ensino superior. Sendo assim, o texto considera que o leitor não tem conhecimento de Cálculo Diferencial e Integral, mas que está cursando uma disciplina sobre o assunto. Tendo isso em mente, ferramentas de Cálculo serão apresentadas e empregadas aos poucos, porém sempre no sentido de apresentar resultados importantes, não sendo exigidos como um conhecimento do aluno\footnote{Algumas seções opcionais podem exigir um conhecimento sólido em Cálculo.}. Neste primeiro capítulo, são exigidos como conhecimento prévio \emph{operações básicas, equações, funções, gráficos, e área de figuras planas} somente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento unidimensional}
@@ -21,7 +31,7 @@ O primeiro passo para que possamos estudar a mecânica é a definição das vari
 
 Definimos como sendo unidimensional o movimento que ocorre ao longo de uma reta, que denominamos como \emph{direção} do movimento. Essa definição é útil por ser simples e -- como veremos nos capítulos seguintes -- é capaz de fornecer uma descrição geral ao simplesmente adicionarmos mais dois eixos de movimento.
 
-Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, isto é, corpos cujas partes que o constituem não se movem em relação umas às outras. Para tais corpos, podemos separar o movimento em uma translação do \emph{centro de massa} e uma rotação em torno do centro massa\footnote{Essa separação é conhecida como Teorema de Mozzi-Chasles.}. O centro de massa é um ponto que substitui o sistema para fins de determinação da translação do corpo, sendo que para corpos simétricos e de densidade uniforme ele se localiza no centro do corpo, como veremos no Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear}. Trataremos as rotações somente no Capítulo~\ref{Chap:Rotacoes}, nos preocupando somente com a translação do centro de massa até lá.\footnote{Uma maneira equivalente é tratar o corpo como uma partícula -- isto é, um corpo cujas dimensões são desprezíveis --, o que efetivamente elimina a rotação do corpo.}
+Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, isto é, corpos cujas partes que o constituem não se movem em relação umas às outras. Para tais corpos, podemos separar o movimento em uma translação do \emph{centro de massa} e uma rotação em torno do centro massa\footnote{Essa separação é conhecida como Teorema de Mozzi-Chasles.}. O centro de massa é um ponto que substitui o sistema para fins de determinação da translação do corpo, sendo que para corpos simétricos e de densidade uniforme ele se localiza no centro do corpo, como veremos no Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear}. Trataremos as rotações somente no Capítulo~\ref{Chap:Rotacoes}, nos preocupando somente com a translação do centro de massa até lá.\footnote{Uma maneira equivalente é tratar o corpo como uma partícula --~isto é, um corpo cujas dimensões são desprezíveis~--, o que efetivamente elimina a rotação do corpo.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Posição e Deslocamento}
@@ -48,12 +58,12 @@ O primeiro passo para que possamos determinar a posição de um corpo  é verifi
     \draw[pattern=north west lines, pattern color=gray] (2.5,0) rectangle (3.5,1);
 
 \end{tikzpicture}
+\caption{Corpo que ocupa uma posição qualquer ao longo de uma reta.}
 \end{figure}
 
-\pagebreak
 \noindent{}Claramente, tal descrição é insuficiente. Para determinar a posição do corpo, precisamos de um \emph{ponto de referência}. A partir desse ponto, podemos então determinar a posição medindo a distância entre ele e o corpo:
 
-\begin{figure}\forceversofloat
+\begin{figure}
 \centering
 \begin{tikzpicture}[
      interface/.style={
@@ -79,7 +89,7 @@ O primeiro passo para que possamos determinar a posição de um corpo  é verifi
 
 Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode estar à mesma distância da origem:
 
-\begin{figure}\forceversofloat
+\begin{figure}
 \centering
 \begin{tikzpicture}[
      interface/.style={
@@ -109,9 +119,10 @@ Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode es
 
 \noindent{}Podemos definir dois \emph{sentidos} na figura acima: à esquerda da origem, ou à direita dela. Com essas três informações -- direção, módulo, e sentido -- podemos determinar com exatidão a posição de um corpo qualquer.
 
+\pagebreak
 Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para descrever a posição:
 
-\begin{figure}\forceversofloat
+\begin{figure}
 \centering
 \begin{tikzpicture}[
      >=Stealth,
@@ -135,9 +146,13 @@ Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para desc
         
     % reta real
     \draw[->] (-4.5,-0.5)--(4.5,-0.5) node[below]{$x$};
-    \foreach \x in {-4,...,4}
+    \foreach \x in {0,...,4}
         \draw (\x cm,-0.4) -- (\x cm,-0.6)
             node[below]{\small$\x$};
+    
+    \foreach \x in {1,...,4}
+        \draw (-\x cm,-0.4) -- (-\x cm,-0.6)
+            node[below]{\small{$\mathllap{-}\x$}};
 \end{tikzpicture}
 \caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferencias posições nos diferentes sentidos do eixo através do \emph{sinal positivo ou negativo}.\label{Fig:dois_blocos}}
 \end{figure}
@@ -188,7 +203,7 @@ Novamente, temos que a dimensão é de \emph{comprimento} e as unidades no SI s�
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote[][-2cm]{Lembre-se de que dois elementos do grupo $x$ podem levar a um mesmo elemento do grupo $y$, porém um elemento de $x$ não pode levar a dois elementos de $y$.}:
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
 \begin{tikzpicture}
 \draw (0,0.5) node[above] {$t$};
@@ -209,6 +224,7 @@ Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um va
 \caption{A cada valor de tempo $t$ temos um valor de posição $x$ associado. A função $x(t)$ é a operação que descreve a relação entre essas duas variáveis.}
 \end{figure}
 
+\pagebreak
 Dessa forma, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:
 \begin{equation}
     x: t \mapsto x(t).
@@ -259,7 +275,7 @@ ou
     x_f = x_i + \mean{v} \Delta t.
 \end{equation}
 %
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]]
@@ -295,7 +311,7 @@ ou
 \end{equation}
 %
 Como podemos zerar um cronômetro e iniciar a medida de tempo a partir do valor zero no início de um experimento, podemos escolher $t_i = 0$ e $t_f = t$, logo
-\begin{equation}\label{Eq:VV0AT}
+\begin{equation}\label{Eq:XX0AT}
   x_f = x_i + vt.\mathnote{Evolução temporal da posição para velocidade constante.}
 \end{equation}
 
@@ -427,7 +443,9 @@ Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressiva
   v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
 \end{equation}
 %
-\begin{marginfigure}[-8cm]
+A velocidade instantânea é o valor de velocidade no momento considerado. É o que é mostrado pelo velocímetro de um carro, por exemplo\footnote{Isso é verdade somente para caros em que o sistema de medidas é analógico. Para medidas digitais, o valor é uma média de uma série de medidas tomadas em um curto intervalo de tempo}.
+
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -483,11 +501,11 @@ Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressiva
 \end{tikzpicture}
 \caption{Gráfico da posição em função do tempo onde mostramos o processo em que tomamos o limite $\Delta t \to 0$.\label{Fig:Interp_graf_vel_med_lim}}
 \end{marginfigure}
-A velocidade instantânea é o valor de velocidade no momento considerado. É o que é mostrado pelo velocímetro de um carro, por exemplo\footnote[][-15mm]{Isso é verdade somente para caros em que o sistema de medidas é analógico. Para medidas digitais, o valor é uma média de uma série de medidas tomadas em um curto intervalo de tempo}.
 
 Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo que momentaneamente. Em um gráfico que mostre a posição em função do tempo para um objeto lançado verticalmente para cima -- por exemplo --, esse ponto corresponderia à posição de máxima altura, onde o objeto pára momentaneamente.
 
-\begin{marginfigure}[-1cm]
+Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}.
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -513,8 +531,6 @@ Além disso, se $\theta=0$, temos que a velocidade é nula em tal ponto, mesmo q
 \end{tikzpicture}
 \caption{No ponto $P$ temos que o ângulo de inclinação da reta tangente é nulo, portanto temos que momentaneamente a velocidade é nula.\label{Fig:Interp_graf_vel_med_zero}}
 \end{marginfigure}
-
-Finalmente, se o ângulo $\theta$ está abaixo da horizontal, verificamos que a velocidade é negativa (veja a reta tangente ao ponto $P_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, pois nos deslocamos no sentido negativo do eixo -- $\Delta x$ é negativo, portanto -- e, nesse caso, verificamos que a tangente de $\theta$ é negativa\footnote[][2cm]{Lembre-se do círculo trigonométrico: para um ângulo como o da reta tangente a $P_1$, a tangente está abaixo do eixo horizontal.}
 
 \begin{marginfigure}
 \centering
@@ -619,7 +635,7 @@ o que corresponde a
     plot(\x,{0.15*\x^2 + 0.1 + 0.1*\x*sin(10*\x r)});
      
 \end{tikzpicture}
-\caption{Gráficos que exemplificam possíveis formas para os gráficos da velocidade $v(t)$. Note que não precisamos nos restringir a formas funcionais simples.\label{Fig:Graf_posicao_func_tempo}}
+\caption{Gráficos que exemplificam possíveis formas para os gráficos da velocidade $v(t)$. Note que não precisamos nos restringir a formas funcionais simples.\label{Fig:Graf_vel_func_tempo}}
 \end{marginfigure}
 
 

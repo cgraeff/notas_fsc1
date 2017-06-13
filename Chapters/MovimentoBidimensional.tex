@@ -6,14 +6,21 @@
 
 %\clearpage
 
+\begin{fullwidth}
+{\it
+Neste capítulo vamos redefinir as variáveis cinemáticas em termos de vetores, utilizando as propriedades descritas no Capítulo~\ref{Chap:Vetores}. Obteremos assim relações vetoriais entre as variáveis cinemáticas que nos darão uma descrição completa do movimento em três dimensões. Para simplificar a interpretação dos movimentos, nos valeremos do fato de que as equações da cinemática podem ser escritas como um conjunto de três equações --~uma para cada eixo~-- sendo que em diversos movimentos um ou dois eixos apresentarão equações triviais.
+}
+\end{fullwidth}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-{\it
-Intro ...
-\comment{TODO Enfatizar que podemos separar tudo em 3 eixos sempre}
-}
+Para que possamos descrever o movimento da maneira mais geral possível, devemos considerar um espaço tridimensional: ao --~por exemplo~-- descrever o movimento de um veículo em uma estrada, se tomarmos um eixo de referência ao longo de um segmento da pista, temos ainda possíveis movimentos laterais devidos a curvas e verticais devidos a subidas ou descidas.
+
+Apesar de a descrição completa do movimento exigir três dimensões, é comum que possamos tratar o movimento em duas, ou mesmo uma dimensão. Isso se deve ao fato de que ao dividirmos as equações nos eixos do sistema de referência, poderemos ignorar uma ou duas dessas equações simplesmente por não haver movimento no eixo a que elas correspondem. Para o caso do movimento em linha reta, por exemplo, ao alinharmos um dos eixos do sistema de referência tridimensional ao longo do movimento, temos uma situação em que não há movimento nos outros dois eixos. Isso corresponde ao que denominamos como \emph{movimento unidimensional} no Capítulo~\ref{Chap:MovimentoUnidimensional}, ou seja, o movimento unidimensional é só um caso especial do movimento tridimensional. No caso do movimento bidimensional temos algo semelhante, porém só conseguimos eliminar um dois eixos.
+
+Verificaremos adiante como fazer uma descrição do movimento em três dimensões e como simplificar o tratamento ao eliminar um ou dois eixos. Verificaremos também que podemos separar o movimento em cada eixo e tratá-los de maneira independente mesmo quando há movimento em mais que um deles. Isso facilitará a interpretação do movimento. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vetores posição e deslocamento}
@@ -27,14 +34,14 @@ Quando tratamos do movimento unidimensional, utilizamos a distância até a orig
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale=1.0]
+\begin{tikzpicture}[>=Stealth, scale=1.3]
 
     \draw[->] (0,0,0) -- (2,0,0) node[below left]{$x$};
     \draw[->] (0,0,0) -- (0,2,0) node[below left]{$y$};
     \draw[->] (0,0,0) -- (0,0,2) node[below]{$z$};
 
-    \draw[->, thick] (0,0,0) -- (1,1,0.5);
-    \draw[dotted] (1,0,0.5) -- (1,1,0.5);
+    \draw[->, thick] (0,0,0) -- node[above]{$\vec{r}$}(1,0.75,0.5);
+    \draw[dotted] (1,0,0.5) -- (1,0.75,0.5);
     \draw[dotted] (1,0,0.5) -- (1,0,0);
     \draw[dotted] (1,0,0.5) -- (0,0,0.5);
     
@@ -214,7 +221,7 @@ Podemos utilizar a propriedade de que o limite da soma é a soma dos limites par
 %
 Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
 
-Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
+Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote[][-2cm]{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
 \begin{equation}
     \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
 \end{equation}
@@ -222,7 +229,7 @@ Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Fig
 é tangente à trajetória. Como a direção da velocidade é a mesma de $\delta\vec{r}$, temos que o vetor velocidade instantânea é tangente à trajetória.
 
 % adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
-\begin{marginfigure}
+\begin{marginfigure}[-1cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
     tangent/.style={
@@ -302,7 +309,7 @@ No caso do cálculo da velocidade média, bastou redefinirmos a velocidade em te
 %
 A direção do vetor aceleração média é a própria direção do vetor $\Delta{\vec{v}}$. 
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
    \begin{tikzpicture}[>=Stealth]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
         \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
@@ -317,6 +324,7 @@ A direção do vetor aceleração média é a própria direção do vetor $\Delt
    \end{tikzpicture}
    \caption{Velocidades em diferentes instantes e a correspondente variação da velocidade $\Delta\vec{v}$ determinada através da diferença entre os vetores.}
 \end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -339,7 +347,87 @@ e observamos que para o caso da aceleração, também temos que as componentes d
 \section{Independência do movimento em eixos perpendiculares}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Isso é uma característica da aceleração ser um vetor que pode ser decomposto em dois eixos diferentes. Fica fácil mostrar isso usando os versores, tomando a equação vetorial e transformando em equações conhecidas para os eixos $x$, $y$ e $z$, tipo $\vec{v} = (v_{ix} + a_x t)\versi + (v_{iy} + a_y t)\versj$. \comment{reescrever isso}
+Verificamos no Capítulo~\ref{Chap:Vetores} que se temos
+\begin{equation}
+    \vec{c} = \vec{a} + \vec{b},
+\end{equation}
+%
+então
+\begin{align}
+    c_x &= a_x + b_x \\
+    c_y &= a_y + b_y.
+\end{align}
+%
+Em três dimensões, adicionamos mais uma relação desse tipo para o eixo $z$:
+\begin{equation}
+    c_z = a_z + b_z.
+\end{equation}
+%
+Verificamos através dessas relações que os três eixos são independentes no que se refere à soma de vetores.
+
+Observamos ainda que se tormarmos a definição de velocidade média
+\begin{equation}
+    \mean{\vec{v}} = \frac{\Delta \vec{r}}{\Delta t},
+\end{equation}
+%
+podemos escrever
+\begin{align}
+    \vec{r}_f - \vec{r}_i &= \mean{\vec{v}} \Delta t \\
+    \vec{r}_f &= \vec{r}_i + \mean{\vec{v}} \Delta t.
+\end{align}
+%
+Através da definição de aceleração média, obtemos uma relação semelhante:
+\begin{equation}
+    \vec{v}_f = \vec{v}_i + \mean{\vec{a}} \Delta t.
+\end{equation}
+
+\pagebreak
+\noindent{}Note que ambas as expressões acima são dadas por \emph{somas de vetores}. Portanto, podemos separar as expressões acima em três eixos:\footnote{Usamos \begin{align*} x \equiv r_x \\ y \equiv r_y \\ z \equiv r_z. \end{align*}}
+\begin{align}
+    x_f &= x_i + \mean{v}_x \Delta t \\
+    y_f &= y_i + \mean{v}_y \Delta t \\
+    z_f &= z_i + \mean{v}_y \Delta t
+\end{align}
+%
+e
+\begin{align}
+    v_x^f &= v_x^i + \mean{a}_x \Delta t \\
+    v_y^f &= v_y^i + \mean{a}_y \Delta t \\
+    v_z^f &= v_z^i + \mean{a}_z \Delta t. \\
+\end{align}
+%
+se tomarmos o limite $\Delta t \to 0 \equiv \delta t$, podemos escrever o equivalente das equações acima para o caso de velocidade e aceleração instantânea:
+\begin{align}
+    x_f &= x_i + v_x \delta t \\
+    y_f &= y_i + v_y \delta t \\
+    z_f &= z_i + v_y \delta t
+\end{align}
+%
+e
+\begin{align}
+    v_x^f &= v_x^i + a_x \delta t \\
+    v_y^f &= v_y^i + a_y \delta t \\
+    v_z^f &= v_z^i + a_z \delta t. \\
+\end{align}
+
+Podemos considerar que todo e qualquer movimento pode ser descrito através da soma de \emph{infinitos} deslocamentos infinitezimais, como descrito pelas equações acima. Isso implica no fato de que \emph{todo movimento pode ser separado em três eixos independentes}. Podemos, portanto, utilizar as equações obtidas para a cinemática unidimensional em cada eixo de maneira independente.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.8]
+    \draw[->] (0:2) -- (10:2);
+    \draw[->] (10:2) -- (20:2);
+    \draw[->] (20:2) -- (30:2);
+    \draw[->] (30:2) -- (40:2);
+    \draw[->] (40:2) -- (50:2);
+    \draw[->] (50:2) -- (60:2);
+    \draw[->] (60:2) -- (70:2);
+    \draw[->] (70:2) -- (80:2);
+    \draw[->] (80:2) -- (90:2);
+    
+\end{tikzpicture}
+\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura mostramos uma série de pequenos deslocamentos que constituem de maneira aproximada uma curva. Se tomarmos deslocamentos menores, a curva passará a ser mais suave. A direção de cada deslocamento muda pois estamos considerando que a direção da velocidade mude devido a uma aceleração.}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento de projéteis}
@@ -430,7 +518,7 @@ e, finalmente, denotando a altura máxima por $H$ e sabendo que $H = \Delta y$,
 \subsection{Alcance horizontal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O alcance horizontal de um projétil pode ser calculado se soubermos qual é o tempo decorrido entre o objeto ser lançado e voltar à mesma posição no eixo $y$ que ocupava no momento do lançamento. Temos então que o deslocamento $\Delta y$ será nulo, logo, à partir da Equação~\eqref{Eq:XX0V0TAT2}, temos
+O alcance horizontal de um projétil pode ser calculado se soubermos qual é o tempo decorrido entre o objeto ser lançado e voltar à mesma posição no eixo $y$ que ocupava no momento do lançamento. Temos então que o deslocamento $\Delta y$ será nulo, logo, à partir da Equação~\eqref{Eq:XX0V0TAT22}, temos
 \begin{equation}
   y_f-y_i = v_{iy}t - \frac{g}{2}t^2,
 \end{equation}
@@ -520,7 +608,7 @@ verificamos que a equação da trajetória segue o mesmo formato, porém com $A 
 
 \begin{marginfigure}
 \centering
-   \begin{tikzpicture}[>=Stealth, scale=1.3]
+   \begin{tikzpicture}[>=Stealth, scale=1.4]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
         \draw[->, gray] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
         \draw[->] (60:2) -- node[above right]{$\vec{v}_i$} +(-30:0.51763809) coordinate (A);
@@ -549,7 +637,7 @@ Podemos calcular o módulo desta aceleração se considerarmos a Figura~\ref{Fig
 
 \begin{marginfigure}
 \centering
-   \begin{tikzpicture}[>=Stealth, scale=1.3]
+   \begin{tikzpicture}[>=Stealth, scale=1.4]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
         \coordinate (O) at (0,0);
         
@@ -558,8 +646,8 @@ Podemos calcular o módulo desta aceleração se considerarmos a Figura~\ref{Fig
         \draw[->] (A) -- node[above right]{$\Delta \vec{r}$} (B);
         
         \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = B--O--A};
-        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = O--A--B};
-        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = A--B--O};
+        \pic [draw, "$\alpha$", angle eccentricity=1.5, angle radius = 3mm] {angle = O--A--B};
+        \pic [draw, "$\alpha$", angle eccentricity=1.5, angle radius = 3mm] {angle = A--B--O};
         
         \coordinate (O) at (0, -1);    
         
@@ -568,8 +656,8 @@ Podemos calcular o módulo desta aceleração se considerarmos a Figura~\ref{Fig
         \draw[->] (A) -- node[right]{$\Delta \vec{v}$} (B);
         
         \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = B--O--A};
-        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = O--A--B};
-        \pic [draw, "$\alpha$", angle eccentricity=0.7] {angle = A--B--O};
+        \pic [draw, "$\alpha$", angle eccentricity=1.5, angle radius = 3mm] {angle = O--A--B};
+        \pic [draw, "$\alpha$", angle eccentricity=1.5, angle radius = 3mm] {angle = A--B--O};
     
    \end{tikzpicture}
    \caption{Triângulos formados pelos vetores $\vec{r}_i$, $\vec{r}_f$, e $\Delta \vec{r}$ e pelos vetores $\vec{v}_i$, $\vec{v}_f$, e $\Delta\vec{v}$. Note que este último foi ampliado em relação à Figura~\ref{Fig:Acel_mov_cir_unif} unicamente para facilitar a visualização.\label{Fig:Acel_mov_cir_unif_mod}}
@@ -616,7 +704,7 @@ onde usamos a propriedade
 \end{equation}
 %
 $\lambda$ e $\xi$ representandos constantes quaisquer. Notamos que o limite que resta é a razão entre a distância percorrida pela partícula e o tempo necessário para efetuar tal deslocamento, ou seja, é a velocidade $v$. Logo,
-\begin{equation}\label{Eq:AceleracaoCentripeta}
+\begin{equation}
   a = \frac{v^2}{r}.
 \end{equation}
 
@@ -681,7 +769,7 @@ O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum
     \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (1pt);
    
 \end{tikzpicture}
-\caption{Podemos aproximar uma região qualquer de uma curva por um círculo. Assim, é possível se decompor o vetor aceleração em uma componente \emph{centrípeta} (que aponto para o centro $C$ do círculo), cujo papel é o de alterar a direção, e uma componente tangencial (que aponta tangencialmente à trajetória, na mesma direção da velocidade instantânea), cujo papel é o de alterar o módulo da velocidade.\label{Fig:Dir_vel}}
+\caption{Podemos aproximar uma região qualquer de uma curva por um círculo. Assim, é possível se decompor o vetor aceleração em uma componente \emph{centrípeta} (que aponto para o centro $C$ do círculo), cujo papel é o de alterar a direção, e uma componente tangencial (que aponta tangencialmente à trajetória, na mesma direção da velocidade instantânea), cujo papel é o de alterar o módulo da velocidade.\label{Fig:Decomp_acel_tan_centrip}}
 \end{marginfigure}
 
 Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajetória circular, com um centro e um raio bem definido\footnote{Até mesmo uma reta pode ser interpretada dessa maneira, nesse caso temos um círculo de raio infinito!}. Levando isso em conta, de forma geral, podemos assumir que o vetor aceleração não aponta para o centro da trajetória, porém podemos o decompor em duas partes:
@@ -762,7 +850,7 @@ onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial.
    
     
 \end{tikzpicture}
-\caption{Se conhecermos as componentes, podemos determinar o vetor aceleração através das propriedades dos vetores.\label{Fig:Dir_vel}}
+\caption{Se conhecermos as componentes, podemos determinar o vetor aceleração através das propriedades dos vetores.\label{Fig:Decomp_acel_tan_centrip_mod_vet_acel}}
 \end{marginfigure}
 
 Através das componentes radial e tangencial, se -- por exemplo -- necessitarmos descrever o movimento de um carro que ganha velocidade com aceleração tangencial constante em uma pista circular, podemos utilizar as equações da cinemática para calcular a evolução temporal da velocidade. Assim, temos que

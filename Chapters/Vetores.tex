@@ -6,22 +6,21 @@
 
 %\clearpage
 
+\begin{fullwidth}
+{\it
+Para que possamos estender o tratamento do movimento obtido no Capítulo~\ref{Chap:MovimentoUnidimensional} a três dimensões, vamos precisar utilizar vetores. Neste capítulo discutiremos tais objetos e algumas de suas propriedades.
+}
+\end{fullwidth}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-{\it
-Intro ...
-}
-\comment{Fazer intro. Colocar exercícios de verificação onde for possível.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Vetores e escalares}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 No movimento retilíneo denotamos o sentido de uma grandeza simplesmente pelo sinal. Em duas ou três dimensões, precisamos usar \emph{vetores}. Uma grandeza vetorial possui módulo, direção e sentido, e as regras para sua soma, subtração e multiplicação são diferentes de grandezas escalares.
 
 Grandezas escalares são aquelas que não possuem direção e sentido. Podemos citar como exemplos de grandezas escalares a temperatura, o tempo e a massa. Ao expressarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa. As regras de soma, subtração, multiplicação e divisão para esse tipo de grandeza são aquelas da álgebra comum.
+
+Já no caso de grandezas vetoriais, temos situações em que a \emph{soma} de dois vetores pode resultar em um vetor \emph{nulo}. Além disso, os vetores não são utilizados exclusivamente: em muitas equações eles são relacionados de alguma maneira a grandezas escalares.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representação geométrica de um vetor}
@@ -210,7 +209,7 @@ onde $\alpha$ é um escalar. O módulo do vetor $\vec{c}$ será dado por $\mod{\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sistemas de referência (bases)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Seria melhor: bases, bases ortogonais, versores, sistema simplificado de referência (componentes, notação módulo ângulo)}
+%\comment{Seria melhor: bases, bases ortogonais, versores, sistema simplificado de referência (componentes, notação módulo ângulo)}
 
 Realizar operações com vetores geometricamente é possível, porém trabalhoso. Podemos utilizar as propriedades de soma de vetores e de multiplicação por um escalar para definir um sistema de coordenadas em relação a qual o vetores podem ser descritos em termos de componentes.
 
@@ -427,3 +426,5 @@ Devido ao versor unitário, podemos somar as componente, colocando-o em evidênc
 %
 Em casos mais complexos, como veremos mais adiante, a praticidade da notação de versores unitários se tornará mais evidente.
 % TODO Legal seria um exemplo ou dois mostrando que é melhor
+
+Uma propriedade importante que pode ser prontamente verificada através da discussão acima é a de que equações envolvendo vetores pode ser separadas em três equações idênticas, uma para cada eixo\footnote{Isso não é verdade para equações que envolvam o \emph{produto vetorial entre dois vetores}. Veremos tal produto somente no Capítulo~\ref{Chap:MomentoAngular}}. Isso será fundamental para que possamos simplificar a interpretação de movimentos bi e tridimensionais no Capítulo~\ref{Chap:MovimentoBidimensional}, mas tal resultado não se limita à cinemática.
