@@ -13,9 +13,8 @@
 \begin{fullwidth}
 {\it
 
+O que faremos neste capítulo?
 
-
-\comment{discutir o Pêndulo}
 }
 \end{fullwidth}
 
@@ -23,17 +22,41 @@
 \section{Introdução} 
 %%%%%%%%%%%%%%%%%%%%%
 
-Em muitos casos a determinação de algumas grandezas através das Leis de Newton é uma tarefa bastante complexa. Se, por exemplo, estamos interessados em calcular em determinar a velocidade de um pêndulo após ele percorrer uma certa distância, temos uma aceleração que varia dependendo da posição. A solução desse problema exige o uso de técnicas de cálculos que não são simples, tornando a solução em algo não trivial.
+Em muitos casos a determinação de algumas grandezas através das Leis de Newton é uma tarefa bastante complexa. Se, por exemplo, estamos interessados em calcular a velocidade de um pêndulo após ele percorrer uma certa distância, temos uma aceleração que varia dependendo da posição. A solução desse problema exige o uso de técnicas de cálculos que não são simples, tornando a solução em algo não trivial.
 
 Podemos encontrar uma maneira mais simples de resolver problemas como esse utilizando o conceito de \emph{energia}. Diferentemente das variáveis cinemáticas e das forças, a energia é uma grandeza escalar, como a massa. Em certas circunstâncias, verificaremos qua a energia de um sistema é uma constante, o que simplifica muito o seu tratamento ao permitir que relacionemos as grandezas associadas a configurações diferentes do sistema, que ocorrem em tempos diferentes.
 
 \begin{marginfigure}
 \centering
-\begin{tizkpicture}
-    % Figura do pêndulo
+\begin{tikzpicture}[>=Stealth, scale = 1.2]
+    \draw[fill] (0,0) circle (1pt);
+    \draw[dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 290];
+    
+    \draw[gray] (0,0) -- (180:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (180:2) circle (2mm);
+    \draw[->, thick, gray] (180:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    
+    \draw[gray] (0,0) -- (-150:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-150:2) circle (2mm);
+    \draw[->, thick, gray] (-150:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (-150:18mm) -- (-150:14mm) node[above left]{$\vec{T}$};
+    
+    \draw[gray] (0,0) -- (-120:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-120:2) circle (2mm);
+    \draw[->, thick, gray] (-120:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (-120:18mm) --  node[left]{$\vec{T}$} (-120:12mm);
+    
+    \draw (0,0) -- (-90:18mm);
+    \draw[pattern = north west lines] (-90:2) circle (2mm);
+    \draw[->] (-90:2) +(0.2,0) -- node[below]{$\vec{v}$} +(1,0);
+    \draw[->, thick] (-90:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick] (-90:18mm) -- (-90:11mm) node[below right]{$\vec{T}$};
+    
 \end{tikzpicture}
 \caption{O cálculo da velocidade de um pêndulo é uma tarefa muito mais simples ao interpretarmos o problema à luz dos conceitos de energia e conservação da energia.}
 \end{marginfigure}
+
+\emph{Lead in} para a dedução do teorema trabalho energia \dots
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Teorema Trabalho-Energia}
@@ -41,12 +64,35 @@ Podemos encontrar uma maneira mais simples de resolver problemas como esse utili
 
 % O primeiro a falar em trabalho e energia cinética com o significado atual foi Coriolis (segundo o livro de Sistemas Dinâmicos de Luiz Henrique Alves Monteiro).
 
-Se tomarmos um objeto que pode se mover ao longo de um fio esticado horizontalmente, submetido a uma força $F$ que faz um ângulo $\theta$ com a direção do fio. Definindo um eixo $x$ ao longo do fio, podemos verificar através da Equação de Torricelli que a velocidade estará relacionada à distância percorrida pelo objeto através de
+Se tomarmos um objeto que pode se mover ao longo de um fio esticado horizontalmente, submetido a uma força $F$ constante e que faz um ângulo $\theta$ com a direção do fio. Definindo um eixo $x$ ao longo do fio, podemos verificar através da Equação de Torricelli que a velocidade estará relacionada à distância percorrida pelo objeto através de
 \begin{equation}
   v_f^2 = v_i^2 + 2 a \Delta x.
 \end{equation}
-%
-Sabemos que se o fio impede o movimento no eixo perpendicular a ele, temos somente aceleração no eixo $x$, o que resulta em uma aceleração dada por $a = F_x/m$. Logo,
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashdotted, ->] (0,0) -- (4.5,0) coordinate (x);
+    
+    \draw[pattern = north west lines] (0.5,0) coordinate (c1) circle (2mm);
+    \draw[->, thick] (0.5,0)+(30:2mm) -- +(30:1.2) coordinate (f1) node[above]{$\vec{F}$};
+    
+    \draw[->] (0.5, -0.5) +(-0.25, 0) -- node[below]{$\vec{v}_i$}+(0.25, 0);
+    
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (3.5,0) coordinate (c2) circle (2mm);
+    \draw[->, thick] (3.5,0)+(30:2mm) -- +(30:1.2) coordinate (f2) node[above]{$\vec{F}$};
+    \draw[->] (3.5, -0.5) +(-0.35, 0) -- node[below]{$\vec{v}_i$}+(0.35, 0);
+    
+    \draw[->] (0.5,-1) -- node[below]{$\vec{d}$} (3.5, -1);
+    
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = c2--c1--f1};
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = x--c2--f2};
+    
+\end{tikzpicture}
+\caption{Uma conta que pode deslisar por um fio é acelerada lateralmente por uma força $\vec{F}$ constante. Note que para que uma aceleração lateral seja possível, é necessário que haja uma força exercida pelo fio sobre a conta, de forma a equilibrar a componente de $\vec{F}$ perpendicular ao fio (eixo $x$).}
+\end{marginfigure}
+
+\noindent{}Sabemos que se o fio impede o movimento no eixo perpendicular a ele, temos somente aceleração no eixo $x$, o que resulta em uma aceleração dada por $a = F_x/m$. Logo,
 \begin{equation}
   v_f^2 = v_i^2 + 2 \frac{F_x}{m} \Delta x,
 \end{equation}
@@ -66,9 +112,27 @@ e que denominamos como \emph{energia cinética}. A variação de tal grandeza es
   W = F_x \Delta x.
 \end{equation}
 %
-O trabalho pode ser analisado em três situações distintas, relacionadas ao ângulo que a força $\vec{F}$ faz com a direção do deslocamento. Se tivermos que $\theta < \np[\tcdegree]{90}$, a força tende a acelerar o objeto e a energia cinética deve aumentar com o tempo. Se, por outro lado, $\theta > \np[\tcdegree]{90}$, a força tende a desacelerar o objeto, diminuindo sua energia cinética. Finalmente, se $\theta = \np[\tcdegree]{90}$, a força não é capaz de acelerar o objeto\footnote{Lembre-se que o objeto está limitado a se deslocar no eixo $x$, portanto não podemos ter aceleração centrípeta.}, deixando a energia cinética constante, o que implica em um trabalho nulo. Essas três observações podem ser conciliadas se definirmos um vetor $\vec{d}$ que descreva o deslocamento do objeto (a direção e sentido de $\vec{d}$ são a do semi-eixo $x$ positivo; o módulo é dado por $\Delta x$) e tomarmos o produto escalar com a força. Assim
-\begin{equation}
-  W = \vec{F}\cdot\vec{d}. \mathnote{Trabalho}
+O trabalho pode ser analisado em três situações distintas, relacionadas ao ângulo que a força $\vec{F}$ faz com a direção do deslocamento:
+\begin{itemize}
+    \item Se tivermos que $\theta < \np[\tcdegree]{90}$, a força tende a acelerar o objeto e a energia cinética deve aumentar com o tempo;
+    \item Se, por outro lado, $\theta > \np[\tcdegree]{90}$, a força tende a desacelerar o objeto, diminuindo sua energia cinética;
+    \item Finalmente, se $\theta = \np[\tcdegree]{90}$, a força não é capaz de acelerar o objeto\footnote[][-5cm]{Lembre-se que o objeto está limitado a se deslocar no eixo $x$, portanto não podemos ter aceleração no eixo perpendicular ao deslocamento.}, deixando a energia cinética constante, o que implica em um trabalho nulo.
+\end{itemize}
+%
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) coordinate (origin) -- node[below]{$\vec{a}$} (1.5,0) coordinate (A);
+    \draw[->] (0,0) -- node[above]{$\vec{b}$} (1,1) coordinate (B);
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5]{angle = A--origin--B};
+\end{tikzpicture}
+\caption{O produto escalar toma dois vetores e resulta em um escalar. Podemos o calcular através da expressão $\vec{a} \cdot \vec{b} = ab\cos\theta$, onde o ponto entre os vetores denota a operação de produto escalar. Caso as componentes dos vetores em um sistema de referência sejam conhecidas, podemos calcular o produto escalar como $\vec{a} \cdot \vec{b} = a_xb_x + a_yb_y + a_zb_z$.}
+\end{marginfigure}
+
+\noindent{}Essas três observações podem ser conciliadas se definirmos um vetor $\vec{d}$ que descreva o deslocamento do objeto (a direção e sentido de $\vec{d}$ são a do semi-eixo $x$ positivo; o módulo é dado por $\Delta x$) e tomarmos o \emph{produto escalar} com a força. Assim
+\begin{equation}\label{Eq:TrabalhoForcaConstante}
+  W = \vec{F}\cdot\vec{d}. \mathnote{Trabalho de uma força constante}
 \end{equation}
 
 Temos então o seguinte resultado, conhecido como \emph{Teorema Trabalho -- Energia Cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial. De qualquer forma, o resultado é bastante útil.},
@@ -76,107 +140,420 @@ Temos então o seguinte resultado, conhecido como \emph{Teorema Trabalho -- Ener
   \Delta K = W \mathnote{Teorema Trabalho -- Energia Cinética}.
 \end{equation}
 
+Tanto a energia cinética, quanto o trabalho tem unidades dadas por
+\begin{align*}
+    [K] &= \left[\frac{1}{2} mv^2\right] & [W] &= [\vec{F}\cdot\vec{d}] \\
+    &=[m][v]^2 & &= [F][d] \\
+    &=\rm{M}\frac{\rm{L}^2}{\rm{T}^2} & &= \rm{M}\frac{\rm{L}}{\rm{T}^2} \rm{L},
+\end{align*}
+%
+o que dentro do Sistema Internacional é dado por
+\begin{equation}
+    \np[J]{1} \equiv \np[kg\cdot m^2/s^2]{1}.
+\end{equation}
+%
+A unidade $\rm{J}$ é dominada \emph{joule} em homenagem a James Prescott Joule, físico que realizou estudos sobre energia e calor.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cálculo do trabalho}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Encher uma linguiça aqui, falar de características gerais do trabalho (ser positivo ou negativo, o que significa ser negativo ou positivo).
+Nas próximas seções verificaremos o trabalho devido a algumas forças comuns. Utilizaremos a definição dada pela Equação~\ref{Eq:TrabalhoForcaConstante} e, em alguns casos, utilizaremos algumas propriedades dos vetores e do produto escalar. Uma, em especial, se origina no fato de que somente a componente da força no sentido do deslocamento é capaz de realizar trabalho. Se escrevermos a força $\vec{F}$ como a soma de dois vetores, um $\vec{F}_{\parallel}$ na direção do deslocamento e outro $\vec{F}_{\perp}$ perpendicular ao deslocamento
+\begin{equation}
+    \vec{F} = \vec{F}_{\parallel} + \vec{F}_{\perp},
+\end{equation}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (-0.5,0) -- (2.5,0) coordinate (x) node[below]{$\vec{d}$};
+    
+    \draw[fill] (0.5,0) coordinate (c1) circle (1mm);
+    \draw[->, thick] (0.5,0) -- +(30:1.2) coordinate (f1) node[above]{$\vec{F}$};
+    \draw[->, thick] (0.5,0) -- node[below]{$\vec{F}_{\parallel}$} +(1.039 , 0);
+    \draw[->, thick] (0.5,0) -- node[left]{$\vec{F}_{\perp}$} +(0,0.6);
+       
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = c2--c1--f1};
+
+\end{tikzpicture}
+\caption{Podemos decompor um vetor qualquer como a soma de dois vetores em direções arbitrárias. Utilizamos essa propriedade vetorial para descrever um vetor como a soma e duas componentes, uma na direção do deslocamento $\vec{d}$ e outra perpendicular a ele. Verificamos que somente a componente paralela é capaz de realizar trabalho. Considerando isso, em algumas situações, vamos nos preocupar em determinar somente essa componente.}
+\end{marginfigure}
+%
+\noindent{}podemos verificar que:
+\begin{align}
+    W &= \vec{F}\cdot\vec{d} \\
+    &= (\vec{F}_{\parallel} + \vec{F}_{\perp})\cdot\vec{d} \\
+    &= \vec{F}_{\parallel} \cdot \vec{d} + \vec{F}_{\perp} \cdot \vec{d} \\
+    &= \vec{F}_{\parallel} \cdot \vec{d},
+\end{align}
+%
+onde usamos o fato de que $\vec{F}_{\perp} \cdot \vec{d} = 0$. Note que o que fizemos aqui foi só verificar que as propriedades vetoriais descrevem adequadamente algo que foi pressuposto na própria definição do trabalho de uma força constante (Equação~\ref{Eq:TrabalhoForcaConstante}).
+
+Destacamos ainda que uma maneira simples de verificar se o trabalho tem o sinal adequado, é analisar o efeito da força considerada na energia cinétia. Como verificamos na definição do teorema trabalho--energia cinética, as forças podem causar aumentos ou diminuições na energia cinética. Sempre que a energia cinética aumenta devido a uma força, isso significa que o trabalho é \emph{positivo}; caso constrário, isto é, quando a energia cinética decresce, temos que o trabalho é \emph{negativo}. Verificar tais propriedades é, em geral, muito simples, podendo poupar algum trabalho ao evitar revisar contas com erros de sinal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trabalho realizado pela força peso}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Quando um objeto se move por um caminho qualquer sujeito à força peso, temos que o trabalho realizado por tal força pode ser positivo, negativo ou nulo, dependendo da orientação do deslocamento do objeto. Se temos um deslocamento que ocorre verticalmente para baixo, como na Figura~???, devido à orientação dos vetores temos
+Quando um objeto se move por um caminho qualquer sujeito à força peso, temos que o trabalho realizado por tal força pode ser positivo, negativo ou nulo, dependendo da orientação do deslocamento do objeto. Se temos um deslocamento que ocorre verticalmente para baixo, como na Figura~\ref{Fig:DeslocamentoCorpoVerticalmenteParaBaixo}, devido à orientação dos vetores temos
 \begin{align}
   W_g &= \vec{P}\cdot\vec{d} \\
   &= mgd\cos\degree{0} \\
   &= mgd.
 \end{align}
-%
-Se, por outro, temos que o deslocamento ocorre para cima, (Figura~???), temos
+\begin{marginfigure}[-10cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashdotted] (0,0) -- (0,-4);
+    
+    \draw[pattern = north west lines] (0,-1) circle (2mm);
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,-3) circle (2mm);
+    
+    \draw[fill] (0,-1) circle (1pt);
+    \draw[->, thick] (0,-1) -- +(0,-1) node[above right]{$\vec{P}$};
+    
+    \draw[->] (0,-1) -- node[left]{$\vec{d}$} (0,-3);
+\end{tikzpicture}
+\caption{Corpo que se desloca verticalmente para baixo. \label{Fig:DeslocamentoCorpoVerticalmenteParaBaixo}}
+\end{marginfigure}
+
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashdotted] (0,0) -- (0,-4);
+    
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,-1) circle (2mm);
+    \draw[pattern = north west lines] (0,-3) circle (2mm);
+    
+    \draw[fill] (0,-3) circle (1pt);
+    \draw[->, thick] (0,-3) -- +(0,-1) node[above right]{$\vec{P}$};
+    
+    \draw[<-] (0,-1) -- node[left]{$\vec{d}$} (0,-3);
+\end{tikzpicture}
+\caption{Corpo que se desloca verticalmente para cima. \label{Fig:DeslocamentoCorpoVerticalmenteParaCima}}
+\end{marginfigure}
+
+\noindent{}Se, por outro, temos que o deslocamento ocorre para cima, (Figura~\ref{Fig:DeslocamentoCorpoVerticalmenteParaCima}), temos
 \begin{align}
   W_g &= \vec{P}\cdot\vec{d} \\
   &= mgd\cos\degree{180} \\
   &= -mgd.
 \end{align}
-%
-Já se realizarmos um deslocamento horizontal, obtemos
+
+\noindent{}Já se realizarmos um deslocamento horizontal (Figura~\ref{Fig:DeslocamentoCorpoVerticalmenteParaDireita}), obtemos
 \begin{align}
   W_g &= \vec{P}\cdot\vec{d} \\
-  &= mgd\cos\degree{900} \\
+  &= mgd\cos\degree{90} \\
   &= 0,
 \end{align}
-%
-isto é, para qualquer deslocamento horizontal, o trabalho é nulo. Podemos chegar a um resultado mais geral verificando analisando a Figura~???. \comment{marginfig vetor peso e deslocamento diagonal de cima para baixo, esquerda para direita. ângulo $\theta$ entre os vetores.}
-O trabalho realizado pela força peso em tal deslocamento será dado por
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,rotate = 90]
+    \draw[dashdotted] (0,0) -- (0,-4);
+    
+    \draw[pattern = north west lines] (0,-1) circle (2mm);
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,-3) circle (2mm);
+    
+    \draw[fill] (0,-1) circle (1pt);
+    \draw[->, thick] (0,-1) -- +(-1,0) node[above left]{$\vec{P}$};
+    
+    \draw[->] (0,-1) -- node[above]{$\vec{d}$} (0,-3);
+\end{tikzpicture}
+\caption{Corpo que se desloca horizontalmente. \label{Fig:DeslocamentoCorpoVerticalmenteParaDireita}}
+\end{marginfigure}
+
+\noindent{}isto é, para qualquer deslocamento horizontal, o trabalho é nulo.
+
+Podemos chegar a um resultado mais geral verificando analisando a Figura~\ref{Fig:DeslocamentoCorpoDiagonal}. O trabalho realizado pela força peso em tal deslocamento será dado por
 \begin{align}
   W_g &= \vec{P}\cdot\vec{d} \\
   &= mgd\cos\theta.
 \end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashdotted] (0.5,-0.5) -- (3.5,-3.5);
+    
+    \draw[pattern = north west lines] (1,-1) coordinate (O) circle (2mm);
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (3,-3) circle (2mm);
+    
+    \draw[fill] (1,-1) circle (1pt);
+    \draw[->, thick] (1,-1) -- +(0,-1) coordinate (P) node[above left]{$\vec{P}$};
+    
+    \draw[->] (1,-1) -- node[above right]{$\vec{d}$} (3,-3) coordinate (D);
+    
+    \draw[dashed,->] (0.5,-1) -- (3.5,-1) node[above left]{$x$};
+    \draw[dashed,<-] (1, -0.5) node[above left]{$y$} -- (1, -3.5);
+    
+    \draw[dotted] (3,-1) -- node[right]{$d\cos\theta$} (3,-3);
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = P--O--D};
+\end{tikzpicture}
+\caption{Corpo que se desloca diagonalmente para baixo. Veja que a distância percorrida verticalmente é dada pela linha pontilhada e corresponde a $d\cos\theta$. \label{Fig:DeslocamentoCorpoDiagonal}}
+\end{marginfigure}
 %
-O produto $d\cos\theta$ pode ser interpretado como a distância percorrida no eixo vertical $y$ (projeção de $\vec{d}$ na direção de $\vec{P}$, que é \emph{por definição} o eixo vertical). Se o eixo vertical tem seu sentido positivo apontando para cima, temos que $d\cos\theta = \Delta y$. Logo, podemos expressar o trabalho da força peso como
+\noindent{}O produto $d\cos\theta$ pode ser interpretado como a distância percorrida no eixo vertical $y$ (projeção de $\vec{d}$ na direção de $\vec{P}$, que é \emph{por definição} o eixo vertical). Se o eixo vertical tem seu sentido positivo apontando para cima, temos que
+\begin{equation}
+    d\cos\theta = - \Delta y
+\end{equation}
+%
+(note que o termo $d\cos\theta$ é positivo, enquanto $\Delta y$ é negativo, por isso precisamos do sinal negativo na expressão acima). Logo, podemos expressar o trabalho da força peso como
 \begin{equation}\label{Eq:TrabalhoPeso}
   W_g = - mg\Delta y. \mathnote{Trabalho realizado pela força peso}
 \end{equation}
 %
-Veja que esse resultado depende da definição do eixo $y$ como um eixo vertical, dirigido para cima. Essa definição também dá conta dos casos anteriores em que consideramos deslocamentos verticais e horizontais.
+Veja que esse resultado depende da definição do eixo $y$ como um \emph{eixo vertical e dirigido para cima}. Essa definição também dá conta dos casos anteriores em que consideramos deslocamentos verticais e horizontais.
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trabalho realizado por forças de atrito e arrasto}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se um bloco desliza sobre uma superfície com atrito, eventualmente ele acabará parando. Isso pode ser entendido do ponto de vista do trabalho ao analisarmos a variação da energia cinética. Na Figura~??? temos um diagrama de forças para o deslizamento do bloco, onde também indicamos o vetor deslocamento. Podemos verificar que o atrito realiza um trabalho dado por
+%destacar que essas forças também realizam trabalho positivo, todo mundo esquece disso
+
+Se um bloco desliza sobre uma superfície com atrito, eventualmente ele acabará parando. Isso pode ser entendido do ponto de vista do trabalho ao analisarmos a variação da energia cinética. Na Figura~\ref{Fig:TrabalhoAtrito} temos um diagrama de forças para o deslizamento do bloco, onde também indicamos o vetor deslocamento. Podemos verificar que o atrito realiza um trabalho dado por
 \begin{align}
   W_{\fat} &= \vecfat\cdot\vec{d} \\
   &= \fat d\cos\theta.
 \end{align}
-%
-como $\theta = \degree{180}$, temos
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface, gray] (0,0) -- (4,0);
+    \draw[pattern = dots, draw = gray, pattern color = gray] (0.5,0) rectangle (1.5,1);
+        
+    \draw[fill, gray] (1,0.5) circle (1pt);
+    \draw[->, thick, gray] (1,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (1,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[->, thick] (0.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
+    
+    \draw[dashed, gray] (2.5,0) rectangle (3.5,1);
+
+    \draw[->](1,0.5) -- node[above]{$\vec{d}$} +(2,0);
+    \draw[dashdotted, gray, ->](0,0.5) -- (4,0.5) node[below left]{$x$};     
+        
+    \draw[dashed, gray] (4,0) -- +(-145:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw,  gray, "$\alpha$", angle eccentricity=1.5] {angle = C--B--A};
+
+\end{tikzpicture}
+\caption{Bloco que se desloca sujeito à força de atrito sobre um plano inclinado. Note que o atrito e o deslocamento são em sentidos opostos do mesmo eixo $x$. \label{Fig:TrabalhoAtrito}}
+\end{marginfigure}
+
+\noindent{}como $\theta = \degree{180}$, temos
 \begin{equation}
   W_{\fat} = -\fat d.
 \end{equation}
 %
 Os módulos dos vetores $\vecfat$ e $\vec{d}$ são positivos, logo, temos que $W_{\fat}$ é negativo. De acordo com o Teorema Trabalho-Energia Cinética, temos então que a variação da energia cinética deve ser negativa, ou seja, temos que a velocidade sofrerá uma diminuição. 
 
-Em geral, quando se pensa em situações envolvendo atrito, nos vêm à mente situações como a discutida acima e ficamos com a impressão de que o trabalho efetuado pela força de atrito é sempre negativo. Isso não é verdade. Se temos um corpo sobre uma esteira, %desenhar no blender
-sendo acelerado por ela, verificamos através de um diagrama de corpo livre % desenhar diagrama
-que a força de atrito (que tem a mesma direção da aceleração) será no mesmo sentido do deslocamento. Nesse caso, temos que o trabalho realizado pela força de atrito deve ser \emph{positivo}, pois tal força é responsável por \emph{aumentar} a energia cinética. Outros exemplos em que a força de atrito realiza um trabalho positivo são o de uma caixa sobre a caçamba de uma camionete que acelera, ou mesmo o atrito que age sobre os pneus da camionete e que tem a mesma direção e sentido que seu deslocamento.
+Em geral, quando se pensa em situações envolvendo atrito, nos vêm à mente situações como a discutida acima e ficamos com a impressão de que o trabalho efetuado pela força de atrito é sempre negativo. Isso não é verdade. Se temos um corpo sobre uma esteira, sendo acelerado por ela, verificamos através de um diagrama de corpo livre --~Figura~\ref{Fig:TrabalhoCorpoAceleradoPeloAtrito}~-- que a força de atrito (que tem a mesma direção da aceleração) será no mesmo sentido do deslocamento. Nesse caso, temos que o trabalho realizado pela força de atrito deve ser \emph{positivo}, pois tal força é responsável por \emph{aumentar} a energia cinética.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill, gray] (0,0.5) circle (1pt);
+    
+    \draw[->] (0,0.5) -- node[above]{$\vec{d}$} +(1.5,0);
+    
+    \draw[->, thick, gray] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[->, thick] (0.5,0) -- node[below]{$\vec{f}_{at}$} +(1,0);
+    
+    \draw[->, dashed, gray] (-2,0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed, gray] (0, -1) -- (0, 2.5) node[right]{$y$};
+    
+    \draw[->, gray] (0.25, -1) -- node[below]{$\vec{a}$} +(1,0);
+
+\end{tikzpicture}
+\caption{Bloco apoiado sobre uma superfície que se desloca para a direita com aceleração $\vec{a}$. Note que a força de atrito é na mesma direção que o deslocamento e por isso o trabalho realizado pelo atrito é positivo. \label{Fig:TrabalhoCorpoAceleradoPeloAtrito}}
+\end{marginfigure}
 
 Quando tratamos a força de arrasto, também temos a impressão de que o trabalho é sempre negativo, o que é incorreto. Quando um paraquedista cai, chegando à sua velocidade terminal, claramente temos um trabalho negativo, pois a força de arrasto tem direção contrária ao deslocamento. Porém se soprarmos uma bola de ping-pong, ela ganhará velocidade. Temos então que a força de arrasto, que tem a mesma direção e sentido que o deslocamento, realiza um trabalho positivo.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Trabalho de um conjunto de forças e trabalho em uma situação de equilíbrio}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho de um conjunto de forças}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Voltando ao exemplo de um objeto sobre uma esteira discutido acima, podemos analisar o que acontece se a velocidade de deslocamento é constante. Se o deslocamento é horizontal, temos que -- devido ao equilíbrio -- não temos força de atrito \comment{diagrama}
-pois $a_x = 0$, o que implica em $F_x^Res = 0$. Se temos um deslocamento em um plano inclinado, como na Figura~???, \comment{desenho da esteira subindo} no entanto, temos um trabalho realizado pela força da gravidade e que será negativo. Para que tenhamos uma velocidade constante, é necessário que alguma força equilibre a componente da força peso que atua ao longo do eixo paralelo ao plano inclinado. Nessa situação, tal força será o atrito. Dessa forma temos que o trabalho efetuado pela resultante será dado por
-\begin{align}
-  W &= (\vec{P} + \vecfat) \cdot \vec{d} \\
-  &= 0.
-\end{align}
-%
-Devido ao fato de que o produto escalar é distributivo -- isto é, $(\vec{a} + \vec{b})\cdot \vec{c} = \vec{a}\cdot\vec{c} + \vec{b}\cdot\vec{c}$, podemos escrever
-\begin{align}
-  W &= \vec{P}\cdot\vec{d} + \vecfat\cdot\vec{d}\\
-  &= 0,
-\end{align}
-%
-ou seja, ao calcularmos o trabalho de um conjunto de forças, \emph{podemos simplesmente calcular o trabalho de cada uma delas e somar os resultados, obtendo o trabalho total}. Além disso, observamos que, devido ao equilíbrio,
+Vamos considerar agora o caso em que várias forças atuam sobre um corpo. A aceleração nesse caso será dada pela \emph{força resultante}. Nesse caso, a variação da energia cinética --~e, consequentemente, o trabalho~-- deve estar ligado a tal força:
 \begin{equation}
-  \vec{P}\cdot\vec{d} = - \vecfat\cdot\vec{d}
+    \Delta K = W_{F_R}.
 \end{equation}
 %
-ou seja,
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-55,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface, gray] (0,0) -- (4,0);
+    \draw[pattern = dots, draw = gray, pattern color = gray] (0.5,0) rectangle (1.5,1);
+        
+    \draw[fill, gray] (1,0.5) circle (1pt);
+    \draw[->, thick] (1,0.5) -- +(-35:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (1,1) -- +(0,0.5735) node[below right]{$\vec{N}$};
+    \draw[->, thick] (0.5,0) -- +(-0.3,0) node[above]{$\vec{f}_{at}$};
+    \draw[->, thick] (1.5,0.5) -- +(0.51,0) node[above right]{$\vec{F}_R$};
+    
+    \draw[dashed, gray] (2.5,0) rectangle (3.5,1);
+
+    \draw[->](1,-0.5) -- node[below left]{$\vec{d}$} +(2,0);
+    \draw[dashdotted, gray, ->](0,0.5) -- (4,0.5) node[below left]{$x$};     
+        
+    \draw[dashed, gray] (4,0) -- +(-125:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw,  gray, "$\alpha$", angle eccentricity=1.5] {angle = C--B--A};
+
+\end{tikzpicture}
+\caption{Quando um conjunto de forças atua sobre um objeto, a variação da energia cinética está ligada ao trabalho realizado pela força resultante $\vec{F}_R$. \label{Fig:TrabalhoDiversasForcas}}
+\end{marginfigure}
+
+Podemos utilizar a propriedade distributiva do produto escalar para escrever
+\begin{align}
+    W_{F_R} &= \vec{F}_R \cdot \vec{d} \\
+    &= (\vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \dots) \cdot \vec{d} \\
+    &= \vec{F}_1 \cdot \vec{d} + \vec{F}_2 \cdot \vec{d} + \vec{F}_3 \cdot \vec{d} + \dots \\
+    &= W_{F_1} + W_{F_2} +  W_{F_3} + \dots, 
+\end{align}
+%
+ou seja, \emph{podemos simplesmente calcular o trabalho de cada força independentemente e o trabalho total será dado pela soma de tais trabalhos}. Essa observação é muito importante, pois permite que interpretemos diversos fenômenos físicos a partir do ponto de vista da \emph{energia}. O trabalho pode ser interpretado como um processo de \emph{transferência de energia}, logo, quando temos forças que realizam trabalho positivo, energia é transferida \emph{para o objeto}, aumentando sua energia cinética; quando o trabalho é negativo, energia é transferida \emph{do objeto} --~retirada, transferida para outro agente~--, fazendo com que a energia do objeto diminua.
+
+Através dessa interpretação, verificamos que no movimento descrito na Figura~\ref{Fig:TrabalhoDiversasForcas}:
+\begin{itemize}
+    \item a força peso realiza um trabalho positivo, transferindo energia para o objeto;
+    \item a força de atrito realiza um trabalho negativo, transferindo energia do objeto para algum outro agente;
+    \item a força normal não realiza trabalho, devido ao fato de ser sempre perpendicular ao deslocamento.
+\end{itemize}
+%
+No caso de a força resultante ser zero em tal situação, teríamos que a velocidade seria constante. Nesse caso, verificamos que a energia total transferida para o corpo seria \emph{nula}, ou seja --~sabendo que o trabalho devido à normal é nulo~--,
 \begin{equation}
   W_P = - W_{\fat}.
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade de um pêndulo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos voltar agora ao problema de determinar a velocidade do pêndulo discutida no início do capítulo. Sabemos que a variação da energia cinética está associada ao trabalho total realizado pelas diversas forças:
+\begin{equation*}
+    \Delta K = W_t.
+\end{equation*}
+%
+No caso do pêndulo, temos duas forças: a força peso e a tensão no fio.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2]
+
+    \draw[|-|] (0,0.5) -- node[above]{$\vec{d}$} +(180:20mm);
+    
+    \draw[fill] (0,0) circle (1pt);
+    \draw[dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 290];
+    
+    \draw[gray] (0,0) -- (180:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (180:2) circle (2mm);
+    \draw[->, thick, gray] (180:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    
+    \draw[gray] (0,0) -- (-150:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-150:2) circle (2mm);
+    \draw[->, thick, gray] (-150:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (-150:18mm) -- (-150:14mm) node[above left]{$\vec{T}$};
+    
+    \draw[gray] (0,0) -- (-120:18mm);
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-120:2) circle (2mm);
+    \draw[->, thick, gray] (-120:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (-120:18mm) --  node[left]{$\vec{T}$} (-120:12mm);
+    
+    \draw (0,0) -- (-90:18mm);
+    \draw[pattern = north west lines] (-90:2) circle (2mm);
+    \draw[->] (-90:2) +(0.2,0) -- node[below]{$\vec{v}$} +(1,0);
+    \draw[->, thick] (-90:2) +(0,-0.2) -- +(0,-0.7) node[left]{$\vec{P}$};
+    \draw[->, thick] (-90:18mm) -- (-90:11mm) node[below right]{$\vec{T}$};
+    
+    \draw[<-] (-2.5,0) node[below left]{$y$} -- +(0,-2); 
+    
+\end{tikzpicture}
+\caption{Note que a tensão, apesar de variar em módulo e direção a cada instante, é sempre perpendicular ao deslocamento instantâneo (que se dá ao longo da curva pontilhada).}
+\end{marginfigure}
+
+
+Já vimos que o trabalho da força peso está ligado à distância percorrida verticalmente:
+\begin{equation*}
+    W_g = -mg\Delta y,
+\end{equation*}
+%
+onde o eixo $y$ cresce verticalmente para cima. Já no caso da tensão, apesar de ela variar em módulo e direção a cada instante, \emph{sua direção é sempre perpendicular ao deslocamento}, o que implica em um trabalho nulo devido a essa força em todo o movimento. Assim, temos
+\begin{equation}
+    \frac{1}{2}m v_f^2 - \frac{1}{2}m v_i^2 = -mg\Delta y,
+\end{equation}
+%
+ou, se considerarmos que a velocidade inicial é nula e que o deslocamento no eixo vertical é $\Delta y = - L$,
+\begin{align}
+    \frac{1}{2} m v_f^2 &= mgL \\
+    v_f^2 &= 2gL \\
+    v_f &= \sqrt{2gL}.
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho como a área de um gráfico $F \times x$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em um movimento unidimensional, se elaborarmos um gráfico da força $F_x$ que atua sobre um corpo em função de sua posição $x$ em tal eixo, obtemos um gráfico como o da Figura~???. \comment{gráfico de $F\times x$, $F = cte$.}
-O trabalho efetuado pela força no deslocamento entre duas posições $x_i$ e $x_f$ pode então ser calculado como a ``área virtual'' do gráfico compreendida entre as linhas verticais que passam por $x_i$ e $x_f$ e as linhas horizontais do eixo $x$ e da força $F_x$, pois tal área é dada por
+Em um movimento unidimensional, se elaborarmos um gráfico da força $F_x$ que atua sobre um corpo em função de sua posição $x$ em tal eixo, obtemos um gráfico como o da Figura~\ref{Fig:Graf_area_graf_F_vs_x}. O trabalho efetuado pela força no deslocamento entre duas posições $x_i$ e $x_f$ pode então ser calculado como a ``área virtual'' do gráfico compreendida entre as linhas verticais que passam por $x_i$ e $x_f$ e as linhas horizontais do eixo $x$ e da força $F_x$, pois tal área é dada por
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$F$}
+        |- (4.3,0) node (xaxis) [below left] {$x$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3]
+    plot(\x,{2});
+    
+     \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
+      (0.5, 0) node[below]{$x_i$}
+      -- plot ({\x}, {2})
+      -- (2.5, 0) node[below]{$x_f$}
+      -- cycle;
+      
+      \draw[dashed] (0.5, 0) -- (0.5, 2);
+      \draw[dashed] (2.5, 0) -- (2.5, 2);
+      \path (0, 2) node[left]{$F_x$};
+      
+      \draw[|-|] (3.2, 0) -- node[right]{$F_x$} (3.2, 2);
+      \draw[|-|] (0.5, -0.6) -- node[below]{$\Delta x$} (2.5, -0.6);
+     
+\end{tikzpicture}
+\caption{A área hachurada está relacionada ao trabalho em um movimento sujeito a uma força $\vec{F}$. Note que o gráfico expressa somente o valor da componente da força na direção do movimento.\label{Fig:Graf_area_graf_F_vs_x}}
+\end{marginfigure}
+
 \begin{align}
   A &= \textrm{base} \times \textrm{altura} \\
   &= \Delta x \times F_x \\
@@ -189,101 +566,231 @@ Este artifício é útil para calcularmos o trabalho realizado por forças que n
 \subsection{Trabalho realizado por uma força elástica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Um exemplo de força que não é constante e cujo trabalho estamos interessados em calcular é o trabalho realizado por uma força elástica. A força exercida por uma mola varia conforme ela é distendida segundo a expressão
+Um exemplo de força que não é constante e cujo trabalho estamos interessados em calcular é a força elástica. A força exercida por uma mola varia conforme ela é distendida segundo a expressão
 \begin{equation}
   F = -k x,
 \end{equation}
 %
-o que resulta em um gráfico como o da Figura~???. Se um corpo submetido a essa força sofre um deslocamento entre as posições $x_i$ e $x_f$, temos que a área do gráfico, será dada pela diferença entre o triângulo maior ($OBD$) e o triângulo menor ($OAC$). Portanto, o trabalho será 
+o que resulta em um gráfico como o da Figura~\ref{Fig:TrabalhoForcaElastica}. Se um corpo submetido a essa força sofre um deslocamento entre as posições $x_i$ e $x_f$, temos que a área do gráfico, será dada pela diferença entre o triângulo maior ($OAx_i$) e o triângulo menor ($OBx_f$). Portanto, o trabalho será 
 \begin{equation}
-  W_{F_e} = \frac{x_f F(x_f)}{2} - \frac{x_i F(x_i)}{2}
+  W_{F_e} = \frac{x_i F(x_i)}{2} - \frac{x_f F(x_f)}{2}
 \end{equation}
-%
-onde usamos o fato de que a altura dos triângulos é dada por $y = F(x)$. Assim, obtemos
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (0,-2.5) -- (0,-1);
+    \draw[interface] (-4.8,-2.5) -- (0, -2.5);
+    
+    \draw (0,-2) -- (-0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (-0.2,-2) -- (-3.3,-2);
+    \draw (-3.3, -2) -- (-3.5,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (-3.5,-2.5) rectangle (-4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (-1.5,-2.5) rectangle (-2.5,-1.5);
+    
+    \draw[fill] (-4,-2) circle (1pt);
+    \draw[->, thick] (-4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (-4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (-3.5, -2) -- node[above left]{$\vec{F}_e$} +(1,0);
+    
+    %%
+    
+    \draw[<-] (0,0.5) node[below left]{$x$}-- (-4.8,0.5);
+    \draw[->] (-4.5,0) -- (-4.5,3) node[below left]{$F$};
+    
+    \draw (-4.25, 2.5) -- (-0.5,0.2);
+    \node[above right] (O) at (-0.9892,0.5) {$O$};
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (-4,2.3465) -- (-4,0.5) -- (-2,0.5) -- (-2,1.1199) -- cycle;
+    \draw[dashed] (-4,2.3465) node[above right]{$A$} -- (-4,0.5) node[below]{$x_i$};
+    \draw[dashed] (-2,1.1199) node[above right]{$B$} -- (-2,0.5) node[below]{$x_f$};
+        
+\end{tikzpicture}
+\caption{O trabalho realizado pela mola no deslocamento entre os pontos $x_i$ e $x_f$ é dado pela área hachurada no gráfico. \label{Fig:TrabalhoForcaElastica}}
+\end{marginfigure}
+
+\noindent{}onde usamos o fato de que a altura dos triângulos é dada por $y = F(x)$. Para o cálculo da área, estamos interessados nas distâncias verticais e horizontais, por isso vamos utilizar todos os valores em módulo. Isso implica que utilizaremos a força em módulo: $|F(x)| = kx$. Assim, obtemos
 \begin{equation}
-  W_{F_e} = -\frac{1}{2} k x_f^2 - \left(-\frac{1}{2} k x_i^2 \right)
+  W_{F_e} = \frac{1}{2} k x_i^2 - \left(\frac{1}{2} k x_f^2 \right)
 \end{equation}
 %
 ou
 \begin{equation}\label{Eq:TrabalhoForcaElastica}
-  W_{F_e} = - \frac{1}{2} k (x_f^2 - x_1^2). \mathnote{Trabalho realizado por uma força elástica}
+  W_{F_e} = - \frac{1}{2} k (x_f^2 - x_i^2). \mathnote{Trabalho realizado por uma força elástica}
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Trabalho como a integral da força}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Note que se o deslocamento no problema acima fosse no sentido oposto, o trabalho seria negativo, já que ele tende a diminuir a energia cinética. No entanto, a expressão acima para o trabalho continua sendo válida, pois trocamos os pontos inicial e final. Quando fizemos a interpretação da área de um gráfico na cinemática, sempre tinhamos um deslocamento no sentido positivo do eixo horizontal --~pois ele representa o tempo, que sempre cresce~--, e as áreas acima do eixo horizontal representavam quantidades positivas, enquanto áreas abaixo do eixo representavam quantidades negativas\footnote{No caso de um gráfico da velocidade em função do tempo, por exemplo, a área corresponde ao deslocamento. Se a curva $v(t)$ passa para a parte negativa do eixo vertical, ou seja, abaixo do eixo horizontal, temos um deslocamento no sentido negativo do eixo.}.
 
-Podemos ainda usar o método gráfico para fazer aproximações. Na Figura~??? temos o gráfico da componente de uma força $\vec{f}$ ao longo de um eixo $x$ como função da posição. \comment{figura de uma força que varie de alguma forma complicada (mas não muito)}
-Podemos calcular o trabalho realizado por tal força em um deslocamento entre duas posições $x_i$ e $x_f$ através da área abaixo da curva. Apesar de não podermos dividir a área em figuras geométricas cuja área sabemos calcular, podemos calcular o trabalho de maneira aproximada dividindo a área abaixo da curva em $n$ retângulos (Figura~???); esse processo é conhecido como \emph{soma de Riemann}. A área de cada retângulo será dada pelo produto de sua largura pelo valor da altura, porém tal altura será diferente para cada ponto $x$ dentro do intervalo. Como estamos interessados em uma aproximação, tal variação não é importante, portanto podemos tomar qualquer ponto do intervalo. Podemos então expressar o trabalho como
-\begin{equation}
-  W \approx \sum_n f_x(x_n)\Delta x,
-\end{equation}
-%
-onde $x_n$ representa algum ponto $x$ contido no $n$-ésimo retângulo.
+No caso do trabalho, no entanto, podemos tanto ter deslocamentos no sentido positivo do eixo, quanto no sentido negativo. No caso de termos um deslocamento no sentido positivo do eixo, o trabalho terá um valor positivo se a área estiver acima do eixo e um valor negativo se estiver abaixo do eixo horizontal. Em um deslocamento no sentido negativo do eixo horizontal, no entanto, essa relação se inverte: se a área estiver acima do eixo horizontal, ela representa um trabalho negativo, enquanto se estiver abaixo, ela representa um trabalho positivo. Para todos os casos, todavia, a Expressão~\eqref{Eq:TrabalhoForcaElastica} acima é válida.
 
-Essa aproximação pode ser calculada com uma precisão maior quanto menor for a largura dos retângulos. Se tomarmos o limite para a largura $\Delta x$ tendendo a zero --~ou seja, para o número $n$ de intervalos tendendo ao infinito~--, temos o valor exato da área. Tal limite é conhecido como integral de Riemann:
-\begin{equation}
-  W = \lim_{n \to \infty} \sum_{n} f_x(x_n) \Delta x.
-\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trabalho de uma força variável}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A área abaixo da curva $f_x(x)$ contida no intervalo $[x_i,x_f]$ é conhecida como \emph{integral definida da função $f_x(x)$ no intervalo $[x_i,x_f]$} e é representada por
-\begin{equation}
-  \int_{x_i}^{x_f} f_x(x) dx.
-\end{equation}
-Concluímos, portanto, que a integral definida é igual à integral de Riemann. Logo,
-\begin{align}
-  W &= \lim_{n \to \infty} \sum_{n} f_x(x_n) \Delta x \\
-  &= \int_{x_i}^{x_f} f_x(x) dx. \label{Eq:TrabalhoIntegral}
-\end{align}
+Verificamos ao discutir o cálculo da área sob uma curva ao ver o movimento unidimensional que podemos determinar a área sob uma curva através de um método aproximativo, que consiste em dividir a área em uma série de retângulos. Esse tipo de aproximação é bastante simples de se fazer utilizando um computador, e também bastante precisa, já que podemos utilizar um número muito grande de retângulos. Esse tipo de procedimento é denominado como \emph{integração por quadratura}. Existem outros métodos numéricos que, com base em uma quadratura, conseguem eliminar alguns erros inerentes a esse tipo de aproximação e determinam valores relativamente bons e com poucos pontos de avaliação da função. No entanto, podemos determinar \emph{exatamente} o valor da área sob uma curva $f(x)$ entre dois limites $x_i$ e $x_f$ --~o que denominamos como \emph{integral definida}~-- se utilizarmos o \emph{Teorema Fundamental do Cálculo}.
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$F$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+    plot(\x,{1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3});
+
+    \coordinate (a) at (0.25,0);
+    \coordinate (b) at (2.75,0);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \draw[dashed, name intersections={of=froma and plota}](a) node[below]{$x_i$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromb and plota}](b) node[below]{$x_f$} -- (intersection-1);
+
+    \fill [pattern=north west lines, pattern color=gray, domain=0.25:2.75, variable=\x]
+     	  (0.25, 0)
+    	  -- plot ({\x}, {1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3})
+          -- (2.75, 0)
+          -- cycle;
+          
+    \node (f) at (3.5,2) {$F_x(x)$};
+\end{tikzpicture}
+\caption{No caso de uma força cuja componente na direção do movimento $F_x(x)$ varie de uma forma complexa, podemos determinar o trabalho utilizando uma integral.}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Teorema fundamental do cálculo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Calcular uma integral definida através de uma integral de Riemann não é uma tarefa fácil. Felizmente existe um método mais simples. Para isso vamos considerar uma função $g(x)$ definida como
+Vamos considerar uma função
 \begin{equation}
-  g(x) = \int_a^x h(\xi) d\xi,
+  A_{f(x)}(x),
 \end{equation}
 %
-cuja interpretação é \emph{a área abaixo da curva $f(x)$ contida entre $a$ e $x$}. \comment{Reproduzir figura 5 do Stewart, p. 312.}
-Se tentarmos calcular a derivada de $g(x)$ através da definição, temos
+cuja interpretação é \emph{a área abaixo da curva $f(x)$ contida entre $a$ e $x$}. Os pontos $a$ e $x$ delimitam a área e são denominados \emph{limites inferior e superior de integração}, respectivamente. Se calcularmos a derivada de $A_{f(x)}(x)$ através da definição, temos
 \begin{equation}
-  g'(x) = \lim_{\ell \to 0} \frac{g(x+\ell) - g(x)}{\ell}.
+  A'_{f(x)}(x) = \lim_{\ell \to 0} \frac{A_{f(x)}(x+\ell) - A_{f(x)}(x)(x)}{\ell}.
 \end{equation}
-%
-A diferença $g(x+\ell) - g(x)$ é simplesmente a área mostrada na Figura~??? e podemos substituí-la por $\ell h(x)$. Logo, derivada de $g(x)$ é a própria função $h(x)$:
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$F$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+    plot(\x,{1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3});
+
+    \coordinate (a) at (0.25,0);
+    \coordinate (b) at (2.75,0);
+    \coordinate (c) at (2.95,0);
+    \path[name path=fromc](c)--+(0,3);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \draw[dashed, name intersections={of=froma and plota}](a) node[below]{$a$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromb and plota}](b) node[below]{$x$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromc and plota}](c) -- (intersection-1);
+	
+	\draw[|-|] (2.75,-0.5) -- node[below]{$\ell$} +(0.2,0);
+
+    \fill [dotted, pattern=north west lines, pattern color=gray, domain=0.25:2.75, variable=\x]
+     	  (0.25, 0)
+    	  -- plot ({\x}, {1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3})
+          -- (2.75, 0)
+          -- cycle;
+          
+    \fill [pattern=north west lines, pattern color=gray, domain=2.75:2.95, variable=\x]
+     	  (2.75, 0)
+    	  -- plot ({\x}, {1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3})
+          -- (2.95, 0)
+          -- cycle;
+          
+    \node (f) at (3.5,2) {$f(x)$};
+    \node[circle] (A) at (1.5,0.65) {$A_{f(x)}(x)$};
+\end{tikzpicture}
+\caption{Definimos a função $A_{f(x)}(x)$ como sendo a função que dá a área delimitada pela curva $f(x)$, o eixo $x$, e os limites verticais em $x$ e $x$. Ao calcularmos a diferença $A_{f(x)}(x+\ell) - A_{f(x)}(x)$, obtemos a área da faixa de largura $\ell$ destacada.\label{Fig:TeoremaFundamentalDoCalculo}}
+\end{marginfigure}
+
+\noindent{}A diferença $A_{f(x)}(x+\ell) - A_{f(x)}(x)$ é simplesmente a área hachurada mostrada na Figura~\ref{Fig:TeoremaFundamentalDoCalculo} e podemos substituí-la por $\ell f(x)$. Logo, derivada de $A_{f(x)}(x)$ é a própria função $f(x)$:
 \begin{align}
-  g'(x) &= \lim_{\ell \to 0} \frac{\ell h(x)}{\ell} \\
-  &= \lim_{\ell \to 0} h(x) \\
-  &= h(x).
+  A'_{f(x)}(x) &= \lim_{\ell \to 0} \frac{\ell f(x)}{\ell} \\
+  &= \lim_{\ell \to 0} f(x) \\
+  &= f(x).
+\end{align}
+%
+Este resultado é muito importante, pois ele nos dá uma forma de determinar a função $A_{f(x)}(x)$, a menos de uma constante, que é eliminada pela derivada. No entanto, a constante em $A_{f(x)}(x)$ não nos impede de calcular a área entre dois limites $x_i$ e $x_f$ quaisquer\footnote{Podemos calcular a área entre $a$ e outro limite superior simplesmente escolhendo um ponto de referência mais a esquerda. Logo, o resultado  não depende de tal ponto de referência e é geral.}: podemos escrever a função para a área como
+\begin{equation}
+    A_{f(x)}(x) = \mathcal{F}(x) + C,
+ \end{equation}
+ %
+ onde a função $\mathcal{F}(x)$ é tal que
+ \begin{equation}
+    \mathcal{F}'(x) = f(x).
+\end{equation}
+%
+Logo, a área entre os limites $x_i$ e $x_f$ é dada por
+\begin{align}
+    A_{x_i\to x_f} &= A_{f(x)}(x_f) - A_{f(x)}(x_i) \\
+    &= (\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i) + C) \\
+    &= \mathcal{F}(x_f) - \mathcal{F}(x_i).
 \end{align}
 
-De acordo com a expressão acima, se temos uma função $f(x)$ que nos dá a força exercida sobre um objeto, podemos definir uma função $W(x)$ de acordo com
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick,gray] (0,3) node (yaxis) [below left] {$F$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+    plot(\x,{1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3});
+
+    \coordinate (a) at (0.25,0);
+    \coordinate (b) at (2.75,0);
+    \coordinate (c) at (2.25,0);
+    \coordinate (d) at (0.75,0);
+    \path[name path=fromd](d)--+(0,3);
+    \path[name path=fromc](c)--+(0,3);
+    \path[name path=froma](a)--+(0,3);
+    \path[name path=fromb](b)--+(0,3);
+    \draw[dashed, name intersections={of=froma and plota}](a) node[below]{$a$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromb and plota}](b) node[below]{$x$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromd and plota}](d) node[below]{$x_f$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromc and plota}](c) node[below]{$x_i$} -- (intersection-1);
+
+    \fill [pattern=north west lines, pattern color=gray, domain=0.75:2.25, variable=\x]
+     	  (0.75, 0)
+    	  -- plot ({\x}, {1.440476 - 1.25*\x + 1.47619*\x^2 - 0.3333333*\x^3})
+          -- (2.25, 0)
+          -- cycle;
+          
+    \node (f) at (3.5,2) {$f(x)$};
+    \node[circle] (A) at (1.55,0.65) {$A_{x_i\to x_f}$};
+\end{tikzpicture}
+\caption{Podemos determinar a área abaixo da curva $f(x)$ entre dois limites $x_i$ e $x_f$ quaisquer através da diferença $\mathcal{F}(x_f) - \mathcal{F}(x_i)$, onde $\mathcal{F}(x)$ é a função cuja derivada é $f(x)$.\label{Fig:TeoremaFundamentalDoCalculoIntegralDefinida}}
+\end{marginfigure}
+
+\noindent{}Portanto, \emph{para determinarmos a área abaixo da curva $f(x)$ entre dois limites $x_i$ e $x_f$, basta determinarmos a função $\mathcal{F}(x)$ cuja derivada é $f(x)$.}
+
+A função $\mathcal{F}(x)$ é denominada como \emph{antiderivada}, \emph{função primitiva}, ou \emph{integral indefinida} de $f(x)$ e é representada por
 \begin{equation}
-  W(x) = \int_a^x f(\xi) d\xi
+    \mathcal{F}(x) = \int f(x) dx.
 \end{equation}
 %
-e temos que a área abaixo da curva no intervalo $[x_i,x_f]$ --~que nos dá o trabalho~-- será dada por $W(x_f) - W(x_i)$:
+Já a área sob a curva $f(x)$ entre dois limites de integração $x_i$ e $x_f$ é descrita pelo que denominamos como \emph{integral definida}
 \begin{equation}
-  W = W(x_f) - W(x_i).
-\end{equation}
-%
-No entanto,
-\begin{equation}
-  W'(x) = f(x),
-\end{equation}
-%
-isto é, se conhecemos $f(x)$, sabemos que tal expressão é a derivada de $W(x)$. Se desejamos encontrar $W(x)$, basta fazermos o processo inverso da diferenciação. Uma vez conhecida a função $F(x)$, cuja derivada é $f(x)$, temos que
-\begin{equation}
-  W(x) = F(x),
-\end{equation}
-%
-logo,
-\begin{equation}
-  W = F(x_f) - F(x_i).
+    A_{x_i\to x_f} = \int_{x_i}^{x_f} f(x) dx.
 \end{equation}
 
-Portanto, se conhecemos a função $f(x)$ que nos dá a força, podemos realizar o processo inverso à diferenciação, encontrando uma função $F(x)$ e tal função --~calculada entre os \emph{limites inferior e superior de integração $x_i$ e $x_f$} através de $F(x_f) - F(x_i)$~-- nos dará o trabalho realizado no deslocamento entre $x_i$ e $x_f$. Os resultados mostrados acima compõe o chamado \emph{Teorema Fundamental do Cálculo}, que pode ser dividido em duas partes:
+Os resultados mostrados acima compõe o chamado \emph{Teorema Fundamental do Cálculo}, que pode ser dividido em duas partes:
 \begin{description}
   \item[Teorema Fundamental do Cálculo, primeira parte:] Se $f(x)$ é uma função contínua no intervalo $[a,b]$, então a função $g(x)$ definida como
   \begin{align}
@@ -299,6 +806,19 @@ Portanto, se conhecemos a função $f(x)$ que nos dá a força, podemos realizar
   \end{equation}
   onde $F(x)$ é a antiderivada\footnote{Também denominada \emph{função primitiva} ou \emph{integral indefinida}.} de $f(x)$, isto é, a função cuja derivada é $f(x)$.
 \end{description}
+
+A determinação da integral indefinida de uma função é uma tarefa bastante complexa. Para algumas funções simples, tais resultados são tabelados, ou simples de se inferir uma vez que sejam conhecidas as derivadas. Para funções mais complexas, no entanto, são necessárias diversas técnicas que auxiliam nesse processo, mas que não são gerais, se aplicando somente a conjuntos específicos de problemas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Trabalho como a integral da força}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De acordo com os resultados da seção anterior, se conhecemos a função $F_x(x)$ que nos dá a força, podemos calcular o trabalho $W_{F_x}$ no deslocamento de $x_i$ a $x_f$através de
+\begin{equation}
+    W_{F_x} = \int_{x_i}^{x_f} F_x(x) dx,
+\end{equation}
+%
+o que equivale a realizar o processo inverso à diferenciação, encontrando uma função $\mathcal{F}(x)$ e então calcular a diferença $\mathcal{F}(x_f) - \mathcal{F}(x_i)$. 
 
 %%%%%%%%%%%%%%%%%%
 \section{Potência}
@@ -339,19 +859,16 @@ onde utilizamos $x$ para denotar a distância percorrida durante a aplicação d
   &= \vec{F}\cdot\vec{v}.
 \end{align}
 
-\comment{Exemplo de potencia + arrasto: velocidade máxima de um carro.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energia cinética e referenciais inerciais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%
 \section{Potencial}
 %%%%%%%%%%%%%%%%%%%
 
+% O fato de ter um potencial ou não nada a ver com o fato de a força ser interna ou não. Ser interna ou interna só tem a ver com o fato de atuar dentro do sistema exclusivamente ou não, ou melhor, de transportar energia através da fronteira (verificar isso). Aqui devemos nos focar em examinar se uma força dá origem a um potencial, ou melhor, se existe um potencial para uma dada força. Dizer que deixaremos o tratamento das demais para mais tarde: ao falarmos de variação da energia mecânica, tratar as forças que não podem ser escritas a partir de potenciais; elas devem se enquadrar como forças que alteram a energia interna, ou que transportam energia através da fronteira do sistema, certo? (verificar isso tb). As que não geram potencial são forças que não podem armazenar energia de nenhuma forma?
 Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças internas que atuam em um sistema e à própria \emph{configuração} -- isto é, à \emph{disposição} -- das partículas que compõe o sistema. Tais formas de energia são classificadas como sendo do tipo \emph{potencial}.
 
 Uma das propriedades do potencial é a de que ele independe do histórico de configurações do sistema, dependendo somente de seu estado em um dado momento. Quando associamos tal característica ao conceito de energia cinética, verificamos que podemos definir a \emph{energia mecânica} de um sistema. Tal grandeza é constante para um sistema fechado e podemos utilizá-la para obter informações sobre sistemas físicos de maneira relativamente simples. Verificaremos também que a propriedade de independer do histórico do sistema faz com que nem todas as forças têm potenciais associados a elas, porém teremos uma maneira simples de verificar quais forças os têm. Finalmente, é importante notar que assim como cada força tem uma expressão diferente, o mesmo pode ser dito sobre os potenciais, já que eles são determinados diretamente a partir da expressão para a força.
+
+%fazer toda aquela discussão de independência de caminho aqui. Dizer que para um potencial ser útil, precisamos que ele tenha um valor único para uma dada posição (isso é o básico para ser uma função, na verdade). Ou não, a idéia na discussão abaixo é introduzir dois potenciais e a energia mecânica de uma maneira mais casual, depois definimos as regras.
 
 \comment{Discutir o que é um sistema para fins de cálculo da energia}
 
@@ -546,10 +1063,6 @@ pois a derivada de uma constante é zero. Devido a isso, podemos escolher um val
 Algum exemplo simples, talvez o da piscina
 \comment{Usar $U = mgy + C$, de preferência mais geral, para dizer que podemos escolher qq valor em qq ponto e que por isso, adotamos $C = 0$ em $y = 0$ e escolhemos o y onde for mais conveniente}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Potencial gravitacional à partir da lei da gravitação universal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Curvas de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -593,9 +1106,23 @@ As forças que ocorrem entre átomos são caracterizadas por serem repulsivas a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \comment{Região central com $F \approx 0$}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Montanha russa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Atrito e Trabalho de forças externas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% começar discutindo uma força externa que realize trabalho sobre um dos corpos de um sistema, aumentando a energia interna. Depois considerar a situação em que temos uma diminuição da energia interna. Verificar que em ambos os casos temos uma variação da energia devido a um trabalho que transporta energia através da fronteira do sistema.
+
+% Depois, considerar a alteração da energia mecânica devido a uma força de atrito, de forma que não haja transferência de energia para fora do sistema. Falar de energia interna nos corpos, pois eles têm energia mecânica nas partículas que os compôe.
+
+% Finalmente, vamos concluir aqui que $\Delta E = W_{at} + W_{ext}$. Destacar que essa é uma generalização do próprio teorema trabalho energia, pois leva em conta a variação tanto da energia cinética, quanto da potencial.
+
+% "Dizer que deixaremos o tratamento das demais para mais tarde:" ou seja, aqui: ao falarmos de variação da energia mecânica, tratar as forças que não podem ser escritas a partir de potenciais; elas devem se enquadrar como forças que alteram a energia interna, ou que transportam energia através da fronteira do sistema, certo? (verificar isso tb). As que não geram potencial são forças que não podem armazenar energia de nenhuma forma?
 
 Se voltarmos ao problema do oscilador massa-mola (Figura~???), mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, mas eventualmente parará. Se o sistema partir de um ponto $x_A$ à esquerda da origem, por exemplo, podemos verificar que após um deslocamento até $x_B$, o atrito realizará um trabalho sobre o bloco dado por
 \begin{equation}
@@ -635,22 +1162,171 @@ Com base nesse tipo de observação, se formulou uma teoria que generaliza a ide
  
 \comment{Aqui tem que reescrever tudo, tá muito ruim (dar uma revisada em outros livros, fatos históricos). Nessa parte do calor, teve alguém que observou que ao se furar o cano de canhões, havia uma grande aquecimento; Foi a primeira vez que alguém associou energia térmica a trabalho. Aqui é a ponte para a termodinâmica. Discutir a conservação da energia e suas origens na termodinâmica, teorema de Noether.}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Massa mola com atrito}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Mostrar como a energia mecânica vai mudando conforme se desloca.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conservação da energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-falar do cara do furo do canhão
+falar do cara do furo do canhão, dar uma visão bem geral de energia, mesmo que seja necessário falar sobre termodinâmica (deixaremos a expressão da variação da energia mecânica que aparece acima ainda mais geral, pois levaremos em conta outras possibilidades de fluxo de energia. Destacar que já estamos levando em conta a possibilidade de outras forças conservativas, pois já estamos considerando que o potencial que aparece na equação é um somatório de vários potenciais, basta adicionar mais termos a tal soma. Temos que adicionar o termo de energia interna tb, mas destacar que esse termo é um método de esconder a sujeira debaixo do tapete, pois isso não passa de energias cinéticas e/ou potenciais que não sabemos descrever). Focar no "fluxo" de energia entre as diversas formas; falar da idéia de minimização da energia. Falar que trabalho, calor, são formas de transporte de energia através da fronteira de um sistema (destacar que trabalho positivo transfere energia de fora para o sistema, enquanto um trabalho negativo transfere energia do sistema para fora).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Seções opcionais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-pseudo trabalho, dedução do teorema trabalho energia através da segunda lei de newton
+pseudo trabalho (esqueci completamente o que é isso), dedução do teorema trabalho energia através da segunda lei de newton (isso está feito já ao discutir o pêndulo na seção de cálculo da velocidade abaixo)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Exemplos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial gravitacional à partir da lei da gravitação universal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia cinética e referenciais inerciais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Massa mola com arrasto.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo da velocidade de um pêndulo através das Leis de Newton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em um referencial tangente à trajetória (fazer figura, eixo x tangente à trajetória circular), temos que
+\begin{description}
+    \item[Eixo $x$:] No eixo tangente à trajetória temos
+        \begin{align}
+            F_R^x &= m a_x \\
+            P_x &= m a_x \\
+            mg \sen\theta &= m a_x \\
+            a_x &= g \sen\theta
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            T - P_y &= m \frac{v^2}{r}
+        \end{align}
+\end{description}
+%
+Sabemos que a aceleração centrípeta é responsável por alterar somente a direção da velocidade, por isso não precisamos nos preocupar com o eixo $y$. Podemos reescrever a expressão para a aceleração como
+\begin{equation}
+    \frac{dv}{dt} = g \sen\theta,
+\end{equation}
+%
+onde $\theta$ varia entre 0 e $\pi/2$. Podemos então escrever
+\begin{equation}\label{Eq:DifVVelPendulo}
+    dv = g\sen\theta \;dt.
+\end{equation}
+
+A distância percorrida pelo pêndulo ao longo da trajetória circular é dada por
+\begin{equation}
+    s = \theta r.
+\end{equation}
+%
+A velocidade que estamos interessados em calcular é dada pela derivada da posição ao longo do arco em relação ao tempo:
+\begin{equation}
+    v = \frac{ds}{dt},
+\end{equation}
+%
+de onde podemos escrever
+\begin{equation}
+    dt = \frac{ds}{v}.
+\end{equation}
+%
+Substituindo essa expressão na Equação~\ref{Eq:DifVVelPendulo}, temos
+\begin{align}
+    dv &= \frac{g \sen\theta \;ds}{v} \\
+    v\;dv &=  g \sen \theta \; ds
+\end{align}
+
+Integrando a expressão acima entre os instantes inicial e final, cujas velocidades e posições são $v_i$, $s_i$, $v_f$, e $s_f$, respectivamente, temos
+\begin{align}
+    \int_{v_i}^{v_f} v \;dv &= \int_{s_i}^{s_f} g \sen \theta \;ds \\
+    \frac{v}{2}\Big|_{v_i}^{v_f} &= \int_{s_i}^{s_f} g \sen \theta \;ds.
+\end{align}
+%
+Fazendo uma mudança de variáveis, temos
+\begin{equation}
+    s = \theta r,
+\end{equation}
+%
+o que resulta na relação
+\begin{equation}
+    ds = r d\theta.
+\end{equation}
+%
+Os novos limites são dados por
+\begin{align}
+    s_i &= \theta_i = 0\\
+    s_f &= \theta_f = \pi/2.
+\end{align}
+%
+Assim, se assumirmos que
+\begin{align}
+    v_i &= 0 \\
+    v_f &= v,
+\end{align}
+%
+temos,
+\begin{align}
+    \frac{v^2}{2} &= \int_{0}^{\pi/2} rg \sen\theta \;d\theta \\
+    &= -rg [\cos\theta]_{0}^{\pi/2} \\
+    &= -rg [(0) - (1)] \\
+    &= rg.
+\end{align}
+%
+Finalmente,
+\begin{equation}
+    v = \sqrt{2rg}.
+\end{equation} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação do teorema trabalho--energia através das leis de Newton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A solução acima está muito próxima de ser uma dedução do teorema trabalho-energia. Se partirmos da relação
+\begin{equation}
+    a = \frac{dv}{dt}
+\end{equation}
+%
+e de
+\begin{equation}
+    v = \frac{ds}{dt}
+\end{equation}
+%
+podemos escrever
+\begin{equation}
+    dv = \frac{a}{v} ds.
+\end{equation}
+%
+Através da Segunda Lei de Newton, podemos escrever, considerando um eixo tangencial à trajetória
+\begin{align}
+    dv &= \frac{F_t}{m} \frac{ds}{v} \\
+    m \; dv &= \frac{F_t}{v} ds \\
+    mv \; dv &= F_t \; ds.
+\end{align}
+%
+Integrando entre os instantes inicial e final, aos quais correspondem as velocidades inicial $v_i$ e final $v_f$ e as posições $s_i$ e $s_f$ ao longo do arco descrito pelo pêndulo, temos
+\begin{align}
+    \frac{v^2}{2}\Big|_{v^i}{v^f} &= \int_{s_i}^{s_f} F_t \; ds \\
+    \frac{mv_f^2}{2} - \frac{mv_i^2}{2} &= \int_{s_i}^{s_f} F_t \; ds.
+\end{align}
+%
+A integral acima ``soma'' a contribuição da componente da força projetada na direção do deslocamento infinitesimal $d\vec{r}$ ao longo da trajetória circular. Podemos expressar isso de uma maneira geral como
+\begin{equation}
+    \int_C \vec{F} \cdot d\vec{r}.
+\end{equation}
+%
+A expressão acima é uma \emph{integral de linha da força $F$ sobre o caminho $C$}. A equação acima é a expressão mais geral para o trabalho. Consequentemente, rededuzimos o teorema trabalho-energia:
+\begin{equation}
+    \frac{mv_f^2}{2} - \frac{mv_i^2}{2} = W,
+\end{equation}
+%
+onde
+\begin{equation}
+    W = \int_C \vec{F} \cdot d\vec{r}.
+\end{equation}
+
+
+
+
