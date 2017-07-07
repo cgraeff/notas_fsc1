@@ -814,7 +814,7 @@ A determinação da integral indefinida de uma função é uma tarefa bastante c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 De acordo com os resultados da seção anterior, se conhecemos a função $F_x(x)$ que nos dá a força, podemos calcular o trabalho $W_{F_x}$ no deslocamento de $x_i$ a $x_f$através de
-\begin{equation}
+\begin{equation}\label{Eq:TrabalhoIntegral}
     W_{F_x} = \int_{x_i}^{x_f} F_x(x) dx,
 \end{equation}
 %
@@ -864,179 +864,149 @@ onde utilizamos $x$ para denotar a distância percorrida durante a aplicação d
 %%%%%%%%%%%%%%%%%%%
 
 % O fato de ter um potencial ou não nada a ver com o fato de a força ser interna ou não. Ser interna ou interna só tem a ver com o fato de atuar dentro do sistema exclusivamente ou não, ou melhor, de transportar energia através da fronteira (verificar isso). Aqui devemos nos focar em examinar se uma força dá origem a um potencial, ou melhor, se existe um potencial para uma dada força. Dizer que deixaremos o tratamento das demais para mais tarde: ao falarmos de variação da energia mecânica, tratar as forças que não podem ser escritas a partir de potenciais; elas devem se enquadrar como forças que alteram a energia interna, ou que transportam energia através da fronteira do sistema, certo? (verificar isso tb). As que não geram potencial são forças que não podem armazenar energia de nenhuma forma?
-Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças internas que atuam em um sistema e à própria \emph{configuração} -- isto é, à \emph{disposição} -- das partículas que compõe o sistema. Tais formas de energia são classificadas como sendo do tipo \emph{potencial}.
 
-Uma das propriedades do potencial é a de que ele independe do histórico de configurações do sistema, dependendo somente de seu estado em um dado momento. Quando associamos tal característica ao conceito de energia cinética, verificamos que podemos definir a \emph{energia mecânica} de um sistema. Tal grandeza é constante para um sistema fechado e podemos utilizá-la para obter informações sobre sistemas físicos de maneira relativamente simples. Verificaremos também que a propriedade de independer do histórico do sistema faz com que nem todas as forças têm potenciais associados a elas, porém teremos uma maneira simples de verificar quais forças os têm. Finalmente, é importante notar que assim como cada força tem uma expressão diferente, o mesmo pode ser dito sobre os potenciais, já que eles são determinados diretamente a partir da expressão para a força.
+% Linha de apresentação do potencial:
+% * energia associada à configuração de um sistema e a uma força específica
+% * nem toda força tem potencial
+% * exemplos de força que tem potencial
+%   * o peso pode ser considerado uma força interna, que é escrita como um potencial, pode ser considerada um potencial externo, e pode ser considerado como uma força externa (que leva energia para fora do sistema). Estou achando difícil encontrar como explicar isso. A treta é que o potencial está associado à força, não ao sistema em específico. No entanto, força é interação entre partículas, e partículas compõe sistemas. Se considerarmos a terra como uma partícula do sistema, OK; se considerarmos que o peso é força externa, OK; no caso de considerarmos o potencial externo, temos uma interação entre partículas de dois sistemas.
+% * condições para a existência de um potencial
+% * cálculo da força a partir do potencial
+% * Energia mecânica; exemplo do pêndulo
+% * curvas de potencial, pontos de equilíbrio e retorno, exemplos de potencial (Lenard-Jones, Woods-Saxon, montanha russa)
+% * atrito e trabalho de forças externas
+% * definição de sistema, fronteira, e sistema fechado
+%   * podemos definir um sistema de uma maneira bem arbitrária, então dependendo da escolha, podemos ter uma força que é interna ou externa. Em geral é útil definir de maneira que seja fechado.
+%   * aqui falar que podemos tratar de forças externas, sejam elas conservativas ou não, que levam energia para fora do sistema. Até o peso pode ser tratado aqui, basta não utilizar o potencial gravitacional.
 
-%fazer toda aquela discussão de independência de caminho aqui. Dizer que para um potencial ser útil, precisamos que ele tenha um valor único para uma dada posição (isso é o básico para ser uma função, na verdade). Ou não, a idéia na discussão abaixo é introduzir dois potenciais e a energia mecânica de uma maneira mais casual, depois definimos as regras.
+Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças que atuam em um sistema de partículas e \emph{à própria configuração -- isto é, à disposição} -- das partículas que compõe o sistema. Tais formas de energia são denominadas como \emph{energias potenciais}.
 
-\comment{Discutir o que é um sistema para fins de cálculo da energia}
+Uma das propriedades dessa forma de energia é a de que ela independe do histórico de configurações do sistema, dependendo somente de seu estado em um dado momento. Verificaremos também que a propriedade de independer do histórico do sistema faz com que nem todas as forças têm potenciais associados a elas, porém teremos uma maneira simples de verificar quais forças os têm. Finalmente, é importante notar que assim como cada força tem uma expressão diferente, o mesmo pode ser dito sobre os potenciais, já que eles são determinados diretamente a partir da expressão para a força.
+
+Quando associamos a energia potencial à energia cinética, verificamos que podemos definir a \emph{energia mecânica} de um sistema. Tal grandeza é constante sob certas condições, e podemos utilizá-la para obter informações sobre sistemas físicos de maneira relativamente simples.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia potencial gravitacional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se considerarmos a Terra e um objeto qualquer, próximo à superfície do planeta, temos um sistema fechado. Vamos desconsiderar momentaneamente a força de arrasto do ar e analisar o trabalho realizado pela força peso. Se o objeto é lançado verticalmente para cima, com velocidade inicial $v_i$, à medida que ele se desloca, sua velocidade diminui. Sabemos que há um trabalho exercido pelo peso, de forma que -- utilizando o Teorema Trabalho--Energia Cinética e a Equação~\ref{Eq:TrabalhoPeso} --, podemos escrever
+Se considerarmos a Terra e um objeto qualquer, próximo à superfície do planeta, temos um sistema constituido pelo objeto e pela Terra. Vamos desconsiderar momentaneamente a força de arrasto do ar e analisar o trabalho realizado pela força peso. Se o objeto é lançado verticalmente para cima, com velocidade inicial $v_i$, à medida que ele se desloca, sua velocidade diminui, eventualmente chegando a zero. Sabemos que há um trabalho exercido pelo peso, de forma que -- utilizando o Teorema Trabalho--Energia Cinética e a Equação~\ref{Eq:TrabalhoPeso} --, podemos escrever
 \begin{align}
   \Delta K &= W_g \\
   K_f - K_i &=  -mg\Delta y \\
-  K_f - K_i &=  -(mgy_f - mgy_i).
+  K_f - K_i &=  -(mgy_f - mgy_i) \\
+  K_i &= mgh
 \end{align}
-%
-Podemos reorganizar os termos da equação acima e obter
-\begin{equation}
-  K_f + mgy_f = K_i + mgy_i.
-\end{equation}
-%
-Analisando essa expressão, vemos que a quantidade inicial e a final da soma da energia cinética e do valor $mgy$ são iguais. Nessas expressões, não especificamos que pontos são o inicial e o final, portanto elas são válidas para quaisquer pontos $i$ e $f$. Logo
-\begin{equation}
-  K_f + mgy_f = K_i + mgy_i = \textrm{constante}.
-\end{equation}
 
-Se o ponto final é o mais alto da trajetória, temos que $K_f = 0$, se adotarmos $y_i = 0$, obtemos
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines] (0,0) circle (2mm);
+    \draw[fill] (0,0) circle (1pt);
+    \draw[->, thick] (0,0) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->] (0,0.2) -- +(0, 0.75) node[right]{$\vec{v}_i$};
+    
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,3) circle (2mm);
+    \draw[gray, fill] (0,3) circle (1pt);
+    \draw[->, thick, gray] (0,3) -- +(0,-1) node[right]{$\vec{P}$};
+    
+    \draw[->] (-1, -1) -- (-1, 4) node[below left]{$y$};
+    \draw[|-|] (-1,0) node[left]{$y_i = 0$} -- (-1,3) node[left]{$y_f = h$};
+    
+\end{tikzpicture}
+\caption{Quando um objeto sobe verticalmente sujeito à força peso, sua velocidade diminui devido ao trabalho realizado por tal força.}
+\end{marginfigure}
+
+Analisando essa expressão, vemos que a quantidade inicial de energia cinética é igual a $mgh$. Podemos interpretar o processo acima como a \emph{transferência} da energia cinética para outra forma de energia, que denominamos como \emph{energia potencial gravitacional} e que definimos como
 \begin{equation}
-  K_i = mgy_f.
-\end{equation}
-%
-Podemos interpretar o processo acima como a \emph{transferência} da energia cinética para outra forma de energia, que denominamos como \emph{energia potencial gravitacional} e que definimos como
-\begin{equation}
-  U_g = mgy, \mathnote{Energia potencial gravitacional}
-\end{equation}
-%
-de forma que
-\begin{equation}
-  K_i + U_i = K_f + U_f.
+  U_g = mgy. \mathnote{Energia potencial gravitacional}
 \end{equation}
 
 É importante notar que utilizamos a força peso para descrever a atração exercida pelo planeta sobre o corpo, o que limita a utilização desse potencial às imediações da superfície da Terra. No caso de estarmos interessados em calcular o potencial gravitacional a grandes distâncias, precisamos utilizar a Lei da Gravitação Universal (Equação~\eqref{Eq:LeiGravitacaoUniversal}) para deduzir outra expressão para o potencial gravitacional.
+
+Finalmente, note que utilizamos na discussão acima a expressão para o trabalho realizado pela força gravitacional. Portanto, assim como para o trabalho, devemos utilizar um eixo $y$ vertical orientado de forma crescente para cima. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia potencial elástica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Outro caso em que podemos identificar a existência de um potencial é quando atua sobre o sistema uma força elástica. Considere um bloco disposto sobre uma mesa sem atrito e sujeito a uma força elástica exercida ao longo de um eixo $x$ por uma mola presa ao bloco e a uma parede. Em um dado instante, o bloco se encontra na posição $x_i$ e se afasta da parede com velocidade $v$ \comment{Figura do bloco em 3d com uma mola}. Sabemos que nesse caso o trabalho realizado é dado pela Equação~\eqref{Eq:TrabalhoForcaElastica}. Utilizando essa expressão e o Teorema Trabalho -- Energia Cinética, obtemos
+Outro caso em que podemos identificar a existência de um potencial é quando atua sobre o sistema uma força elástica. Considere um bloco disposto sobre uma mesa sem atrito e sujeito a uma força elástica exercida ao longo de um eixo $x$ por uma mola presa ao bloco e a uma parede. Em um dado instante, o bloco se encontra na posição $x_i$ e se afasta da parede com velocidade $v$. Sabemos que nesse caso o trabalho realizado é dado pela Equação~\eqref{Eq:TrabalhoForcaElastica}. Utilizando essa expressão e o Teorema Trabalho -- Energia Cinética, obtemos
 \begin{align}
   \Delta K &= W_e \\
   K_f - K_i &= -\frac{k}{2}(x_f^2 - x_i^2) \\
-  K_f + \frac{k}{2} x_f^2 &= K_i + \frac{k}{2}x_i^2
+  K_f &= \frac{k}{2}d^2.
 \end{align}
 
-Da forma análoga ao caso do potencial gravitacional, podemos associar a expressão $kx^2/2$ a um \emph{potencial elástico}$U_e$:
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) node[below]{$x_f = 0$} -- (4,-3.5) node[below]{$x_i = d$};
+        
+\end{tikzpicture}
+\caption{Podemos associar uma energia potencial à força elástica exercida por uma mola.}
+\end{marginfigure}
+
+Da forma análoga ao caso do potencial gravitacional, podemos interpretar o processo descrito acima como a transferência de uma quantidade $kd^2/2$ de energia que estava armazenada na mola para a forma cinética. Assim, definimos um \emph{potencial elástico} $U_e$:
 \begin{equation}
   U_e = \frac{k}{2}x^2. \mathnote{Energia potencial elástica}
-\end{equation}
-%
-Como no caso gravitacional, temos
-\begin{equation}
-  K_f + U_e^f = K_i + U_e^i
-\end{equation}
-%
-e como não existe nenhuma restrição em quais são os pontos inicial e final, temos que
-\begin{equation}
-  K + U_e = \textrm{constante}.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Potencial e trabalho}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em ambos os casos vistos acima, temos que a variação na energia cinética pode ser escrita em termos da variação da energia potencial de acordo com
+Em ambos os casos vistos acima, temos que a variação na energia potencial pode ser escrita através do trabalho como
 \begin{equation}
-  \Delta K = - \Delta U_{e,g}.
+  \Delta U = - W.
 \end{equation}
 %
-Através do teorema trabalho energia, podemos então relacionar a variação da energia potencial ao trabalho:
-\begin{equation}
-  \Delta U = - W,
-\end{equation}
-%
-ou, utilizando a Equação~\eqref{Eq:TrabalhoIntegral}
+No caso de termos uma força que varia com a posição, temos que o trabalho é dado pela integral da componente da força na direção do movimento (Equação~\eqref{Eq:TrabalhoIntegral}), logo
 \begin{equation}\label{Eq:CalculoDoPotencial}
   \Delta U = - \int_{x_i}^{x_f} F(x) dx.
 \end{equation}
 
-Portanto, temos uma maneira definida de encontrar o potencial associado a uma força uma vez que se conheça a expressão para a força. Além disso, sabemos -- através da segunda parte do Teorema Fundamental do Cálculo -- que a integral à direita da igualdade na expressão acima depende somente dos valores $x_i$ e $x_f$, como esperávamos.\comment{A partir dessa expressão fica fácil definir que precisa ser independente de caminho, afinal o valor da integral só depende dos pontos inicial e final.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia mecânica}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Verificamos que para os potenciais gravitacional e elástico, os valores associados à energia cinética e a cada potencial é constante. Portanto, temos em cada caso que
+Portanto, se o potencial existe\footnote{Nem todas as forças dão origem a potenciais. Verificaremos as condições para a existência de um potencial adiante.}, temos uma maneira definida de o encontrar uma vez que se conheça a expressão para a força: sabemos -- através da segunda parte do Teorema Fundamental do Cálculo -- que 
 \begin{align}
-  K + U = \textrm{constante}.
-\end{align}
-
-Se analisarmos um caso em que existam $n$ forças atuando sobre o sistema, podemos escrever
-\begin{align}
-  \Delta K &= W_{\textrm{Total}} \\
-  &= \sum_n W_{F_n}.
+    \Delta U &= - \int_{x_i}^{x_f} F(x) dx \\
+    &= -\big[\mathcal{F}(x) - C\big]_{x_i}^{x_f} \\
+    U_f - U_i &= -[\mathcal{F}(x_f) - \mathcal{F}(x_i)],
 \end{align}
 %
-Se cada um dos trabalhos associados às forças \comment{forças conservativas ... deveria colocar as condições para calcular o potencial antes dessa seção} $F_n$ puder ser escrito como
-\begin{equation}
-  W_n = \Delta U_n,
-\end{equation}
-%
-então temos
-\begin{align}
-  \Delta K &= \sum_n \Delta U_n \\
-  &= \sum_n (U_n^f - U_n^i) \\
-  &= \left(\sum_n U_n^f\right) - \left(\sum_n U_n^i\right).
-\end{align}
-%
-de onde temos
-\begin{equation}
-  K_f + \sum_n U_n^f = K_i + \sum_n U_n^i.
-\end{equation}
-%
-A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinéticas e das potenciais deve ser uma constante:
-\begin{equation}
-  K + \sum_n U_n = E, \mathnote{Definição de Energia Mecânica}
-\end{equation}
-%
-onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. 
+de onde podemos identificar que o \emph{potencial $U$ é a própria função $\mathcal{F}(x)$}, sendo esta é a integral indefinida da força. Note que que o potencial é uma função somente da posição atual $x$, não dependendo do histórico de posições ocupadas pelo corpo em questão.
 
-Verificamos portanto que se as forças que atuam em um sistema dão origem a potenciais, a energia mecânica do sistema é uma constante. Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico. Podemos agora imaginar que existe uma grandeza -- a energia -- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante. Veremos posteriormente que em alguns casos a energia mecânica não é constante, mas poderemos associá-la a outras formas de energia e teremos um princípio geral que nos ajuda a entender muitos fenômenos físicos de uma maneira mais simples.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Oscilação de um pêndulo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\comment{exemplo do pêndulo simples aqui, com os gráficos das energias potencial e cinética durante a oscilação}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Condições para a existência de um potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Identificamos anteriormente que o potencial pode ser definido através da expressão para o cálculo do trabalho através da integral da força que dá origem ao potencial, Equação~\eqref{Eq:CalculoDoPotencial}. Tal expressão respeita uma propriedade fundamental do potencial que é sua dependência exclusiva na configuração atual do sistema, o que implica em -- no caso de o estado inicial e o final serem o mesmo --
-\begin{equation}
-  \Delta U = \int_{x_i}^{x_f} F(x) dx = 0.
-\end{equation}
-
-Entretanto, nem todas as forças respeitam a condição acima. A força de atrito, por exemplo, realiza um trabalho diferente de zero em um trajeto cujos pontos inicial e final são o mesmo: Se tomarmos um bloco que se desloca sobre uma mesa -- preso a um eixo por um fio de forma a descrever um movimento circular--, quando o bloco completa uma volta completa, sua energia cinética certamente é menor. Consequentemente, o trabalho é negativo:
-\begin{equation}
-  \int_{x_i}^{x_i} \fat dx < 0.
-\end{equation}
-%
-Devido a isso, não podemos escrever um potencial para tal força. Como a integral acima é proveniente da expressão para o trabalho, podemos dizer que \emph{se o trabalho realizado por uma força em um caminho fechado é diferente de zero, não podemos escrever um potencial para tal força.} Uma maneira equivalente a tal afirmação é analisarmos o deslocamento entre duas configurações distintas $A$ e $B$ para um sistema, porém considerando deslocamentos por caminhos diferentes. Se o potencial é função somente da configuração atual do sistema, os valores de potencial $U_A$ e $U_B$ são os mesmo para qualquer dois caminhos tomados, logo, podemos afirmar que \emph{se o trabalho realizado por uma força no deslocamento entre dois pontos é diferente de zero, não podemos escrever um potencial para tal força.}
-
-As forças podem ser então classificadas em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial -- ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho --. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal, de tensão e forças magnéticas são não-conservativas. A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.
-
-
-\comment{Ver golstein pg. 4, não chamar de função de estado pq isso é termodinâmica, ver do que o goldstein chama
-Mostrar que podemos nos valer da independência do caminho para escolher um caminho onde o cálculo do trabalho seja mais simples.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cálculo da força a partir de um potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Verificamos que podemos determinar o potencial associado a uma força conservativa através de
 \begin{equation}
   \Delta U = - \int_{x_i}^{x_f} F(x) dx.
 \end{equation}
 %
-Segundo a primeira parte do Teorema Fundamental do Cálculo, temos que a derivada de $U$ deve nos dar a força: \comment{Verificar se isso está claro: estamos assumingo que $U$ é função de $x_f$. Talvez seja melhor discutir antes, e aqui relembrar, ou discutir aqui simplesmente, que podemos escrever o potencial como função da posição ao escrever a integral de um ponto $a$ até um ponto $x$. Na real isso é feito para deduzir essa primeira parte do teorema, então aqui é só falar um pouco.}
+Segundo a primeira parte do Teorema Fundamental do Cálculo, temos que a derivada de $U$ deve nos dar a força:
 \begin{equation}\label{Eq:ForcaGradPot}
   F =  -\frac{dU}{dx},
 \end{equation}
@@ -1054,18 +1024,221 @@ Uma consequência interessante da Equação~\eqref{Eq:ForcaGradPot} é que podem
   &= -\frac{dU}{dx},
 \end{align}
 %
-pois a derivada de uma constante é zero. Devido a isso, podemos escolher um valor arbitrário de potencial para um ponto qualquer e a partir dele definir o potencial dos demais pontos --~nos valemos dessa propriedade para definir o zero do potencial no ponto mais conveniente possível~--. Os resultados obtidos através de cálculos não serão influenciados diretamente pelo \emph{valor} do potencial, mas sim pela sua \emph{variação}. \comment{reescrever/explorar mais isso. O texto não deixa claro nem pq essa seção tem o nome que tem.}
+pois a derivada de uma constante é zero. Devido a isso, podemos escolher um valor arbitrário de potencial para um ponto qualquer e a partir dele definir o potencial dos demais pontos --~nos valemos dessa propriedade para definir o zero do potencial no ponto mais conveniente possível~--.
 
+A constante $C$ deve sua existência ao fato de que a origem de um sistema de coordenadas é uma decisão arbitrária --~não existe uma origem preferencial para descrever um fenômeno\footnote{Porém, em geral, existe uma origem mais \emph{conveniente}.}~--. Os resultados obtidos através de cálculos envolvendo potencial e energia cinética não serão influenciados diretamente pelo \emph{valor} do potencial, mas sim pela sua \emph{variação}: Ao calcularmos a variação, a constante é eliminada, tornando o resultado independente de tal valor.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo simples}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Algum exemplo simples, talvez o da piscina
-\comment{Usar $U = mgy + C$, de preferência mais geral, para dizer que podemos escolher qq valor em qq ponto e que por isso, adotamos $C = 0$ em $y = 0$ e escolhemos o y onde for mais conveniente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Condições para a existência de um potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Curvas de potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Identificamos anteriormente que o potencial pode ser definido através da expressão para o cálculo do trabalho através da integral da força que dá origem ao potencial, Equação~\eqref{Eq:CalculoDoPotencial}. Tal expressão respeita uma propriedade fundamental do potencial que é sua dependência exclusiva na configuração atual do sistema, o que implica em -- no caso de o estado inicial e o final serem o mesmo --
+\begin{equation}
+  \Delta U = \int_{x_i}^{x_f} F(x) dx = 0.
+\end{equation}
+
+Entretanto, nem todas as forças respeitam a condição acima. A força de atrito, por exemplo, realiza um trabalho diferente de zero em um trajeto cujos pontos inicial e final são o mesmo: Se tomarmos um bloco que se desloca sobre uma mesa -- preso a um eixo por um fio de forma a descrever um movimento circular--, quando o bloco completa uma volta completa, sua energia cinética certamente é menor. Consequentemente, o trabalho é negativo:
+\begin{equation}
+  W_{\rm{at}} = \int_{x_i}^{x_i} \fat dx < 0.
+\end{equation}
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2.2]
+    
+    \def\r{0.5}% raio
+
+    \coordinate (origin) at (\r,0,0);
+
+    \draw[gray] (-0.75,0,-0.75) -- (0.75,0,-0.75) -- (0.75,0,0.75) -- (-0.75,0,0.75) -- cycle;
+    \draw[dotted] (origin) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},0,{\r*sin(\t)})}--cycle;
+    \draw[dashdotted] (0,0,0) -- node[above]{$R$} +(0.5,0,0);
+    \draw[fill] (0,0.0) circle (0.5pt);
+    
+    \draw[fill, gray, draw = black] (0.45,0,-0.05) rectangle (0.55,0.1,-0.05);
+    \draw[fill, gray, draw = black] (0.45,0,0.05) rectangle (0.55,0.1,0.05);
+    \draw[fill, gray, draw = black] (0.55,0,0.05) -- (0.55,0,-0.05) -- (0.55,0.1,-0.05) -- (0.55,0.1,0.05) -- cycle;
+    \draw[fill, gray, draw = black] (0.45,0.1,0.05) -- (0.55,0.1,0.05) -- (0.55,0.1,-0.05) -- (0.45,0.1,-0.05) -- cycle;
+    
+    \draw[->] (0.5,0.05, 0.05) -- node[right]{$\vec{v}$} +(0,0,0.65);
+\end{tikzpicture}
+\caption{Num movimento circular sujeito ao atrito, ao executarmos uma volta completa, não temos um trabalho nulo. Consequentemente, não existe um potencial associado à força de atrito.}
+\end{marginfigure}
+
+\noindent{}Devido a isso, não podemos escrever um potencial para tal força. Como a integral acima é proveniente da expressão para o trabalho, podemos dizer que
+\begin{quote}
+\emph{se o trabalho realizado por uma força em um caminho fechado é diferente de zero, não podemos escrever um potencial para tal força.}
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashed] (0,0) rectangle (4,3);
+    
+    \coordinate (A) at (0.5,1);
+    \coordinate (B) at (3.5, 2);
+    
+    \draw[fill] (A) node[left]{$A$} circle (1pt);
+    \draw[fill] (B) node[right]{$B$} circle (1pt);
+    
+    \draw[->] (A) .. controls (1,2.5) and (3,3) .. (B);
+    \draw[->] (A) .. controls (2,-1) and (2,1.2) .. (B);
+    
+    \node (C1) at (2.5,0.5) {$C_1$};
+    \node (C2) at (1,2.2) {$C_2$};
+    
+\end{tikzpicture}
+\caption{Se o trabalho $W_{A\to B}^{C_1}$ efetuado por uma $F$ no deslocamento de $A$ até $B$ pelo caminho $C_1$ é diferente do trabalho $W_{A\to B}^{C_2}$ efetuado no mesmo deslocamento, porém pelo caminho $C_2$, então a força $F$ não é conservativa.}
+\end{marginfigure}
+
+Uma maneira equivalente a tal afirmação é analisarmos o deslocamento entre duas configurações distintas $A$ e $B$ para um sistema, porém considerando deslocamentos por caminhos diferentes. Se o potencial é função somente da configuração atual do sistema, os valores de potencial $U_A$ e $U_B$ são os mesmo para qualquer dois caminhos tomados, logo, podemos afirmar que
+\begin{quote}
+\emph{se o trabalho realizado por uma força no deslocamento entre dois pontos é depende do caminho, não podemos escrever um potencial para tal força.}
+\end{quote}
+
+As forças podem ser então classificadas\footnote{A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.} em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial -- ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho --. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica, e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal, de tensão, e magnéticas são não-conservativas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia mecânica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos que para os potenciais gravitacional e elástico, os valores associados à energia cinética e a cada potencial é constante. Portanto, temos em cada caso que
+\begin{align}
+  K + U = \textrm{constante}.
+\end{align}
+
+Se analisarmos um caso em que existam $n$ forças atuando sobre o sistema, podemos escrever
+\begin{align}
+  \Delta K &= W_{\textrm{Total}} \\
+  &= \sum_n W_{F_n}.
+\end{align}
+%
+Se cada um dos trabalhos associados às forças $F_n$ puder ser escrito como
+\begin{equation}
+  W_n = \Delta U_n,
+\end{equation}
+%
+então temos
+\begin{align}
+  \Delta K &= \sum_n \Delta U_n \\
+  &= \sum_n (U_n^f - U_n^i) \\
+  &= \left(\sum_n U_n^f\right) - \left(\sum_n U_n^i\right).
+\end{align}
+%
+de onde temos
+\begin{equation}
+  K_f + \sum_n U_n^f = K_i + \sum_n U_n^i.
+\end{equation}
+%
+A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinética e das potenciais deve ser uma constante:
+\begin{equation}
+  K + \sum_n U_n = E, \mathnote{Definição de Energia Mecânica}
+\end{equation}
+%
+onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. 
+
+Verificamos portanto que se as forças que atuam em um sistema dão origem a potenciais, a energia mecânica do sistema é uma constante. Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico. Podemos agora imaginar que existe uma grandeza -- a energia -- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante. Anteriormente classificamos as forças que dão origem a potenciais como \emph{forças conservativas}. Nos referíamos justamente ao fato de que tais forças conservam a energia mecânica, enquanto as \emph{forças não-conservativas}, ou \emph{forças dissipativas}, são aquelas que --~quando presentes em um sistema~-- fazem com que a energia mecânica não se conserve.\footnote{Veremos adiante que no caso em que a energia mecânica não é constante poderemos associá-la a outras formas de energia e teremos um princípio geral de conservação da energia.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Oscilador harmônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Um sistema formado por um corpo de massa $m$ ligado a uma mola de massa desprezível e de constante elástica $k$, de forma que o primeiro pode se mover livremente em um eixo, constitui o que denominamos como um \emph{oscilador harmônico}. A principal característica de um oscilador harmônico é o fato de que as funções temporais da posição, velocidade, e aceleração são dadas por funções trigonométricas:
+\begin{align}
+    x(t) &= A \sen(\omega t + \phi) \\
+    v(t) &= A \omega \cos(\omega t + \phi) \\
+    a(t) &= -A \omega^2 \sen(\omega t + \phi),
+\end{align}
+%
+onde a frequência angular $\omega$ está relacionada à frequência de oscilação $\nu$ e é dada por
+\begin{align}
+    \omega &= 2\pi\nu \\
+    &= \sqrt{\frac{k}{m}}. \label{Eq:FrequenciaAngular}
+\end{align}
+%
+O ângulo de fase $\phi$ é uma constante que ajusta os valores de posição, velocidade, e aceleração a valores particulares de situação qualquer. Se, por exemplo, temos uma posição $x(t) = 0$ em $t = 0$, então temos que $\phi$ é nulo. A amplitude $A$ nos dá o valor máximo de deslocamento do oscilador em relação à posição de equilíbrio $x = 0$.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) node[below]{$x_f = 0$} -- (4,-3.5) node[below]{$x_i = d$};
+        
+\end{tikzpicture}
+\caption{Podemos associar uma energia potencial à força elástica exercida por uma mola.}
+\end{marginfigure}
+
+Se calcularmos as energias potencial elástica e cinética de um oscilador harmônico como funções do tempo, obtemos
+\begin{align}
+    K &= \frac{1}{2}m \left(A \omega \cos(\omega t + \phi)\right)^2 \\
+    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) \\
+    U_e &= \frac{1}{2} k \left(A \sen(\omega t + \phi)\right)^2 \\
+    &= \frac{1}{2} k A^2 \sen^2(\omega t + \phi).
+\end{align}
+%
+Sabemos que nesse problema não existem forças dissipativas, por isso a energia mecânica é constante. Podemos utilizar as expressões acima para verificar que isso é verdade:
+\begin{align}
+    E &= K + U \\
+    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) + \frac{1}{2} k A^2 \sen^2(\omega t + \phi) \\
+    &= \frac{1}{2} A^2 \left(m \omega^2 \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right).
+\end{align}
+%
+Usando a expressão~\eqref{Eq:FrequenciaAngular} para a frequência angular, obtemos
+\begin{align}
+    E &= \frac{1}{2} A^2 \left(\frac{k}{m} m \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right) \\
+    &= \frac{1}{2} A^2 k \; \big(\cos^2(\omega t + \phi) + \sen^2(\omega t + \phi)\big) \\
+    &= \frac{1}{2} k A^2,
+\end{align}
+%
+onde usamos $\sen^2\alpha + \cos^2\alpha = 1$. Observe que o resultado obtido corresponde à energia potencial elástica na posição de máximo afastamento da posição de equilíbrio, onde temos que o corpo pára momentaneamente e sua energia cinética é nula.
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.45, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw[->] (0,0) -- (0,1.5) node[below left] {$E$};
+	\draw[->] (0,0) -- (3,0) node[below left] {$t$};
+
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0:2.8]
+    plot(\x,{(sin((3 * \x) r))^2}) node[right]{$U_e$};
+    \draw[smooth, thick, dashed, name path=plot,samples=1000,domain=0:2.8]
+    plot(\x,{(cos((3 * \x) r))^2}) node[right]{$K$};
+    
+    \draw[dotted, thick] (0,1) -- (3, 1) node[above]{$E$};
+
+	\end{tikzpicture}
+\caption{Energias cinética $K$, potencial elástica $U_e$, e mecânica $E$ para um oscilador harmônico. Note que a energia mecânica não varia com o tempo.\label{Fig:GraphEnergiasOsciladorHarmonico}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência temporal de cada uma das energias. Note que, como esperado, a energia mecânica é constante. Podemos afirmar que a energia do oscilador harmônico é convertida ciclicamente entre as duas formas disponíveis no sistema.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Análise de gráficos de potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pontos de equilíbrio e retorno}
@@ -1116,6 +1289,16 @@ Questão do potencial no caso da montanha russa da montanha russa (problema bidi
 \section{Atrito e Trabalho de forças externas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Sistemas}
+%%%%%%%%%%%%%%%%%%%%%
+
+%Um sistema pode ser definido como um conjunto de partículas que interagem através de uma ou mais forças. Ao definirmos um sistema, automaticamente definimos uma \emph{fronteira} do sistema, que o separa do resto do universo.
+
+%A utilidade de se definir um sistema reside no fato de que em muitos casos, podemos definir um sistema de maneira que nenhum trabalho externo é realizado sobre qualquer partícula do sistema. Isso nos permite dizer que a energia cinética total do sistema --~isto é, a soma das energia cinéticas das partículas que compõe o sistema~-- é constante. Devido às forças entre as partículas, pode ocorrer a transferência de energia cinética entre as partículas, porém a energia cinética do sistema como um todo se mantém constante. Esse tipo de sistema é denominado um \emph{sistema fechado}. Mesmo em casos onde o sistema não é fechado, se soubermos qual é o trabalho total realizado sobre o sistema, podemos saber qual é a energia cinética total, pois
+
+% Generalizar a definição de energia mecãnica
+
 % começar discutindo uma força externa que realize trabalho sobre um dos corpos de um sistema, aumentando a energia interna. Depois considerar a situação em que temos uma diminuição da energia interna. Verificar que em ambos os casos temos uma variação da energia devido a um trabalho que transporta energia através da fronteira do sistema.
 
 % Depois, considerar a alteração da energia mecânica devido a uma força de atrito, de forma que não haja transferência de energia para fora do sistema. Falar de energia interna nos corpos, pois eles têm energia mecânica nas partículas que os compôe.
@@ -1161,6 +1344,12 @@ Se o trabalho é exercido por uma força de arrasto, podemos afirmar que a energ
 Com base nesse tipo de observação, se formulou uma teoria que generaliza a ideia de conservação da energia para incluir outras formas de energia, culminando em um princípio geral da Física.
  
 \comment{Aqui tem que reescrever tudo, tá muito ruim (dar uma revisada em outros livros, fatos históricos). Nessa parte do calor, teve alguém que observou que ao se furar o cano de canhões, havia uma grande aquecimento; Foi a primeira vez que alguém associou energia térmica a trabalho. Aqui é a ponte para a termodinâmica. Discutir a conservação da energia e suas origens na termodinâmica, teorema de Noether.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia interna}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+discutir o problema da origem da energia cinética de um carro (nenhum trabalho atravessa a fronteira, então a energia é interna, eu acho). Antes, discutir o problema de dois blocos ligados por uma mola e que saltam, como uma caneta com botão.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Massa mola com atrito}
