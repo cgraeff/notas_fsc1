@@ -1028,9 +1028,9 @@ pois a derivada de uma constante é zero. Devido a isso, podemos escolher um val
 
 A constante $C$ deve sua existência ao fato de que a origem de um sistema de coordenadas é uma decisão arbitrária --~não existe uma origem preferencial para descrever um fenômeno\footnote{Porém, em geral, existe uma origem mais \emph{conveniente}.}~--. Os resultados obtidos através de cálculos envolvendo potencial e energia cinética não serão influenciados diretamente pelo \emph{valor} do potencial, mas sim pela sua \emph{variação}: Ao calcularmos a variação, a constante é eliminada, tornando o resultado independente de tal valor.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Condições para a existência de um potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Identificamos anteriormente que o potencial pode ser definido através da expressão para o cálculo do trabalho através da integral da força que dá origem ao potencial, Equação~\eqref{Eq:CalculoDoPotencial}. Tal expressão respeita uma propriedade fundamental do potencial que é sua dependência exclusiva na configuração atual do sistema, o que implica em -- no caso de o estado inicial e o final serem o mesmo --
 \begin{equation}
@@ -1188,7 +1188,7 @@ O ângulo de fase $\phi$ é uma constante que ajusta os valores de posição, ve
     \draw[|-|] (2.5,-3.5) node[below]{$x_f = 0$} -- (4,-3.5) node[below]{$x_i = d$};
         
 \end{tikzpicture}
-\caption{Podemos associar uma energia potencial à força elástica exercida por uma mola.}
+\caption{Um oscilador harmônico exibe duas formas de energia: cinética e potencial elástica.}
 \end{marginfigure}
 
 Se calcularmos as energias potencial elástica e cinética de um oscilador harmônico como funções do tempo, obtemos
@@ -1240,62 +1240,457 @@ Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência tem
 \section{Análise de gráficos de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Pontos de equilíbrio e retorno}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Tá meia boca essa seção.}
+% TODO Reescrever isso abaixo
+Diversos sistemas físicos podem ser interpretados de uma maneira mais simples utilizando potenciais. É muito comum que tenhamos informações diretas somente sobre o potencial, pois isso é mais fácil de medir (pense no potencial elétrico). Isso se deve ao fato de que a energia é um escalar, não possuindo direção e sentido. Nesses sistemas, é comum que se faça uma análise do gráfico da energia potencial. Veremos a seguir um simples gráfico do potencial em função da posição encerra várias informações interessantes.
 
-Através do gráfico do potencial, podemos verificar aspectos importantes de um problema de uma maneira bastante intuitiva ao analisa-lo sob o ponto de vista da energia. Se tomarmos como o da Figura~???, onde o atrito entre a mesa e o bloco é desprezível, e o bloco pode se deslocar em torno de sua posição de equilíbrio $x = 0$, temos que o potencial associado ao sistema é o potencial elástico (Figura~???). Ao deslocarmos o sistema até uma posição $x_A$, temos que o potencial será dado por $U_A = kx_A^2 /2$. Se liberarmos a movimentação do bloco a partir desse ponto, com velocidade inicial nula, temos que a energia mecânica será dada por
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forças em um gráfico de potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos anteriormente que a força pode ser obtida através da derivada do potencial:\footnote{Vamos fazer uma discussão considerando forças unidimensionais. No entanto, as conclusões aqui obtidas podem ser extendidas às três dimensões.}
+\begin{equation*}
+    F = -\frac{dU}{dx}.
+\end{equation*}
+%
+A derivada nos dá a \emph{taxa de variação} de uma grandeza. Em um gráfico, isso equivale à inclinação da reta tangente. Isso significa que em gráfico $U \times x$, \emph{a inclinação da reta tangente à curva num dado ponto nos dá o módulo da força exercida em tal ponto}.
+
+Para determinar o sentido, basta notarmos que:
+\begin{itemize}
+    \item Se a derivada é \emph{positiva}\footnote{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$ -- ângulo $\alpha$ na Figura~\ref{Fig:SinalInclinacao}~--.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$};
+    \item Se --~por outro lado~-- a inclinação é \emph{negativa}\footnote{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$ --~ângulo $\beta$ na Figura~\ref{Fig:SinalInclinacao}~--.}, temos que \emph{a força é no sentido positivo do eixo $x$.}
+\end{itemize}
+
+\begin{marginfigure}
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0);
+    \draw[->] (0,0) -- (0,3);
+    
+    \draw[thick] (0.5,0.5) -- (3, 3) coordinate (i1);
+    \draw[dotted] (2,2) coordinate (O1) -- +(1,0) coordinate (h1);
+    \pic[draw, "$\alpha$", angle eccentricity = 1.5] {angle = h1--O1--i1};
+    
+    \draw[thick, dashed] (0.5,2) -- (3.5,0.5) coordinate (i2);
+    \draw[dotted] (2,1.25) coordinate (O2) -- +(1,0) coordinate (h2);
+    \pic[draw, "$\beta$", angle eccentricity = 1.5] {angle = i2--O2--h2}; 
+\end{tikzpicture}
+\caption{O ângulo de uma reta é positivo se ele está acima do eixo horizontal, como no caso do ângulo $\alpha$ na figura acima. Se ele estiver abaixo da reta horizontal, caso do ângulo $\beta$, ele é negativo. \label{Fig:SinalInclinacao}}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Forças eletrostáticas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A força eletrostática entre duas cargas quaisquer é dada por
+\begin{equation}
+    F_{1\to 2}^e(r) = k \frac{q_1 q_2}{r^2}.
+\end{equation}
+%
+Nas equações acima, $q_1$ e $q_2$ representam os valores de duas cargas elétricas que podem ser positivas ou negativas e estão separadas por uma distância $r$. A constante $k$ é caraterística da interação eletromagnética e seu valor é \np[N\cdot m^2 / C^2]{8.99E9}.
+
+A expressão para a força $F_{1\to 2}^e$ nos dá a força exercida sobre a carga $q_2$ pela carga $q_1$. A reação $F_{2\to 1}^e$ exercida pela carga $q_2$ sobre $q_1$ tem o mesmo módulo que $F_{1\to 2}^e$. A força se dá sempre na direção da reta que liga as duas cargas e, consequentemente, temos um problema unidimensional. O sentido, porém, depende das cargas envolvidas: se as cargas possuem o mesmo sinal, a força é repulsiva; se possuem sinais opostos, a força é atrativa. A Figura~\ref{Fig:ForcasEntreCargas} ilustra tais possibilidades.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines, pattern color = gray] (0,0) node {$+$} circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (2.5,0) node {$-$} circle (2mm);
+    
+    \draw[dashed] (-0.7,0) -- (-0.2,0);
+    \draw[dashed] (0.2,0) -- (2.3,0);
+    \draw[dashed, ->] (2.7,0) -- (3.8,0) node[below left]{$x$};
+    \draw[dashed] (0,-0.7) -- (0,-0.2);
+    \draw[dashed] (0,0.2) -- (0,0.7);
+    
+    \draw[->, thick] (0.2,0) -- node[above]{$F'$} +(0.5,0);
+    \draw[->, thick] (2.3,0) -- node[above]{$F$} +(-0.5,0);
+    
+    \draw[pattern = north west lines, pattern color = gray] (0,-2) node{$+$} circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (2.5,-2) node{$+$} circle (2mm);
+    
+    \draw[dashed] (-0.7,-2) -- (-0.2,-2);
+    \draw[dashed] (0.2,-2) -- (2.3,-2);
+    \draw[dashed, ->] (2.7,-2) -- (3.8,-2) node[below left]{$r$};
+    \draw[dashed] (0,-2.7) -- (0,-2.2);
+    \draw[dashed] (0,-1.8) -- (0,-1.3);
+    
+    \draw[->, thick] (-0.2,-2) -- node[above]{$F'$} +(-0.5,0);
+    \draw[->, thick] (2.7,-2) -- node[above]{$F$} +(0.5,0);
+\end{tikzpicture}
+\caption{Forças entre cargas elétricas de sinais opostos são atrativas (figura superior); entre cargas elétricas de mesmo sinal são repulsivas (figura inferior). \label{Fig:ForcasEntreCargas}}
+\end{marginfigure}
+
+O potencial eletrostático  pode ser obtido através da Equação~\ref{Eq:CalculoDoPotencial}. Escolhendo o ponto inicial como sendo no \emph{infinito}, onde atribuimos energia potencial \emph{nula}, obtemos\footnote{Essa escolha do referencial leva a uma classificação do sistema em termos da energia mecânica: se $E < 0$, as partículas estão ligadas --~isto é, elas não tem energia para se afastar indefinidamente; se $E > 0$, existe energia suficiente para que elas se afastem e não se atraiam novamente.} 
+\begin{align}
+    V(r) &= - \int_\infty^r k\frac{q_1q_2}{r^2} dr \\
+    &= k\frac{q_1 q_2}{r}.
+\end{align}
+%
+Note que o potencial elétrico é denotado por $V(r)$ ao invés de $U(r)$.
+
+Podemos analisar o potencial acima através da inclinação da reta tangente ao potencial. Na Figura~\ref{Fig:PotencialEletromagRepulsivoAtrativo} à esquerda temos um potencial repulsivo, cuja derivada nos dá a força exercida sobre a partícula da direita. Note que para qualquer valor de $r$ temos uma inclinação \emph{negativa} da reta tangente. Portanto, para todos os pontos, temos uma força no sentido positivo do eixo $r$ (força repulsiva).
+
+No caso de termos cargas com sinais opostos, temos que a força é atrativa. Na Figura~\ref{Fig:PotencialEletromagRepulsivoAtrativo} à direita temos o potencial que corresponde a essa situação. Veja que para todos os valores de $r$ temos uma reta com inclinação positiva, o que corresponde a uma força no sentido negativo do eixo $r$ (força atrativa).
+
+\begin{figure}
+\centering
+\begin{minipage}[c]{0.45\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.25:3.5]
+    plot(\x,{1/(2*\x)}) node[above left]{$x^{-1}$};
+    
+    \draw[fill] (1, 0.5) circle (1.3pt);
+    \draw[dashed] (1, 0.5)+(-26.57:0.75) -- +(153.43:0.75);
+       
+    \draw[->] (-0.2,0) -- (4,0) node[above left]{$r$};
+    \draw[->] (0,-0.2) -- (0,2.2) node[below left]{$U$};
+    
+    \draw[pattern = north west lines, pattern color = gray] (0,-1.5) node{$+$} circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (1,-1.5) node{$+$} circle (2mm);
+    
+    \draw[dashed] (-0.7,-1.5) -- (-0.2,-1.5);
+    \draw[dashed] (0.2,-1.5) -- (0.8,-1.5);
+    \draw[dashed, ->] (1.2,-1.5) -- (4,-1.5) node[below left]{$r$};
+    \draw[dashed] (0,-2.2) -- (0,-1.7);
+    \draw[dashed] (0,-1.3) -- (0,-0.8);
+    
+    \draw[->, thick] (-0.2,-1.5) -- node[above]{$F'$} +(-0.5,0);
+    \draw[->, thick] (1.2,-1.5) -- node[above]{$F$} +(0.5,0);
+    
+    \draw[dotted] (1,0.5) -- (1,-1.3);
+        
+\end{tikzpicture}
+\end{minipage}
+%
+\begin{minipage}[c]{0.45\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.25:3.5]
+    plot(\x,{-1/(2*\x)}) node[below left]{$-x^{-1}$};
+    
+    \draw[fill] (1.25, -0.4) circle (1.3pt);
+    \draw[dashed] (1.25, -0.4)+(17.74:0.75) -- +(-162.26:0.75);
+       
+    \draw[->] (-0.2,0) -- (4,0) node[above left]{$r$};
+    \draw[->] (0,-2.2) -- (0,0.5) node[below left]{$U$};
+    
+    %
+    
+    \draw[pattern = north west lines, pattern color = gray] (0,1.5) node {$+$} circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (1.25,1.5) node {$-$} circle (2mm);
+    
+    \draw[dashed] (-0.7,1.5) -- (-0.2,1.5);
+    \draw[dashed] (0.2,1.5) -- (1.05,1.5);
+    \draw[dashed, ->] (1.45,1.5) -- (4,1.5) node[below left]{$r$};
+    \draw[dashed] (0,0.8) -- (0,1.3);
+    \draw[dashed] (0,1.7) -- (0,2.2);
+    
+    \draw[->, thick] (0.2,1.5) -- node[above]{$F'$} +(0.4,0);
+    \draw[->, thick] (1.05,1.5) -- node[above]{$F$} +(-0.4,0);
+    
+    \draw[dotted] (1.25,-0.4) -- (1.25,1.3);
+        
+\end{tikzpicture}
+\end{minipage}
+\caption{Potenciais eletrostáticos repulsivo (esquerda) e atrativo (direita). \label{Fig:PotencialEletromagRepulsivoAtrativo}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pontos de equilíbrio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se um potencial tem um ponto, ou uma região, onde a inclinação da reta tangente é zero --~isto é, a reta tangente é \emph{horizontal}~--, temos que a derivada do potencial é nula. Logo,
+\begin{align}
+    F &= - \frac{dU}{dx} \\
+    &= 0.
+\end{align}
+%
+Portanto, nos pontos onde a inclinação da reta tangente ao potencial é zero, temos \emph{pontos de equilíbrio}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Potencial inter-atômico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se tomarmos dois átomos quaisquer, temos diversas cargas interagindo. Quando os átomos ficam muito próximos, existe uma força repulsiva muito intensa, devido à proximidade de suas eletrosferas. Por outro lado, a distâncias grandes existe uma força atrativa. Podemos entender esse processo considerando a interação de potenciais como os mostrados na Figura~\ref{Fig:PotencialEletromagRepulsivoAtrativo}. A soma de potenciais desse tipo dão origem a um potencial como o mostrado na Figura~\ref{Fig:PotLennardJones}.
+
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=1.92:5]
+    plot(\x,{5*((\x/2)^(-12) - (\x/2)^(-6))});
+    
+    \node (U) at (2.2,1.7) {$U$};
+    
+    \draw[->] (1.3,0) -- (5.5,0) node[above left]{$r$};
+    \draw[->] (1.5,-1.5) -- (1.5,2) node[below left]{$U$};
+    
+    \draw[fill] (2.25,-1.23) circle (1.3pt);
+    
+    %
+    
+    \draw[<->] (1.5,-2) -- node[above]{$r_0$} (2.25,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (1.5,-2.5) circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (2.25,-2.5) circle (2mm);
+    
+    \draw[dashed] (0.8,-2.5) -- (1.3,-2.5);
+    \draw[dashed] (1.7,-2.5) -- (2.05,-2.5);
+    \draw[dashed, ->] (2.45,-2.5) -- (5.5,-2.5) node[below left]{$r$};
+    \draw[dashed] (1.5,-3.2) -- (1.5,-2.7);
+    \draw[dashed] (1.5,-2.3) -- (1.5,-1.8);
+    
+    \draw[dotted] (2.25,-1.23) -- (2.25,-2.3);
+        
+\end{tikzpicture}
+\caption{A combinação dos diversos potenciais atrativos e repulsivos entre dois átomos dá origem a um potencial efetivo que possui uma região fortemente repulvisa (quando a distância de separação é pequena), uma região moderadamente atrativa, uma região fracamente atrativa, e um \emph{ponto de equilíbrio}. \label{Fig:PotLennardJones}}
+\end{marginfigure}
+
+De uma maneira aproximada, o potencial entre dois átomos pode ser descrito através da expressão
+\begin{equation}
+    V(r) = \frac{A}{r^{12}} - \frac{B}{r^{6}}, \mathnote{Potencial de Lennard-Jones}
+\end{equation}
+%
+onde $A$ e $B$ são constantes. Verificamos que esse potencial apresenta um ponto de equilíbrio que podemos determinar igualando a derivada do potencial a zero:
+\begin{align}
+    \frac{d}{dr}V(r) &= -\frac{12A}{r^{13}} + \frac{6B}{r^7} \\
+    &= 0
+\end{align}
+%
+o que nos leva à distância
+\begin{equation}
+    r_0 = \sqrt[6]{\frac{2A}{B}}.
+\end{equation}
+%
+de equilíbrio entre os dois átomos.
+
+Outro potencial cuja origem é a interação complexa entre diversas partículas é o potencial à que estão sujeitas as partículas em um núcleo atômico. Ele pode ser aproximado pela expressão
+\begin{equation}
+    U_N(r) = - \frac{U_0}{1 + e^{(r - R) / a}}, \mathnote{Potencial de Woods-Saxon}
+\end{equation}
+%
+onde as constantes $U_0$, $R$, e $a$, determinam a profundidade, largura, e largura da borda do potencial. Uma característica notável do potencial nuclear é o fato de que ele tem uma região central de equilíbrio.
+
+\begin{marginfigure}[-12cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0:3]
+    plot(\x,{-2 / (1 + exp((\x - 2) / 0.15))});
+    
+    \node (U) at (2.3,-1) {$U$};
+    
+    \draw[->] (-0.2,0) -- (3.5,0) node[below left]{$r$};
+    \draw[->] (0,-2.3) -- (0,0.5) node[below left]{$U$};
+        
+\end{tikzpicture}
+\caption{O potencial nuclear é marcado por uma força atrativa muito intensa, pelo curto alcance, e por uma região central de equilíbrio.}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equilíbrio e estabilidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Os pontos de equilíbrio podem ser classificados com base em sua estabilidade: se o ponto de equilíbrio for um máximo local, ele é um ponto de equilíbrio \emph{instável}; se for um ponto de mínimo local, é um ponto de equilíbrio \emph{estável}.
+
+\begin{figure}[tb]
+\begin{minipage}[c]{0.45\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -15, rotate around z = -15, extended line/.style={shorten >=#1,shorten <=#1},
+ extended line/.default=2mm]]
+ 
+    \draw[fill] (0,0,0) circle (1pt);
+
+    \draw[dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+    
+    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
+    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
+    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
+    
+    \draw[densely dotted, extended line] (H1) -- (H2);
+    \draw[densely dotted, extended line] (H2) -- (H3);
+    \draw[densely dotted, extended line] (H3) -- (H1);
+    
+    \draw[pattern = north east lines] (0,0,0.5) coordinate (N) circle (1.5mm);
+    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.5) circle (1.5mm);
+    \draw[densely dotted, extended line] (N) -- (H1);
+    \draw[densely dotted, extended line] (N) -- (H2);
+    \draw[densely dotted, extended line] (N) -- (H3);
+    
+\end{tikzpicture}
+\end{minipage}
+%
+\begin{minipage}[c]{0.45\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-2:2]
+    plot(\x,{0.25*(0.1*(2*\x)^4 - (2*\x)^2)}) node[right]{$U$};
+    
+    \draw[->] (-2,0) -- (2,0) node[below left]{$x$};
+    \draw[->] (0,-0.2) -- (0,2.5) node[below left]{$U$};
+    
+    \draw[fill] (-1.118, -0.625) circle (1.3pt);
+    \draw[fill] (0,0) circle (1.3pt);
+    \draw[fill] (1.118,-0.625) circle (1.3pt);
+
+\end{tikzpicture}
+\end{minipage}
+\caption{A molécula de amônia é composta por três átomos de hidrogênio e um átomo de nitrogênio, formando um tetraedro. O potencial ao qual o nitrogênio está sujeito tem a forma mostrada à direita. Note que existem dois pontos de equilíbrio \emph{estáveis} e um ponto de equilíbrio \emph{instável}. \label{Fig:MoleculaAmoniaEPotencial}}
+\end{figure}
+
+Essa classificação é simples de se entender através da Figura~\ref{Fig:MoleculaAmoniaEPotencial}, onde mostramos uma molécula de amônia. O átomo de nitrogênio pode ocupar três posições: uma de cada lado do plano formado pelos três átomos de hidrogênio e a posição central, exatamente no meio de tal plano. De acordo com o potencial mostrado na figura, se tomarmos qualquer uma das posições fora do plano, temos que um deslocamento ao longo do eixo $x$ em qualquer direção dá origem a uma força que tende a \emph{restaurar} o nitrogênio à posição inicial: um deslocamento no sentido positivo de $x$ dá origem a uma força no sentido negativo, enquanto um deslocamento no sentido negativo de $x$ dá origem a uma força no sentido positivo.
+
+No caso de o átomo ocupar a posição central, no entanto, temos uma situação diferente. Se ele for deslocado no sentido positivo de $x$, surge uma força no sentido \emph{positivo}, tendendo a o afastar ainda mais da posição central. O mesmo acontece se o deslocamento é no sentido negativo, já que surge uma força também no sentido \emph{negativo}, tendendo a o afastar ainda mais da posição central.
+
+Podemos determinar se o ponto é estável ou instável do ponto de vista de cálculo ao verificar o valor da derivada segunda no ponto de equilíbrio. Podemos determinar se um ponto crítico --~isto é, o ponto onde a derivada é zero~-- de uma função qualquer é ponto de máximo ou ponto de mínimo através da derivada segunda:
+\begin{itemize}
+    \item Se $\frac{d}{dx}U(x)|_{x = x_p} > 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{mínimo} --~ou seja, um ponto de equilíbrio \emph{estável}--;
+    \item Se $\frac{d}{dx}U(x)|_{x = x_p} < 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{máximo} --~ou seja, um ponto de equilíbrio \emph{instável}--;
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pontos de retorno}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se tomarmos um sitema como o da Figura~\ref{Fig:PotElasticoComMassaMola}, onde o atrito entre a mesa e o bloco é desprezível, e o bloco pode se deslocar em torno de sua posição de equilíbrio $x = 0$, temos que o potencial que sofre variação\footnote{Temos também um potencial gravitacional, porém se a superfície de apoio é perfeitamente horizontal, esse potencial não varia.} é o potencial elástico. Ao deslocarmos o sistema até uma posição $x_A$, temos que o potencial será dado por $U_e^A = kx_A^2 /2$. Se liberarmos a movimentação do bloco a partir desse ponto, com velocidade inicial nula, temos que a energia mecânica será dada por
 \begin{align}
   E_A &= U_A + K_A \\
   &= U_A.
 \end{align}
 
-Como a energia mecânica é constante, podemos traçar uma reta horizontal no gráfico do potencial (Figura~???). Verificamos que para cada valor da posição $x$, a soma entre a energia potencial $U$ e a energia cinética $K$ deve ser igual a $E$. Logo, através do gráfico, podemos identificar rapidamente quais os pontos onde temos maior o menor energia cinética ao verificarmos onde a distância vertical entre a curva do potencial e a reta da energia mecânica é maior. Além disso verificamos que em qualquer movimento, a energia está limitada ao valor numérico de $E$, portanto qualquer forma de energia no sistema tem no máximo tal valor. Isso implica em um valor máximo para a energia potencial que será no instante em que $K = 0$. Isso corresponde aos pontos de interseção entre a reta $E$ e a curva $U$ nos gráficos (afinal,nesses pontos a distância entre a curva e a reta é nula, o que implica em $K=0$).
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.5:4.5]
+    plot(\x,{0.5*(\x - 2.5)^2}) node[right]{$U_e$};
+    
+    %%
+    
+    \draw[interface] (0,-1.5) -- (0,-3);
+    \draw[interface] (0,-3) -- (4.8, -3);
+    
+    \draw (0,-2.5) -- (0.2,-2.5);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2.5) -- (3.3,-2.5);
+    \draw (3.3, -2.5) -- (3.5,-2.5);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-3) rectangle (4.5,-2);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-3) rectangle (3,-2);
+    
+    \draw[fill] (4,-2.5) circle (1pt);
+    \draw[->, thick] (4,-2.5) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-2) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2.5) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,0) -- (4.8,0) node[below left]{$x$};
+    \draw[<->] (2.5,-0.5) -- node[below]{$d$} (4,-0.5);
+    \draw[->] (2.5,-0.2) -- (2.5,2.5) node[below left]{$U$};
+    \draw[fill] (4,0) node[below left]{$A$} circle (1pt);
+    
+    \draw[dotted] (2.5,-0.2) -- (2.5,-2);
+    \draw[dashed] (4,-1) -- (4,1.125);
+    
+    \draw[dashdotted] (0.5, 1.125) node[left]{$E$} -- (4.5, 1.125);
+    \draw[fill] (4, 1.125) circle (1.2pt);
+        
+\end{tikzpicture}
+\caption{Através de um gráfico do potencial em função da posição, podemos verificar em cada ponto qual é a distribuição da energia mecânica $E$. \label{Fig:PotElasticoComMassaMola} }
+\end{marginfigure}
+
+Como a energia mecânica é constante, podemos traçar uma reta horizontal no gráfico do potencial. Verificamos que para cada valor da posição $x$, a soma entre a energia potencial $U$ e a energia cinética $K$ deve ser igual a $E$ --afinal, não temos nenhuma força não-conservativa atuando no sistema~--. Logo, através do gráfico, podemos identificar rapidamente quais os pontos onde temos maior o menor energia cinética ao verificarmos onde a distância vertical entre a curva do potencial e a reta da energia mecânica é maior.
+
+Além disso verificamos que em qualquer movimento, a energia está limitada ao valor numérico de $E$, portanto qualquer forma de energia no sistema tem no máximo tal valor. Isso implica em um valor máximo para a energia potencial que será no instante em que $K = 0$. Isso corresponde aos pontos de interseção entre a reta $E$ e a curva $U$ nos gráficos (afinal,nesses pontos a distância entre a curva e a reta é nula, o que implica em $K=0$).
 
 Os pontos de interseção da curva do potencial pela reta da energia mecânica são denominados \emph{pontos de retorno}. No exemplo do oscilador massa-mola se o bloco se desloca em direção a um ponto de retorno, ele sofre uma força dada por
-\begin{equation}
+\begin{equation*}
   F = -\frac{dU}{dx},
-\end{equation}
+\end{equation*}
 %
-o que fará com que ele sofra uma aceleração no sentido contrário ao deslocamento e eventualmente pare. Como ele continua sob efeito da força, ele passará a \emph{retornar} ao atingir tal ponto. Devido a esse comportamento, em potenciais mais complexos, podem ocorrer regiões em que o movimento está confinado a um \emph{poço de potencial} limitado por dois pontos de retorno, mesmo que existam outras regiões em que o movimento do sistema seria possível (Figura~???). Um aumento da energia mecânica possibilitaria, se o ganho energético for suficiente, que o sistema ultrapassasse as \emph{barreiras de potencial} e ampliasse o tamanho da região de confinamento.
+o que fará com que ele sofra uma aceleração no sentido contrário ao deslocamento e eventualmente pare. Como ele continua sob efeito da força, ele passará a \emph{retornar} após atingir tal ponto. Devido a esse comportamento, em potenciais mais complexos, podem ocorrer regiões em que o movimento está confinado a um \emph{poço de potencial} limitado por dois pontos de retorno, mesmo que existam outras regiões em que o movimento do sistema seria possível (veja a Figura~\ref{Fig:PocoMoleculaAmonia}). Um aumento da energia mecânica possibilitaria, se o ganho energético for suficiente, que o sistema ultrapassasse as \emph{barreiras de potencial} que delimitam o poço e ampliasse o tamanho da região de confinamento.
 
-Outra característica interessante do sistema e que pode ser facilmente verificada através dos gráficos de potencial é a existência de \emph{pontos de equilíbrio}. Um sistema está em equilíbrio se a força que atua sobre ele é nula, o que implica em
-\begin{equation}
-  F = \frac{dU}{dx} = 0.
-\end{equation}
-%
-Graficamente, podemos interpretar a derivada de uma função $f(x)$ como a inclinação da reta que tange a curva $f(x)$ no ponto $x$. Se a derivada é nula, temos então que a inclinação é nula, ou seja, temos uma reta horizontal. Tais pontos são os pontos de \emph{mínimo}, \emph{máximo} e \emph{pontos de inflexão}. Verificando as forças que atuam nas imediações de cada um desses pontos, verificamos que em torno dos pontos de mínimo, qualquer deslocamento faz com que apareça uma força que tende a trazer o corpo de volta à posição de equilíbrio. Já nos pontos de máximo, temos que as forças que aparecem tendem a fazer com que o corpo seja afastado da posição de equilíbrio. Devido a essas características, os pontos de mínimo do potencial são ditos \emph{pontos de equilíbrio estável} e os pontos de máximo são ditos \emph{pontos de equilíbrio instável}. Os pontos de inflexão dependem da direção do delocamento: em uma das direções, a força faz com que o sistema volte ao equilíbrio; já na direção oposta, a força tende a levar o sistema para longe do equilíbrio.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Potencial interatômico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{posição de equilíbrio, oscilação em torno do equilíbrio e dilatação}
-
-As forças que ocorrem entre átomos são caracterizadas por serem repulsivas a curtas distâncias e atrativas a distâncias médias. Isso dá origem a um potencial como o da Figura~???. Verificamos que existe um ponto de equilíbrio estável a uma distância $a_0$ em relação à origem. Tal ponto é a distância média entre os dois átomos. Em caso de termos uma perturbação dos átomos, temos que a distância entre eles passará a variar em um movimento oscilatório. Isso se deve ao fato de que temos um ponto de equilíbrio estável e temos uma energia mecânica que é maior do que o mínimo possível (que seria igual ao potencial no ponto $a_0$, com $K=0$). Se tivermos uma perturbação forte o suficiente, a oscilação pode ser forte o suficiente para que a energia mecânica seja grande o suficiente para que o átomo se afaste indefinidamente, chegando ao infinito com uma energia cinética residual. Essa energia dada ao sistema é a chamada \emph{energia de ativação}, isto é, a energia necessária para se iniciar uma reação química. Microscopicamente, a temperatura está relacionada à velocidade das partículas, portanto, se aumentarmos a temperatura, aumentamos a energia cinética das moléculas. Esse aumento da energia cinética levará inevitavelmente a um aumento no número de colisões entre moléculas que são capazes de transferir energia suficiente para ``ativar'' a reação. Isso explica por que uma reação ocorre mais rápido quando aumentamos a temperatura (e por que usamos panelas de pressão).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Potencial de Woods-Saxon}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Região central com $F \approx 0$}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-2:2]
+    plot(\x,{0.25*(0.1*(2*\x)^4 - (2*\x)^2)}) node[right]{$U$};
+    
+    \draw[->] (-2,0) -- (2,0) node[above left]{$x$};
+    \draw[->] (0,-0.2) -- (0,2.5) node[below left]{$U$};
+    
+%    \draw[fill] (-1.118, -0.625) circle (1.3pt);
+%    \draw[fill] (0,0) circle (1.3pt);
+%    \draw[fill] (1.118,-0.625) circle (1.3pt);
+    
+    \draw[dashed] (-1.75, -0.3) node[below]{$E$} -- (1.75, -0.3);
+\end{tikzpicture}
+\caption{Dependendo do valor de energia mecânica, o movimento pode ficar restrito a um ``poço de potencial''. Se aumentássemos a energia mecânica, poderíamos ultrapassar a barreira de potencial central e ter uma oscilação entre as barreiras esquerda e direita. \label{Fig:PocoMoleculaAmonia}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Montanha russa}
+%\subsection{Montanha russa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
+%Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Atrito e Trabalho de forças externas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%
-%\subsection{Sistemas}
+\subsection{Sistemas}
 %%%%%%%%%%%%%%%%%%%%%
 
-%Um sistema pode ser definido como um conjunto de partículas que interagem através de uma ou mais forças. Ao definirmos um sistema, automaticamente definimos uma \emph{fronteira} do sistema, que o separa do resto do universo.
+Um sistema pode ser definido como um \emph{conjunto de partículas que interagem através de uma ou mais forças}. Ao tomarmos tal definição, automaticamente definimos uma \emph{fronteira} que separa o sistema do resto do universo. A utilidade de tal definição reside no fato de que em muitos casos podemos efetuar uma escolha de maneira que nenhum trabalho externo é realizado sobre qualquer partícula pertencente ao sistema. Isso nos permite dizer que a energia mecânica do sistema --~isto é, a soma das energia mecânicas das partículas que compõe o sistema~-- é constante.
 
-%A utilidade de se definir um sistema reside no fato de que em muitos casos, podemos definir um sistema de maneira que nenhum trabalho externo é realizado sobre qualquer partícula do sistema. Isso nos permite dizer que a energia cinética total do sistema --~isto é, a soma das energia cinéticas das partículas que compõe o sistema~-- é constante. Devido às forças entre as partículas, pode ocorrer a transferência de energia cinética entre as partículas, porém a energia cinética do sistema como um todo se mantém constante. Esse tipo de sistema é denominado um \emph{sistema fechado}. Mesmo em casos onde o sistema não é fechado, se soubermos qual é o trabalho total realizado sobre o sistema, podemos saber qual é a energia cinética total, pois
+Devido às forças entre as partículas, pode ocorrer a transferência de energia cinética ou potencial entre elas, porém a energia mecânica do sistema como um todo se mantém constante. Esse tipo de sistema é denominado um \emph{sistema fechado}.
+
+Mesmo em casos onde o sistema não é fechado, se soubermos qual é o trabalho total realizado sobre o sistema, podemos saber qual é a energia cinética total, pois
 
 % Generalizar a definição de energia mecãnica
 
@@ -1307,7 +1702,9 @@ Questão do potencial no caso da montanha russa da montanha russa (problema bidi
 
 % "Dizer que deixaremos o tratamento das demais para mais tarde:" ou seja, aqui: ao falarmos de variação da energia mecânica, tratar as forças que não podem ser escritas a partir de potenciais; elas devem se enquadrar como forças que alteram a energia interna, ou que transportam energia através da fronteira do sistema, certo? (verificar isso tb). As que não geram potencial são forças que não podem armazenar energia de nenhuma forma?
 
-Se voltarmos ao problema do oscilador massa-mola (Figura~???), mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, mas eventualmente parará. Se o sistema partir de um ponto $x_A$ à esquerda da origem, por exemplo, podemos verificar que após um deslocamento até $x_B$, o atrito realizará um trabalho sobre o bloco dado por
+
+
+Se voltarmos ao problema do oscilador massa-mola (Figura~\ref{Fig:PotElasticoComMassaMola}), mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, mas eventualmente parará. Se o sistema partir de um ponto $x_A$ à esquerda da origem, por exemplo, podemos verificar que após um deslocamento até $x_B$, o atrito realizará um trabalho sobre o bloco dado por
 \begin{equation}
   W_{\fat} = - \fat \Delta x.
 \end{equation}
