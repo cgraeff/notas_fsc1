@@ -1093,7 +1093,7 @@ Entretanto, nem todas as forças respeitam a condição acima. A força de atrit
 
 Uma maneira equivalente a tal afirmação é analisarmos o deslocamento entre duas configurações distintas $A$ e $B$ para um sistema, porém considerando deslocamentos por caminhos diferentes. Se o potencial é função somente da configuração atual do sistema, os valores de potencial $U_A$ e $U_B$ são os mesmo para qualquer dois caminhos tomados, logo, podemos afirmar que
 \begin{quote}
-\emph{se o trabalho realizado por uma força no deslocamento entre dois pontos é depende do caminho, não podemos escrever um potencial para tal força.}
+\emph{se o trabalho realizado por uma força no deslocamento entre dois pontos depende do caminho, não podemos escrever um potencial para tal força.}
 \end{quote}
 
 As forças podem ser então classificadas\footnote{A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.} em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial -- ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho --. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica, e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal, de tensão, e magnéticas são não-conservativas.
@@ -1107,32 +1107,32 @@ Verificamos que para os potenciais gravitacional e elástico, os valores associa
   K + U = \textrm{constante}.
 \end{align}
 
-Se analisarmos um caso em que existam $n$ forças atuando sobre o sistema, podemos escrever
+Se analisarmos um caso em que existam $n_f$ forças atuando sobre o sistema, podemos escrever
 \begin{align}
   \Delta K &= W_{\textrm{Total}} \\
-  &= \sum_n W_{F_n}.
+  &= \sum_{j = 1}^{n_f} W_{F_j}.
 \end{align}
 %
-Se cada um dos trabalhos associados às forças $F_n$ puder ser escrito como
+Se cada um dos trabalhos associados às forças $F_j$ puder ser escrito como
 \begin{equation}
-  W_n = \Delta U_n,
+  W_j = \Delta U_j,
 \end{equation}
 %
 então temos
 \begin{align}
-  \Delta K &= \sum_n \Delta U_n \\
-  &= \sum_n (U_n^f - U_n^i) \\
-  &= \left(\sum_n U_n^f\right) - \left(\sum_n U_n^i\right).
+  \Delta K &= \sum_{j = 1}^{n_f} \Delta U_j \\
+  &= \sum_{j = 1}^{n_f} (U_j^f - U_j^i) \\
+  &= \left(\sum_{j = 1}^{n_f} U_j^f\right) - \left(\sum_{j = 1}^{n_f} U_j^i\right).
 \end{align}
 %
 de onde temos
 \begin{equation}
-  K_f + \sum_n U_n^f = K_i + \sum_n U_n^i.
+  K_f + \sum_{j = 1}^{n_f} U_j^f = K_i + \sum_n{j = 1}^{n_f} U_j^i.
 \end{equation}
 %
 A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinética e das potenciais deve ser uma constante:
-\begin{equation}
-  K + \sum_n U_n = E, \mathnote{Definição de Energia Mecânica}
+\begin{equation}\label{Eq:DefEnergiaMecanicaParticula}
+  K + \sum_{j = 1}^{n_f} U_j = E, \mathnote{Definição de Energia Mecânica}
 \end{equation}
 %
 onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. 
@@ -1527,21 +1527,27 @@ Os pontos de equilíbrio podem ser classificados com base em sua estabilidade: s
  
     \draw[fill] (0,0,0) circle (1pt);
 
-    \draw[dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+%    \draw[dotted] (0,0,0) -- (1.5,0,0);
+%    \draw[dotted] (0,0,0) -- (0,1.5,0);
     
     \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
     \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
     \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
     
-    \draw[densely dotted, extended line] (H1) -- (H2);
-    \draw[densely dotted, extended line] (H2) -- (H3);
-    \draw[densely dotted, extended line] (H3) -- (H1);
+    \draw[dashed, extended line] (H1) -- (H2);
+    \draw[dashed, extended line] (H2) -- (H3);
+    \draw[dashed, extended line] (H3) -- (H1);
     
-    \draw[pattern = north east lines] (0,0,0.5) coordinate (N) circle (1.5mm);
-    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.5) circle (1.5mm);
-    \draw[densely dotted, extended line] (N) -- (H1);
-    \draw[densely dotted, extended line] (N) -- (H2);
-    \draw[densely dotted, extended line] (N) -- (H3);
+    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
+    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
+    \draw[dashed, extended line] (N) -- (H1);
+    \draw[dashed, extended line] (N) -- (H2);
+    \draw[dashed, extended line] (N) -- (H3);
+    
+    \draw[dotted, extended line] (N2) -- (H1);
+    \draw[dotted, extended line] (N2) -- (H2);
+    \draw[dotted, extended line] (N2) -- (H3);
     
 \end{tikzpicture}
 \end{minipage}
@@ -1678,107 +1684,268 @@ o que fará com que ele sofra uma aceleração no sentido contrário ao deslocam
 
 %Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Atrito e Trabalho de forças externas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistemas}
-%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+\section{Sistemas}
+%%%%%%%%%%%%%%%%%%
 
 Um sistema pode ser definido como um \emph{conjunto de partículas que interagem através de uma ou mais forças}. Ao tomarmos tal definição, automaticamente definimos uma \emph{fronteira} que separa o sistema do resto do universo. A utilidade de tal definição reside no fato de que em muitos casos podemos efetuar uma escolha de maneira que nenhum trabalho externo é realizado sobre qualquer partícula pertencente ao sistema. Isso nos permite dizer que a energia mecânica do sistema --~isto é, a soma das energia mecânicas das partículas que compõe o sistema~-- é constante.
 
-Devido às forças entre as partículas, pode ocorrer a transferência de energia cinética ou potencial entre elas, porém a energia mecânica do sistema como um todo se mantém constante. Esse tipo de sistema é denominado um \emph{sistema fechado}.
-
-Mesmo em casos onde o sistema não é fechado, se soubermos qual é o trabalho total realizado sobre o sistema, podemos saber qual é a energia cinética total, pois
-
-% Generalizar a definição de energia mecãnica
-
-% começar discutindo uma força externa que realize trabalho sobre um dos corpos de um sistema, aumentando a energia interna. Depois considerar a situação em que temos uma diminuição da energia interna. Verificar que em ambos os casos temos uma variação da energia devido a um trabalho que transporta energia através da fronteira do sistema.
-
-% Depois, considerar a alteração da energia mecânica devido a uma força de atrito, de forma que não haja transferência de energia para fora do sistema. Falar de energia interna nos corpos, pois eles têm energia mecânica nas partículas que os compôe.
-
-% Finalmente, vamos concluir aqui que $\Delta E = W_{at} + W_{ext}$. Destacar que essa é uma generalização do próprio teorema trabalho energia, pois leva em conta a variação tanto da energia cinética, quanto da potencial.
-
-% "Dizer que deixaremos o tratamento das demais para mais tarde:" ou seja, aqui: ao falarmos de variação da energia mecânica, tratar as forças que não podem ser escritas a partir de potenciais; elas devem se enquadrar como forças que alteram a energia interna, ou que transportam energia através da fronteira do sistema, certo? (verificar isso tb). As que não geram potencial são forças que não podem armazenar energia de nenhuma forma?
-
-
-
-Se voltarmos ao problema do oscilador massa-mola (Figura~\ref{Fig:PotElasticoComMassaMola}), mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, mas eventualmente parará. Se o sistema partir de um ponto $x_A$ à esquerda da origem, por exemplo, podemos verificar que após um deslocamento até $x_B$, o atrito realizará um trabalho sobre o bloco dado por
-\begin{equation}
-  W_{\fat} = - \fat \Delta x.
-\end{equation}
-%
-Nesse mesmo deslocamento, o trabalho efetuado pela mola será dado por
-\begin{equation}
-  W_e = -\frac{k}{2}(x_f^2 - x_i^2).
-\end{equation}
-%
-Usando o teorema trabalho energia cinética, temos
+Devido às forças entre as partículas, pode ocorrer a transferência de energia cinética ou potencial entre elas, porém a energia mecânica do sistema como um todo se mantém constante. Esse tipo de sistema é denominado um \emph{sistema fechado}. Temos então que para $n$ partículas, a energia do sistema e dada por
 \begin{align}
-  \Delta K &= W_{\textrm{Total}} \\
-  K_f - K_i &= W_{\fat} + \left(-\frac{k}{2}x_f^2 + \frac{k}{2}x_i^2\right) \\
-  \left(K_f + \frac{k}{2} x_f^2\right) - \left(K_i + \frac{k}{2}x_i^2\right) &= W_{\fat}.
+    E_S &= \sum_{i = 1}^{n} E\\
+    &= \sum_{i = 1}^{n} K_i + \sum_{i = 1}^n \sum_{j = 1}^{n_f} U_j,
 \end{align}
 %
-Usando $U_e = kx^2/2$, podemos escrever
+onde a energia $E$ de cada partícula é dada pela Equação~\ref{Eq:DefEnergiaMecanicaParticula}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Máquina de Atwood}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos utilizar a expressão acima para determinar a velocidade dos blocos em uma máquina de Atwood após eles terem percorrido uma determinada distância. Se definirmos um sistema como o mostrado na Figura~\ref{Fig:MaquinaDeAtwood}, temos que não existe nenhuma força que realize trabalho sobre qualquer dos corpos pertencentes a tal sistema. Além disso, vamos considerar que as massas da polia e da corda são desprezíveis, e também que a corda é inextensível. Logo, a energia mecânica no sistema deve ser constante. Podemos então escrever
+\begin{align}
+    E_S^i &= E_S^f \\
+    E_1^i + E_2^1 &= E_1^f + E_2^f \\
+    K_1^i + U_{g, 1}^i + K_2^i + U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f + U_{g, 2}^f.
+\end{align}
+%
+Se os blocos partem do repouso, então as energias cinéticas iniciais são nulas. Além disso, devido à escolha do sistema de coordenadas, a energias potenciais inicial do primeiro bloco  e final do segundo são nulas. Assim,
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    \draw[dashed] (-2.3, 0) rectangle (2.3, -5.2);
+    
+    \draw[interface] (2,-0.3) -- (-2,-0.3);
+    
+    \draw[pattern = north west lines] (0,-1) circle (0.5);
+    \draw[fill] (0,-1) circle (1pt);
+    \draw[fill] (0,-1) -- (0.2,-0.3) -- (-0.2,-0.3) -- cycle;
+    
+    \draw[pattern = north west lines] (-0.8,-4) rectangle (-0.2, -4.6);
+    \draw[dotted, pattern = north west lines] (-0.2,-2) rectangle (-0.8,-2.6);
+    \draw (-0.5,-1) -- (-0.5,-4);
+    \draw[fill] (-0.5, -4.3) circle (1pt);
+    \draw[thick, ->] (-0.5,-4.3) -- +(0,-0.6) node[right]{$\vec{P}_1$};
+    \draw[thick, ->] (-0.5,-4) -- +(0,0.75) node[right]{$\vec{T}$};
+    
+    \draw[pattern = north west lines] (0.2,-2) rectangle (0.8,-2.6);
+    \draw[dotted, pattern = north west lines] (0.8,-4) rectangle (0.2, -4.6);
+    \draw (0.5,-1) -- (0.5,-2);
+    \draw[dotted] (0.5, -2.6) -- (0.5,-4);
+    \draw[fill] (0.5, -2.3) circle (1pt);
+    \draw[thick, ->] (0.5,-2.3) -- +(0,-1) node[right]{$\vec{P}_2$};
+    \draw[thick, ->] (0.5,-2) -- +(0,0.75) node[right]{$\vec{T}$};
+    
+    \draw[|-|] (1,-2.3) -- node[right]{$d$} (1,-4.3);
+    \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
+    \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
+\end{tikzpicture}
+\caption{Se definirmos um sistema como sendo o mostrado na figura acima, incluindo a Terra, temos que nenhuma força externa ao sistema realiza trabalho sobre ele. Consequentemente, a energia mecânica é constante. \label{Fig:MaquinaDeAtwood}}
+\end{marginfigure}
+%
+\begin{align}
+    U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f \\
+    m_2gy_2^i &= \frac{1}{2} m_1 (v_1^f)^2 + m_1gy_1^f + \frac{1}{2} m_2 (v_2^f)^2,
+\end{align}
+%
+ou, como $v_1^f = v_2^f \equiv v_f$,
+\begin{align}
+    m_2gy_2^i &= \frac{1}{2} (m_1 + m_2) v_f^2 + m_1gy_1^f \\
+    2gd(m_2-m_1) &= (m_1+m_2) v_f^2,
+\end{align}
+%
+onde usamos o fato de que $y_2^i = y_1^f = d$. Finalmente, temos que a velocidade final é dada por
 \begin{equation}
-  (K_f + U_f) - (K_i - U_i) = W_{\fat}
+    v_f = \sqrt{2gd\frac{m_2-m_1}{m_1+m_2}}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trabalho de forças externas}
+\label{Sec:TrabalhoForcasExternas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se o trabalho realizado por forças externas ao sistema não é nulo, temos transferência de energia através da fronteira do sistema. Vamos considerar um sistema de $N$ partículas que interagem através de $N_f$ forças conservativas e que sobre o sistema uma força externa realiza trabalho. A partir do teorema trabalho-energia, temos que
+\begin{align}
+    \sum_{n=1}^N \Delta K &= W_{\textrm{Total}} \\
+    \sum_{n=1}^N K_n^f - \sum_{n=1}^N K_n^f &= W_{\textrm{ext}} - \sum_{n = 1}^N \sum_{j = 1}^{N_f} \Delta U_{j,n}
+\end{align}
+%
+onde usamos o fato de que para uma força conservativa
+\begin{align}
+    W &= - \Delta U \\
+    &= -(U_f - U_i).
+\end{align}
+%
+Com isso podemos escrever\footnote{Podemos juntar os vários somatórios em $n$, pois $\sum_i a_i + \sum_i b_i = \sum_i(a_i + b_i)$.}
+\begin{equation}
+    \sum_{n=1}^N[ K_n^f + \sum_{j = 1}^{N_f} U_{j,n}] - \sum_{n=1}^N[K_n^i + \sum_{j = 1}^{N_f} U_{j,n}^i] = W_{\textrm{ext}}.
 \end{equation}
 %
-o que equivale a
+Os termos entre colchetes são a energia mecânica final e inicial de cada partícula, logo:
+\begin{align}
+    \sum_{n=1}^N E_n^f - \sum_{n=1}^N E_n^i &= W_{\textrm{ext}} \\
+    E_{S}^f - E_S^i &= W_{\textrm{ext}}
+\end{align}
+%
+e, finalmente,
 \begin{equation}
-  \Delta E = W_{\fat}.
+    \Delta E_S = W_{\textrm{ext}}. \mathnote{Variação da energia mecânica de um sistema devido a forças externas}
+\end{equation}
+%
+Portanto, verificamos que no caso de uma força externa realisar trabalho sobre um sistema, \emph{a variação da energia mecânica do sistema é igual ao trabalho realizado por tal força.} Note que não impusemos nenhum sinal para o trabalho externo, portanto ele pode aumentar ou diminuir a energia do sistema. Além disso, se mais que uma força externa atua sobre o sistema, o que importa é o \emph{trabalho externo líquido}. Finalmente, esse resultado também é válido para um sistema que possui só um corpo. Nesse caso a energia mecânica total do sistema é a própria energia mecânica de tal corpo. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia interna}
+\label{Sec:EnergiaInterna}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Vamos supor agora que temos um sistema onde atuam forças conservativas e uma força não-conservativa interna --~como, por exemplo, uma força de atrito, ou a força exercida por um motor acoplado a uma fonte de energia, como uma bateria~--. A fronteira do sistema deve ser escolhida de maneira que nenhum trabalho externo é exercido sobre o sistema. Nesse caso, através do teorema trabalho-energia
+\begin{align}
+    \sum_{n=1}^N \Delta K &= W_{\textrm{Total}} \\
+    \sum_{n=1}^N K_n^f - \sum_{n=1}^N K_n^f &= W_{F_{\textrm{NC}}^{\textrm{int}}} - \sum_{n = 1}^N \sum_{j = 1}^{N_f} \Delta U_{j,n}
+\end{align}
+%
+onde novamente separamos o trabalho em duas partes, uma devido à força não-conservativa interna e outra devido às forças conservativas, sendo que essa última pode ser escrita em termos da variação dos potenciais. Prosseguindo de maneira análoga àquela da seção anterior, obtemos
+\begin{equation}
+    \sum_{n=1}^N[ K_n^f + \sum_{j = 1}^{N_f} U_{j,n}] - \sum_{n=1}^N[K_n^i + \sum_{j = 1}^{N_f} U_{j,n}^i] = W_{F_{\textrm{NC}}^{\textrm{int}}},
+\end{equation}
+%
+e identificando mais uma vez os termos entre colchetes com a energia mecânica, obtemos
+\begin{align}
+    \sum_{n=1}^N E_n^f - \sum_{n=1}^N E_n^i &= W_{F_{\textrm{NC}}^{\textrm{int}}} \\
+    E_{S}^f - E_S^i &= W_{F_{\textrm{NC}}^{\textrm{int}}}
+\end{align}
+%
+e, finalmente,
+\begin{equation}
+    \Delta E_S = W_{F_{\textrm{NC}}^{\textrm{int}}}. \mathnote{Variação da energia mecânica devida a uma força interna não-conservativa}
+\end{equation}
+%
+Verificamos, portanto, que uma força não-conservativa pode variar a energia mecânica, mesmo que ela seja interna\footnote{Isso justifica a denominação conservativa/não-conservativa adotada: as forças conservativas \emph{conservam} a energia mecânica; as não-conservativas variam a energia mecânica}. No caso de uma força de atrito oposto ao sentido do movimento dos corpos que compõe o sistema, verificamos que a energia mecânica diminui. Eventualmente, um sistema nessas condições ficará sem energia mecânica disponível e seu movimento cessará. Entretanto, estamos considerando um \emph{sistema fechado}, ou seja, não pode haver fluxo de energia para fora do sistema. Concluímos, portanto, que a energia mecânica deve ter sido transformada em algum outro tipo de energia, que denominamos genericamente de \emph{energia interna}. No caso específico das forças de atrito, temos que ocorre um aumento característico da \emph{temperatura} dos objetos sujeitos ao atrito: a temperatura está associada a uma energia interna devido ao movimento das partículas que compõe os objetos do sistema.
+
+Se, por outro lado, temos um motor acoplado a uma \emph{fonte de energia}, podemos aumentar a energia mecânica do sistema. Em geral, em qualquer dispositivo cujo movimento é interessante, temos tanto forças de atrito, quanto uma fonte de energia. A própria fonte de energia, seja ela uma bateria, ou o combustível para uma máquina térmica, é uma forma de \emph{energia interna}. Veremos na adiante que a energia segue um princípio de conservação geral, sendo este um dos resultados mais úteis e interessantes da Física.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Oscilador harmônico com atrito}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se voltarmos ao problema do oscilador massa-mola, mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, porém eventualmente parará. Verificamos que a energia mecânica sofrerá uma variação dada por
+\begin{align}
+    \Delta E_S &= W_{F_{\textrm{NC}}^{\textrm{int}}} \\
+    &= W_{\textrm{at}} \\
+    &= \vec{f}_{\textrm{at}} \cdot \vec{d}.
+\end{align}
+%
+No sistema em questão, a força de atrito é cinético; além disso, a normal é igual ao peso. Logo, temos que
+\begin{equation}
+    W_{\textrm{at}} = \mu_c m g d \cos \theta,
+\end{equation}
+%
+onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo será sempre de \np[\tcdegree]{180}, e --~portanto~--,
+\begin{equation}
+    W_{\textrm{at}} = - \mu_c m g d.
 \end{equation}
 
-A equação acima não se restringe ao caso da existência de uma força de atrito, ela é válida sempre que houver \emph{qualquer} força externa que realize um trabalho sobre o sistema, sendo ele positivo ou negativo. Portanto podemos escrever
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.5:4.5]
+    plot(\x,{0.5*(\x - 2.5)^2}) node[right]{$U_e$};
+    
+    %%
+    
+    \draw[interface] (0,-1.5) -- (0,-3);
+    \draw[interface] (0,-3) -- (4.8, -3);
+    
+    \draw (0,-2.5) -- (0.2,-2.5);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2.5) -- (3.3,-2.5);
+    \draw (3.3, -2.5) -- (3.5,-2.5);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-3) rectangle (4.5,-2);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-3) rectangle (3,-2);
+    
+    \draw[fill] (4,-2.5) circle (1pt);
+    \draw[->, thick] (4,-2.5) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-2) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2.5) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,0) -- (4.8,0) node[below left]{$x$};
+    \draw[<->] (2.5,-0.5) -- node[below]{$d$} (4,-0.5);
+    \draw[->] (2.5,-0.2) -- (2.5,2.5) node[below left]{$U$};
+    \draw[fill] (4,0) node[below left]{$A$} circle (1pt);
+    
+    \draw[dotted] (2.5,-0.2) -- (2.5,-2);
+    \draw[dashed] (4,-1) -- (4,1.125);
+    
+    \draw[dashdotted] (0.5, 1.125) node[left]{$E_i$} -- (4.5, 1.125);
+    \draw[fill] (4, 1.125) circle (1.2pt);
+    
+    \draw[dashed] (1.1771,0.875) coordinate (r1)-- (4,1.125);
+    \draw[dashed] (1.1771,0.875) -- (3.618,0.625) coordinate (r2);
+    \draw[dashed] (1.634,0.375) coordinate (r3) -- (3.618,0.625);
+    
+    \draw[fill] (r3) node[left]{$E_f$} circle (1.3pt);
+    \draw[dotted] (r1) -- +(0,-0.875);
+    \draw[dotted] (r2) -- +(0,-0.625);
+    \draw[dotted] (r3) -- +(0,-0.375);
+        
+\end{tikzpicture}
+\caption{Devido ao atrito, a energia mecânica do sistema sofre uma diminuição progressiva, fazendo com que os pontos de retorno fiquem mais próximos à posição de equilíbrio em cada oscilação. Eventualmente o sistema parará devido ao atrito estático, restando uma energia residual na forma de energia potencial elástica.\label{Fig:PotElasticoComMassaMolaComAtrito}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:PotElasticoComMassaMolaComAtrito} temos um gráfico da energia em função do deslocamento. Note que a cada oscilação, devido à diminuição da energia mecânica, a amplitude da oscilação diminui. Note também que nos pontos de retorno a velocidade é nula, e por isso a condição passa a ser de atrito estático. Nas primeiras oscilações, a força exercida pela mola é suficiente para fazer com que o corpo volte a oscilar, porém, eventualmente, a amplitude será tal que a força exercida pela mola é \emph{menor que a força de atrito estático máxima}. Nesse momento, o sistema para de oscilar, armazenando uma energia residual na forma de energia potencial elástica na mola.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Princípio da conservação da energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Com os resultados das seções~\ref{Sec:TrabalhoForcasExternas} e~\ref{Sec:EnergiaInterna} podemos escrever para a variação da energia mecânica a seguinte expressão:
 \begin{equation}
-  \Delta E = W_{\textrm{Ext}}. \mathnote{Variação da energia mecânica}
+    \Delta E = W_{F_\textrm{NC}^{\textrm{int}}} + W_{\textrm{ext}}.
+\end{equation}
+%
+Apesar de não podermos associar um potencial às forças não-conserva-tivas, podemos considerar que o trabalho transfere energia da forma mecânica para \emph{outras formas de energia}.
+
+Voltando ao caso do oscilador harmônico sujeito ao atrito, sabemos que se permitirmos que o sistema oscile, sua energia mecânica diminuirá. Podemos interpretar essa diminuição como uma transferência da energia mecânica para uma outra forma de energia associada à temperatura. Diversas outras formas de energia são possíveis: energia química associada às ligações entre as moléculas, energia associada a um campo elétrico ou a um campo magnético, energia associada às ligações entre as partículas em um núcleo atômico (energia nuclear), etc.
+
+A energia pode ser transferida entre as diversas formas através de diferentes mecanismos: trabalho realizado por uma força, ondas --~em um meio físico\footnote{Podemos considerar que as ondas em um meio físico exercem uma força periódica que realiza trabalho, transferindo energia.} (ondas sonoras, ondas em uma corda)~--, ou eletromagnéticas (ondas de rádio, luz visível, infra-vermelho, etc.), ou mesmo por contato como no caso de dois objetos de diferentes temperaturas e que estejam em contato direto\footnote{Nesse caso dizemos que há um fluxo de \emph{calor}.}.
+
+Considerando tais observações, podemos enunciar\footnote{Note que esse princípio não é deduzido, mas enunciado: ele não pode ser deduzido de nenhuma forma, mas \emph{assumimos} que ele é verdadeiro.} um \emph{princípio da conservação da energia}, segundo o qual a variação da energia de um sistema é igual à energia transferida para fora dele:
+\begin{equation}
+    \Delta E_S^{\textrm{mec}} + \Delta E_S^{\textrm{int}} = W_{\textrm{ext}}. \mathnote{Princípio da conservação da energia}
 \end{equation}
 
-Se o trabalho é exercido por uma força de arrasto, podemos afirmar que a energia extraída do sistema passou para a forma de energia cinética das partículas que compõe o ar --~caso tenhamos um trabalho negativo~--. Se, por outro lado, temos uma rampa sobre a qual um bloco desce sujeito a uma força de atrito, verificamos que a energia mecânica do sistema diminui. No entanto, nenhum trabalho é exercido no sentido de se extrair energia do sistema. Nesse caso, a energia é transformada em energia térmica, na forma de um aumento de temperatura do sistema.
-
-Com base nesse tipo de observação, se formulou uma teoria que generaliza a ideia de conservação da energia para incluir outras formas de energia, culminando em um princípio geral da Física.
+Através do princípio da conservação da energia e da flexibilidade que temos ao definir um sistema, podemos nos preocupar simplesmente com o \emph{fluxo} da energia. Isso tende a facilitar muito a interpretação de diversos problemas pois podemos nos preocupar com a origem e o destino da energia, sem termos que nos preocupar com cada detalhe de cada processo físico que ocorre durante a transferência da energia entre uma forma e outra.
  
-\comment{Aqui tem que reescrever tudo, tá muito ruim (dar uma revisada em outros livros, fatos históricos). Nessa parte do calor, teve alguém que observou que ao se furar o cano de canhões, havia uma grande aquecimento; Foi a primeira vez que alguém associou energia térmica a trabalho. Aqui é a ponte para a termodinâmica. Discutir a conservação da energia e suas origens na termodinâmica, teorema de Noether.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia interna}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-discutir o problema da origem da energia cinética de um carro (nenhum trabalho atravessa a fronteira, então a energia é interna, eu acho). Antes, discutir o problema de dois blocos ligados por uma mola e que saltam, como uma caneta com botão.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Massa mola com atrito}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Mostrar como a energia mecânica vai mudando conforme se desloca.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conservação da energia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-falar do cara do furo do canhão, dar uma visão bem geral de energia, mesmo que seja necessário falar sobre termodinâmica (deixaremos a expressão da variação da energia mecânica que aparece acima ainda mais geral, pois levaremos em conta outras possibilidades de fluxo de energia. Destacar que já estamos levando em conta a possibilidade de outras forças conservativas, pois já estamos considerando que o potencial que aparece na equação é um somatório de vários potenciais, basta adicionar mais termos a tal soma. Temos que adicionar o termo de energia interna tb, mas destacar que esse termo é um método de esconder a sujeira debaixo do tapete, pois isso não passa de energias cinéticas e/ou potenciais que não sabemos descrever). Focar no "fluxo" de energia entre as diversas formas; falar da idéia de minimização da energia. Falar que trabalho, calor, são formas de transporte de energia através da fronteira de um sistema (destacar que trabalho positivo transfere energia de fora para o sistema, enquanto um trabalho negativo transfere energia do sistema para fora).
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Seções opcionais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-pseudo trabalho (esqueci completamente o que é isso), dedução do teorema trabalho energia através da segunda lei de newton (isso está feito já ao discutir o pêndulo na seção de cálculo da velocidade abaixo)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Potencial gravitacional à partir da lei da gravitação universal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pseudo trabalho (esqueci completamente o que é isso)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia cinética e referenciais inerciais}
+%\subsection{Energia cinética e referenciais inerciais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cálculo da velocidade de um pêndulo através das Leis de Newton}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em um referencial tangente à trajetória (fazer figura, eixo x tangente à trajetória circular), temos que
+Em um referencial tangente à trajetória, temos que
 \begin{description}
     \item[Eixo $x$:] No eixo tangente à trajetória temos
         \begin{align}
@@ -1793,8 +1960,35 @@ Em um referencial tangente à trajetória (fazer figura, eixo x tangente à traj
             T - P_y &= m \frac{v^2}{r}
         \end{align}
 \end{description}
-%
-Sabemos que a aceleração centrípeta é responsável por alterar somente a direção da velocidade, por isso não precisamos nos preocupar com o eixo $y$. Podemos reescrever a expressão para a aceleração como
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2]
+    \draw[fill] (0,0) circle (1pt);
+    \draw[densely dotted] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 290];
+    
+    \draw[gray] (0,0) coordinate (fix) -- (-140:18mm);
+    \draw[gray, dashed] (0,0) -- +(0,-1) coordinate (down);
+    
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-140:2) circle (2mm);
+    \draw[fill, gray] (-140:2) coordinate (bob) circle (1pt);
+    \draw[->, thick, gray] (-140:2) -- +(0,-0.7) coordinate (peso) node[left]{$\vec{P}$};
+    \draw[->, thick, gray] (-140:18mm) -- (-140:14mm) node[above left]{$\vec{T}$};
+    
+    \draw[dashed,->] (-140:2) +(130:1) -- +(-50:1.25) coordinate (x) node[below]{$x$};
+    \draw[dashed,->] (-140:3) -- (-140:1) node[below]{$y$};
+    
+    \draw[dotted] (-140:2) ++(0,-0.7) -- +(40:0.45);
+    \draw[thick, ->] (-140:2) -- +(-50:0.536) node[above right]{$P_x$};
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = bob--fix--down};
+    \pic [draw, "$\theta$", angle eccentricity = 1.4, angle radius = 4mm] {angle = peso--bob--x};
+        
+\end{tikzpicture}
+\caption{Em um pêndulo, a aceleração está ligada à componente da força peso na direção tangente à trajetória. Para que possamos determinar a velocidade precisamos realizar uma integração.}
+\end{marginfigure}
+
+\noindent{}Sabemos que a aceleração centrípeta é responsável por alterar somente a direção da velocidade, por isso não precisamos nos preocupar com o eixo $y$. Podemos reescrever a expressão para a aceleração como
 \begin{equation}
     \frac{dv}{dt} = g \sen\theta,
 \end{equation}
@@ -1894,7 +2088,7 @@ Através da Segunda Lei de Newton, podemos escrever, considerando um eixo tangen
 %
 Integrando entre os instantes inicial e final, aos quais correspondem as velocidades inicial $v_i$ e final $v_f$ e as posições $s_i$ e $s_f$ ao longo do arco descrito pelo pêndulo, temos
 \begin{align}
-    \frac{v^2}{2}\Big|_{v^i}{v^f} &= \int_{s_i}^{s_f} F_t \; ds \\
+    \frac{v^2}{2}\Big|_{v_i}^{v_f} &= \int_{s_i}^{s_f} F_t \; ds \\
     \frac{mv_f^2}{2} - \frac{mv_i^2}{2} &= \int_{s_i}^{s_f} F_t \; ds.
 \end{align}
 %
@@ -1903,7 +2097,7 @@ A integral acima ``soma'' a contribuição da componente da força projetada na 
     \int_C \vec{F} \cdot d\vec{r}.
 \end{equation}
 %
-A expressão acima é uma \emph{integral de linha da força $F$ sobre o caminho $C$}. A equação acima é a expressão mais geral para o trabalho. Consequentemente, rededuzimos o teorema trabalho-energia:
+A expressão acima é uma \emph{integral de linha da força $\vec{F}$ sobre o caminho $C$}. A equação acima é a expressão mais geral para o trabalho. Consequentemente, rededuzimos o teorema trabalho-energia:
 \begin{equation}
     \frac{mv_f^2}{2} - \frac{mv_i^2}{2} = W,
 \end{equation}
