@@ -13,7 +13,7 @@
 \begin{fullwidth}
 {\it
 
-O que faremos neste capítulo?
+Diversas situações podem ser bastante complicadas de se resolver utilizando as Leis de Newton. Verificaremos neste capítulo um método alternativo baseado em uma grandeza escalar: a energia. Apesar de ser um método que inicialmente é uma consequência das leis do movimento, ele se revela uma característica fundamental dos fenômenos naturais: a conservação da energia em um fenômeno físico é tida como um princípio geral da Física.
 
 }
 \end{fullwidth}
@@ -24,7 +24,7 @@ O que faremos neste capítulo?
 
 Em muitos casos a determinação de algumas grandezas através das Leis de Newton é uma tarefa bastante complexa. Se, por exemplo, estamos interessados em calcular a velocidade de um pêndulo após ele percorrer uma certa distância, temos uma aceleração que varia dependendo da posição. A solução desse problema exige o uso de técnicas de cálculos que não são simples, tornando a solução em algo não trivial.
 
-Podemos encontrar uma maneira mais simples de resolver problemas como esse utilizando o conceito de \emph{energia}. Diferentemente das variáveis cinemáticas e das forças, a energia é uma grandeza escalar, como a massa. Em certas circunstâncias, verificaremos qua a energia de um sistema é uma constante, o que simplifica muito o seu tratamento ao permitir que relacionemos as grandezas associadas a configurações diferentes do sistema, que ocorrem em tempos diferentes.
+Podemos encontrar uma maneira mais simples de resolver problemas como esse utilizando o conceito de \emph{energia}. Diferentemente das variáveis cinemáticas e das forças, a energia é uma grandeza escalar, como a massa. Em certas circunstâncias, verificaremos que a energia de um sistema é uma constante, o que simplifica muito o tratamento de um fenômeno qualquer pois permite que relacionemos as grandezas associadas a configurações diferentes do sistema físico em questão: se a energia é constante, a energia associada a uma disposição inicial em um tempo inicial é igual à energia associada a uma disposição final em um tempo final.
 
 \begin{marginfigure}
 \centering
@@ -56,11 +56,11 @@ Podemos encontrar uma maneira mais simples de resolver problemas como esse utili
 \caption{O cálculo da velocidade de um pêndulo é uma tarefa muito mais simples ao interpretarmos o problema à luz dos conceitos de energia e conservação da energia.}
 \end{marginfigure}
 
-\emph{Lead in} para a dedução do teorema trabalho energia \dots
+Verificaremos a seguir como podemos determinar a energia associada à velocidade de um corpo --~a \emph{energia cinética}~--. Uma alteração da velocidade de um corpo está ligada a uma força, através da aceleração. Determinaremos o que chamamos de \emph{trabalho} realizado pela força, que pode ser entendido como \emph{a quantidade de energia cedida ao corpo pela força exercida}. A relação entre a variação da energia cinética e o trabalho é conhecida como \emph{Teorema Trabalho--Energia-cinética}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Teorema Trabalho-Energia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Teorema Trabalho--Energia-cinética}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % O primeiro a falar em trabalho e energia cinética com o significado atual foi Coriolis (segundo o livro de Sistemas Dinâmicos de Luiz Henrique Alves Monteiro).
 
@@ -135,9 +135,9 @@ O trabalho pode ser analisado em três situações distintas, relacionadas ao â
   W = \vec{F}\cdot\vec{d}. \mathnote{Trabalho de uma força constante}
 \end{equation}
 
-Temos então o seguinte resultado, conhecido como \emph{Teorema Trabalho -- Energia Cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial. De qualquer forma, o resultado é bastante útil.},
+Temos então o seguinte resultado, conhecido como \emph{Teorema Trabalho--Energia-cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial. De qualquer forma, o resultado é bastante útil.},
 \begin{equation}
-  \Delta K = W \mathnote{Teorema Trabalho -- Energia Cinética}.
+  \Delta K = W \mathnote{Teorema Trabalho--Energia-cinética}.
 \end{equation}
 
 Tanto a energia cinética, quanto o trabalho tem unidades dadas por
@@ -196,12 +196,7 @@ Destacamos ainda que uma maneira simples de verificar se o trabalho tem o sinal 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Quando um objeto se move por um caminho qualquer sujeito à força peso, temos que o trabalho realizado por tal força pode ser positivo, negativo ou nulo, dependendo da orientação do deslocamento do objeto. Se temos um deslocamento que ocorre verticalmente para baixo, como na Figura~\ref{Fig:DeslocamentoCorpoVerticalmenteParaBaixo}, devido à orientação dos vetores temos
-\begin{align}
-  W_g &= \vec{P}\cdot\vec{d} \\
-  &= mgd\cos\degree{0} \\
-  &= mgd.
-\end{align}
-\begin{marginfigure}[-10cm]
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[dashdotted] (0,0) -- (0,-4);
@@ -216,8 +211,13 @@ Quando um objeto se move por um caminho qualquer sujeito à força peso, temos q
 \end{tikzpicture}
 \caption{Corpo que se desloca verticalmente para baixo. \label{Fig:DeslocamentoCorpoVerticalmenteParaBaixo}}
 \end{marginfigure}
+\begin{align}
+  W_g &= \vec{P}\cdot\vec{d} \\
+  &= mgd\cos\degree{0} \\
+  &= mgd.
+\end{align}
 
-\begin{marginfigure}[-3cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[dashdotted] (0,0) -- (0,-4);
@@ -677,7 +677,7 @@ cuja interpretação é \emph{a área abaixo da curva $f(x)$ contida entre $a$ e
   A'_{f(x)}(x) = \lim_{\ell \to 0} \frac{A_{f(x)}(x+\ell) - A_{f(x)}(x)(x)}{\ell}.
 \end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -897,7 +897,7 @@ Se considerarmos a Terra e um objeto qualquer, próximo à superfície do planet
   K_i &= mgh
 \end{align}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines] (0,0) circle (2mm);
@@ -905,12 +905,12 @@ Se considerarmos a Terra e um objeto qualquer, próximo à superfície do planet
     \draw[->, thick] (0,0) -- +(0,-1) node[right]{$\vec{P}$};
     \draw[->] (0,0.2) -- +(0, 0.75) node[right]{$\vec{v}_i$};
     
-    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,3) circle (2mm);
-    \draw[gray, fill] (0,3) circle (1pt);
-    \draw[->, thick, gray] (0,3) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,2.75) circle (2mm);
+    \draw[gray, fill] (0,2.75) circle (1pt);
+    \draw[->, thick, gray] (0,2.75) -- +(0,-1) node[right]{$\vec{P}$};
     
-    \draw[->] (-1, -1) -- (-1, 4) node[below left]{$y$};
-    \draw[|-|] (-1,0) node[left]{$y_i = 0$} -- (-1,3) node[left]{$y_f = h$};
+    \draw[->] (-1, -1) -- (-1, 3.5) node[below left]{$y$};
+    \draw[|-|] (-1,0) node[left, shift={(-1mm,0)}]{$y_i = 0$} -- (-1,2.75) node[left, shift={(-1mm,0)}]{$y_f = h$};
     
 \end{tikzpicture}
 \caption{Quando um objeto sobe verticalmente sujeito à força peso, sua velocidade diminui devido ao trabalho realizado por tal força.}
@@ -1214,7 +1214,7 @@ Usando a expressão~\eqref{Eq:FrequenciaAngular} para a frequência angular, obt
 \end{align}
 %
 onde usamos $\sen^2\alpha + \cos^2\alpha = 1$. Observe que o resultado obtido corresponde à energia potencial elástica na posição de máximo afastamento da posição de equilíbrio, onde temos que o corpo pára momentaneamente e sua energia cinética é nula.
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}[-8cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.45, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1240,8 +1240,23 @@ Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência tem
 \section{Análise de gráficos de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO Reescrever isso abaixo
-Diversos sistemas físicos podem ser interpretados de uma maneira mais simples utilizando potenciais. É muito comum que tenhamos informações diretas somente sobre o potencial, pois isso é mais fácil de medir (pense no potencial elétrico). Isso se deve ao fato de que a energia é um escalar, não possuindo direção e sentido. Nesses sistemas, é comum que se faça uma análise do gráfico da energia potencial. Veremos a seguir um simples gráfico do potencial em função da posição encerra várias informações interessantes.
+\begin{marginfigure}[-3cm]
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0);
+    \draw[->] (0,0) -- (0,3);
+    
+    \draw[thick] (0.5,0.5) -- (3, 3) coordinate (i1);
+    \draw[dotted] (2,2) coordinate (O1) -- +(1,0) coordinate (h1);
+    \pic[draw, "$\alpha$", angle eccentricity = 1.5] {angle = h1--O1--i1};
+    
+    \draw[thick, dashed] (0.5,2) -- (3.5,0.5) coordinate (i2);
+    \draw[dotted] (2,1.25) coordinate (O2) -- +(1,0) coordinate (h2);
+    \pic[draw, "$\beta$", angle eccentricity = 1.5] {angle = i2--O2--h2}; 
+\end{tikzpicture}
+\caption{O ângulo de uma reta é positivo se ele está acima do eixo horizontal, como no caso do ângulo $\alpha$ na figura acima. Se ele estiver abaixo da reta horizontal, caso do ângulo $\beta$, ele é negativo. \label{Fig:SinalInclinacao}}
+\end{marginfigure}
+
+O fato de que a energia é um escalar faz com que em algumas situações seja muito mais simples se obter informações analisando diretamente o potencial associado a uma força\footnote{Isso é notavel ao se tratar de potenciais elétricos: a tensão elétrica em um condutor em um circuito elétrico nada mais é do que uma medida da diferença de potencial elétrico entre tal ponto e o ponto de menor potencial.} Veremos a seguir que um simples gráfico do potencial em função da posição encerra várias informações interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças em um gráfico de potencial}
@@ -1259,22 +1274,6 @@ Para determinar o sentido, basta notarmos que:
     \item Se a derivada é \emph{positiva}\footnote{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$ -- ângulo $\alpha$ na Figura~\ref{Fig:SinalInclinacao}~--.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$};
     \item Se --~por outro lado~-- a inclinação é \emph{negativa}\footnote{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$ --~ângulo $\beta$ na Figura~\ref{Fig:SinalInclinacao}~--.}, temos que \emph{a força é no sentido positivo do eixo $x$.}
 \end{itemize}
-
-\begin{marginfigure}
-\begin{tikzpicture}[>=Stealth]
-    \draw[->] (0,0) -- (4,0);
-    \draw[->] (0,0) -- (0,3);
-    
-    \draw[thick] (0.5,0.5) -- (3, 3) coordinate (i1);
-    \draw[dotted] (2,2) coordinate (O1) -- +(1,0) coordinate (h1);
-    \pic[draw, "$\alpha$", angle eccentricity = 1.5] {angle = h1--O1--i1};
-    
-    \draw[thick, dashed] (0.5,2) -- (3.5,0.5) coordinate (i2);
-    \draw[dotted] (2,1.25) coordinate (O2) -- +(1,0) coordinate (h2);
-    \pic[draw, "$\beta$", angle eccentricity = 1.5] {angle = i2--O2--h2}; 
-\end{tikzpicture}
-\caption{O ângulo de uma reta é positivo se ele está acima do eixo horizontal, como no caso do ângulo $\alpha$ na figura acima. Se ele estiver abaixo da reta horizontal, caso do ângulo $\beta$, ele é negativo. \label{Fig:SinalInclinacao}}
-\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forças eletrostáticas}
@@ -1597,7 +1596,7 @@ Se tomarmos um sitema como o da Figura~\ref{Fig:PotElasticoComMassaMola}, onde o
   &= U_A.
 \end{align}
 
-\begin{marginfigure}
+\begin{marginfigure}[5cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1686,6 +1685,7 @@ o que fará com que ele sofra uma aceleração no sentido contrário ao deslocam
 
 %%%%%%%%%%%%%%%%%%
 \section{Sistemas}
+\label{Sec:Sistemas}
 %%%%%%%%%%%%%%%%%%
 
 Um sistema pode ser definido como um \emph{conjunto de partículas que interagem através de uma ou mais forças}. Ao tomarmos tal definição, automaticamente definimos uma \emph{fronteira} que separa o sistema do resto do universo. A utilidade de tal definição reside no fato de que em muitos casos podemos efetuar uma escolha de maneira que nenhum trabalho externo é realizado sobre qualquer partícula pertencente ao sistema. Isso nos permite dizer que a energia mecânica do sistema --~isto é, a soma das energia mecânicas das partículas que compõe o sistema~-- é constante.
@@ -2108,8 +2108,12 @@ onde
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%
-\section{Questionário}
+%\section{Questionário}
 %%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{question}[type={exam}]
+%Uma questão.
+%\end{question}
 
 % Considerando uma força de arrasto específica, qual é a velocidade máxima dada uma certa potência.
 

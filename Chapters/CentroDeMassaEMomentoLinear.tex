@@ -1,171 +1,1009 @@
-\chapter{Centro de Massa e Momento Linear}
+\chapter{Momento Linear}
 \label{Chap:CentroDeMassaEMomentoLinear}
 
 %\minitoc
 %\clearpage
 
-\section{Centro de Massa}
+\begin{fullwidth}\it
+Introdução ao capítulo aqui!
+\end{fullwidth}
 
-Ao analisarmos o movimento de um objeto, usamos a simplificação de que toda a sua massa se concetra em um ponto. Veremos agora como calcular a posição desse ponto. A dedução da fórmula para este cálculo é bastante simples, porém precisamos apresentar o conceito de \emph{torque}, que será de grande importância para o estudo de rotações.
-\comment{Ver no Marion a separação do movimento como deslocamento do CM mais movimentos em relação ao CM}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Momento linear}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Torque}
-
-Sabemos que podemos equilibrar um objeto sobre um fulcro, ao distribuir a massa em torno do ponto de apoio de uma maneira simétrica. Se tomarmos uma balança com dois pratos, por exemplo\comment{Fig de balança de dois pratos pendurados}, para obter equilíbrio devemos ter a mesma quantidade de massa em cada um dos pratos --~ou, mais precisamente, a força peso dos objetos em cada um dos pratos deve ser igual\footnote{Apesar de não haver dependência direta no valor da aceleração da gravidade, se estivessemos em uma região do espaço onde não há força gravitacional, quaisquer dois objetos aparentemente seriam capazes de equilibrar a balança.}~--. 
-
-No caso de não haver simetria, a experiência nos mostra que ainda sim podemos obter equilíbrio. Na Figura~(???) temos uma balança com um prato e uma haste que não é simétrica, sendo menor no lado preso ao prato. No lado maior, temos um objeto com uma massa fixa e ao deslocá-lo podemos equilibrar o sistema. Nesse caso, podemos tomar o produto entre a força aplicada sobre a haste e a distância entre a o ponto de aplicação da força e o ponto de apoio e verificamos experimentalmente que no equilíbrio
+Ao estudarmos a Segunda Lei de Newton, utilizamos como variáveis a aceleração e a massa. De acordo com Newton, no entanto,
+\begin{quote}
+\emph{A alteração do movimento é sempre proporcional à força motriz a ele aplicada; e é feita na direção da linha reta em que tal força atua.}
+\end{quote}
+%
+Na afirmação acima, a palavra \emph{movimento} se refere ao que Newton define como \emph{quantidade de movimento}:
+\begin{quote}
+\emph{A quantidade de movimento é a medida do mesmo, advindo da velocidade e da quantidade de matéria conjuntamente.}
+\end{quote}
+%
+Matematicamente, temos que tal grandeza, que também é conhecida como \emph{momento linear}, é descrita pela equação
 \begin{equation}
-  x_1 \ell_1 = x_2 \ell_2.
+    \vec{p} = m \vec{v}.
+\end{equation}
+
+Utilizando a definição de momento linear, podemos escrever matematicamente a Segunda Lei de Newton como
+\begin{equation}\label{Eq:SegundaLeiMomento}
+    \vec{F} = \frac{d\vec{p}}{dt}. \mathnote{Segunda Lei de Newton}
 \end{equation}
 %
-Vemos que no caso de não haver equilíbrio --~isto é, quando a equação acima não é respeitada~-- temos uma aceleração do sistema no sentido de fazê-lo girar. Uma outra maneira de verificar tal efeito é tomarmos uma porta e aplicarmos uma força $\vec{F}$ como mostrado na Figura (???, porta mostrada de cima). Nesse caso temos uma força que faz um ângulo $\phi$ em relação à reta que liga o ponto de rotação da porta e o ponto de aplicação da força. Decompondo $F$ em uma componente ao longo dessa reta e outra perpendicular a ela, fica evidente que a componente paralela à reta não é capaz de causar uma rotação. Logo, podemos determinar uma grandeza $\tau$ dada por
+Através da definição do momento linear e das propriedades da derivada, podemos escrever
 \begin{align}
-  \tau &= F_t r \\
-  &= F r \sen \phi.
+    \vec{F} &= \frac{dm}{dt}\vec{v} + m\frac{d\vec{v}}{dt} \\
+    &= \frac{dm}{dt}\vec{v} + m\vec{a}.
 \end{align}
 %
-Tal grandeza é denominada \emph{torque}, sendo que torques que tendem a fazer com que ocorra uma rotação no sentido horário são por definição negativos, enquanto torques que tendem a causar uma rotação no sentido antihorário são positivos. Para que haja equilíbrio no caso de uma balança de braços, verificamos que o torque total deverá ser nulo:
+Note que se temos uma massa constante, o primeiro termo é zero, restando a conhecida expressão $\vec{F} = m\vec{a}$. No entanto, sistemas com massa variável não são incomuns: um exemplo onde a variação se massa é importante é o caso do lançamento de um foguete, pois tal grandeza varia sensivelmente conforme o combustível é consumido. Não trataremos aqui sistemas onde a massa possa variar, pois estamos tratando somente de corpos rígidos\footnote{Mais do que isso, só tratamos de translações o \emph{centro de massa} de um corpo rígido. Verificaremos como determinar a posição desse ponto nas próximas seções desse capítulo.}, mas uma análise a partir do conceito de momento nos trás resultados bastante interessantes. O principal deles é o surgimento de uma nova lei de conservação, que permitirá uma análise mais simples de diversos problemas.
+
+%%%%%%%%%%%%%%%%%
+\section{Impulso}
+%%%%%%%%%%%%%%%%%
+
+A Equação~\eqref{Eq:SegundaLeiMomento} nos dá uma maneira de ligar o valor da força exercida sobre um corpo à variação instantânea do momento linear. Muitas vezes, no entanto, estamos interessados em determinar qual é a \emph{variação total} do momento linear. Isso pode ser feito através de uma integração da expressão~\eqref{Eq:SegundaLeiMomento}:
+\begin{align}\label{Eq:SegundaLeiIntegrando}
+    \frac{d\vec{p}}{dt} &= \vec{F}(t) \\
+    d\vec{p} &= \vec{F}(t) \; dt \\
+    \int_{t_i}^{t_f} \vec{p} &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.
+\end{align} 
+%
+A integral à esquerda resulta simplesmente na variação total do momento linear
 \begin{equation}
-  \tau_1 + \tau_2 = 0.
+    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{p}.
 \end{equation}
 
-\subsection{Centro de massa de um conjunto de partículas}
-
-Em caso termos um sistema de $n$ partículas e desejarmos substitui-lo por outro, com somente uma partícula, de maneira que as propriedades dinâmicas sejam as mesmas, precisamos determinar em que ponto tal partícula deve ser disposta e também qual deverá ser sua massa. Tal posição de tal partícula é denominada como \emph{centro de massa} do conjunto de partículas e uma expressão pode ser calculada para determinar sua localização em um sistema de referência exigindo os seguintes requisitos
-\begin{itemize}
-  \item \emph{O torque em torno de uma uma origem $O$ devido ao peso da partícula que substitui o conjunto de partículas deve ser o mesmo que o torque total devido às forças peso de todas as partículas do conjunto.} 
-  
-  Matematicamente, tal exigência pode ser descrita como
-    \begin{equation}
-      \tau_{\textrm{CM}} = \sum_{i=1}^{n} \tau_i.
-    \end{equation}
-    o que resulta em
-    \begin{equation}
-      x_{\textrm{CM}} M_{\textrm{CM}} g = \sum_{i=1}^{n} x_i m_i g
-    \end{equation}
-    ou, dividindo toda a equação por $M_{\textrm{CM}}g$:
-    \begin{equation}
-      x_{\textrm{CM}} = \frac{\sum_{i=1}^{n}}{M_{\textrm{CM}}}.
-    \end{equation}
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->] (0,2.5) node (yaxis) [below left] {$F_x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3]
+    plot(\x,{-0.02*\x^3 + 0.3*\x^2 - \x + 2});
     
-  \item \emph{Se uma força resultante externa causa uma aceleração no sistema de partículas, a mesma força deve causar a mesma aceleração na partícula que substitui o sistema.} 
-  
-  Nesse caso, a aceleração do sistema pode ser escrita como
-  \begin{equation}
-    a = \frac{F_R}{\sum m_i}.
-  \end{equation}
-  Por outro lado, a aceleração da partícula que substitui o sistema será dada por
-  \begin{equation}
-    a_{\textrm{CM}} = \frac{F_R}{M_{\textrm{CM}}}.
-  \end{equation}
-  Se ambas as acelerações são iguais, então
-  \begin{equation}
-    \frac{F_R}{M_{\textrm{CM}}} = \frac{F_R}{\sum m_i}.
-  \end{equation}
-  Consequentemente,
-  \begin{equation}
-    M_{\textrm{CM}} = \sum m_i.
-  \end{equation}
-\end{itemize}
+     \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
+      (0.5, 0) node[below]{$t_i$}
+      -- plot ({\x}, {-0.02*\x^3 + 0.3*\x^2 - \x + 2})
+      -- (2.5, 0) node[below]{$t_f$}
+      -- cycle;
+     
+    \path[name path=fromi](0.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](0.5,0) -- (intersection-1);
+    
+    \path[name path=fromi](2.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](2.5,0) -- (intersection-1);
 
-Portanto, juntando os dois resultados acima, concluímos que o sistema pode ser substituído por um ponto que contém toda a massa do sistema, sendo que sua localização é dada por
+    \node[fill = white, circle, scale = 0.8] (area) at (1.5,0.55) {$J$};
+    
+\end{tikzpicture}
+\caption{A área hachurada corresponde ao impulso dado pela componente $F_x(t)$ de uma força hipotética $\vec{F}(t)$ no intervalo $[t_i, t_f]$. Se as componentes $F_y(t)$ e $F_z(t)$ forem não nulas, temos figuras semelhantes para os eixos $y$ e $z$.}
+\end{marginfigure}
+
+\noindent{}A integral à direita na Equação~\eqref{Eq:SegundaLeiIntegrando} recebe o nome de \emph{impulso}, denotado por $\vec{J}$:
 \begin{equation}
-  x_{\textrm{CM}} = \frac{\sum x_i m_i}{\sum m_i}.
+    \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Impulso}
 \end{equation}
 %
-Generalizando o resultado acima para três dimensôes, obtemos
-\begin{equation}\label{Eq:CM}
-  \vec{r} = \frac{\sum m_i \vec{r}_i}{\sum m_i}. \mathnote{Expressão para a posição do Centro de Massa.}
+Assim, temos que a Segunda Lei de Newton pode ser escrita como
+\begin{equation}\label{Eq:Impulso}
+    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Segunda Lei de Newton \\ (forma integral)}
 \end{equation}
 
-\section{Centro de Massa de um corpo extenso}
-
-Podemos utilizar o a expressão \eqref{Eq:CM} para calcular o centro de massa de qualquer objeto, porém esse cálculo não é prático se o número de partícular for muito grande. No entanto, podemos utilizá-la em conjunto com outras técnicas para determinar o centro de massa de alguns corpos extensos.
-
-\subsection{Discretização}
-
-Podemos calcular o centro de massa de alguns objetos através de um processo de discretização. 
-
-\paragraph{Centro de massa de uma barra}
-
-Podemos calcular o centro de massa de uma barra fina e de densidade homogênea se a dividirmos em $n$ ``fatias'' finas. Como essas fatias são finas, podemos considerar que o centro de massa fica localizado no meio da fatia (e podemos aumentar o número de fatias arbitrariamente caso essa aproximação seja ruim, mas veremos que ela não é). Nesse caso, podemos dizer que para o eixo $x$
-\begin{equation}
-  x_{CM} = \frac{1}{M_t} \sum x_i m_i
-\end{equation}
-%
-Se todas as fatias têm a mesma massa $m$, temos
-\begin{equation}
-  x_{CM} = \frac{m}{M_t} \sum x_i.
-\end{equation}
-%
-Também podemos verificar que $M_t = n m$. Logo
-\begin{equation}
-  x_{CM} = \frac{1}{n} \sum x_i.
-\end{equation}
-%
-A equação acima não passa de uma média das posições das fatias. Podemos pensar da seguinte forma: para uma fatia localizada a uma distância $a$ da origem, temos uma outra localizada a uma distância $a$ da extremidade oposta. Se a barra tem comprimento $L$, então a contribuição dessas duas para o somatório da equação acima é
-\begin{equation}
-  \sum x_i = (a) + (L - a) + \dots,
-\end{equation}
-%
-o que claramente resultará em
-\begin{equation}
-  \sum x_i = \frac{n}{2}L,
-\end{equation}
-%
-pois se temos $n$ fatias, temos $n/2$ pares de fatias. Consequentemente
-\begin{equation}
-  x_{CM} = \frac{L}{2}.
-\end{equation}
-
-\subsection{Distribuição contínua de massa}
-
-A princípio, podemos utilizar a expressão~\eqref{Eq:CM} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. Podemos aproximar um corpo extenso como uma distribuição contínua de massa. Nesse caso podemos substituir a soma por uma integral:
-\begin{equation}
-  \vec{r}_{\textrm{CM}} = \frac{1}{M} \int \vec{r} dm,
-\end{equation}
-%
-onde $M$ representa a massa total do corpo e a integral se dá sobre toda a distribuição de massa do corpo. Esse resultado pode ser interpretado de uma maneira mais simples se considerarmos que o elemento de massa está relacionado à densidade e ao volume do elemento de massa através de $dm = \rho(\vec{r}) dV$. Logo, basta considerarmos uma integral na região do espaço ocupada pelo corpo. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) dA$ ou $dm = \lambda(x) dx$ --~onde $sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~--.
-
-\subsection{Técnicas de simetria}
-
-Muitas vezes podemos encontrar o centro de massa de maneira bastante intuitiva. Nas Figuras\comment{Figuras simétricas (círculo, cilindro, esfera, quadrado, cubo, ...)} (???) a (???), por exemplo, caso os objetos tenham densidade uniforme, os pontos denotam a posição do centro de massa. Tal intuição se deve ao fato de que os objetos têm formas simétricas. 
-
-Podemos verificar matematicamente esse resultado analisando a Figura (???). Na figura o eixo $\overline{AB}$ divide o objeto em duas parte simétricas. Vamos assumir que o eixo $y$ tem a mesma orientação que o eixo de simetria. Nesse caso, a contribuição para o cálculo do centro de massa devido ao ponto $P$ é dada por $x_P m_P$, onde $x_P$ é a distância entre o eixo $y$ e o ponto $P$. Se o objeto é simétrico, existe um ponto $P'$ localizado em $x'_P$ e com massa $m'_P$, cuja contribuição para o centro de massa é $x'_Pm'_P$. Como os pontos se localizam em lados oposto em relação ao eixo de simetria, temos que $x'_P = - x_P$. Além disso, temos que $m_P = m'_P$. Consequentemente,
+Nos resultados acima, devemos destacar que a força, a variação do momento e o impulso são grandezas vetoriais. Assim, devemos aplicar tais equações a cada eixo separadamente:
 \begin{align}
-  x_\textrm{CM} &= \frac{1}{M} (x_P m_P + x'_P m'_P + \dots) \\
+    \Delta p_x &= \int_{t_i}^{t_f} \vec{F}_x(t) \; dt \\
+    \Delta p_y &= \int_{t_i}^{t_f} \vec{F}_y(t) \; dt \\
+    \Delta p_z &= \int_{t_i}^{t_f} \vec{F}_z(t) \; dt.
+\end{align}
+%
+No entanto, uma escolha adequada do sistema de referências muitas vezes implicará na ausência de forças --~ou de componentes de forças~-- em um ou mais eixos, levando a uma variação nula do momento linear de tal eixo.
+
+Também devemos considerar que em muitos casos o impulso de uma força pode ser desprezível: se uma força atua por pouco tempo, o resultado da integral na Equação~\eqref{Eq:Impulso} será pequeno, exceto se a força for extremamente intensa. Veremos que isso permitirá que ignoremos o efeito de algumas forças ao estudarmos colisões, uma vez que as forças em uma colisão são muito intensas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Momento linear e Segunda Lei de Newton para um sistema de partículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De acordo com a Seção~\ref{Sec:Sistemas} do capítulo anterior, um conjunto de partículas interagentes consitui um sistema. Além disso, ao definirmos quais partículas pertencem ao sistema e quais não, definimos automaticamente uma fronteira para o sistema. Vamos nos preocupar agora em definir o momento linear de um sistema de partículas e verificaremos que existe uma forma da Segunda Lei de Newton que se aplica ao sistema como um todo.
+
+Considere um sistema de $N$ partículas interagentes, com massas $m_1$, $m_2$, $m_3$, \dots, $m_N$. Vamos supor que sobre cada partícula $i$ seja exercida uma força resultante $\vec{F}_i^{\rm{Res}}$, de forma que o momento da partícula esteja sujeito a uma variação dada por
+\begin{equation}
+    \frac{d\vec{p}_i}{dt} = \vec{F}_i^{\rm{Res}}.
+\end{equation}
+%
+Podemos escrever a força resultante que atua sobre uma partícula como
+\begin{equation}
+    \vec{F}_i^{\rm{Res}} = \vec{F}_i^{\rm{int}} + \vec{F}_i^{\rm{ext}},
+\end{equation}
+%
+onde $\vec{F}_i^{\rm{int}}$ representa a soma de todas as forças internas do sistema --~isto é, as forças que as partículas do sistema exercem umas sobre as outras~-- e $\vec{F}_i^{\rm{ext}}$ representa a soma de todas as forças externas exercidas sobre a partícula em questão. Assim, podemos escrever
+\begin{equation}
+    \vec{F}_i^{\rm{int}} + \vec{F}_i^{\rm{ext}} = \frac{d\vec{p}_i}{dt}.
+\end{equation}
+
+Para cada partícula, temos uma expressão como a acima. Se somarmos todas elas, podemos escrever
+\begin{align}
+    \sum_{i=1}^N \left[\vec{F}_i^{\rm{int}} + \vec{F}_i^{\rm{ext}}\right] &= \sum_{i=1}^N \frac{d\vec{p}_i}{dt} \\
+    \sum_{i=1}^N \vec{F}_i^{\rm{int}} + \sum_{i=1}^N \vec{F}_i^{\rm{ext}} &= \sum_{i=1}^N \frac{d\vec{p}_i}{dt}.
+\end{align}
+%
+O primeiro termo à esquerda representa a soma sobre todas as forças internas. Como tais forças aparecem sempre em pares que --~devido à Terceira Lei de Newton~-- são iguais em módulo e direção, mas têm sentidos contrários, temos que a soma das forças internas é zero:
+\begin{equation}
+    \sum_{i=1}^N \vec{F}_i^{\rm{int}} = 0.
+\end{equation}
+%
+O segundo termo à esquerda representa a soma das forças externas, que podemos denominar simplesmente como \emph{força resultante externa}:
+\begin{equation}
+    \vec{F}_{R}^{\rm{ext}} \equiv \sum_{i=1}^N \vec{F}_i^{\rm{ext}}.
+\end{equation}
+%
+Assim, podemos escrever
+\begin{equation}
+    \vec{F}_{R}^{\rm{ext}} = \sum_{i=1}^N \frac{d\vec{p}_i}{dt},
+\end{equation}
+%
+ou, sabendo que
+\begin{equation}
+    \frac{df(x)}{dx} + \frac{dg(x)}{dx} + \frac{dh(x)}{dx} + \dots = \frac{d}{dx} [f(x) + g(x) + g(x) + \dots],
+\end{equation}
+%
+podemos escrever
+\begin{equation}
+    \vec{F}_{R}^{\rm{ext}} = \frac{d}{dt}\sum_{i=1}^N \vec{p}_i.
+\end{equation}
+
+A soma à direita na expressão acima é o vetor resultante da soma de todos os momentos lineares das partículas do sistema --~ou seja, é o \emph{momento linear total do sistema}--, que denotamos por $\vec{P}$:
+\begin{equation}
+    \vec{P} \equiv \sum_{i=1}^N \vec{p}_i. \mathnote{Momento linear de um sistema de partículas}
+\end{equation}
+%
+Assim, temos
+\begin{equation}\label{Eq:SegundaLeiSistemaDeParticulas}
+    \vec{F}_{R}^{\rm{ext}} = \frac{d}{dt}\vec{P}, \mathnote{Segunda Lei de Newton para um sistema de partículas}
+\end{equation}
+%
+ou, se a massa do sistema é constante,
+\begin{equation}\label{Eq:SegundaLeiSistemaDeParticulasMConst}
+	\vec{F}_{R}^{\rm{ext}} = M \vec{a}_{\rm{CM}}. \mathnote{Segunda Lei de Newton para um sistema com massa total constante}
+\end{equation}
+
+A expressão acima tem a mesma forma que a Segunda Lei de Newton para uma partícula. De certa forma, sempre que consideramos um corpo extenso, estamos utilizando a equação acima, já que todo corpo extenso é formado por um conjunto de partículas que se mantém coesas devido a forças internas muito intensas. Outro aspecto importante é o fato de que a força resultante externa pode ser tanto uma força única que age sobre uma partícula do sistema --~como no caso de uma força aplicada a um ponto de um bloco~--, ou a soma de inúmeras forças que atuam sobre cada uma das partículas --~como no caso da força peso~--. Finalmente, devemos destacar que a expressão acima não se limita a corpos rígidos, e veremos que isso dará origem a resultados muito interessantes e bastante úteis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Algum exemplo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%Discutir um sistema complexo onde é difícil falar na segunda lei para uma dar partículas, mas que seja fácil falar na segunda lei para o sistema como um todo. Ver exemplo 'Bolas' no Kleppner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nos capítulos anteriores, quando descrevemos a translação de um objeto, imaginamos sempre que o substituíamos por um ponto, que denominamos como \emph{centro de massa} do corpo. Com isso, tratar o movimento de um corpo extenso equivale a tratar o movimento de uma partícula, cuja massa é igual à massa total do corpo e cuja posição é a do centro de massa. Dessa forma, podemos determinar uma posição, uma velocidade, e uma aceleração dessa partícula/centro-de-massa. \footnote{Efetivamente, são essas as grandezas que tratamos em todos os problemas envolvendo corpos extensos.}
+
+Se arremessarmos um corpo extenso em um lançamento oblíquo, verificaremos que o movimento é --~em geral~-- muito mais complexo que uma parábola: temos um movimento em que ele gira conforme executa a translação. No entanto, a única força externa exercida sobre o corpo é a força peso, o que implica --~devido à Equação~\ref{Eq:SegundaLeiSistemaDeParticulas}~-- em uma mudança do momento linear do sistema como um todo. Sabemos que o momento linear total é dado pela soma dos momentos lineares das partículas que compõe o sistema, mas também podemos imaginar que ele está ligado à velocidade do corpo como um todo, isto é, ele está ligado à velocidade do centro de massa:
+\begin{equation}
+    \vec{P} = M \vec{v}_{\rm{CM}},
+\end{equation}
+%
+onde $M$ representa a massa total do corpo em questão. Tal velocidade está ligada a uma posição $\vec{r}_{\rm{CM}}$ e uma aceleração $\vec{a}_{\rm{CM}}$.
+
+Podemos determinar uma expressão para a posição do centro de massa se considerarmos que, para o corpo como um todo, ao exercermos uma força externa, temos que
+\begin{equation}
+    F = M \vec{a}_{\rm{CM}}.
+\end{equation}
+%
+A partir da Equação~\ref{Eq:SegundaLeiSistemaDeParticulas} temos que
+\begin{align}
+    M \vec{a}_{\rm{CM}} &= \frac{d}{dt}\vec{P} \\
+    &= \frac{d}{dt} \sum_{i} m_i \vec{v}_i \\
+    &= \sum_{i} m_i \frac{d}{dt} \vec{v}_i \\
+    &= \sum_{i} m_i \vec{a}_i,
+\end{align}
+%
+onde assumimos que a massa de cada partícula é constante. Sabemos que uma aceleração é dada pela derivada segunda da posição:
+\begin{equation}
+    \vec{a} = \frac{d^2}{dt^2} \vec{r},
+\end{equation}
+%
+logo,
+\begin{equation}
+    M \frac{d^2}{dt^2} \vec{r}_{\rm{CM}} =  \sum_{i} m_i \frac{d^2}{dt^2} \vec{r}_i.
+\end{equation}
+%
+A expressão acima só é verdadeira se a posição do centro de massa for dada por
+\begin{equation}\label{Eq:CMConjuntoDeParticulas}
+    \vec{r}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{r}_i. \mathnote{Centro de massa de um conjunto de partículas}
+\end{equation}
+%
+A posição do centro de massa de um conjunto de partículas descreve, portanto, a posição que uma partícula com massa igual à massa total do sistema, e que o substitui para fins dinâmicos e cinemáticos.
+
+Note que o centro de massa não precisa estar localizado em um ponto que ``pertença'' ao corpo: no caso de duas partículas de mesma massa, por exemplo, separadas por uma distância $d$, a posição do centro de massa é ao longo da reta que une ambas as partículas, a uma distância $d/$ de cada uma delas.
+
+%%%%%%%%%%%%%%%%%%%
+%\paragraph{exemplo}
+%%%%%%%%%%%%%%%%%%%
+
+%1 exemplo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Centro de massa de um corpo extenso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No caso de um corpo extenso, não podemos utilizar a Expressão~\eqref{Eq:CMConjuntoDeParticulas} devido a razões práticas: mesmo uma pequena quantidade de matéria é composta por um número extremamente grande de partículas, cujas posições e massas não sabemos precisar com exatidão. Devido a essa dificuldade, vamos analisar algumas outras técnicas que nos permitirão determinar a posição do centro de massa de um corpo extenso.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Corpos simétricos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+    \draw[pattern = north west lines] (0,0) rectangle (2,2);
+    \draw[fill] (1,1) circle (1pt);
+    
+    \draw[pattern = north west lines] (1,-1.5) circle (1);
+    \draw[fill] (1,-1.5) circle (1pt);
+\end{tikzpicture}
+\caption{Para objetos simétricos, a localização do centro de massa é bastante intuitiva: devido à simetria da distribuição de massa, sabemos que a posição deve ser ``central''. \label{Fig:CMFigurasSimetricas}}
+\end{marginfigure}
+
+Muitas vezes podemos encontrar o centro de massa de maneira bastante intuitiva. Na Figura~\ref{Fig:CMFigurasSimetricas} temos duas figuras planas, cujas densidades vamos supor uniformes. Intuitivamente, podemos afirmar que o centro de massa deve estar localizado nas posições marcadas pelos pontos. Sabemos que, na prática, não podemos ter uma figura realmente plana, pois temos três dimensões, porém podemos considerar que o centro de massa esteja localizado entre as duas faces da figura.
+
+Essa intuição está ligada à própria Equação~\eqref{Eq:CMConjuntoDeParticulas}, que representa uma média ponderada das posições das partículas, e ao fato de que os corpos são simétricos. Podemos verificar matematicamente esse resultado para uma figura plana analisando a Figura~\ref{Fig:CMEixoSimetria}.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) -- (2,0) -- (2,-1) -- (1,-1) -- (1,-2) -- (0,-2) -- cycle;
+    \draw[dashed, <-] (-0.75, 0.75) node[below left] {$y$} -- (1.75,-1.75);
+    \draw[dashed,->] (-1.25, -1.25) -- (1.25,1.25) node[below right] {$x$};
+    
+    \draw[thick] (-0.25, 0.25) -- (1.25,-1.25);
+    \draw[fill] (-0.25,0.25) node[left]{$A$} circle (1pt);
+    \draw[fill] (1.25,-1.25) node[right]{$B$} circle (1pt);
+    
+    \draw[fill, lightgray, draw = black] (0.4,-1.2) coordinate (P) circle (1mm);
+    \draw[fill] (P) node[below left] {$P$} circle (0.2mm);
+    \draw[fill, lightgray, draw = black] (1.2,-0.4) coordinate (PP) circle (1mm);
+    \draw[fill] (PP) node[above right] {$P'$} circle (0.2mm);
+    \draw[thick, dotted] (P) -- (PP);
+    
+\end{tikzpicture}
+\caption{Em um objeto simétrico, para cada região com massa $m_P$ em torno de um ponto $P$ existe uma região com massa $m_{P'}$ em torno de um ponto $P$, de forma que as distâncias entre os pontos e o eixo de simetria são iguais. Se o objeto tem densidade homoênea, então $m_P = m_{P'}$. \label{Fig:CMEixoSimetria}}
+\end{marginfigure}
+
+Na figura, o eixo $\overline{AB}$ divide o objeto em duas parte simétricas. Vamos assumir que o eixo $y$ tem a mesma orientação que o eixo de simetria. Nesse caso, a contribuição para o cálculo do centro de massa devido a uma região em torno de um ponto $P$ é dada por $x_P m_P$, onde $x_P$ é a distância entre o eixo $y$ e o ponto $P$ e $m_P$ é a massa da região. Se o objeto é simétrico, existe um ponto $P'$ localizado em $x_{P'}$ e com massa $m_{P'}$, cuja contribuição para o centro de massa é $x_{P'}m_{P'}$. Como os pontos se localizam em lados oposto em relação ao eixo de simetria, temos que $x_{P'} = - x_P$. Além disso, se o objeto tem densidade homogênea, temos que $m_P = m_{P'}$. Consequentemente,
+\begin{align}
+  x_\textrm{CM} &= \frac{1}{M} (x_P m_P + x_{P'} m_{P'} + \dots) \\
   &= 0,
 \end{align}
 %
-pois para cada ponto na soma acima, temos um ponto simétrico de forma que a soma total seja nula. Temos então que sempre que houver um eixo de simetria, ou um plano de simetria, o centro de massa estará localizado sobre esse eixo ou plano. Se pudermos determinar mais que um eixo ou plano de simetria, o centro de massa reside sobre o encontro de tais eixos ou planos, sendo que em muitos casos podemos determinar a posição do centro de massa em todos as três dimensões simplesmente utilizando argumentos de simetria.
+pois para cada ponto na soma acima, temos um ponto simétrico de forma que a soma total seja nula. Consequentemente, \emph{sempre que houver um eixo de simetria em um corpo com densidade uniforme, sabemos que o centro de massa necessariamente reside sobre tal eixo}. Portanto, a existência de um eixo de simetria simplifica o problema de determinação do centro de massa.
+
+Se pudermos determinar mais que um eixo de simetria, o centro de massa reside sobre o encontro de tais eixos. No caso de uma figura plana, são suficientes dois eixos de simetria diferentes para que possamos determinar exatamente a posição do centro de massa. Na Figura~\ref{Fig:CMQuadrado}, mostramos dois eixos que dividem um quadrado em partes siméticas. Note que esses não são os únicos eixos possíveis: poderíamos utilizar os eixos horizontal e vertical que dividem o quadrado em dois retângulos, ou quaisquer outros eixos que dividam o quadrado em duas partes simétricas.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) rectangle (2,-2);
+    
+    \draw[dashed] (-0.5,0.5) -- (2.5,-2.5);
+    \draw[dashed] (-0.5,-2.5) -- (2.5,0.5);
+
+    \draw[fill] (1,-1) circle (1.3pt);
+\end{tikzpicture}
+\caption{Uma placa quadrada e fina pode ser considerada como uma figura plana. Nesse caso, vemos que ela pode ser dividida em partes simétricas através de \emph{eixos de simetria}, sendo que o centro de massa se localiza no encontro de tais eixos. \label{Fig:CMQuadrado}}
+\end{marginfigure}
 
 
-\section{Segunda Lei de Newton para o Centro de Massa}
+No caso de termos um corpo cujas três dimensões são não desprezíveis, isto é, um corpo que não pode ser interpretado como uma figura plana, podemos utilizar \emph{planos de simetria} para determinar a posição do centro de massa: se existe um plano de simetria, em um argumento idêntico ao do caso bidimensional, verificamos que o centro de massa necessariamente pertence ao plano de simetria. Se existe mais de um plano de simetria, o centro de massa é um ponto que pertence a todos os planos de simetria. Na Figura~\ref{Fig:CMCubo} temos um cubo, onde destacamos três planos que o dividem em partes simétricas. No encontro desses três planos temos um ponto em comum --~que corresponde ao centro de massa~--, marcado como a origem do sistema de coordenadas mostrado. 
 
-Verificamos que para um sistema qualquer de partículas o centro de massa pode ser calculado através da Equação~\eqref{Eq:CM}. Se derivarmos essa expressão em relação ao tempo, obtemos uma expressão para a velocidade do centro de massa:
-\begin{equation}\label{Eq:VelocidadeCM}
-  \vec{v}_{\textrm{CM}} = \frac{1}{M} \sum m_i \vec{v}_i.
-\end{equation}
+\begin{figure}
+\centering
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate around y = -7]
+
+    % eixos
+    \draw[->] (0,0,0) -- (1.75,0,0) node[below]{$x$};
+    \draw[->] (0,0,0) -- (0,1.75,0) node[left]{$y$};
+    \draw[->] (0,0,0) -- (0,0,1.75) node[left]{$z$};
+    
+    % arestas visíveis
+    \draw[thick] (1,1,1) -- (-1,1,1) -- (-1,-1,1) -- (1,-1,1) -- cycle;
+    \draw[thick] (1,1,1) -- (1,1,-1) -- (-1,1,-1) -- (-1,1,1);
+    \draw[thick] (1,-1,1) -- (1,-1,-1) -- (1,1,-1);
+    
+    % arestas ocultas
+    \draw[dashed] (-1,-1,-1) -- (-1,-1,1);
+    \draw[dashed] (-1,-1,-1) -- (1,-1,-1);
+    \draw[dashed] (-1,-1,-1) -- (-1,1,-1);
+    
+    % pontos de interseção dos eixos com as faces
+    \draw[fill] (1,0,0) circle (0.5pt);
+    \draw[fill] (0,1,0) circle (0.5pt);
+    \draw[fill] (0,0,1) circle (0.5pt);
+    
+    % planos
+    % xy
+    \draw[densely dotted] (1,1,0) -- (-1,1,0) -- (-1,-1,0) -- (1,-1,0) -- cycle;
+    % xz
+    \draw[densely dotted] (1,0,1) -- (-1,0,1) -- (-1,0, -1) -- (1,0,-1) -- cycle;
+    % yz
+    \draw[densely dotted] (0,1,1) -- (0,-1,1) -- (0,-1,-1) -- (0,1,-1) -- cycle;
+    
+    % centro de massa
+    \draw[fill] (0,0,0) circle (1pt);
+    
+\end{tikzpicture}
+\end{minipage}
 %
-Derivando novamente, obtemos uma expressão para a aceleração do centro de massa
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate around y = -3]
+
+    % eixos
+    \draw[->] (0,0,0) -- (1.75,0,0) node[below]{$x$};
+    \draw[->] (0,0,0) -- (0,1.75,0) node[left]{$y$};
+    \draw[->] (0,0,0) -- (0,0,1.75) node[left]{$z$};
+    
+    % arestas visíveis
+    \draw[thick] (1,1,1) -- (-1,1,1) -- (-1,-1,1) -- (1,-1,1) -- cycle;
+    \draw[thick] (1,1,1) -- (1,1,-1) -- (-1,1,-1) -- (-1,1,1);
+    \draw[thick] (1,-1,1) -- (1,-1,-1) -- (1,1,-1);
+    
+    % arestas ocultas
+    \draw[dashed] (-1,-1,-1) -- (-1,-1,1);
+    \draw[dashed] (-1,-1,-1) -- (1,-1,-1);
+    \draw[dashed] (-1,-1,-1) -- (-1,1,-1);
+    
+    % pontos de interseção dos eixos com as faces
+    \draw[fill] (1,0,0) circle (0.5pt);
+    \draw[fill] (0,1,0) circle (0.5pt);
+    \draw[fill] (0,0,1) circle (0.5pt);
+    
+    % planos
+    % xy
+    \draw[densely dotted] (1,1,0) -- (-1,1,0) -- (-1,-1,0) -- (1,-1,0) -- cycle;
+    % xz
+    \draw[densely dotted] (1,0,1) -- (-1,0,1) -- (-1,0, -1) -- (1,0,-1) -- cycle;
+    % yz
+    \draw[densely dotted] (0,1,1) -- (0,-1,1) -- (0,-1,-1) -- (0,1,-1) -- cycle;
+    
+    % centro de massa
+    \draw[fill] (0,0,0) circle (1pt);
+    
+\end{tikzpicture}
+\end{minipage}
+\caption{\emph{Figura estereoscópica:} No caso de um cubo, devemos encontrar três planos que o dividem em partes simétricas. A figura acima mostra três possíveis planos dentre os diversos que são capazes de dividir o cubo simetricamente. \label{Fig:CMCubo}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Centro de massa de um objeto discretizável}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em muitos casos não é possível determinar eixos de simetria para um corpo, ou --~se pudermos~-- não conseguimos determinar eixos suficientes para determinar exatamente a posição do centro de massa. Nesse caso, podemos unir as observações sobre simetria e a Equação~\ref{Eq:CMConjuntoDeParticulas} para o centro de massa de um conjunto de partículas para criar um novo método para a determinação do centro de massa.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (0,0) -- (3,0) -- (3,-1) -- (2, -1) -- (2,-2) -- (4, -2) -- (4,-3) -- (0,-3) -- cycle;
+
+\end{tikzpicture}
+\caption{Exemplo de uma figura que não pode ser dividida em duas partes simétricas. \label{Fig:PlacaAssimetrica}}
+\end{marginfigure}
+
+Verificamos que a Equação~\ref{Eq:CMConjuntoDeParticulas} é dada por uma soma sobre todas as partículas de um sistema. Se tomarmos uma placa como a da Figura~\ref{Fig:PlacaAssimetrica}, a princípio poderíamos somar sobre todas as partículas que a compõe e determinar a posição do centro de massa. Para efetuar essa soma, vamos dividir as partículas que compõe a placa em três regiões, mostradas na Figura~\ref{Fig:PlacaAssimetricaDividida}. Podemos então escrever
+\begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i \vec{r}_i \\
+    &= \frac{1}{M} \left[ \sum_{i}^{R_1} m_i \vec{r}_i + \sum_{i}^{R_2} m_i \vec{r}_i +\sum_{i}^{R_2} m_i \vec{r}_i\right], \label{Eq:Discretizando}
+\end{align}
+%
+onde separamos as partículas de cada região em três somas distintas.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) -- (3,0) -- (3,-1) -- (2, -1) -- (2,-2) -- (4, -2) -- (4,-3) -- (0,-3) -- cycle;
+    
+    \draw (2,0) -- (2,-3);
+    
+    \node[fill = white, draw, circle, scale = 0.6] (R1) at (0.25,-0.25) {$1$};
+    \node[fill = white, draw, circle, scale = 0.6] (R2) at (2.25,-0.25) {$2$};
+    \node[fill = white, draw, circle, scale = 0.6] (R3) at (2.25,-2.25) {$3$};
+    
+    \draw[->] (0,-3.5) -- (0, 0.5) node[below left]{$y$};
+    \draw[->] (-0.5,-3) -- (4.5,-3) node[below left]{$x$};
+    
+    \draw[fill] (1, -1.5) circle (1pt);
+    \draw[fill] (2.5,-0.5) circle (1pt);
+    \draw[fill] (3, -2.5) circle (1pt);
+    
+    \draw[dashdotted] (1,0) -- (1,-3);
+    \draw[dashdotted] (0,-1.5) -- (2,-1.5);
+    
+    \draw[dashdotted] (2.5,0) -- (2.5, -1);
+    \draw[dashdotted] (2, -0.5) -- (3, -0.5);
+    
+    \draw[dashdotted] (2,-2.5) -- (4, -2.5);
+    \draw[dashdotted] (3,-2) -- (3,-3);
+
+\end{tikzpicture}
+\caption{Podemos dividir uma figura em diversas partes para determinar o centro de massa da figura original. Note que o centro de massa de cada região pode ser determinado considerando a simetria de cada divisão.\label{Fig:PlacaAssimetricaDividida}}
+\end{marginfigure}
+
+Por outro lado, se tomarmos somente uma das regiões --~ou seja, se destacarmos tal região fazendo um corte na figura~-- podemos determinar o centro de massa de tal região através de
 \begin{equation}
-  \vec{a}_{\textrm{CM}} = \frac{1}{M} \sum m_i \vec{a}_i.
+    \vec{r}_{\rm{CM}}^{R_j} = \frac{1}{M_{R_j}} \sum_{i}^{R_j} m_i \vec{r}_i,
 \end{equation}
 %
-Na equação acima, $m_i \vec{a}_i$ são as forças resultantes $\vec{F}_i$ que agem sobre cada uma das partículas que compõe o sistema:
+o que nos dá
+\begin{equation}\label{Eq:RegiaoDiscreta}
+    \sum_{i}^{R_j} m_i \vec{r}_i = M_{R_j} \vec{r}_{\rm{CM}}^{R_j},
+\end{equation}
+%
+onde usamos o índice $j$ para denotar qualquer uma das regiões e $M_{R_j}$ corresponde à massa de tal região. Podemos utilizar a equação acima para reescrever a equação~\eqref{Eq:Discretizando}, obtendo
+\begin{align}\label{Eq:Discretizado}
+    \vec{r}_{\rm{CM}} &= \frac{1}{M} [M_{R_1} \vec{r}_{\rm{CM}}^{R_1} + M_{R_2} \vec{r}_{\rm{CM}}^{R_2} + M_{R_3} \vec{r}_{\rm{CM}}^{R_3}].
+\end{align}
+
+O resultado acima mostra que podemos dividir um objeto qualquer em partes menores e determinar a massa e a posição do centro de massa de cada uma dessas regiões. A partir dessas informações, podemos determinar a posição do centro de massa do corpo como um todo utilizando a expresão para o centro de massa de um sistema de partículas. Tal processo equivale a dividir o corpo original em partes menores, substituir tais partes por partículas em seus respectivos centros de massa, e então calcular o centro de massa de tais partículas.
+
+A escolha de como dividir o corpo original é livre, mas para que possamos determinar o centro de massa mais facilmente, devemos escolher divisões com formas simétricas. Assim, eliminamos a necessidade de realizar a soma contida na equação~\eqref{Eq:RegiaoDiscreta}: basta determinar a posição do centro de massa através de dois ou mais eixos de simetria.
+
+Caso tenhamos um objeto em que as três dimensões são relevantes, podemos generalizar o raciocínio utilizado acima para dividir as partículas em volumes distintos, realizando a soma sobre cada volume. Nesse caso, determinamos centros de massa para cada volume e a partir deles, num raciocínio análogo ao desenvolvido acima para o caso bidimensional, podemos determinar o centro de massa do corpo como um todo através da expressão para o centro de massa para um sistema de partículas. Para determinar a posição do centro de massa de cada um dos volumes, devemos nos valer da liberdade que temos em escolher como dividir o corpo, e das técnicas de simetria da seção anterior --~que no caso tridimensional implica que devemos procurar subdivisões dos corpos que possuam planos de simetria~--.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Densidades de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+É muito comum que ao calcular o centro de massa de um objeto, consideremos que sua densidade é uniforme. Um corpo construído inteiramente do mesmo material, por exemplo, tem densidade uniforme. Nesse caso, é bastante útil descrevermos a massa em termos da densidade do corpo, pois isso possibilita descrever a posição do centro de massa de um ponto de vista puramente geométrico.
+
+Considerando a \emph{densidade volumétrica de massa} $\rho$, definida como
 \begin{equation}
-  \vec{a}_{\textrm{CM}} = \frac{1}{M} \sum F_i.
+    \rho = \frac{M}{V},
 \end{equation}
 %
-Tais forças resultantes, no entanto, têm origem em interações entre cada partícula e as demais que a circundam o que faz com que na soma da equação acima tenhamos pares ação e reação que sempre se cancelarão. Logo, restarão somente as forças externas aplicadas ao sistema. Portanto,
-\begin{equation}\label{Eq:SegundaLeiCM}
-  \vec{F}_{\textrm{Res}}^{\textrm{Ext}} = M \vec{a}_{\textrm{CM}}. \mathnote{Segunda Lei de Newton para o Centro de Massa}
+temos que a massa $m_i$ de uma parte qualquer do corpo --~se a densidade é uniforme~-- pode ser calculada através
+\begin{equation}
+    M_i = \rho V_i,
 \end{equation}
 %
-A equação acima tem a mesma forma que a segunda lei de Newton para uma partícula, que nesse caso é o centro de massa do corpo. Tal resultado justifica o tratamento dispensado a corpos extensos que não sofrem rotações: para translações de corpos extensos, podemos simplesmente tratar o movimento do centro de massa.
+onde $V_i$ representa o volume da referida parte. Assim, podemos reescrever a Expressão~\eqref{Eq:Discretizado} para a posição do centro de massa de um corpo dividido em um número qualquer de regiões como
+\begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{M} [M_{R_1} \vec{r}_{\rm{CM}}^{R_1} + M_{R_2} \vec{r}_{\rm{CM}}^{R_2} + M_{R_3} \vec{r}_{\rm{CM}}^{R_3} + \dots] \\
+    &= \frac{1}{\rho V} [\rho V_{R_1} \vec{r}_{\rm{CM}}^{R_1} + \rho V_{R_2} \vec{r}_{\rm{CM}}^{R_2} + \rho V_{R_3} \vec{r}_{\rm{CM}}^{R_3} + \dots].
+\end{align}
+%
+Note, no entanto, que a densidade aparece no numerador e no denominador. Logo, temos que a posição do centro de massa é dada por
+\begin{equation}\label{Eq:CMDensVolConst}
+    \vec{r}_{\rm{CM}} = \frac{1}{V} [V_{R_1} \vec{r}_{\rm{CM}}^{R_1} + V_{R_2} \vec{r}_{\rm{CM}}^{R_2} + V_{R_3} \vec{r}_{\rm{CM}}^{R_3} + \dots].
+\end{equation}
+%
+Verificamos, portanto, que a posição do centro de massa pode ser determinada simplesmente pelas características geométricas de um corpo.
 
-\section{Momento Linear e conservação do momento linear}
+Em muitos casos uma ou mesmo duas dimensões de um corpo são desprezíveis comparadas às demais: no caso de uma chapa metálica, podemos desprezar a espessura, tratando-a como uma figura plana; Já no caso de uma barra fina e longa, podemos tratá-la como um objeto unidimensional. Nesses casos, ao invés de utilizarmos uma densidade volumétrica de massa, podemos definir as densidades \emph{superficial} $\sigma$ e \emph{linear} $\lambda$ de massa:
+\begin{align}
+    \sigma &= \frac{M}{A} \\
+    \lambda &= \frac{M}{L},
+\end{align}
+%
+onde $A$ e $L$ representam a área e o comprimento do corpo em questão. Utilizando tais expressões, podemos escrever expressões análogas à Equação~\ref{Eq:CMDensVolConst} acima, obtendo
+\begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{A} [A_{R_1} \vec{r}_{\rm{CM}}^{R_1} + A_{R_2} \vec{r}_{\rm{CM}}^{R_2} + A_{R_3} \vec{r}_{\rm{CM}}^{R_3}] \label{Eq:CMDensSupConst}\\
+    \vec{r}_{\rm{CM}} &= \frac{1}{L} [L_{R_1} \vec{r}_{\rm{CM}}^{R_1} + L_{R_2} \vec{r}_{\rm{CM}}^{R_2} + L_{R_3} \vec{r}_{\rm{CM}}^{R_3}].\label{Eq:CMDensLinConst}
+\end{align}
+%
+É importante notar que ao tratar um problema qualquer, devemos verificar qual dos casos discutidos acima é o mais adequado. A seguir exemplificaremos o emprego de cada uma delas.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa de um conjunto de barras homogêneas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Suponha que estamos interessados em determinar a posição do centro de massa de um objeto construído ao se soldar três barras metálicas finas e homogêneas. A Figura~\ref{Fig:CMBarrasFinas} mostra uma visão lateral do objeto.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dashed, ->] (0,0) -- (4,0) node[below left] {$x$};
+    \draw[dashed, ->] (0,0) -- (0,3.5) node[below left] {$y$};
+    
+    \draw[very thick] (0,2) -- (0,0) -- (3,0) -- (3,3);
+    
+    \draw[|-|] (-0.2,2) -- node[left]{$L_1$} (-0.2,0);
+    \draw[|-|] (0,-0.2) -- node[below]{$L_2$} (3,-0.2);
+    \draw[|-|] (3.2, 0) -- node[right]{$L_2$} (3.2,3);
+    
+    \draw[fill] (0,1) circle (1.5pt);
+    \draw[fill] (1.5,0) circle (1.5pt);
+    \draw[fill] (3,1.5) circle (1.5pt);
+    
+\end{tikzpicture}
+\caption{Visão lateral de um corpo formado por três barras finas. \label{Fig:CMBarrasFinas}}
+\end{marginfigure}
+
+As dimensões do objeto são
+\begin{align}
+    L_1 &= \np[cm]{20} \\
+    L_2 &= \np[cm]{30} \\
+    L_3 &= \np[cm]{30}.
+\end{align}
+%
+Por simetria, sabemos que o centro de massa de cada lateral deve estar no ponto que divide cada lateral em dois segmentos com o mesmo tamanho. Com o auxílio do sistema de coordenadas, verificamos que as posições são
+\begin{align}
+    \vec{r}_1 &= \np[cm]{10} \;\versj \\
+    \vec{r}_2 &= \np[cm]{15} \;\versi \\
+    \vec{r}_3 &= \np[cm]{30} \;\versi + \np[cm]{15} \;\versj.
+\end{align}
+
+Finalmente, para determinarmos o centro de massa do sistema como um todo, basta utilizarmos a Equação~\ref{Eq:CMDensLinConst}:
+\begin{align*}
+    \vec{r}_{\rm{CM}} &= \frac{1}{L} [L_{R_1} \vec{r}_{\rm{CM}}^{R_1} + L_{R_2} \vec{r}_{\rm{CM}}^{R_2} + L_{R_3} \vec{r}_{\rm{CM}}^{R_3} ] \\
+    &= \frac{1}{(\np[cm]{20} + \np[cm]{30} + \np[cm]{30})} \Big[(\np[cm]{20}) (\np[cm]{10} \;\versj) \\ \nonumber
+    &\phantom{= \frac{1}{(\np[cm]{20} + \np[cm]{30} + \np[cm]{30})} \Big[}+ (\np[cm]{30}) (\np[cm]{15} \;\versi) \\ \nonumber
+    &\phantom{= \frac{1}{(\np[cm]{20} + \np[cm]{30} + \np[cm]{30})} \Big[}+ (\np[cm]{30}) (\np[cm]{30} \;\versi + \np[cm]{15} \;\versj)\Big]\\
+    &= \frac{\np[cm^2]{200}\;\versj + \np[cm^2]{450}\;\versi + \np[cm^2]{900}\;\versi + \np[cm^2]{450}\;\versj}{\np[cm]{80}} \\
+    &= \frac{(\np[cm^2]{450} + \np[cm^2]{900})\versi + (\np[cm^2]{200} + \np[cm^2]{450})\versj}{\np[cm]{80}} \\
+    &= \frac{\np[cm^2]{1350}}{\np[cm]{80}}\versi + \frac{\np[cm^2]{650}}{\np[cm]{80}}\versj
+\end{align*}
+%
+Finalmente, temos
+\begin{equation}
+    \vec{r}_{\rm{CM}} = \np[cm]{16,875}\;\versi + \np[cm]{8,125}\;\versj,
+\end{equation}
+%
+que corresponde à posição mostrada na Figura~\eqref{Fig:CMBarrasFinasComCM}.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dashed, ->] (0,0) -- (4,0) node[below left] {$x$};
+    \draw[dashed, ->] (0,0) -- (0,3.5) node[below left] {$y$};
+    
+    \draw[very thick] (0,2) -- (0,0) -- (3,0) -- (3,3);
+    
+    \draw[|-|] (-0.2,2) -- node[left]{$L_1$} (-0.2,0);
+    \draw[|-|] (0,-0.2) -- node[below]{$L_2$} (3,-0.2);
+    \draw[|-|] (3.2, 0) -- node[right]{$L_2$} (3.2,3);
+    
+    \draw[fill] (0,1) circle (1.5pt);
+    \draw[fill] (1.5,0) circle (1.5pt);
+    \draw[fill] (3,1.5) circle (1.5pt);
+    
+    \draw[fill] (1.6875,0.8125) circle (1.5pt) node[below right]{CM};
+    
+\end{tikzpicture}
+\caption{Posição do centro de massa. \label{Fig:CMBarrasFinasComCM}}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa de uma placa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos determinar exatamente a posição do centro de massa do corpo representado na Figura~\ref{Fig:PlacaAssimetricaDividida}, bastando para isso que tenhamos as medidas de suas laterais, possibilitando que determinemos tanto a área, quanto a posição do centro de massa de cada região. Assumindo que as medidas são
+\begin{align}
+    L_1 &= \np[cm]{30} \\
+    L_2 &= \np[cm]{30} \\
+    L_3 &= \np[cm]{10} \\
+    L_4 &= \np[cm]{10} \\
+    L_5 &= \np[cm]{10} \\
+    L_6 &= \np[cm]{40},
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) -- (3,0) -- (3,-1) -- (2, -1) -- (2,-2) -- (4, -2) -- (4,-3) -- (0,-3) -- cycle;
+    
+    \draw (2,0) -- (2,-3);
+    
+    \node[fill = white, draw, circle, scale = 0.6] (R1) at (0.25,-0.25) {$1$};
+    \node[fill = white, draw, circle, scale = 0.6] (R2) at (2.25,-0.25) {$2$};
+    \node[fill = white, draw, circle, scale = 0.6] (R3) at (2.25,-2.25) {$3$};
+    
+    \draw[-Stealth] (0,-3.5) -- (0, 0.5) node[below left]{$y$};
+    \draw[-Stealth] (-0.5,-3) -- (4.5,-3) node[below left]{$x$};
+    
+    \draw[fill] (1, -1.5) circle (1pt);
+    \draw[fill] (2.5,-0.5) circle (1pt);
+    \draw[fill] (3, -2.5) circle (1pt);
+    
+    \draw[dashdotted] (1,0) -- (1,-3);
+    \draw[dashdotted] (0,-1.5) -- (2,-1.5);
+    
+    \draw[dashdotted] (2.5,0) -- (2.5, -1);
+    \draw[dashdotted] (2, -0.5) -- (3, -0.5);
+    
+    \draw[dashdotted] (2,-2.5) -- (4, -2.5);
+    \draw[dashdotted] (3,-2) -- (3,-3);
+    
+    \draw[|<->|] (0,0.2) -- node[above]{$L_1$} (3,0.2);
+    \draw[|<->|] (-0.2,0) -- node[left]{$L_2$} (-0.2,-3);
+    \draw[|<->|] (3.2, 0) -- node[right]{$L_3$} (3.2, -1);
+    \draw[|<->|] (2,-1.2) -- node[below]{$L_4$} (3,-1.2);
+    \draw[|<->|] (4.2,-2) -- node[right]{$L_5$} (4.2,-3);
+    \draw[|<->|] (0,-3.2) -- node[below]{$L_6$} (4,-3.2);
+
+\end{tikzpicture}
+\caption{Assumindo que temos uma placa com densidade homogênea, podemos calcular a posição do centro de massa utilizando unicamente informações acerca de sua geometria.\label{Fig:CMPlacaAssimetricaDividida}}
+\end{marginfigure}
+
+\noindent{}sabemos que as áreas são
+\begin{align}
+    A_1 &= \np[cm^2]{600} \\
+    A_2 &= \np[cm^2]{100} \\
+    A_3 &= \np[cm^2]{200},
+\end{align}
+%
+e que a área total é de \np[cm^2]{900}.
+
+Devido à simetria das regiões escolhidas, sabemos a posição do centro de massa de cada uma delas:
+\begin{align}
+    \vec{r}_1 &= \np[cm]{10} \;\versi + \np[cm]{15} \;\versj \\
+    \vec{r}_2 &= \np[cm]{25} \;\versi + \np[cm]{25} \;\versj \\
+    \vec{r}_3 &= \np[cm]{30} \;\versi + \np[cm]{5} \;\versj.
+\end{align}
+%
+Utilizando a Equação~\eqref{Eq:CMDensSupConst}, podemos determinar a posição do centro de massa:
+\begin{align*}
+    \vec{r}_{CM} &= \frac{1}{\np[cm^2]{900}} [(\np[cm^2]{600})(\np[cm]{10} \;\versi + \np[cm]{15} \;\versj) \\
+    &\phantom{= \frac{1}{\np[cm^2]{900}} [}+ (\np[cm^2]{100})(\np[cm]{25} \;\versi + \np[cm]{25} \;\versj) \\
+    &\phantom{= \frac{1}{\np[cm^2]{900}} [}+ (\np[cm^2]{200})(\np[cm]{30} \;\versi + \np[cm]{5} \;\versj)] \\
+    &=\frac{1}{\np[cm^2]{900}}[(\np[cm^3]{6000} + \np[cm^3]{2500} + \np[cm^3]{6000})\versi \\
+    &\phantom{= \frac{1}{\np[cm^2]{900}} [}+ (\np[cm^3]{9000}+ \np[cm^3]{2500} + \np[cm^3]{1000})\versj] \\
+    &=\frac{\np[cm^3]{14500}}{\np[cm^2]{900}} \versi + \frac{\np[cm^3]{12500}}{\np[cm^2]{900}}.
+\end{align*}
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}
+
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) -- (3,0) -- (3,-1) -- (2, -1) -- (2,-2) -- (4, -2) -- (4,-3) -- (0,-3) -- cycle;
+    
+    \draw (2,0) -- (2,-3);
+    
+    \node[fill = white, draw, circle, scale = 0.6] (R1) at (0.25,-0.25) {$1$};
+    \node[fill = white, draw, circle, scale = 0.6] (R2) at (2.25,-0.25) {$2$};
+    \node[fill = white, draw, circle, scale = 0.6] (R3) at (2.25,-2.25) {$3$};
+    
+    \draw[-Stealth] (0,-3.5) -- (0, 0.5) node[below left]{$y$};
+    \draw[-Stealth] (-0.5,-3) -- (4.5,-3) node[below left]{$x$};
+    
+    \draw[fill] (1, -1.5) circle (1pt);
+    \draw[fill] (2.5,-0.5) circle (1pt);
+    \draw[fill] (3, -2.5) circle (1pt);
+    
+    \draw[dashdotted] (1,0) -- (1,-3);
+    \draw[dashdotted] (0,-1.5) -- (2,-1.5);
+    
+    \draw[dashdotted] (2.5,0) -- (2.5, -1);
+    \draw[dashdotted] (2, -0.5) -- (3, -0.5);
+    
+    \draw[dashdotted] (2,-2.5) -- (4, -2.5);
+    \draw[dashdotted] (3,-2) -- (3,-3);
+    
+    \draw[|<->|] (0,0.2) -- node[above]{$L_1$} (3,0.2);
+    \draw[|<->|] (-0.2,0) -- node[left]{$L_2$} (-0.2,-3);
+    \draw[|<->|] (3.2, 0) -- node[right]{$L_3$} (3.2, -1);
+    \draw[|<->|] (2,-1.2) -- node[below]{$L_4$} (3,-1.2);
+    \draw[|<->|] (4.2,-2) -- node[right]{$L_5$} (4.2,-3);
+    \draw[|<->|] (0,-3.2) -- node[below]{$L_6$} (4,-3.2);
+    
+    \draw[fill] (1.611,1.389) +(0,-3) circle (1pt) node[below]{CM};
+
+\end{tikzpicture}
+\caption{Posição do centro de massa.\label{Fig:CMPlacaAssimetricaDivididaCM}}
+\end{marginfigure}
+
+\noindent{}Finalmente, temos
+\begin{equation}
+    \vec{r}_{CM} = \np[cm]{16,11}\;\versi + \np[cm]{13,89}\;\versj.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Junção de prismas quadrados}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Vamos determinar agora a posição do centro de massa de um objeto tridimensional. O objeto é formado pela junção de três prismas quadrados, conforme mostra a Figura~\label{Fig:CMObj3D}. As dimensões são tais que
+\begin{equation}
+    L = 3 \ell.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[rotate around y = -5]
+
+    % Frente
+    \draw (3,0,0) -- (3,1,0) -- (1,1,0) -- (1,3,0) -- (0,3,0);
+    \draw (0,3,0) -- (0,3,1) -- (0,1,1) -- (0,1,3) -- (0,0,3);
+    \draw (0,3,1) -- (1,3,1) -- (1,1,1) -- (1,1,3) -- (0,1,3);
+    \draw (1,1,3) -- (1,0,3) -- (1,0,1) -- (3,0,1) -- (3,0,0);
+    \draw (3,0,1) -- (3,1,1) -- (1,1,1);
+    \draw (0,0,3) -- (1,0,3);
+    \draw (1,3,1) -- (1,3,0);
+    \draw (3,1,0) -- (3,1,1);
+    
+    \draw[loosely dotted] (1,1,1) -- (1,1,0);
+    \draw[loosely dotted] (1,1,1) -- (1,0,1);
+    \draw[loosely dotted] (1,1,1) -- (0,1,1);
+    
+    % trás
+    \draw[loosely dashed] (0,3,0) -- (0,0,0) -- (3,0,0);
+    \draw[loosely dashed] (0,0,3) -- (0,0,0);
+    
+    % Medidas
+    \draw (3.2,0,0) -- (3.4,0,0);
+    \draw (3.2,0,3) -- (3.4,0,3);
+    \draw (3.3,0,0) -- node[right]{$L$} (3.3,0,3);
+    
+    \draw (3.3,0,0) -- node[right]{$L$} (3.3,3,0);
+    \draw (3.2,3,0) -- (3.4,3,0);
+    
+    \draw (0,0,3.2) -- (0,0,3.4);
+    \draw (3,0,3.2) -- (3,0,3.4);
+    \draw (0,0,3.3) -- node[below]{$L$} (3,0,3.3);
+    
+    \draw (0,3.2,0) -- (0,3.4,0);
+    \draw (1,3.2,0) -- (1,3.4,0);
+    \draw (0,3.3,0) -- node[above]{$\ell$} (1,3.3,0);
+    \draw (0,3.2,1) -- (0,3.4,1);
+    \draw (0,3.3,1) -- node[above]{$\ell$}(0,3.3,0);
+    
+\end{tikzpicture}
+\caption{Objeto formado pela junção de três prismas quadrados de comprimento $L$ e laterais $\ell$. As linhas tracejadas representam as arestas na parte de trás do objeto, enquanto as linhas pontilhadas representam as arestas formadas pela inserseção de duas faces dianteiras. \label{Fig:CMObj3D}}
+\end{marginfigure}
+
+\noindent{}Dividindo o corpo em partes e utilizando argumentos de simetria, determinamos que os centros de massa das partes estão localizados nas seguintes posições:
+\begin{align}
+    \vec{r}_1 &= \nicefrac{\ell}{2}\;\versi + 2\ell\;\versj + \nicefrac{\ell}{2}\;\versk \\
+    \vec{r}_2 &= \nicefrac{\ell}{2}\;\versi + \nicefrac{\ell}{2}\;\versj + 2\ell\;\versk \\
+    \vec{r}_3 &= \nicefrac{3\ell}{2}\;\versi + \nicefrac{\ell}{2}\;\versj + \nicefrac{\ell}{2}\;\versk.
+\end{align}
+%
+Os volumes de cada parte são dados por
+\begin{align}
+    V_1 &= 2\ell^3\\
+    V_2 &= 2\ell^3\\
+    V_3 &= 3\ell^3,
+\end{align}
+%
+totalizando $7\ell^3$.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[rotate around x = 15]
+    % eixos
+    \draw[-Stealth, loosely dashed] (0,0,0) -- (4,0,0) node[below left] {$x$};
+    \draw[-Stealth, loosely dashed] (0,0,0) -- (0,4,0) node[below left] {$y$};
+    \draw[-Stealth, loosely dashed] (0,0,0) -- (0,0,4) node[below right] {$z$};
+
+    % Frente
+    \draw (3,0,0) -- (3,1,0) -- (1,1,0) -- (1,3,0) -- (0,3,0);
+    \draw (0,3,0) -- (0,3,1) -- (0,1,1) -- (0,1,3) -- (0,0,3);
+    \draw (0,3,1) -- (1,3,1) -- (1,1,1) -- (1,1,3) -- (0,1,3);
+    \draw (1,1,3) -- (1,0,3) -- (1,0,1) -- (3,0,1) -- (3,0,0);
+    \draw (3,0,1) -- (3,1,1) -- (1,1,1);
+    \draw (0,0,3) -- (1,0,3);
+    \draw (1,3,1) -- (1,3,0);
+    \draw (3,1,0) -- (3,1,1);
+       
+    % planos de simetria e CM
+    \draw[dotted] (0,2,0) -- (0,2,1) -- (1,2,1) -- (1,2,0) -- cycle;
+    \draw[dotted] (0.5,3,0) -- (0.5,3,1) -- (0.5,1,1) -- (0.5,1,0) -- cycle;
+    \draw[dotted] (0,3,0.5) -- (0,1,0.5) -- (1,1,0.5) -- (1,3,0.5) -- cycle;
+    \draw[fill] (0.5, 2, 0.5) circle (1pt);
+    
+%    \draw[dotted] (1.5,0,0) -- (1.5,1,0) -- (1.5,1,1) -- (1.5,0,1) -- cycle;
+%    \draw[dotted] (0,0.5,0) -- (3,0.5,0) -- (3,0.5,1) -- (0,0.5,1) -- cycle;
+%    \draw[dotted] (0,0,0.5) -- (0,1,0.5) -- (3,1,0.5) -- (3,0,0.5) -- cycle;
+    \draw[fill] (1.5,0.5,0.5) circle (1pt);
+    
+%    \draw[dotted] (0,0,2) -- (0,1,2) -- (1,1,2) -- (1,0,2) -- cycle;
+%    \draw[dotted] (0.5,0,1) -- (0.5,1,1) -- (0.5,1,3) -- (0.5,0,3) -- cycle;
+%    \draw[dotted] (0,0.5,3) -- (0,0.5,1) -- (1,0.5,1) -- (1,0.5,3) -- cycle;
+    \draw[fill] (0.5,0.5,2) circle (1pt);
+    
+    % cortes
+    \draw[dashdotted] (1,1,1) -- (1,1,0) -- (0,1,0) -- (0,1,1) -- cycle;
+    \draw[dashdotted] (1,1,1) -- (1,0,1) -- (0,0,1) -- (0,1,1);
+    
+    % sombra
+    \path[pattern = north west lines, pattern color = lightgray] (0,1,0) -- (0,1,1) -- (3,1,1) -- (3,1,0) -- cycle;
+    \path[pattern = north east lines, pattern color = lightgray] (0,1,1) -- (0,0,1) -- (3,0,1) -- (3,1,1) -- cycle;
+    \path[pattern = north west lines, pattern color = lightgray] (3,1,1) -- (3,0,1) -- (3,0,0) -- (3,1,0) -- cycle;
+    
+    % rótulos
+    \node[draw, circle, scale = 0.7] (P1) at (1,3.3,0) {$1$};
+    \node[draw, circle, scale = 0.7] (P2) at (-0.3,1,2.5) {$2$};
+    \node[draw, circle, scale = 0.7] (P3) at (2.75,1.3,0) {$3$};
+    
+\end{tikzpicture}
+\caption{Dividimos o objeto em três paralelepípedos, permitindo que determinemos as posições do centro de massa de cada parte através da simetria (para simplificar a figura, mostramos os planos de simetria somente para uma das partes). Verifique que temos um paralelepípedo maior, disposto ao longo do eixo $x$. As linhas ponto-tracejadas mostram os planos de corte para a divisão. \label{Fig:CMObj3DCortado}}
+\end{marginfigure}
+
+Utilizando a Expressão~\eqref{Eq:CMDensVolConst}, podemos determinar a posição do centro de massa:
+\begin{align}
+    \vec{r}_{CM} &= \frac{1}{7\ell^3} [(2\ell^3)(\nicefrac{\ell}{2}\;\versi + 2\ell\;\versj + \nicefrac{\ell}{2}\;\versk) \\
+    &\phantom{=\frac{1}{7\ell^3} [} + (2\ell^3)(\nicefrac{\ell}{2}\;\versi + \nicefrac{\ell}{2}\;\versj + 2\ell\;\versk) \\
+    &\phantom{=\frac{1}{7\ell^3} [} + (3\ell^3)(\nicefrac{3\ell}{2}\;\versi + \nicefrac{\ell}{2}\;\versj + \nicefrac{\ell}{2}\;\versk)] \\
+    &= \frac{1}{7\ell^3} [(\ell^4 + \ell^4 + \nicefrac{9\ell^4}{2})\versi \\
+    &\phantom{=\frac{1}{7\ell^3} [}+ (4\ell^4 + \ell^4 + \nicefrac{3\ell^4}{2})\versj \\
+    &\phantom{=\frac{1}{7\ell^3} [}+ (\ell^4 + 4\ell^4 + \nicefrac{3\ell^4}{2})\versk,
+\end{align}
+%
+Finalmente,
+\begin{equation}
+	\vec{r}_{CM} = \np{0,9286} \ell\; \versi + \np{0,9286} \ell \; \versj + \np{0,9286} \ell \; \versk.
+\end{equation}
+%
+Observe que o resultado é igual para todos os eixos: existem três planos que são capazes de dividir o corpo em partes simétricas, sendo que o encontro dos três se dá no eixo que passa exatamente no meio do octante formado pelos eixos $x$, $y$ e $z$ --~veja a linha tracejada na Figura~\ref{Fig:CMObj3DPosicaoCM}~--. Talvez, numa análise instintiva, pudessemos acreditar que o centro de massa estivesse mais afastado da origem, fora do corpo. Uma maneira de perceber o contrário é imaginar um plano a uma altura $y = \ell$: percebemos que a maior parte da massa está abaixo desse plano, portanto o centro de massa também deve estar abaixo do plano. Porém, por simetria, o centro de massa deve estar localizado sobre a reta tracejada. Logo, ele deve estar mais próximo da origem que o ponto $P = \ell \; \versi + \ell \; \versj + \ell \; \versk$ que é a interseção entre o plano $y = \ell$ e a reta. 
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[rotate around y = 10, rotate around z = -3]
+	% eixos
+    \draw[-Stealth] (3,0,0) -- (3.5,0,0) node[below left] {$x$};
+    \draw[-Stealth] (0,3,0) -- (0,4,0) node[below left] {$y$};
+    \draw[-Stealth] (0,0,3) -- (0,0,4) node[below right] {$z$};
+
+
+    
+	% Plano de simetria
+	\path[pattern = north west lines, pattern color = lightgray] (0,0,0) -- (0,3.5,0) -- (3,3.5,3) -- (3,0,3) -- cycle;
+	\draw[gray] (1,0,1) -- (3,0,3) -- (3,3.5,3) -- (0,3.5,0);
+
+	\draw[pattern = north west lines, pattern color = gray, thick] (0,3,0) -- (1,3,1) -- (0,3,1) -- cycle;
+	\draw[pattern = north west lines, pattern color = gray, thick] (1,3,1) -- (0,3,1) -- (0,1,1) -- (1,1,1) -- cycle;
+	\draw[pattern = north west lines, pattern color = gray, thick] (1,1,1) -- (0,1,1) -- (0,1,3) -- (1,1,3) -- cycle;
+	\draw[pattern = north west lines, pattern color = gray, thick] (0,1,3) -- (1,1,3) -- (1,0,3) -- (0,0,3) -- cycle;
+    \draw[pattern = north west lines, pattern color = gray, thick] (1,1,1) -- (1,0,1) -- (1,0,3) -- (1,1,3) -- cycle;
+
+	\draw[pattern = north east lines, pattern color = lightgray] (0,3,0) -- (1,3,0) -- (1,3,1);
+	\draw[pattern = north east lines, pattern color = lightgray] (1,3,1) -- (1,3,0) -- (1,1,0) -- (1,1,1) -- cycle;
+	\draw[pattern = north east lines, pattern color = lightgray] (1,1,1) -- (1,1,0) -- (3,1,0) -- (3,1,1) -- cycle;
+	\draw[pattern = north east lines, pattern color = lightgray] (3,1,0) -- (3,1,1) -- (3,0,1) -- (3,0,0) -- cycle;
+	\draw[pattern = north east lines, pattern color = lightgray] (1,1,1) -- (1,0,1) -- (3,0,1) -- (3,1,1) -- cycle;
+
+	\draw[thick] (0,3,0) -- (1,3,1) -- (1,0,1);
+	\draw[dashed, thick] (0,0,0) -- (0,3,0);
+	\draw[dashed, thick] (0,0,0) -- (0,0,3);
+	\draw[dashed, thick] (0,0,0) -- (3,0,0);
+	\draw[dashed, thick] (0,0,0) -- (1,0,1);
+
+	\draw[thick, dashed] (0,0,0) -- (3,3,3);
+	% CM
+	\draw[-Stealth, very thick] (0,0,0) -- (0.9286,0.9286,0.9286);
+	\draw[fill] (0.9286,0.9286,0.9286) circle (1pt) node[below right]{CM};
+
+\end{tikzpicture}
+\caption{Podemos dividir o objeto simetricamente ao realizarmos cortes como o mostrado na figura acima, um para cada eixo. Tais planos determinam uma reta que passa pela origem (reta tracejada). O vetor denota a posição do centro de massa. \label{Fig:CMObj3DPosicaoCM}}
+\end{marginfigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: Massa negativa/soma-subtração}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Exemplo com massa negativa, ou soma e subtração (lembrar do exemplo de um livro em que se extrai uma região circular de um circulo maior}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Centro de massa de uma barra} % tirar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Podemos calcular o centro de massa de uma barra fina e de densidade homogênea se a dividirmos em $n$ ``fatias'' finas. Como essas fatias são finas, podemos considerar que o centro de massa fica localizado no meio da fatia (e podemos aumentar o número de fatias arbitrariamente caso essa aproximação seja ruim, mas veremos que ela não é). Nesse caso, podemos dizer que para o eixo $x$
+%\begin{equation}
+%  x_{CM} = \frac{1}{M_t} \sum x_i m_i
+%\end{equation}
+%
+%Se todas as fatias têm a mesma massa $m$, temos
+%\begin{equation}
+%  x_{CM} = \frac{m}{M_t} \sum x_i.
+%\end{equation}
+%
+%Também podemos verificar que $M_t = n m$. Logo
+%\begin{equation}
+%  x_{CM} = \frac{1}{n} \sum x_i.
+%\end{equation}
+%
+%A equação acima não passa de uma média das posições das fatias. Podemos pensar da seguinte forma: para uma fatia localizada a uma distância $a$ da origem, temos uma outra localizada a uma distância $a$ da extremidade oposta. Se a barra tem comprimento $L$, então a contribuição dessas duas para o somatório da equação acima é
+%\begin{equation}
+%  \sum x_i = (a) + (L - a) + \dots,
+%\end{equation}
+%
+%o que claramente resultará em
+%\begin{equation}
+%  \sum x_i = \frac{n}{2}L,
+%\end{equation}
+%
+%pois se temos $n$ fatias, temos $n/2$ pares de fatias. Consequentemente
+%\begin{equation}
+%  x_{CM} = \frac{L}{2}.
+%\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Centro de massa de uma distribuição arbitrária de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $m_i$. Utilizando então a Expressão~\eqref{Eq:Discretizado}, temos:
+\begin{equation}
+  \vec{r}_{\textrm{CM}} = \frac{1}{M} \sum_{i}^N \vec{r}_i m_i.
+\end{equation}
+
+Se o objeto tem formas complexas, nem sempre uma divisão em cubos é muito efetiva. De qualquer forma, se o dividirmos em cubos menores, a aproximação melhora. Se tomarmos cubos extremamente pequenos, com massa $dm$, temos uma soma que tende a infinitos termos. Esse processo se resume a uma integral em duas ou três dimensões sobre a área ou volume no qual se distribui a massa:\footnote[][-4cm]{A forma integral é apresentada aqui para enriquecer a discussão. A correta interpretação e emprego da Expressão~\eqref{Eq:CMDistContinua} exige conhecimentos de integrais bi e tridimensionais. De qualquer forma, tal equação será usada para determinar uma expressão conhecida como \emph{Teorema dos eixos paralelos}.}
+\begin{equation}\label{Eq:CMDistContinua}
+  \vec{r}_{\textrm{CM}} = \frac{1}{M} \int \vec{r} \; dm, \mathnote{Centro de Massa de uma distribuição contínua de massa}
+\end{equation}
+%
+onde $M$ representa a massa total do corpo. Esse resultado pode ser interpretado de uma maneira mais simples se considerarmos que o elemento de massa está relacionado à densidade e ao volume do elemento de massa através de $dm = \rho(\vec{r}) \; dV$. Logo, basta considerarmos uma integral na região do espaço ocupada pelo corpo.
+
+A expressão acima pode ser considerada a forma mais geral de se determinar o centro de massa para uma distribuição contínua de massa, pois a discussão anterior sobre discretização pode ser interpretada como uma simples propriedade da integral acima. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) \; dA$ ou $dm = \lambda(x) \; dx$ --~onde $\sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~--.
+
+Mesmo assumindo um conhecimento sólido de cálculo, a definição dada pela Equação~\eqref{Eq:CMDistContinua} não é extremamente útil: Precisamos poder descrever a forma do objeto matematicamente, o que só é simples para formas relativamente simples--~no entanto, para tais formas é comum que outras técnicas sejam mais simples e úteis~--. De qualquer forma, para algumas formas (cones e pirâmides, por exemplo) e no caso de termos uma densidade que possa ser calculada para cada ponto do espaço através de uma função, a forma integral é bastante útil.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Movimento do centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Imagine que um projétil seja lançado com velocidade $\vec{v}_0$ fazendo um ângulo $\theta$ com a horizontal. Em um determinado momento, o projétil explode. Sabemos de nosso estudo de cinemática que a trajetória do projétil é uma parábola até o momento da detonação. Sabemos que um projétil não é uma partícula, porém toda a descrição dada para o movimento assume que sim, isto é, na verdade o que fizemos foi descrever a trajetória do centro de massa. O que acontece com a trajetória do centro de massa após a explosão?
+
+Cada uma das partículas que compunham o projétil serão sujeitas a forças muito intensas durante a explosão. Isso alterará a trajetória de cada uma delas. Para determinar a trajetória do centro de massa, devemos verificar através da Equação~\eqref{Eq:SegundaLeiSistemaDeParticulasMConst} qual é a aceleração a que o centro de massa estará sujeito. Sabemos que a força externa resultante sobre as partículas após a explosão será simplesmente\footnote{Estamos desprezando o efeito da força de arrasto.} a força peso de cada uma delas, o que implica em uma força peso igual àquela do projétil antes da explosão:
+\begin{align}
+	\vec{F}_{R}^{\rm{ext}} &= \sum_i^N \vec{F}_g^i \\
+		&= \vec{F}_g.
+\end{align}
+%
+Além disso, sabemos que a velocidade do centro de massa não é alterada por forças internas, somente por forças externas. O fato de que as forças durante a explosão são internas implica então em uma igualdade entre a velocidade do centro de massa antes e depois da explosão. Logo, se a velocidade do centro de massa não é alterada, e ele continua sujeito à mesma força após a explosão, concluímos que \emph{a desintegração do projétil não altera a trajetória do centro de massa}.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, decoration=bumps]
+    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[smooth, samples=1000, domain=0:2.33] plot (\x, {2*\x - 0.6*\x*\x});
+    \draw[densely dotted, smooth, samples=1000, domain=2.33:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (63.434948823:1);
+       
+	\draw[->, thick] (0,0) -- (63.43:1.5) node[above]{$\vec{v}_0$};
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+
+	\draw[decorate] (2.33, 1.4) circle (2mm);
+        
+\end{tikzpicture}
+\caption{.}
+\end{marginfigure}
+
+
+% problema do projétil num lançamento obliquo que explode em duas partes
+
+% exemplo clássico de uma pessoa que se move em um barco: tanto o barco quanto a pessoa se movem e o CM permanece no mesmo lugar.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conservação do momento linear}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Na colisão de duas bolas de bilhar, com alvo fixo, explorar o movimento do centro de massa (tratar unidimensionalmente)
+\begin{itemize}
+	\item calcular a velocidade através da derivada da fórmula da posição
+	\item mostrar que a velocidade do centro de massa se mantém constante
+	\item Verificar que isso deve implicar em uma aceleração do cm nula.
+	\item Concluir que precisamos de uma força resultante externa nula.
+	\item Verificar que o momento linear do sistema é constante.
+	\item Enunciar a conservação do momento linear. 
+\end{itemize}
 Segunda a Expressão~\eqref{Eq:SegundaLeiCM}, se a força resultante externa que atua sobre um sistema de partículas for nula, teremos uma aceleração nula. Nesse caso temos que a velocidade $v_{\textrm{CM}}$ do centro de massa deve ser constante, o que nos permite escrever, a partir da Equação~\eqref{Eq:VelocidadeCM}
 \begin{equation}
   M\vec{v}_{\textrm{CM}} = \sum m_i \vec{v}_i = \textrm{constante}.
@@ -195,51 +1033,29 @@ Além disso, se temos que a força resultante externa é zero ($\vec{F}_{\textrm
 
 O princípio de conservação do momento linear é extremamente útil para analisarmos situações onde ocorrem colisões ou explosões, por exemplo: nesse tipo de evento, as forças envolvidas são internas, e por isso não deve haver alteração no momento linear do centro de massa, isto é, o momento linear do sistema se conserva.
 
-Podemos escrever a segunda lei de Newton em termos do momento linear se observarmos que
-\begin{align}
-  \frac{d}{dt} \vec{P}_{\textrm{CM}} &= \frac{d}{dt}(M\vec{v}_{\textrm{CM}}) \\
-  &= M\frac{d\vec{v}_{\textrm{CM}}}{dt} + \vec{v}_{\textrm{CM}}\frac{dM}{dt} \\
-  &= M\vec{a}_{\textrm{CM}} + \vec{v}_{\textrm{CM}}\frac{dM}{dt}
-\end{align}
-%
-Se temos que a massa é constante, a expressão acima se reduz a $d\vec{P}_{\textrm{CM}}/dt = M\vec{a}_{\textrm{CM}}$, ou
-\begin{equation}
-  \vec{F}_{\textrm{CM}}^{\textrm{Ext}} = \frac{d\vec{P}_{\textrm{CM}}}{dt}.
-\end{equation}
-%
-Essa expressão também é válida para uma partícula, sendo denotada como
-\begin{equation}\label{Eq:SegundaLeiDerMomento}
-  \vec{F} = \frac{d\vec{p}}{dt}
-\end{equation}
-%
-que é na verdade a enunciada por Newton como sua segunda lei para o movimento. Ela é mais geral pois é capaz de tratar o caso em que a massa varia, como em um foguete, ou mesmo em uma corda amontoada e que é puxada.
+
+\textbf{Discutir o fato de que, por ser uma relação vetorial, devemos considerar a conservação do momento linear em cada eixo separadamente. Ou seja, podemos ter conservação em um eixo e não ter em outros. Considerar o exemplo de uma pessoa sobre uma canoa sobre a água: se ela atira algo obliquamente, o que acontece com cada componente.}
+
+%%%%%%%%%%%%%%%%%%
+\section{Colisões}
+%%%%%%%%%%%%%%%%%%
+
+discutir a conservação do momento linear nas colisões
+
+Definir momento transferido em uma colisão (é o $\vec{q} = \Delta \vec{p}$)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento transferido em uma colisão}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+discutir o fato de que o momento transferido é maior se bate e volta do que quando bate e gruda
 
 
-%\section{Sistema sujeito a força externa nula} % ainda podemos ter trabalho, pois podemos ter uma compressão do sistema. Isso aumentaria a energia do sistema, mas não alteraria o momento linear. Pode ficar pra uma seção de exemplos mais avançados.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forças em uma colisão}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Impulso}
-
-Uma força externa qualquer $\vec{F}$ é capaz de causar uma variação no momento linear $\vec{p}$, como mostra a Equação~\eqref{Eq:SegundaLeiDerMomento}. Podemos verificar qual é variação total do momento reescrevendo tal equação como
-\begin{equation}
-  d\vec{p} = \vec{F} dt.
-\end{equation}
-%
-Se em um instante inicial $t_i$ temos um momento linear $\vec{p}_i$, em um instante final $t_f$ temos um momento linear final $\vec{p}_f$. Integrando a equação acima entre esses limites, temos
-\begin{equation}
-  \int_{p_i}^{p_f} d\vec{p} = \int_{t_i}^{t_f} \vec{F} dt.
-\end{equation}
-%
-A integral à esquerda nos dará simplesmente $\Delta\vec{p}$, logo
-\begin{equation}
-  \delta\vec{p} = \vec{J},
-\end{equation}
-%
-onde definimos o \emph{impulso} $\vec{J}$ como
-\begin{equation}
-  \vec{J} = \int_{t_i}^{t_f} \vec{F} dt.
-\end{equation}
-
-\subsection{Forças durante uma colisão}
+discutir a intensidade da força, usar uma forma meio gaussiana. Rever o texto abaixo.
 
 Sabemos que a duração de uma colisão é extremamente curta, mas podemos ter uma grande variação do momento linear em um evento deste tipo. Isso nos leva a concluir que as forças que agem nos corpos que colidem deve ser muito intensa. Não podemos calcular exatamente a forma para a força, pois temos uma interação muito complexa, no entanto sabemos que ela deve ter um pico muito pronunciado e um intervalo de duração muito pequeno, como mostrado na Figura~(???).
 
@@ -247,11 +1063,25 @@ Quando desejamos quebrar um objeto podemos utilizar um martelo. Para quebrar o o
 
 Por outro lado, quando desejamos ``amortecer'' o impacto de um objeto --~contra uma superfície, por exemplo~--, utilizamos um material capaz de se deformar durante a colisão. Isso tem o efeito de aumentar o tempo de atuação da força, fazendo com que a força máxima seja menor, impedindo que ela atinja valores capazes de causar danos ao objeto que desejamos proteger. Esse princípio é utilizado em \emph{air-bags}, por exemplo.
 
-\paragraph{Força média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Força média em uma colisão}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Várias partículas colidem, qual é a força média? Aproveitar pra tratar o esquema de $\Delta p$ ser maior qd bate e volta o que causa uma força média maior.
+discutir a força média em uma colisão, exemplo do fusca/elefante
 
-\section{Momento e energia cinética em colisões}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força média de colisões sucessivas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+discutir a questão da força média exercida por colisões sucessivas
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Energia cinética em colisões}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Fórmulas para colisões elásticas (verificar se podemos utilizar conservação da energia cinética para obter resultados no caso de termos colisões elásticas).}
+
+\textbf{Discutir quando usar cada lei de conservação (energia, momento) falando do pêndulo balístico.}
+\textbf{Enfatizar que as relações para as velocidades são vetoriais e que devemos colocar a velocidade na fórmula com o sinal apropriado (verificar o sinal da projeção de acordo com o sentido dos eixos coordenados). Logo, as velocidades serão negativas quando forem no sentido negativo do eixo.}
 
 Sabemos que sempre que a força resultante externa que atua sobre um sistema de partículas que colidem é nula, o momento linear do sistema se conserva. Podemos ainda verificar o que acontece com a energia cinética antes e depois de uma colisão. Podemos dividir as colisões quanto ao que acontece com a energia cinética em três possibilidades
 \begin{description}
@@ -274,4 +1104,3 @@ v_1^{\textrm{dc}} = \frac{m_1 - m_2}{m_1+m_2} v_1^{\textrm{ac}} + \frac{2m_2}{m_
 v_2^{\textrm{dc}} = \frac{2m_1}{m_1+m_2} v_1^{\textrm{ac}} + \frac{m_2 - m_1}{m_1+m_2} v_2^{\textrm{ac}}
 \end{align}
 
-\section{Exemplos}
