@@ -1871,6 +1871,54 @@ De maneira geral, podemos afirma que a força centrípeta é a \emph{componente 
 
 Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^2/R$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Forças fictícias em um referencial acelerado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em diversas situações ouvimos falar de \emph{forças centrífugas} --~um exemplo disso é a força centrífuga de uma lava-roupas no final do processo de lavagem, retirando o excesso de água~--. A força centrífuga é então uma força que tende a levar um objeto em um momento circular para fora de tal trajetória.
+
+Se considerarmos a experiência como passageiros em automóvel que realiza uma curva, o que sentimos é uma tendência de nos afastar do centro da trajetória --~o que está de acordo com a descrição de forças centrífugas descrita acima~--. No entanto, o que estudamos nas seções anteriores foi a existência de forças que apontam para o centro da trajetória.
+
+Na verdade, temos que tratar com cuidado uma situação desse tipo pois o interior do carro não é adequado para fixarmos um referencial: devido ao fato e que o carro está sujeito a uma aceleração, um referencial fixado no carro não é um \emph{referencial inercial}. Nesse caso, podem ocorrer forças cuja explicação é dificil de justificar dentro do referencial. Tais forças são conhecidas como \emph{forças fictícias} ou \emph{forças inerciais}.
+
+No caso do carro, o passageiro sente uma ação que o empurra para fora da trajetória circular, no entanto, tal força pode ser explicada de maneira simples em um referencial fixado no solo: o passageiro está se deslocando para fora da trajetória simplesmente por inércia. Sabemos que para que possamos ter uma trajetória circular, devemos ter a ação de alguma força que aponta para o centro da trajetória. Ora, que força seria essa no caso do passageiro? Nesse caso temos diversas forças atuando conjuntamente: o atrito no banco, forças normais devido às abas laterais dos assentos --~e também na parte inferior, se a curva for compensada~--, forças devido ao cinto de segurança que prende o passageiro, e mesmo forças exercidas ao nos segurarmos em outras partes do carro. Caso essas forças não sejam suficientes, a tendência é a de seguirmos em linha reta no referencial do solo.
+
+Dentro do referencial do carro, no entanto, essa tendência em se afastar do centro se torna uma força centrífuga aparente\footnote{Onde está a reação dessa força?}, cujo módulo é idêntico ao da força centrípeta --~isto é, $F = mv^2/r$~--, porém aponta para longe do centro de rotação. Mesmo que bem presos ao veículo, sem nos deslocarmos, sentimos essa força aparente pois sentimos nossos orgãos internos: para que eles realizem a trajetória circular, a cavidade abdominal deve exercer uma força que aponta para o centro da trajetória, e sentimos a reação a tal força sendo exercida na parede da cavidade, o que interpretamos como se estivéssemos sendo puxados para fora da trajetória circular.
+
+Objetivamente, devemos reconhecer que as forças que surgem em referenciais acelerados não são fictíciais, elas de fato existem --~o nome mais adequado é mesmo \emph{forças inerciais}~--. No caso do carro, podemos utilizar o conceito de força centrífuga dentro do referencial girante para descrever o movimento circular como uma situação de equilíbrio entre as forças reais e a força centrífuga. No entanto, interpretar fenômenos físicos com base em tais forças é sempre mais complexo do que empregar um referencial inercial, onde temos a garantia de poder aplicar as Leis de Newton sem resalvas ou forças difíceis de se interpretar.
+
+De qualquer forma, algo fundamental de se notar é que jamais devemos misturar os dois referenciais: \emph{ou trabalhamos no referencial inercial}, onde a soma das forças que atuam sobre um corpo que sofre um movimento circular é igual ao produto da massa pela aceleração centrípeta, \emph{ou trabalhamos no referencial não-inercial}, onde temos equilíbrio entre as forças reais e a força centrífuga.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Direção aparente do peso em um avião}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma experiência bastante curiosa é a de estar em avião que faz uma curva, verificar que um copo com água sobre a bandeja está com o nível perfeitamente paralelo ao piso da aeronave, e olhar pela janela e ver o chão. Devido a este fenômeno, para que o avião possa ser pilotado sem visualizar o solo, o piloto precisa de um instrumento cujo único propósito é indicar qual é a orientação do avião em relação ao solo: o horizonte artificial.
+
+Podemos interpretar os fenômenos que acontecem na aeronave em ambos os referenciais:
+\begin{description}
+    \item[Referencial da aeronave] Se imaginarmos o que aconteceria com uma esfera que estivesse sobre a bandeja temos que, devido à ação da força centrífuga, temos uma força resultante entre a força peso, a força normal e a força centrífuga, sendo que o sistema permanece em equilíbrio. Outra possibilidade é imaginar que a força centrífuga determina uma \emph{aceleração centrífuga} que aponta para longe do centro de rotação. A aceleração total\footnote{Podemos interpretar essa aceleração total como uma aceleração gravitacional aparente} --~soma da aceleração centrífuga com a aceleração da gravidade~-- aponta então perpendicularmente ao piso da aeronave, e temos então o equilíbrio entre a normal e o peso aparente. No caso do líquido, temos algo um pouco mais complexo: como a força centrífuga/aceleração depende da distância ao eixo de rotação, temos que pontos diferentes estarão submetidos a forças/acelerações diferentes. Isso significa que a cada ponto da superfície do líquido temos uma força ``normal'' que aponta em uma direção diferente --~mais vertical próximo do centro de rotação, mais inclinada ao se distanciar~--, de forma a equilibrar a força centrífuga crescente ao se afastar do centro\footnote{Lembre-se que o peso não pode fazer nada, ele tem o módulo constante e está restrito a apontar sempre na mesma direção}. Isso dá origem a uma curva denominada como um \emph{paraboloide de revolução}.
+
+    \item[Referencial inercial] Por outro lado, em um referencial inercial temos um sistema similar ao pêndulo cônico, ou a uma curva compensada sem atrito: temos uma situação onde não há equilíbrio, porém na qual a aceleração é a aceleração centrípeta. Nesse caso, temos que a força normal exercida pela bandeja sobre a bola tem uma componente que aponta para o centro da trajetória circular, agindo como força centrípeta. Além disso, temos que a componente vertical da normal equilibra o peso da esfera. No caso do líquido, como cada ponto está a uma distância diferente do centro de rotação, temos que as componentes da normal que apontam para o centro em cada ponto variam: a ``normal'' é mais vertical próxima ao centro de rotação, provendo uma força/aceleração centrípeta menor, e maior distante do centro de rotação, provendo uma força/aceleraçao centrípeta maior. Isso implica que a direção da normal varia na superfície do líquido, o que significa que o líquido não está plano, ele forma um segmento de um paraboloide de revolução.
+\end{description}
+%
+Vemos que ambas as descrições são coerentes e chegam ao mesmo resultado. Em ambos os casos, concluímos que a superfície do líquido forma um menisco, porém, como temos um segmento muito pequeno da superfície, e não incluímos o centro de rotação, percebemos uma superfície plana. Podemos formar o paraboloide completo ao girar um balde cheio de água, e nesse caso, o referencial do avião seria equivalente a um referencial que flutuasse sobre a superfície do líquido. Se a superfície for grande, e o segmento pequeno, não percebemos a curvatura da superfície.
+
+No caso de sólidos, essas diferenças nas forças/acelerações em pontos a diferentes distâncias do eixo de rotação também existem, mas em geral não trazem efeitos perceptíveis por serem de pequena intensidade. No entanto, para velocidades de rotação extremamente elevadas, os efeitos são relavantes: se um objeto for submetido a velocidades de rotação muito altas, ele pode se desintegrar espontaneamente, pois as forças entre as partículas não são intensas o suficiente para manter a coesão do objeto. No referencial inercial, podemos afirmar que as forças não foram suficentes para fazer com que todas as partes realizassem as suas respectivas trajetórias circulares; No referencial não-inercial do próprio corpo que gira, podemos afimar que a força centrífuga foi intensa o suficientes para estilhaçar o objeto.
+
+Finalmente, devemos notar algo muito importante em toda essa discussão: a força de sustentação que age sobre o avião tem sempre a mesma direção da força normal que age sobre os ocupantes. Quando o avião faz a curva, sabemos que --~no referencial do avião~-- a força centrífuga aumenta de acordo com $F = mv^2/2$. Devido à inclinação da aeronave, a força normal exercida sobre os ocupantes também se inclina, fazendo com que exista uma situação de equilíbrio. Se o avião fizesse a curva por qualquer outro meio que não fosse a inclinação da própria aeronave, teríamos uma situação em que não ocorreria o equilírio.
+
+% Obs: Tudo recai no fato de que a força centrípeta/centrífuga depende da massa. O Einstein pensa que todas desse tipo são fictícias, incluindo a gravidade.
+
+% Obs2: a superfície é um paraboloide de revolução, ver Kleppner
+
+% Obs3: Se um campo gravitacional for muito intenso, ele pode ser grande o suficiente para que as forças de maré desintegrem qualquer coisa que seja (um planeta, um astronauta que caia no campo gravitacional). Se a velocidade de rotação for intensa o suficiente, temos algo parecido para um sólido. Por isso que o disco do CVT do Nissan quebrava.
+
+% Obs 4: o fato de nunca se sentir nada numa curva do avião se deve ao fato de que a normal pra qq coisa dentro do avião está na mesma direão da sustentação. Além disso, elas são o que equilibram o peso e agem como centrípetas. Se houvesse uma maneira diferente de fazer uma curva com o avião, o resultado não seria assim. Seria análogo a fazer uma curva com um carro em um plano, simplesmente seríamos jogados para fora da curva.
+
+% Texto interessante sobre o referencial girante, força de Coriolis, centrífuga e de Euler (qd existe aceleração angular): http://www.mathpages.com/home/kmath633/kmath633.htm
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Força centrípeta em um pêndulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1983,7 +2031,7 @@ Note que a alteração na normal não é perceptível devido ao fato de que o ra
 \paragraph{Movimento circular vertical}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
   
@@ -2025,7 +2073,7 @@ Note que a alteração na normal não é perceptível devido ao fato de que o ra
 
 Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
 
-O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote[][-2cm]{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
+O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Condição de perder contato e velocidade mínima}
@@ -2307,6 +2355,12 @@ Como estamos interessados em determinar as velocidades máxima e mínima, podemo
 %
 onde o sinal positivo nos dá a velocidade máxima e o sinal negativo nos dá a velocidade mínima.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Direção aparente do peso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Quando um avião faz uma curva, não sentimos uma alteração da direção do peso em relação ao assoalho da aeronave. Explicar o por quê. Não tenho certeza absoluta, mas acredito que está ligado ao fato de que a força de sustentação é na mesma direção que a normal para os passageiros. Para que sentíssemos um peso não perpendicular ao chão, temos que ter alguma aceleração lateral em relação à aeronave, coisa que a normal ou mesmo a força de sustentação não são capazes de prover. Dá pra interpretar que o campo gravitacional efetivo tem uma componente radial para fora igual à centrípeta e a própria aceleração gravitacional, aí a resultante é perpendicular ao assoalho
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Observações importantes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2378,7 +2432,7 @@ Vamos supor que estamos interessados em calcular a aceleração e a tensão no f
         \end{description}
 \end{description}
 
-\begin{marginfigure}[-8cm]
+\begin{marginfigure}
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -2776,7 +2830,7 @@ o que resulta em:
 
 Podemos simplificar o tratamento do sistema se considerarmos que os blocos compõem um bloco maior. Nesse caso, as forças internas não serão relevantes para a determinação da aceleração.
 
-\begin{marginfigure}[4cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
      interface/.style={
