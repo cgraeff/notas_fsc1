@@ -581,7 +581,7 @@ Substituindo essa expressão na Equação~\eqref{Eq:PosYProj}, obtemos
 \end{equation}
 %
 onde utilizamos $v_{ix} = v_i\cos\theta$ e $v_{iy} = v_i\sen\theta$. Para simplificar a expressão acima, vamos escolher $y_i = x_i = 0$, $y_f = y$ e $x_f = x$. Obtemos assim
-\begin{equation}
+\begin{equation}\label{Eq:EqDaTrajetoria}
   y = (\tan\theta) \; x - \left(\frac{g}{2v_i^2\cos^2\theta}\right) x^2. \mathnote{Equação da trajetória.}
 \end{equation}
 
@@ -591,6 +591,8 @@ Se compararmos a equação acima a um polinômio de segundo grau, cuja forma car
 \end{equation}
 %
 verificamos que a equação da trajetória segue o mesmo formato, porém com $A = 0$. Concluímos então que a trajetória seguida pelo projétil é tem a forma de uma parábola, com concavidade voltada para baixo\footnote{A concavidade de um polinômio de segundo grau é determinada através do sinal do coeficiente $C$: se o coeficiente é positivo, a concavidade é voltada para cima; se for negativo, é voltada para baixo.}.
+
+Note que podemos utilizar a expressão para a trajetória obtida acima mesmo para lançamentos horizontais --~bantando utilizar $\theta = \np[\tcdegree]{0}$~--, ou lançamentos para baixo. Nesse último caso, devemos utilizar ângulos negativos, medidos em relação ao eixo horizontal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento circular}
