@@ -18,25 +18,221 @@ Intro ...
 \section{Cinemática da Rotação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{TODO texto introdutório e falar sobre corpos rígidos}
+% TODO texto introdutório e falar sobre corpos rígidos
 Vamos analisar o movimento de rotação de um corpo rígido (isto é, um corpo em que a distância relativa entre cada uma das partículas que o constituem é constante o que faz com que ele não mude de forma) em torno de um eixo.
+
+Acredito que temos algumas coisas muito importantes para falar nessa introdução: Teorema de Mozzi-Chasles; ângulos de Euler; Alertar para o fato de que vamos considerar uma rotação que acontece em torno de um eixo só e que fica fixo no espaço.
+
+Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
+
+
+Ver essa questão dos sinais, principalmente na solução da máquina de Atwood. Na real acho que não precisa dessas firulas dos sinais se levarmos em conta o caráter vetorial.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Variáveis cinemáticas para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-Necessitamos variáveis permitam descrever os movimentos de rotação. Podemos tomar uma reta fixa no objeto e que faz um ângulo de \np[\tcdegree]{90} em relação ao eixo de rotação. O ângulo $\theta$ entre tal reta e o exito $x$ pode ser usado para descrever a posição angular do objeto.
+% fazer uma intro
+% restringir a um movimento ``unidimensional'' em rotações, ou seja, uma rotação em torno de somente um eixo
 
-\comment{TODO figura de um disco em 3d que descreve um arco (marginfig)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Unidades para a medida de ângulos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O ângulo $\theta$ pode ser descrito em qualquer unidade (graus ou revoluções, por exemplo), porém é comum se utilizar medidas em \emph{radianos}. Veremos adiante que algumas relações só serão válidas para ângulos utilizando essa unidade de medida. No SI, os ângulos devem ser descritos em radianos
+O ângulo $\theta$ pode ser descrito em qualquer unidade, porém é comum se utilizar medidas em \emph{radianos}. Podemos entender como funciona o sistema de medidas de ângulos em radianos através da Figura~\ref{Fig:ExplicacaoAngRad}: se tomarmos uma fração\footnote{Uma fração de um círculo é denominado como um \emph{setor} de um círculo.} $f$ de um círculo --~isto é, uma parte dele, na figura tomamos $\nicefrac{1}{8}$~--, podemos calcular a razão entre o arco $s$ e o raio $r$ e obter
+\begin{equation}
+    \frac{s_1}{r_1} = \frac{f\cdot 2\pi r_1}{r_1},
+\end{equation}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
 
-\comment{TODO Figura mostrando a definição de ângulo em radianos (melhor uma inline no texto e que mostrasse um "close" da região interessante).}
+\draw[dashdotted, -Stealth] (-2,0) -- (2,0) node[below left]{$x$};
+\draw[dashdotted, -Stealth] (0,-2) -- (0,2) node[below left]{$y$};
+
+\path[pattern = north east lines, pattern color = lightgray] (0,0) -- ([shift={(0,0)}]45:1.5) arc[radius=1.5, start angle=45, end angle= 0] -- cycle;
+
+\draw[densely dotted] (0,0) circle (0.75cm);
+\draw[densely dotted] (0,0) circle (1.5cm);
+\draw[dashed] (0,0) -- (45:2);
+\draw[thick] (0,0) -- (1.5,0);
+
+\draw[|<->|] (0,-1) -- node[below]{$r_1$} (0.75,-1);
+\draw[dotted] (0.75,0) -- (0.75,-1);
+\draw[|<->|] (0.0,-1.75) -- node[below]{$r_2$} (1.5,-1.75);
+\draw[dotted] (1.5,0) -- (1.5,-1.75);
+
+\draw[thick] ([shift={(0,0)}]45:0.75) arc[radius=0.75, start angle=45, end angle= 0];
+\node (s1) at (22.5:0.95){$s_1$};
+
+\draw[thick] ([shift={(0,0)}]45:1.5) arc[radius=1.5, start angle=45, end angle= 0];
+\node (s1) at (22.5:1.7){$s_2$};
+
+\end{tikzpicture}
+\caption{A figura acima mostra um \emph{setor} de um círculo, isto é, uma parte de um círculo. Note que o setor determina o ângulo entre a linha tracejada e o eixo $x$, sendo que podemos utilizar a razão entre o arco do setor e o seu raio para denotar o ângulo entre tais retas. \label{Fig:ExplicacaoAngRad}}
+\end{marginfigure}
+
+\noindent{}onde escrevemos o comprimento como uma fração do perímetro do círculo (se --~por exemplo~-- temos $\nicefrac{1}{8}$ de um círculo, o arco $s$ correspondente é de $\nicefrac{1}{8}$ do perímetro total $2\pi r$ do círculo completo). Temos então que 
+\begin{equation}
+    \frac{s_1}{r_1} = f\cdot 2\pi.
+\end{equation}
+%
+Note que a fração não depende do raio do círculo. Se fizermos o mesmo cálculo utilizando o círculo com raio $r_2$, obteremos o mesmo resultado: a razão entre o arco e o raio depende simplesmente da fração $f$. O resultado da razão acima serve como uma medida do ângulo determinado pelo setor do círculo, sendo que a denominamos como um ângulo \emph{em radianos}:
+\begin{equation}
+    \theta = \frac{s}{r}.
+\end{equation}
+%
+Para o caso específico do setor mostrado na Figura~\ref{Fig:ExplicacaoAngRad}, temos
+\begin{align}
+    \theta &= \frac{s}{r} \\
+    &= \frac{\nicefrac{1}{8} \cdot 2\pi r}{r} \\
+    &= \nicefrac{\pi}{4},
+\end{align}
+%
+o seja, temos um ângulo $\theta = \nicefrac{\pi}{4}~\rm{rad}$, o que correspode a $\theta = \nicefrac{\np[\tcdegree]{360}}{8} = \np[\tcdegree]{45}$.
+
+Também podemos utilizar o valor de $f$ como uma medida de ângulo: em uma rotação, quando $f = 1$, a reta tracejada na Figura~\ref{Fig:ExplicacaoAngRad} descreve uma circunferência completa. Denominamos tal circunferência como \emph{uma revolução}. Assim, $f$ é um ângulo em revoluções. A relação entre o ângulo em radianos e o ângulo em revoluções é
+\begin{equation}
+    \theta = \frac{s}{r} = f \cdot 2 \pi,
+\end{equation}
+%
+é um ângulo em radianos. Para o ângulo em particular da Figura~\ref{Fig:ExplicacaoAngRad}, temos $\theta = \nicefrac{1}{8}~\rm{rev}$.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+    \draw (-1.15, 0) -- (1.15, 0);
+    \draw (0,-1.15) -- (0, 1.15);
+    
+    \draw[densely dotted] (0,0) coordinate (origin) circle (1);
+    
+    \draw[thick] (1,0) coordinate (right) arc[start angle = 0, end angle = 1 r, radius = 1] coordinate (top) -- (0,0);
+    \draw[rotate = 1 r, |-|] (0,0.2) -- node[above]{$r$} (1,0.2);
+    \draw[|-|] (1.3,0) arc[start angle = 0, end angle = 1 r, radius = 1.3] node [right, midway]{$\ell = r$};
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm] {angle = right--origin--top};
+
+\end{tikzpicture}
+\caption{Um ângulo de \np[rad]{1,0} é o ângulo compreendido por um arco cujo comprimento é igual ao do raio do círculo, e equivale a aproximadamente \np[\tcdegree]{57.2958}.}
+\end{marginfigure}
+
+Veremos adiante que algumas relações só serão válidas para ângulos medidos em radianos. Algo que devemos enfatizar é o fato de que os ângulos em radianos são na verdade adimensionais, uma vez que são dados pela razão entre duas medidas de comprimento. Finalmente, resta destacar que no SI a unidade de ângulo é o radiano.
+
+
+%%%%%%%%%%%%%%%%%%%
+\paragraph{Posição}
+%%%%%%%%%%%%%%%%%%%
+
+Necessitamos variáveis permitam descrever os movimentos de rotação. Podemos tomar uma reta fixa no objeto e que faz um ângulo de \np[\tcdegree]{90} em relação ao eixo de rotação. O ângulo $\theta$ entre tal reta e o eixo $x$ pode ser usado para descrever a posição angular do objeto.
+
+% https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Figura superior
+
+\draw (0,0) ellipse (1.25 and 0.5);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+\draw[fill] (0,0) circle (1pt);
+
+\draw[thick] (0,0) -- (15:-1.05);
+\draw[dashdotted, ->] (-15:-1.5) -- (-15:2) node[below left]{$y$};
+\draw[dashdotted, <-] (15:-2) node[below left]{$x$} -- (15:-1.05);
+\draw[dashdotted] (0:0) -- (15:1.5);
+
+
+%%% Figura do meio
+
+\draw (0,-4) ellipse (1.25 and 0.5);
+
+\draw (-1.25,-4) -- (-1.25,-4.4);
+\draw (1.25,-4.4) -- (1.25,-4);  
+
+\draw (-1.25,-4.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-4.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,-4) -- (0,-2.5) node[below left]{$z$};
+\draw[dashdotted] (0,-5.5) -- (0,-4.9);
+\draw[dotted] (0,-4.9) -- (0,-4);
+\draw[fill] (0,-4) circle (1pt);
+
+\draw[thick] (0,-4) -- +(-135:0.65);
+\draw[dashed] (0,-4)+(-135:0.65) -- +(-135:1.7);
+\draw[dashdotted, ->] (0,-4)+(-15:-1.5) -- +(-15:2) node[below left]{$y$};
+\draw[dashdotted, ->] (0,-4)+(15:1.5) -- +(15:-2) node[below left]{$x$};
+
+\draw (0,-4) [partial ellipse=-155:-121:1.82cm and 1.1cm];
+\node[right] (theta) at (-1.65,-4.9){$\theta$};
+
+\draw[->] (0,-3.20) [partial ellipse=-260:-30:0.3125cm and 0.125cm];
+
+%%% Figura inferior
+
+\draw (0,-8) ellipse (1.25 and 0.5);
+
+\draw (-1.25,-8) -- (-1.25,-8.4);
+\draw (1.25,-8.4) -- (1.25,-8);  
+
+\draw (-1.25,-8.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-8.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,-8) -- (0,-6.5) node[below left]{$z$};
+\draw[dashdotted] (0,-9.5) -- (0,-8.9);
+\draw[dotted] (0,-8.9) -- (0,-8);
+\draw[fill] (0,-8) circle (1pt);
+
+\draw[dashed] (0,-8) -- +(-135:1.65);
+\draw[dashdotted, ->] (0,-8)+(-15:-1.5) -- +(-15:2) node[below left]{$y$};
+\draw[dashdotted, ->] (0,-8)+(15:1.5) -- +(15:-2) node[below left]{$x$};
+
+\draw (0,-8) [partial ellipse=-155:-121:1.82cm and 1.1cm];
+\node[right] (theta) at (-1.65,-8.9){$\theta_i$};
+
+\draw[->] (0,-7.20) [partial ellipse=-260:-30:0.3125cm and 0.125cm];
+
+\draw[thick] (0,-8) -- +(-60:0.55);
+\draw[dashed] (0,-8)+(-60:0.55) -- +(-60:1.3);
+\draw (0,-8) [partial ellipse=-155:-71:1.72cm and 1.0cm];
+\node[right] (theta) at (-0.45,-9.2){$\theta_f$};
+
+\end{tikzpicture}
+\caption{Podemos descrever a posição angular de um corpo rígido que gira em torno de um eixo através do ângulo formado entre uma linha fixa no corpo e um dos eixos coordenados perpendicular ao eixo de rotação.}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Deslocamento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Conhecendo a posição angular, podemos calcular o deslocamento angular de maneira bastante simples, bastando calcular a diferença entre duas posições quaisquer:
 \begin{equation}
 	\Delta\theta = \theta_2 - \theta_1.
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A partir do deslocamento angular, podemos definir uma velocidade angular média através de
 \begin{equation}
@@ -66,7 +262,26 @@ A aceleração angular tem unidade de ``ângulo por tempo ao quadrado'', no SI, 
 \subsection{Sinais}
 %%%%%%%%%%%%%%%%%%%
 
-Discutir convenção de sinais para $\theta$ crescente.
+No caso da translação, a escolha da direção e sentido do sistema de coordenadas era livre. Muitas vezes só uma escolha de direções é adequada, mas a escolha do sentido dos eixos é algo que livre\footnote{Exceto no caso do cálculo do trabalho e da energia potencial associados à força peso, em que determinamos expressões que são específicas para o caso em que o eixo vertical tem o sentido positivo no sentido inverso da aceleração da gravidade.}. Para as rotações, no entanto, existe uma convenção para o sentido positivo: rotações no sentido anti-horário são positivas. Essa definição é a mesma utilizada para o círculo trigonométrico.
+
+Assim, temos que
+\begin{description}
+    \item[Posição angular] Uma posição positiva é aquela em que se partimos da posição de referência, obtemos através de um deslocamento no sentido horário;
+    \item[Deslocamento angular] Os deslocamentos positivos são aqueles que ocorrem no sentido anti-horário;
+    \item[Velocidade angular] Uma velocidade angular e positiva se ela tem o sentido anti-horário, isto é, se o deslocamento angular associado a tal velocidade é no sentido anti-horário;
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aceleração}
+%%%%%%%%%%%%%%%%%%%%%%
+
+No caso da aceleração angular temos uma situação mais complexa, similar ao que verificamos no movimento unidimensional:
+\begin{itemize}
+    \item Se uma aceleração causa um aumento do módulo da velocidade angular, temos que a aceleração angular tem o mesmo sinal que a velocidade angular;
+    \item Se uma aceleração causa uma diminuição do módulo da velocidade angular, temos que a aceleração angular tem o sinal oposto ao da velocidade angular.
+\end{itemize}
+%
+Se, por exemplo, temos que um corpo efetua uma rotação no sentido horário, com velocidade angular que cresce em módulo, temos que a aceleração angular é também no sentido horário, por isso ela deve ser negativa --~assim com a velocidade angular~--. Essa análise é importante pois para qualquer dos dois sentidos de rotação podemos ter uma aceleração positiva ou negativa, sendo que o papel de cada uma delas é diferente para cada caso.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equações para aceleração angular constante}
@@ -74,6 +289,7 @@ Discutir convenção de sinais para $\theta$ crescente.
 
 Ao estudar movimentos de translação, nos preocupamos com o caso da aceleração constante pois pretendíamos estudar um caso importante que pode ser descrito desta maneira: a aceleração gravitacional. No caso das rotações, supor que a aceleração seja constante não é algo muito geral ou mesmo de especial interesse para tratar sistemas físicos reais. No entanto, é interessante mostrar que as equações têm a mesma forma que no caso da translação.
 
+% TODO: fazer um gráfico de alpha em função do tempo, mostrar uma barra com largura dt e falar que a área dela é d\omega. Aí falar que podemos simplesmente integrar a expressão abaixo.
 Da própria definição da aceleração angular instantânea, temos
 \begin{equation}
 	d\omega = \alpha dt,
@@ -124,8 +340,11 @@ Se tomarmos $t_i = 0$ e $t_f = t$, obtemos finalmente
 %
 Novamente temos uma equação que é anóloga àquela do caso translacional.
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newthought{Analogia com o caso translacional:} Para cada relação da cinemática translacional, temos uma correspondente para o caso rotacional. Na seção acima, utilizamos cálculo para determinar duas dessas equações. Esse método é, na verdade, equivalente ao cálculo de áreas feito para o caso translacional. A partir dessas equações, podemos determinar outras, como fizemos no caso da translação. Na Tabela~\ref{Tab:CompEqsTransRot} podemos ver as equações lado a lado, evidenciando quais equações têm a mesma forma.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Analogia com o caso translacional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para cada relação da cinemática translacional, temos uma correspondente para o caso rotacional. Na seção acima, utilizamos cálculo para determinar duas dessas equações. Esse método é, na verdade, equivalente ao cálculo de áreas feito para o caso translacional. A partir dessas equações, podemos determinar outras, como fizemos no caso da translação. Na Tabela~\ref{Tab:CompEqsTransRot} podemos ver as equações lado a lado, evidenciando quais equações têm a mesma forma.
 
 \begin{table}[!h]
 \centering
@@ -206,55 +425,846 @@ A aceleração acima é responsável por variar o módulo da velocidade somente,
 
 Experimentalmente podemos verificar que para abrir uma porta é muito mais fácil empurrar a extremidade mais distante das dobradiças do que o meio da porta, ou próximo das dobradiças. Além disso o ângulo de aplicação da força trambém é relevante. Se o ângulo entre a força eo plano da porta for de \degree{90}, é mais fácil empurrar a porta do que se ele for de \degree{30}.
 
-% margin figure
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
 
-Na figura, podemos ver que a componente da força ao longo do eixo pontilhado não tem efeito de fazer a porta girar, sometne a componente perpendicular tem. Definimos então uma gradeza denominada torque, dada por
-\begin{equation}\label{Eq:DefModTorque}
-	\tau = r F \sen\phi.
+%%% Figura superior
+
+\draw (0,0) ellipse (1.25 and 0.5);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+\draw[fill] (0,0) circle (1pt);
+
+\draw[dashdotted] (15:-2) -- (0,0);
+
+% raio
+\draw[|-|] (-0.05,0.15) -- node[above]{$r$} +(15:-0.8);
+\draw[fill] (15:-0.8) circle (1pt);
+
+% força
+\draw[thick, ->] (15:-0.8) -- +(-65:1) node[below]{$\vec{F}$};
+
+% projeção radial
+\draw[dashed] (15:-0.8) ++(-65:1) -- (15:-1.6); 
+\draw[->] (15:-0.8) -- (15:-1.6) node[above]{$F_r$};
+
+% projeção tangencial
+\draw[dashed] (15:-0.8) +(-30:1.6) -- +(-30:-0.3);
+\draw[dashed] (15:-0.8) ++(-65:1) -- +(18:0.8);
+\draw[->] (15:-0.8) -- +(-30:1.35) node[above]{$F_t$};
+
+% phi
+\draw (15:-1.2) arc (150:117:1.25 and -0.5);
+\node (theta) at (30:-1.1) {$\phi$};
+
+\end{tikzpicture}
+\caption{Ao exercermos uma força $\vec{F}$ sobre um corpo, causando uma rotação, somente uma das componentes mostradas acima --~a componente $F_t$~-- é responsável pela rotação. A componente $F_r$ só é capaz de causar uma translação do corpo. \label{Fig:DefinicaoTorque}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:DefinicaoTorque}, podemos ver que a componente da força $\vec{F}$ ao longo da reta que une o eixo de rotação ao ponto de aplicação da força não tem efeito de causar uma rotação, ela somente é capaz de causar uma translação do corpo. Assim, somente a componente de força perpendicular a esta reta, isto é, a componente $F_t$, é responsável por causar uma rotação. Definimos então uma gradeza denominada torque, dada por
+\begin{align}\label{Eq:DefModTorque}
+	\tau &= r F_t \\
+	&= r F \sen\phi.
+\end{align}
+%
+Note que o ângulo $\phi$ deve ser medido entre ao prolongamento\footnote{Isto é, o segmento de reta \emph{além} do ponto de aplicação da força quando partimos o eixo e nos dirigimos ao ponto de aplicação da força.} da reta que une o eixo de rotação ao ponto de aplicação da força $\vec{F}$ e a própria direção da força.
+
+Fazendo uma análise dimensional da definição para o torque acima, podemos verificar que as unidades são
+\begin{align}
+    [\tau] &= [r F \sen\phi] \\
+    &= [r F_t] \\
+    &= [r] [F_t] \\
+    &= \rm{m} \cdot \rm{N},
+\end{align}
+%
+ou, como é mais comum de se denotar,
+\begin{equation}
+    [\tau] = \rm{N}\cdot\rm{m}.
 \end{equation}
-
-\comment{TODO Discutir o braço de alavanca aqui}
+%
+Veja que dimensionalmente $\rm{N}\cdot\rm{m}$ é equivalente à unidade para o trabalho, isto é, o joule (J). No entanto, jamais devemos nos referir ao torque em joules: o joule é uma unidade utilizada para se referir exclusivamente a energia. Veremos futuramente que o torque pode ser definido como um vetor --~diferentemente da energia, que é um escalar~--. Temos, portanto, grandezas físicas completamente diferentes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Segunda lei de Newton para as rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se aplicarmos uma força sobre uma porta em que as dobradiças têm pouco atrito e, após um breve momento, cessarmos a aplicação da força, perceberemos que a porta continua girando em torno das dobradiças. Da mesma forma que para o caso de uj corpo que se desloca ao longo de um plano, concluímos que a o troque não é responsável pela velocidade angular, assim como no corpo que se desloca no plna, a força é responsável pela aceleração. Logo, concluímos que
+Se aplicarmos uma força sobre uma porta em que as dobradiças têm pouco atrito e, após um breve momento, cessarmos a aplicação da força, perceberemos que a ela continua girando em torno das dobradiças. Da mesma forma que para o caso de um corpo que se desloca ao longo de um plano, concluímos que o torque não é responsável pela velocidade angular: assim como no caso da translação, a força está associada a uma aceleração. Logo, concluímos que
 \begin{equation}
 	\alpha \propto \tau.
 \end{equation}
 
-Se tentarmos abrir uma porta interna de uma casa, ou uma porta externa, percebemos que a externa exige mais força para obter uma mesma aceleração angular, pois ela é maciça, e -- portanto -- mais massiva. Se analisarmos somente uma partícula que compõe a porta, temos
-\begin{equation}
-	\tau_i = F_t r_i,
-\end{equation}
+Se tentarmos abrir uma porta interna de uma casa, ou uma porta externa, percebemos que a externa exige mais força para obter uma mesma aceleração angular, pois ela é maciça, e -- portanto -- mais massiva. No entanto, veremos que para as rotação a forma como a massa está distribuida também influencia a aceleração angular obtida.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Figura superior
+
+\draw (0,0) ellipse (1.25 and 0.5);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+\draw[fill] (0,0) circle (1pt);
+
+\draw[dashdotted] (15:-2) -- (0,0);
+
+% raio
+\draw[|-|] (-0.05,0.15) -- node[above]{$r_i$} +(15:-0.8);
+\draw[fill] (15:-0.8) circle (1pt);
+
+% força
+\draw[thick, ->] (15:-0.8) -- +(-65:1) node[below]{$\vec{F}_j^i$};
+
+% projeção radial
+\draw[dashed] (15:-0.8) ++(-65:1) -- (15:-1.6); 
+\draw[->] (15:-0.8) -- (15:-1.6) node[above]{$F_{j,r}^i$};
+
+% projeção tangencial
+\draw[dashed] (15:-0.8) +(-30:1.6) -- +(-30:-0.3);
+\draw[dashed] (15:-0.8) ++(-65:1) -- +(18:0.8);
+\draw[->] (15:-0.8) -- +(-30:1.35) node[above]{$F_{j,t}^i$};
+
+% phi
+\draw (15:-1.2) arc (150:117:1.25 and -0.5);
+\node (theta) at (30:-1.1) {$\phi_i$};
+
+\end{tikzpicture}
+\caption{Sobre cada uma das partículas que compõe um corpo rígido, age uma grande quantidade de forças internas e externas. Na figura tomamos uma partícula $i$ qualquer e analisamos o efeito de uma força $\vec{F}_j^i$ que atua sobre ela, obtendo as componentes nas direções radial e tangencial.\label{Fig:CalculoSegundaLeiRotacoes}}
+\end{marginfigure}
+
+Para verificar a relação entre o torque e aceleração, podemos analisar um objeto como o da Figura~\ref{Fig:CalculoSegundaLeiRotacoes}. Vamos supor que sobre cada partícula do corpo sejam exercidas forças internas e externas, sendo que cada força que atua sobre a $i$-ésima partícula é representada por $F_j^i$, onde $j$ é um índice que enumera cada uma das forças que atuam sobre tal partícula. Se analisarmos o torque devido a $j$-ésima força que atua sobre a $i$-ésima partícula, temos\footnote{É importante frisar que $r_i$ nas expressões abaixo é a distância entre o ponto de aplicação da força e o eixo de rotação.}
+\begin{align}
+	\tau_j^i &= r_i F_j^i \sen\phi \\
+	&= r_i F_{j,t}^i
+\end{align}
 %
 mas
 \begin{equation}
-	F_{t_i} = m_i a_{t_i}.
+	F_{j,t}^{i} = m_i a_{j,t}^{i},
 \end{equation}
+%
+onde $a_{j,t}^i$ é a aceleração que a $i$-ésima partícula teria se fosse submetida à $j$-ésima força isoladamente.
 %
 Logo,
 \begin{equation}
-	\tau_i = m_i a_{t_i} r_i.
+	\tau_j^i = m_i a_{j,t}^{i} r_i.
 \end{equation}
 %
-Temos também que $a_{t_i} = \alpha r_i$, o que resulta em
+Se somarmos todos os torques que atuam sobre todas as partículas que compõe o corpo, obtemos
+\begin{align}
+	\sum_i \sum_j \tau_j^i &= \sum_{i}\left[ \sum_j m_i r_i a_{j,t}^i\right] \\
+	&= \sum_{i}\left[m_i r_i \sum_j a_{j,t}^i\right].
+\end{align}
+%
+A soma das acelerações que cada força exerce isoladamente nada mais é do que a aceleração $\vec{a}^i$ causada pela força resultante, pois
+\begin{align}
+    \sum_j \vec{a}_{j}^i &= \sum_j \frac{\vec{F}_{j}^i}{m_i} \\
+    &= \frac{\sum_j \vec{F}_j^i}{m_i} \\
+    &= \frac{\vec{F}_R^i}{m_i} \\
+    &= \vec{a}^i,
+\end{align}
+%
+o que implica na relação
 \begin{equation}
-	\tau_i = m_ir_i^2\alpha.
+    \sum_j a_{j,t}^i = a_t^i
 \end{equation}
 %
-Se somarmos para todas as partículas que compõe a porta, obtemos
-\begin{equation}\label{Eq:DefMomInercia}
-	\tau = \left[\sum_{i = 1}^N m_i r_i^2\right] \alpha.
-\end{equation}
-%
-Já vimos, no entanto, que a soma na equação acima define o que chamamos de momento de inércia. Substituindo essa definição, temos
+para a componente da aceleração na direção tangencial. Assim,
 \begin{equation}
-	\tau = I\alpha.
+	\sum_i \sum_j \tau_j^i = \sum_{i}[m_i r_i a_{t}^i].
 \end{equation}
 
-Verificamos que quanto maior o valor de $I$, menor a aceleração a que a porta estará sujeita, quando atua sobre ela um determinado valor de torque. A equação acima relaciona então a aceleração angular a que um objeto estará sujeito quando sobre ele atua uma força, dando origem a um torque. Concluímos, portanto, que a expressão acima é análoga a segunda lei de Newton, porém descrevendo o caso da rotação.
+Podemos utilizar a relação $a_t = \alpha r$ na expressão acima para escrever $a_{t}^i$ como $\alpha r_i$, o que resulta em
+\begin{equation}
+	\sum_i \sum_j \tau_j^i = \sum_{i}[m_i r_i^2 \alpha].
+\end{equation}
+%
+No resultado acima, a aceleração angular $\alpha$ é comum a todos os pontos do corpo rígido, por isso podemos escrever
+\begin{equation}
+	\sum_i \sum_j \tau_j^i =  \left[\sum_{i} m_i r_i^2\right] \alpha.
+\end{equation}
+
+%
+% Para a prova de que os torques internos se cancelam aos pares, ver imagem IMG_20171107_123730_HDR em Material_Futuro, contém a prova que é bem simples.
+%
+Podemos obervar que a soma a esquerda da igualdade inclui todos os torques realizados sobre todas as partículas por todas as forças que atuam no sistema, sejam elas internas ou externas. No entanto, como as forças internas estão presentes aos pares, sendo que cada força do par têm o mesmo módulo e direção, porém sentidos contrários, verificamos que as forças de ação e reação geram torques que se cancelam. Assim, podemos escrever a soma dos torques como a \emph{soma dos torques externos}, ou seja, o \emph{torque resultante externo}:
+\begin{equation}\label{Eq:ProtoSegundaLeiRotacoes}
+    \tau_R^{\rm{ext}} = \left[\sum_{i} m_i r_i^2\right] \alpha.
+\end{equation}
+% 
+
+Na expressão acima, o termo entre colchetes é denominado como \emph{momento de inércia}:
+\begin{equation}\label{Eq:MomentoInerciaConjPart}
+    I = \left[\sum_{i = 1}^N m_i r_i^2\right]. \mathnote{Momento de inércia para um conjunto de partículas}
+\end{equation}
+%
+Verificamos que quanto maior o valor de $I$, menor a aceleração a que o corpo estará sujeito, quando atua sobre ele um determinado valor de torque. A Equação~\eqref{Eq:ProtoSegundaLeiRotacoes} acima relaciona então a aceleração angular a que um objeto estará sujeito quando sobre ele atua uma força, dando origem a um torque. Concluímos, portanto, que a expressão acima é análoga à Segunda Lei de Newton, porém descrevendo o caso da rotação:
+\begin{equation}
+    \tau_R^{\rm{ext}} = I \alpha. \mathnote{Segunda Lei de Newton para a rotação}
+\end{equation}
+
+É importante notar que o momento de inércia, definido pela Equação~\eqref{Eq:MomentoInerciaConjPart}, tem uma dependência na \emph{forma} do objeto: devido ao fato de que existe uma dependência no quadrado da distância $r_i$ entre a partícula e o eixo de rotação, temos uma dependência na forma como a massa está distribuida. Se, por exemplo, temos um disco girando em torno de um eixo que passa por seu centro de massa, perpendicularmente à sua face plana, temos partículas distribuidas por toda a distância entre o eixo e a borda externa do disco. Se tomarmos um aro sustentado por raios finos, de forma que a massa e o diâmetro sejam iguais aos do disco, devemos ter um momento de inércia maior para uma rotação em torno de um eixo que também passe pelo centro de massa, perpendicularmente à face plana. Isso se deve ao fato de que a maior parte das partículas se localizará a uma distância maior do eixo de rotação.
+
+Finalmente, note que quando temos um torque que tende a gerar uma rotação no sentido horário, isso implica em uma aceleração negativa: se --~por exemplo~-- temos uma velocidade angular inicial nula, temos um aumento do módulo da velocidade angular no sentido horário, o que implica em uma aceleração angular negativa, pois velocidades angulares no sentido horário são negativas. Através da Segunda Lei de Newton para a rotação, sabemos que o sinal do torque deve ser o mesmo da velocidade angular, logo, \emph{torques que tendem a gerar rotações no sentido horário são negativos, enquanto torques que tendem a gerar rotações no sentido anti-horário são positivos}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Máquina de Atwood}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+       
+    \draw[interface] (2,-0.3) -- (-2,-0.3);
+    
+    \draw[pattern = north west lines] (0,-1) circle (0.5);
+    \draw[fill] (0,-1) circle (1pt);
+    \draw[fill] (0,-1) -- (0.2,-0.3) -- (-0.2,-0.3) -- cycle;
+    
+    \draw[pattern = north west lines] (-0.8,-4) rectangle (-0.2, -4.6);
+    \draw (-0.5,-1) -- (-0.5,-4);
+    \draw[fill] (-0.5, -4.3) circle (1pt);
+    \draw[thick, ->] (-0.5,-4.3) -- +(0,-0.6) node[right]{$\vec{P}_1$};
+    \draw[thick, ->] (-0.5,-4) -- +(0,0.75) node[right]{$\vec{T}_1$};
+    
+    \draw[pattern = north west lines] (0.2,-2) rectangle (0.8,-2.6);
+    \draw (0.5,-1) -- (0.5,-2);
+    \draw[fill] (0.5, -2.3) circle (1pt);
+    \draw[thick, ->] (0.5,-2.3) -- +(0,-1) node[right]{$\vec{P}_2$};
+    \draw[thick, ->] (0.5,-2) -- +(0,0.75) node[right]{$\vec{T}_2$};
+    
+    \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
+    \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
+\end{tikzpicture}
+\caption{Uma solução para o sistema mostrado acima deve levar em conta o fato de que é necessário um torque resultante seja exercido sobre a polia, causando uma aceleração. Verificaremos que nesse caso as tensões nos segmentos suspensos esquerdo e direito da corda não podem ser iguais. \label{Fig:MaquinaDeAtwoodComPolia}}
+\end{marginfigure}
+
+Anteriormente discutimos sistemas envolvendo roldanas como o mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, determinando a aceleração dos blocos suspensos através da Segunda Lei de Newton, e --~através da conservação da energia mecânica~-- a velocidade após percorrerem uma distância $d$. Em ambos os casos assumimos que a massa da roldana era desprezível. Agora vamos passar a levar em conta o fato de que isso não é verdade.
+
+Verificamos através da Segunda Lei de Newton para a rotação que para que haja uma aceleração angular de um objeto, é necessário que haja um torque resultante externo que atue sobre ele. Dessa forma, na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, torques devem atuar sobre a polia, uma vez que ela sofrerá uma alteração de sua velocidade angular devido a aceleração angular cuja origem é um torque resultante externo.
+
+O torque exercido sobre a polia se deve à interação com corda através do atrito. Podemos determinar o valor desse torque se considerarmos que --~como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}~--a força de atrito nos diversos pontos de contato da corda com a polia fazem um ângulo de \np[\tcdegree]{90} com a direção que liga o eixo de rotação ao ponto em que a força é exercida, além do fato de que a distância entre o ponto de aplicação da força e o eixo de rotação é sempre igual ao raio da polia, obtendo
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+       
+    \draw[fill] (0,0) circle (1pt);
+    \draw[interface] ([shift={(0,0)}]121:2) arc[radius=2, start angle=121, end angle= 0];
+    \draw ([shift={(0,0)}]120:1.86) arc[radius=1.86, start angle=120, end angle= -30];
+    \draw (1.86,0) -- +(0,-1.5);
+    \draw[interface] (2,0) -- +(0,-1.5);
+    
+    \draw[fill] (30:1.86) circle (1pt);
+    \draw (0,0) -- (30:1.86);
+    \draw[->, thick] (30:1.86) -- +(-60:1) node[above]{$f_1$};
+    
+    \draw[fill] (60:1.86) circle (1pt);
+    \draw (0,0) -- (60:1.86);
+    \draw[->, thick] (60:1.86) -- +(-30:1) node[above]{$f_2$};
+    
+    \draw[fill] (90:1.86) circle (1pt);
+    \draw (0,0) -- (90:1.86);
+    \draw[->, thick] (90:1.86) -- +(0:1) node[above]{$f_3$};
+    
+\end{tikzpicture}
+\caption{A força de atrito total que atua sobre a corda se deve a diversas forças em diferentes pontos de contato. Ainda assim, podemos determinar o torque de maneira simples pois as características dessas forças são comuns a todos os pontos de contato. \label{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}}
+\end{marginfigure}
+%
+\begin{align}
+    \tau &= f_1 R \sen\phi + f_2 R \sen\phi + \dots \\
+    &= f_1 R \sen\np[\tcdegree]{90} + f_2 R \sen\np[\tcdegree]{90} + \dots \\
+    &= f_{\rm{at}} R \sen\np[\tcdegree]{90} \\
+    &= f_{\rm{at}} R,
+\end{align}
+%
+onde usamos o fato de que a força de atrito total na corda é dada pela soma das forças exercidas nos diversos pontos de contato, isto é, $f_{\rm{at}} = \sum_{i} f_i$. Como o torque exercido pela força de atrito tende a causar uma rotação no sentido horário, a expressão para o torque acima ganha um sinal negativo:
+\begin{equation}
+    \tau = - f_{\rm{at}} R.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+
+    \draw[fill = lightgray] (0,-0.075) rectangle (2,0.075);       
+    \draw[pattern = north west lines] (0,-0.075) rectangle (2,0.075);
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (-1,-0.075) rectangle (0,0.075);
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (2,-0.075) rectangle (3,0.075);
+    
+    \draw[dashed, ->] (-1.5,0) -- (3.5,0) node[below left] {$x$};
+    \draw[thick, ->] (2,0) -- (2.75,0) node[above left]{$\vec{T}_2$};
+    \draw[thick, ->] (0,0) -- (-0.75,0) node[above right]{$\vec{T}_1$};
+    
+\end{tikzpicture}
+\caption{Podemos determinar a aceleração da corda na direção tangencial à trajetória simplificando o problema ao adotarmos um sistema onde o segmento de corda em contato com a polia é substituido por um segmento retilíneo. Note que para fins de cálculo da aceleração tangencial, o resultado é o mesmo, por tal aceleração altera somente o módulo da velocidade. \label{Fig:MaquinaDeAtwoodComPoliaDetalheCorda}}
+\end{marginfigure}
+
+Podemos determinar o valor da força de atrito analisando as forças que atuam sobre o segmento da corda que está em contato com a polia. As forças que atuam sobre tal segmento são as tensões $T_1$ e $T_2$ exercidas pelos segmentos suspensos de corda, além da própria força de atrito (reação da força de atrito exercida sobre a polia). Considerando somente a aceleração tangencial, pois ela é a responsável por alterar a velocidade, podemos substituir a região curva da corda por uma região reta, como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalheCorda}. Assim:
+\begin{align}
+    F_R &= m_{cc} a_t \\
+    T_2 - T_1 - f_{\rm{at}} &= m_{cc} a_t.
+\end{align}
+%
+Em geral podemos desprezar a massa da corda, pois ela costuma ser muito menor que a massa dos demais corpos envolvidos no sistema. Nesse caso, podemos afirmar que
+\begin{equation}
+    f_{\rm{at}} = T_2 - T_1.
+\end{equation}
+%
+Note que \emph{as tensões nos segmentos suspensos esquerdo e direito da corda são necessariamente diferentes}. Tal diferença é responsável por causar a aceleração da polia! 
+
+Outra relação importante que devemos observar entre a polia e a corda é a de que a aceleração tangencial $a_t^b$ e a velocidade $v_b$ de um ponto na borda da polia são iguais a aceleração $a$ e a velocidade $v$ da corda. Caso isso não fosse verdade, teríamos um deslizamento entre a corda e a polia, o que não observamos\footnote{Uma situação dessas é possível, mas complicaria ainda mais esse problema.}. Isso nos permite determinar uma relação entre a aceleração da corda --~que é igual a aceleração dos blocos~-- e a aceleração angular da polia:
+\begin{align}
+    a_t^b &= \alpha r \\
+    a &= \alpha R.
+\end{align}
+%
+Note ainda que uma aceleração positiva dos blocos implica em uma aceleração angular negativa da polia, pois se partíssemos de uma velocidade angular nula, teríamos uma velocidade que cresce no sentido horário. Assim, ainda precisamos adicionar um sinal na expressão acima. \emph{Note que esse sinal é um reflexo da nossa escolha para o sentido positivo para a aceleração da corda. Se tivessemos adotado como positivo o sentido oposto, essa relação não teria um sinal negativo.} Logo,
+\begin{equation}
+        a = -\alpha R.
+\end{equation}
+
+Finalmente, obtemos para o torque a relação
+\begin{equation}
+    \tau = -(T_2 - T_1) R,
+\end{equation}
+%
+o que --~através da Segunda Lei de Newton para a rotação~-- nos leva a
+\begin{align}
+    \tau_{R}^{\rm{ext}} &= I\alpha \\
+    -(T_2 - T_1) R &= I \alpha.
+\end{align}
+%
+Aqui notamos que existe uma dependência no momento de inércia, que por sua vez depende da massa e da distribuição de massa da polia --~isto é, depende da \emph{forma} da polia~--. Supondo que temos uma polia em formato de disco, temos que o momento de inércia é dado por\footnote{Verificaremos nas seções seguintes como determinar o momento de inércia de um corpo rígido.}
+\begin{equation}
+    I = \frac{1}{2} MR^2.
+\end{equation}
+%
+Podemos então escrever a seguinte relação para a polia:
+\begin{equation}
+    -(T_2 - T_1) = \frac{MR}{2} \alpha.
+\end{equation}
+
+Por fim, podemos aplicar a Segunda Lei de Newton para a translação dos blocos\footnote{Adotamos ambos os eixos $y$ como sendo verticais, com sentido positivo para cima. Assim, as acelerações dos blocos são $a_1^y = a$ e $a_2^y = -a$, onde $a$ é a aceleração da corda, adotada anteriormente.}:
+\begin{description}
+    \item[Bloco 1:] Aplicando a Segunda Lei de Newton para cada eixo:
+        \begin{description}
+            \item[Eixo $x_1$:] Não há nenhuma força nesse eixo.
+            \item[Eixo $y_1$:]
+                \begin{align}
+                    F_R^{y_1} &= m_1 a_1^{y_1} \\
+                    T_1 - P_1 &= m_1 a_1^{y_1} \\
+                    T_1 - P_1 &= m_1 a.
+                \end{align}
+        \end{description}
+    \item[Bloco 2:] Novamente, aplicando a Segunda Lei de Newton para cada eixo:
+        \begin{description}
+            \item[Eixo $x_2$:] Não há nenhuma força nesse eixo.
+            \item[Eixo $y_2$:]
+                \begin{align}
+                    F_R^{y_2} &= m_2 a_2^{y_2} \\
+                    T_2 - P_2 &= m_2 a_2^{y_2} \\
+                    T_2 - P_2 &= m_2 (-a) \\
+                    - T_2 + P_2 &= m_2 a.
+                \end{align}
+        \end{description}
+\end{description}
+
+Finalmente, podemos escrever o sistema
+\begin{equation}
+\begin{system}
+    T_1 - P_1 &= m_1 a \\
+    - T_2 + P_2 &= m_2 a \\
+    -(T_2 - T_1) &= \frac{MR}{2} \alpha \\
+    a &= -\alpha R,
+\end{system}
+\end{equation}
+%
+cuja solução para a aceleração é
+\begin{equation}
+    a = \frac{m_2 - m_1}{m_1+m_2+\nicefrac{M}{2}} g.
+\end{equation}
+%
+Note que o resultado acima se reduz ao caso estudado anteriormente, quando ignorávamos a massa da polia, se $M \to 0$.
+
+Nesse sistema, a questão da determinação do torque sobre a polia é bastante complexa. Se substituíssemos a corda por uma corrente como a de uma bicicleta e a polia por uma que tivesse dentes para encaixarem na corrente, teríamos uma interação diferente, através de forças normais nas superfícies dos dentes e dos encaixes da corrente. Essas forças são predominantes nos primeiros dentes onde ocorre o encaixe completo. Dessa forma, podemos imaginar que as forças de tensão são exercidas sobre a polia somente nesses pontos, o que resulta em algo como a Figura~\eqref{Fig:TorquesPolia}. Nesse caso, temos dois torques devidos às forças de tensão que são exercidas sobre a polia, logo
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+
+    \draw[pattern = north west lines, pattern color = lightgray] (0,0) circle (1cm);
+    \draw[fill] (0,0) circle (1pt);
+    
+    \draw[dashed] (0,0) -- node[above]{$R$} (1,0);
+    \draw[dashed] (0,0) -- node[above]{$R$} (-1,0);
+    
+    \draw (1,0) -- +(0,-2);
+    \draw (-1,0) -- +(0,-2);
+    
+    \draw[fill] (1,0) circle (0.8pt);
+    \draw[fill] (-1,0) circle (0.8pt);
+    \draw[thick, ->] (1,0) -- +(0,-1) node[right] {$\vec{T}_2$};
+    \draw[thick, ->] (-1,0) -- +(0,-1) node[left] {$\vec{T}_1$};
+    
+\end{tikzpicture}
+\caption{Podemos supor que o torque sobre a polia se deve aos torques devido às tensões nos cabos, como se as tensões atuassem diretamente sobre a polia. Nesse caso, supomos que as forças atuam sobre os pontos de contato onde a direção da corda faz \np[\tcdegree]{90} em relação à reta que parte do eixo de rotação e vai em direção ao ponto de contato (pontos marcados com pequenos círculos na borda da polia).\label{Fig:TorquesPolia}}
+\end{marginfigure}
+%
+\begin{align}
+    \tau_R^{\rm{ext}} &= I \alpha \\
+    T_1 R \sen\phi - T_2 R \sen\phi &= I \alpha \\
+    (T_1 - T_2) R &= I\alpha,
+\end{align}
+%
+onde já utilizamos $\phi = \np[\tcdegree]{90}$ e o sinal se deve ao fato de que a tensão $T_2$ tende a causar uma rotação no sentido horário.
+
+Observamos que o resultado acima é exatamente o mesmo que obtivemos para o caso em que fizemos uma análise através do atrito. De fato, o que ocorre é que em todos os casos onde não há deslizamento entre a polia e o cabo que segura os blocos --~seja ele uma corda, uma correia, ou uma corrente~-- podemos supor que toda a força de tensão exercida pela corda é exercida diretamente sobre a polia, no ponto onde a reta que liga o eixo de rotação ao ponto de contato faz um ângulo de \np[\tcdegree]{90} em relação à direção da tensão.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cálculo do momento de inércia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para que possamos aplicar a Segunda Lei de Newton para a rotação, é fundamental que saibamos qual é o momento de inércia do corpo em questão para o eixo em torno do qual a rotação ocorre. Como é possível verificar na Expressão~\ref{Eq:MomentoInerciaConjPart}, o momento de inércia depende da distância de cada uma das partículas em relação ao eixo de rotação. Isso nos indica que é importante determinar uma série de caracteísticas particulares a cada situação que estivermos analisando.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate = -90,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Disco
+
+\draw (0,0) ellipse (1.25 and 0.75);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.75);
+\draw[dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.75);
+
+\draw[dashdotted,<-] (-2,-0.2) node[below left]{$z$} -- (-1.25,-0.2);
+\draw[loosely dotted] (-1.25,-0.2) -- (1.25,-0.2);
+\draw[dashdotted] (1.25,-0.2) -- (1.75, -0.2);
+
+\draw[->] (-1.5,-0.2) [partial ellipse=-120:150:0.125cm and 0.3cm];
+
+%%% aro
+
+\draw (4,0) ellipse (1.25 and 0.75);
+\draw (4,0) ellipse (1 and 0.55);
+\draw[dotted] (4,-0.4) ellipse (1 and 0.55);
+\draw (4,-0.4) [partial ellipse=22:158:1cm and 0.55cm];
+
+\draw (2.75,0) -- (2.75,-0.4);
+\draw (5.25,-0.4) -- (5.25,0);  
+
+\draw (2.75,-0.4) arc (180:360:1.25 and 0.75);
+\draw[dotted] (2.75,-0.4) arc (180:360:1.25 and -0.75);
+
+\draw[dashdotted,<-] (2,-0.2) node[below left]{$z$} -- (2.75,-0.2);
+\draw[dotted] (2.75,-0.2) -- (3.15,-0.2);
+\draw[dashdotted] (3.15,-0.2) -- (4.9,-0.2);
+\draw[loosely dotted] (4.9,-0.2) -- (5.25,-0.2);
+\draw[dashdotted] (5.25,-0.2) -- (5.75, -0.2);
+
+\draw[->] (2.5,-0.2) [partial ellipse=-120:150:0.125cm and 0.3cm];
+
+\end{tikzpicture}
+\caption{Um disco e um anel de mesma massa e raio têm momentos de inércia diferentes em virtude das diferentes distribuições de massa.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+\draw[fill] (0,0) circle (0.6pt);
+\draw[fill] (0,-0.2) circle (1pt) node[above left] {CM};
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw[fill] (0,-0.4) circle (0.6pt);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+% Eixo z
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[loosely dotted] (0,-0.9) -- (0,0);
+
+\draw[->] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+% Eixo x
+\draw[dashdotted, ->] (0,-0.2)++(15:-1.05) -- +(15:-0.75) node[below right]{$x$};
+\draw[fill] (0,-0.2)+(15:-1.05) circle (0.6pt);
+\draw[loosely dotted] (0,-0.2)+(15:-1.05) -- (0,-0.2) -- +(15:1.05);
+\draw[fill] (0,-0.2) +(15:1.05) circle (0.6pt);
+
+\draw[dashdotted] (0,-0.2) ++(15:1.25) -- +(15:0.75);
+
+\draw[->, rotate=15] (0,-0.2)++(0:-1.5) [partial ellipse=-130:160:0.105cm and 0.3cm];
+
+% Eixo w
+\draw[dashdotted, <-] (0,-0.2)+(60:-1.38) node[below right]{$w$} -- +(60:-0.78);
+\draw[fill] (0,-0.2)+(60:-0.78) circle (0.6pt);
+\draw[loosely dotted] (0,-0.2)+(60:-0.78) -- +(60:0.78);
+\draw[fill] (0,-0.2)+(60:0.78) circle (0.6pt);
+\draw[dashdotted] (0,-0.2)+(60:0.78) -- +(60:1.18);
+
+\draw[->, rotate=60] (0,-0.2)++(-4:-1.2) [partial ellipse=-150:150:0.15cm and 0.3cm];
+
+\end{tikzpicture}
+\caption{A orientação do eixo de rotação em relação ao objeto determina a distância entre as partículas e o próprio eixo, o que faz com que o momento de inércia seja diferente para cada orientação. Na figura, os pequenos círculos pretos mostram pontos onde os eixos saem/entram no objeto. \label{Fig:MomInerciaDiscoVariosEixos}}
+\end{marginfigure}
+
+Dentre as principais caracteríscias do momento de inércia, temos as seguintes dependências, cuja origem é a própria dependência na distância entre o eixo de rotação e a posição de cada partícula do corpo:
+\begin{description}
+    \item[Dependência na forma do objeto:] Se tomarmos um disco e um anel de mesma massa e raio, como na Figura~\ref{Fig:CompMomInerciaDiscoAnel}, o momento de inércia em torno do eixo $z$ mostrado acima é maior para o anel. Podemos compreender esse fato ao verificarmos que no caso do disco uma parte da massa, localizada na região central, se encontra próxima ao eixo de rotação. No caso do anel, essa massa está localizada a uma distância maior do eixo de rotação. Note que para que possamos ter a mesma massa e o mesmo raio, ou devemos utilizar um material mais denso para o anel, ou devemos distribuir a massa ao longo do eixo de rotação, como um tubo.
+    \item[Dependência no eixo em que ocorre a rotação:] Mesmo para um corpo só, podemos ter diversos momentos de inércia diferentes. Na Figura~\ref{Fig:MomInerciaDiscoVariosEixos}, temos três eixos que atravessam um disco de maneiras diferentes, e que passam pelo centro de massa do corpo. Como a orientação do eixo muda a distância das partículas que compõe o corpo relativas ao eixo, ocorre uma mudança do momento de inércia. Dentre os três eixos mostrados, o momento de inércia é maior em relação ao eixo $z$, uma vez que ele minimiza a quantidade de massa próxima ao eixo.
+    \item[Dependência na distância ao eixo de rotação] Mesmo que tenhamos o cuidado de escolher eixos cuja orientação em relação ao corpo é a mesma, a distância entre o eixo de rotação e o próprio corpo é um fator determinante no cálculo do momento de inércia, já que isso causa uma variação da distância entre as partículas e o eixo. Na Figura~\ref{Fig:MomInerciaRotEixosParalelos} temos três eixos distintos, paralelos uns aos outros, em torno dos quais o corpo pode efetuar uma rotação. Devido a alteração das distâncias entre as partículas e o eixo, cada um deles terá um momento de inércia diferente. Devemos destacar em especial o eixo $z''$, pois ele não atravessa o corpo. Esse tipo de situação é relativamente comum quando analisamos corpos compostos de diversas partes, e tem grande influência no valor do momento de inércia. Verificaremos adiante que os momentos de inércia em eixos paralelos estão relacionados de forma bastante simples e essa relação deixará bastante evidente que o momento de inércia mínimo é aquele associado ao eixo que passa pelo centro de massa do corpo.
+\end{description}
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Figura superior
+
+\draw[fill] (0,0) circle (0.6pt);
+\draw[fill] (0,-0.2) circle (1pt) node[above left] {CM};
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw[fill] (0,-0.4) circle (0.6pt);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+% Eixo z
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+
+\draw[->] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+% Eixos z', z''
+
+\draw[dashdotted, ->] (-1.25,-1.5) -- (-1.25,1.5) node[below left]{$z'$};
+\draw[->] (-1.25,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+\draw[dashdotted, ->] (-2.5,-1.5) -- (-2.5,1.5) node[below left]{$z''$};
+\draw[->] (-2.5,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+\end{tikzpicture}
+\caption{Mesmos que a orientação de diversos eixo em relação ao um corpo seja a mesma, a distância em relação ao corpo também varia a distância das partículas em relação ao eixo de rotação. Veja que quando um corpo faz parte de um conjunto mais complexo, podemos ter uma rotação em relação a um eixo que não o atravessa. \label{Fig:MomInerciaRotEixosParalelos}}
+\end{marginfigure}
+
+Outra característica importante do processo de determinação do momento de inércia é o fato de que --~assim como para o cálculo da posição do centro de massa~-- temos uma quantidade muito grande de partículas. Através da Expressão~\ref{Eq:MomentoInerciaConjPart}, em tese podemos determinar o momento de inércia para qualquer corpo. No entanto, isso é claramente inadequado para o caso de um corpo rígido, devido ao fato de que a soma teria um número muito grande de termos. Além disso, não sabemos precisar quais são as posições de cada uma das partículas, ou quais são as suas massas. Diferentemente da determinação do centro de massa, não podemos utilizar argumentos de simetria para determinar o momento de inércia\footnote{Isso se deve ao fato de que a distância ao eixo de rotação aparece ao quadrado na Expressão~\ref{Eq:MomentoInerciaConjPart}. No caso do cálculo do centro de massa nos valíamos do sinal que aparece na distância ao eixo de simetria para garantir que os termos simétricos se cancelassem.}, por isso vamos ter que utilizar cálculo para que possamos considerar uma distribuição contínua de massa.
+
+Nas próximas seções discutiremos alguns métodos de cálculo que nos permitirão determinar o momento de inércia para corpos rígidos extensos: em muitos casos as expressões são bastante simples e --~como verificaremos~-- uma das propriedades do momento de inércia é a aditividade, o que nos permitirá tratar um corpo complexo através da decomposição em formas mais simples. Além disso, verificaremos que o momento de inércia para um eixo qualquer pode ser determinado a partir do momento de inércia em torno de um eixo que passa pelo centro de massa do objeto, desde que ambos os eixos sejam paralelos. Finalmente, veremos que em alguns casos o momento de inércia em torno de três eixos perpendiculares entre si não são independentes, o que nos permite calcular um deles se conhecemos os outros dois.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento de inércia de uma distribuição contínua}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+% topo
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw (0,0) ellipse (1.3 and 0.55);
+
+\draw[<->] (0,0) -- node[above]{$R$} (1.25,0);
+
+% laterais
+\draw[dotted] (-1.25,0) -- (-1.25,-3);
+\draw[dotted] (1.25,-3) -- (1.25,0);
+\draw (-1.3,0) -- (-1.3,-3);
+\draw (1.3,-3) -- (1.3,0);  
+
+% fundo
+\draw[dotted] (-1.25,-3) arc (180:360:1.25 and 0.5);
+\draw[dotted] (-1.25,-3) arc (180:360:1.25 and -0.5);
+\draw[dotted] (-1.3,-3) arc (180:360:1.3 and -0.55);
+\draw (-1.3,-3) arc (180:360:1.3 and 0.55);
+
+% Eixo z
+\draw[dashdotted,-Stealth] (0,-0.5) -- (0,1.5) node[below left]{$z$};
+\draw[loosely dotted] (0,-3.55) -- (0,-0.5);
+\draw[dashdotted] (0,-3.55) -- (0,-4);
+
+\draw[fill] (0,-1.5) circle (1pt) node[above left] {CM};
+
+\draw[-Stealth] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+\end{tikzpicture}
+\caption{Tubo cilindrico formado por paredes finas. \label{Fig:MomInerciaTubo}}
+\end{marginfigure}
+
+Sabemos que o momento de inércia de um conjunto de partículas é dado pela Expressão~\eqref{Eq:MomentoInerciaConjPart}, porém, não determinamos até agora o momento de inércia de nenhum objeto que possa ser interessante de alguma maneira. Vamos então realizar esse cálculo para um tubo formado por uma parede extremamente fina. Nesse caso, temos que
+\begin{equation}
+    I = \sum_i m_i (r_\perp^i)^2,
+\end{equation}
+%
+onde utilizamos $r_\perp^i$ para denotar a distância de cada partícula ao eixo de rotação. Note que, como a parede do tubo é muito fina, podemos em boa aproximação assumir que a distância das partículas ao eixo é igual ao raio do próprio tubo\footnote{Qualquer tubo real tem um raio interno e um raio externo. Se utilizarmos o raio interno, obtemos um valor mínimo para $I$, se usarmo o externo, obtemos um valor máximo. Estamos assumindo que a a espessura da parede é realmente muito fina, de forma que essa diferença seja desprezível.}:
+\begin{equation}
+    r_\perp^i = R.
+\end{equation}
+%
+Assim, temos para o momento de inércia
+\begin{align}
+    I &= \sum_i m_i (R)^2 \\
+    &= \left[\sum_i m_i\right] R^2,
+\end{align}
+%
+ou seja,
+\begin{equation}
+    I = MR^2. \mathnote{Momento de inércia de um tubo/anel}
+\end{equation}
+
+O momento de inércia obtido acima também é válido para um anel fino, pois nesse caso também é válida a consideração de que a distância de cada partícula ao eixo de rotação é a mesma, e seu valor é o próprio raio do objeto. Dada uma quantidade de massa $M$ qualquer, se limitamos a distância ao eixo de rotação a um valor qualquer, a forma que maximiza o momento de inércia é a de um tubo/anel. Nesse caso, assumimos que todas as partículas estão exatamente à distância máxima em relação ao eixo.
+
+Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref{Eq:MomentoInerciaConjPart} para determinar o momento de inércia de um corpo rígido. Nesse caso, podemos --~, para fins de cálculo do momento de inércia~-- considerá-lo simplesmente como uma \emph{distribuição de massa}: imaginamos que a massa é algo contínuo e que ocupa um volume definido do espaço (a forma do objeto).
+
+Picar o volume ...
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[scale = 1.2,
+    interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+% topo
+\draw (0,0) ellipse (1.3 and 0.55);
+\draw (-1.3, 0) -- (-1.3,-0.25);
+\draw (1.3, 0) -- (1.3, -0.25);
+\draw (-1.3,-0.25) arc (180:360:1.3 and 0.55);
+\draw[dotted] (-1.3,-0.25) arc (180:360:1.3 and -0.55);
+
+%\draw[<->] (0,0) -- node[above]{$R$} (1.25,0);
+
+% laterais
+\draw[densely dotted] (-1.3,-0.25) arc[start angle = 90, end angle = -14, radius = 0.25];
+\draw[densely dashed] (-1.3,-0.75) arc[start angle = -90, end angle = -14, radius = 0.25];
+
+\draw[densely dotted] (1.3,-0.25) arc[start angle = 90, end angle = 194, radius = 0.25];
+\draw[densely dashed] (1.3,-0.75) arc[start angle = -90, end angle = -166, radius = 0.25];
+
+% fundo
+\draw (-1.3,-0.75) arc (180:153:1.3 and 0.55);
+\draw (1.3,-0.75) arc (0:27:1.3 and 0.55);
+\draw (-1.3,-0.75) arc (180:360:1.3 and 0.55);
+\draw[dotted] (-1.3,-0.75) arc (180:360:1.3 and -0.55);
+\draw (-1.3,-0.75) -- (-1.3,-1);
+\draw (1.3,-0.75) -- (1.3,-1);
+\draw (-1.3,-1) arc (180:360:1.3 and 0.55);
+\draw[dotted] (-1.3,-1) arc (180:360:1.3 and -0.55);
+\draw[fill] (0,-1) circle (0.6pt);
+
+% Eixo z
+\draw[fill] (0,0) circle (0.6pt);
+\draw[dashdotted,-Stealth] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[loosely dotted] (0,0) -- (0,-1.55);
+\draw[dashdotted] (0,-1.55) -- (0,-2);
+
+\draw[fill] (0,-0.5) circle (1pt);
+
+\draw[-Stealth] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+% Visão lateral
+
+\draw (-1.3,-3) rectangle (1.3,-3.25);
+\draw (-1.3,-3.25) arc[start angle = 90, end angle = -90, radius = 0.25];
+\draw (1.3,-3.25) arc[start angle = 90, end angle = 270, radius = 0.25];
+\draw (-1.3,-4) rectangle (1.3, -3.75);
+
+\draw[dashdotted, -Stealth] (0,-3) -- +(0,0.75) node[below left]{$z$};
+\draw[dotted] (0,-3) -- +(0,-1);
+\draw[dashdotted] (0,-4) -- +(0,-0.75);
+
+\end{tikzpicture}
+\caption{Roldana formada por um cilindro com uma ``calha'' semi-circular.}
+\end{marginfigure}
+
+Quando necessitamos relacionar a aceleração a que um objeto estava sujeito com a força resultante que nele atuava, é necessário se obter conhecimento acerca da massa do objeto. O processo de aferição da massa é relativamente simples: basta utilizarmos um dispositivo que compare a massa do objeto em questão com a de um corpo de referência, conforme discutimos no Capítulo ??.
+
+Para o cálculo do momento de inércia, é necessário utilizar a definição dada pela Equação~\ref{Eq:DefMomentoDeInercia}. Entretanto, utilizá-la no caso de um corpo real não é algo factível: o número de partículas (átomos) que compõe um objeto é muito grande.\footnote{Por exemplo, \np[g]{12,0} de $^{12}\textrm{C}$ contém 1 mol de átomos de carbono, isto é, \np{6.02e23} átomos.} Podemos, entretanto, escrever a contribuição de uma pequena parte de um corpo para o momento de inércia como
+\begin{equation}
+	dI = r^2 dm
+\end{equation}
+\comment{Figura do lado pra mostrar isso}
+onde $dm$ é a massa correspondente à pequena parte do corpo e $r$ é sua distância em relação ao eixo de rotação. Podemos então calcular o momento de inércia total do corpo fazendo uma integral sobre a distribuição de massa do objeto:
+\begin{equation}\label{Eq:MomInerciaIntegral}
+	I = \int r^2 dm.
+\end{equation}
+%
+Em geral, realizar esse cálculo é bastante complicado e trabalhoso, porém para algumas formas geométricas simples -- considerando que a densidade dos objetos é uniforme, ou varia na posição de uma forma conhecida --, podemos realizar uma substituição de variáveis na equação acima e integrar nas coordenadas espaciais. Alguns casos permitem que a integração seja feita até mesmo em uma variável somente. Nas Seções ?? a ?? tratamos alguns exemplos utilizando esse método.
+
+As expressões resultantes para o momento de inércia dos corpos serão diferentes para cada tipo de corpo, porém são razoavelmente simples.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Momento de inércia de uma haste fina}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate = -90,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+%%% Haste
+
+\draw[dashdotted, ->] (5,-0.2) -- (2.75, -0.2) node[below left]{$z$};
+
+\draw (4.5,-1.7) circle (0.5mm);
+\draw (4.45,-1.7) -- (3.45,1.3);
+\draw (4.55,-1.7) -- (3.55,1.3);
+\draw (3.55,1.3) arc[start angle = 0, end angle = 180, radius = 0.5mm];
+
+\draw[->] (3.5,-0.2) [partial ellipse=-120:150:0.125cm and 0.3cm];
+
+\end{tikzpicture}
+\caption{.\label{Fig:CompMomInerciaDiscoAnel}}
+\end{marginfigure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Momentos de inércia de sólidos geométricos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Tabela com os momentos de inércia de algumas figuras. Fazer o cálculo para o que for mais simples, como o disco, a haste fina, a esfera.
+\begin{equation}
+  I = \sum m_i r_i^2.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aditividade do momento de inércia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Sei lá, deixar claro que muda conforme o eixo e que pode ser somado.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema dos eixos paralelos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Caso conheçamos o momento de inércia em torno de um eixo que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo que seja paralelo ao primeiro.
+
+\comment{TODO Figura ao lado mostrando o esquema pra deduzir o teorema dos eixos paralelos}
+
+Na Figura~??, temos dois eixos que saem do plano da página, passando por um objeto de massa $M$ nos pontos $O$ e $P$. O ponto $O$ denota a origem do sistema de coordenadas $xy$ e reside exatamente no centro de massa do objeto. Estamos interessados em calcular o momento de inércia em torno do eixo que passa por $P$ e vamos considerar que o momento de inércia em torno do eixo que passa pelo centro de massa seja conhecido. Utilizando a Equação~\ref{Eq:MomInerciaIntegral}, considerando que $r = (x-a)^2 + (y-b)^2$, como pode ser visto da Figura e utilizando o teorema de Pitágoras, temos que
+\begin{equation}
+	I_p = \int (x-a)^2 + (y-b)^2 dm.
+\end{equation}
+%
+Desenvolvendo os quadrados e reagrupando os termos, podemos escrever
+\begin{equation}
+	I_p = \int (x^2 + y^2) dm - 2a \int x dm - 2b \int y dm + \int (a^2 + b^2) dm.
+\end{equation}
+%
+A segunda e a terceira integrais acima são justamente as expressões para o cálculo da posição do centro de massa nos eixos $x$ e $y$, respectivamente. Devido à escolha da posição da origem do sistema de coordenadas, temos que $x_{\textrm{CM}} = y_{\textrm{CM}} = 0$. Além disso, podemos ver da figura que $x^2 + y^2 = r'^2$ e que $a^2 + b^2 = h^2$. Logo
+\begin{equation}
+	I_p = \int r'^2 dm + \int h^2 dm.
+\end{equation}
+%
+A primeira integral nada mais é do que o cálculo do momento de inércia em torno da origem, ou seja, em torno do eixo que passa pelo centro de massa. Já na segunda integral, $h$ é a distância entre os eixos que passam por $O$ e por $P$ que é constante. Retirando-a da integral, obtemos a seguinte expressão, conhecida como \textbf{Teorema do Eixos Paralelos}
+\begin{equation}\label{Eq:TeoremaEixosParalelos}
+	I_p = I_{\textrm{CM}} + h^2 M,
+\end{equation}
+%
+onde usamos o fato de que
+\begin{equation}
+	\int dm = M.
+\end{equation}
+
+Concluímos, portanto, que conhecendo o momento de inércia de um objeto em torno de um eixo qualquer que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo $P$ paralelo ao primeiro, bastando conhecer a distância $h$ entre os dois eixos e a massa do objeto. É importante destacar que o eixo $P$ não precisa necessariamente atravessar o corpo em algum ponto, podendo passar fora dele, como no caso de uma esfera que gira em torno de um eixo estando ligada por um fio fino. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Limite $h \to 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Muitas vezes o segundo termo na Equação~\eqref{Eq:TeoremaEixosParalelos} é muito maior que $I_{\textrm{CM}}$, devido a um grande valor de $h$. Nesses casos, podemos desprezar o primeiro termo, restando somente
+\begin{equation}
+  I_P = h^2 M,
+\end{equation}
+%
+que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:DefMomInercia} para uma partícula girando em torno do eixo $P$, com toda a massa concentrada no centro de massa. Esta análise é o que nos permite tratar uma esfera de raio $r_e$ girando a uma distância $d$ em torno de um eixo como se fosse uma partículo, se $d \gg r_e$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema dos eixos perpendiculares}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% https://en.wikipedia.org/wiki/Perpendicular_axis_theorem
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho e energia cinética para rotações}
@@ -301,95 +1311,6 @@ explicar
 %%%%%%%%%%%%%%%%%%%%%
 
 explicar
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cálculo do momento de inércia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento de inércia de um sistema de partículas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{equation}
-  I = \sum m_i r_i^2.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Propriedades do momento de inércia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Sei lá, deixar claro que muda conforme o eixo e que pode ser somado.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Discretização?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Fazer para a barra fina em analogia ao cálculo do CM.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento de inércia de uma distribuição contínua}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Quando necessitamos relacionar a aceleração a que um objeto estava sujeito com a força resultante que nele atuava, é necessário se obter conhecimento acerca da massa do objeto. O processo de aferição da massa é relativamente simples: basta utilizarmos um dispositivo que compare a massa do objeto em questão com a de um corpo de referência, conforme discutimos no Capítulo ??.
-
-Para o cálculo do momento de inércia, é necessário utilizar a definição dada pela Equação~\ref{Eq:DefMomentoDeInercia}. Entretanto, utilizá-la no caso de um corpo real não é algo factível: o número de partículas (átomos) que compõe um objeto é muito grande.\footnote{Por exemplo, \np[g]{12,0} de $^12\textrm{C}$ contém 1 mol de átomos de carbono, isto é, \np{6.02e23} átomos.} Podemos, entretanto, escrever a contribuição de uma pequena parte de um corpo para o momento de inércia como
-\begin{equation}
-	dI = r^2 dm
-\end{equation}
-\comment{Figura do lado pra mostrar isso}
-onde $dm$ é a massa correspondente à pequena parte do corpo e $r$ é sua distância em relação ao eixo de rotação. Podemos então calcular o momento de inércia total do corpo fazendo uma integral sobre a distribuição de massa do objeto:
-\begin{equation}\label{Eq:MomInerciaIntegral}
-	I = \int r^2 dm.
-\end{equation}
-%
-Em geral, realizar esse cálculo é bastante complicado e trabalhoso, porém para algumas formas geométricas simples -- considerando que a densidade dos objetos é uniforme, ou varia na posição de uma forma conhecida --, podemos realizar uma substituição de variáveis na equação acima e integrar nas coordenadas espaciais. Alguns casos permitem que a integração seja feita até mesmo em uma variável somente. Nas Seções ?? a ?? tratamos alguns exemplos utilizando esse método.
-
-As expressões resultantes para o momento de inércia dos corpos serão diferentes para cada tipo de corpo, porém são razoavelmente simples. A Tabela~?? mosta os casos mais comuns.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Teorema dos eixos paralelos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Caso conheçamos o momento de inércia em torno de um eixo que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo que seja paralelo ao primeiro.
-
-\comment{TODO Figura ao lado mostrando o esquema pra deduzir o teorema dos eixos paralelos}
-
-Na Figura~??, temos dois eixos que saem do plano da página, passando por um objeto de massa $M$ nos pontos $O$ e $P$. O ponto $O$ denota a origem do sistema de coordenadas $xy$ e reside exatamente no centro de massa do objeto. Estamos interessados em calcular o momento de inércia em torno do eixo que passa por $P$ e vamos considerar que o momento de inércia em torno do eixo que passa pelo centro de massa seja conhecido. Utilizando a Equação~\ref{Eq:MomInerciaIntegral}, considerando que $r = (x-a)^2 + (y-b)^2$, como pode ser visto da Figura e utilizando o teorema de Pitágoras, temos que
-\begin{equation}
-	I_p = \int (x-a)^2 + (y-b)^2 dm.
-\end{equation}
-%
-Desenvolvendo os quadrados e reagrupando os termos, podemos escrever
-\begin{equation}
-	I_p = \int (x^2 + y^2) dm - 2a \int x dm - 2b \int y dm + \int (a^2 + b^2) dm.
-\end{equation}
-%
-A segunda e a terceira integrais acima são justamente as expressões para o cálculo da posição do centro de massa nos eixos $x$ e $y$, respectivamente. Devido à escolha da posição da origem do sistema de coordenadas, temos que $x_{\textrm{CM}} = y_{\textrm{CM}} = 0$. Além disso, podemos ver da figura que $x^2 + y^2 = r'^2$ e que $a^2 + b^2 = h^2$. Logo
-\begin{equation}
-	I_p = \int r'^2 dm + \int h^2 dm.
-\end{equation}
-%
-A primeira integral nada mais é do que o cálculo do momento de inércia em torno da origem, ou seja, em torno do eixo que passa pelo centro de massa. Já na segunda integral, $h$ é a distância entre os eixos que passam por $O$ e por $P$ que é constante. Retirando-a da integral, obtemos a seguinte expressão, conhecida como \textbf{Teorema do Eixos Paralelos}
-\begin{equation}\label{Eq:TeoremaEixosParalelos}
-	I_p = I_{\textrm{CM}} + h^2 M,
-\end{equation}
-%
-onde usamos o fato de que
-\begin{equation}
-	\int dm = M.
-\end{equation}
-
-Concluímos, portanto, que conhecendo o momento de inércia de um objeto em torno de um eixo qualquer que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo $P$ paralelo ao primeiro, bastando conhecer a distância $h$ entre os dois eixos e a massa do objeto. É importante destacar que o eixo $P$ não precisa necessariamente atravessar o corpo em algum ponto, podendo passar fora dele, como no caso de uma esfera que gira em torno de um eixo estando ligada por um fio fino. 
-
-Muitas vezes o segundo termo na Equação~\eqref{Eq:TeoremaEixosParalelos} é muito maior que $I_{\textrm{CM}}$, devido a um grande valor de $h$. Nesses casos, podemos desprezar o primeiro termo, restando somente
-\begin{equation}
-  I_P = h^2 M,
-\end{equation}
-%
-que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:DefMomInercia} para uma partícula girando em torno do eixo $P$, com toda a massa concentrada no centro de massa. Esta análise é o que nos permite tratar uma esfera de raio $r_e$ girando a uma distância $d$ em torno de um eixo como se fosse uma partículo, se $d \gg r_e$.
-
-\comment{TODO Exemplo momento de inércia barra fina por integração. TODO aditividade do momento de inércia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rolamento}
