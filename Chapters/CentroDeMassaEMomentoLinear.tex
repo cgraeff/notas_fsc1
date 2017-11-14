@@ -450,8 +450,9 @@ o que nos dá
 \end{equation}
 %
 onde usamos o índice $j$ para denotar qualquer uma das regiões e $M_{R_j}$ corresponde à massa de tal região. Podemos utilizar a equação acima para reescrever a equação~\eqref{Eq:Discretizando}, obtendo
-\begin{align}\label{Eq:Discretizado}
-    \vec{r}_{\rm{CM}} &= \frac{1}{M} [M_{R_1} \vec{r}_{\rm{CM}}^{R_1} + M_{R_2} \vec{r}_{\rm{CM}}^{R_2} + M_{R_3} \vec{r}_{\rm{CM}}^{R_3}].
+\begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{M} [M_{R_1} \vec{r}_{\rm{CM}}^{R_1} + M_{R_2} \vec{r}_{\rm{CM}}^{R_2} + M_{R_3} \vec{r}_{\rm{CM}}^{R_3}] \\
+    &= \frac{1}{M} \sum_{i} M_{R_i} \vec{r}_{\rm{CM}}^{R_i} \label{Eq:Discretizado}.
 \end{align}
 
 O resultado acima mostra que podemos dividir um objeto qualquer em partes menores e determinar a massa e a posição do centro de massa de cada uma dessas regiões. A partir dessas informações, podemos determinar a posição do centro de massa do corpo como um todo utilizando a expresão para o centro de massa de um sistema de partículas. Tal processo equivale a dividir o corpo original em partes menores, substituir tais partes por partículas em seus respectivos centros de massa, e então calcular o centro de massa de tais partículas.
@@ -935,21 +936,86 @@ Observe que o resultado é igual para todos os eixos: existem três planos que s
 \subsection{Centro de massa de uma distribuição arbitrária de massa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $m_i$. Utilizando então a Expressão~\eqref{Eq:Discretizado}, temos:
-\begin{equation}
-  \vec{r}_{\textrm{CM}} = \frac{1}{M} \sum_{i}^N \vec{r}_i m_i.
-\end{equation}
+% https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
 
-Se o objeto tem formas complexas, nem sempre uma divisão em cubos é muito efetiva. De qualquer forma, se o dividirmos em cubos menores, a aproximação melhora. Se tomarmos cubos extremamente pequenos, com massa $dm$, temos uma soma que tende a infinitos termos. Esse processo se resume a uma integral em duas ou três dimensões sobre a área ou volume no qual se distribui a massa:\footnote[][-4cm]{A forma integral é apresentada aqui para enriquecer a discussão. A correta interpretação e emprego da Expressão~\eqref{Eq:CMDistContinua} exige conhecimentos de integrais bi e tridimensionais. De qualquer forma, tal equação será usada para determinar uma expressão conhecida como \emph{Teorema dos eixos paralelos}.}
-\begin{equation}\label{Eq:CMDistContinua}
-  \vec{r}_{\textrm{CM}} = \frac{1}{M} \int \vec{r} \; dm, \mathnote{Centro de Massa de uma distribuição contínua de massa}
-\end{equation}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+% laterais
+\draw (0,0) -- (-1.3,-3);
+\draw (1.3,-3) -- (0,0);  
+
+% fundo
+\draw[dotted] (-1.28,-3) arc (180:360:1.28 and -0.53);
+\draw (-1.3,-3) arc (180:360:1.3 and 0.55);
+\draw[fill] (0,-3) circle (0.6pt);
+
+% Eixos
+% x
+\draw[dotted] (0,-3) -- +(15:-1.15);
+\draw[dashdotted,-Stealth] (0,-3) +(15:-1.15) -- +(15:-2) node[below right]{$x$};
+\draw[fill](0,-3) +(15:-1.14) circle (0.6pt);
+\draw[dotted] (0,-3) -- +(15:1.15);
+\draw[dashdotted] (0,-3) +(15:1.15) -- +(15:2);
+\draw[fill](0,-3) +(15:1.125) circle (0.6pt);
+
+% y
+\draw[dotted] (0,-3) -- +(-15:-1.15);
+\draw[dashdotted] (0,-3) +(-15:-1.15) -- +(-15:-2);
+\draw[fill](0,-3) +(-15:-1.125) circle (0.6pt);
+\draw[dotted] (0,-3) -- +(-15:1.15);
+\draw[dashdotted, -Stealth] (0,-3) +(-15:1.15) -- +(-15:2) node[below left]{$y$};
+\draw[fill](0,-3) +(-15:1.14) circle (0.6pt);
+
 %
-onde $M$ representa a massa total do corpo. Esse resultado pode ser interpretado de uma maneira mais simples se considerarmos que o elemento de massa está relacionado à densidade e ao volume do elemento de massa através de $dm = \rho(\vec{r}) \; dV$. Logo, basta considerarmos uma integral na região do espaço ocupada pelo corpo.
+% z
+\draw[dashdotted,-Stealth] (0,0) -- (0,0.75) node[below left]{$z$};
+\draw[loosely dotted] (0,-3.55) -- (0,0);
+\draw[dashdotted] (0,-3.55) -- (0,-4);
+
+\draw[fill] (0,-2.25) circle (1pt) node[above right] {CM};
+
+\begin{scope}[scale = 0.2, shift = {(-2,-12)}]
+    \draw[fill, lightgray, draw = black] (1,1,1) -- (1,1,0) -- (0,1,0) -- (0,1,1) -- cycle;
+    \draw[fill, lightgray, draw = black] (1,1,1) -- (0,1,1) -- (0,0,1) -- (1,0,1) -- cycle;
+    \draw[fill, lightgray, draw = black] (1,1,1) -- (1,1,0) -- (1,0,0) -- (1,0,1) -- cycle;
+\end{scope}
+
+\draw[-Stealth] (0,-3) -- node[right]{$\vec{r}_{\rm{CM}}^{R_i}$} (-0.35,-2.38);
+\draw[fill] (-0.35,-2.38) circle (0.6pt);
+
+\end{tikzpicture}
+\caption{Para determinar a posição do centro de massa de um cone, podemos dividí-lo em diversos cubos e determinar a posição do centro de massa do conjunto de cubos. \label{Fig:CMDiscretizacaoObjeto3D}}
+\end{marginfigure}
+
+A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. 
+
+Se o objeto tem formas complexas, podemos realizar uma divisão em regiões cujos centros de massa possamos determinar por argumentos de simetria, como fizemos nas seções anteriores. Porém, nem sempre uma divisão em cubos é efetiva. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $M_{R_i}$ --~como no caso do cone da Figura~\ref{Fig:CMDiscretizacaoObjeto3D}~--. Claramente uma divisão em cubos não é a melhor escolhar para descrever um cone, porém se eles forem pequenos o suficiente, teremos uma aproximação razoável. Esse tipo de procedimento pode ser implementado em programas de computador com certa facilidade, e podem até mesmo considerar situações onde a massa não é homogênea, já que determinamos a massa de cada cubo individualmente.
+
+Se tomarmos cubos extremamente pequenos, temos uma soma que tende a infinitos termos. Esse processo é a própria definição de uma uma integral em duas ou três dimensões sobre a área ou volume no qual se distribui a massa:
+\begin{align}\label{Eq:CMDistContinua}
+  \vec{r}_{\textrm{CM}} &= \lim_{N \to \infty} \frac{1}{M} \sum_{i = 1}^N M_{R_i} \vec{r}_{\rm{CM}}^{R_i} \\
+  &= \frac{1}{M} \int \vec{r} \; dm, \mathnote{Centro de Massa de uma distribuição contínua de massa}
+\end{align}
+%
+onde $dm$ representa a massa \emph{infinitesimal} associada a um cubo quando fazemos o número de cubos tendendo ao infinito e $M$ representa a massa total do corpo. Esse resultado pode ser interpretado de uma maneira mais simples se considerarmos que o elemento de massa está relacionado à densidade e ao volume do elemento de massa através de $dm = \rho(\vec{r}) \; dV$. Logo, basta considerarmos uma integral na região do espaço ocupada pelo corpo.
+
+Da mesma forma que na integral em uma dimensão, a ideia não é determinar o resultado desse limite, mas substituir o problema por um equivalente e que nos permita determinar o centro de massa. Matematicamente, o processo de resolução de uma integral em duas ou três dimensões consiste em resolver duas ou três integrais unidimensionais, respectivamente. A principal diferença é a de que os limites de integração não são números, mas funções que descrevem as superfícies externas da região do espaço onde estamos realizando a integração, o que no nosso caso é a própria superfície externa do corpo.
+
 
 A expressão acima pode ser considerada a forma mais geral de se determinar o centro de massa para uma distribuição contínua de massa, pois a discussão anterior sobre discretização pode ser interpretada como uma simples propriedade da integral acima. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) \; dA$ ou $dm = \lambda(x) \; dx$ --~onde $\sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~--.
 
-Mesmo assumindo um conhecimento sólido de cálculo, a definição dada pela Equação~\eqref{Eq:CMDistContinua} não é extremamente útil: Precisamos poder descrever a forma do objeto matematicamente, o que só é simples para formas relativamente simples--~no entanto, para tais formas é comum que outras técnicas sejam mais simples e úteis~--. De qualquer forma, para algumas formas (cones e pirâmides, por exemplo) e no caso de termos uma densidade que possa ser calculada para cada ponto do espaço através de uma função, a forma integral é bastante útil.
+Mesmo assumindo um conhecimento sólido de cálculo, a definição dada pela Equação~\eqref{Eq:CMDistContinua} não é extremamente útil: Precisamos poder descrever a forma do objeto matematicamente, o que só é fácil para formas relativamente simples. De qualquer maneira, para algumas formas (cones e pirâmides, por exemplo) e no caso de termos uma densidade que possa ser calculada para cada ponto do espaço através de uma função, a forma integral é bastante útil.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Movimento do centro de massa}
