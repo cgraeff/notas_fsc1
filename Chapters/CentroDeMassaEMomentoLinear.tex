@@ -1037,7 +1037,7 @@ Além disso, sabemos que a velocidade do centro de massa não é alterada por fo
 %
 O fato de que as forças durante a explosão são internas implica então em uma igualdade entre a velocidade do centro de massa antes e depois da explosão, pois a aceleração do centro de massa é nula. Logo, se a velocidade do centro de massa não é alterada, e ele continua sujeito à mesma força após a explosão, concluímos que \emph{a desintegração do projétil não altera a trajetória do centro de massa}.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, decoration=bumps]
     \draw[->] (0,0) -- (4,0) node[below left]{$x$};
@@ -1063,6 +1063,77 @@ O fato de que as forças durante a explosão são internas implica então em uma
 % problema do projétil num lançamento obliquo que explode em duas partes
 
 % exemplo clássico de uma pessoa que se move em um barco: tanto o barco quanto a pessoa se movem e o CM permanece no mesmo lugar.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Movimento do centro de massa e energia potencial gravitacional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se tomarmos um sistema como o mostrado na Figura~\eqref{Fig:EnergiaPotencialECM}, verificamos que quando a esfera sobre pela pista circular, ela não sofre um deslocamento vertical com o valor do diâmetro da pista, mas sim um deslocamento dado por
+\begin{equation}
+    \Delta y = 2R - 2r,
+\end{equation}
+%
+onde $R$ é o raio da pista, e $r$ é o raio da esfera. Nessas condições, como podemos determinar a variação da energia potencial gravitacional da esfera?
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+    \draw[interface] (60:2) arc[start angle = 60, end angle = 270, radius = 2cm] -- +(2,0);
+    \draw[pattern = north west lines] (1,-1.5) circle (0.5);
+    \draw[fill] (1,-1.5) circle (0.8pt);
+    
+    \draw[|-|] (1, -0.5) -- node[above]{$r$} (0.5, -0.5);
+    \draw[dotted] (1, -0.5) -- (1,-1);
+    \draw[dotted] (0.5, -0.5) -- (0.5,-1.5);
+    
+    \draw[gray, pattern color = gray, pattern= north west lines] (0,1.5) circle (0.5);
+    \draw[fill, gray] (0,1.5) circle (0.8pt);
+    
+    \draw[->] (0.5,-1.5) -- node[above]{$\vec{v}$} +(-0.75,0);
+    
+    \draw[|-|] (2,-1.5) -- node[right]{$\Delta y$} (2,1.5);
+    \draw[dotted] (0.5,1.5) -- (2, 1.5);
+    \draw[dotted] (1.5,-1.5) -- (2,-1.5);
+    
+    \draw[->] (0,0) -- node[below]{$R$} (155:2);
+    \draw[fill] (0,0) circle (0.6pt);
+
+\end{tikzpicture}
+\caption{Para um corpo rígido, a variação da energia potencial está ligada à variação da posição vertical do centro de massa. Note que no exemplo acima, $\Delta y = 2R - 2r$. \label{Fig:EnergiaPotencialECM}}
+\end{marginfigure}
+
+Podemos tratar a esfera como um sistema de partículas, assim, somando as energias potenciais de cada partícula em uma posição qualquer, temos
+\begin{equation}
+    U_g^{\rm{sis}} = \sum_{i = 1}^N m_i g y_i.
+\end{equation}
+%
+Como a aceleração da gravidade é a mesma para todas as parcelas da soma, podemos tirá-la do somatório, obtendo
+\begin{equation}\label{Eq:EnPotGravSisPartSoma}
+    U_g^{\rm{sis}} = g \sum_{i = 1}^N m_i y_i.
+\end{equation}
+
+Se considerarmos as expressões para a posição do centro de massa nos eixos $x$ e $y$, obtemos
+\begin{align}
+    x_{\rm{CM}} &= \frac{1}{M} \sum_{i = 1}^N m_i x_ i \\
+    y_{\rm{CM}} &= \frac{1}{M} \sum_{i = 1}^N m_i y_ i,
+\end{align}
+%
+ou, para o eixo $y$ em especial,
+\begin{equation}
+    \sum_{i = 1}^N m_i y_ i = M y_{\rm{CM}}.
+\end{equation}
+%
+Substituindo essa expressão na Equação~\eqref{Eq:EnPotGravSisPartSoma}, obtemos
+\begin{equation}
+    U_g^{\rm{sis}} = M g y_{\rm{CM}}. \mathnote{Energia potencial gravitacional de um corpo rígido}
+\end{equation}
+
+Constatamos, portanto, que a energia potencial gravitacional de um sistema de partículas é a mesma energia associada a uma partícula de massa $M$, dada pela soma das massas de todas as partículas, e cuja posição vertical é a do próprio centro de massa do sistema. Isso permite que determinemos a variação da energia potencial gravitacional de um corpo rígido simplesmente considerando a variação da posição vertical do centro de massa do corpo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conservação do momento linear}
@@ -1210,7 +1281,7 @@ sendo que as soluções são
 
 Podemos empregar a conservação do momento linear para discutir colisões. Uma colisão é caracterizada pela interação de dois corpos através forças de contato entre as suas superfícies, isto é, \emph{forças normais e de atrito}. Na Figura~\ref{Fig:ColisaoEntreDoisDiscos} mostramos uma colisão bidimensional entre dois discos. Vamos assumir que o disco da direita se encontra em repouso\footnote{Sempre podemos escolher um referêncial que satisfaça essa suposição em uma colisão entre dois corpos, bastando fixar o referecial no centro de massa de um dos corpos.}, enquanto o da esquerda se move para a direita com velocidade $\vec{v}$. Como poderíamos determinar o movimento dos discos após a colisão, dados os valores de massa e velocidade do disco incidente?
 
-\begin{figure}[!h]\forcerectofloat
+\begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth]
 

@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Rotações e Momento Angular}\label{Chap:Rotacoes}
+\chapter{Rotações e Rolamento}\label{Chap:Rotacoes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\minitoc
@@ -15,13 +15,17 @@ Intro ...
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Cinemática da Rotação}
+\section{Introdução}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+fazer uma intro
+\textbf{Restringir a um movimento ``unidimensional'' em rotações, ou seja, uma rotação em torno de somente um eixo. Vamos eliminar essa restrição quando passarmos a tratar as grandezas como vetores.}
+
 
 % TODO texto introdutório e falar sobre corpos rígidos
 Vamos analisar o movimento de rotação de um corpo rígido (isto é, um corpo em que a distância relativa entre cada uma das partículas que o constituem é constante o que faz com que ele não mude de forma) em torno de um eixo.
 
-Acredito que temos algumas coisas muito importantes para falar nessa introdução: Teorema de Mozzi-Chasles; ângulos de Euler; Alertar para o fato de que vamos considerar uma rotação que acontece em torno de um eixo só e que fica fixo no espaço.
+Acredito que temos algumas coisas muito importantes para falar nessa introdução: Teorema de Mozzi-Chasles; ângulos de Euler.
 
 Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
 
@@ -32,8 +36,7 @@ Ver essa questão dos sinais, principalmente na solução da máquina de Atwood.
 \subsection{Variáveis cinemáticas para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-% fazer uma intro
-% restringir a um movimento ``unidimensional'' em rotações, ou seja, uma rotação em torno de somente um eixo
+Fazer introdução sobre o as variáveis cinemáticas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Unidades para a medida de ângulos}
@@ -258,7 +261,7 @@ de onde podemos tomar o limite de $\Delta t$ tendendo a zero para definir a velo
 	\omega = \lim_{\Delta t \to 0} \frac{\Delta}{\Delta t} \equiv \frac{d\theta}{dt}.
 \end{equation}
 %
-As unidades da velocidade angular serão as de ``ângulo por tempo'', dentro do SI, $\textrm{rad}/\textrm{s}$.
+As unidades da velocidade angular serão as de ``ângulo por tempo'', em unidades do SI, $\textrm{rad}/\textrm{s}$.
 
 Conhecendo a velocidade angular, podemos definir a aceleração angular média através de
 \begin{equation}
@@ -676,10 +679,10 @@ Podemos obervar que a soma a esquerda da igualdade inclui todos os torques reali
 
 Na expressão acima, o termo entre colchetes é denominado como \emph{momento de inércia}:
 \begin{equation}\label{Eq:MomentoInerciaConjPart}
-    I = \left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]. \mathnote{Momento de inércia para um conjunto de partículas}
+    I = \left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right], \mathnote{Momento de inércia para um conjunto de partículas}
 \end{equation}
 %
-Verificamos que quanto maior o valor de $I$, menor a aceleração a que o corpo estará sujeito, quando atua sobre ele um determinado valor de torque. A Equação~\eqref{Eq:ProtoSegundaLeiRotacoes} acima relaciona então a aceleração angular a que um objeto estará sujeito quando sobre ele atua uma força, dando origem a um torque. Concluímos, portanto, que a expressão acima é análoga à Segunda Lei de Newton, porém descrevendo o caso da rotação:
+e suas unidades são $[I] = \rm{M}\cdot\rm{L}^2$, ou, dentro do SI, $[I] = \rm{kg}\cdot\rm{m}^2$. Verificamos que quanto maior o valor de $I$, menor a aceleração a que o corpo estará sujeito, quando atua sobre ele um determinado valor de torque. A Equação~\eqref{Eq:ProtoSegundaLeiRotacoes} acima relaciona então a aceleração angular a que um objeto estará sujeito quando sobre ele atua uma força, dando origem a um torque. Concluímos, portanto, que a expressão acima é análoga à Segunda Lei de Newton, porém descrevendo o caso da rotação:
 \begin{equation}
     \tau_R^{\rm{ext}} = I \alpha. \mathnote{Segunda Lei de Newton para a rotação}
 \end{equation}
@@ -1300,9 +1303,11 @@ Mais uma vez, o emprego da expressões integrais como a~\ref{Eq:MomInerciaDistCo
 \paragraph{Exemplo: Momento de inércia de uma haste fina}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Um exemplo simples de aplicação da Equação~\eqref{Eq:MomInerciaDistContinua} é a determinação do momento de inércia de uma haste fina  e homogênea que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao eixo da haste --~como mostrado na Figura~\ref{Fig:CompMomInerciaHasteFina}~--.
+
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, rotate = -90,
+\begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
@@ -1311,35 +1316,84 @@ Mais uma vez, o emprego da expressões integrais como a~\ref{Eq:MomInerciaDistCo
     
 %%% Haste
 
-\coordinate (center) at (3.95,-0.2);
-\coordinate (side) at (4.2, -1);
-\draw[fill] (4,-0.2) circle (0.4pt);
+\draw[fill] (0,0) circle (0.4pt);
 
-\draw[dashdotted, ->] (5,-0.2) -- (2.75, -0.2) coordinate (top) node[below left]{$z$};
+\draw[dashdotted, ->] (0,0)+(0,0.1) -- +(0, 1.5) coordinate (top) node[below left]{$z$};
+\draw[dashdotted] (0,0)+(0,-0.1) -- +(0,-1);
 
-\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm]{angle = top--center--side};
+\draw (15:-1.25) circle (0.05);
+\draw (0,0.05) coordinate (angmid) -- +(15:-1.25) coordinate (angstart);
+\draw (0,-0.05) -- +(15:-1.25) node[below]{$-\nicefrac{L}{2}$};
 
-\draw (4.5,-1.7) circle (0.5mm);
-\draw (4.45,-1.7) -- (3.45,1.3);
-\draw (4.55,-1.7) -- (3.55,1.3);
-\draw (3.55,1.3) arc[start angle = 0, end angle = 180, radius = 0.5mm];
+\draw (0,0.05)+(15:1.2) arc[start angle = 90, end angle = -90, radius = 0.05];
+\draw (0,0.05) -- +(15:1.2);
+\draw (0,-0.05) -- +(15:1.2) node[below]{$\nicefrac{L}{2}$};
 
-\draw[->] (3.5,-0.2) [partial ellipse=-120:150:0.125cm and 0.3cm];
+\draw[fill] (15:-1.25) circle (0.4pt);
+\draw[dashdotted, ->] (15:-1.25) -- (15:-2.15) node[below right] {$x$};
+\draw[dashdotted] (15:1.25) -- (15:2);
+
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm]{angle = top--angmid--angstart};
+
+\draw[->] (100:1) arc[start angle = -240, end angle = 60, x radius = 0.3, y radius = 0.15];
+
+\draw[draw = black, fill] (0,0.05) ++(15:-0.5) arc[start angle = 90, end angle = -90, radius = 0.05] -- +(15:0.1) arc[start angle = -90, end angle = 90, radius = 0.05] -- node[above]{$dx$} cycle;
+
+\draw (0, -0.1) -- +(0,-0.1);
+\draw (0,-0.15) -- node[below]{$x$} +(15:-0.4);
+\draw (0,-0.1) ++(15:-0.4) -- +(0,-0.1);
 
 \end{tikzpicture}
-\caption{.\label{Fig:CompMomInerciaDiscoAnel}}
+\caption{Uma haste fina pode ser considerada como uma distribuição contínua de massa em que somente uma das dimensões é relevante.\label{Fig:CompMomInerciaHasteFina}}
 \end{marginfigure}
 
+Podemos dividir a massa $M$ da haste por seu comprimento $L$, obtendo uma densidade linear de massa $\lambda$:
+\begin{equation}
+    \lambda = \frac{M}{L}.
+\end{equation}
+%
+Se tomarmos um segmento da haste com comprimento $dx$, temos que a massa correspondente a este segmento é dada por
+\begin{equation}
+    dm = \lambda \; dx,
+\end{equation}
+%
+o que nos permite escrever a expressão para o momento de inércia em torno do eixo $z$ como
+\begin{equation}
+    I_z = \int r_\perp^2 \lambda \;dx.
+\end{equation}
+%
+Note que a distância de um segmento $dx$ ao eixo de rotação --~isto é, $r_\perp$~-- nada mais é que a própria variável $x$. Logo
+\begin{equation}
+    I_z = \int_{-\nicefrac{L}{2}}^{\nicefrac{L}{2}} \lambda x^2 \; dx,
+\end{equation}
+%
+onde já substituimos os limites de integração, que correspondem às posições das extremidades da haste no eixo $x$. Realizando a integração, temos
+\begin{align}
+    I_z &= \int_{-\nicefrac{L}{2}}^{\nicefrac{L}{2}} \lambda x^2 \; dx \\
+    &= \lambda \int_{-\nicefrac{L}{2}}^{\nicefrac{L}{2}} x^2 \; dx \\
+    &= \lambda \left[\frac{x^3}{3} + C\right]_{-\nicefrac{L}{2}}^{\nicefrac{L}{2}} \\
+    &= \frac{\lambda}{3} \left\{\left[\left(\frac{L}{2}\right)^3 + C\right] - \left[\left(\frac{-L}{2}\right)^3 + C\right] \right\} \\
+    &= \frac{\lambda}{3} \left[\frac{L^3}{8} + \frac{L^3}{8}\right] \\
+    &= \frac{\lambda}{3}\frac{L^3}{4} \\
+    &= \frac{\lambda L^3}{12}.
+\end{align}
+%
+Finalmente, substituindo a expressão para a densidade, temos
+\begin{equation}
+    I_z = \frac{ML^2}{12}. \mathnote{Momento de inércia de uma haste fina para um eixo perpendicular ao eixo da haste}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Momentos de inércia de sólidos geométricos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Tabela com os momentos de inércia de algumas figuras. Fazer o cálculo para o que for mais simples, como o disco, a haste fina, a esfera.
-\begin{equation}
-  I = \sum m_i r_i^2.
-\end{equation}
+Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os momentos de inércia de diversos sólidos geométricos simples. Não vamos determinar cada um desses resultados pois em geral é necessário um conhecimento de cálculo de integrais em duas e três dimensões.
 
+\begin{description}
+
+%%
+%% Esfera
+%%
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -1361,35 +1415,457 @@ Tabela com os momentos de inércia de algumas figuras. Fazer o cálculo para o q
     \draw[->, scale = 0.8, rotate = -30] (100:1.8) arc[start angle = -210, end angle = 60, x radius = 0.4, y radius = 0.2];
     
 \end{tikzpicture}
-\caption{.}
+\caption{Esfera que pode girar em torno de um eixo que passa por seu centro de massa.}
 \end{marginfigure}
+
+    \item[Esfera:] A esfera é um caso especialmente interessante pois além de ser um sólido simples, ela tem a propriedade de o momento de inércia para todos os eixos que passam pelo centro de massa é o mesmo. Além disso, podemos distinguir entre o caso de esferas maciças e de cascas esféricas, ou seja, de esferas ocas formadas por uma parede fina. Os momentos de inércia são dados por
+        \begin{align}
+            I^{\textrm{esf}}_{\textrm{oca}} &= \frac{2}{3} MR^2 \\
+            I^{\textrm{esf}}_{\textrm{mac}} &= \frac{2}{5} MR^2.
+        \end{align}
+  
+%%
+%% Disco
+%%  
+    \item[Disco, cilindro:] Vamos considerar somente dois eixos, que corresponem às situações mais simples:
+        \begin{align}
+            I_z &= \frac{1}{2}MR^2 \\
+            I_x &= \frac{1}{4} MR^2.
+        \end{align}
+           
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+% topo
+\draw[fill] (0,0) circle (0.6pt);
+\draw[fill] (0,-0.2) circle (1pt) node[above left] {CM};
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw[fill] (0,-0.4) circle (0.6pt);
+
+% Laterais
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+% Raio
+\draw[dotted] (1.25,-0.4) -- (1.25,-1.25);
+\draw[|<->|] (0,-1.25) -- node[above]{$R$} (1.25,-1.25);
+
+% Fundo
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+% Eixo z
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[loosely dotted] (0,-0.9) -- (0,0);
+
+\draw[->] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+% Eixo x
+\draw[dashdotted, ->] (0,-0.2)++(15:-1.05) -- +(15:-0.75) node[below right]{$x$};
+\draw[fill] (0,-0.2)+(15:-1.05) circle (0.6pt);
+\draw[loosely dotted] (0,-0.2)+(15:-1.05) -- (0,-0.2) -- +(15:1.05);
+\draw[fill] (0,-0.2) +(15:1.05) circle (0.6pt);
+
+\draw[dashdotted] (0,-0.2) ++(15:1.25) -- +(15:0.75);
+
+\draw[->, rotate=15] (0,-0.2)++(0:-1.5) [partial ellipse=-130:160:0.105cm and 0.3cm];
+
+%\draw[->, rotate=60] (0,-0.2)++(-4:-1.2) [partial ellipse=-150:150:0.15cm and 0.3cm];
+
+\end{tikzpicture}
+\caption{Disco. \label{Fig:MomInerciaDisco}}
+\end{marginfigure}
+   
+%%
+%% Anel fino
+%% 
+        \item[Anel, tubo (finos):] Tanto para o anel, quanto para o tubo, quando o eixo de rotação é perpendicular à face circular, temos para um eixo que passa pelo centro de massa
+        \begin{equation}
+            I_z = MR^2.
+        \end{equation}
+        %
+        Para o anel, em particular, quando o eixo passa pelo centro de massa e está contido no plano determinado pelo próprio anel, temos
+        \begin{equation}
+            I_x = \frac{1}{2} MR^2.
+        \end{equation}
+        
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[interface/.style={>=Stealth,
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+% topo
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw (0,0) ellipse (1.3 and 0.55);
+
+\draw[Stealth-Stealth] (0,0) -- node[below]{$R$} (-1.25,0);
+
+% laterais
+\draw[dotted] (-1.25,0) -- (-1.25,-0.2);
+\draw[dotted] (1.25,-0.2) -- (1.25,0);
+\draw (-1.3,0) -- (-1.3,-0.2);
+\draw (1.3,-0.2) -- (1.3,0);  
+
+% fundo
+\draw[dotted] (-1.25,-0.2) arc (180:360:1.25 and 0.5);
+\draw[dotted] (-1.25,-0.2) arc (180:360:1.25 and -0.5);
+\draw (0,-0.2)+(0,0.5) arc (90:12:1.25 and 0.5);
+\draw (0,-0.2)+(0,0.5) arc (90:168:1.25 and 0.5);
+\draw[dotted] (-1.3,-0.2) arc (180:360:1.3 and -0.55);
+\draw (-1.3,-0.2) arc (180:360:1.3 and 0.55);
+
+% Eixo z
+\draw[dashdotted,-Stealth] (0,-0.5) -- (0,1.5) node[below left]{$z$};
+\draw[dotted] (0,-0.5) -- +(0,-0.2);
+\draw[dashdotted] (0,-0.75) -- (0,-1.5);
+
+% Eixo x
+\draw[dashdotted] (0,-0.1) -- +(25:-0.75);
+\draw[fill] (0,-0.1) +(25:-0.9) circle (0.3pt);
+\draw[fill] (0,-0.1) +(25:-0.95) circle (0.3pt);
+\draw[dashdotted,-Stealth] (0,-0.1)++(25:-0.95) -- +(25:-0.75) node[below right]{$x$};
+
+\draw[dashdotted] (0,-0.1) -- +(25:0.95);
+\draw[fill] (0,-0.1) +(25:0.9) circle (0.3pt);
+\draw[fill] (0,-0.1) +(25:0.95) circle (0.3pt);
+\draw[dashdotted] (0,-0.1)++(25:1.08) -- +(25:0.75);
+
+\draw[fill] (0,-0.1) circle (1pt) node[below right] {CM};
+
+\draw[-Stealth] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+\draw[rotate = 120, -Stealth] (0,1.4) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+\end{tikzpicture}
+\caption{Anel/Tubo cilindrico formado por paredes finas. \label{Fig:MomInerciaTuboAnelFinoTab}}
+\end{marginfigure}
+
+%%
+%% Anel, tubo
+%%
+    \item[Anel, tubo:] Para o caso de um anel ou tubo onde a espessura da parede não é desprezível, o momento de inércia em torno de um eixo perpendicular à face plana e que passa pelo centro de massa é dado por
+        \begin{equation}
+            I_z = M \frac{R_i^2 + R_e^2}{2}.
+        \end{equation}
+  
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[interface/.style={>=Stealth,
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+% topo
+\draw (0,0) ellipse (1.25 and 0.5);
+\draw (0,0) ellipse (1.5 and 0.7);
+
+\draw[Stealth-Stealth] (0,0) -- node[above]{$R_i$} (-1.25,0);
+\draw[Stealth-Stealth] (0,0) -- node[above]{$R_e$} (-20:1.25);
+
+% laterais
+\draw[dotted] (-1.25,0) -- (-1.25,-1.5);
+\draw[dotted] (1.25,-1.5) -- (1.25,0);
+\draw (-1.5,0) -- (-1.5,-1.5);
+\draw (1.5,-1.5) -- (1.5,0);  
+
+% fundo
+\draw[dotted] (-1.25,-1.5) arc (180:360:1.25 and 0.5);
+\draw[dotted] (-1.25,-1.5) arc (180:360:1.25 and -0.5);
+\draw[dotted] (-1.5,-1.5) arc (180:360:1.5 and -0.7);
+\draw (-1.5,-1.5) arc (180:360:1.5 and 0.7);
+
+% Eixo z
+\draw[dashdotted,-Stealth] (0,-0.5) -- (0,1.5) node[below left]{$z$};
+\draw[dotted] (0,-0.5) -- (0,-2.2);
+\draw[dashdotted] (0,-2.2) -- (0,-2.9);
+
+
+\draw[fill] (0,-0.75) circle (1pt) node[below right] {CM};
+
+\draw[-Stealth] (0,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
+
+\end{tikzpicture}
+\caption{Anel/Tubo cilíndrico. \label{Fig:MomInerciaTuboAnelTab}}
+\end{marginfigure}
+  
+%%
+%% Haste fina
+%%
+    \item[Haste (fina):] Como verificamos anteriormente, o momento de inércia de uma haste fina e que gira em torno de um eixo que passa pelo seu centro de massa, perpendicularmente ao eixo da haste, é dado por
+        \begin{equation}
+            I_z = \frac{1}{12} ML^2.
+        \end{equation}
+    %
+    Note que a forma da seção reta da haste não é relevante, uma vez que estamos considerando que ela seja fina o suficiente para que somente o comprimento seja uma dimensão relevante.
+    
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+\draw[fill] (0,0) circle (0.4pt);
+
+\draw[dashdotted, ->] (0,0)+(0,0.1) -- +(0, 1.5) coordinate (top) node[below left]{$z$};
+\draw[dashdotted] (0,0)+(0,-0.1) -- +(0,-1);
+
+\draw (15:-1.25) circle (0.05);
+\draw (0,0.05) coordinate (angmid) -- +(15:-1.25) coordinate (angstart);
+\draw (0,-0.05) -- +(15:-1.25);
+
+\draw (0,0.05)+(15:1.2) arc[start angle = 90, end angle = -90, radius = 0.05];
+\draw (0,0.05) -- +(15:1.2);
+\draw (0,-0.05) -- +(15:1.2);
+
+\draw[fill] (15:-1.25) coordinate (icomp) circle (0.4pt);
+\draw[dashdotted, ->] (15:-1.25) -- (15:-2.15) node[below right] {$x$};
+\draw[dashdotted] (15:1.25) -- (15:2);
+
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm]{angle = top--angmid--angstart};
+
+\draw[->] (100:1) arc[start angle = -240, end angle = 60, x radius = 0.3, y radius = 0.15];
+
+\draw[|-|] (0,-0.3)+(15:-1.25) -- node[below right]{$L$} +(15:1.25);
+
+\end{tikzpicture}
+\caption{Haste fina.}
+\end{marginfigure}
+
+%%
+%% Haste
+%%
+    \item[Haste:] Se temos uma haste cilíndrica cujo raio não pode ser desprezado, temos que o momento de inércia em torno de um eixo perpendicular ao eixo da haste, e que passa por seu centro de massa é dado por
+    \begin{equation}
+        I_z = \frac{1}{4} MR^2 + \frac{1}{12} ML^2.
+    \end{equation}
+    %
+    Note que esse resultado se reduz ao primeiro termo, se temos um disco --~isto é, um cilindro cuja altura é desprezível~-- ou ao caso de uma haste fina --~se o raio é desprezível. 
+  
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+\draw[fill] (0,0) circle (0.4pt);
+
+\draw[dashdotted, ->] (0,0)+(0,0.2) -- +(0, 1.5) coordinate (top) node[below left]{$z$};
+\draw[dashdotted] (0,0)+(0,-0.2) -- +(0,-1);
+
+\draw (15:-1.25) circle (0.2);
+\draw (0,0.2) coordinate (angmid) -- +(15:-1.25) coordinate (angstart);
+\draw (0,-0.2) -- +(15:-1.25);
+
+\draw (0,0.2)+(15:1.2) arc[start angle = 90, end angle = -90, radius = 0.2];
+\draw (0,0.2) -- +(15:1.2);
+\draw (0,-0.2) -- +(15:1.2);
+
+\draw[fill] (15:-1.25) coordinate (icomp) circle (0.4pt);
+\draw[dashdotted, ->] (15:-1.25) -- (15:-2.15) node[below right] {$x$};
+\draw[dashdotted] (15:1.4) -- (15:1.6);
+\draw (0,0.2)+(15:2) -- node[right]{$R$} (15:2);
+\draw (0,0.2)+(15:1.9) -- +(15:2.1);
+\draw (15:1.9) -- (15:2.1);
+\draw[dotted] (15:1.6) -- (15:1.9);
+\draw[dotted] (0,0.2)+(15:1.4) -- +(15:1.9);
+
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm]{angle = top--angmid--angstart};
+
+\draw[->] (100:1) arc[start angle = -240, end angle = 60, x radius = 0.3, y radius = 0.15];
+
+\draw[|-|] (0,-0.5)+(15:-1.25) -- node[below right]{$L$} +(15:1.25);
+
+\end{tikzpicture}
+\caption{Haste.}
+\end{marginfigure}  
+    
+%% 
+%% Placa, cubo
+%%
+    
+    \item[Placa, prisma retangular:] Se temos uma placa retangular --~ou mesmo um prisma retangular~-- que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao plano, o momento de inércia é dado por
+    \begin{equation}
+        I_z = \frac{1}{12}M (a^2 + b^2).
+    \end{equation}
+    
+    \begin{marginfigure}
+\centering
+\begin{tikzpicture}[
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % topo
+    \draw (1.4,1,1) -- (1.4,1,0) -- (0,1,0) -- (0,1,1) -- cycle;
+    
+    % Laterais
+    \draw (1.4,1,1) -- +(0, -1.5, 0);
+    \draw (0,1,1) -- +(0, -1.5, 0);
+    \draw (1.4,1,0) -- +(0, -1.5, 0);
+    \draw[densely dotted] (0,1,0) -- +(0, -1.5, 0);
+    
+    % fundo
+    \draw[densely dotted] (0,-0.5,0) ++(0,0,1) -- ++(0,0,-1) -- +(1.4,0,0);
+    \draw (0,-0.5,0)++(0,0,1) -- ++(1.4,0,0) -- +(0,0,-1);
+    
+    % Eixo z
+    \draw[Stealth-, dashdotted] (0.7, 2.2, 0.5) node[below right]{$z$}-- (0.7, 1, 0.5);
+    \draw[fill] (0.7,1,0.5) circle (0.4pt);
+    \draw[dotted] (0.7,1,0.5) -- +(0,-1.7,0) coordinate (lowz);
+    \draw[fill] (0.7,1,0.5) +(0,-1.5,0) circle (0.4pt);
+    \draw[dashdotted] (lowz) -- +(0,-0.5);
+    
+    \tikzset{zxplane/.style={canvas is zx plane at y=#1}}
+    \begin{scope}[zxplane=1.7]
+        \draw[-Stealth] (0.5,0.7)+(-120:0.3) arc[start angle = -120, end angle = 180, radius = 0.3];
+    \end{scope}
+     
+    % CM
+    \draw[fill] (0.7,0.3,0.5) circle (1pt) node[below left]{CM};
+    
+    % medidas
+    \draw (-0.2, 1, 1) -- (-0.2, 1, 0);
+    \draw (-0.1, 1, 1) -- (-0.3, 1, 1);
+    \draw (-0.1, 1, 0) -- (-0.3, 1, 0);
+    \node (a) at (-0.4, 1, 0.3) {$a$};
+    
+    \draw (0, 1, -0.3) -- node[above]{$b$} (1.4, 1, -0.3);
+    \draw (0, 1, -0.2) -- (0,1,-0.4);
+    \draw (1.4, 1, -0.2) -- (1.4, 1, -0.4);
+    
+\end{tikzpicture}
+\caption{Placa/prisma retangular.}
+\end{marginfigure} 
+\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Teorema dos eixos paralelos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Caso conheçamos o momento de inércia em torno de um eixo que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo que seja paralelo ao primeiro.
+Todos os eixos para os quais apresentamos resultados para o momento de inércia sempre passam pelo centro de massa. Isso não é por acaso: caso conheçamos o momento de inércia em torno de um eixo que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo que seja paralelo a ele.
 
-\comment{TODO Figura ao lado mostrando o esquema pra deduzir o teorema dos eixos paralelos}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
 
-Na Figura~??, temos dois eixos que saem do plano da página, passando por um objeto de massa $M$ nos pontos $O$ e $P$. O ponto $O$ denota a origem do sistema de coordenadas $xy$ e reside exatamente no centro de massa do objeto. Estamos interessados em calcular o momento de inércia em torno do eixo que passa por $P$ e vamos considerar que o momento de inércia em torno do eixo que passa pelo centro de massa seja conhecido. Utilizando a Equação~\ref{Eq:MomInerciaIntegral}, considerando que $r = (x-a)^2 + (y-b)^2$, como pode ser visto da Figura e utilizando o teorema de Pitágoras, temos que
+    
+    % topo
+    \draw (0,0) ellipse (1.25 and 0.5);
+    
+    % laterais
+    \draw (-1.25,0) -- +(0,-2.5);
+    \draw (1.25,0) -- +(0,-2.5);
+    
+    % fundo
+    \draw (-1.25,-2.5) arc[start angle = -180, end angle = 0, x radius = 1.25, y radius = 0.5];
+    \draw[dotted] (1.25,-2.5) arc[start angle = 0, end angle = 180, x radius = 1.25, y radius = 0.5];
+    
+    % Eixo z
+    \draw[dashdotted, -Stealth] (0,0) -- +(0,1.5) node[below right]{$z$};
+    \draw[fill] (0,0) circle (0.4pt);
+    \draw[loosely dotted] (0,0) -- (0,-3);
+    \draw[fill] (0,-2.5) circle (0.4pt);
+    \draw[dashdotted] (0,-3) -- +(0,-1);
+    
+    \draw[fill] (0,-1.25) circle (1pt) node[below right]{CM};
+    
+    % Eixos x e y
+    \draw[dashdotted, -Stealth] (0,0) -- (15:-2) node[below right]{$x$};
+    \draw[dashdotted, -Stealth] (0,0) -- (-15:2) node [below left]{$y$};
+    
+    % Eixo P
+    \draw[dashdotted, -Stealth] (-135: 0.3) -- +(0,1.5) node[below left]{$p$};
+    \draw[fill] (-135:0.3) circle (0.4pt);
+    \draw[loosely dotted] (-135:0.3) -- +(0,-3);
+    \draw[fill] (0,-2.5) +(-135:0.3) circle (0.4pt);
+    \draw[dashdotted] (0,-3)++(-135:0.3) -- +(0,-1);
+    
+    
+\end{tikzpicture}
+\caption{Rotação em torno de um eixo $p$ que não passa pelo centro de massa. \label{Fig:CilindoEixoParalelo}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:CilindoEixoParalelo}, temos dois eixos que passam por um objeto de massa $M$. O eixo $z$ passa pelo centro de massa do objeto, enquanto o eixo $p$ está deslocado em relação ao eixo $z$ por uma ditância $h$, porém é paralelo a ele. Estamos interessados em calcular o momento de inércia em torno do eixo que passa por $p$ e vamos considerar que o momento de inércia em torno do eixo que passa pelo centro de massa seja conhecido. 
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2]
+
+    % Eixos x e y
+    \draw[dashdotted, ->] (0,0) -- (1.75, 0) node[below left]{$x$};
+    \draw[dashdotted, ->] (0,0) -- (0, 1.75) node[below left]{$y$};
+    \draw (0,0)+(-15:1.25) arc[start angle = -15, end angle = 105, radius = 1.25];
+    \draw[fill] (0,0) circle (0.4pt) node[below left]{$z$};
+    \draw (0,0) circle (1pt);
+    
+    % Ponto p
+    \draw[fill] (30:0.75) circle (0.4pt) node[below right]{$p$};
+    \draw (30:0.75) circle (1pt);
+    
+    % raios
+    \draw (0,0) -- (45:1.1);
+    \draw (30:0.75) -- node[right]{$r'_\perp$}(45:1.15);
+    \draw (0,0) -- (30:0.75);
+    \node (r) at (55:0.6) {$r_\perp$};
+    \node (h) at (15:0.4) {$h$};
+    
+    % dm
+    \draw[lightgray, fill, draw = black] (45:1.15) circle (0.05) node[above left]{$dm$};
+    \path (45:1.15) circle (0.05) node[above left]{$dm$};
+\end{tikzpicture}
+\caption{A contribuição de um elemento de massa para o momento de inércia depende de sua distância ao eixo. Para o eixo $z$, o elemento destacado está a uma distância $r_\perp$, já para o eixo $p$, a distância é $r'_\perp$. Note que os eixos $z$ e $p$ são perpendiculares ao plano da página.\label{Fig:TeoremaEixosParalelosDM}}
+\end{marginfigure}
+
+Utilizando a Equação~\ref{Eq:MomInerciaDistContinua}, podemos calcular o momento de inércia em torno dos eixos $z$ e $p$:
+\begin{align}
+    I_z &= \int r_\perp^2 \;dm \\
+    I_p &= \int r_\perp^{\prime \, 2} \;dm. \label{Eq:TeorEixosParalelosDefIp}
+\end{align}
+%
+Vamos escolher como origem do sistema de coordenadas a própria posição do centro de massa, o que resulta em uma visão como a da Figura~\ref{Fig:TeoremaEixosParalelosDM} para a direção dos eixos $z$ e $p$. 
+
+Tomando a contribuição para o momento de inércia de um ponto qualquer, representado por um círculo cinza na figura, verificamos que existe uma relação entre as distâncias entre o ponto e o eixo $z$ e entre o ponto e o eixo $p$: as projeções nos eixos $x$ e $y$ de  $r_\perp$ são dadas em termos das projeções de $r'_\perp$, e $h$ por:
+\begin{align}
+    r_{\perp, \,x} &= r'_{\perp, \, x} + h_x \\
+    r_{\perp, \,y} &= r'_{\perp, \, y} + h_y.
+\end{align}
+%
+Através do Teorema de Pitágoras, temos que $r_\perp^{\prime \,2} = r_{\perp, \,x}^{\prime \,2} + r_{\perp, \, y}^{\prime \, 2}$ podemos escrever a Equação~\eqref{Eq:TeorEixosParalelosDefIp}, utilizando as relações acima, como
 \begin{equation}
-	I_p = \int (x-a)^2 + (y-b)^2 dm.
+	I_p = \int (r_{\perp, \,x} - h_x)^2 + (r_{\perp, \, y} - h_y)^2 \;dm.
 \end{equation}
 %
 Desenvolvendo os quadrados e reagrupando os termos, podemos escrever
 \begin{equation}
-	I_p = \int (x^2 + y^2) dm - 2a \int x dm - 2b \int y dm + \int (a^2 + b^2) dm.
+	I_p = \int (r_x^2 + r_y^2) \;dm - 2a \int r_x \;dm - 2b \int r_y \;dm + \int (h_x^2 + h_y^2) \;dm.
 \end{equation}
 %
-A segunda e a terceira integrais acima são justamente as expressões para o cálculo da posição do centro de massa nos eixos $x$ e $y$, respectivamente. Devido à escolha da posição da origem do sistema de coordenadas, temos que $x_{\textrm{CM}} = y_{\textrm{CM}} = 0$. Além disso, podemos ver da figura que $x^2 + y^2 = r'^2$ e que $a^2 + b^2 = h^2$. Logo
+A segunda e a terceira integrais acima são as expressões para o cálculo da posição do centro de massa nos eixos $x$ e $y$, respectivamente. Devido à escolha da posição da origem do sistema de coordenadas, temos que $r_x^{\textrm{CM}} = r_y^{\textrm{CM}} = 0$. Além disso, podemos ver da figura que $r_{\perp, \, x}^2 + r_{\perp, \, y}^2 = r_\perp^2$ e que $h_x^2 + h_y^2 = h^2$. Logo
 \begin{equation}
-	I_p = \int r'^2 dm + \int h^2 dm.
+	I_p = \int r_\perp^2 \;dm + \int h^2 \;dm.
 \end{equation}
 %
-A primeira integral nada mais é do que o cálculo do momento de inércia em torno da origem, ou seja, em torno do eixo que passa pelo centro de massa. Já na segunda integral, $h$ é a distância entre os eixos que passam por $O$ e por $P$ que é constante. Retirando-a da integral, obtemos a seguinte expressão, conhecida como \textbf{Teorema do Eixos Paralelos}
+A primeira integral nada mais é do que o cálculo do momento de inércia em torno do eixo $z$, ou seja, em torno do eixo que passa pelo centro de massa. Já na segunda integral, $h$ é a distância entre os eixos $z$ e $p$, que é constante. Retirando-a da integral, obtemos a seguinte expressão, conhecida como \emph{Teorema do Eixos Paralelos}
 \begin{equation}\label{Eq:TeoremaEixosParalelos}
-	I_p = I_{\textrm{CM}} + h^2 M,
+	I_p = I_{\textrm{CM}} + h^2 M, \mathnote{Teorema dos eixos paralelos}
 \end{equation}
 %
 onde usamos o fato de que
@@ -1397,7 +1873,74 @@ onde usamos o fato de que
 	\int dm = M.
 \end{equation}
 
-Concluímos, portanto, que conhecendo o momento de inércia de um objeto em torno de um eixo qualquer que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo $P$ paralelo ao primeiro, bastando conhecer a distância $h$ entre os dois eixos e a massa do objeto. É importante destacar que o eixo $P$ não precisa necessariamente atravessar o corpo em algum ponto, podendo passar fora dele, como no caso de uma esfera que gira em torno de um eixo estando ligada por um fio fino. 
+Concluímos, portanto, que conhecendo o momento de inércia de um objeto em torno de um eixo qualquer que passa pelo centro de massa, podemos calcular o momento de inércia em torno de qualquer eixo $p$ paralelo ao primeiro, bastando conhecer a distância $h$ entre os dois eixos e a massa do objeto. É importante destacar que o eixo $p$ não precisa necessariamente atravessar o corpo em algum ponto, podendo passar fora dele. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Momento de inércia de uma haste fina que gira em torno de um eixo que passa por sua extremidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos determinar o momento de inércia de uma haste fina que gira em torno de um eixo $p$ que passa por sua extremidade, perpendicularmente ao eixo da haste. Sabemos que o momento de inércia em torno de um eixo que passa pelo centro de massa, perpendicularmente ao eixo da haste, é dado por
+\begin{equation}
+    I_{\rm{CM}} = \frac{1}{12} ML^2.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+\draw[fill] (0,0) circle (0.4pt);
+
+\draw[dashdotted, ->] (0,0)+(0,0.1) -- +(0, 1.5) coordinate (top) node[below left]{$z$};
+\draw[dashdotted] (0,0)+(0,-0.1) -- +(0,-1);
+
+\draw (15:-1.25) circle (0.05);
+\draw (0,0.05) coordinate (angmid) -- +(15:-1.25) coordinate (angstart);
+\draw (0,-0.05) -- +(15:-1.25);
+
+\draw (0,0.05)+(15:1.2) arc[start angle = 90, end angle = -90, radius = 0.05];
+\draw (0,0.05) -- +(15:1.2);
+\draw (0,-0.05) -- +(15:1.2);
+
+\draw[fill] (15:-1.25) coordinate (icomp) circle (0.4pt);
+\draw[dashdotted, ->] (15:-1.25) -- (15:-2.15) node[below right] {$x$};
+\draw[dashdotted] (15:1.25) -- (15:2);
+
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm]{angle = top--angmid--angstart};
+
+\draw[->] (1.17,0.3)+(100:1) arc[start angle = -240, end angle = 60, x radius = 0.3, y radius = 0.15];
+
+\draw[|<->] (0,-0.3)+(15:-1.25) -- node[below right]{$L$} +(15:1.25);
+
+% Eixo p
+\draw[dashdotted, ->] (0,0.05)++(15:1.2) -- +(0,1.5) node[below right]{$p$};
+\draw[dashdotted] (0,-0.05)++(15:1.2) -- +(0,-1); 
+
+\end{tikzpicture}
+\caption{Haste fina girando em torno da extremidade.\label{Fig:TeoremaEixosParaleleosExHaste}}
+\end{marginfigure}
+
+O eixo $p$ em torno do qual estamos interessados em calcular o momento de inércia é paralelo ao eixo que passa pelo centro de massa (eixo $z$, Figura~\ref{Fig:TeoremaEixosParaleleosExHaste}). Logo, podemos usar o Teorema dos Eixos Paralelos, considerando que a distância entre os dois eixos é dada por
+\begin{equation}
+    h = \frac{L}{2}.
+\end{equation}
+%
+Assim:
+\begin{align}
+    I_p &= I_{\rm{CM}} + h^2 M \\
+    &= \frac{1}{12} ML^2 + \left(\frac{L}{2}\right)^2 M \\
+    &= \frac{1}{12} ML^2 + \frac{1}{4} ML^2 \\
+    &= \left(\frac{1}{12} + \frac{1}{4}\right) ML^2,
+\end{align}
+%
+o que resulta em 
+\begin{equation}
+    I_p = \frac{1}{3} ML^2.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Limite $h \to 0$}
@@ -1408,7 +1951,31 @@ Muitas vezes o segundo termo na Equação~\eqref{Eq:TeoremaEixosParalelos} é mu
   I_P = h^2 M,
 \end{equation}
 %
-que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:DefMomInercia} para uma partícula girando em torno do eixo $P$, com toda a massa concentrada no centro de massa. Esta análise é o que nos permite tratar uma esfera de raio $r_e$ girando a uma distância $d$ em torno de um eixo como se fosse uma partículo, se $d \gg r_e$.
+que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:MomentoInerciaConjPart} para uma partícula girando em torno do eixo $p$, com toda a massa concentrada no centro de massa. Esta análise é o que nos permite tratar uma esfera de raio $r_e$ girando a uma distância $d$ em torno de um eixo como se fosse uma partículo, se $d \gg r_e$.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[Stealth-, dashdotted] (0,1.25) node[below right]{$p$} -- (0,-1.25); 
+    
+    \draw (0,-0.05) -- +(4,0);
+    \draw (0,0.05) -- +(4,0);
+    
+    \draw[dashdotted, ->] (2, 0.05) -- +(0,1.2) node[below right]{$z_h$};
+    \draw[dashdotted] (2, -0.05) -- +(0,-1.2);
+    
+    \draw (4.25, 0) circle (0.25);
+    \draw[dashed] (4, 0) arc[start angle = -180, end angle = 0, x radius = 0.25, y radius = 0.1];
+    \draw[dotted] (4, 0) arc[start angle = 180, end angle = 0, x radius = 0.25, y radius = 0.1];
+    \draw[fill] (4.25, 0) circle (0.4pt);
+    
+    \draw[dashdotted,->] (4.25, 0.25) -- +(0,1) node[below right]{$z_e$};
+    \draw[dashdotted] (4.25, -0.25) -- +(0,-1);
+    
+\end{tikzpicture}
+\caption{Para calcular o momento de inércia do objeto composto mostrado acima em torno do eixo $p$ devemos calcular o momento de inércia da haste e da esfera, ambos em torno do eixo $p$. No entanto, devido ao fato de que a distância entre o eixo de rotação e o eixo que passa pelo centro de massa da esfera é muito maior que o raio da esfera, podemos desprezar o termo referente à rotação da esfera em torno do próprio eixo ($I_{\rm{CM}}$ no Teorema dos Eixos Paralelos).}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Teorema dos eixos perpendiculares}
@@ -1416,9 +1983,127 @@ que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:DefMomInercia} para
 
 % https://en.wikipedia.org/wiki/Perpendicular_axis_theorem
 
+Para um objeto que se aproxima de uma figura plana, como a placa da Figura~\ref{Fig:TeoremaDosEixosPerpendicularesPlaca}, temos um resultado bastante interessante: os momentos de inércia em torno dos eixos $x$, $y$, e $z$ seguem a relação
+\begin{equation}
+    I_z = I_x + I_y.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    % Placa
+    \draw (1,0,1) -- (1,0,-1) -- (-1,0,-1) -- (-1,0,1) -- cycle;
+    \draw (1,-0.2,-1) -- (1,-0.2,1) -- (-1,-0.2,1);
+    \draw (1,0,1) -- (1,-0.2,1);
+    \draw (-1,0,1) -- (-1,-0.2,1);
+    \draw (1,0,-1) -- (1,-0.2,-1);
+    
+    % eixos
+    \draw[dashdotted, ->] (0,0,0) -- +(0,1.5,0) node[below right]{$z$};
+    \draw[dashdotted] (0,-0.6,0) -- +(0,-1,0);
+    \draw[fill] (0,0,0) circle (0.4pt);
+    
+    \draw[dashdotted, ->] (0,-0.1,1) -- +(0,0,1.5) node[below right]{$x$};
+    \draw[fill] (0,-0.1,1) circle (0.4pt);
+    \draw[dashdotted] (0,-0.1,-1.25) -- +(0,0,-1);
+    
+    \draw[dashdotted, ->] (1,-0.1,0) -- +(1.5,0,0) node [below left]{$y$};
+    \draw[fill] (1,-0.1,0) circle (0.4pt);
+    \draw[dashdotted] (-1.1,-0.1,0) -- +(-1,0,0);
+    
+\end{tikzpicture}
+\caption{Para uma placa fina, os momentos de inércia em relação aos eixos mostrados na figura não são independentes: temos que $I_z = I_x + I_y$. \label{Fig:TeoremaDosEixosPerpendicularesPlaca}}
+\end{marginfigure}
+
+Para entender a origem dessa relação, basta analisarmos a Figura~\ref{Fig:TeoremaDosEixosPerpendicularesAnalise}. Para o momento de inércia em torno do eixo $x$, temos que a distância de uma partícula $P$ qualquer ao eixo é dada por
+\begin{equation}
+    r_\perp = y_P.
+\end{equation}
+%
+Assim, utilizando a Equação~\eqref{Eq:MomentoInerciaConjPart} para o momento de inércia de um conjunto de partículas, temos
+\begin{equation}
+    I_x = \sum_{i = 1}^{N_P} m_i y_i^2,
+\end{equation}
+%
+onde $N_P$ representa o número de partículas da placa.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2]
+
+    % Placa
+    \draw (-1,-1) rectangle (1,1);
+    
+    % eixos
+    \draw[->, dashdotted] (-1.5,0) -- (2,0) node[below left]{$x$};
+    \draw[->, dashdotted] (0,-1.5) -- (0,2) node[below left]{$y$};
+    
+    % distâncias
+    \draw[dotted] (0.75,0.5) -- (0.75,1.3);
+    \draw[dotted] (0.75,0.5) -- (1.3,0.5);
+    \draw[<->|] (0,1.3) -- node[above]{$x_P$} (0.75,1.3);
+    \draw[<->|] (1.3,0) -- node[right]{$y_P$} (1.3,0.5);
+    
+    %dm
+    \draw (0,0) -- (0.75,0.5);
+    \node (rp) at (15:0.5) {$r_P$};
+    \draw [fill, lightgray, draw = black] (0.75, 0.5) circle (1.4pt);
+    \path (0.75, 0.5) circle (1.4pt) node[above left]{$P$};
+    \draw[fill, white, draw = black] (0,0) circle (1.4pt) node[below left]{$z$};
+    \draw[fill] (0,0) circle (0.3pt);
+    
+\end{tikzpicture}
+\caption{Os momentos de inércia em torno dos eixos $x$ e $y$ dependem exclusivamente das distâncias das partículas ao eixo de rotação. No entanto, como a dimensão em $z$ é desprezível, podemos as denotar por $y_P$ e $x_P$, respectivamente. \label{Fig:TeoremaDosEixosPerpendicularesAnalise}}
+\end{marginfigure}
+
+Já para o momento de inércia em torno do eixo $y$, temos que
+\begin{equation}
+    r_\perp = x_P.
+\end{equation}
+%
+Logo,
+\begin{equation}
+    I_y = \sum_{i = 1}^{N_P} m_i x_i^2.
+\end{equation}
+
+Se somarmos as expressões para os momentos de inércia em torno desses eixos, obtemos
+\begin{align}
+    I_x + I_y &= \sum_{i = 1}^{N_P} m_i y_i^2 + \sum_{i = 1}^{N_P} m_i x_i^2 \\
+    &= \sum_{i = 1}^{N_P} \left[ m_i y_i^2 + m_i x_i^2\right] \\
+    &= \sum_{i = 1}^{N_P} \left[ m_i (y_i^2 + x_i^2)\right].
+\end{align}
+%
+Analisando a Figura~\ref{Fig:TeoremaDosEixosPerpendicularesAnalise}, verificamos que
+\begin{equation}
+    r_P^2 = x_P^2 + y_P^2.
+\end{equation}
+%
+Portanto,
+\begin{equation}
+    I_x + I_y = \sum_{i = 1}^{N_P} m_i r_i^2.
+\end{equation}
+
+Finalmente, se calcularmos o momento de inércia em torno do eixo $z$, verificamos que a distância a tal eixo é dada por
+\begin{equation}
+    r_\perp = r_P,
+\end{equation}
+%
+o que implica em um momento de inércia dado por
+\begin{equation}
+    I_z = \sum_{i = 1}^{N_P} m_i r_i^2.
+\end{equation}
+%
+Concluímos então que
+\begin{equation}
+    I_z = I_x + I_y.
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho e energia cinética para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Intro aqui}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia cinética de rotação}
@@ -1429,401 +2114,1128 @@ A energia cinética de um conjunto de partículas pode ser escrita como
 	K = \sum_{i=1}^N \frac{1}{2} m_i v_i^2,
 \end{equation}
 %
-onde $N$ é o número de partículas. Se, no caso de um corpo rígido, somarmos a energia cinética das partículas ao descreverem círculos ao redor do eixo de rotação, temos que a velocidade de cada uma delas é $v = \omega r$ -- onde $\omega$ é a velocidade angular do corpo rígido e $r$ é a distância de cada uma das partículas ao eixo de rotação --. Logo,
+onde $N$ é o número de partículas. No caso de um corpo rígido, as partículas descrevem círculos em torno do eixo de rotação. Para uma partícula qualquer, temos que a velocidade é dada por
+\begin{equation}
+    v_i = \omega r_\perp^i,
+\end{equation}
+%
+onde $\omega$ é a velocidade angular do corpo rígido e $r_\perp^i$ é a distância  partícula ao eixo de rotação. Logo,
 \begin{align}
-	K &= \sum_{i=1}^{N} \frac{1}{2} m_i (\omega r_i)^2 \\
-	&= \sum_{i=1}^N \frac{1}{2} m_i r_i^2 \omega^2 \\
-	&= \frac{1}{2} \left[\sum_{i=1}^N m_i r_i^2\right] \omega^2,
+	K &= \sum_{i=1}^{N} \frac{1}{2} m_i (\omega r_\perp^i)^2 \\
+	&= \sum_{i=1}^N \frac{1}{2} m_i (r_\perp^i)^2 \omega^2 \\
+	&= \frac{1}{2} \left[\sum_{i=1}^N m_i (r_\perp^i)^2\right] \omega^2,
 \end{align}
 %
-onde $\omega$ pôde sair do somatório pois a velocidade angular é a mesma para todas as partículas que compõe um corpo rígido. Notamos que o termo entre colchetes é uma constante que só depende das características do corpo rígido. Além da dependência na massa das partículas, também temos uma depenência na posição que elas ocupam em relação ao eixo de rotação. Definimos então uma grandeza denominada \emph{momento de inércia}, representada por $I$:
-\begin{equation}\label{Eq:DefMomentoDeInercia}
-	I = \sum_{i=1}^N m_i r_i^2.
-\end{equation}
-
-Utilizando essa definição, temos que a energia cinética é dada por
+onde $\omega$ pôde sair do somatório pois a velocidade angular é a mesma para todas as partículas que compõe um corpo rígido. Note que o termo entre colchetes é o momento de inércia em torno do eixo de rotação. Logo, temos que a energia cinética é dada por
 \begin{equation}
-	K = \frac{1}{2} I \omega^2.
+	K = \frac{1}{2} I \omega^2,
 \end{equation}
 %
-Temos mais uma vez uma equação que segue uma analogia com o caso da translação. O momento de inércia I cumpre um papel similar ao da massa nessa situação -- e em muitas outras, como veremos adiante --, sendo também conhecido como \emph{inércia rotacional}, da mesma forma que a massa pode ser denominada como \emph{inércia translacional}.
-
-\comment{TODO discutir que o momento de inércia depende de onde a gente escolhe o eixo, ou pelo menos fazer isso na seção de cálculo do momento de inércia}
+e temos mais uma vez uma equação que segue uma analogia com o caso da translação.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Teorema trabalho-energia para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-explicar
+Através da Segunda Lei de Newton para a rotação, sabemos que um corpo sujeito a um torque resultante externo estará sujeito a uma aceleração. Devido a essa aceleração, ele sofrerá uma variação de sua velocidade angular, que --~como vimos na seção anterior~-- está ligada a uma variação da energia cinética do corpo. Nesse caso, é interessante que tenhamos também uma expressão para o trabalho realizado pela força, em termos de variáveis características da rotação. Isso nos permitirá utilizar o Teorema Trabalho/Energia-Cinética e, consequentemente, a conservação da energia mecânica.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Figura superior
+
+\draw (0,0) ellipse (1.25 and 0.5);
+
+\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
+\draw[dashdotted] (0,-1.5) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+\draw[fill] (0,0) circle (0.4pt);
+
+\draw[dashdotted] (15:-2) -- (0,0);
+
+% raio
+\draw[|-|] (-0.05,0.15) -- node[above]{$r_\perp$} +(15:-0.8);
+\draw[fill] (15:-0.8) circle (0.4pt);
+
+% força
+\draw[thick, ->] (15:-0.8) -- +(-65:1) node[below]{$\vec{F}$};
+
+% projeção radial
+\draw[dashed] (15:-0.8) ++(-65:1) -- (15:-1.6); 
+\draw[->] (15:-0.8) -- (15:-1.6) node[above]{$F_r$};
+
+% projeção tangencial
+\draw[dashed] (15:-0.8) +(-30:1.6) -- +(-30:-0.3);
+\draw[dashed] (15:-0.8) ++(-65:1) -- +(18:0.8);
+\draw[->] (15:-0.8) -- +(-30:1.35) node[above]{$F_t$};
+
+% phi
+\draw (15:-1.2) arc (150:117:1.25 and -0.5);
+\node (theta) at (30:-1.1) {$\phi$};
+
+\end{tikzpicture}
+\caption{. \label{Fig:DeducaoTeoremaTrabEnergiaRotacoes}}
+\end{marginfigure}
+
+Para determinar uma expressão para o trabalho efetuado por uma força em uma rotação, vamos considerar a Figura~\ref{Fig:DeducaoTeoremaTrabEnergiaRotacoes}, que é similar àquela utilizada para obter a Segunda Lei de Newton para as Rotações. Nela, consideramos que uma força $\vec{F}$ de módulo constante e que faz um ângulo $\phi$ também constante em relação ao raio que liga o eixo de rotação ao ponto de aplicação da força, e que atua sobre um ponto $P$ do disco.
+
+Podemos calcular o trabalho realizado no deslocamento de tal ponto se considerarmos a componente $F_t$: essa componente da força é sempre na direção do vetor deslocamento instantâneo. Assim,
+\begin{equation}
+    W = F_t s,
+\end{equation}
+%
+onde $s$ é o comprimento do arco descrito pelo ponto $P$. Devido ao fato de que o comprimento do arco está ligado ao deslocamento angular em radianos através de
+\begin{equation}
+    \theta = \frac{s}{r},
+\end{equation}
+%
+onde $r$ é o raio da trajetória circular, podemos reescrever a expressão para o trabalho como
+\begin{equation}
+    W = F_t r_\perp \Delta\theta,
+\end{equation}
+%
+onde utilizamos $\Delta \theta$ para evidenciar que estamos tratando do deslocamento angular sofrido sob influência da força $\vec{F}$, e não de uma posição angular específica\footnote{É claro que se escolhermos $\theta_i = 0$, temos que $\theta_f = \theta$.}.
+
+Da própria definição de torque, temos que
+\begin{equation}
+    \tau = F_t r_\perp,
+\end{equation}
+%
+portanto,
+\begin{equation}
+    W = \tau \Delta\theta, \mathnote{Trabalho realizado por um torque constante}
+\end{equation}
+%
+Note que o trabalho pode ser positivo ou negativo, sendo que tal sinal é determinado tanto pelo sinal do torque, quanto pelo sinal do deslocamento angular.
+
+Caso a força $\vec{F}$ não seja constante, podemos considerar o trabalho realizado em um deslocamento infinitesimal $ds$, considerando que $\vec{F}$ se mantenha constante\footnote{Como o deslocamento é infinitesimal, podemos considerar que as variações de intensidade ou direção são desprezíveis.}, o que nos leva a um trabalho infinitesimal $dW$ dado por
+\begin{align}
+    dW &= F_t \, ds \\
+    &= F_t \, r_\perp d\theta \\
+    &= \tau \,d\theta,
+\end{align}
+%
+onde usamos o fato de que um deslocamento infinitesimal $ds$ corresponde a um deslocamento angular infinitesimal
+\begin{equation}
+    \frac{ds}{r} = d\theta.
+\end{equation}
+%
+Finalmente, para obtermos o trabalho total, basta integrarmos entre os valores inicial e final das variáveis:
+\begin{equation}
+    W = \int_{\theta_i}^{\theta_f} \tau \;d\theta. \mathnote{Trabalho realizado por um torque variável}
+\end{equation}
+%
+Na expressão acima, a determinação do sinal do deslocamento está ligada aos limites de integração: se $\theta_f > \theta_i$, então temos um deslocamento angular positivo; caso contrário, o deslocamento angular é negativo. Note que nesse caso não estamos nos referindo ao módulo da variável: se, por exemplo, $\theta_f = -\np[rad]{2,0}$ e $\theta_i = -\np[rad]{10,0}$, então $\theta_f > \theta_i$.
+
+
+Finalmente, é importante destacar que tanto a expressão obtida para o trabalho realizado por um torque constante, quanto a obtida para o trabalho realizado por um torque variável são análogas àquelas que obtivemos para o caso da translação.
 
 %%%%%%%%%%%%%%%%%%%%
 \paragraph{Potência}
 %%%%%%%%%%%%%%%%%%%%
 
-explicar
+Da mesma forma que definimos a potência para o caso da translação, podemos defini-la para a rotação como
+\begin{equation}
+    \mean{P} = \frac{W}{\Delta t},
+\end{equation}
+%
+no caso da potência média, ou
+\begin{equation}
+    P = \frac{dW}{dt}
+\end{equation}
+%
+no caso da potência instantânea.
+
+Assim como no caso da translação, é interessante notarmos que para um torque constante, temos
+\begin{align}
+    P &= \frac{d}{dt} \tau \theta \\
+    &= \tau \frac{d\theta}{dt} \\
+    &= \tau \omega,
+\end{align}
+%
+de onde verificamos que ao aplicarmos um torque constante, o trabalho é tanto maior quanto maior for a velocidade angular. Esse resultado impôe um limite no torque efetuado por um dispositivo como um motor elétrico, cuja potência seja constante, ou impôe um valor de potência para um valor de velocidade angular específico, se o torque for constante. Essa equação mostra que o torque e a potência de um motor a combustão interna, por exemplo, não são independentes: se considerarmos que o torque seja aproximadamente constante para toda a faixa de rotação que o motor é capaz de trabalhar, verificamos que a potência não é constante, mas aumenta conforme a rotação aumenta.\footnote{Os valores de potência divulgados por fabricantes de veículos são sempre os valores máximos.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: Desenrolando um carretel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% podemos verificar o trabalho e a potência efetuadas ao puxar um fio de um carretel, desenrolando-o.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia mecânica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Discutir a energia mecânica de um sistema que envolve rotação. Não precisa se preocupar em descrever a energia potencial gravitacional em termos de deslocamento do centro de massa, isso será feito ao se discutir movimento do centro de massa.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
 
-Um exemplo simples e legal para discutir é o de uma barra fina presa pela extremidade, disposta horizontalmente, e que pode girar. Podemos calcular a velocidade após ela efetuar o movimento pendular. A variação da altura do CM nos dá a energia.
+    \draw[pattern = north west lines] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill] (1.5,0) circle (0.6pt);
+    \draw[dotted,rotate = -45] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill, rotate = -45] (1.5,0) circle (0.6pt);
+    \draw[pattern = north east lines, rotate = -90, pattern color = gray, draw = gray] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill, rotate = -90] (1.5,0) circle (0.6pt);
+    
+    \draw[loosely dotted] (1.5,0) arc[start angle = 0, end angle = -90, radius = 1.5];
+    \draw[->] (3.3, 0) arc[start angle = 0, end angle = -15, radius = 3.3];
+    
+    \draw[fill] (0,0) circle (0.8pt);
+    
+\end{tikzpicture}
+\caption{Em um sistema formado por uma haste que pode girar em torno de uma extremidade, sujeita à força peso, temos uma situação onde a energia potencial gravitacional é transformada em energia cinética de rotação. \label{Fig:EnergiaMecanicaNaRotacao}}
+\end{marginfigure}
 
-Tentar fazer isso usando uma máquina de Atwood, pra dar um paralelo com o que foi feito com a translação.
+Podemos utilizar o que sabemos de energia mecânica e o que verificamos sobre energia cinética na rotação para analisar um sistema mecânico que envolve uma rotação. Se tomarmos o sistema da Figura~\ref{Fig:EnergiaMecanicaNaRotacao} --~em que uma haste pode girar em torno de um eixo que passa por sua extremidade~--, temos a atuação das forças peso, arrasto, atrito, e normal.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Rolamento}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Vamos considerar que o arrasto e o atrito são desprezíveis, porém não podemos dizer o mesmo da força normal. A normal é exercida pelas paredes do eixo de rotação nas paredes da cavidade onde ele se encaixa\footnote{Essa cavidade é denominada \emph{mancal}.}, e é responsável pela aceleração centrípeta no movimento de rotação. No entanto, o ponto onde a força é aplicada não sofre nenhum deslocamento na direção da força normal, o que implica em um trabalho nulo realizado por essa força. Como o peso é uma força conservativa, podemos escrever
+\begin{align}
+    \Delta E &= W_{\rm{NC}} \\
+    &= 0,
+\end{align}
+%
+o que resulta em
+\begin{equation}
+    E_i = E_f.
+\end{equation}
+%
+Sabemos que esse resultado se aplica ao sistema de partículas que compõe o corpo rígido. Verificamos no capítulo anterior que a energia potencial de um corpo rígido pode ser calculada através da posição do centro de massa, e na seção anterior que a energia cinética associada a um corpo rígido pode ser calculada através de 
+\begin{equation}
+    K = \frac{1}{2} I\omega^2.
+\end{equation}
+%
+Portanto, para um sistema que está sujeito a uma simples rotação, podemos utilizar\footnote{Se $W_{\rm{NC}} = 0$, claro.} a conservação da energia mecânica: basta interpretarmos a energia cinética como uma energia cinética para a rotação.
 
-\comment{TODO substituir o ``valor'' da velocidade do centro de massa por algo diferente de $v_CM$, deixar esta notação para a ''variável'' (como por exemplo $v_s$, $v_i$) ou usar $u$, sei lá}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: velocidade angular de uma haste após sofrer um deslocamento sujeita à força peso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O rolamento é um exemplo de movimento que combina uma \emph{rotação} com uma \emph{translação}. Se analisarmos o movimento de cada ponto de um objeto que rola, teremos uma situação bastante complicada: enquanto o centro de massa descreve uma treta, os demais pontos descrevem \emph{cicloides}. Podemos, no entanto, dividir esse movimento em duas componentes simples: um movimento de translação do centro de massa e um movimento de rotação pura no referencial preso ao centro de massa.
-Vamos analisar aqui somente rolamentos que ocorrem se deslisar. 
+Utilizando a conservação da energia mecânica, podemos determinar a velocidade da haste na Figura~\ref{Fig:EnergiaMecanicaNaRotacao} após ela sofrer um deslocamento de \np[\tcdegree]{90,0}, partindo do repouso:
+\begin{align}
+    E_i &= E_f \\
+    K_i + U_i &= K_f + U_f \\
+    mg\frac{L}{2} &= \frac{1}{2} I \omega_f^2,
+\end{align}
+%
+onde usamos o fato de que a velocidade angular inicial é zero, e escolhemos a posição do centro de massa da haste no final da rotação como sendo o zero do eixo vertical. Além disso, assumimos que o comprimento da haste é $L$, o que implica em uma posição inicial do centro de massa dada por $L/2$ . Substituindo a expressão para o momento de inércia, obtemos
+\begin{equation}
+    mg\frac{L}{2} = \frac{1}{2} \frac{mL^2}{3} \omega_f^2,
+\end{equation}
+%
+o que resulta em
+\begin{equation}
+    \omega_f = \sqrt{\frac{3g}{L}}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Máquina de Atwood}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Tentar determinar a velocidade de translação dos blocos em máquina de Atwood, mas considerando a inércia da polia. Dar um paralelo com o que foi feito com a translação.
+
+Podemos utilizar a expressão para a energia cinética de um corpo rígido juntamente com a energia mecânica para analisar um sistema que contém partes que estão sujeitas a movimentos de translação e de rotação, conjuntamente. No caso do sistema mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, temos dois blocos de massas $m_1$ e $m_2$, presos a uma corda de massa desprezível, e que passa por uma polia. A polia tem momento de inércia $I$ e raio $r$. Ao liberarmos o sistema a partir do repouso, qual é a velocidade dos blocos após terem percorrido uma distância $d$?
+
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+       
+    % polia
+    \draw[interface] (2,1.2) -- (-2,1.2);
+    
+    \draw[pattern = north west lines] (0,0.5) circle (0.5);
+    \draw[fill] (0,0.5) circle (1pt);
+    \draw[fill] (0,0.5) -- (0.2,1.2) -- (-0.2,1.2) -- cycle;
+    
+    % bloco esquerdo
+    \draw[pattern = north west lines] (-0.8,-4) rectangle (-0.2, -4.6);
+    \draw[dotted, pattern = north west lines] (-0.2,-2) rectangle (-0.8,-2.6);
+    \draw (-0.5,0.5) -- (-0.5,-4);
+    \draw[fill] (-0.5,0.5) circle (0.8pt);
+    \draw[thick, ->] (-0.5,0.5) -- node[left]{$\vec{T}_1^s$} +(0,-0.75);
+    \draw[fill] (-0.5, -4.3) circle (1pt);
+    \draw[thick, ->] (-0.5,-4.3) -- +(0,-0.6) node[right]{$\vec{P}_1$};
+    \draw[thick, ->] (-0.5,-4) -- node[right]{$\vec{T}_1^i$} +(0,0.75);
+    
+    % bloco direito
+    \draw[pattern = north west lines] (0.2,-2) rectangle (0.8,-2.6);
+    \draw[dotted, pattern = north west lines] (0.8,-4) rectangle (0.2, -4.6);
+    \draw (0.5,0.5) -- (0.5,-2);
+    \draw[thick, ->] (0.5,0.5) -- node[right]{$\vec{T}_2^s$}+(0, -1);
+    \draw[fill] (0.5,0.5) circle (0.8pt);
+    \draw[dotted] (0.5, -2.6) -- (0.5,-4);
+    \draw[fill] (0.5, -2.3) circle (1pt);
+    \draw[thick, ->] (0.5,-2.3) -- +(0,-1) node[right]{$\vec{P}_2$};
+    \draw[thick, ->] (0.5,-2) -- node[right]{$\vec{T}_2^i$} +(0,1);
+    
+    % eixo y
+    \draw[|-|] (1,-2.3) -- node[right]{$d$} (1,-4.3);
+    \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
+    \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
+\end{tikzpicture}
+\caption{Se não pudermos desprezar a massa da polia, ao determinar a energia mecânica no sistema acima, devemos levar em conta a energia cinética associada à rotação da polia.\label{Fig:MaquinaDeAtwoodComPolia}}
+\end{marginfigure}
+
+As forças que atuam nesse problema são as forças peso, tensões, e normal (no eixo da polia). Vamos desconsiderar o efeito de forças de arrasto e de atrito. A força normal não realiza trabalho pois o ponto onde a força é aplicada não se move (não sofre translação). 
+
+No caso das tensões, a determinação do trabalho é um pouco mais complexa. Verificamos que as tensões nos pontos superior e inferior de um dado segmento de corda são iguais, uma vez que estamos desprezando a massa da corda. Os trabalhos das tensões nesses dois pontos, no entanto, são de sinais opostos, já que a orientação entre a força e o deslocamento muda para cada um dos casos, o que nos dará um trabalho total nulo para as tensões.
+
+O que não fica claro, no entanto, é como determinamos o deslocamento no ponto onde supomos que se aplica a força na polia, uma vez que o ponto muda constantemente devido à rotação deste corpo. O mais adequado para explicar essa questão é lembrar que as tensões não são exercidas sobre a polia, mas sobre a corda. Nesse caso, temos que as tensões são exercidas sobre um segmento de corda, que se também se desloca por uma distância $d$. Assim, temos que os trabalhos devidos às tensões nos pontos superiores são iguais em módulo aos trabalhos das tensões nos pontos inferiores, mas têm sinais opostos.
+
+Agora precisamos também considerar o trabalho feito pela força de atrito entre a corda e a polia. Nesse caso, podemos simplesmente lembrar que existe um par ação-reação: a força atua sobre a polia, enquanto a reação atua sobre a corda. Porém a força tem o mesmo módulo nos dois casos, assim como o deslocamento. Como a orientação entre a força e o deslocamento e a mesma em um caso e oposta no outro, verificamos que o trabalho total devido ao atrito também é zero.
+
+Podemos utilizar a interpretação simplificada de que as tensões se aplicam diretamente à polia se verificarmos o trabalho através da relação para o trabalho de um torque:
+\begin{align}
+    W &= \tau \Delta\theta \\
+    &= T r \sen\np[\tcdegree]{90} \, \Delta \theta,
+\end{align}
+%
+o que, se usarmos $s = \theta r$, em
+\begin{align}
+    W &= T s \\
+    &= T d,
+\end{align}
+%
+onde usamos o fato de que o comprimento do arco descrito pelo ponto sujeito à tensão é igual à distância $d$ percorrida pelos blocos. A expressão acima serve tanto para o segmento de corda à esquerda, quanto para aquele à direita, desde que se leve em conta os sinais adequados.
+
+Finalmente, como concluímos que $W_{\rm{NC}} = 0$, sabemos que a energia mecânica se conserva. Assim,
+\begin{align}
+    E_i &= E_f \\
+    K_{t,1}^i + K_{t,2}^i + K_r^i + U_{g,1}^i + U_{g,2}^i &= K_{t,1}^f + K_{t,2}^f + K_r^f + U_{g,1}^f + U_{g,2}^f.
+\end{align}
+%
+Como o sistema parte do repouso, as energias cinéticas iniciais são nulas. A posição inicial do bloco 1 coincide com a origem do eixo vertical $y$, assim como a posição final do bloco 2. Assim, podemos simplificar a expressão acima, obtendo
+\begin{equation}
+    U_{g,2}^i = K_{t,1}^f + K_{t,2}^f + K_r^f + U_{g,1}^f.
+\end{equation}
+%
+ou, substituindo as expressões para as energias cinéticas e potenciais,
+\begin{equation}
+    m_2 g d = \frac{m_1 v_{1, f}^2}{2} + \frac{m_2 v_{2, f}^2}{2} + \frac{I\omega_f^2}{2} + m_1 g d.
+\end{equation}
+
+As velocidades dos blocos são as mesmas, pois estão ligados por uma corda inextensível. Além disso, a velocidade da borda da polia é a mesma que a da corda, se não há deslizamento. Podemos então utilizar essas observações para reescrever a expressão acima como
+\begin{align}
+    (m_2 - m_1) gd &= \frac{(m_1 + m_2) v_f^2}{2} + \frac{I v_f^2}{2r^2} \\
+    &= \frac{(m_1 + m_2 + I/r^2) v_f^2}{2},
+\end{align}
+%
+o que resulta na seguinte expressão para a velocidade:
+\begin{equation}
+    v_f = \sqrt{\frac{2(m_2-m_1)gd}{m_1 + m_2 + I/r^2}}.
+\end{equation}
+
+Note que obtivemos uma velocidade menor do que se tivessemos desprezado a massa da polia. Isso se deve ao fato de que parte da energia potencial armazenada no sistema foi transformada em energia cinética associada à rotação da polia.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Movimentos de rotação e de translação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Já verificamos como descrever a translação de um corpo através do centro de massa, e também a sua  rotação em torno de um eixo que passa pelo centro de massa, sendo que a direção do eixo é fixa. Podemos descrever um movimento complexo de um corpo rígido considerando esses dois tipos de movimento.
+
+Se, por exemplo, atiramos um bastão em um lançamento oblíquo, sendo que o bastão tem uma velocidade angular em torno do centro de massa, sabemos que o movimento de qualquer ponto pode ser descrito como uma rotação em torno do centro de massa e por um deslocamento do centro de massa. A descrição de movimento desse tipo, no entanto, depende de conhecermos diversas informações: módulo e direção da velocidade do centro de massa, módulo da velocidade angular, direção do eixo de rotação, aceleração gravitacional, forças de arrasto, dimensões e massa do objeto, e potencialmente outras quantidades. Isso se deve ao fato de que os movimentos de rotação e de translação são independentes.
+
+Alguns movimentos, no entanto, podem ter sua complexidade reduzida devido a um \emph{vínculo} entre o movimento de rotação e o de translação. Verificaremos a seguir as propriedades do \emph{rolamento}, cujo vínculo entre as grandezas da rotação e da translação tem como origem o fato de que exigimos que não ocorra deslizamento do corpo que gira/translada em relação a uma superfície de apoio.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Características do rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Ao analisarmos o movimento no referencial do solo, verificamos que o fato de não haver deslizamento implica que no ponto de contato entre corpo que rola e a superfície, a velocidade é nula. Já no topo, a velocidade é maior que a do centro de massa, pois durante o rolamento ocorre um deslocamento para frente (em relação ao centro de massa) dessa parte superior. Por outro lado, no referencial do centro de massa, verificamos que as partes superior e inferior se deslocam com a mesma velocidade, porém em sentidos opostos. Podemos relacionar a velocidade angular da roda no referencial do centro de massa à velocidade dos pontos na borda da roda através de
-\begin{equation}
-  v_b = \omega R.
-\end{equation}
-%
-Ainda no referencial do centro de massa, observamos que o solo se move para trás com uma velocidade igual em módulo e direção, porém com sentido contrário, à velocidade do centro de massa em relação ao solo, cujo módulo é $v_\textrm{CM}$. Se não ocorre deslizamento entre a roda e o ponto de contato, concluímos que
-\begin{equation}
-  v_{\textrm{CM}} = v_b.
-\end{equation}
-%
-Deste resultado, concluímos que a parte superior da roda (no referencial do centro de massa) se desloca para frente com velocidade $v_s = v_{\textrm{CM}}$, enquanto a inferior se desloca com velocidade $v_i = -v_{\textrm{CM}}$. Neste referencial, a velocidade do centro de massa é, por definição, nula.
+Um dos movimentos mais simples em que há um vínculo entre o movimento de rotação e o de translação, é o \emph{rolamento sem deslizamento}: nesse caso, o deslocamento do centro de massa está vinculado ao deslocamento angular. Vamos considerar aqui somente rolamentos que ocorrem sobre superfícies planas.\footnote{Para superfícies sujeitas a curvaturas, o ponto de contato entre a superfície e o corpo mudará de posição, o que complica a análise do problema.}
 
-Para encontrarmos a velocidade no referencial do solo, basta utilizarmos $\vec{v}_S = \vec{v}_{S'} + \vec{v}_{SS'}$, sabendo que $\vec{v}_{SS'} = v_{\textrm{CM}}$, pois é a velocidade com que o referencial $S'$ se desloca em relação ao referencial do solo. Concluímos então que no referencial do solo
+Matematicamente, o vínculo entre o deslocamento angular e o deslocamento do centro de massa, pode ser descrito através de (veja a Figura~\ref{Fig:DeslRolamento})
+\begin{equation}
+    \Delta x_{\rm{CM}} = r \, \theta,
+\end{equation}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    % piso
+    \draw[gray, interface] (-3,0) -- (1,0);
+    
+    % eixo x
+    \draw[dashed, ->] (-3.0,0.5) -- (-2.46,0.5) (-1.46,0.5) -- (-0.5,0.5) (0.5,0.5) -- (1,0.5) node[below left]{$x$};
+    
+    % corpo inicial
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (-1.96, 0.5) circle (0.5);
+    \draw[gray, ->] (-1.96, 0.5)+(135:0.6) arc[start angle = 135, end angle = 80, radius = 0.6] node[above, midway]{$\omega$};
+    \draw[fill, gray] (-1.96,0.5) circle (0.8pt);
+    
+    % corpo final
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (0, 0.5) circle (0.5);
+    \draw[gray, ->] (0, 0.5)+(135:0.6) arc[start angle = 135, end angle = 80, radius = 0.6] node[above, midway]{$\omega$};
+    \draw[fill] (0,0.5) coordinate(CM) circle (0.8pt);
+    
+    % arco percorrido
+    \draw[thick] (0,0) coordinate (origin) arc[start angle = -90, end angle = -315, radius = 0.5];
+    \draw[fill] (0,0) circle (0.8pt);
+    \draw[fill] (0,0.5)+(45:0.5) coordinate (fim) circle (0.8pt);
+    
+    % \theta
+    \draw (origin) -- (CM);
+    \draw (CM) -- (fim);
+    \pic[draw, "$\theta$", angle eccentricity = 2, angle radius = 1.1mm]{angle = fim--CM--origin};
+    
+    % deslocamento
+    \draw[thick] (-1.96,0) -- (0,0);
+    \draw[fill] (-1.96,0) circle (0.8pt);
+    \draw[|<->|] (-1.96, -0.5) -- node[below]{$\Delta x_{\rm{CM}}$}(0,-0.5);
+
+\end{tikzpicture}
+\caption{Se um corpo rola sem deslizar, o deslocamento do centro de massa está ligado ao deslocamento angular através de $\Delta x_{\rm{CM}} = r \, \theta$. \label{Fig:DeslRolamento}}
+\end{marginfigure}
+%
+\noindent{}onde o eixo $x$ é um eixo paralelo à superfície sobre a qual o corpo rola, $r$ é o raio do corpo, e os deslocamento translacional e rotacional são representados por $\Delta x_{\rm{CM}}$ e $\theta$, respectivamente. Essa relação se deve ao fato de que, uma vez que não há deslizamento entre a superfície do objeto que rola e a superfície de apoio, o arco percorrido $s$ deve ter o mesmo comprimento que o deslocamento $\Delta x$ (podemos pensar nas distâncias que cobrem os pontos dos dois corpos que tiveram contato entre si). Por outro lado, vemos que durante o rolamento, o centro de massa se desloca por uma distância $\Delta x$. Note que o deslocamento angular deve ser medido em radianos, uma vez que a equação acima é uma consequência da prórpria definição para um ângulo em radianos. 
+
+Para determinarmos as relações entre as velocidades e acelerações, basta derivarmos a expressão acima em relação ao tempo, lembrando que $r$ é uma constante. Obtemos assim:
 \begin{align}
-  v_i &= 0 \\
-  v_{\textrm{CM}} &= v_{\textrm{CM}} \\
-  v_s &= 2 v_{\textrm{CM}}.
+    v_{\rm{CM}} &= \frac{d}{dt} \Delta x_{\rm{CM}} \\
+    &= \frac{d}{dt} r \, \theta \\
+    &= r \, \omega
 \end{align}
 %
-Esse resultado pode ser obtido de maneira intuitiva ao se ``somar'' um movimento de rotação pura a um movimento de translação pura, como na Figura ???. \comment{Figura mostrando isso aqui.}
+e
+\begin{align}
+    a_{\rm{CM}} &= \frac{d}{dt} v_{\rm{CM}} \\
+    &= \frac{d}{dt} r \, \omega \\
+    &= r \, \alpha.
+\end{align}
+%
+É importante destacar que essas relações podem ter um sinal que depende da escolha que adotamos para o sentido positivo do eixo $x$. Como convencionamos que rotações no sentido anti-horário são positivas, devemos analisar os sistemas que estamos tratando caso a caso: se uma rotação no sentido anti-horário implica em um deslocamento no sentido negativo de $x$, as relações para deslocamento, velocidade e posição apresentadas acima ganham um sinal negativo.
+
+Devemos destacar ainda que no referencial do centro de massa, a velocidade em módulo de um ponto na borda da roda é dada por
+\begin{align}
+    v_b &= r_\perp \, \omega \\
+    &= r \, \omega,
+\end{align}
+%
+e que tal resultado é exatamente igual ao módulo da velocidade do centro de massa no refencial do solo:
+\begin{equation}
+    v_b = v_{\rm{CM}}.
+\end{equation}
+
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    %% Figura superior
+    % piso
+    \draw[gray, interface] (-3,0) -- (1,0);
+    
+    % ref cm
+    \draw[dashed, ->] (0,0.5) -- +(1,0) node[below left]{$x$};
+    \draw[dashed, ->] (0,0.5) -- +(0,1) node[below left]{$y$};
+       
+    % corpo final
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (0, 0.5) circle (0.5);
+    \draw[gray, ->] (0, 0.5)+(180:0.6) arc[start angle = 180, end angle = 135, radius = 0.6] node[left, midway]{$\omega$};
+    \draw[fill] (0,0.5) coordinate(CM) circle (0.8pt);
+    
+    % velocidades
+    \draw[fill] (0,0) circle (0.8pt);
+    \draw[->] (0,0) -- +(-1,0) node[above right]{$\vec{v}_b$};
+    
+    \draw[fill] (0,-0.2) circle (0.8pt);
+    \draw[->] (0,-0.2) -- +(-1,0) node[below right]{$\vec{v}_{s, \,\rm{CM}}$};
+    
+    %% Figura inferior
+    % piso
+    \draw[gray, interface] (-3,-2.5) -- (1,-2.5);
+          
+    % corpo final
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (0, -2) circle (0.5);
+    \draw[gray, ->] (0, -2)+(180:0.6) arc[start angle = 180, end angle = 135, radius = 0.6] node[left, midway]{$\omega$};
+    \draw[fill] (0,-2) coordinate(CM) circle (0.8pt);
+    
+    % ref solo
+    \draw[dashed, ->] (-2,-2.5) -- +(1,0) node[below left]{$x$};
+    \draw[dashed, ->] (-2,-2.5) -- +(0,1) node[below left]{$y$};
+
+    % velocidades
+    \draw[->] (0,-2) -- +(1,0) node[below]{$\vec{v}_{\rm{CM}, \,s}$};
+
+\end{tikzpicture}
+\caption{Velocidades do solo e da borda no referencial do centro de massa, e do centro de massa no referencial do solo. Note em especial que $\vec{v}_{s,\,\rm{CM}} = -\vec{v}_{\rm{CM},\,s}$. \label{Fig:RolamentoRefereciais}}
+\end{marginfigure}
+
+Podemos compreender essa igualdade de maneira simples: se estivermos andando com uma bicicleta, estamos no referencial do centro de massa das rodas, uma vez que o quadro está prezo aos eixos que passam pelos centros de massa das rodas. Quando olhamos para o solo, vemos que ele se desloca para trás no eixo horizontal com uma velocidade $v_{s,\,\rm{CM}}^x$ em relação ao centro de massa da roda (Figura~\ref{Fig:RolamentoRefereciais} superior). Se não ocorre deslizamento, a velocidade da borda da roda também é para trás, com a mesma velocidade. Logo,
+\begin{equation}
+    v_b^x = v_{s,\,\rm{CM}}^x.
+\end{equation}
+%
+Já no referencial do solo (Figura~\ref{Fig:RolamentoRefereciais} inferior), temos claramente que o centro de massa de desloca com uma velocidade $v_{\rm{CM},\,s}^x$ dada por\footnote{O sinal na equação abaixo simplesmente denota o sentido das velocidades.}
+\begin{equation}
+    v_{\rm{CM},\,s}^x = - v_{s,\,\rm{CM}}^x,
+\end{equation}
+%
+isto é, a velocidade horizontal do centro de massa no referencial do solo é igual em valor absoluto à velocidade do solo no referencial do centro de massa. No ponto inferior, em particular, temos ainda que as velocidades só tem componentes na direção horizontal, por isso as velocidades no eixo $x$ correspondem ao próprio módulo da velocidade. Logo, temos uma igualdade entre o módulo da velocidade da borda, e o módulo da velocidade do centro de massa em relação ao solo:
+\begin{equation}
+    v_b = v_{\rm{CM},\,s}.
+\end{equation}
+
+Finalmente, devemos notar que, se a velocidade da borda da roda no ponto de contato é a mesma que a do solo no referencial do centro de massa, essa igualdade também é válida no referencial do solo. Como o referencial do solo é fixado no solo, temos que tal velocidade é \emph{nula}: para um rolamento que ocorre sem deslizar, a velocidade da borda da roda no ponto de contato com o solo é \emph{zero}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Movimento das partículas de um corpo rígido durante o rolamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O movimento das partículas de um corpo que rola só pode ser descrito de uma maneira simples no referencial do centro de massa, pois temos que as partículas executam círculos em torno do eixo de rotação. Uma descrição de tal movimento em relação a um sistema de coordenadas fixado no solo é mais complexa, mas pode ser descrita em termos de dois movimentos simples: um de rotação em torno do centro de massa, e uma translação do centro de massa. Usaremos tal separação para obter a trajetória e a velocidade de cada ponto em um movimento de rolamento.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Rotação em torno do centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A determinação da posição de um ponto qualquer no referencial do centro de massa é bastante simples. Vamos considerar que o ponto $P$, cuja distância em relação ao eixo de rotação é $r_\perp$, na Figura~\ref{Fig:PosPRelCMRol} parte da posição inferior e, durante o rolamento, se desloca por um ângulo $\theta$. Após tal deslocamento, ele se encontra em uma posição que pode ser descrita em termos dos eixos $x$ e $y$ como
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    % eixos de referência
+    \draw[->, dashdotted] (0,0) coordinate (origin) -- +(1,0) node[below left]{$x$};
+    \draw[->, dashdotted] (0,0) -- +(0,1) node[below left]{$y$};
+    \draw[fill] (0,0) circle (0.8pt);
+    
+    % Trajetória
+    \draw[dotted] (140:2) arc[start angle = 140, end angle = 300, radius = 2];
+    \draw[<->, dashed] (0,0) -- node[above]{$r_\perp$} (160:2);
+    
+    % arco percorrido
+    \draw (220:2) arc[start angle = 220, end angle = 270, radius = 2];
+    \draw[fill] (270:2) coordinate (bottom) circle (0.8pt);
+    \draw[fill] (220:2) coordinate (point) circle (0.8pt) node[left]{$P$};
+    \draw[->] (0,0) -- node[above left]{$\vec{r}_{P, \,\rm{CM}}$}(220:2);
+    
+    % posições em x e y
+    \draw[loosely dotted] (0,0) -- (0,-1.2856);
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = point--origin--bottom};
+    \draw[<->|] (0.2,0) -- node[right]{$r_\perp \cos\theta$}(0.2,-1.2856);
+    \draw[|<->|] (0, -2.2) -- node[below]{$r_\perp \sen\theta$} (-1.53, -2.2);
+    \draw[loosely dotted] (-1.53,-2.2) -- (point);
+    
+\end{tikzpicture}
+\caption{No referencial do centro de massa, a posição do ponto $P$ após sofrer um deslocamento $\theta$ a partir da posição inferior é dado por $\vec{r}_{P,\,\rm{CM}} = r_\perp \sen\theta \, \versi + r_\perp \cos\theta \, \versj$. \label{Fig:PosPRelCMRol}}
+\end{marginfigure}
+%
+\begin{align}
+    r_{P, \,\rm{CM}}^x &= -r_\perp \sen\theta \\
+    r_{P, \,\rm{CM}}^y &= -r_\perp \cos\theta,
+\end{align}
+%
+ou, em notação vetorial,
+\begin{equation}
+    \vec{r}_{P,\,\rm{CM}} = - r_\perp \sen\theta \, \versi - r_\perp \cos\theta \, \versj.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Movimento em relação ao solo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Vamos agora determinar a posição do ponto $P$ em relação ao solo. Podemos determiná-la através de uma transformação de posição, já que sabemos $\vec{r}_{P, \,\rm{CM}}$:
+\begin{equation}
+    \vec{r}_{P, \, s} = \vec{r}_{\rm{CM}, \, s} + \vec{r}_{P, \,\rm{CM}},
+\end{equation}
+%
+porém precisamos determinar a posição $\vec{r}_{\rm{CM}, \, s}$ do centro de massa em relação ao solo.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    %% Figura inferior
+    % piso
+    \draw[gray, interface] (-3,-2.5) -- (1,-2.5);
+          
+    % corpo final
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (0, -2) circle (0.5);
+    \draw[gray, ->] (0, -2)+(180:0.6) arc[start angle = 180, end angle = 135, radius = 0.6] node[left, midway]{$\omega$};
+    \draw[fill] (0,-2) coordinate(CM) circle (0.8pt);
+    
+    % ref solo
+    \draw[dashed, ->] (-2,-2.5) -- +(1,0) node[below left]{$x$};
+    \draw[dashed, ->] (-2,-2.5) -- +(0,1) node[below left]{$y$};
+    \draw[fill] (-2,-2.5) circle (0.8pt);
+
+    % velocidades
+    \draw[->] (0,-2) -- +(1,0) node[below]{$\vec{v}_{\rm{CM}, \,s}$};
+
+    % posição
+    \draw[->, thick] (-2,-2.5) -- node[above]{$\vec{r}_{\rm{CM}, \, s}$} (0,-2);
+    
+    % deslocamento
+    \draw[|<->|] (-2,-2.9) -- node[below]{$d$} (0,-2.9);
+    
+    % raio
+    \draw[<->] (0,-2) -- node[right]{$R$} +(0,-0.5);
+\end{tikzpicture}
+\caption{No referencial do solo, a posição do centro de massa é descrita por um valor constante no eixo $y$, e pela própria distância percorrida, no eixo $x$. \label{Fig:PosCMDetCicloideRol}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:PosCMDetCicloideRol}, verificamos que a posição do centro de massa é dada pela distância horizontal percorrida pelo centro de massa no eixo $x$, e pelo próprio valor do raio do corpo que efetua o rolamento, no eixo $y$:
+\begin{align}
+    r_{\rm{CM}, \, s}^x &= d \\
+    r_{\rm{CM}, \, s}^y &= R,
+\end{align}
+%
+ou seja,
+\begin{equation}
+    \vec{r}_{\rm{CM}, \, s} = d \, \versi + R \, \versj.
+\end{equation}
+%
+Assim,
+\begin{align}
+    \vec{r}_{P, \, s} & = \vec{r}_{\rm{CM}, \, s} + \vec{r}_{P, \,\rm{CM}} \\
+    &= d \, \versi + R \, \versj - r_\perp \sen\theta \, \versi - r_\perp \cos\theta \, \versj \\
+    &= (d - r_\perp \sen\theta)\,\versi + (R - r_\perp \cos\theta)\,\versj.
+\end{align}
+
+Finalmente, devemos lembrar que em um rolamento a distância percorrida pelo centro de massa e o deslocamento angular estão vinculados através de
+\begin{equation}
+    \Delta x = r\,\theta,
+\end{equation}
+%
+o que resulta em
+\begin{equation}
+    d = R\,\theta.
+\end{equation}
+%
+Assim, obtemos
+\begin{equation}\label{Eq:TrajetoriaPontosQueRolam}
+    \vec{r}_{P, \, s} = (R\,\theta - r_\perp \sen\theta)\,\versi + (R - r_\perp \cos\theta)\,\versj.
+\end{equation}
+%
+Veja que a equação acima não é uma função do tempo, mas sim uma função do deslocamento angular $\theta$. Esse tipo de expressão é denominada \emph{equação paramétrica}, pois ela descreve uma curva no espaço em função de um parâmetro --~isto é, ela descreve tanto a posição no eixo $x$, quanto no eixo $y$ em termos de um parâmetro; normalmente descrevemos trajetórias na forma $y(x)$~--. Na Figura~\ref{Fig:GraficosCicloideEAfins}, temos exemplos das trajetórias descritas pela equação acima. Para o caso $r_\perp = R$, em particular, temos uma curva conhecida como \emph{cicloide}. 
+
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    % piso
+    \draw[interface, gray] (-0.5,0) -- (4,0);
+    
+    % corpo
+    \draw[draw = gray, pattern color = gray, pattern = north west lines] (0, 0.5) circle (0.5);
+    \draw[gray, ->] (0, 0.5)+(135:0.6) arc[start angle = 135, end angle = 80, radius = 0.6] node[above, midway]{$\omega$};
+    \draw[fill, gray] (0,0.5) circle (0.8pt);
+    
+    % cicloides
+    \draw[domain=-1.5:8, samples=100] plot ({0.5 * \x - 0.5 * sin(\x r)}, {0.5 * 1 - 0.5 * cos(\x r)} );
+    \draw[densely dotted,  domain=-1.5:8, samples=100] plot ({0.5 * \x - 0.325 * sin(\x r)}, {0.5 * 1 - 0.325 * cos(\x r)} );
+    \draw[dotted, domain=-1.5:8, samples=100] plot ({0.5 * \x - 0.15 * sin(\x r)}, {0.5 * 1 - 0.15 * cos(\x r)} );
+    
+    % pontos
+    \draw[fill] (0,0) circle (0.8pt);
+    \draw[fill] (0,0.175) circle (0.8pt);
+    \draw[fill] (0, 0.35) circle (0.8pt);
+
+    % corpo 2
+    \draw[densely dotted, gray] (1.3, 0.5) circle (0.5);
+    \draw[fill, gray] (1.3,0.5) circle (0.8pt);
+    
+    \draw[fill] (1.0442, 0.9284) circle (0.8pt);
+    \draw[fill] (1.1325,0.7785) circle (0.8pt);
+    \draw[fill] (1.2227,0.6285) circle (0.8pt);
+    
+    % corpo 3
+    \draw[densely dotted, gray] (2.6, 0.5) circle (0.5);
+    \draw[fill, gray] (2.6,0.5) circle (0.8pt);
+    
+    \draw[fill] (3.0417,0.2657) circle (0.8pt);
+    \draw[fill] (2.8871,0.3477) circle (0.8pt);
+    \draw[fill] (2.7325,0.4297) circle (0.8pt);
+    
+\end{tikzpicture}
+\caption{Se tomarmos um ponto qualquer de um corpo que executa um rolamento, sem que haja deslizamento, a sua trajetória em relação a um referencial fixado no solo será descrita pela Equação~\ref{Eq:TrajetoriaPontosQueRolam}. No caso de um ponto na borda do corpo, a trajetória será aquela representada por uma linha cheia na figura acima, sendo que tal curva é conhecida como \emph{cicloide}. \label{Fig:GraficosCicloideEAfins}}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade dos pontos de um corpo rígido durante o rolamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para determinar a velocidade de um ponto $P$ qualquer em relação ao solo durante o rolamento, basta derivarmos a expressão para a posição em relação ao tempo:
+\begin{align}
+    \vec{v}_{P, \, s} &= \frac{d}{dt}\vec{r}_{P, \, s} \\
+    &= \frac{d}{dt}\left[(R\,\theta - r_\perp \sen\theta)\,\versi + (R - r_\perp \cos\theta)\,\versj\right] \\
+    &= \left(R \frac{d\theta}{dt} - r_\perp \cos\theta\frac{d\theta}{dt}\right)\versi + \left(r_\perp \sen\theta\frac{d\theta}{dt}\right)\versj.
+\end{align}
+%
+A derivada da posição angular nada mais é do que a própria velocidade angular:
+\begin{equation}
+    \frac{d\theta}{dt} = \omega.
+\end{equation}
+Assim, temos que
+\begin{equation}\label{Eq:VelPSoloOmega}
+    \vec{v}_{P, \, s} = \omega(R - r_\perp \cos\theta)\versi + r_\perp \omega \sen\theta \,\versj.
+\end{equation}
+
+Verificamos anteriomente que a velocidade angular de um corpo que rola está ligada ao módulo da velocidade do centro de massa em relação ao solo por
+\begin{equation}
+    v_{\rm{CM},\, s} = r\,\omega,
+\end{equation}
+%
+onde $r$ é o raio do corpo que rola e, no presente caso, é representado por $R$. Utilizando tais resultados, podemos escrever a velocidade do ponto $P$ em relação ao solo como\footnote{Note que temos uma separação bastante clara entre a translação e a rotação nessa expressão para a velocidade: o primeiro termo no eixo $x$ se refere à translação, os demais à rotação.}
+\begin{equation}\label{Eq:VelPSoloVCM}
+    \vec{v}_{P, \, s} = v_{\rm{CM}, \, s}\left(1 - \frac{r_\perp}{R} \cos\theta\right)\versi + v_{\rm{CM},\, s} \frac{r_\perp}{R} \sen\theta \,\versj.
+\end{equation}
+
+As Equações~\eqref{Eq:VelPSoloOmega} e~\eqref{Eq:VelPSoloVCM} acima nos permitem calcular o vetor velocidade de um ponto $P$ qualquer cuja distância em relação ao eixo de rotação é $r_\perp$, durante o rolamento de um corpo com raio $R$. Se calcularmos o módulo da velocidade, obtemos
+\begin{equation}
+    v_{P,\,s} = \sqrt{\left(v_{\rm{CM}} - \frac{r_\perp}{R} v_{\rm{CM}}\cos\theta\right)^2 + \left(\frac{r_\perp}{R}\sen\theta\right)^2},
+\end{equation}
+%
+que após densenvolvermos os termos quadráticos e usarmos o fato de que $\sen^2\theta + \cos^2\theta = 1$, pode ser escrita como
+\begin{equation}\label{Eq:VelEscalarPontoRolamento}
+    v_{P,\,s} = v_{\rm{CM}} \sqrt{1 + \frac{r_\perp^2}{R^2} - 2\frac{r_\perp}{R}\cos\theta}.
+\end{equation}
+%
+Como podemos notar, a expressão acima nos dá a velocidade para qualquer ponto ao assumir uma dada posição $\theta$. Tomandos alguns pontos mais interessantes, verificamos que:
+\begin{description}
+    \item[Para o caso $r_\perp = 0$:] Para o centro de massa, temos que $r_\perp = 0$, logo,
+        \begin{align}
+            v_{P,\,s} &= v_{\rm{CM}} \sqrt{1 + \frac{r_\perp^2}{R^2} - 2\frac{r_\perp}{R}\cos\theta} \\
+            &= v_{\rm{CM}} \sqrt{1 + 0 - 0} \\
+            & = v_{\rm{CM}}.
+        \end{align}
+        
+    \item[Para o caso $r_\perp = R$:] Para os pontos da borda da roda,
+        \begin{align}
+            v_{P,\,s} &= v_{\rm{CM}} \sqrt{1 + \frac{r_\perp^2}{R^2} - 2\frac{r_\perp}{R}\cos\theta} \\
+            &= v_{\rm{CM}} \sqrt{1 + 1 - 2\cos\theta} \\
+            & = v_{\rm{CM}} \sqrt{2(1-\cos\theta)}.
+        \end{align}
+        %
+        Se substituirmos os valores \np[\tcdegree]{0}, \np[\tcdegree]{180}, \np[\tcdegree]{90}, e \np[\tcdegree]{270} --~o que corresponde aos pontos inferior, superior, esquerdo e direito da roda, em relação ao centro de massa, obtemos:
+        \begin{align}
+            v_{P,\,s}^{\rm{inf}} &= v_{\rm{CM}} \sqrt{2(1-1)} \\
+            &= 0 \\
+            v_{P,\,s}^{\rm{sup}} &= v_{\rm{CM}} \sqrt{2(1-(-1))} \\
+            &= 2 \, v_{\rm{CM}} \\
+            v_{P,\,s}^{\rm{esq}} &= v_{\rm{CM}} \sqrt{2(1-0)} \\
+            &= \sqrt{2}\, v_{\rm{CM}} \\
+            v_{P,\,s}^{\rm{dir}} &= v_{\rm{CM}} \sqrt{2(1-0)} \\
+            &= \sqrt{2}\, v_{\rm{CM}}.
+        \end{align}
+        %
+\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças no rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se ignorarmos a força de arrasto oferecida pelo ar, quando um corpo rola sem deslisar e com velocidade constante, ele está sujeito a uma força resultante nula. No eixo vertical, isso implica que $N = P$. Já no eixo horizontal, concluímos que $f_{at} = 0$, pois não há nenhuma outra força que eventualmente possa equilibrá-la. Se o objeto que rola for uma roda de bicicleta, por exemplo, ao frearmos deve agir sobre algum ponto da roda uma força dirigida para trás, que será responsável por desacelerar o centro de massa do sistema. Claramente essa força será uma força de atrito que atuará no ponto de contato da roda com o solo. Se, por outro lado, o ciclista resolver acelerar a bicicleta, deverá aparecer uma força de atrito no ponto de contato da roda com o solo, dirigida para frente (lembre-se que a força que o ciclista exerce é uma força interna, portanto não pode acelerar o sistema). Concluímos então que \emph{no caso de um rolamento, as forças que aceleram ou desaceleram o centro de massa são as forças de atrito no ponto de contato com o solo.}
+Se ignorarmos a força de arrasto oferecida pelo ar, quando um corpo rola sem deslisar sobre uma superfície horizontal, temos
+\begin{description}
+    \item[Eixo $x$:] Se considerarmos a possibilidade de que haja uma força de atrito no ponto de contato com o solo,
+        \begin{align}
+            F_{R,\,x}^{\rm{ext}} &= m a_x \\
+            f_{\rm{at}} &= m a_x.
+        \end{align}
+        
+    \item[Eixo $y$:] Considerando que não há aceleração no eixo vertical, temos
+    \begin{align}
+        F_{R,\,y}^{\rm{ext}} &= m a_y \\
+        N - P &= 0.
+    \end{align}
+\end{description}
 
-Do ponto de vista da rotação, as forças de atrito -- sendo as únicas forças externas que não estão equilibradas e que não atuam em direção ao eixo de rotação -- devem ser responsáveis pela aceleração angular dos corpos que rolam. Além disso, as forças de atrito atuam de forma que o ângulo entre a força e o raio que liga o eixo de rotação ao ponto de aplicação da força é de \degree{90}.
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
 
+    %Fig superior
+    \draw[interface, gray] (0,0) -- (4,0);
+    
+    \draw[gray, pattern color = gray, pattern = north west lines] (2,0.5) circle (0.5cm);
+    \draw[->] (2,0.5) +(160:0.7) arc[start angle = 160, end angle = 110, radius = 0.7] node[midway, left]{$\omega$};
+    \draw[fill] (2,0.5) circle (1pt);
+    
+    \draw[->, thick] (2,0.5) -- +(0,-1) node[right]{$\vec{P}$};    
+    \draw[->, thick] (2,1) -- +(0,1) node[right]{$\vec{N}$};
+    
+    \path (3.25, 1) -- node[above]{$\vec{a} = 0$}(2.75,1);
+    
+    \draw[dashdotted,->] (0.15,0) -- +(1,0) node[below left]{$x$};
+    \draw[dashdotted,->] (0.15,0) -- +(0,1) node[below left]{$y$};
+    \draw[fill] (0.15,0) circle (0.8pt);
+    
+    % Fig meio
+    
+    \draw[interface, gray] (0,-3) -- (4,-3);
+    
+    \draw[gray, pattern color = gray, pattern = north west lines] (2,-2.5) circle (0.5cm);
+    \draw[->] (2,-2.5) +(160:0.7) arc[start angle = 160, end angle = 110, radius = 0.7] node[midway, left]{$\omega$};
+    \draw[fill] (2,-2.5) circle (1pt);
+    
+    \draw[->, thick] (2,-2.5) -- +(0,-1) node[right]{$\vec{P}$};    
+    \draw[->, thick] (2,-2) -- +(0,1) node[right]{$\vec{N}$};
+    
+    \draw[<-] (3.25, -2) -- node[above]{$\vec{a}$}(2.75,-2);
+    
+    \draw[->,thick] (2,-3) -- +(0.75,0) node[below]{$\vec{f}_{\rm{at}}$};
+    \draw[fill] (2,-3) circle (0.8pt);
+    
+    \draw[dashdotted,->] (0.15,-3) -- +(1,0) node[below left]{$x$};
+    \draw[dashdotted,->] (0.15,-3) -- +(0,1) node[below left]{$y$};
+    \draw[fill] (0.15,-3) circle (0.8pt);
+    
+    % Fig inferior
+    
+    \draw[interface, gray] (0,-6) -- (4,-6);
+    
+    \draw[gray, pattern color = gray, pattern = north west lines] (2,-5.5) circle (0.5cm);
+    \draw[->] (2,-5.5) +(160:0.7) arc[start angle = 160, end angle = 110, radius = 0.7] node[midway, left]{$\omega$};
+    \draw[fill] (2,-5.5) circle (1pt);
+    
+    \draw[->, thick] (2,-5.5) -- +(0,-1) node[right]{$\vec{P}$};    
+    \draw[->, thick] (2,-5) -- +(0,1) node[right]{$\vec{N}$};
+    
+    \draw[->] (3.25, -5) -- node[above]{$\vec{a}$}(2.75,-5);
+    
+    \draw[->,thick] (2,-6) -- +(-0.75,0) node[below right]{$\vec{f}_{\rm{at}}$};
+    \draw[fill] (2,-6) circle (0.8pt);
+    
+    \draw[dashdotted,->] (0.15,-6) -- +(1,0) node[below left]{$x$};
+    \draw[dashdotted,->] (0.15,-6) -- +(0,1) node[below left]{$y$};
+    \draw[fill] (0.15,-6) circle (0.8pt);
+    
+\end{tikzpicture}
+\caption{.}
+\end{marginfigure}
+
+Verificamos através do eixo horizontal que a existência da força de atrito está condicionada à existência de uma aceleração horizontal:
+\begin{description}
+    \item[Caso $a_x = 0$:] Se a aceleração horizontal é nula, concluímos que $f_{at} = 0$, pois não há nenhuma outra força que eventualmente possa equilibrá-la.
+    \item[Caso $a_x \neq 0$:] Se o objeto que rola for uma roda de bicicleta, por exemplo, ao frearmos deve agir sobre algum ponto da roda uma força dirigida para trás, que será responsável por desacelerar o centro de massa do sistema\footnote{As forças exercidas sobre as rodas seja pelos freios da bicicleta, seja pelo ciclista, são forças internas e não são capazes de alterar a velocidade do centro de massa da roda/bicicleta.}. Claramente essa força será uma força de atrito que atuará no ponto de contato da roda com o solo. Se, por outro lado, o ciclista resolver acelerar a bicicleta, deverá aparecer uma força de atrito no ponto de contato da roda com o solo, dirigida para frente.
+\end{description}
+
+Concluímos então que no caso de um rolamento, do ponto de vista de translação,as forças que aceleram ou desaceleram o centro de massa são \emph{forças de atrito no ponto de contato com o solo}. Já do ponto de vista da rotação, as forças de atrito -- sendo as únicas forças externas que não estão equilibradas e que não atuam em direção ao eixo de rotação -- devem ser responsáveis pela aceleração angular. Além disso, as forças de atrito atuam de forma que o ângulo entre a força e o raio que liga o eixo de rotação ao ponto de aplicação da força é de \degree{90}.\footnote[][-2cm]{Se considerarmos uma força de arrasto que atue durante o rolamento, tal força atuará de maneira a desacelerar o corpo que rola, porém não exercerá nenhum torque. Nesse caso, deve surgir um torque devido à força de atrito e que seja capaz de causar uma desaceleração angular na roda. Isso implica em uma força de atrito \emph{na direção do movimento!}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rolamento em uma Rampa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Um problema que pode ser tratado a partir das observações acima e que trás um resultado bastante interessante é o de um objeto que rola rampa abaixo. Analizando o corpo do ponto de vista da translação (como se ele fosse um bloco e não pudesse girar), podemos escrever para o eixo $x$ \comment{rever sinais depois de fazer a figura}
-\begin{equation}
-  f_{at} - Mg \sen\theta = M a_{\textrm{CM}}.
-\end{equation}
-%
-Para o eixo $y$ temos
-\begin{equation}
-  N_y - P = 0,
-\end{equation}
-%
-mas essa equação não será particularmente útil, pois \textbf{não podemos assumir que $f_{at} = \mu N$}, pois nada garante que o corpo esteja na iminência de deslizar.
+Um problema que pode ser tratado a partir das observações acima e que trás um resultado bastante interessante é o de um objeto que rola rampa abaixo. Analizando o corpo do ponto de vista da translação (como se ele fosse um bloco e não pudesse girar) através da Segunda Lei de Newton para a Translação, temos
+\begin{description}
+    \item[Eixo $x$:] Adotando um eixo $x$ na direção da aceleração, isto é, paralelo ao plano inclinado, temos
+    \begin{align}
+        F_{R,\,x}^{\rm{ext}} &= ma_x \\
+        mg \sen\theta - f_{\rm{at}} &= m a_{\textrm{CM}}.
+    \end{align}
+
+    \item[Eixo $y$:] Para o eixo $y$ temos
+    \begin{align}
+        F_{R,\,y}^{\rm{ext}} &= m a_y \\
+        N - P_y &= 0,
+    \end{align}
+    %
+    onde usamos o fato de que não há aceleração perpendicular ao plano inclinado. Essa equação não será particularmente útil, pois não podemos assumir que $f_{\rm{at}} = \mu N$, uma vez que nada garante que o corpo esteja na iminência de deslizar.
+\end{description}
+
+\begin{marginfigure}[-2cm]
+\centering
+\begin{tikzpicture}[>=Stealth,  rotate = -30, interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    \draw[interface, gray] (0,0) coordinate (O) -- (4,0) coordinate (Or);
+    \draw[gray] (Or) -- +(-150:1) coordinate (h);
+    
+    \pic [draw, "$\beta$", angle eccentricity = 1.2, angle radius = 8mm]{angle = O--Or--h};
+    
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (1,0.5) circle (0.5);
+    \draw[fill] (1,0.5) circle (0.8pt);
+    
+    \draw[->, thick] (1,1) -- node[right]{$\vec{N}$} +(0,0.866);
+    \draw[->, thick] (1,0.5) -- +(-60:1) node[left]{$\vec{P}$};
+    %\draw[dashed, thick, ->] (1,0.5) -- +(0,-1.08)node[left]{$P_y$};
+    %\draw[dotted, thick, ->] (1,0.5) -- +(0.625,0) node[above right]{$P_x$};
+    %\draw[loosely dotted] (1,0.5) ++(0,-1.08) -- +(0.625,0);
+    %\draw[loosely dotted] (1,0.5) ++(0.625,0) -- +(0,-1.08);
+    \draw[->, thick] (1,0) -- +(-0.75,0) node[below]{$\vec{f}_{\rm{at}}$};
+    \draw[fill] (1,0) circle (0.8pt);
+%    \draw[dashed,->] (1,0.5) -- node[above]{$r$} +(220:0.5);
+    \draw[|<->|] (0.3, 0.5) -- +(0,0.5);
+    \node (r) at (0.1, 0.75) {$r$};
+    \draw[dotted] (0.3,1) -- +(0.5,0);
+    
+    \draw[dashdotted] (0,0.5) -- (0.5,0.5);
+    \draw[dashdotted,->] (1.5,0.5) -- +(1.5,0) node[below left]{$x$};
+    \draw[dashdotted,->] (1,1)++(0,0.866) -- +(0,0.5)node[left]{$y$};
+    \draw[dashdotted] (1,0) -- +(0,-1);
+    
+\end{tikzpicture}
+\caption{Rolamento de um corpo sobre uma superfície plana inclinada. Note que a força de atrito tem o papel tanto de causar \emph{desaceleração} da translação, quanto de causar \emph{aceleração} da rotação, isto é, de causar \emph{aceleração angular}.}
+\end{marginfigure}
 
 Analisando a rotação do sistema, temos
 \begin{align}
-  \tau &= I\alpha \\
-  f_{at} R &=I\alpha,
+  \tau_R^{\rm{ext}} &= I\alpha \\
+  -f_{\rm{at}} \, r &=I\alpha,
 \end{align}
 %
-onde usamos que $\tau = R f_{at} \sen\degree{90}$. Como para o rolamento $v_{\textrm{CM}} = \omega R$, temos que 
+onde usamos que $\tau = R f_{\rm{at}} \sen\degree{90}$. Note que o torque tende a causar uma rotação no sentido horário e é, portanto, negativo. Adicionamos um sinal para refletir tal convenção. Além disso, para o rolamento temos que 
 \begin{equation}
-  a_{\textrm{CM}} = \alpha R.
+  a_{\textrm{CM}} = r\,\alpha.
 \end{equation}
 %
-Devido à escolha do sistema de coordenadas, uma aceleração positiva no eixo $x$ implica em uma \emph{aceleração angular negativa} segundo a convenção de que acelerações angulares no sentido antihorário são positivas. Logo, devemos acertar essa diferença de sinais adicionando um sinal negativo:
+No entanto, devido à escolha do sistema de coordenadas, uma aceleração positiva no eixo $x$ implica em uma \emph{aceleração angular negativa}\footnote{Lembre-se que convencionamos que acelerações angulares que tendem a causar rotações no sentido antihorário são positivas.}. Logo, devemos acertar essa diferença de sinais adicionando um sinal negativo:
 \begin{equation}
-  a_{\textrm{CM}} = -\alpha R.
+  a_{\textrm{CM}} = -r\,\alpha.
 \end{equation}
 
-Podemos então montar um sistema de equações dado por
+Podemos agora montar um sistema de equações dado por
 \begin{equation}
-\left\{ \begin{aligned} f_{at} - Mg\sen\theta = M a_{\textrm{CM}} \\ f_{at}R = I\alpha \\ a_{\textrm{CM}} = -\alpha R \end{aligned}\right.
+\begin{system}
+    mg\sen\theta - f_{\rm{at}}&= m a_{\textrm{CM}} \\
+    -f_{\rm{at}} \,r &= I\alpha \\
+    a_{\textrm{CM}} &= -r\,\alpha
+\end{system}
 \end{equation}
 %
 Resolvendo para a aceleração, obtemos
 \begin{equation}
-  a_{\textrm{CM}} = -\frac{\sen\theta}{1+I/(MR^2)} g.
+  a_{\textrm{CM}} = \frac{\sen\theta}{1+I/(mr^2)} g.
 \end{equation}
 %
-Esse resultado é interessante pois ele mostra que a aceleração a que um corpo será submetido ao descer uma rampa executando um rolamento sem deslizar é diferente para cada objeto, dependendo do momento de inércia do objeto. Considerando que o momento de inércia para objetos com seção reta circular pode ser escrito como $I = f MR^2$, onde $f$ é um número menor que 1, temos
+Esse resultado é interessante pois mostra que a aceleração a que um corpo será submetido ao descer uma rampa executando um rolamento sem deslizar é diferente para cada objeto, dependendo de seu momento de inércia. Considerando que o momento de inércia para alguns objetos com seção reta circular pode ser escrito como $I = f MR^2$, onde $f$ é um número menor que 1, temos
 \begin{equation}
-  a_{\textrm{CM}} = -\frac{\sen\theta}{1+f} g.
+  a_{\textrm{CM}} = \frac{\sen\theta}{1+f} g.
 \end{equation}
 %
-Isto é, cada típo de objeto tem uma aceleração diferente, sendo tanto menor quanto maior for o valor de $f$. Se, por exemplo, tomarmos três objetos com formas distintas -- um aro, um cilindro e uma esfera maciça, por exemplo -- e os soltarmos a partir do topo de uma rampa, eles levarão tempos diferentes para percorrer a distância até a base. Considerando os três objetos tomados como exemplo, temos que a ordem de chegada será: esfera, cilindro e aro, devido aos valores de $f$ para esses três objetos: $f_a = 1$, $f_c = \nicefrac{1}{2}$ e $f_e = \nicefrac{2}{5}$. Veja ainda que a aceleração não depende da massa ou do raio do objeto em questão, mas sim do fator $f$ associado à \emph{forma} do objeto.
+Isto é, cada tipo de objeto tem uma aceleração diferente, sendo tanto menor quanto maior for o valor de $f$. Se, por exemplo, tomarmos três objetos com formas distintas -- um aro, um cilindro e uma esfera maciça, por exemplo -- e os soltarmos a partir do topo de uma rampa, eles levarão tempos diferentes para percorrer a distância até a base. Considerando os três objetos tomados como exemplo, temos que a ordem de chegada será: esfera, cilindro e aro, devido aos valores de $f$ para esses três objetos: $f_a = 1$, $f_c = \nicefrac{1}{2}$ e $f_e = \nicefrac{2}{5}$. Veja ainda que a aceleração não depende da massa ou do raio do objeto em questão, mas sim do fator $f$ associado à \emph{forma} do objeto.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia cinética no rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para um corpo que rola, podemos calcular a energia cinética em torno do ponto de contato com o solo através de
+Intuitivamente, já que a energia é uma grandeza escalar, imaginamos que a energia cinética associada ao movimento de rolamento deve ser dada pela soma da energia cinética de translação e da energia cinética de rotação:
 \begin{equation}
-  K = \frac{1}{2} I_P \omega_P^2.
+    K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}.
 \end{equation}
-%
-A velocidade angular $\omega_P$ em torno de $P$ tem o mesmo valor que a velocidade angular $\omega$ em torno do centro de massa. Podemos perceber isso através de
-\begin{equation}
-  \omega = \frac{v_b}{R} = \frac{v_{\textrm{CM}}}{R}
-\end{equation}
-%
-e analizando a velocidade angular do ponto superior do corpo e também do centro de massa:
+
+Podemos comprovar essa relação se tomarmos a Expressão~\ref{Eq:VelEscalarPontoRolamento} para a velocidade em relação ao solo de um ponto $P$ qualquer de um corpo rígido que executa um rolamento e calcularmos as energias cinéticas de cada um deles:
 \begin{align}
-  \omega_P &= \frac{v_s}{2R} \\
-  &= \frac{2v_{\textrm{CM}}}{2R} = \frac{v_{\textrm{CM}}}{R} \\
-  \omega_P &= \frac{v_{\textrm{CM}}}{R} \\
-  &= \frac{v_{\textrm{CM}}}{R}. \mathnote{aqui substituir pelo valor da vel do cm, não deixar a variável}
+    K_{\rm{trans}}^P &= \frac{1}{2}m_P v_{P,\,s}^2 \\
+    &= \frac{1}{2}m_P v_{\rm{CM}}^2 \left(1 + \frac{(r_\perp^i)^2}{R^2} - 2\frac{r_\perp^i}{R}\cos\theta\right).
 \end{align}
 %
-Portanto, para calcular a energia cinética em torno de $P$, basta calcularmos o momento de inércia em torno do eixo que passa por esse ponto.
-
-Utilizando o teorema dos eixos paralelos, temos $I_P = I_{\textrm{CM}} + h^2M$, de onde obtemos
+Podemos agora determinar a energia cinética total simplesmente somando a expressão acima. Isso nos leva a
 \begin{align}
-  K &= \frac{1}{2} (I_{\textrm{CM}} + h^2M) \omega^2 \\
-  &= \frac{1}{2} I_{\textrm{CM}} + \frac{1}{2} M R^2 \omega^2.
-\end{align}
-%
-onde usamos $h = R$. Utilizando ainda $v_{\textrm{CM}} = \omega R$ \mathnote{isso tá deduzido acima?}
-temos
-\begin{equation}
-  K = \frac{1}{2} I_{\textrm{CM}} \omega^2 + \frac{1}{2} m v_{\textrm{CM}}^2.
-\end{equation}
-%
-Na equação acima temos claramente um termo que corresponde à energia cinética de rotação do corpo em torno do centro de massa -- o primeiro -- e um termo que corresponde à energia cinética de translação do objeto -- o segundo--. Concluímos, portanto, que a energia cinética é simplesmente aditiva em suas parcelas translacional e rotacional.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Caráter vetorial das variáveis da rotação}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Velocidade e aceleração}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Quando discutimos as grandezas da translação, concluímos que posição, velocidade e aceleração eram grandezas vetoriais e tinham módulo, direção e sentido. Podemos atribuir um caráter vetorial à velocidade angular e à aceleração angular. Nesses casos, no entanto, a direção do vetor não nos dá a direção do movimento, mas a direção \emph{em torno} da qual o objeto gira.
-
-Para definirmos tal direção de maneira única, utilizamos a regra da mão direita: ``seguramos'' o eixo em torno do qual o objeto gira de forma que os dedos (exceto o polegar) apontem no sentido de rotação. Fazendo isso, o polegar apontará na direção do vetor.
-
-No caso da aceleração, apontamos a direção da variação da velocidade (na direção de $\vec{\omega}$ se o módulo da velocidade angular cresce e na direção contrária se o módulo decresce). Tanto $\vec{\omega}$ quanto $\vec{\alpha}$ obedecem a todos os requisitos para serem denominados vetores, inclusive à soma vetorial.
-
-A posição e -- consequentemente -- o deslocamento angulares, no entanto, não podem ser tratados como vetores. Se tomarmos um livro e realizarmos dois deslocamentos angulares sucessivos de \degree{90} em torno dos eixos $x$ e $y$, a ordem em que eles forem realizados influenciará no resultado final, resultando em estados finais diferentes. Como a soma vetorial de $\vec{a} + \vec{b} = \vec{b} + \vec{a}$, percebemos que os deslocamentos angulares não podem ser tratados como vetores.
-
-\comment{Pra mim isso não explica nada. Como podemos mostrar que duas velocidades angulares podem ser somadas? (Acho que o Teorema de Euler para rotação explica, mas como? ver isso e colocar essa explicação aqui). TODO Por que podemos tratar deslocamentos para pequenos ângulos como vetores e não para grandes ângulos? ver isso com cuidado}
-
-%%%%%%%%%%%%%%%%%%%
-\subsection{Torque como o produto vetorial $\vec{r}\times\vec{F}$}
-%%%%%%%%%%%%%%%%%%%
-
-Da mesma forma que $\vec{\omega}$ e $\vec{\alpha}$ são grandezas vetoriais, também é possível mostrar que o torque é uma grandeza vetorial. Analisando a expressão para o módulo do produto vetorial entre dois vetores $\vec{a}$ e $\vec{b}$:
-\begin{equation}
-  |\vec{a}\times\vec{b}| = ab\sen\phi,
-\end{equation}
-%
-onde $\phi$ é o ângulo entre os dois vetores, e comparando-a com a Equação~\eqref{Eq:DefModTorque}, podemos escrever o torque como
-\begin{align}
-  |\vec{\tau}| &= F d \sen\phi \\
-  &= |\vec{F}\times\vec{d}.
-\end{align}
-%
-Na expressão acima, $\vec{F}$ é o vetor que descreve a força que gera o torque, enquanto $\vec{d}$ é o vetor que denota a posição do ponto onde a força é aplicada. A origem do vetor é o próprio ponto em torno do qual o objeto gira. Apesar de utilizarmos $\vec{d}$ até o momento, em geral posições são denotadas por $\vec{r}$. Assim, o torque pode ser definido como: \comment{a origem pode ser um ponto qualquer, porém quando formos tratar de corpos rígidos mais adiante, usaremos sempre um ponto no eixo de rotação ... como explicar isso direito?}
-\begin{equation}\label{Eq:DefTorque}
-  \vec{\tau} = \vec{r}\times\vec{F}.
-\end{equation}
-
-A direção do vetor torque pode ser facilmente compreendida ao se analisar a expressão para a Segunda Lei de Newton para a rotação,
-\begin{equation}
-  \tau = I \alpha.
-\end{equation}
-%
-Sabendo que $I$ é uma grandeza escalar e que atribuimos um caráter vetorial para a aceleração angular, obrigatoriamente temos que o torque também tem uma caráter vetorial (pois uma das propriedades dos vetores é que a multiplicação de um escalar por um vetor resulta em um vetor). Assim, o torque assume a mesma direção que a aceleração angular:
-\begin{equation}
-  \vec{\tau} = I\vec{\alpha}.
-\end{equation}
-%
-Dessa conclusão podemos tirar uma observação importante, justificando a escolha da ordem dos vetores na Equação~\eqref{Eq:DefTorque}: devido à regra da mão direita, se temos um eixo em torno do qual um objeto gira e a aceleração angular é positiva, o torque dado pelo produto vetorial~\eqref{Eq:DefTorque} acima deve correspondentemente ser positivo. Para isso, também devemos adotar a regra da mão direita para o produto vetorial. Analisando o diagrama ao lado, percebemos que a ordem do produto vetorial deve ser $\vec{r}\times\vec{F}$, caso contrário o sentido resultante para o torque seria oposto ao sentido da aceleração. Alternativamente podemos usar $\vec{\tau} = -\vec{F}\times\vec{r}$, já que $\vec{a}\times\vec{b} = - \vec{b}\times\vec{a}$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Momento angular e Segunda Lei de Newton}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Da mesma forma que temos o momento linear, para o caso das rotações temos o momento angular, definido como
-\begin{equation}\label{Eq:DefMomAngular}
-  \vec{\ell} = \vec{r}\times\vec{p},
-\end{equation}
-%
-onde $r$ denota a posição de uma partícula qualquer e $p$ denota seu momento angular. Se derivarmos essa expressão em relação ao tempo, temos
-\begin{align}
-  \frac{d\vec{\ell}}{dt} &= \frac{d(\vec{r}\times\vec{p})}{dt} \\
-  &= \frac{d\vec{r}}{dt}\times\vec{p} + \vec{r}\times\frac{d\vec{p}}{dt},
-\end{align}
-%
-onde usamos a regra da cadeia. Notando que $d\vec{r}/dt = \vec{v}$, $\vec{p} = m \vec{v}$ e $d\vec{p}/dt = \vec{F}$, podemos escrever
-\begin{equation}
-  \frac{d\vec{\ell}}{dt} = m\vec{v}\times\vec{v} + \vec{r} \times \vec{F}.
-\end{equation}
-%
-Finalmente, notando que o produto vetorial de dois vetores colineares é nulo, temos que $\vec{v}\times\vec{v} = 0$ e, portanto,
-\begin{align}
-  \frac{d\vec{\ell}}{dt} &= \vec{r} \times \vec{F} \\
-  &= \vec{\tau}.
+    K_{\rm{trans}} &= \sum_{i=1}^N \left[\frac{1}{2}m_i v_{\rm{CM}}^2 \left(1 + \frac{(r_\perp^i)^2}{R^2} - 2\frac{r_\perp^i}{R}\cos\theta_i\right) \right] \\
+    &= \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2}{2}\right] + \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2 (r_\perp^i)^2}{2R^2} \right] - \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{r_\perp^i}{R}\cos\theta_i\right]
 \end{align}
 
-Mais uma vez obtivemos um resultado para o caso das rotações que tem um análogo no caso da translação: a equação acima mostra que a taxa de variação do momento angular no tempo é igual ao torque, o que é análogo à forma $\vec{F} = d\vec{p}/dt$ para a Segunda Lei de Newton. Portanto, temos uma nova forma para a Segunda Lei de Newton para Rotações:
-\begin{equation}\label{Eq:SegLeiNewtonRotDLDT}
-  \vec{\tau} = \frac{d\vec{\ell}}{dt}.
-\end{equation}
-
-\comment{$\tau$ e $\ell$ devem ser definidos em relaçao ao mesmo ponto}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular para uma partícula que se desloca em linha reta}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{mostrar que $r\sen\phi = d$ ($d$ é a distância mínima entre a reta em que a partícula se desloca e a origem)}
-
-Assim como no caso do torque, o momento angular é calculado em relação a um ponto. Mesmo que a partícula se desloque em uma linha reta, sem executar uma rotação em torno de um ponto, podemos lhe atribuir um momento angular.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular de um sistema de partículas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-O momento angular de um sistema de partículas pode ser calculado somando-se o momento angular das várias partículas que o constituem:
+Na expressão acima, temos para o primeiro termo
 \begin{align}
-  \vec{L} &= \vec{\ell}_1 + \vec{\ell}_2 + \vec{\ell}_3 + \dots + \vec{\ell}_N \\
-  &= \sum_{i=1}^N \vec{\ell}_i.
+    \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2}{2}\right] &= \frac{1}{2} \left[\sum_{i=1}^N m_i \right] v_{\rm{CM}}^2 \\
+    &= \frac{1}{2} m v_{\rm{CM}}^2 \\
+    &= K_{\rm{trans}},
 \end{align}
 %
-Esta propriedade é característica dos vetores, e já a utilizamos para definir o momento linear do centro de massa $\vec{P}_{\textrm{CM}}$ como sendo a soma do momento linear das partículas que o constituem.
+onde usamos o fato de que a soma no primeiro termo nada mais é do que a massa total do corpo. Logo, o primeiro termo é a própria energia cinética de translação $K_{\rm{trans}}$.
 
-Se derivarmos a expressão acima em relação ao tempo, temos
+No segundo termo, podemos utilizar o fato que para um rolamento as velocidade de translação e de angular estão vinculadas através de
+\begin{equation}
+    v_{\rm{CM}} = r\,\omega
+\end{equation}
+%
+para escrever
 \begin{align}
-  \frac{d\vec{L}}{dt} &= \frac{d}{dt}\left(\sum_{i=1}^N\vec{\ell}_i\right) \\
-  &= \sum_{i=1}^N \frac{d\vec{\ell}_i}{dt}.
+    \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2 (r_\perp^i)^2}{2R^2} \right] &= \frac{1}{2} \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{(r_\perp^i)^2}{R^2} \right] \\
+    &= \frac{1}{2} \sum_{i=1}^N \left[m_i \omega^2 (r_\perp^i)^2 \right] \\
+    &= \frac{1}{2} \sum_{i=1}^N \left[m_i (r_\perp^i)^2 \right] \omega^2 \\
+    &= \frac{1}{2} I \omega^2 \\
+    &= K_{\rm{rot}},
 \end{align}
 %
-De acordo com a Equação~\ref{Eq:SegLeiNewtonRotDLDT} para a Segunda Lei de Newton para Rotações, $d\vec{\ell}_i/dt = \vec{\tau}_i$, isto é, o torque que atua sobre a i-ésima partícula. No entanto, para um sistema de partículas que interagem através de forças, os torques devido a forças internas geram um par que se cancela na soma. Dessa forma, restarão somente os torques externos, logo
-\begin{equation}\label{Eq:SegLeiNewtonRotSisPartDLDT}
-  \vec{\tau}_R^{\textrm{Ext}} = \frac{d\vec{L}}{dt}.
+onde utilizamos a definição do momento de inércia $I$.
+
+Finalmente, para o terceiro termo temos
+\begin{equation}
+    \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{r_\perp}{R}\cos\theta_i\right] =  \frac{v_{\rm{CM}}^2}{R}\sum_{i=1}^N \left[m_i r_\perp^i \cos\theta_i\right].
+\end{equation}
+%
+De acordo com a Figura~\ref{Fig:PosPRelCMRol}, verificamos que a posição no eixo vertical em relação ao centro de massa pode ser escrita como
+\begin{equation}
+    y_i = r_\perp^i \cos\theta_i,
+\end{equation}
+%
+onde $y_i$ é a posição do ponto no referencial do centro de massa. Devido à simetria do corpo, no entanto, se assumirmos que ele é homogêneo, verificamos que para cada ponto na região positiva do eixo $y$ corresponde um ponto na região negativa. Logo, o somatório se anula. Portanto, concluímos que
+\begin{equation}
+    K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular de um corpo rígido}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Figuras para explicar o cálculo do momento angular de um corpo rígido}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Razão entre as energias cinéticas de rotação e de translação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se um corpo gira em torno de um eixo, podemos calcular seu momento angular dividindo-o em várias partes e tratando-o como um sistema de partículas. Na Figura ??? ao lado, o momento angular de uma das partículas que compõe o corpo é mostrado. Segundo a definição do momento angular para uma partícula, temos
+Um resultado interessante para o rolamento sem deslizar é o fato de que a razão entre as energias cinéticas de rotação e de translação é constante:
 \begin{align}
-  \vec{\ell}_i &= \vec{r}\times\vec{p} \\
-  &= r_i p_i \sen \degree{90} \\
-  &= r_i m_i v_i,
+    \frac{K_{\rm{rol}}}{K_{\rm{trans}}} &= \frac{\nicefrac{1}{2} \, I \omega^2}{\nicefrac{1}{2} \, m v_{\rm{CM}}^2} \\
+    &= \frac{I \omega^2}{m v_{\rm{CM}}^2} \\
+    &= \frac{I v_{\rm{CM}}^2/R^2}{m v_{\rm{CM}}^2} \\
+    &= \frac{I /R^2}{m},
 \end{align}
 %
-onde as variáveis $r_i$, $m_i$ e $v_i$ se referem à posição, velocidade e massa da partícula em questão. Usamos ainda o índice $i$ pois calculamos o momento angular de somente uma partícula, porém vamos somar sobre as demais já que a expressão é a mesma para todas elas.
+onde usamos
+\begin{equation}
+    v_{\rm{CM}} = r\,\omega,
+\end{equation}
+%
+com $r = R$.
 
-Se o corpo for simétrico e homogêneo, podemos perceber facilmente que para toda partícula $P$ existe uma partícula $P'$ diametralmente oposta à primeira e que tem os mesmos valores para as componentes do momento angular para os eixos $x$ e $y$, porém com sentidos contrários. Logo, ao realizarmos a soma sobre todas as partículas, concluímos que tais componentes resultarão em zero, restando somente a componente $z$ do momento angular. Esta componente pode ser calculada utilizando o ângulo $\theta$ e obtemos
+Assumindo que o momento de inércia possa ser escrito na forma
+\begin{equation}
+    I = f MR^2,
+\end{equation}
+%
+como fizemos ao calcular a aceleração do centro de massa durante o rolamento em um plano inclinado, temos finalmente
 \begin{align}
-  \ell_{iz} &= \ell_i \sen\theta \\
-  &= r_i m_i v_i \sen\theta.
+    \frac{K_{\rm{rol}}}{K_{\rm{trans}}} &= \frac{f mR^2 /R^2}{m} \\
+    &= f.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia mecânica no rolamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Assim como pudemos utilizar a conservação da energia no caso de uma simples rotação, também podemos utilizar a conservação da energia em um movimento de rolamento. Para isso, basta lembrarmos que a energia cinética para o rolamento é dada por
+\begin{equation}
+    K_{\rm{rol}} = K_{\rm{trans}} + K_{\rm{rot}}.
+\end{equation}
+
+Se, por exemplo, tomarmos um corpo e o dispusermos no topo de um plano inclinado --~como retratado na Figura~\ref{Fig:ConsEnergiaRolamento}~--, liberando-o a partir do repouso, podemos determinar a velocidade do centro de massa após ele percorrer uma distância $d$. Para considerar a aplicação da conservação da energia, em primeiro lugar, precisamos determinar se o trabalho exercido por forças não conservativas é nulo. No problema em questâo, atuam duas forças não conservativas: a normal e a força de atrito.
+
+No caso da força normal, temos que a direção da força é sempre perpendicular ao deslocamento, o que implica em um trabalho nulo. No caso da força de atrito, temos que o ponto onde a força atua não se desloca: conforme o rolamento progride, temos uma troca de pontos de apoio, porém não temos o deslocamento dos pontos, fazendo com que o trabalho seja nulo\footnote{Se um bloco é posto sobre uma esteira que é puxada, acelerando o bloco através da força de atrito, por exemplo, temos que o ponto de aplicação da força de atrito se desloca no espaço. Cosnequentemente, temos um trabalho realizado pelo atrito. No caso do rolamento, no entanto, esse deslocamento do ponto onde a força é aplicada não ocorre. (Lembre-se que o ponto de contato tem velocidade nula em relação ao solo, portanto não se desloca enquanto está sujeito à força de atrito).}. Assim, podemos utilizar a conservação da energia:
+\begin{align}
+    \Delta E &= W_{\rm{NC}} \\
+    &= W_N + W_{f_{\rm{at}}} \\
+    &=0,
 \end{align}
 %
-A distância $r_{\perp}$ pode ser escrita como
+o que implica em
 \begin{equation}
-  \ell_{\perp} = r_i\sen\theta.
-\end{equation}
-%
-Consequentemente, 
-\begin{equation}
-  \ell_{iz} = m_i r_{\perp}^2 \omega,
-\end{equation}
-%
-onde utilizamos $v_i = \omega r_{\perp}$ (lembre-se que $\omega$ é constante e igual para todas as partículas que compôe um corpo rígido). Dessa forma, podemos escrever o momento angular total do corpo como
-\begin{equation}
-  L_z = \left[\sum_{i=1}^N m_i r_{\perp}^2\right] \omega.
-\end{equation}
-%
-O termo entre colchetes nada mais é que o momento de inércia do corpo. Além disso, sabemos que só resta a componente $z$ do momento angular, porém esta é a mesma direção da velocidade angular. Logo
-\begin{equation}
-  \vec{L}_z = I \vec{\omega}.
+    E_i = E_f.
 \end{equation}
 
-É importante notar que se o corpo não for simétrico, restará uma componente do plano $xy$ que mudará constantemente de direção. No caso de um objeto assimétrico sofrer uma rotação, portanto, deve haver um torque que é realizado por um agente externo -- pois $\vec{\tau} = d\vec{L} / dt$ e se $\vec{L}$ não é constante, então $\vec{\tau} \neq 0$ --. Se o objeto em questão está prezo por mancais, por exemplo, tais suportes exercem força sobre o corpo que geram torques, possibilitanto que o momento angular varie. No entanto, existem as reações a essas forças, que são exercidas pelo corpo sobre os suportes, sendo responsáveis pelas \emph{vibrações} características de um corpo assimétrico submetido a rotações.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,  rotate = -30, interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    \draw[interface, gray] (0,0) coordinate (O) -- (4,0) coordinate (Or);
+    \draw[gray] (Or) -- +(-150:1) coordinate (h);
+    
+    \pic [draw, "$\beta$", angle eccentricity = 1.2, angle radius = 8mm]{angle = O--Or--h};
+    
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (1,0.5) circle (0.5);
+    \draw[fill] (1,0.5) circle (0.8pt);
+    
+    \draw[->, thick] (1,1) -- node[right]{$\vec{N}$} +(0,0.866);
+    \draw[->, thick] (1,0.5) -- +(-60:1) node[left]{$\vec{P}$};
+    %\draw[dashed, thick, ->] (1,0.5) -- +(0,-1.08)node[left]{$P_y$};
+    %\draw[dotted, thick, ->] (1,0.5) -- +(0.625,0) node[above right]{$P_x$};
+    %\draw[loosely dotted] (1,0.5) ++(0,-1.08) -- +(0.625,0);
+    %\draw[loosely dotted] (1,0.5) ++(0.625,0) -- +(0,-1.08);
+    \draw[->, thick] (1,0) -- +(-0.75,0) node[below]{$\vec{f}_{\rm{at}}$};
+    \draw[fill] (1,0) circle (0.8pt);
+%    \draw[dashed,->] (1,0.5) -- node[above]{$r$} +(220:0.5);
+%    \draw[|<->|] (0.3, 0.5) -- +(0,0.5);
+%    \node (r) at (0.1, 0.75) {$r$};
+%    \draw[dotted] (0.3,1) -- +(0.5,0);
+    
+    \draw[dashdotted] (0,0.5) -- (0.5,0.5);
+    \draw[dashdotted,->] (1.5,0.5) -- +(1,0) node[below left]{$x$};
+    \draw[dashdotted,->] (1,1)++(0,0.866) -- +(0,0.5)node[left]{$y$};
+    \draw[dashdotted] (1,0) -- +(0,-1);
+    
+    \draw[|<->|] (1,1.2) -- node[above]{$d$} (3.5,1.2);
+    \draw[dotted] (3.5,0.5) circle (0.5);
+    \draw[gray, fill] (3.5,0.5) circle (0.5pt);
+    \draw[->,gray] (3.5,0.5)++(70:0.7) arc[start angle = 70, end angle = 20, radius = 0.7] node[midway, right]{$\omega$};
 
-\comment{Aqui entram exemplos (em um ambiente próprio, paragraph)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conservação do momento angular}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{tikzpicture}
+\caption{Podemos utilizar a conservação da energia mecânica para determinar a velocidade de translação de um rolamento após o corpo percorrer uma distância $d$. \label{Fig:ConsEnergiaRolamento}}
+\end{marginfigure}
 
-A partir da Equação~\ref{Eq:SegLeiNewtonRotSisPartDLDT}, percebemos que se $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que $d\vec{L}/dt = 0$, ou seja,
+Sabemos que a energia mecânica é dada pela soma das energias cinética e potencial:
 \begin{equation}
-  \vec{L} = \textrm{constante}.
+    K^i + U^i = K^f + U^f.
 \end{equation}
 %
-Temos, portanto, uma nova lei de conservação -- a \emph{conservação do momento angular} --. Assim como nos casos da \emph{conservação da energia} e da \emph{conservação do momento linear}, o fato de termos uma lei de conservação envolvendo o momento angular nos permitirá analisar sistemas sem sabem em detalhes o que ocorre entre dois instantes quaisquer. Se um evento ocorre de forma que $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que o momento angular antes e depois de tal evento é o mesmo:
+No sistema em questão, temos somente uma força conservativa --~o peso~--, portanto só temos um potencial. No caso da energia cinética, no entanto, temos duas formas: a de translação e a de rotação:
 \begin{equation}
-  L_i = L_f.
+    K_r^i + K_t^i + U_g^i = K_r^f + K_r^t + U_g^f.
 \end{equation}
 %
-Logo, se temos informações sobre o sistema antes do evento, podemos relacioná-las ao estado final do sistema sem saber detalhes do que ocorreu durante o evento. Isso será muito útil na análise de várias situações.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Precessão de um giroscópio}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{Fazer figuras,melhorar texto, descrições, o que é um giroscópio, falar como é impressionante, etc.}
-
-A Precessão de um giroscópio é um exemplo claro da razão pela qual o torque é uma grandeza vetorial. Se não fosse esse o caso, o movimento não poderia ser explicado. Na figura ao lado, mostramos um desenho esquemático de um giroscópio, com as forças e torques que atuam sobre ele quando ele está parado. Verificamos que há um torque na direção $y$ e que -- ao liberarmos a movimentação do sistema -- será responsável por girar o giroscópio em torno desse eixo, dotando-o de um momento angular $\vec{L}$ também na direção de $y$.
-
-No caso de o giroscópio já estar girando antes de o soltarmos, já teremos um momento angular inicial $\vec{L}$ na direção do eixo do disco do giroscópio. Sabemos que nesse caso 
+Como o corpo é liberado a partir do repouso no topo da rampa, temos que as energias cinéticas iniciais são nulas. Além disso, podemos escolher a origem do eixo vertical na posição final do centro de massa, o que implica que a posição inicial é dada por $d\sen\beta$. Assim,
 \begin{equation}
-  \vec{L} = I\vec{\omega}.
+    mgd\sen\beta = \frac{1}{2} mv_f^2 + \frac{1}{2} I\omega^2.
 \end{equation}
 %
-Se mantivermos a velocidade do disco constante, temos que o momento angular deve ser constante. Se soltarmos o sistema, o peso continuará exercendo um torque igual ao da situação anterior, na direção de $y$. Como $\vec{\tau}$ é perpendicular a $\vec{L}$, ele não pode mudar o \emph{módulo} do momento angular, porém pode mudar sua \emph{direção}. De fato, sabendo que
+Se utilizarmos o vínculo entre a velocidade angular e a velocidade de translação válida para movimentos de rolamento (que ocorrem sem deslizar), temos
 \begin{equation}
-  \vec{\tau} = \frac{d\vec{L}}{dt},
+    mgd\sen\beta = \frac{1}{2} mv_f^2 + \frac{1}{2} I \frac{v_f^2}{r^2}.
 \end{equation}
 %
-podemos escrever
-\begin{equation}
-  d\vec{L} = \vec{\tau} dt,
-\end{equation}
-%
-o que nos indica que a \emph{variação} do vetor momento angular tem a mesma direção que o torque. Logo, após um intervalo de tempo $dt$, temos que o giroscópio aponta em uma nova direção no espaço.
-
-Podemos determinar a velocidade de precessão do giroscópio fazendo a seguinte análise: Sabemos que o módulo do torque é dado, nesse caso, por
-\begin{equation}
-  \tau = Mgr,
-\end{equation}
-%
-e portanto,
-\begin{equation}
-  dL = Mgr\,dt.
-\end{equation}
-%
-Além disso, analisando a figura ao lado, temos que o arco $s$ tem comprimento
-\begin{equation}
-  s = L \phi.
-\end{equation}
-%
-Para um ângulo muito pequeno,
-\begin{equation}
-  ds = L d\phi.
-\end{equation}
-%
-Logo,
+Assumindo que $I = f MR^2$, temos
 \begin{align}
-  d\phi &= \frac{dL}{L} \\
-  &= \frac{Mgr\,dt}{I\omega},
+    mgd\sen\beta = \frac{1}{2} mv_f^2 + \frac{1}{2} f mr^2 \frac{v_f^2}{r^2} \\
+    gd\sen\beta = \frac{1}{2} v_f^2 + \frac{1}{2} f v_f^2 \\
+    2gd\sen\beta = (1 + f) v^2 \\
+    \frac{2gd\sen\beta}{1 + f} = v^2.
 \end{align}
 %
-e, consequentemente,
+Finalmente,
 \begin{equation}
-  \Omega \equiv \frac{d\phi}{dt} = \frac{Mgr}{I\omega}.
+    v = \sqrt{\frac{2gd\sen\beta}{1 + f}}.
 \end{equation}
 
-% Num avião monomotor, quando o ele acelera para decolar, existe uma inclinação do eixo de rotação do motor/hélice. Em um certo momento, o avião vai passar a ficar alinhado em relação à pista (devido à força de sustentação? ou ação do piloto?). Nesse momento, ocorre uma uma precessão das partes rotativas (giroscópio), fazendo com que o avião ``puxe'' para a esquerda (devido ao fato de que o giroscópio gira em sentido horário do ponto de vista do piloto). % Vi isso no Aviões e Músicas
+
+
+
+
+
