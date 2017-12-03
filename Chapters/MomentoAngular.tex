@@ -11,9 +11,20 @@
 
 {\it
 Intro ...
+
+dar uma olhada nos livros que tenho salvos, tem vários que tratam rotações. Ver em especial o Landau, parece que tem coisa interessante. Ver páginas da Wikipedia: https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion
+
+Tem algum pdf sobre o euler salvo em algum lugar, provavelmente em Downloads.
 }
 
+Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
 
+
+Ver essa questão dos sinais, principalmente na solução da máquina de Atwood. Na real acho que não precisa dessas firulas dos sinais se levarmos em conta o caráter vetorial.
+
+Tem uma história de que a segunda lei para o CM é chamada de primeira lei de Euler, e que a segunda lei de euler é a segunda lei de Newton pra rotação. Verificar isso, é uma informação interessante. Seria legal ver qual o papel do Euler na mecânica, pois essa formulação que não é nem lagrangiana, nem hamiltoniana, com essa cara matemática que usamos, é chamada de Newton-Euler em alguns lugares.
+
+seria interessante mostrar uma figura em um "gimbal". Em francês, italiano, espanhol e alemão, o nome disso é "suspensão cardânica", ou "suspensão cardan". Aparentemente a idéia é que o gimbal é formado por duas junções tipo cardan, que tb é chamada de junta universal. Aparentemente o sensor do Wii não tem um giroscópio dentro, é um chip com alguma massa que oscila, ou se move de alguma maneira, e consegue verificar a rotação em torno de um eixo. a ideia é diferente do acelerômetro, pois ele sente a rotação, não a aceleração de translação em um eixo. Pode ser uma massa que fica pendurada em algum fio, assim quando o controle gira, a gaiola na qual a massa está suspensa gira, mas a massa fica mais ou menos onde estava.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Caráter vetorial das variáveis da rotação}
@@ -26,6 +37,10 @@ Não está claro pra mim qual é a de definir esses deslocamentos angulares infi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade e aceleração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{A velocidade angular é o vetor $\omega\versk$, onde o eixo $z$ é a direção do eixo de rotação. Ele é capaz de descrever a velocidade de cada um dos pontos uma vez que se tome uma origem \emph{contida no eixo $z$}. Assim, $\vec{v} = \vec{omega}\times\vec{r}$. (Ver Caítulo 13 do Ruina-Pratap, ou o Moysés.}
+
+\textbf{o vetor aceleração angular é definido no Ruina-Pratap (Capítulo 14) num contexto de movimento ``planar'' (?), onde, aparentemente, a direção do eixo de rotação não muda.}
 
 Quando discutimos as grandezas da translação, concluímos que posição, velocidade e aceleração eram grandezas vetoriais e tinham módulo, direção e sentido. Podemos atribuir um caráter vetorial à velocidade angular e à aceleração angular. Nesses casos, no entanto, a direção do vetor não nos dá a direção do movimento, mas a direção \emph{em torno} da qual o objeto gira.
 

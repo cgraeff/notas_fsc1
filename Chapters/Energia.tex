@@ -2111,9 +2111,53 @@ onde
 %\section{Questionário}
 %%%%%%%%%%%%%%%%%%%%%%
 
-%\begin{question}[type={exam}]
-%Uma questão.
-%\end{question}
+\begin{question}[type={exam}]\label{Q:MaxDistensaoMolaParaNaoDeslizar}
+A Figura~\ref{Fig:Q:MaxDistensaoMolaParaNaoDeslizar} mostra um bloco que está apoiado sobre uma mesa sem atrito e que está ligado a uma mola. Sobre este bloco, repousa um segundo bloco. Na interface entre os blocos, existe atrito. Qual é a maxima distensão $x_m$ que a mola pode ter para a qual os blocos aceleram juntos ao liberarmos o sistema para se mover? Considere que $k = \np[N/m]{120.0}$, $m_1 = \np[kg]{3,0}$, $m_2 = \np[kg]{1.0}$, e $\mu_e = \np{0.65}$.
+
+\begin{marginfigure}
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (0,1.5) -- (0,0);
+    \draw[interface] (0,0) -- (4.8,0);
+    
+    \draw (0,0.5) -- (0.2,0.5);
+    \draw[decoration={aspect=0.3, segment length=1.2mm, amplitude=2mm,coil},decorate] (0.2,0.5) -- +(1.6,0);
+    \draw (1.8, 0.5) -- (2,0.5);
+    
+    \draw[pattern = north west lines] (2,0) rectangle (3,1);
+    \draw[pattern = north west lines] (2.25,1) rectangle (2.75,1.5);
+    
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    \draw[pattern = north west lines] (3.75,-1.5) rectangle (4.25,-1);
+    
+    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) node[below]{$0$} -- (4,-3.5) node[below]{$x_m$};
+    
+    \node[draw, circle, dashed, scale = 0.7] (BL1) at (3.35,0.75) {1};
+    \node[draw, circle, dashed, scale = 0.7] (BL2) at (3,1.65) {2};
+        
+\end{tikzpicture}
+\caption{Questão~\ref{Q:MaxDistensaoMolaParaNaoDeslizar}. \label{Fig:Q:MaxDistensaoMolaParaNaoDeslizar}}
+\end{marginfigure}
+\end{question}
 
 % Considerando uma força de arrasto específica, qual é a velocidade máxima dada uma certa potência.
 

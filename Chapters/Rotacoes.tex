@@ -6,43 +6,101 @@
 
 %\clearpage
 
-%%%%%%%%%%%%%%%%%%%%
-\section{Introdução}
-%%%%%%%%%%%%%%%%%%%%
-
+\begin{fullwidth}
 {\it
-Intro ...
+No Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear} verificamos que um corpo extenso pode ser considerado como uma partícula localizada no centro de massa, sendo que já haviamos tratado da translação da partícula nos demais capítulos anteriores. Considerar somente o movimento de translação --~isto é, o deslocamento no espaço~-- não descreve completamente o movimento de corpos extensos: sabemos que existe também a possibilidade de um movimento de rotação. Vamos agora analisar esse tipo de movimento dos pontos de vista de cinemática, dinâmica e energia. Inicialmente, vamos tratar de rotações puras, depois verificaremos um caso específico de movimento combinado de rotação e de translação, o rolamento.
 }
+\end{fullwidth}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 
-fazer uma intro
-\textbf{Restringir a um movimento ``unidimensional'' em rotações, ou seja, uma rotação em torno de somente um eixo. Vamos eliminar essa restrição quando passarmos a tratar as grandezas como vetores.}
+Em tese, já sabemos como tratar o movimento de um corpo rígido: basta tratar o movimento de cada partícula indepedentemente. Claramente isso é impossível, afinal temos uma quantidade muito grande de partículas mesmo em um corpo com dimensões pequenas. Além disso, durante a rotação, cada partícula deve estar sujeita a um conjunto de forças internas que é responsável por causar um movimento em uma trajetória curvilínea.
 
+Como estamos tratando de um corpo rígido, entretanto, temos que as diversas partículas efetuam um movimento coletivo em torno de um eixo de rotação\footnote{Esse resultado é geral para qualquer rotação, e é conhecido como Teorema de Euler para a Rotação.}. Verificamos então que existem variáveis coletivas para o movimento das partículas: em um corpo rígido, por definição a distância relativa entre as diversas partículas é constante. Assim, se uma partícula qualquer efetua uma rotação por um ângulo em torno do eixo de rotação, todas as demais devem efetuar uma rotação com o mesmo ângulo. Verificaremos adiante como determinar tal ângulo, a velocidade de rotação e outras grandezas e relações que são válidas nesse movimento coletivo.
 
-% TODO texto introdutório e falar sobre corpos rígidos
-Vamos analisar o movimento de rotação de um corpo rígido (isto é, um corpo em que a distância relativa entre cada uma das partículas que o constituem é constante o que faz com que ele não mude de forma) em torno de um eixo.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+%    \draw[dotted, smooth, samples=1000, domain=0:3.33] plot ({1*\x}, {2*\x - 0.6*\x*\x});
+    \draw[smooth, samples=1000, domain=0:3.1] plot ({1*\x-0.3*sin(8*\x r)}, {2*\x - 0.6*\x*\x - 0.3*cos(8*\x r)});
+    
+    \begin{scope}
+        \draw [rotate = 90] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+%        \draw[fill] (0,0) circle (0.8pt);
+    \end{scope}
 
-Acredito que temos algumas coisas muito importantes para falar nessa introdução: Teorema de Mozzi-Chasles; ângulos de Euler.
+    \begin{scope}[shift = {(1.25,1.5625)}, rotate = 572.96]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.285) circle (0.6pt);
+%        \draw[fill] (0,0) circle (0.8pt);
+    \end{scope}
+    
+    \begin{scope}[shift = {(2.75,0.9625)}, rotate = 1260.51]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+%        \draw[fill] (0,0) circle (0.8pt);
+    \end{scope}
+        
+\end{tikzpicture}
+\caption{Quando arremessamos um bastão com uma velocidade de rotação, o movimento efetuado por cada partícula é bastante complexo. Cada uma das partículas estará sujeita a um conjunto de forças internas que será capaz de alterar a sua trajetória. \label{Fig:LancamentoObliquoCorpoGirando}}
+\end{marginfigure}
 
-Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
+O fato de podermos caracterizar a rotação através de variáveis coletivas não nos garante que possamos tratar qualquer movimento, no entanto. Isso ocorre pois podemos ter um movimento como o da Figura~\ref{Fig:LancamentoObliquoCorpoGirando}, onde um ponto qualquer de um bastão que é atirado com uma velocidade de rotação efetua um movimento complexo. Nesse movimento, que poderíamos tratar do ponto de vista de uma partícula, não temos uma rotação em torno de um ponto fixo no espaco.
 
+Para solucionar tal problema, podemos recorrer ao Teorema de Chasles, ou de Mozzi-Chasles: segundo tal teorema, \emph{todo movimento pode ser descrito como uma rotação em torno do centro de massa aliado a uma translação do centro de massa}. Assim, podemos descrever o movimento da partícula da Figura~\ref{Fig:LancamentoObliquoCorpoGirando} como uma translação do centro de massa, que percorre uma parábola devido à ação do peso --~que atua como uma força externa~-- aliado a uma rotação da partícula em torno do centro de massa. A Figura~\ref{Fig:LancamentoObliquoCorpoGirandoDecomposto} mostra o mesmo movimento, destacando as suas duas componentes.
 
-Ver essa questão dos sinais, principalmente na solução da máquina de Atwood. Na real acho que não precisa dessas firulas dos sinais se levarmos em conta o caráter vetorial.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    \draw[dotted, smooth, samples=1000, domain=0:3.33] plot ({1*\x}, {2*\x - 0.6*\x*\x});
+    \draw[smooth, samples=1000, domain=0:3.1] plot ({1*\x-0.3*sin(8*\x r)}, {2*\x - 0.6*\x*\x - 0.3*cos(8*\x r)});
+    
+    \begin{scope}
+        \draw [rotate = 90] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+        \draw[fill] (0,0) circle (0.8pt);
+        
+        \draw[->] (240:0.4) arc[start angle = 240, end angle = 120, radius = 0.4]node[left, midway]{$\omega$};
+    \end{scope}
+
+    \begin{scope}[shift = {(1.25,1.5625)}, rotate = 572.96]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.285) circle (0.6pt);
+        \draw[fill, gray] (0,0) circle (0.8pt);
+    \end{scope}
+    
+    \begin{scope}[shift = {(2.75,0.9625)}, rotate = 1260.51]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+        \draw[fill,gray] (0,0) circle (0.8pt);
+    \end{scope}
+        
+\end{tikzpicture}
+\caption{Segundo o Teorema de Mozzi-Chasles, todo movimento de um corpo rígido pode ser interpretado como uma rotação em torno do centro de massa e uma translação do centro de massa. No exemplo do arremesso de um bastão, o movimento do centro de massa continua sendo uma parábola, uma vez que somente forças externas são capazes de alterar a sua trajetória e nesse caso atua somente a força peso. \label{Fig:LancamentoObliquoCorpoGirandoDecomposto}}
+\end{marginfigure}
+
+Vamos iniciar o tratamento de rotações considerando um corpo rígido que gira em torno de um eixo cuja direção é fixa no espaço. Além disso, vamos considerar que a origem do sistema de coordenadas está fixada no centro de massa do corpo que gira. Dessa maneira, seremos capazes de verificar alguns resultados importantes, incluindo a descrição cinemática, dinâmica e de energia em rotações. Utilizando o Teorema de Mozzi-Chasles, poderemos então descrever o movimento de rolamento simplesmente considerando que o centro de massa se desloca em relação a um outro referencial fixado no solo. Posteriormente, no próximo capítulo, vamos tratar os casos onde a direção do eixo de rotação varia, e veremos que isso dá origem a fenômenos bastante interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Variáveis cinemáticas para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-Fazer introdução sobre o as variáveis cinemáticas.
+De maneira similar ao que fizemos com a translação, vamos iniciar a análise de movimentos de rotação através da cinemática: necessitamos variáveis permitam descrever os movimentos de rotação. Verificaremos que as definições nos levam a variáveis análogas àquelas da translação, resultando até em expressões equivalentes para o caso de aceleração constante. Verificaremos também que existe uma relação simples entre as variáveis de translação e de rotação para as partículas que compõe um corpo rígido. Para que possamos obter tais resultados, no entanto, devemos iniciar discutindo os métodos para medir ângulos, em especial as medidas em radianos. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Unidades para a medida de ângulos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O ângulo $\theta$ pode ser descrito em qualquer unidade, porém é comum se utilizar medidas em \emph{radianos}. Podemos entender como funciona o sistema de medidas de ângulos em radianos através da Figura~\ref{Fig:ExplicacaoAngRad}: se tomarmos uma fração\footnote{Uma fração de um círculo é denominado como um \emph{setor} de um círculo.} $f$ de um círculo --~isto é, uma parte dele, na figura tomamos $\nicefrac{1}{8}$~--, podemos calcular a razão entre o arco $s$ e o raio $r$ e obter
+O ângulo $\theta$ pode ser descrito em qualquer unidade: revoluções, graus, grados\footnote{O grado faz parte da proposta inicial do SI, porém não encontrou grande aceitação cotidiana mesmo em países que de maneira geral adotam tal sistema.}, e também radianos. A primeira nada mais é do que o número de voltas efetuadas, sejam completas ou não. Para medirmos um ângulo em radianos, podemos então contar o número de voltas completas realizadas, porém para uma volta incompleta é mais difícil de determinarmos exatamente qual é o ângulo em revoluções a partir de uma comparação com um ``padrão'', que nesse caso é uma volta completa. De maneira um tanto quanto intuitiva, no entanto, podemos imaginar frações de uma revolução completa: $\nicefrac{1}{2}$ revolução, $\nicefrac{1}{3}$ de revolução, $\nicefrac{1}{4}$ de revolução, $\nicefrac{1}{8}$ de revolução, etc. 
+
+A segunda e a terceira unidades são divisões de um círculo em um número arbitário de partes: 360 e 400, respectivamente. Assim, as medidas são obtidas em comparação com um padrão pré-definido, porém menor. De certa forma, continuamos adotando frações de um círculo, mas dividimos os \np[\tcdegree]{360} de um círculo completo ao invés de ``uma revolução'': \np[\tcdegree]{180}, \np[\tcdegree]{120}, \np[\tcdegree]{90}, \np[\tcdegree]{45}, etc. Para um ângulo arbitrário, porém medido na prática, tendemos necessitamos usar um transferidor, ou seja, realizamos uma comparação com uma escala.
+
+Já o radiano pode ser considerado como uma medida \emph{natural} para ângulos. Podemos entender como funciona esse sistema de medidas de ângulos através da Figura~\ref{Fig:ExplicacaoAngRad}: se tomarmos uma fração\footnote{Uma fração de um círculo é denominado como um \emph{setor} de um círculo.} $f$ de um círculo --~isto é, uma parte dele, na figura tomamos $\nicefrac{1}{8}$~--, podemos calcular a razão entre o arco $s$ e o raio $r$ e obter
 \begin{equation}
     \frac{s_1}{r_1} = \frac{f\cdot 2\pi r_1}{r_1},
 \end{equation}
@@ -113,21 +171,21 @@ Para o caso específico do setor mostrado na Figura~\ref{Fig:ExplicacaoAngRad}, 
 %
 o seja, temos um ângulo $\theta = \nicefrac{\pi}{4}~\rm{rad}$, o que correspode a $\theta = \nicefrac{\np[\tcdegree]{360}}{8} = \np[\tcdegree]{45}$.
 
-Também podemos utilizar o valor de $f$ como uma medida de ângulo: em uma rotação, quando $f = 1$, a reta tracejada na Figura~\ref{Fig:ExplicacaoAngRad} descreve uma circunferência completa. Denominamos tal circunferência como \emph{uma revolução}. Assim, $f$ é um ângulo em revoluções. A relação entre o ângulo em radianos e o ângulo em revoluções é
+Note que em uma rotação completa, quando $f = 1$, a reta tracejada na Figura~\ref{Fig:ExplicacaoAngRad} descreve uma circunferência completa. Isto é, temos uma revolução. Assim, $f$ é um ângulo em revoluções, e a relação entre o ângulo em radianos e o ângulo em revoluções é
 \begin{equation}
-    \theta = \frac{s}{r} = f \cdot 2 \pi,
+    \theta = f \cdot 2 \pi.
 \end{equation}
 %
-é um ângulo em radianos. Para o ângulo em particular da Figura~\ref{Fig:ExplicacaoAngRad}, temos $\theta = \nicefrac{1}{8}~\rm{rev}$.
+Para o ângulo em particular da Figura~\ref{Fig:ExplicacaoAngRad}, temos $\theta = \nicefrac{1}{8}~\rm{rev}$.
 
-Veremos adiante que algumas relações só serão válidas para ângulos medidos em radianos. Algo que devemos enfatizar é o fato de que os ângulos em radianos são na verdade adimensionais, uma vez que são dados pela razão entre duas medidas de comprimento. Finalmente, resta destacar que no SI a unidade de ângulo é o radiano.
+Veremos adiante que as relações entre as variáveis de rotação e de translação só serão válidas para ângulos medidos em radianos: podemos verificar da definição do ângulo em radianos, através de uma razão entre duas distâncias, que os ângulos em radianos são na verdade adimensionais. Tais relações são fruto da própria definição de ângulos em radianos, e dependem dessa adimensionalidade. Finalmente, resta destacar que no SI a unidade de ângulo é o radiano.
 
 
 %%%%%%%%%%%%%%%%%%%
 \paragraph{Posição}
 %%%%%%%%%%%%%%%%%%%
 
-Necessitamos variáveis permitam descrever os movimentos de rotação. Podemos tomar uma reta fixa no objeto e que faz um ângulo de \np[\tcdegree]{90} em relação ao eixo de rotação. O ângulo $\theta$ entre tal reta e o eixo $x$ pode ser usado para descrever a posição angular do objeto.
+Podemos tomar uma reta fixa no objeto e que faz um ângulo de \np[\tcdegree]{90} em relação ao eixo de rotação e utilizá-la para determinar a \emph{posição angular}: o ângulo $\theta$ entre tal reta e o eixo $x$ pode ser usado como variável para descrever a posição angular do objeto. Na Figura~\ref{Fig:DefPosAngular} mostramos como exemplo a aplicação de tal conceito a um disco que gira em torno do eixo $z$ que passa perpendicularmente à sua face plana, pelo centro de massa.
 
 % https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
 \tikzset{
@@ -136,7 +194,7 @@ Necessitamos variáveis permitam descrever os movimentos de rotação. Podemos t
     }
 }
 
-\begin{marginfigure}[-10cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -192,7 +250,7 @@ Necessitamos variáveis permitam descrever os movimentos de rotação. Podemos t
 \draw[->] (0,-3.20) [partial ellipse=-260:-30:0.3125cm and 0.125cm];
 
 \end{tikzpicture}
-\caption{Podemos descrever a posição angular de um corpo rígido que gira em torno de um eixo através do ângulo formado entre uma linha fixa no corpo e um dos eixos coordenados perpendicular ao eixo de rotação.}
+\caption{Podemos descrever a posição angular de um corpo rígido que gira em torno de um eixo através do ângulo formado entre uma linha fixa no corpo e um dos eixos coordenados perpendicular ao eixo de rotação. \label{Fig:DefPosAngular}}
 \end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -475,6 +533,8 @@ A aceleração acima é responsável por variar o módulo da velocidade somente,
 \section{Dinâmica da rotação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma vez descritas as variáveis que caracterizam a cinemática da rotação, vamos agora nos preocupar com a dinâmica da rotação. Vamos iniciar definindo uma grandeza que cumprirá na rotação um papel análogo ao da força em uma translação, isto é, causar uma aceleração. Verificaremos que as expressões para a dinâmica da rotação também seguem um paralelo com equações equivalentes para a translação.
 
 %%%%%%%%%%%%%%%%%%%
 \subsection{Torque}
@@ -928,7 +988,7 @@ Observamos que o resultado acima é exatamente o mesmo que obtivemos para o caso
 
 Para que possamos aplicar a Segunda Lei de Newton para a rotação, é fundamental que saibamos qual é o momento de inércia do corpo em questão para o eixo em torno do qual a rotação ocorre. Como é possível verificar na Expressão~\ref{Eq:MomentoInerciaConjPart}, o momento de inércia depende da distância de cada uma das partículas em relação ao eixo de rotação. Isso nos indica que é importante determinar uma série de caracteísticas particulares a cada situação que estivermos analisando.
 
-\begin{marginfigure}
+\begin{marginfigure}[-6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate = -90,
      interface/.style={
@@ -975,9 +1035,12 @@ Para que possamos aplicar a Segunda Lei de Newton para a rotação, é fundament
 \draw[->] (2.5,-0.2) [partial ellipse=-120:150:0.125cm and 0.3cm];
 
 \end{tikzpicture}
-\caption{Um disco e um anel de mesma massa e raio têm momentos de inércia diferentes em virtude das diferentes distribuições de massa.}
+\caption{Um disco e um anel de mesma massa e raio têm momentos de inércia diferentes em virtude das diferentes \emph{distribuições} de massa.\label{Fig:CompMomInerciaDiscoAnel}}
 \end{marginfigure}
 
+Dentre as principais caracteríscias do momento de inércia, temos as seguintes dependências, cuja origem é a própria dependência na distância entre o eixo de rotação e a posição de cada partícula do corpo:
+\begin{description}
+    \item[Dependência na forma do objeto:] Se tomarmos um disco e um anel de mesma massa e raio, como na Figura~\ref{Fig:CompMomInerciaDiscoAnel}, o momento de inércia em torno do eixo $z$ mostrado acima é maior para o anel. Podemos compreender esse fato ao verificarmos que no caso do disco uma parte da massa, localizada na região central, se encontra próxima ao eixo de rotação. No caso do anel, essa massa está localizada a uma distância maior do eixo de rotação. Note que para que possamos ter a mesma massa e o mesmo raio, ou devemos utilizar um material mais denso para o anel, ou devemos distribuir a massa ao longo do eixo de rotação, como um tubo.
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
@@ -1027,10 +1090,6 @@ Para que possamos aplicar a Segunda Lei de Newton para a rotação, é fundament
 \end{tikzpicture}
 \caption{A orientação do eixo de rotação em relação ao objeto determina a distância entre as partículas e o próprio eixo, o que faz com que o momento de inércia seja diferente para cada orientação. Na figura, os pequenos círculos pretos mostram pontos onde os eixos saem/entram no objeto. \label{Fig:MomInerciaDiscoVariosEixos}}
 \end{marginfigure}
-
-Dentre as principais caracteríscias do momento de inércia, temos as seguintes dependências, cuja origem é a própria dependência na distância entre o eixo de rotação e a posição de cada partícula do corpo:
-\begin{description}
-    \item[Dependência na forma do objeto:] Se tomarmos um disco e um anel de mesma massa e raio, como na Figura~\ref{Fig:CompMomInerciaDiscoAnel}, o momento de inércia em torno do eixo $z$ mostrado acima é maior para o anel. Podemos compreender esse fato ao verificarmos que no caso do disco uma parte da massa, localizada na região central, se encontra próxima ao eixo de rotação. No caso do anel, essa massa está localizada a uma distância maior do eixo de rotação. Note que para que possamos ter a mesma massa e o mesmo raio, ou devemos utilizar um material mais denso para o anel, ou devemos distribuir a massa ao longo do eixo de rotação, como um tubo.
     \item[Dependência no eixo em que ocorre a rotação:] Mesmo para um corpo só, podemos ter diversos momentos de inércia diferentes. Na Figura~\ref{Fig:MomInerciaDiscoVariosEixos}, temos três eixos que atravessam um disco de maneiras diferentes, e que passam pelo centro de massa do corpo. Como a orientação do eixo muda a distância das partículas que compõe o corpo relativas ao eixo, ocorre uma mudança do momento de inércia. Dentre os três eixos mostrados, o momento de inércia é maior em relação ao eixo $z$, uma vez que ele minimiza a quantidade de massa próxima ao eixo.
     \item[Dependência na distância ao eixo de rotação] Mesmo que tenhamos o cuidado de escolher eixos cuja orientação em relação ao corpo é a mesma, a distância entre o eixo de rotação e o próprio corpo é um fator determinante no cálculo do momento de inércia, já que isso causa uma variação da distância entre as partículas e o eixo. Na Figura~\ref{Fig:MomInerciaRotEixosParalelos} temos três eixos distintos, paralelos uns aos outros, em torno dos quais o corpo pode efetuar uma rotação. Devido a alteração das distâncias entre as partículas e o eixo, cada um deles terá um momento de inércia diferente. Devemos destacar em especial o eixo $z''$, pois ele não atravessa o corpo. Esse tipo de situação é relativamente comum quando analisamos corpos compostos de diversas partes, e tem grande influência no valor do momento de inércia. Verificaremos adiante que os momentos de inércia em eixos paralelos estão relacionados de forma bastante simples e essa relação deixará bastante evidente que o momento de inércia mínimo é aquele associado ao eixo que passa pelo centro de massa do corpo.
 \end{description}
@@ -1427,11 +1486,6 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %%
 %% Disco
 %%  
-    \item[Disco, cilindro:] Vamos considerar somente dois eixos, que corresponem às situações mais simples:
-        \begin{align}
-            I_z &= \frac{1}{2}MR^2 \\
-            I_x &= \frac{1}{4} MR^2.
-        \end{align}
            
 \begin{marginfigure}
 \centering
@@ -1482,20 +1536,17 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \end{tikzpicture}
 \caption{Disco. \label{Fig:MomInerciaDisco}}
 \end{marginfigure}
-   
+
+    \item[Disco, cilindro:] Vamos considerar somente dois eixos, que corresponem às situações mais simples:
+        \begin{align}
+            I_z &= \frac{1}{2}MR^2 \\
+            I_x &= \frac{1}{4} MR^2.
+        \end{align}
+           
 %%
 %% Anel fino
 %% 
-        \item[Anel, tubo (finos):] Tanto para o anel, quanto para o tubo, quando o eixo de rotação é perpendicular à face circular, temos para um eixo que passa pelo centro de massa
-        \begin{equation}
-            I_z = MR^2.
-        \end{equation}
-        %
-        Para o anel, em particular, quando o eixo passa pelo centro de massa e está contido no plano determinado pelo próprio anel, temos
-        \begin{equation}
-            I_x = \frac{1}{2} MR^2.
-        \end{equation}
-        
+       
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[interface/.style={>=Stealth,
@@ -1549,13 +1600,19 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \caption{Anel/Tubo cilindrico formado por paredes finas. \label{Fig:MomInerciaTuboAnelFinoTab}}
 \end{marginfigure}
 
+    \item[Anel, tubo (finos):] Tanto para o anel, quanto para o tubo, quando o eixo de rotação é perpendicular à face circular, temos para um eixo que passa pelo centro de massa
+        \begin{equation}
+            I_z = MR^2.
+        \end{equation}
+        %
+        Para o anel, em particular, quando o eixo passa pelo centro de massa e está contido no plano determinado pelo próprio anel, temos
+        \begin{equation}
+            I_x = \frac{1}{2} MR^2.
+        \end{equation}
+        
 %%
 %% Anel, tubo
 %%
-    \item[Anel, tubo:] Para o caso de um anel ou tubo onde a espessura da parede não é desprezível, o momento de inércia em torno de um eixo perpendicular à face plana e que passa pelo centro de massa é dado por
-        \begin{equation}
-            I_z = M \frac{R_i^2 + R_e^2}{2}.
-        \end{equation}
   
 \begin{marginfigure}
 \centering
@@ -1597,17 +1654,16 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \end{tikzpicture}
 \caption{Anel/Tubo cilíndrico. \label{Fig:MomInerciaTuboAnelTab}}
 \end{marginfigure}
-  
+
+    \item[Anel, tubo:] Para o caso de um anel ou tubo onde a espessura da parede não é desprezível, o momento de inércia em torno de um eixo perpendicular à face plana e que passa pelo centro de massa é dado por
+        \begin{equation}
+            I_z = M \frac{R_i^2 + R_e^2}{2}.
+        \end{equation}
+          
 %%
 %% Haste fina
 %%
-    \item[Haste (fina):] Como verificamos anteriormente, o momento de inércia de uma haste fina e que gira em torno de um eixo que passa pelo seu centro de massa, perpendicularmente ao eixo da haste, é dado por
-        \begin{equation}
-            I_z = \frac{1}{12} ML^2.
-        \end{equation}
-    %
-    Note que a forma da seção reta da haste não é relevante, uma vez que estamos considerando que ela seja fina o suficiente para que somente o comprimento seja uma dimensão relevante.
-    
+   
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,
@@ -1644,16 +1700,17 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \caption{Haste fina.}
 \end{marginfigure}
 
+    \item[Haste (fina):] Como verificamos anteriormente, o momento de inércia de uma haste fina e que gira em torno de um eixo que passa pelo seu centro de massa, perpendicularmente ao eixo da haste, é dado por
+        \begin{equation}
+            I_z = \frac{1}{12} ML^2.
+        \end{equation}
+    %
+    Note que a forma da seção reta da haste não é relevante, uma vez que estamos considerando que ela seja fina o suficiente para que somente o comprimento seja uma dimensão relevante.
+    
 %%
 %% Haste
 %%
-    \item[Haste:] Se temos uma haste cilíndrica cujo raio não pode ser desprezado, temos que o momento de inércia em torno de um eixo perpendicular ao eixo da haste, e que passa por seu centro de massa é dado por
-    \begin{equation}
-        I_z = \frac{1}{4} MR^2 + \frac{1}{12} ML^2.
-    \end{equation}
-    %
-    Note que esse resultado se reduz ao primeiro termo, se temos um disco --~isto é, um cilindro cuja altura é desprezível~-- ou ao caso de uma haste fina --~se o raio é desprezível. 
-  
+ 
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,
@@ -1692,17 +1749,18 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \draw[|-|] (0,-0.5)+(15:-1.25) -- node[below right]{$L$} +(15:1.25);
 
 \end{tikzpicture}
-\caption{Haste.}
+\caption{Haste cilíndrica.}
 \end{marginfigure}  
-    
+
+    \item[Haste cilíndrica:] Se temos uma haste cilíndrica cujo raio não pode ser desprezado, temos que o momento de inércia em torno de um eixo perpendicular ao eixo da haste, e que passa por seu centro de massa é dado por
+    \begin{equation}
+        I_z = \frac{1}{4} MR^2 + \frac{1}{12} ML^2.
+    \end{equation}
+    %
+    Note que esse resultado se reduz ao primeiro termo, se temos um disco --~isto é, um cilindro cuja altura é desprezível~-- ou ao caso de uma haste fina --~se o raio é desprezível.  
 %% 
 %% Placa, cubo
 %%
-    
-    \item[Placa, prisma retangular:] Se temos uma placa retangular --~ou mesmo um prisma retangular~-- que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao plano, o momento de inércia é dado por
-    \begin{equation}
-        I_z = \frac{1}{12}M (a^2 + b^2).
-    \end{equation}
     
     \begin{marginfigure}
 \centering
@@ -1754,6 +1812,13 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 \end{tikzpicture}
 \caption{Placa/prisma retangular.}
 \end{marginfigure} 
+
+    \item[Placa, prisma retangular:] Se temos uma placa retangular --~ou mesmo um prisma retangular~-- que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao plano, o momento de inércia é dado por
+    \begin{equation}
+        I_z = \frac{1}{12}M (a^2 + b^2).
+    \end{equation}
+    
+    
 \end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1943,7 +2008,7 @@ o que resulta em
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Limite $h \to 0$}
+\paragraph{Discussão: Limite $h \to \infty$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Muitas vezes o segundo termo na Equação~\eqref{Eq:TeoremaEixosParalelos} é muito maior que $I_{\textrm{CM}}$, devido a um grande valor de $h$. Nesses casos, podemos desprezar o primeiro termo, restando somente
@@ -1953,7 +2018,7 @@ Muitas vezes o segundo termo na Equação~\eqref{Eq:TeoremaEixosParalelos} é mu
 %
 que corresponde ao caso de utilizarmos a Equação~\eqref{Eq:MomentoInerciaConjPart} para uma partícula girando em torno do eixo $p$, com toda a massa concentrada no centro de massa. Esta análise é o que nos permite tratar uma esfera de raio $r_e$ girando a uma distância $d$ em torno de um eixo como se fosse uma partículo, se $d \gg r_e$.
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -2028,7 +2093,7 @@ Assim, utilizando a Equação~\eqref{Eq:MomentoInerciaConjPart} para o momento d
 %
 onde $N_P$ representa o número de partículas da placa.
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2]
 
@@ -2103,7 +2168,7 @@ Concluímos então que
 \section{Trabalho e energia cinética para rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Intro aqui}
+Assim como no caso das translações, é interessante utilizarmos os conceitos de trabalho, energia cinética e energia mecânica no caso das rotações. Nas próximas seções vamos determinar expressões adequadas para o cálculo dessas grandezas em um contexto de rotações. Após isso, verificaremos alguns exemplos de sistemas cuja análise é mais simples de um ponto de vista energético, do que de um ponto de vista dinâmico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia cinética de rotação}
@@ -2139,7 +2204,7 @@ e temos mais uma vez uma equação que segue uma analogia com o caso da transla�
 
 Através da Segunda Lei de Newton para a rotação, sabemos que um corpo sujeito a um torque resultante externo estará sujeito a uma aceleração. Devido a essa aceleração, ele sofrerá uma variação de sua velocidade angular, que --~como vimos na seção anterior~-- está ligada a uma variação da energia cinética do corpo. Nesse caso, é interessante que tenhamos também uma expressão para o trabalho realizado pela força, em termos de variáveis características da rotação. Isso nos permitirá utilizar o Teorema Trabalho/Energia-Cinética e, consequentemente, a conservação da energia mecânica.
 
-\begin{marginfigure}
+\begin{marginfigure}[6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
      interface/.style={
@@ -2186,7 +2251,7 @@ Através da Segunda Lei de Newton para a rotação, sabemos que um corpo sujeito
 \node (theta) at (30:-1.1) {$\phi$};
 
 \end{tikzpicture}
-\caption{. \label{Fig:DeducaoTeoremaTrabEnergiaRotacoes}}
+\caption{Se uma força atua sobre uma partícula de um corpo, ela realiza um trabalho, cedendo energia ao sistema de partículas. Devido às demais interações da partícula com o resto do corpo rígido, todo o corpo ganha energia. Em termos das variáveis da rotação, podemos determinar o trabalho como um produto do torque pelo deslocamento angular. \label{Fig:DeducaoTeoremaTrabEnergiaRotacoes}}
 \end{marginfigure}
 
 Para determinar uma expressão para o trabalho efetuado por uma força em uma rotação, vamos considerar a Figura~\ref{Fig:DeducaoTeoremaTrabEnergiaRotacoes}, que é similar àquela utilizada para obter a Segunda Lei de Newton para as Rotações. Nela, consideramos que uma força $\vec{F}$ de módulo constante e que faz um ângulo $\phi$ também constante em relação ao raio que liga o eixo de rotação ao ponto de aplicação da força, e que atua sobre um ponto $P$ do disco.
@@ -3234,8 +3299,100 @@ Finalmente,
     v = \sqrt{\frac{2gd\sen\beta}{1 + f}}.
 \end{equation}
 
+%%%%%%%%%%%%%%%%%%%%
+\section{Exercícios}
+%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Momento de inércia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{question}[type={exam}]\label{Q:teste}
+A Figura~\ref{Fig:Q:teste} mostra uma visão superior de um objeto formado por quatro cilindros, e que pode girar em torno de um eixo perpendicular à página, e que passa pelo centro de um dos cilindros. Se todos os cilindros têm a mesma massa $m$ e o mesmo raio $r$, qual é o momento de inércia em torno do eixo indicado?
+
+\begin{marginfigure}[-1cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines, pattern color = gray] (0,0) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (1,0) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (0,1) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (1,1) circle (0.5);
+    \draw[fill] (0,0) circle (0.8pt);
+    \draw[->] (-90:1) arc[start angle = -90, end angle = -180, radius = 1] node[midway, below left]{$\omega$};
+\end{tikzpicture}
+\caption{Questão~\ref{Q:teste}.\label{Fig:Q:teste}}
+\end{marginfigure}
+\end{question}
+
+\begin{question}[type={exam}]\label{Q:MomInerciaDiscosLigadosPorHastes}
+A Figura~\ref{Q:MomInerciaDiscosLigadosPorHastes} mostra um objeto construído com discos de material leve, ligados por barras metálicas. As massas dos discos e das barras são iguais, sendo denotadas por $m$. O raio dos discos é $R$, e o comprimento das barras é $L = 2R$. Determine o momento de inércia do objeto em torno do eixo que passa perpendicularmente à face plana do disco central, passando pelo centro de massa, isto é, no ponto indicado na figura.
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines, pattern color = gray] (0,0) circle (0.5);
+    \draw[fill] (0,0) circle (0.8pt);
+    \draw[very thick] (-0.5,0) -- +(-1,0);
+    \draw[very thick] (0.5,0) -- +(1,0);
+    \draw[pattern = north west lines, pattern color = gray] (-2,0) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (2,0) circle (0.5);
+    
+    \draw[->] (120:0.8) arc[start angle = 110, end angle = 70, radius = 0.8] node[midway, above]{$\omega$};
+    
+\end{tikzpicture}
+\caption{Questão~\ref{Q:MomInerciaDiscosLigadosPorHastes}. \label{Fig:Q:MomInerciaDiscosLigadosPorHastes}}
+\end{marginfigure}
+\end{question}
+
+\begin{question}[type={exam}]
+A Figura~\ref{Fig:Q:DiscosFormandoTriangulo} mostra um objeto composto de três discos com massa $m$ e raio $r$ e que pode girar em torno do eixo $z$ mostrado. Determine o momento de inércia do objeto em torno do eixo $z$.
+\begin{marginfigure}[-0.5cm]
+\centering
+\begin{tikzpicture}[>=Stealth]\label{Q:DiscosFormandoTriangulo}
+    \draw[pattern = north west lines, pattern color = gray] (0,0) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (240:1) circle (0.5);
+    \draw[pattern = north west lines, pattern color = gray] (-60:1) circle (0.5);
+    
+    \draw[<-] (0,1.5) node[right]{$z$} -- (0,0.5);
+    \draw[dashed] (0,0.5) -- (0, -0.5);
+    \draw (0,-0.5) -- (0,-2);
+    
+    \draw[->] (-0.25,1.2) arc[start angle = -240, end angle = 60, x radius = 0.5, y radius = 0.2] node[near end,below]{$\omega$};
+\end{tikzpicture}
+\caption{Questão~\ref{Q:DiscosFormandoTriangulo}.\label{Fig:Q:DiscosFormandoTriangulo}}
+\end{marginfigure}
+\end{question}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Energia cinética em rotações}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{question}[type={exam}]\label{Q:HasteHorizontalDescendo}
+Uma haste de comprimento $L$ disposta horizontalmente pode girar em torno de um eixo que passa por sua extremidade, como indicado na Figura~\ref{Fig:Q:HasteHorizontalDescendo}.
+\begin{enumerate}[label=(\alph*)]
+    \item Determine a velocidade angular da haste quando ela chega à posição mais baixa, assumindo que ela partiu do repouso.
+    \item Apesar de termos somente uma rotação, é interessante notarmos que a energia cinética associada a rotação é diferente daquela que a haste teria se ela estivesse simplesmente transladando: Utilize a relação entre a velocidade de translação e a velocidade angular e determine a razão entre a energia cinética de rotação da haste e a energia cinética de translação que seria associada à haste se ela estivesse simplesmente transladando.
+\end{enumerate}
+\end{question}
+
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill] (1.5,0) circle (0.6pt);
+    \draw[dotted,rotate = -45] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill, rotate = -45] (1.5,0) circle (0.6pt);
+    \draw[pattern = north east lines, rotate = -90, pattern color = gray, draw = gray] (0,-0.1) rectangle (3, 0.1);
+    \draw[fill, rotate = -90] (1.5,0) circle (0.6pt);
+    
+    \draw[loosely dotted] (1.5,0) arc[start angle = 0, end angle = -90, radius = 1.5];
+    \draw[->] (3.3, 0) arc[start angle = 0, end angle = -15, radius = 3.3];
+    
+    \draw[fill] (0,0) circle (0.8pt);
+    
+\end{tikzpicture}
+\caption{Questão~\ref{Q:HasteHorizontalDescendo}. \label{Fig:Q:HasteHorizontalDescendo}}
+\end{marginfigure}
 
 
 

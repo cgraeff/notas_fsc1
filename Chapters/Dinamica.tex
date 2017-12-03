@@ -3320,13 +3320,38 @@ e então
 % Seria a seguinte:
 %v(t) = (sqrt(c) tanh((sqrt(b) sqrt(c) k_1 m + sqrt(b) sqrt(c) t)/m))/sqrt(b)
 
-%%%%%%%%%%%%%%%%%%%%%%
-%\section{Questionário}
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\section{Exercícios}
+%%%%%%%%%%%%%%%%%%%%
 
-%\begin{question}[type={exam}]
-%Uma questão.
-%\end{question}
+\begin{question}[type={exam}]\label{Q:PlanetaKaioh}
+Após Goku morrer para que Piccolo pudesse derrotar Raditz, graças à intervenção de Kami-Sama perante Enma Daioh, ele recebe permissão para viajar pelo Caminho da Serpente e treinar com o lendário Senhor Kaioh. Tal treinamento é necessário para que Goku possa derrotar os Saiyajins que estão a caminho da Terra e que chegarão em um ano, com o intuito de destruí-la. A grande vantagem de treinar no planeta do Senhor Kaioh é o fato de que a gravidade é muito elevada, sendo 10 vezes maior que a da Terra.\footnote{\texttt{http://pt-br.dragonball.wikia.com/wiki/Planeta\_do\_Senhor\_Kaioh}}
 
-% Calcular a velocidade máxima no planetinha no senhor Caio, do Dragon Ball Z
-% Calcular no planetinha no pequeno principe (a gravidade parece similar à da Terra)
+O planeta é bastante curioso: apesar da gravidade extremamente elevada, seu raio é pequeno. Apesar disso, Senhor Kaioh gosta muito de dirigir e possui um carro, sendo que ele pode trafegar somente por uma pista que descreve um círculo ao redor do planeta (o raio da pista é o mesmo do planeta). A Figura~\ref{Fig:Q:PlanetaKaioh} abaixo mostra um esboço dessa situação, sendo que o carro é representado pelo círculo preto.
+\begin{enumerate}[label=(\alph*)]
+    \item Faça um diagrama de corpo livre indicando as forças relevantes para esse problema (ignore a força de arrasto). Indique o sistema de coordenadas que será adotado para a solução do problema.
+    \item Demonstre matematicamente que a velocidade máxima que o carro pode atingir antes de perder contato com o solo é dada por
+    \begin{displaymath}
+        v = \sqrt{rg},
+    \end{displaymath}
+    onde $r$ e $g$ representam o raio do planeta e sua aceleração gravitacional, respectivamente. 
+    \item Qual é o raio do planeta, se a velocidade máxima é de $\np[km/h]{146.9}$?
+\end{enumerate}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+
+    \draw[pattern = north west lines] (0,0) circle (2cm);
+    \draw[dashed] (0,0) circle (2.2cm);
+    \draw[fill] (0,2.2) circle (2mm);
+    
+    \draw[-Stealth, thick] (0,2.2) -- node[above]{$\vec{v}$} +(1,0);
+
+\end{tikzpicture}
+\caption{Questão~\ref{Q:PlanetaKaioh}. \label{Fig:Q:PlanetaKaioh}}
+\end{marginfigure}
+\end{question}
+%
+% Calcular tb no planetinha no pequeno principe (a gravidade parece similar à da Terra)
+%
