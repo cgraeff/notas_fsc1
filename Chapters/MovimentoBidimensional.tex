@@ -735,9 +735,9 @@ Quando ocorre uma alteração do módulo da velocidade, podemos determinar a ace
 O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum: um carro que trafega por uma rodovia, por exemplo, executa curvas e altera sua velocidade a todo momento, e em inúmeras vezes, essas mudandas de direção e de módulo da velocidade acontecem concomitantemente. Apesar de termos dois papéis distintos para a aceleração, temos \emph{somente um vetor aceleração} -- dado pela equação para $\vec{a}$ definida acima --. No entanto, \emph{podemos decompor o vetor aceleração em duas componentes} cujos efeitos correspondem aos discutidos acima, isto é, mudar a direção e o módulo da velocidade. 
 
 % adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
-\begin{marginfigure}
+\begin{figure}
 \centering
-\begin{tikzpicture}[>=Stealth,scale=1.4,
+\begin{tikzpicture}[>=Stealth,scale=2.6,
     tangent/.style={
         decoration={
             markings,% switch on markings
@@ -764,15 +764,15 @@ O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum
 
     \path[name path=traj, draw, dotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
     \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
-    \draw [->, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
-    \draw [->, use tangent] (0,0) -- node[above right]{$a_c$}(0,0.5);
+    \draw [->, thick, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
+    \draw [->, thick, use tangent] (0,0) -- node[above right]{$a_c$}(0,0.5);
     \draw [use tangent, thin, dashed] (0,-1) -- (0,1);
     \draw[thin, use tangent] ([shift={(0,0.75)}]210:0.75) arc[radius=0.75, start angle=210, end angle= 330];
-    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (1pt);
+    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (0.5pt);
    
 \end{tikzpicture}
 \caption{Podemos aproximar uma região qualquer de uma curva por um círculo. Assim, é possível se decompor o vetor aceleração em uma componente \emph{centrípeta} (que aponto para o centro $C$ do círculo), cujo papel é o de alterar a direção, e uma componente tangencial (que aponta tangencialmente à trajetória, na mesma direção da velocidade instantânea), cujo papel é o de alterar o módulo da velocidade.\label{Fig:Decomp_acel_tan_centrip}}
-\end{marginfigure}
+\end{figure}
 
 Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajetória circular, com um centro e um raio bem definido\footnote{Até mesmo uma reta pode ser interpretada dessa maneira, nesse caso temos um círculo de raio infinito!}. Levando isso em conta, de forma geral, podemos assumir que o vetor aceleração não aponta para o centro da trajetória, porém podemos o decompor em duas partes:
 \begin{description}

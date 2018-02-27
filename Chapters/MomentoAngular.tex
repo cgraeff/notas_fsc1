@@ -5,176 +5,377 @@
 %\minitoc
 %\clearpage
 
+\begin{fullwidth}
+{\it
+\lipsum[1]
+}
+\end{fullwidth}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-{\it
-Intro ...
-
-dar uma olhada nos livros que tenho salvos, tem vários que tratam rotações. Ver em especial o Landau, parece que tem coisa interessante. Ver páginas da Wikipedia: https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion
-
-Tem algum pdf sobre o euler salvo em algum lugar, provavelmente em Downloads.
-}
-
-Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
-
-
-Ver essa questão dos sinais, principalmente na solução da máquina de Atwood. Na real acho que não precisa dessas firulas dos sinais se levarmos em conta o caráter vetorial.
-
-Tem uma história de que a segunda lei para o CM é chamada de primeira lei de Euler, e que a segunda lei de euler é a segunda lei de Newton pra rotação. Verificar isso, é uma informação interessante. Seria legal ver qual o papel do Euler na mecânica, pois essa formulação que não é nem lagrangiana, nem hamiltoniana, com essa cara matemática que usamos, é chamada de Newton-Euler em alguns lugares.
-
-seria interessante mostrar uma figura em um "gimbal". Em francês, italiano, espanhol e alemão, o nome disso é "suspensão cardânica", ou "suspensão cardan". Aparentemente a idéia é que o gimbal é formado por duas junções tipo cardan, que tb é chamada de junta universal. Aparentemente o sensor do Wii não tem um giroscópio dentro, é um chip com alguma massa que oscila, ou se move de alguma maneira, e consegue verificar a rotação em torno de um eixo. a ideia é diferente do acelerômetro, pois ele sente a rotação, não a aceleração de translação em um eixo. Pode ser uma massa que fica pendurada em algum fio, assim quando o controle gira, a gaiola na qual a massa está suspensa gira, mas a massa fica mais ou menos onde estava.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Caráter vetorial das variáveis da rotação}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Agora começamos a considerar o que acontece quando estamos interessados em descrever uma rotação arbitrária no espaço, não uma rotação em torno de um eixo fixo.}
-
-Não está claro pra mim qual é a de definir esses deslocamentos angulares infinitesimais como vetores. Serve só pra definir a velocidade?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Velocidade e aceleração}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{A velocidade angular é o vetor $\omega\versk$, onde o eixo $z$ é a direção do eixo de rotação. Ele é capaz de descrever a velocidade de cada um dos pontos uma vez que se tome uma origem \emph{contida no eixo $z$}. Assim, $\vec{v} = \vec{omega}\times\vec{r}$. (Ver Caítulo 13 do Ruina-Pratap, ou o Moysés.}
-
-\textbf{o vetor aceleração angular é definido no Ruina-Pratap (Capítulo 14) num contexto de movimento ``planar'' (?), onde, aparentemente, a direção do eixo de rotação não muda.}
-
-Quando discutimos as grandezas da translação, concluímos que posição, velocidade e aceleração eram grandezas vetoriais e tinham módulo, direção e sentido. Podemos atribuir um caráter vetorial à velocidade angular e à aceleração angular. Nesses casos, no entanto, a direção do vetor não nos dá a direção do movimento, mas a direção \emph{em torno} da qual o objeto gira.
-
-Para definirmos tal direção de maneira única, utilizamos a regra da mão direita: ``seguramos'' o eixo em torno do qual o objeto gira de forma que os dedos (exceto o polegar) apontem no sentido de rotação. Fazendo isso, o polegar apontará na direção do vetor.
-
-No caso da aceleração, apontamos a direção da variação da velocidade (na direção de $\vec{\omega}$ se o módulo da velocidade angular cresce e na direção contrária se o módulo decresce). Tanto $\vec{\omega}$ quanto $\vec{\alpha}$ obedecem a todos os requisitos para serem denominados vetores, inclusive à soma vetorial.
-
-A posição e -- consequentemente -- o deslocamento angulares, no entanto, não podem ser tratados como vetores. Se tomarmos um livro e realizarmos dois deslocamentos angulares sucessivos de \degree{90} em torno dos eixos $x$ e $y$, a ordem em que eles forem realizados influenciará no resultado final, resultando em estados finais diferentes. Como a soma vetorial de $\vec{a} + \vec{b} = \vec{b} + \vec{a}$, percebemos que os deslocamentos angulares não podem ser tratados como vetores.
-
-\comment{Pra mim isso não explica nada. Como podemos mostrar que duas velocidades angulares podem ser somadas? (Acho que o Teorema de Euler para rotação explica, mas como? ver isso e colocar essa explicação aqui). TODO Por que podemos tratar deslocamentos para pequenos ângulos como vetores e não para grandes ângulos? ver isso com cuidado}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Torque como o produto vetorial $\vec{r}\times\vec{F}$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Da mesma forma que $\vec{\omega}$ e $\vec{\alpha}$ são grandezas vetoriais, também é possível mostrar que o torque é uma grandeza vetorial. Analisando a expressão para o módulo do produto vetorial entre dois vetores $\vec{a}$ e $\vec{b}$:
-\begin{equation}
-  |\vec{a}\times\vec{b}| = ab\sen\phi,
-\end{equation}
-%
-onde $\phi$ é o ângulo entre os dois vetores, e comparando-a com a Equação~\eqref{Eq:DefModTorque}, podemos escrever o torque como
-\begin{align}
-  |\vec{\tau}| &= F d \sen\phi \\
-  &= |\vec{F}\times\vec{d}.
-\end{align}
-%
-Na expressão acima, $\vec{F}$ é o vetor que descreve a força que gera o torque, enquanto $\vec{d}$ é o vetor que denota a posição do ponto onde a força é aplicada. A origem do vetor é o próprio ponto em torno do qual o objeto gira. Apesar de utilizarmos $\vec{d}$ até o momento, em geral posições são denotadas por $\vec{r}$. Assim, o torque pode ser definido como: \comment{a origem pode ser um ponto qualquer, porém quando formos tratar de corpos rígidos mais adiante, usaremos sempre um ponto no eixo de rotação ... como explicar isso direito?}
-\begin{equation}\label{Eq:DefTorque}
-  \vec{\tau} = \vec{r}\times\vec{F}.
-\end{equation}
-
-A direção do vetor torque pode ser facilmente compreendida ao se analisar a expressão para a Segunda Lei de Newton para a rotação,
-\begin{equation}
-  \tau = I \alpha.
-\end{equation}
-%
-Sabendo que $I$ é uma grandeza escalar e que atribuimos um caráter vetorial para a aceleração angular, obrigatoriamente temos que o torque também tem uma caráter vetorial (pois uma das propriedades dos vetores é que a multiplicação de um escalar por um vetor resulta em um vetor). Assim, o torque assume a mesma direção que a aceleração angular:
-\begin{equation}
-  \vec{\tau} = I\vec{\alpha}.
-\end{equation}
-%
-Dessa conclusão podemos tirar uma observação importante, justificando a escolha da ordem dos vetores na Equação~\eqref{Eq:DefTorque}: devido à regra da mão direita, se temos um eixo em torno do qual um objeto gira e a aceleração angular é positiva, o torque dado pelo produto vetorial~\eqref{Eq:DefTorque} acima deve correspondentemente ser positivo. Para isso, também devemos adotar a regra da mão direita para o produto vetorial. Analisando o diagrama ao lado, percebemos que a ordem do produto vetorial deve ser $\vec{r}\times\vec{F}$, caso contrário o sentido resultante para o torque seria oposto ao sentido da aceleração. Alternativamente podemos usar $\vec{\tau} = -\vec{F}\times\vec{r}$, já que $\vec{a}\times\vec{b} = - \vec{b}\times\vec{a}$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Momento angular e Segunda Lei de Newton}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Da mesma forma que temos o momento linear, para o caso das rotações temos o momento angular, definido como
-\begin{equation}\label{Eq:DefMomAngular}
-  \vec{\ell} = \vec{r}\times\vec{p},
-\end{equation}
-%
-onde $r$ denota a posição de uma partícula qualquer e $p$ denota seu momento angular. Se derivarmos essa expressão em relação ao tempo, temos
-\begin{align}
-  \frac{d\vec{\ell}}{dt} &= \frac{d(\vec{r}\times\vec{p})}{dt} \\
-  &= \frac{d\vec{r}}{dt}\times\vec{p} + \vec{r}\times\frac{d\vec{p}}{dt},
-\end{align}
-%
-onde usamos a regra da cadeia. Notando que $d\vec{r}/dt = \vec{v}$, $\vec{p} = m \vec{v}$ e $d\vec{p}/dt = \vec{F}$, podemos escrever
-\begin{equation}
-  \frac{d\vec{\ell}}{dt} = m\vec{v}\times\vec{v} + \vec{r} \times \vec{F}.
-\end{equation}
-%
-Finalmente, notando que o produto vetorial de dois vetores colineares é nulo, temos que $\vec{v}\times\vec{v} = 0$ e, portanto,
-\begin{align}
-  \frac{d\vec{\ell}}{dt} &= \vec{r} \times \vec{F} \\
-  &= \vec{\tau}.
-\end{align}
-
-Mais uma vez obtivemos um resultado para o caso das rotações que tem um análogo no caso da translação: a equação acima mostra que a taxa de variação do momento angular no tempo é igual ao torque, o que é análogo à forma $\vec{F} = d\vec{p}/dt$ para a Segunda Lei de Newton. Portanto, temos uma nova forma para a Segunda Lei de Newton para Rotações:
-\begin{equation}\label{Eq:SegLeiNewtonRotDLDT}
-  \vec{\tau} = \frac{d\vec{\ell}}{dt}.
-\end{equation}
-
-\comment{$\tau$ e $\ell$ devem ser definidos em relaçao ao mesmo ponto}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular para uma partícula que se desloca em linha reta}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{mostrar que $r\sen\phi = d$ ($d$ é a distância mínima entre a reta em que a partícula se desloca e a origem)}
-
-Assim como no caso do torque, o momento angular é calculado em relação a um ponto. Mesmo que a partícula se desloque em uma linha reta, sem executar uma rotação em torno de um ponto, podemos lhe atribuir um momento angular.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular de um sistema de partículas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-O momento angular de um sistema de partículas pode ser calculado somando-se o momento angular das várias partículas que o constituem:
-\begin{align}
-  \vec{L} &= \vec{\ell}_1 + \vec{\ell}_2 + \vec{\ell}_3 + \dots + \vec{\ell}_N \\
-  &= \sum_{i=1}^N \vec{\ell}_i.
-\end{align}
-%
-Esta propriedade é característica dos vetores, e já a utilizamos para definir o momento linear do centro de massa $\vec{P}_{\textrm{CM}}$ como sendo a soma do momento linear das partículas que o constituem.
-
-Se derivarmos a expressão acima em relação ao tempo, temos
-\begin{align}
-  \frac{d\vec{L}}{dt} &= \frac{d}{dt}\left(\sum_{i=1}^N\vec{\ell}_i\right) \\
-  &= \sum_{i=1}^N \frac{d\vec{\ell}_i}{dt}.
-\end{align}
-%
-De acordo com a Equação~\ref{Eq:SegLeiNewtonRotDLDT} para a Segunda Lei de Newton para Rotações, $d\vec{\ell}_i/dt = \vec{\tau}_i$, isto é, o torque que atua sobre a i-ésima partícula. No entanto, para um sistema de partículas que interagem através de forças, os torques devido a forças internas geram um par que se cancela na soma. Dessa forma, restarão somente os torques externos, logo
-\begin{equation}\label{Eq:SegLeiNewtonRotSisPartDLDT}
-  \vec{\tau}_R^{\textrm{Ext}} = \frac{d\vec{L}}{dt}.
-\end{equation}
-
-\textbf{demonstrar aditividade do momento angular de um corpo rígido}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Conservação do momento angular}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A partir da Equação~\ref{Eq:SegLeiNewtonRotSisPartDLDT}, percebemos que se $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que $d\vec{L}/dt = 0$, ou seja,
-\begin{equation}
-  \vec{L} = \textrm{constante}.
-\end{equation}
-%
-Temos, portanto, uma nova lei de conservação -- a \emph{conservação do momento angular} --. Assim como nos casos da \emph{conservação da energia} e da \emph{conservação do momento linear}, o fato de termos uma lei de conservação envolvendo o momento angular nos permitirá analisar sistemas sem sabem em detalhes o que ocorre entre dois instantes quaisquer. Se um evento ocorre de forma que $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que o momento angular antes e depois de tal evento é o mesmo:
-\begin{equation}
-  L_i = L_f.
-\end{equation}
-%
-Logo, se temos informações sobre o sistema antes do evento, podemos relacioná-las ao estado final do sistema sem saber detalhes do que ocorreu durante o evento. Isso será muito útil na análise de várias situações.
-
-\textbf{discutir torques internos e o fato de que eles não mudam o momento angular, precisa de um exemplo aqui, nem que tenha que calcular o momento angular do sistema realizando a soma para um aro, ou dois. Ou usar exemplo de momento de inércia variável, com uma skew rod com massa desprezível e duas massas na ponta, deixar o ângulo de inclinação variar e verificar qual a velocidade das partículas depois.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento angular de um corpo rígido}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+No capítulo anterior exploramos diversos aspectos das rotações, porém ainda temos situações interessantes para analisarmos. Na Figura~\ref{Fig:SkewRod}, temos um objeto formado por duas esferas conectadas por uma barra fina --~um haltere~-- e que pode girar em torno de um eixo $z$ como mostrado na figura. Tal rotação não pode acontecer sem a existência de um agente externo, isto é, sem a existência de uma ou mais forças que atuem sobre o altere.
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale = 1.4,
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dashdotted,->] (0,-2) -- (0,3) node [below right] {$z$} coordinate (z);
+    \draw[->] (92:2.5) arc[start angle = -255, end angle = 75, x radius = 3mm, y radius = 1.5mm];
+    
+    \coordinate (pt) at (120:1.5);
+    \coordinate (pb) at (-60:1.5);
+    \draw[very thick] (120:1.3) -- (-60:1.3);
+    \draw[fill] (0,0) coordinate(origin) circle (0.5mm) node[below left] {$O$};
+    \draw[pattern = north west lines, pattern color = gray] (pt) circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (pb) circle (2mm);
+    \draw[fill] (pt) circle (0.7pt);
+    \draw[fill] (pb) circle (0.7pt);
+    
+    \draw[densely dotted] (pt) arc[start angle = -180, end angle = 150, x radius = 0.75, y radius = 0.375];
+    \draw[densely dotted] (pb) arc[start angle = 0, end angle = -340, x radius = 0.75, y radius = 0.375];
+    
+    \pic[draw, "$\gamma$", angle eccentricity = 1.5] {angle = z--origin--pt};
+    
+\end{tikzpicture}
+\caption{Um haltere formado por uma haste fina a qual estão presas duas esferas. \label{Fig:SkewRod}}
+\end{marginfigure}
+
+Para perceber a necessidade da existência de forças externas atuando nesse sistema, podemos tomar uma das esferas e a analisar do ponto de vista da dinâmica do movimento circular efetuado pelo centro do massa: para que o centro de massa da esfera efetue um movimento circular, é necessário que uma força aponte para o centro da trajetória, isto é, para o eixo $z$ (Figura~\ref{Fig:SkewRodForcaCentripeta}). A origem dessa força é a própria interação entre a esfera e a haste, no ponto onde elas estão ligadas. Sobre a haste, portanto, atua a força de reação, o que causa um torque  que tende a fazer com que a haste gire em forno do ponto de fixação entre a haste e o eixo de rotação. Podemos calcular tal torque obtendo
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.5]
+
+    \draw[dashdotted,->] (0,0) -- (0,3) node [below right] {$z$};
+    \draw[->] (92:2.5) arc[start angle = -255, end angle = 75, x radius = 3mm, y radius = 1.5mm];
+    
+    \coordinate (pt) at (120:1.5);
+    \draw[gray,very thick] (120:1.3) -- (0,0);
+    \draw[pattern = north west lines, pattern color = gray] (pt) circle (2mm);
+    \draw[fill] (pt) circle (0.7pt);
+    
+    \draw[densely dotted] (pt) arc[start angle = -180, end angle = 150, x radius = 0.75, y radius = 0.375];
+    
+    \draw[->, thick] (pt)++(0.2,0) -- +(0.5,0) node[above left] {$\vec{F}_c$};
+    
+    \draw[<->] (0,1.3) -- node[above]{$r_\perp$}(0.75,1.3);
+    
+\end{tikzpicture}
+\caption{Do ponto de vista de dinâmica do movimento circular, para que o centro de massa da esfera execute a trajetória mostrada na figura, é necessario que uma força $\vec{F}_c$ atue sobre ela, apontando para o centro da trajetória. \label{Fig:SkewRodForcaCentripeta}}
+\end{marginfigure}
+
+\begin{align}
+    \tau &= F r \sen\phi \\
+    &= F_c r \sen \phi \\
+    &= \frac{mv^2}{r_\perp} L \sen\phi,
+\end{align}
+%
+\noindent{}onde usamos a expressão que nos dá a intensidade da força centrípeta em termo da velocidade e da massa de uma partícula. O raio do círculo descrito pelo centro de massa da esfera é representado por $r_\perp$. Também tomamos a distância entre a origem e o final da haste como sendo $L$. Finalmente, vamos considerar que o raio $r_e$ da esfera é muito menor que $L$ e é, portanto, desprezível. Podemos escrever a velocidade do centro de massa da esfera em termos da velocidade angular, o que resulta em
+\begin{equation}
+    \tau = m\omega^2 r_\perp r_\parallel.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dashdotted,->] (0,-2) -- (0,2) node [below right] {$z$};
+    %\draw[->] (92:2.5) arc[start angle = -255, end angle = 75, x radius = 3mm, y radius = 1.5mm];
+    
+    \coordinate (pt) at (120:1.5);
+    \coordinate (pb) at (-60:1.5);
+    \draw[very thick] (120:1.3) -- (-60:1.3);
+    \draw[fill] (0,0) circle (0.5mm) node[below left]{$O$};
+    \draw[draw = gray, pattern color = gray, pattern = north west lines, pattern color = gray] (pt) circle (2mm);
+    \draw[draw = gray, pattern color = gray, pattern = north west lines, pattern color = gray] (pb) circle (2mm);
+    \draw[gray, fill] (pt) circle (0.7pt);
+    \draw[gray, fill] (pb) circle (0.7pt);
+    
+    %\draw[densely dotted] (pt) arc[start angle = -180, end angle = 150, x radius = 0.75, y radius = 0.375];
+    %\draw[densely dotted] (pb) arc[start angle = 0, end angle = -340, x radius = 0.75, y radius = 0.375];
+    
+    \draw[dashed] (120:1.3) coordinate (th) -- (120:2.25) coordinate (pth);
+    \draw[dashed] (-60:1.3) coordinate (bh) -- (-60:2.25) coordinate (pbh);
+    
+    \draw[->, thick] (th) -- ++(-0.75,0) node[below right]{$\vec{F}'_c$} coordinate (ff);
+    \draw[dashed] (ff) -- +(-0.5,0);
+    
+    \pic[draw, "$\phi$", angle eccentricity = 1.5, angle radius = 4.5mm]{angle = pth--th--ff};
+    
+    \draw[->, thick] (bh) -- ++(0.75,0) node[above left]{$\vec{F}'_c$} coordinate (ffb);
+    \draw[dashed] (ffb) -- +(0.5,0);
+    
+    \pic[draw, "$\phi$", angle eccentricity = 1.5, angle radius = 4.5mm]{angle = pbh--bh--ffb};
+    
+    \draw[|<->|] (0.2,0) -- node[right]{$r_\parallel$} (0.2,1.1258);
+    
+\end{tikzpicture}
+\caption{A reação da força $\vec{F}_c$ atua sobre a extremidade do haltere, provocando um torque que tende a girá-lo, de maneira que a haste passe a ficar perpendicular ao eixo de rotação. \label{Fig:SkewRodTorque}}
+\end{marginfigure}
+
+O que temos de mais notável nessa expressão é o fato de que mesmo que a velocidade angular seja constante, \emph{temos que aplicar um torque externo para que o sitema possa efetuar uma rotação em torno do eixo $z$}\footnote{Uma maneira de fazer isso é se a haste do haltere estiver fixada em outra, na direção do eixo $z$, em torno da qual ocorre a rotação. Tal haste, efetivamente o eixo de rotação, deverá ser fixada por mancais que exercerão forças sobre o eixo de rotação, garantindo o torque necessário. Note também que a direção da força está sempre contida no plano determinado pela haste do haltere e pelo eixo de rotação, portanto temos uma força que muda de direção com o tempo.}. Verificamos, portanto, que um torque externo não necessariamente implica em uma aceleração angular. Podemos aqui traçar um paralelo com o caso da aceleração no movimento circular, em que determinamos que podemos dividir a aceleração em duas componentes, uma que altera a direção do vetor velocidade, e outra que altera o seu módulo. Essa propriedade não é na verdade uma propriedade exclusiva da aceleração, mas sim uma propriedade dos vetores em geral. Portanto, podemos interpretar a existência de um torque em uma situação em que a velocidade angular é constante como um indício de que \emph{o torque é uma grandeza vetorial}, assim como as demais grandezas associadas às rotações.
+
+Nas próximas seções, vamos definir uma nova grandeza, o \emph{momento angular} e verificaremos que a sua variação é determinada pelo torque. Verificaremos também o caráter vetorial de tais grandeza, além de uma nova lei de conservação. Finalmente, analisaremos o movimento de precessão de um giroscópio, um fenômeno mecânico que foge bastante à nossa intuição baseada em observações cotidianas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Momento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Johannes Kepler, dentre outras observações, determinou que o movimento dos planetas em torno do sol segue uma trajetória elíptica. Além disso, ele determinou que em tempos iguais, os raios que ligam a posição do sol --~que fica em um dos focos da elipse~-- varem áreas iguais. Em um movimento circular com velocidade constante, isso seria simples de se entender, porém em um movimento elíptico, tal observação revela algo mais profundo: temos um valor constante durante todo o movimento.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.7]
+
+    \coordinate (fe) at (-2.236, 0);
+    \coordinate (fd) at (2.236, 0);
+    
+    \draw (0,0) ellipse (3 and 2);
+    
+    \path[name path = ellipse] (0,0) ellipse (3 and 2);
+    
+    \path[name path = rm1] (fe) -- (30:3);
+    \path[name path = rm2] (fe) -- (25:3);
+    \draw[name intersections = {of = rm1 and ellipse}] (fe) -- (intersection-1) coordinate (p1);
+    \draw[name intersections = {of = rm2 and ellipse}] (fe) -- (intersection-1) coordinate (p2);
+    \draw[pattern = north west lines] (fe) -- (p1) -- (p2) -- cycle;
+    
+    \path[name path = rm3] (fe) -- (190:3);
+    \path[name path = rm4] (fe) -- (220:3);
+    \draw[name intersections = {of = rm3 and ellipse}] (fe) -- (intersection-1) coordinate (p3);
+    \draw[name intersections = {of = rm4 and ellipse}] (fe) -- (intersection-1) coordinate (p4);
+    \path[pattern = north west lines] (fe) -- (p3) arc[start angle = 190, end angle = 220, x radius = 3, y radius = 1.8] -- cycle;
+    
+    
+    \draw[fill] (fe) circle (1pt);
+    \draw (fd) circle (1pt);
+    
+\end{tikzpicture}
+\caption{Kepler determinou experimentalmente que a área descrita pelo raio que liga o Sol a um planeta varre áreas iguais em tempos iguais. Como as órbitas dos planetas são elípticas, isso significa que durente a máxima aproximação, a velocidade de translação é maior. A elipse mostrada na figura tem excentricidade bastante exagerada para que o caráter elíptico da órbita seja mais notável: na realidade a órbita é muito mais próxima de um círculo.}
+\end{marginfigure}
+
+Podemos determinar o valor dessa constante se considerarmos o caso mais simples, em que temos um movimento circular. A área varrida em um tempo $dt$ é nesse caso dada por
+\begin{equation}
+    dA = \frac{r \cdot v \, dt}{2},
+\end{equation}
+%
+de onde podemos escrever
+\begin{equation}\label{Eq:VelAreaLeiKepler}
+    2\frac{dA}{dt} = r v.
+\end{equation}
+%
+Observe que todo o lado esquerdo é constante durante o movimento. Isso nos leva à conclusão de que no caso de uma órbita elíptica, uma diminuição da distância em relação Sol implica em um aumento na velocidade\footnote{Na verdade, para uma órbita elíptica ainda temos a influência de um ângulo, como veremos adiante, porém em uma órbita real, a excentricidade é pequena e podemos considerar que o ângulo seja aproximadamente constante.}.
+
+% Aqui deveríamos explicar quem propôs o momento angular, e por que temos que colocar a massa na jogada.
+
+A grandeza que se mantém constante em um movimento como o descrito por um planeta em órbita é o que denominamos como \emph{momento angular}, sendo que ele é definido como
+\begin{equation}
+    \vec{\ell} = \vec{r} \times \vec{p}, \mathnote{Momento angular de uma partícula}
+\end{equation}
+%
+onde $\vec{p}$ é o vetor momento linear do corpo em questão, e $\vec{r}$ determina sua posição em relação a uma origem fixada em um ponto qualquer. Percebemos portanto que a escolha da origem do sistema de coordenadas influi duplamente na determinação do momento angular: temos influência tanto na determinação do vetor posição, quanto no vetor momento linear, uma vez que podemos ter valores diferentes de momento linear em dois referenciais diferentes, dependendo da velocidade relativa entre eles.
+
+Para que possamos simplificar o tratamento dos problemas, no entanto, temos um ponto no qual podemos fixar o referencial: o centro de massa. Podemos entender por que tal escolha é a mais adequada se considerarmos o momento angular $\vec{L}$ de um conjunto de partículas. Nesse caso temos\footnote{Assim como fazemos com a velocidade, ou com o momento linear, a grandeza relativa ao sistema é dada pela soma da mesma grandeza relativa a cada partícula. Assim, o momento angular de um conjunto de partículas é definido como a soma dos momentos angulares de cada partícula.}
+\begin{align}
+    \vec{L} &= \sum_{i=1}^N \vec{\ell}_i \\
+    &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \coordinate (origin) at (0,0);
+    \coordinate (p1) at (1.5,3);
+    \coordinate (p2) at (2,1.5);
+    
+    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
+    \draw[fill] (p1) circle (1pt);
+    \draw[fill] (p2) circle (0.8pt);
+    
+    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
+    \draw[->] (p2) -- node[above] {$\vec{p}_2$} +(-180:0.6);
+    
+    \draw[->] (origin) -- node[left]{$\vec{r}_1$} (p1);
+    \draw[->] (origin) -- node[below]{$\vec{r}_2$} (p2);
+\end{tikzpicture}
+\caption{Posições de duas partículas dadas em relação à origem $O$. Note que o produto vetorial determina um momento angular que entra na página para a partícula 1, e um que sai da página para a partícula 2 (não mostramos tais vetores). \label{Fig:ParticulasPosicao}}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \coordinate (origin) at (0,0);
+    \coordinate (p1) at (1.5,3);
+    \coordinate (p2) at (2,1.5);
+    \coordinate (cm) at (1.67, 2.5);
+    
+    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
+    \draw[fill] (p1) circle (1pt);
+    \draw[fill] (p2) circle (0.8pt);
+    
+    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
+    \draw[->] (p2) -- node[below] {$\vec{p}_2$} +(-180:0.6);
+    
+    \draw[->] (origin) -- node[left]{$\vec{r}_{\rm{CM}}$} (cm);
+    \draw[->] (cm) -- node[right]{$\vec{r}'_2$} (p2);
+    \draw[->] (cm) -- node[left]{$\vec{r}'_1$} (p1);
+    \draw[draw = black, fill = white] (cm) circle (0.8pt);
+\end{tikzpicture}
+\caption{Podemos reescrever os vetores posição das partículas 1 e 2 da Figura~\ref{Fig:ParticulasPosicao} utilizando o vetor posição do centro de massa. Nesse caso temos que $\vec{r}_1 = \vec{r}_{\rm{CM}} + \vec{r}'_1$ e $\vec{r}_2 = \vec{r}_{\rm{CM}} + \vec{r}'_2$.\label{Fig:ParticulasPosicaoCM}}
+\end{marginfigure}
+
+Conforme mostrado nas Figuras~\ref{Fig:ParticulasPosicao} e~\ref{Fig:ParticulasPosicaoCM}, podemos denotar a posição como a soma do vetor posição do centro de massa, mais um vetor posição em relação ao centro de massa, isto é,
+\begin{equation}
+    \vec{r} = \vec{r}_{\rm{CM}} + \vec{r}',
+\end{equation}
+%
+de onde obtemos
+\begin{align}
+    \vec{L} &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i \\
+    &= \sum_{i=1}^N (\vec{r}_{\rm{CM}} + \vec{r}') \times \vec{p}_i \\
+    &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] + \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
+\end{align}
+%
+No primeiro termo à direita na equação acima, $\vec{r}_{\rm{CM}}$ é constante. Além disso, $\sum_{i=1}^N \vec{p}_i = \vec{P}_{\rm{CM}}$. Logo, podemos escrever um termo relativo ao momento angular do centro de massa do sistema, dado por
+\begin{align}
+    \vec{L}_{\rm{CM}} &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] \\
+    &= \vec{r}_{\rm{CM}} \times \vec{P}_{\rm{CM}},
+\end{align}
+%
+e outro relativo ao momento angular em torno do centro de massa, dado por
+\begin{equation}
+    \vec{L}' = \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
+\end{equation}
+%
+Finalmente,
+\begin{equation}
+    \vec{L} = \vec{L}_{\rm{CM}} + \vec{L}'.
+\end{equation}
+
+Portanto, se escolhermos como origem a própria posição do centro de massa, ou qualquer outra origem para a qual a velocidade do centro de massa seja nula, temos somente o termo relativo ao momento angular para uma rotação em torno do centro de massa. Veremos mais adiante que, sob certas condições, o momento angular de um sistema se conserva\footnote{O próprio movimento orbital de um planeta é um exemplo de um sistema onde temos conservação do momento angular.}. Assim, quando estamos interessados em analisar fenômenos que ocorrem dentro de tal sistema, devemos tomar como origem o próprio centro de massa do sistema, ou outra posição fixa em relação a ele.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Momento angular em um movimento orbital}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Voltando agora ao movimento orbital do planeta em torno do Sol, devemos ser capazes de determinar o momento angular em termos de algumas variáveis do movimento. Antes, porém, devemos destacar que tanto o planeta, quanto o Sol possuem algum momento angular: não só o planeta descreve uma órbita elíptica, mas também o Sol descreve uma trajetória do mesmo tipo. Na realidade, ambos descrevem um movimento orbital em torno do centro de massa so sistema planeta-sol. Apesar disso, como o Sol tem uma massa muito maior que a do planeta, a posição do centro de massa do sistema é muito próxima da própria posição do centro de massa do Sol, e as discrepâncias devidas a essa aproximação podem ser desprezadas. Dessa forma, podemos calcular o momento angular como
+\begin{align}
+    |\vec{\ell}| &= |\vec{r} \times \vec{p}| \\
+    &= r p \sen \phi.
+\end{align}
+%
+A direção do momento angular será dada pela regra da mão direita, e é perpendicular ao plano orbital.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.65]
+    \draw[name path = elipse, dotted] (0,0) ellipse (3 and 1);
+    
+    \coordinate (fe) at (-2.236, 0);
+    \coordinate (fd) at (2.236, 0);
+    
+    \draw[fill] (fe) circle (1pt) node[above right]{$O$};
+    
+    \path[name path = raio] (0,0) -- (-90:1.5);
+    \draw[fill, name intersections = {of = elipse and raio}] (intersection-1) circle (0.8pt) coordinate (ponto);
+    
+    \draw[->] (fe) -- node[above]{$\vec{r}$} (ponto);
+    \draw[->,thick] (ponto) -- +(0,1.5) node[right]{$\vec{\ell}$} coordinate (fl);
+    \draw[->] (ponto) -- +(0:1) node[above]{$\vec{p}$} coordinate (fp);
+    
+    \pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3mm] {angle = fp--ponto--fl};
+    \pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 2.5mm] {angle = fl--ponto--fe};
+    
+    \draw[dashed] (-2.8,1.5) -- (2.8,1.5) -- (3.7,-1.5) -- (-3.7,-1.5) -- cycle;
+\end{tikzpicture}
+\caption{A direção do vetor momento angular $\vec{\ell}$ deve ser determinada através do produto vetorial, ou seja, através da regra da mão direita. As linhas tracejadas indicam o plano no qual a órbita elíptica esta contida.}
+\end{marginfigure}
+
+Veja que para cada posição temos valores diferentes de $r$, $p$ e $\phi$. Efetuando o cálculo para o periélio --~isto é, para o ponto de máxima aproximação~--, e considerando que nessa posição $\phi = \np[\tcdegree]{90}$, temos
+\begin{align}
+    \ell = r_{\rm{p}} m v_{\rm{p}},
+\end{align}
+%
+onde $r_{\rm{p}}$ e $v_{\rm{p}}$ representam a velocidade e a distância à origem na posição de periélio, respectivamente.
+
+Note que o resultado acima é igual ao obtido considerando a Lei de Kepler, Equação~\eqref{Eq:VelAreaLeiKepler}, a menos de um valor constante (a massa). Finalmente, devemos destacar que o resultado acima também se aplica a um movimento circular com velocidade constante, porém nesse caso temos que além do produto $\ell = r m v$ ser constante, as próprias variáveis $r$, $m$ e $v$ são independentemente constantes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Momento angular em um movimento em linha reta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Apesar de o nome ``momento angular'' deixar a impressão de que é necessário que haja um movimento curvo para que possamos definir tal grandeza, devemos enfatizar que isso não é verdade. Podemos determinar o momento angular de uma partícula que se desloca em linha reta tão bem quanto de uma que executa um movimento circular.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[dotted, name path = traj] (-1.5,2) coordinate (it) -- (3,2) coordinate (ft);
+    \coordinate (origin) at (-1,0);
+    
+    \path[name path = raio] (origin) -- (70:3) coordinate (fr);
+    
+    \draw[->, name intersections = {of = traj and raio}] (intersection-1) coordinate (p) -- node[below]{$\vec{p}$} +(1,0);
+    
+    \draw[->] (origin) -- node[below right]{$\vec{r}$} (p);
+    \draw[fill] (origin) circle (0.6pt) node[below left]{$O$};
+    
+    \draw[dashed] (p) -- (fr);
+    
+    \pic[draw, "$\phi$", angle eccentricity = 1.5] {angle = ft--p--fr};
+    \pic[draw, "$\phi$", angle eccentricity = 1.5] {angle = it--p--origin};
+    
+    \draw[<->] (origin) -- node[left]{$r_\perp$} +(0,2);
+    
+    \draw[fill] (p) circle (1pt);
+    
+\end{tikzpicture}
+\caption{O momento angular de uma partícula que se desloca em linha reta é bem definido em relação a qualquer origem. A dependência na escolha da origem se resume simplesmente à distância $r_\perp$ entre tal ponto e a reta determinada pela trajetória. \label{Fig:MomentoAngularPartLinhaReta}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:MomentoAngularPartLinhaReta} temos uma partícula que se desloca em relação a origem, descrevendo uma trajetória retilínea. O módulo do momento angular de tal partícula é dado por
+\begin{align}
+    |\vec{\ell}| &= |\vec{r}\times\vec{p}| \\
+    &= r p \sen\phi \\
+    &= r m v \sen\phi.
+\end{align}
+%
+É claro que em um movimento desse tipo o módulo $r$ do vetor posição não é constante, assim como não é constante o ângulo $\phi$. No entanto, o produto $r\sen\phi$ é constante. Para verificarmos isso basta notarmos que a distância $r_\perp$ entre a origem e a reta determinada pela trajetória da partícula é constante, e é dada justamente por $r\sen\phi$. Assim, temos que o momento linear da partícula é dado por
+\begin{equation}
+    \ell = r_\perp m v.
+\end{equation}
+
+%%%%%%%%%%%%%%%%
+\section{Torque}
+%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conservação do momento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Discutir que se o torque é zero, então o momento angular é constante. Discutir o mov. circ., o mov. em linha reta, e a Lei de Keppler (forças centrais).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Corpos rígidos}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+Falar alguma coisa aqui sobre todas as características de um movimento de rotação envolvendo corpos rígidos.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento angular de um corpo rígido simétrico em relação ao eixo de rotação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos determinar o momento angular de um corpo rígido simplesmente o tratando como um sistema de partículas, e somando as contribuições de cada uma delas. Em geral, isso significa que obteremos um vetor que aponta em uma direção específica do espaço, porém que depende tanto da forma do corpo, como da origem escolhida para o sistema\footnote{Tal dependência se dá pela própria definição do vetor posição $\vec{r}$.}.
+
+Como podemos verificar na Figura~\ref{Fig:MomentoAngularCorpoSimetrico}, no entanto, se o corpo for simétrico e homogêneo, para toda partícula $i$ existe uma partícula $j$ diametralmente oposta à primeira, porém com a mesma massa, e que tem os mesmos valores para as componentes do momento angular para os eixos $x$ e $y$, mas com sentidos contrários. Consequentemente, ao realizarmos a soma de todos os momentos angulares, teremos somente a soma das componentes no eixo $z$.
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2.7,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
@@ -182,6 +383,10 @@ Logo, se temos informações sobre o sistema antes do evento, podemos relacioná
     ]
 
 %%% Figura superior
+
+\coordinate (centro) at (0,0);
+\coordinate (origin) at (0,-1.5);
+\coordinate (encontro) at (0,0.55);
 
 % Disco
 \draw (0,0) ellipse (1.25 and 0.5);
@@ -192,112 +397,138 @@ Logo, se temos informações sobre o sistema antes do evento, podemos relacioná
 \draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
 \draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
 
-% Eixo z
-\draw[dashdotted,->] (0,0) -- (0,1.5) node[below left]{$z$};
-\draw[dashdotted] (0,-2.5) -- (0,-0.9);
+% Eixos
+\draw[dashdotted,->] (0,0) -- (0,1) node[right]{$z$};
+\draw[dashdotted] (0,-1.75) -- (0,-0.9);
 \draw[dotted] (0,-0.9) -- (0,0);
 \draw[fill] (0,0) circle (0.4pt);
+\draw[dashdotted,->] (-1.75, 0) -- (-1.28,0) (1.28,0) -- (1.75,0) node[below left]{$y$};
+\draw[dashdotted,->] (35:0.8) -- (35:1.2) (35:-0.8) -- (35:-1.5) node[below left]{$x$};
+
+\draw[->] (95:0.8) arc[start angle = -250, end angle = 70, x radius = 0.2, y radius = 0.07] node[below, near end]{$\omega$};
 
 % Origem
-\draw[fill] (0,-2) circle (0.6pt);
-
-% trajetória dos pontos
-\draw[dotted] (0,0) ellipse (0.84 and 0.28);
+\draw[fill] (origin) circle (0.6pt) node[below left]{$O$};
 
 % Partícula 1
-\draw[fill] (5:-0.81) coordinate (p1) circle (0.4pt);
-%\draw[dashed] (p1) -- (0,0);
-\draw[dashed,<-] (p1)  -- (0,-2) coordinate (origin);
-\draw ($ (p1) !0.4! (origin) $) node[below left]{$\vec{r}_i$} -- (origin);
+\coordinate (p1) at (-15:-0.68);
+\draw[fill] (p1) circle (0.4pt);
+\draw[dotted] (p1) -- (0,0);
 
-\coordinate (encontro) at (0,0.5);
-\draw[->, thick] (p1) -- ($ (p1) !0.6! (encontro) $) node[below]{$\vec{\ell}_i$}; 
+\draw ($ (p1) !0.65! (origin) $) node[below left]{$\vec{r}_i$} -- (origin);
 
-\draw[->] (p1) -- +(-40:0.4) node[right]{$\vec{p}_i$};
+\draw[dotted] (p1) -- (encontro);
+
+\draw[->, thick] (p1) -- ($ (p1) !0.7! (encontro) $); 
+\node (li) at (-0.48,0.38) {$\vec{\ell}_i$};
+
+\draw[->] (p1) -- node[above]{$\vec{p}_i$} +(-155:0.4) coordinate (p1p);
 
 % Partícula 2
-\draw[fill] (5:0.81) coordinate (p2) circle (0.4pt);
-%\draw[dashed] (p2) -- (0,0);
-\draw[dashed,<-] (p2) -- (0,-2);
-\draw ($ (p2) !0.45! (origin) $) node[below right]{$\vec{r}_j$} -- (origin);    
+\coordinate (p2) at (-15:0.68);
+\draw[fill] (p2) circle (0.4pt);
+\draw[dotted] (p2) -- (0,0);
 
-\draw[->, thick] (p2) -- ($ (p2) !0.6! (encontro) $) node[below]{$\vec{\ell}_j$};
+\draw ($ (p2) !0.55! (origin) $) node[below right]{$\vec{r}_j$} -- (origin);    
 
-\draw[->] (p2) -- +(145:0.4);
-\node (pj) at (0.76,0.27) {$\vec{p}_j$};
+\draw[dotted] (p2) -- (encontro);
+\draw[->, thick] (p2) -- ($ (p2) !0.7! (encontro) $);
+\node (lj) at (0.36,0.37) {$\vec{\ell}_j$};
 
+\draw[->] (p2) -- node[below]{$\vec{p}_j$} +(25:0.4) coordinate (p2p);
+
+% ângulos
+\pic [draw, "$\gamma_j$", angle eccentricity = 1.3, angle radius = 8mm] {angle = p2--origin--encontro};
+\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p2--origin};
+
+% trajetória dos pontos
+\draw[dashed, very thin] (0,0) ellipse (0.84 and 0.28);
+\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = origin--p1--encontro};
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 2mm] {angle = p2p--p2--encontro};
+\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 2mm] {angle = p2--centro--encontro};
+
+\draw[dotted,->] (origin) -- (p1);
+\draw[dotted,->] (origin) -- (p2);
 \end{tikzpicture}
-\caption{. }
-\end{marginfigure}
+\caption{Em um corpo simétrico em relação ao eixo de rotação,  as componentes dos momentos angulares das partículas nos eixos $x$ e $y$ se cancelam aos pares. Portanto, o momento angular total será dado por um vetor resultante que aponta na direção do eixo $z$, que é a direção do eixo de rotação. Notes que os eixos $x$ e $y$ na figura estão representados em um plano acima da origem $O$. \label{Fig:MomentoAngularCorpoSimetrico}}
+\end{figure}
 
-
-Se um corpo gira em torno de um eixo, podemos calcular seu momento angular dividindo-o em várias partes e tratando-o como um sistema de partículas. Na Figura ??? ao lado, o momento angular de uma das partículas que compõe o corpo é mostrado. Segundo a definição do momento angular para uma partícula, temos
+Na Figura~\ref{Fig:ComponenteZMomentoAngularCorpoSimetrico}, mostramos o momento angular de uma das partículas que compõe o corpo. Segundo a definição do momento angular para uma partícula, temos
 \begin{align}
-  \vec{\ell}_i &= \vec{r}\times\vec{p} \\
-  &= r_i p_i \sen \degree{90} \\
-  &= r_i m_i v_i,
+  \vec{\ell}_j &= \vec{r}\times\vec{p} \\
+  &= r_j p_j \sen \degree{90} \\
+  &= r_j m_j v_j, \label{Eq:MomAngPartJEixoZ}
 \end{align}
 %
-onde as variáveis $r_i$, $m_i$ e $v_i$ se referem à posição, velocidade e massa da partícula em questão. Usamos ainda o índice $i$ pois calculamos o momento angular de somente uma partícula, porém vamos somar sobre as demais já que a expressão é a mesma para todas elas.
+onde as variáveis $r_j$, $m_j$ e $v_j$ se referem à posição, velocidade e massa da partícula em questão. Nas expressões acima, utilizamos o fato de que o ângulo entre os vetores momento linear $\vec{p}_j$ e posição $\vec{r}_j$ é de \np[\tcdegree]{90}.
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth,
+\begin{tikzpicture}[>=Stealth, xscale = -1,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
                     amplitude=0.2cm,segment length=2mm}}},
     ]
 
-    \draw (0,0) coordinate (origin) -- node[left]{$\vec{r}_i$}(125:4);
+    \draw[->] (0,0) coordinate (origin) -- node[right]{$\vec{r}_j$}(125:3.95);
     \draw[dotted] (125:4) coordinate (l) -- +(35:3) coordinate (top);
-    \draw[thick, ->] (125:4) -- node[above]{$\vec{\ell}_i$}+(35:1.5) coordinate (p);
-    \draw[dashed] (125:4) -- node[below]{$r_\perp^i$} +(2.4,0) coordinate (m);
+    \draw[thick, ->] (125:4) -- node[above]{$\vec{\ell}_j$}+(35:1.5) coordinate (p);
+    \draw[dashed] (125:4) ++(0.3,0)-- node[below]{$r_\perp^j$} +(2.1,0);
+    \path (125:4) -- +(2.4,0) coordinate (m);
     \draw[dashdotted] (top) -- (0,0);
     
-    \pic[draw, "$\gamma_i$", angle eccentricity = 1.5]{angle = m--l--p};
-    \pic[draw, "$\gamma_i$", angle eccentricity = 1.5]{angle = top--origin--l};
-    \pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3.1mm]{angle = origin--l--top};
+    \pic[draw, "$\gamma_j$", angle eccentricity = 1.5]{angle = p--l--m};
+    \pic[draw, "$\gamma_j$", angle eccentricity = 1.5]{angle = l--origin--top};
+    \pic[draw, "$\cdot$", angle eccentricity = 0.6, angle radius = 3.1mm]{angle = top--l--origin};
+    \pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3.1mm]{angle = l--m--top};
+    
+    \draw[draw = black, fill = white] (l) circle (1mm) node{$\times$} node[below right]{$\vec{p}_j$};
 \end{tikzpicture}
-\caption{. }
+\caption{Detalhe do triângulo formado pelos vetores $\vec{r}_j$ e $\vec{\ell}_j$, e pelo eixo $z$ na Figura~\ref{Fig:MomentoAngularCorpoSimetrico}. Note que o momento linear entra na página. \label{Fig:ComponenteZMomentoAngularCorpoSimetrico}}
 \end{marginfigure}
-Se o corpo for simétrico e homogêneo, podemos perceber facilmente que para toda partícula $P$ existe uma partícula $P'$ diametralmente oposta à primeira e que tem os mesmos valores para as componentes do momento angular para os eixos $x$ e $y$, porém com sentidos contrários. Logo, ao realizarmos a soma sobre todas as partículas, concluímos que tais componentes resultarão em zero, restando somente a componente $z$ do momento angular. Esta componente pode ser calculada utilizando o ângulo $\theta$ e obtemos
+
+A componente componente em $z$ de $\vec{\ell}_j$ pode ser calculada utilizando o ângulo $\gamma_j$ formado entre o vetor momento angular e a reta tracejada, que é paralela ao plano $xy$. Logo, obtemos
 \begin{align}
-  \ell_{iz} &= \ell_i \sen\theta \\
-  &= r_i m_i v_i \sen\theta.
+  \ell_{j}^{z} &= \ell_j \sen\theta \\
+  &= r_j m_j v_j \sen\theta,
 \end{align}
 %
-A distância $r_{\perp}$ pode ser escrita como
+onde utilizamos a Equação~\eqref{Eq:MomAngPartJEixoZ} para o módulo do momento angular.
+
+Os ângulos formados pelos vetores $\vec{r}_j$ e o eixo $z$ e o formado entre o vetor $\vec{\ell}_j$ e o plano $xy$ são iguais\footnote{Esse resultado pode ser obtido através de uma análise do triângulo da Figura~\ref{Fig:ComponenteZMomentoAngularCorpoSimetrico}, sendo que o procedimento é o mesmo que utilizamos ao verificar o ângulo formado entre o vetor peso e o eixo perpendicular à superfície do plano inclinado, no Capítulo~\ref{Chap:Dinâmica}.}, logo, a distância $r_{\perp}^j$ pode ser escrita como
 \begin{equation}
-  \ell_{\perp} = r_i\sen\theta.
+  \ell_{\perp}^j = r_j\sen\gamma_j.
 \end{equation}
 %
 Consequentemente, 
 \begin{equation}
-  \ell_{iz} = m_i r_{\perp}^2 \omega,
+  \ell_{j}^{z} = m_j (r_{\perp}^j)^2 \omega,
 \end{equation}
 %
-onde utilizamos $v_i = \omega r_{\perp}$ (lembre-se que $\omega$ é constante e igual para todas as partículas que compôe um corpo rígido). Dessa forma, podemos escrever o momento angular total do corpo como
+onde utilizamos $v_j = \omega r_{\perp}^j$ --~lembre-se que $\omega$ é constante e igual para todas as partículas que compõe um corpo rígido~--. Dessa forma, podemos escrever o momento angular total do corpo como
 \begin{equation}
-  L_z = \left[\sum_{i=1}^N m_i r_{\perp}^2\right] \omega.
+  L_z = \left[\sum_{j=1}^N m_j (r_{\perp}^j)^2\right] \omega.
 \end{equation}
 %
-O termo entre colchetes nada mais é que o momento de inércia do corpo. Além disso, sabemos que só resta a componente $z$ do momento angular, porém esta é a mesma direção da velocidade angular. Logo
+O termo entre colchetes nada mais é que o momento de inércia do corpo. Logo
 \begin{equation}
-  \vec{L}_z = I \vec{\omega}.
+  L_z = I \omega.
 \end{equation}
 
-É importante notar que se o corpo não for simétrico, restará uma componente do plano $xy$ que mudará constantemente de direção. No caso de um objeto assimétrico sofrer uma rotação, portanto, deve haver um torque que é realizado por um agente externo -- pois $\vec{\tau} = d\vec{L} / dt$ e se $\vec{L}$ não é constante, então $\vec{\tau} \neq 0$ --. Se o objeto em questão está prezo por mancais, por exemplo, tais suportes exercem força sobre o corpo que geram torques, possibilitanto que o momento angular varie. No entanto, existem as reações a essas forças, que são exercidas pelo corpo sobre os suportes, sendo responsáveis pelas \emph{vibrações} características de um corpo assimétrico submetido a rotações.
+\textbf{Alguma conclusão aqui. Podemos até dizer que para o caso especial de corpos simétricos em relação ao eixo de rotação, $\vec{L} = I\vec{\omega}$.}
 
-\textbf{Discutir o fato de que $\ell$ de uma partícula pode ser calculado através de $I\omega$ se considerarmos o momento de inércia de uma partícula somente.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aditividade do momento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Rotação de um corpo rígido assimétrico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{demonstrar aditividade do momento angular de um corpo rígido}
 
-Ainda podemos utilizar a expressão obtida para $L_z$ em um corpo simétrico. No entanto, temos outras componentes de momento angular agora, e elas dependem do tempo. Precisamos de um torque para que exista variação do momento angular. Exemplificar usando semi-cilindro, como os usados para gerar vibrações em celular, controle de video-game.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Vetor velocidade angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-falar da skew rod?
+Definir, mostrar que dá pra descrever a velocidade de todos os pontos. Escrever o momento angular em com o velor velocidade angular para a partícula. Se não for muito complexo, determinar o momento angular pelo somatório.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Momento angular de um corpo que rola}
@@ -305,20 +536,143 @@ falar da skew rod?
 
 Ver seção 6.7 do Kleppner
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Conservação do momento angular (envolvendo corpo rígidos, renomear essa seção)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Momento angular de um corpo rígido assimétrico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\emph{Discutir caráter vetorial, considerar momentos de inércia variáveis}
+Falar da skew rod, que tem que haver um torque externo para que possamos ter a rotação do vetor momento angular. Falar da vibração que isso causa, devido às reações que surgem no mancal.
 
-\textbf{Exemplos: aluno com alteres girando em cadeira, patinadora; forças de maré e rotação sincronizada (terra+lua, plutão+caronte)}
+Mostrar o disco, falar que não se altera a componente em $z$. Ver se tem algo proveitoso abaixo.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Precessão de um giroscópio}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Ainda podemos utilizar a expressão obtida para $L_z$ em um corpo simétrico. No entanto, temos outras componentes de momento angular agora, e elas dependem do tempo. Precisamos de um torque para que exista variação do momento angular. Exemplificar usando semi-cilindro, como os usados para gerar vibrações em celular, controle de video-game.
+
+É importante notar que se o corpo não for simétrico, restará uma componente do plano $xy$ que mudará constantemente de direção. No caso de um objeto assimétrico sofrer uma rotação, portanto, deve haver um torque que é realizado por um agente externo -- pois $\vec{\tau} = d\vec{L} / dt$ e se $\vec{L}$ não é constante, então $\vec{\tau} \neq 0$ --. Se o objeto em questão está prezo por mancais, por exemplo, tais suportes exercem força sobre o corpo que geram torques, possibilitanto que o momento angular varie. No entanto, existem as reações a essas forças, que são exercidas pelo corpo sobre os suportes, sendo responsáveis pelas \emph{vibrações} características de um corpo assimétrico submetido a rotações.
+
+\textbf{Discutir o fato de que $\ell$ de uma partícula pode ser calculado através de $I\omega$ se considerarmos o momento de inércia de uma partícula somente.}
+
+% https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+%%% Figura superior
+
+\coordinate (centro) at (0,0);
+\coordinate (origin) at (0,-1.5);
+\coordinate (encontro) at (0,0.55);
+
+% Disco
+%\draw (0,0) ellipse (1.25 and 0.5);
+\draw (0,0) [partial ellipse=-34:146:1.25cm and 0.5cm];
+\draw[densely dotted] (0,-0.4) [partial ellipse=-34:146:1.25cm and 0.5cm];
+\draw (0,-0.4) [partial ellipse=-34:0:1.25cm and 0.5cm];
+
+\draw (-15:1.075) coordinate (c1) -- (-15:-1.075) coordinate (c2);
+\draw (c1) -- +(0,-0.4) coordinate (c3);
+\draw (c2) -- +(0,-0.4) coordinate (c4);
+\draw (c3) -- (c4);
+
+%\draw (-1.25,0) -- (-1.25,-0.4);
+\draw (1.25,-0.4) -- (1.25,0);  
+
+%\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+%\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+
+% Eixos
+\draw[dashdotted,->] (0,0) -- (0,1) node[right]{$z$};
+\draw[dashdotted] (0,-1.75) -- (0,-0.9);
+\draw[dotted] (0,-0.9) -- (0,0);
+\draw[fill] (0,0) circle (0.4pt);
+\draw[dashdotted,->] (1.28,0) -- (1.75,0) node[below left]{$y$};
+\draw[dotted] (0,0) -- (1.28,0);
+\draw[dashdotted,->] (0,0) -- (35:-1) node[below left]{$x$};
+
+\draw[->] (95:0.8) arc[start angle = -250, end angle = 70, x radius = 0.2, y radius = 0.07] node[below, near end]{$\omega$};
+
+% Origem
+\draw[fill] (origin) circle (0.6pt) node[below left]{$O$};
+
+% Partícula 1
+\coordinate (p1) at (-15:-0.68);
+\draw[fill] (p1) circle (0.4pt);
+\draw[dotted] (p1) -- (0,0);
+
+\draw[dotted] (p1) -- (encontro);
+\draw[->, thick] (p1) -- ($ (p1) !0.7! (encontro) $); 
+
+% Partícula 2
+\coordinate (p2) at (-15:0.68);
+\draw[fill] (p2) circle (0.4pt);
+\draw[dotted] (p2) -- (0,0);
+
+\draw[dotted] (p2) -- (encontro);
+\draw[->, thick] (p2) -- ($ (p2) !0.7! (encontro) $);
+
+% Partícula 3
+\coordinate (p3) at (35:0.45);
+\draw[fill] (p3) circle (0.4pt);
+\draw[dotted] (p3) -- (0,0);
+
+\draw ($ (p3) !0.41! (origin) $) node[below right]{$\vec{r}_k$} -- (origin);    
+
+\draw[dotted] (p3) -- (encontro);
+\draw[->, thick] (p3) -- ($ (p3) !0.7! (encontro) $);
+
+% trajetória dos pontos (parte do semi-disco)
+\draw[dashed] (0,0) [partial ellipse=-34:144:0.84cm and 0.28cm];
+
+% ângulo r_2 l_2
+\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p2--origin};
+\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = origin--p1--encontro};
+\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p3--origin};
+
+% trajetória dos pontos (parte fora do semi-disco)
+\draw[loosely dotted] (0,0) [partial ellipse=146:326:0.84cm and 0.28cm];
+
+% Vetores posição
+\draw[dotted, ->] (origin) -- (p3);
+\draw[->] (origin) -- node[below right]{$\vec{r}_j$} (p2);    
+\draw[->] (origin) -- (p1);
+\node (n) at (-0.25, -0.6) {$\vec{r}_i$};
+
+\end{tikzpicture}
+\caption{No caso de um corpo assimétrico em relação ao eixo de rotação, o cancelamento das componentes do momento angular não é completo no plano $xy$. Consequentemente, para que o corpo gire em torno do eixo $z$, é necessário um torque resultante externo. A reação à força que original tal torque produz uma \emph{vibração} nos mancais do eixo de rotação. \label{Fig:MomentoAngularCorpoAssimetrico}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Torque e aceleração angular em um corpo rígido}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Falar de uma haste que gira em torno da extremidade, sujeita ao atrito, onde temos uma alteração da componente devido ao torque externo devido à força peso.
+
+Como fica o termo adicional que envolve a velocidade angular? Aqui tb é o lugar ideal para definir o vetor aceleração angular.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conservação do momento angular em sistemas envolvendo corpos rígidos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Discutir dois discos caindo um sobre o outro. Veja que tem o caráter vetorial que precisa ser explorado aqui. Podemos discutir o cálculo da velocidade de rotação após a colisão de uma partícula com uma haste.
+
+Acho que não precisa, mas onde discutir patinadora, pessoa que gira, etc? (que nem são corpos rígidos)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Precessão de um giroscópio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \comment{Fazer figuras,melhorar texto, descrições, o que é um giroscópio, falar como é impressionante, etc.}
 
-A Precessão de um giroscópio é um exemplo claro da razão pela qual o torque é uma grandeza vetorial. Se não fosse esse o caso, o movimento não poderia ser explicado. Na figura ao lado, mostramos um desenho esquemático de um giroscópio, com as forças e torques que atuam sobre ele quando ele está parado. Verificamos que há um torque na direção $y$ e que -- ao liberarmos a movimentação do sistema -- será responsável por girar o giroscópio em torno desse eixo, dotando-o de um momento angular $\vec{L}$ também na direção de $y$.
+A precessão de um giroscópio é um exemplo claro da razão pela qual o torque é uma grandeza vetorial. Se não fosse esse o caso, o movimento não poderia ser explicado. Na figura ao lado, mostramos um desenho esquemático de um giroscópio, com as forças e torques que atuam sobre ele quando ele está parado. Verificamos que há um torque na direção $y$ e que -- ao liberarmos a movimentação do sistema -- será responsável por girar o giroscópio em torno desse eixo, dotando-o de um momento angular $\vec{L}$ também na direção de $y$.
 
 No caso de o giroscópio já estar girando antes de o soltarmos, já teremos um momento angular inicial $\vec{L}$ na direção do eixo do disco do giroscópio. Sabemos que nesse caso 
 \begin{equation}
@@ -369,3 +723,565 @@ e, consequentemente,
 \end{equation}
 
 % Num avião monomotor, quando o ele acelera para decolar, existe uma inclinação do eixo de rotação do motor/hélice. Em um certo momento, o avião vai passar a ficar alinhado em relação à pista (devido à força de sustentação? ou ação do piloto?). Nesse momento, ocorre uma uma precessão das partes rotativas (giroscópio), fazendo com que o avião ``puxe'' para a esquerda (devido ao fato de que o giroscópio gira em sentido horário do ponto de vista do piloto). % Vi isso no Aviões e Músicas
+% O efeito giroscópico tb é usado para mudar a direção de uma motocicleta
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Seções opcionais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Here be dragons.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular de um movimento planetário}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Em um tratamento rigoroso, acho que podemos tomar a origem como sendo qualquer ponto. Nesse caso, temos que separar o momento angular como sendo o momento angular do centro de massa, mais o momento angular do planeta, \emph{e também o do Sol}. Assim deve ser possível mostrar que as componentes dos momentos angulares no plano devem se anular, restando somente o momento angular perpendicular ao plano orbital. Se a velocidade do centro de massa em relação à origem for zero, então só resta o momento angular do planeta, mais o do Sol, perpendicular ao plano orbital.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Tensor de inércia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Tudo mais que for complicadíssimo fica aqui.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Old stuff}
+%
+%\textbf{SÓ COISAS VELHAS A PARTIR DAQUI.}
+%
+%
+%dar uma olhada nos livros que tenho salvos, tem vários que tratam rotações. Ver em especial o Landau, parece que tem coisa interessante. Ver páginas da Wikipedia: https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion
+%
+%Tem algum pdf sobre o euler salvo em algum lugar, provavelmente em Downloads.
+%
+%
+%Veja que se temos um movimento de rotação e temos uma alteração da direção no espaço (como no giroscópio), esse é um caso em que não podemos simplesmente descrever como uma rotação em torno de um eixo fixo. Ao falarmos de momento angular e de torque, estamos fazendo uma transição desse caso ``unidimensional'' da rotação para o caso tridimensional, pois só assim podemos descrever a precessão. Então acho que é importante caracterizar o movimento de uma maneira geral (falar do teorema de Chasles e dos ângulos de Euler), depois reduzir para o caso simples, e tratar o que der, depois seguir para o caso mais complexo, onde temos as grandezas como vetores e temos também a conservação do momento angular.
+%
+%Duas rotações seguidas em torno de eixos diferentes podem ser descritas como uma rotação só, em torno de um outro eixo [desde que um ponto do corpo se mantenha fixo]. Esse resultado é devido a Euler (Teorema de rotação de Euler), e permite descrever uma rotação através de um eixo e um ângulo. Na verdade, isso deve valer para qualquer número de rotações, pois se duas rotações são equivalentes a outra rotação, então uma terceira após outras duas também conta como "duas" seguidas. Logo, deve haver um eixo de rotação. Matricialmente, o eixo de rotação é um autovetor da matriz de rotação. Logo, como o produto de qualquer número de rotações é também uma rotação, temos que sempre deve haver um eixo de rotação, não?
+%
+%Na real $\vec{\tau} = I\vec{\alpha} + \vec{\omega}\times(I\vec{\omega})$, onde $I$ é a matriz de inércia (tensor de inércia?). A aceleração angular aqui é a derivada de $\omega$ em relação ao tempo. Tem a mesma direção e sentido.
+%
+%na wikipedia, sobre aceleração angular, diz que 
+%\begin{equation}
+%    \alpha = I^{-1} (L\times\omega + dL/dt)
+%\end{equation}
+%%
+%só o $I$ não é vetor nessa eq. Essa equação é bem interessante, pois ela mostra que se o objeto não é simétrico, então a aceleração angular é dada por $\omega\times L$.
+%
+%essa parte de rotação vetorial deve ser dividida em duas partes, uma pra partícula, outra pra corpo rígido.
+%
+%Fica simples determinar as forças fictícias se usar a ideia do Landau de escrever $v_f = v_r + \omega \times r$. Derivando isso duas vezes, dá pra ver surgirem os termos de forças fictícias (mas a derivada é diferente, tem um termo adicional, pelo que entendi. (ver \url{https://en.wikipedia.org/wiki/Rotating_reference_frame})
+%
+%Ver essa questão dos sinais, principalmente na solução da máquina de Atwood. Na real acho que não precisa dessas firulas dos sinais se levarmos em conta o caráter vetorial.
+%
+%Tem uma história de que a segunda lei para o CM é chamada de primeira lei de Euler, e que a segunda lei de euler é a segunda lei de Newton pra rotação. Verificar isso, é uma informação interessante. Seria legal ver qual o papel do Euler na mecânica, pois essa formulação que não é nem lagrangiana, nem hamiltoniana, com essa cara matemática que usamos, é chamada de Newton-Euler em alguns lugares.
+%
+%seria interessante mostrar uma figura em um "gimbal". Em francês, italiano, espanhol e alemão, o nome disso é "suspensão cardânica", ou "suspensão cardan". Aparentemente a idéia é que o gimbal é formado por duas junções tipo cardan, que tb é chamada de junta universal. Aparentemente o sensor do Wii não tem um giroscópio dentro, é um chip com alguma massa que oscila, ou se move de alguma maneira, e consegue verificar a rotação em torno de um eixo (é como o pêndulo de Foulcaut, é uma questão de momento angular, afinal temos uma rotação, apesar de ser em uma fração de círculo). a ideia é diferente do acelerômetro, pois ele sente a rotação, não a aceleração de translação em um eixo. Pode ser uma massa que fica pendurada em algum fio, assim quando o controle gira, a gaiola na qual a massa está suspensa gira, mas a massa fica mais ou menos onde estava.
+%
+%
+%Acho que podemos inverter as coisas aqui. Não tem necessidade de definir a velocidade angular antes, podemos ir direto para o caso do momento angular e torque. No caso da skew rod, podemos verificar que se há força que faz a massa da ponta fazer um círculo, então a reação age sobre a haste, exercendo um torque que tende a fazer com que ela rotacione. A situação de equilíbrio seria justamente quando o eixo da haste é perpendicular ao eixo de rotação. Para que haja rotação de forma que haja um ângulo entre a haste e o eixo de rotação, é necessário que haja um torque externo que equilibra esse torque. (Veja que mesmo que a velocidade angular se mantenha constante, temos um torque. Isso lembra a situação de um movimento circular uniforme, onde a velocidade é constante, mas existe uma força que altera somente a direção do movimento. Quer dizer, isso é um indício de que estamos tratando de grandezas vetoriais.)
+%
+%Tem como mostrar que o valor do torque efetuado pela reação da força centrípeta, que é exercido sobre a haste, é igual ao valor máximo do torque calculado através da derivada do momento angular, para uma partícula na skew rod. (O Berkeley fala que isso é possível tb, então estou sussa :)
+%
+%No Landau mostra (quase implicitamente) que a velocidade angular é igual em todos os referenciais inerciais. Mostra que $\vec{v}_p = \vec{v}_{\rm{CM}} + \vec{omega}\times\vec{r}$
+%
+%O momento angular depepnde da escolha da origem. No Berkeley, nas eqs 6.32 e 6.33, mostra que é possível separar em um termo de momento angular em torno de um eixo que passa pelo centro de massa, mais um termo do momento angular do centro de massa em torno da origem.
+%
+%Só falar do giroscópio é muito pobre. Pelo menos falar de três exemplos interessantes envolvendo momento angular: orbitas e lei de Kepler, giroscópio, +?.
+%
+%O Berkeley tem uma parte legal sobre a matriz de inércia e os produtos de inércia.
+%
+%Na real, muita coisa da discussão de momento angular ainda é para o caso de eixo de rotação fixo.
+%
+%Aquela discussão do Halliday sobre rotação em torno do ponto de contato serve pra explicar o conceito de eixo instantâneo de rotação.
+%
+%poderíamos começar com a lei de Kepler, é um resultado experimental onde se vê que existe alguma coisa constante. Falar do caso elíptico, mas mostrar pro circular. Depois mostrar para o caso de uma linha reta, onde não dá pra falar em r constante, mas podemos falar em r sen theta. Assim fica fácil já definir a existência de um produto vetorial. Finalmente, podemos imaginar uma haste de massa desprezível em cujas extremidades hajam duas esferas. Duas outras, uma de cada lado, se deslocando em retas paralelas, batem nas esferas das pontas. Temos que o momento linear é zero no sistema. Após a colisão, a haste estará se movendo. Quanto maior a massa das esferas incidentes, maior será a velocidade angular da haste após a colisão.
+%
+%Na questão da barra fina que desce e colide com uma bolinha: verificar os torques no processo de descida (quem aumenta o momento angular, quem rotaciona o vetor, ver se existe torque no eixo de rotação [tem força, pois existe uma aceleração que aponta para o centro]); Ver torque no momento da colisão, se existem componentes que não se conservam do momento angular.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Caráter vetorial das variáveis da rotação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\textbf{Agora começamos a considerar o que acontece quando estamos interessados em descrever uma rotação arbitrária no espaço, não uma rotação em torno de um eixo fixo.}
+%
+%Não está claro pra mim qual é a de definir esses deslocamentos angulares infinitesimais como vetores. Serve só pra definir a velocidade?
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Velocidade e aceleração}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\textbf{A velocidade angular é o vetor $\omega\versk$, onde o eixo $z$ é a direção do eixo de rotação. Ele é capaz de descrever a velocidade de cada um dos pontos uma vez que se tome uma origem \emph{contida no eixo $z$}. Assim, $\vec{v} = \vec{omega}\times\vec{r}$. Nessas condições, é até fácil entender por quê: ao calcular o módulo do produto vetorial, temos $r\sen\phi$, mas isso vai ser $r_\perp$. Logo, $|\vec{\omega}\times\vec{r}| = r_\perp\omega = v$. (Ver Caítulo 13 do Ruina-Pratap, ou o Moysés.}
+%
+%\textbf{o vetor aceleração angular é definido no Ruina-Pratap (Capítulo 14) num contexto de movimento ``planar'' (?), onde, aparentemente, a direção do eixo de rotação não muda.}
+%
+%Quando discutimos as grandezas da translação, concluímos que posição, velocidade e aceleração eram grandezas vetoriais e tinham módulo, direção e sentido. Podemos atribuir um caráter vetorial à velocidade angular e à aceleração angular. Nesses casos, no entanto, a direção do vetor não nos dá a direção do movimento, mas a direção \emph{em torno} da qual o objeto gira.
+%
+%Para definirmos tal direção de maneira única, utilizamos a regra da mão direita: ``seguramos'' o eixo em torno do qual o objeto gira de forma que os dedos (exceto o polegar) apontem no sentido de rotação. Fazendo isso, o polegar apontará na direção do vetor.
+%
+%No caso da aceleração, apontamos a direção da variação da velocidade (na direção de $\vec{\omega}$ se o módulo da velocidade angular cresce e na direção contrária se o módulo decresce). Tanto $\vec{\omega}$ quanto $\vec{\alpha}$ obedecem a todos os requisitos para serem denominados vetores, inclusive à soma vetorial.
+%
+%A posição e -- consequentemente -- o deslocamento angulares, no entanto, não podem ser tratados como vetores. Se tomarmos um livro e realizarmos dois deslocamentos angulares sucessivos de \degree{90} em torno dos eixos $x$ e $y$, a ordem em que eles forem realizados influenciará no resultado final, resultando em estados finais diferentes. Como a soma vetorial de $\vec{a} + \vec{b} = \vec{b} + \vec{a}$, percebemos que os deslocamentos angulares não podem ser tratados como vetores.
+%
+%\comment{Pra mim isso não explica nada. Como podemos mostrar que duas velocidades angulares podem ser somadas? (Acho que o Teorema de Euler para rotação explica, mas como? ver isso e colocar essa explicação aqui). TODO Por que podemos tratar deslocamentos para pequenos ângulos como vetores e não para grandes ângulos? ver isso com cuidado}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Torque como o produto vetorial $\vec{r}\times\vec{F}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Da mesma forma que $\vec{\omega}$ e $\vec{\alpha}$ são grandezas vetoriais, também é possível mostrar que o torque é uma grandeza vetorial. Analisando a expressão para o módulo do produto vetorial entre dois vetores $\vec{a}$ e $\vec{b}$:
+%\begin{equation}
+%  |\vec{a}\times\vec{b}| = ab\sen\phi,
+%\end{equation}
+%%
+%onde $\phi$ é o ângulo entre os dois vetores, e comparando-a com a Equação~\eqref{Eq:DefModTorque}, podemos escrever o torque como
+%\begin{align}
+%  |\vec{\tau}| &= F d \sen\phi \\
+%  &= |\vec{F}\times\vec{d}|.
+%\end{align}
+%%
+%Na expressão acima, $\vec{F}$ é o vetor que descreve a força que gera o torque, enquanto $\vec{d}$ é o vetor que denota a posição do ponto onde a força é aplicada. A origem do vetor é o próprio ponto em torno do qual o objeto gira. Apesar de utilizarmos $\vec{d}$ até o momento, em geral posições são denotadas por $\vec{r}$. Assim, o torque pode ser definido como: \comment{a origem pode ser um ponto qualquer, porém quando formos tratar de corpos rígidos mais adiante, usaremos sempre um ponto no eixo de rotação ... como explicar isso direito?}
+%\begin{equation}\label{Eq:DefTorque}
+%  \vec{\tau} = \vec{r}\times\vec{F}.
+%\end{equation}
+%
+%A direção do vetor torque pode ser facilmente compreendida ao se analisar a expressão para a Segunda Lei de Newton para a rotação,
+%\begin{equation}
+%  \tau = I \alpha.
+%\end{equation}
+%%
+%Sabendo que $I$ é uma grandeza escalar e que atribuimos um caráter vetorial para a aceleração angular, obrigatoriamente temos que o torque também tem uma caráter vetorial (pois uma das propriedades dos vetores é que a multiplicação de um escalar por um vetor resulta em um vetor). Assim, o torque assume a mesma direção que a aceleração angular:
+%\begin{equation}
+%  \vec{\tau} = I\vec{\alpha}.
+%\end{equation}
+%%
+%Dessa conclusão podemos tirar uma observação importante, justificando a escolha da ordem dos vetores na Equação~\eqref{Eq:DefTorque}: devido à regra da mão direita, se temos um eixo em torno do qual um objeto gira e a aceleração angular é positiva, o torque dado pelo produto vetorial~\eqref{Eq:DefTorque} acima deve correspondentemente ser positivo. Para isso, também devemos adotar a regra da mão direita para o produto vetorial. Analisando o diagrama ao lado, percebemos que a ordem do produto vetorial deve ser $\vec{r}\times\vec{F}$, caso contrário o sentido resultante para o torque seria oposto ao sentido da aceleração. Alternativamente podemos usar $\vec{\tau} = -\vec{F}\times\vec{r}$, já que $\vec{a}\times\vec{b} = - \vec{b}\times\vec{a}$.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Momento angular e Segunda Lei de Newton}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Da mesma forma que temos o momento linear, para o caso das rotações temos o momento angular, definido como
+%\begin{equation}\label{Eq:DefMomAngular}
+%  \vec{\ell} = \vec{r}\times\vec{p},
+%\end{equation}
+%%
+%onde $r$ denota a posição de uma partícula qualquer e $p$ denota seu momento angular. Se derivarmos essa expressão em relação ao tempo, temos
+%\begin{align}
+%  \frac{d\vec{\ell}}{dt} &= \frac{d(\vec{r}\times\vec{p})}{dt} \\
+%  &= \frac{d\vec{r}}{dt}\times\vec{p} + \vec{r}\times\frac{d\vec{p}}{dt},
+%\end{align}
+%%
+%onde usamos a regra da cadeia. Notando que $d\vec{r}/dt = \vec{v}$, $\vec{p} = m \vec{v}$ e $d\vec{p}/dt = \vec{F}$, podemos escrever
+%\begin{equation}
+%  \frac{d\vec{\ell}}{dt} = m\vec{v}\times\vec{v} + \vec{r} \times \vec{F}.
+%\end{equation}
+%%
+%Finalmente, notando que o produto vetorial de dois vetores colineares é nulo, temos que $\vec{v}\times\vec{v} = 0$ e, portanto,
+%\begin{align}
+%  \frac{d\vec{\ell}}{dt} &= \vec{r} \times \vec{F} \\
+%  &= \vec{\tau}.
+%\end{align}
+%
+%Mais uma vez obtivemos um resultado para o caso das rotações que tem um análogo no caso da translação: a equação acima mostra que a taxa de variação do momento angular no tempo é igual ao torque, o que é análogo à forma $\vec{F} = d\vec{p}/dt$ para a Segunda Lei de Newton. Portanto, temos uma nova forma para a Segunda Lei de Newton para Rotações:
+%\begin{equation}\label{Eq:SegLeiNewtonRotDLDT}
+%  \vec{\tau} = \frac{d\vec{\ell}}{dt}.
+%\end{equation}
+%
+%\comment{$\tau$ e $\ell$ devem ser definidos em relaçao ao mesmo ponto}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular de uma partícula que executa um movimento circular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%mostrar a partir da definição. Mostrar que pode ser calculado a partir do momento de inércia vezes velocidade angular (isso é particularmente fácil se usar a definição, o fato de que $\vec{v} = \vec{\omega}\times\vec{r}$ e ângulos retos, calculando o módulo, determinando a direção e o sentido separadamente.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular para uma partícula que se desloca em linha reta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\comment{mostrar que $r\sen\phi = d$ ($d$ é a distância mínima entre a reta em que a partícula se desloca e a origem)}
+%
+%Assim como no caso do torque, o momento angular é calculado em relação a um ponto. Mesmo que a partícula se desloque em uma linha reta, sem executar uma rotação em torno de um ponto, podemos lhe atribuir um momento angular.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular de um sistema de partículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%O momento angular de um sistema de partículas pode ser calculado somando-se o momento angular das várias partículas que o constituem:
+%\begin{align}
+%  \vec{L} &= \vec{\ell}_1 + \vec{\ell}_2 + \vec{\ell}_3 + \dots + \vec{\ell}_N \\
+%  &= \sum_{i=1}^N \vec{\ell}_i.
+%\end{align}
+%%
+%Esta propriedade é característica dos vetores, e já a utilizamos para definir o momento linear do centro de massa $\vec{P}_{\textrm{CM}}$ como sendo a soma do momento linear das partículas que o constituem.
+%
+%Se derivarmos a expressão acima em relação ao tempo, temos
+%\begin{align}
+%  \frac{d\vec{L}}{dt} &= \frac{d}{dt}\left(\sum_{i=1}^N\vec{\ell}_i\right) \\
+%  &= \sum_{i=1}^N \frac{d\vec{\ell}_i}{dt}.
+%\end{align}
+%%
+%De acordo com a Equação~\ref{Eq:SegLeiNewtonRotDLDT} para a Segunda Lei de Newton para Rotações, $d\vec{\ell}_i/dt = \vec{\tau}_i$, isto é, o torque que atua sobre a i-ésima partícula. No entanto, para um sistema de partículas que interagem através de forças, os torques devido a forças internas geram um par que se cancela na soma. Dessa forma, restarão somente os torques externos, logo
+%\begin{equation}\label{Eq:SegLeiNewtonRotSisPartDLDT}
+%  \vec{\tau}_R^{\textrm{Ext}} = \frac{d\vec{L}}{dt}.
+%\end{equation}
+%
+%\textbf{demonstrar aditividade do momento angular de um corpo rígido}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Conservação do momento angular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%A partir da Equação~\ref{Eq:SegLeiNewtonRotSisPartDLDT}, percebemos que se $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que $d\vec{L}/dt = 0$, ou seja,
+%\begin{equation}
+%  \vec{L} = \textrm{constante}.
+%\end{equation}
+%%
+%Temos, portanto, uma nova lei de conservação -- a \emph{conservação do momento angular} --. Assim como nos casos da \emph{conservação da energia} e da \emph{conservação do momento linear}, o fato de termos uma lei de conservação envolvendo o momento angular nos permitirá analisar sistemas sem sabem em detalhes o que ocorre entre dois instantes quaisquer. Se um evento ocorre de forma que $\vec{\tau}_R^{\textrm{Ext}} = 0$, temos que o momento angular antes e depois de tal evento é o mesmo:
+%\begin{equation}
+%  L_i = L_f.
+%\end{equation}
+%%
+%Logo, se temos informações sobre o sistema antes do evento, podemos relacioná-las ao estado final do sistema sem saber detalhes do que ocorreu durante o evento. Isso será muito útil na análise de várias situações.
+%
+%\textbf{discutir torques internos e o fato de que eles não mudam o momento angular, precisa de um exemplo aqui, nem que tenha que calcular o momento angular do sistema realizando a soma para um aro, ou dois. Ou usar exemplo de momento de inércia variável, com uma skew rod com massa desprezível e duas massas na ponta, deixar o ângulo de inclinação variar e verificar qual a velocidade das partículas depois.}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular de um corpo rígido simétrico em relação ao eixo de rotação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Podemos determinar o momento angular de um corpo rígido simplesmente o tratando como um sistema de partículas, e somando as contribuições de cada uma delas. Em geral, isso significa que obteremos um vetor que aponta em uma direção específica do espaço, porém que depende tanto da forma do corpo, como da origem escolhida para o sistema\footnote{Tal dependência se dá pela própria definição do vetor posição $\vec{r}$.}.
+%
+%Como podemos verificar na Figura~\ref{Fig:MomentoAngularCorpoSimetrico}, no entanto, se o corpo for simétrico e homogêneo, para toda partícula $i$ existe uma partícula $j$ diametralmente oposta à primeira, porém com a mesma massa, e que tem os mesmos valores para as componentes do momento angular para os eixos $x$ e $y$, mas com sentidos contrários. Consequentemente, ao realizarmos a soma de todos os momentos angulares, teremos somente a soma das componentes no eixo $z$.
+%
+%\begin{figure}[!h]
+%\centering
+%\begin{tikzpicture}[>=Stealth, scale = 2.7,
+%     interface/.style={
+%        % superfície
+%        postaction={draw,decorate,decoration={border,angle=-45,
+%                    amplitude=0.2cm,segment length=2mm}}},
+%    ]
+%
+%%%% Figura superior
+%
+%\coordinate (centro) at (0,0);
+%\coordinate (origin) at (0,-1.5);
+%\coordinate (encontro) at (0,0.55);
+%
+%% Disco
+%\draw (0,0) ellipse (1.25 and 0.5);
+%
+%\draw (-1.25,0) -- (-1.25,-0.4);
+%\draw (1.25,-0.4) -- (1.25,0);  
+%
+%\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+%\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+%
+%% Eixos
+%\draw[dashdotted,->] (0,0) -- (0,1) node[right]{$z$};
+%\draw[dashdotted] (0,-1.75) -- (0,-0.9);
+%\draw[dotted] (0,-0.9) -- (0,0);
+%\draw[fill] (0,0) circle (0.4pt);
+%\draw[dashdotted,->] (-1.75, 0) -- (-1.28,0) (1.28,0) -- (1.75,0) node[below left]{$y$};
+%\draw[dashdotted,->] (35:0.8) -- (35:1.2) (35:-0.8) -- (35:-1.5) node[below left]{$x$};
+%
+%\draw[->] (95:0.8) arc[start angle = -250, end angle = 70, x radius = 0.2, y radius = 0.07] node[below, near end]{$\omega$};
+%
+%% Origem
+%\draw[fill] (origin) circle (0.6pt) node[below left]{$O$};
+%
+%% Partícula 1
+%\coordinate (p1) at (-15:-0.68);
+%\draw[fill] (p1) circle (0.4pt);
+%\draw[dotted] (p1) -- (0,0);
+%
+%\draw ($ (p1) !0.65! (origin) $) node[below left]{$\vec{r}_i$} -- (origin);
+%
+%\draw[dotted] (p1) -- (encontro);
+%
+%\draw[->, thick] (p1) -- ($ (p1) !0.7! (encontro) $); 
+%\node (li) at (-0.48,0.38) {$\vec{\ell}_i$};
+%
+%\draw[->] (p1) -- node[above]{$\vec{p}_i$} +(-155:0.4) coordinate (p1p);
+%
+%% Partícula 2
+%\coordinate (p2) at (-15:0.68);
+%\draw[fill] (p2) circle (0.4pt);
+%\draw[dotted] (p2) -- (0,0);
+%
+%\draw ($ (p2) !0.55! (origin) $) node[below right]{$\vec{r}_j$} -- (origin);    
+%
+%\draw[dotted] (p2) -- (encontro);
+%\draw[->, thick] (p2) -- ($ (p2) !0.7! (encontro) $);
+%\node (lj) at (0.36,0.37) {$\vec{\ell}_j$};
+%
+%\draw[->] (p2) -- node[below]{$\vec{p}_j$} +(25:0.4) coordinate (p2p);
+%
+%% ângulos
+%\pic [draw, "$\gamma_j$", angle eccentricity = 1.3, angle radius = 8mm] {angle = p2--origin--encontro};
+%\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p2--origin};
+%
+%% trajetória dos pontos
+%\draw[dashed, very thin] (0,0) ellipse (0.84 and 0.28);
+%\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = origin--p1--encontro};
+%\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 2mm] {angle = p2p--p2--encontro};
+%\pic [draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 2mm] {angle = p2--centro--encontro};
+%
+%\draw[dotted,->] (origin) -- (p1);
+%\draw[dotted,->] (origin) -- (p2);
+%\end{tikzpicture}
+%\caption{Em um corpo simétrico em relação ao eixo de rotação,  as componentes dos momentos angulares das partículas nos eixos $x$ e $y$ se cancelam aos pares. Portanto, o momento angular total será dado por um vetor resultante que aponta na direção do eixo $z$, que é a direção do eixo de rotação. Notes que os eixos $x$ e $y$ na figura estão representados em um plano acima da origem $O$. \label{Fig:MomentoAngularCorpoSimetrico}}
+%\end{figure}
+%
+%Na Figura~\ref{Fig:ComponenteZMomentoAngularCorpoSimetrico}, mostramos o momento angular de uma das partículas que compõe o corpo. Segundo a definição do momento angular para uma partícula, temos
+%\begin{align}
+%  \vec{\ell}_j &= \vec{r}\times\vec{p} \\
+%  &= r_j p_j \sen \degree{90} \\
+%  &= r_j m_j v_j, \label{Eq:MomAngPartJEixoZ}
+%\end{align}
+%%
+%onde as variáveis $r_j$, $m_j$ e $v_j$ se referem à posição, velocidade e massa da partícula em questão. Nas expressões acima, utilizamos o fato de que o ângulo entre os vetores momento linear $\vec{p}_j$ e posição $\vec{r}_j$ é de \np[\tcdegree]{90}.
+%
+%\begin{marginfigure}
+%\centering
+%\begin{tikzpicture}[>=Stealth, xscale = -1,
+%     interface/.style={
+%        % superfície
+%        postaction={draw,decorate,decoration={border,angle=-45,
+%                    amplitude=0.2cm,segment length=2mm}}},
+%    ]
+%
+%    \draw[->] (0,0) coordinate (origin) -- node[right]{$\vec{r}_j$}(125:3.95);
+%    \draw[dotted] (125:4) coordinate (l) -- +(35:3) coordinate (top);
+%    \draw[thick, ->] (125:4) -- node[above]{$\vec{\ell}_j$}+(35:1.5) coordinate (p);
+%    \draw[dashed] (125:4) ++(0.3,0)-- node[below]{$r_\perp^j$} +(2.1,0);
+%    \path (125:4) -- +(2.4,0) coordinate (m);
+%    \draw[dashdotted] (top) -- (0,0);
+%    
+%    \pic[draw, "$\gamma_j$", angle eccentricity = 1.5]{angle = p--l--m};
+%    \pic[draw, "$\gamma_j$", angle eccentricity = 1.5]{angle = l--origin--top};
+%    \pic[draw, "$\cdot$", angle eccentricity = 0.6, angle radius = 3.1mm]{angle = top--l--origin};
+%    \pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3.1mm]{angle = l--m--top};
+%    
+%    \draw[draw = black, fill = white] (l) circle (1mm) node{$\times$} node[below right]{$\vec{p}_j$};
+%\end{tikzpicture}
+%\caption{Detalhe do triângulo formado pelos vetores $\vec{r}_j$ e $\vec{\ell}_j$, e pelo eixo $z$ na Figura~\ref{Fig:MomentoAngularCorpoSimetrico}. Note que o momento linear entra na página. \label{Fig:ComponenteZMomentoAngularCorpoSimetrico}}
+%\end{marginfigure}
+%
+%A componente componente em $z$ de $\vec{\ell}_j$ pode ser calculada utilizando o ângulo $\gamma_j$ formado entre o vetor momento angular e a reta tracejada, que é paralela ao plano $xy$. Logo, obtemos
+%\begin{align}
+%  \ell_{j}^{z} &= \ell_j \sen\theta \\
+%  &= r_j m_j v_j \sen\theta,
+%\end{align}
+%%
+%onde utilizamos a Equação~\eqref{Eq:MomAngPartJEixoZ} para o módulo do momento angular.
+%
+%Os ângulos formados pelos vetores $\vec{r}_j$ e o eixo $z$ e o formado entre o vetor $\vec{\ell}_j$ e o plano $xy$ são iguais\footnote{Esse resultado pode ser obtido através de uma análise do triângulo da Figura~\ref{Fig:ComponenteZMomentoAngularCorpoSimetrico}, sendo que o procedimento é o mesmo que utilizamos ao verificar o ângulo formado entre o vetor peso e o eixo perpendicular à superfície do plano inclinado, no Capítulo~\ref{Chap:Dinâmica}.}, logo, a distância $r_{\perp}^j$ pode ser escrita como
+%\begin{equation}
+%  \ell_{\perp}^j = r_j\sen\gamma_j.
+%\end{equation}
+%%
+%Consequentemente, 
+%\begin{equation}
+%  \ell_{j}^{z} = m_j (r_{\perp}^j)^2 \omega,
+%\end{equation}
+%%
+%onde utilizamos $v_j = \omega r_{\perp}^j$ --~lembre-se que $\omega$ é constante e igual para todas as partículas que compõe um corpo rígido~--. Dessa forma, podemos escrever o momento angular total do corpo como
+%\begin{equation}
+%  L_z = \left[\sum_{j=1}^N m_j (r_{\perp}^j)^2\right] \omega.
+%\end{equation}
+%%
+%O termo entre colchetes nada mais é que o momento de inércia do corpo. Logo
+%\begin{equation}
+%  L_z = I \omega.
+%\end{equation}
+%
+%\textbf{Alguma conclusão aqui. Podemos até dizer que para o caso especial de corpos simétricos em relação ao eixo de rotação, $\vec{L} = I\vec{\omega}$.}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Rotação de um corpo rígido assimétrico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Ainda podemos utilizar a expressão obtida para $L_z$ em um corpo simétrico. No entanto, temos outras componentes de momento angular agora, e elas dependem do tempo. Precisamos de um torque para que exista variação do momento angular. Exemplificar usando semi-cilindro, como os usados para gerar vibrações em celular, controle de video-game.
+%
+%falar da skew rod?
+%
+%É importante notar que se o corpo não for simétrico, restará uma componente do plano $xy$ que mudará constantemente de direção. No caso de um objeto assimétrico sofrer uma rotação, portanto, deve haver um torque que é realizado por um agente externo -- pois $\vec{\tau} = d\vec{L} / dt$ e se $\vec{L}$ não é constante, então $\vec{\tau} \neq 0$ --. Se o objeto em questão está prezo por mancais, por exemplo, tais suportes exercem força sobre o corpo que geram torques, possibilitanto que o momento angular varie. No entanto, existem as reações a essas forças, que são exercidas pelo corpo sobre os suportes, sendo responsáveis pelas \emph{vibrações} características de um corpo assimétrico submetido a rotações.
+%
+%\textbf{Discutir o fato de que $\ell$ de uma partícula pode ser calculado através de $I\omega$ se considerarmos o momento de inércia de uma partícula somente.}
+%
+%% https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
+%\tikzset{
+%    partial ellipse/.style args={#1:#2:#3}{
+%        insert path={+ (#1:#3) arc (#1:#2:#3)}
+%    }
+%}
+%\begin{figure}[!h]
+%\centering
+%\begin{tikzpicture}[>=Stealth, scale = 2.2,
+%     interface/.style={
+%        % superfície
+%        postaction={draw,decorate,decoration={border,angle=-45,
+%                    amplitude=0.2cm,segment length=2mm}}},
+%    ]
+%
+%%%% Figura superior
+%
+%\coordinate (centro) at (0,0);
+%\coordinate (origin) at (0,-1.5);
+%\coordinate (encontro) at (0,0.55);
+%
+%% Disco
+%%\draw (0,0) ellipse (1.25 and 0.5);
+%\draw (0,0) [partial ellipse=-34:146:1.25cm and 0.5cm];
+%\draw[densely dotted] (0,-0.4) [partial ellipse=-34:146:1.25cm and 0.5cm];
+%\draw (0,-0.4) [partial ellipse=-34:0:1.25cm and 0.5cm];
+%
+%\draw (-15:1.075) coordinate (c1) -- (-15:-1.075) coordinate (c2);
+%\draw (c1) -- +(0,-0.4) coordinate (c3);
+%\draw (c2) -- +(0,-0.4) coordinate (c4);
+%\draw (c3) -- (c4);
+%
+%%\draw (-1.25,0) -- (-1.25,-0.4);
+%\draw (1.25,-0.4) -- (1.25,0);  
+%
+%%\draw (-1.25,-0.4) arc (180:360:1.25 and 0.5);
+%%\draw[densely dotted] (-1.25,-0.4) arc (180:360:1.25 and -0.5);
+%
+%% Eixos
+%\draw[dashdotted,->] (0,0) -- (0,1) node[right]{$z$};
+%\draw[dashdotted] (0,-1.75) -- (0,-0.9);
+%\draw[dotted] (0,-0.9) -- (0,0);
+%\draw[fill] (0,0) circle (0.4pt);
+%\draw[dashdotted,->] (1.28,0) -- (1.75,0) node[below left]{$y$};
+%\draw[dotted] (0,0) -- (1.28,0);
+%\draw[dashdotted,->] (0,0) -- (35:-1) node[below left]{$x$};
+%
+%\draw[->] (95:0.8) arc[start angle = -250, end angle = 70, x radius = 0.2, y radius = 0.07] node[below, near end]{$\omega$};
+%
+%% Origem
+%\draw[fill] (origin) circle (0.6pt) node[below left]{$O$};
+%
+%% Partícula 1
+%\coordinate (p1) at (-15:-0.68);
+%\draw[fill] (p1) circle (0.4pt);
+%\draw[dotted] (p1) -- (0,0);
+%
+%\draw[dotted] (p1) -- (encontro);
+%\draw[->, thick] (p1) -- ($ (p1) !0.7! (encontro) $); 
+%
+%% Partícula 2
+%\coordinate (p2) at (-15:0.68);
+%\draw[fill] (p2) circle (0.4pt);
+%\draw[dotted] (p2) -- (0,0);
+%
+%\draw[dotted] (p2) -- (encontro);
+%\draw[->, thick] (p2) -- ($ (p2) !0.7! (encontro) $);
+%
+%% Partícula 3
+%\coordinate (p3) at (35:0.45);
+%\draw[fill] (p3) circle (0.4pt);
+%\draw[dotted] (p3) -- (0,0);
+%
+%\draw ($ (p3) !0.41! (origin) $) node[below right]{$\vec{r}_k$} -- (origin);    
+%
+%\draw[dotted] (p3) -- (encontro);
+%\draw[->, thick] (p3) -- ($ (p3) !0.7! (encontro) $);
+%
+%% trajetória dos pontos (parte do semi-disco)
+%\draw[dashed] (0,0) [partial ellipse=-34:144:0.84cm and 0.28cm];
+%
+%% ângulo r_2 l_2
+%\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p2--origin};
+%\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = origin--p1--encontro};
+%\pic [draw = black, fill = white, "$\cdot$", angle eccentricity = 0.5, angle radius = 1.5mm] {angle = encontro--p3--origin};
+%
+%% trajetória dos pontos (parte fora do semi-disco)
+%\draw[loosely dotted] (0,0) [partial ellipse=146:326:0.84cm and 0.28cm];
+%
+%% Vetores posição
+%\draw[dotted, ->] (origin) -- (p3);
+%\draw[->] (origin) -- node[below right]{$\vec{r}_j$} (p2);    
+%\draw[->] (origin) -- (p1);
+%\node (n) at (-0.25, -0.6) {$\vec{r}_i$};
+%
+%\end{tikzpicture}
+%\caption{No caso de um corpo assimétrico em relação ao eixo de rotação, o cancelamento das componentes do momento angular não é completo no plano $xy$. Consequentemente, para que o corpo gire em torno do eixo $z$, é necessário um torque resultante externo. A reação à força que original tal torque produz uma \emph{vibração} nos mancais do eixo de rotação. \label{Fig:MomentoAngularCorpoAssimetrico}}
+%\end{figure}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Momento angular de um corpo que rola}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Ver seção 6.7 do Kleppner
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Conservação do momento angular (envolvendo corpo rígidos, renomear essa seção)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\emph{Discutir caráter vetorial, considerar momentos de inércia variáveis}
+%
+%\textbf{Exemplos: aluno com alteres girando em cadeira, patinadora; forças de maré e rotação sincronizada (terra+lua, plutão+caronte)}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Precessão de um giroscópio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\comment{Fazer figuras,melhorar texto, descrições, o que é um giroscópio, falar como é impressionante, etc.}
+%
+%A Precessão de um giroscópio é um exemplo claro da razão pela qual o torque é uma grandeza vetorial. Se não fosse esse o caso, o movimento não poderia ser explicado. Na figura ao lado, mostramos um desenho esquemático de um giroscópio, com as forças e torques que atuam sobre ele quando ele está parado. Verificamos que há um torque na direção $y$ e que -- ao liberarmos a movimentação do sistema -- será responsável por girar o giroscópio em torno desse eixo, dotando-o de um momento angular $\vec{L}$ também na direção de $y$.
+%
+%No caso de o giroscópio já estar girando antes de o soltarmos, já teremos um momento angular inicial $\vec{L}$ na direção do eixo do disco do giroscópio. Sabemos que nesse caso 
+%\begin{equation}
+%  \vec{L} = I\vec{\omega}.
+%\end{equation}
+%%
+%Se mantivermos a velocidade do disco constante, temos que o momento angular deve ser constante. Se soltarmos o sistema, o peso continuará exercendo um torque igual ao da situação anterior, na direção de $y$. Como $\vec{\tau}$ é perpendicular a $\vec{L}$, ele não pode mudar o \emph{módulo} do momento angular, porém pode mudar sua \emph{direção}. De fato, sabendo que
+%\begin{equation}
+%  \vec{\tau} = \frac{d\vec{L}}{dt},
+%\end{equation}
+%%
+%podemos escrever
+%\begin{equation}
+%  d\vec{L} = \vec{\tau} dt,
+%\end{equation}
+%%
+%o que nos indica que a \emph{variação} do vetor momento angular tem a mesma direção que o torque. Logo, após um intervalo de tempo $dt$, temos que o giroscópio aponta em uma nova direção no espaço.
+%
+%Podemos determinar a velocidade de precessão do giroscópio fazendo a seguinte análise: Sabemos que o módulo do torque é dado, nesse caso, por
+%\begin{equation}
+%  \tau = Mgr,
+%\end{equation}
+%%
+%e portanto,
+%\begin{equation}
+%  dL = Mgr\,dt.
+%\end{equation}
+%%
+%Além disso, analisando a figura ao lado, temos que o arco $s$ tem comprimento
+%\begin{equation}
+%  s = L \phi.
+%\end{equation}
+%%
+%Para um ângulo muito pequeno,
+%\begin{equation}
+%  ds = L d\phi.
+%\end{equation}
+%%
+%Logo,
+%\begin{align}
+%  d\phi &= \frac{dL}{L} \\
+%  &= \frac{Mgr\,dt}{I\omega},
+%\end{align}
+%%
+%e, consequentemente,
+%\begin{equation}
+%  \Omega \equiv \frac{d\phi}{dt} = \frac{Mgr}{I\omega}.
+%\end{equation}
+%
+%% Num avião monomotor, quando o ele acelera para decolar, existe uma inclinação do eixo de rotação do motor/hélice. Em um certo momento, o avião vai passar a ficar alinhado em relação à pista (devido à força de sustentação? ou ação do piloto?). Nesse momento, ocorre uma uma precessão das partes rotativas (giroscópio), fazendo com que o avião ``puxe'' para a esquerda (devido ao fato de que o giroscópio gira em sentido horário do ponto de vista do piloto). % Vi isso no Aviões e Músicas

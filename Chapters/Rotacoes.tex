@@ -2409,7 +2409,7 @@ o que resulta em
 
 % Tentar determinar a velocidade de translação dos blocos em máquina de Atwood, mas considerando a inércia da polia. Dar um paralelo com o que foi feito com a translação.
 
-Podemos utilizar a expressão para a energia cinética de um corpo rígido juntamente com a energia mecânica para analisar um sistema que contém partes que estão sujeitas a movimentos de translação e de rotação, conjuntamente. No caso do sistema mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, temos dois blocos de massas $m_1$ e $m_2$, presos a uma corda de massa desprezível, e que passa por uma polia. A polia tem momento de inércia $I$ e raio $r$. Ao liberarmos o sistema a partir do repouso, qual é a velocidade dos blocos após terem percorrido uma distância $d$?
+Podemos utilizar a expressão para a energia cinética de um corpo rígido juntamente com a energia mecânica para analisar um sistema que contém partes que estão sujeitas a movimentos de translação e de rotação, conjuntamente. No caso do sistema mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaEnergia}, temos dois blocos de massas $m_1$ e $m_2$, presos a uma corda de massa desprezível, e que passa por uma polia. A polia tem momento de inércia $I$ e raio $r$. Ao liberarmos o sistema a partir do repouso, qual é a velocidade dos blocos após terem percorrido uma distância $d$?
 
 \begin{marginfigure}[3cm]
 \centering
@@ -2452,7 +2452,7 @@ Podemos utilizar a expressão para a energia cinética de um corpo rígido junta
     \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
     \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
 \end{tikzpicture}
-\caption{Se não pudermos desprezar a massa da polia, ao determinar a energia mecânica no sistema acima, devemos levar em conta a energia cinética associada à rotação da polia.\label{Fig:MaquinaDeAtwoodComPolia}}
+\caption{Se não pudermos desprezar a massa da polia, ao determinar a energia mecânica no sistema acima, devemos levar em conta a energia cinética associada à rotação da polia.\label{Fig:MaquinaDeAtwoodComPoliaEnergia}}
 \end{marginfigure}
 
 As forças que atuam nesse problema são as forças peso, tensões, e normal (no eixo da polia). Vamos desconsiderar o efeito de forças de arrasto e de atrito. A força normal não realiza trabalho pois o ponto onde a força é aplicada não se move (não sofre translação). 
@@ -3308,7 +3308,7 @@ Finalmente,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{question}[type={exam}]\label{Q:teste}
-A Figura~\ref{Fig:Q:teste} mostra uma visão superior de um objeto formado por quatro cilindros, e que pode girar em torno de um eixo perpendicular à página, e que passa pelo centro de um dos cilindros. Se todos os cilindros têm a mesma massa $m$ e o mesmo raio $r$, qual é o momento de inércia em torno do eixo indicado?
+A Figura~\ref{Fig:Q:teste} mostra uma visão superior de um objeto formado por quatro cilindros, e que pode girar em torno de um eixo perpendicular à página, e que passa pelo centro de um dos cilindros. Se todos os cilindros têm a mesma massa $m$ e o mesmo raio $r$, qual é o momento de inércia em torno do eixo indicado? {\it R: $18\,mr^2$.}
 
 \begin{marginfigure}[-1cm]
 \centering
@@ -3325,7 +3325,7 @@ A Figura~\ref{Fig:Q:teste} mostra uma visão superior de um objeto formado por q
 \end{question}
 
 \begin{question}[type={exam}]\label{Q:MomInerciaDiscosLigadosPorHastes}
-A Figura~\ref{Q:MomInerciaDiscosLigadosPorHastes} mostra um objeto construído com discos de material leve, ligados por barras metálicas. As massas dos discos e das barras são iguais, sendo denotadas por $m$. O raio dos discos é $R$, e o comprimento das barras é $L = 2R$. Determine o momento de inércia do objeto em torno do eixo que passa perpendicularmente à face plana do disco central, passando pelo centro de massa, isto é, no ponto indicado na figura.
+A Figura~\ref{Q:MomInerciaDiscosLigadosPorHastes} mostra um objeto construído com discos de material leve, ligados por barras metálicas. As massas dos discos e das barras são iguais, sendo denotadas por $m$. O raio dos discos é $R$, e o comprimento das barras é $L = 2R$. Determine o momento de inércia do objeto em torno do eixo que passa perpendicularmente à face plana do disco central, passando pelo centro de massa, isto é, no ponto indicado na figura. {\it R: $(\nicefrac{256}{6}) mr^2$.}
 \begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -3336,7 +3336,7 @@ A Figura~\ref{Q:MomInerciaDiscosLigadosPorHastes} mostra um objeto construído c
     \draw[pattern = north west lines, pattern color = gray] (-2,0) circle (0.5);
     \draw[pattern = north west lines, pattern color = gray] (2,0) circle (0.5);
     
-    \draw[->] (120:0.8) arc[start angle = 110, end angle = 70, radius = 0.8] node[midway, above]{$\omega$};
+    \draw[->] (110:0.8) arc[start angle = 110, end angle = 70, radius = 0.8] node[midway, above]{$\omega$};
     
 \end{tikzpicture}
 \caption{Questão~\ref{Q:MomInerciaDiscosLigadosPorHastes}. \label{Fig:Q:MomInerciaDiscosLigadosPorHastes}}
@@ -3344,7 +3344,7 @@ A Figura~\ref{Q:MomInerciaDiscosLigadosPorHastes} mostra um objeto construído c
 \end{question}
 
 \begin{question}[type={exam}]
-A Figura~\ref{Fig:Q:DiscosFormandoTriangulo} mostra um objeto composto de três discos com massa $m$ e raio $r$ e que pode girar em torno do eixo $z$ mostrado. Determine o momento de inércia do objeto em torno do eixo $z$.
+A Figura~\ref{Fig:Q:DiscosFormandoTriangulo} mostra um objeto composto de três discos com massa $m$ e raio $r$ e que pode girar em torno do eixo $z$ mostrado e que está contido no mesmo plano que os discos. Determine o momento de inércia do objeto em torno do eixo $z$. {\it R: $I = (\nicefrac{11}{4}) mr^2$.}
 \begin{marginfigure}[-0.5cm]
 \centering
 \begin{tikzpicture}[>=Stealth]\label{Q:DiscosFormandoTriangulo}
@@ -3369,12 +3369,12 @@ A Figura~\ref{Fig:Q:DiscosFormandoTriangulo} mostra um objeto composto de três 
 \begin{question}[type={exam}]\label{Q:HasteHorizontalDescendo}
 Uma haste de comprimento $L$ disposta horizontalmente pode girar em torno de um eixo que passa por sua extremidade, como indicado na Figura~\ref{Fig:Q:HasteHorizontalDescendo}.
 \begin{enumerate}[label=(\alph*)]
-    \item Determine a velocidade angular da haste quando ela chega à posição mais baixa, assumindo que ela partiu do repouso.
-    \item Apesar de termos somente uma rotação, é interessante notarmos que a energia cinética associada a rotação é diferente daquela que a haste teria se ela estivesse simplesmente transladando: Utilize a relação entre a velocidade de translação e a velocidade angular e determine a razão entre a energia cinética de rotação da haste e a energia cinética de translação que seria associada à haste se ela estivesse simplesmente transladando.
+    \item Determine a velocidade angular da haste quando ela chega à posição mais baixa, assumindo que ela partiu do repouso. {\it R: $\omega = \sqrt{3g/L}$.}
+    \item Apesar de termos somente uma rotação, é interessante notarmos que a energia cinética associada a rotação é diferente daquela que a haste teria se ela estivesse simplesmente transladando: Utilize a relação entre a velocidade de translação e a velocidade angular de um ponto e determine a razão entre a energia cinética de rotação da haste e a energia cinética de translação que seria associada a ela em uma translação pura. Considere que a velocidade de translação seja aquela que o centro de massa tem na situação do item (a). {\it R: $K_r/K_t = \nicefrac{4}{3}$.}
 \end{enumerate}
 \end{question}
 
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
 
