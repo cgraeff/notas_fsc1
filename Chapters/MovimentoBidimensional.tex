@@ -34,16 +34,19 @@ Quando tratamos do movimento unidimensional, utilizamos a distância até a orig
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale=1.3]
+\begin{tikzpicture}[>=Stealth, scale=2]
 
-    \draw[->] (0,0,0) -- (2,0,0) node[below left]{$x$};
-    \draw[->] (0,0,0) -- (0,2,0) node[below left]{$y$};
-    \draw[->] (0,0,0) -- (0,0,2) node[below]{$z$};
+    \draw[->] (0,0,0) -- (1.5,0,0) node[below left]{$x$};
+    \draw[->] (0,0,0) -- (0,1.5,0) node[below left]{$y$};
+    \draw[->] (0,0,0) -- (0,0,1.5) node[below]{$z$};
 
     \draw[->, thick] (0,0,0) -- node[above]{$\vec{r}$}(1,0.75,0.5);
     \draw[dotted] (1,0,0.5) -- (1,0.75,0.5);
     \draw[dotted] (1,0,0.5) -- (1,0,0);
     \draw[dotted] (1,0,0.5) -- (0,0,0.5);
+    \draw[dotted] (1,0.75,0.5) -- (0,0.75,0.5) -- (0,0.75,0) -- (1,0.75,0) -- cycle;
+    \draw[dotted] (1,0.75,0) -- (1,0,0);
+    \draw[dotted] (0,0.75,0.5) --(0,0,0.5);
     
 \end{tikzpicture}
 \caption{Um vetor posição em três dimensões.}
@@ -140,27 +143,7 @@ O conjunto de posições ocupadas por um corpo ao longo do tempo é representado
 \subsection{Deslocamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-O deslocamento $\Delta \vec{r}$ de uma partícula entre dois instantes quaisquer é dado por
-\begin{equation}
-  \Delta\vec{r} = \vec{r}_f - \vec{r}_i,
-\end{equation}
-%
-onde os vetores $\vec{r}_i$ e $\vec{r}_f$ são vetores que indicam as posições inicial e final da partícula entre dois instantes quaisquer. Utilizando a notação de versores temos para $\vec{r}_i$ e $\vec{r}_f$
-\begin{align}
-  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
-  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
-\end{align}
-%
-Consequentemente, o vetor deslocamento será dado por
-\begin{align}
-  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
-  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
-  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
-\end{align}
-%
-Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
- 
-\begin{marginfigure}[-10cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
     \path[name path=traj, draw] (0,2) .. controls (1,0.5) and (2,2.5) .. (3,1.5);
@@ -179,8 +162,28 @@ Vemos que é possível separar o movimento descrito pelo vetor posição em trê
     \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
     
 \end{tikzpicture}
-\caption{O vetor deslocamento $\Delta \vec{r}$ pode ser calculado a partir da diferença entre os vetores $\vec{r}_f$ e $\vec{r}_i$.}
+\caption{O vetor deslocamento $\Delta \vec{r}$ pode ser calculado a partir da diferença entre os vetores $\vec{r}_f$ e $\vec{r}_i$.\label{Fig:DeslocamentoInterpGeometrica}}
 \end{marginfigure}
+
+Geometricamente, o vetor deslocamento é aquele que liga o ponto inicial ao ponto final, em linha reta (Figura~\ref{Fig:DeslocamentoInterpGeometrica}). Podemos interpretar tal vetor através da diferença entre dois vetores $\vec{r}_i$ e $\vec{r}_f$ que denotam a posição nos instantes inicial e final. Assim:
+\begin{equation}
+  \Delta\vec{r} = \vec{r}_f - \vec{r}_i,
+\end{equation}
+%
+Utilizando a notação de versores para escrever os vetores em termos dos eixos de referência, temos para $\vec{r}_i$ e $\vec{r}_f$
+\begin{align}
+  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
+  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
+\end{align}
+%
+Consequentemente, o vetor deslocamento pode ser escrito como
+\begin{align}
+  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
+  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
+  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
+\end{align}
+%
+Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Velocidade}
@@ -210,7 +213,7 @@ Podemos definir a velocidade instantânea a partir da Equação~\ref{Eq:VelMedia
 \begin{align}
     \vec{v} &= \lim_{\Delta t \to 0} \vec{\mean{v}} \\
     &= \lim_{\Delta t \to 0} \frac{\Delta\vec{r}}{\Delta t} \\
-    &= \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}\versi + \frac{\Delta y}{\Delta t}\versj + \frac{\Delta z}{\Delta t}\versk.
+    &= \lim_{\Delta t \to 0} \left(\frac{\Delta x}{\Delta t}\versi + \frac{\Delta y}{\Delta t}\versj + \frac{\Delta z}{\Delta t}\versk\right).
 \end{align}
 %
 Podemos utilizar a propriedade de que o limite da soma é a soma dos limites para escrever
@@ -221,7 +224,7 @@ Podemos utilizar a propriedade de que o limite da soma é a soma dos limites par
 %
 Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
 
-Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}, verificamos que para $\Delta t \to 0$, o vetor $\delta\vec{r}$, dado por\footnote[][-2cm]{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
+Podemos determinar a direção da velocidade instantânea se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}. Verificamos que para $\Delta t \to 0$, o vetor ``deslocamento instantâneo'' $\delta\vec{r}$, dado por\footnote[][-2cm]{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
 \begin{equation}
     \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
 \end{equation}
@@ -267,10 +270,10 @@ Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Fig
     \path[name path=verta] (a)--+(0,3);
     \path[name path=vertb] (b)--+(0,3);
        
-    \path[draw, gray, ->, name intersections={of=traj and verta}](0,0) --  (intersection-1) coordinate (intersec1);
-    \path[draw, gray, ->, shorten >=1pt, name intersections={of=traj and vertb}](0,0) -- (intersection-1) coordinate (intersec2);
+    \path[draw, densely dotted, ->, name intersections={of=traj and verta}](0,0) --  (intersection-1) coordinate (intersec1);
+    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=traj and vertb}](0,0) -- (intersection-1) coordinate (intersec2);
     
-    \draw[->, gray, shorten >=1pt] (intersec1) -- (intersec2);
+    \draw[->, densely dotted, shorten >=1pt] (intersec1) -- (intersec2);
     
     \coordinate (c) at (0.3,0);
     \coordinate (d) at (1.7,0);
@@ -278,10 +281,10 @@ Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Fig
     \path[name path=vertc] (c)--+(0,3);
     \path[name path=vertd] (d)--+(0,3);
        
-    \path[draw, gray, ->, name intersections={of=traj and vertc}](0,0) --  (intersection-1) coordinate (intersec3);
-    \path[draw, gray, ->, shorten >=1pt, name intersections={of=traj and vertd}](0,0) -- (intersection-1) coordinate (intersec4);
+    \path[draw, densely dotted, ->, name intersections={of=traj and vertc}](0,0) --  (intersection-1) coordinate (intersec3);
+    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=traj and vertd}](0,0) -- (intersection-1) coordinate (intersec4);
     
-    \draw[->, gray, shorten >=1pt] (intersec3) -- (intersec4);
+    \draw[->, densely dotted, shorten >=1pt] (intersec3) -- (intersec4);
     
     
     \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
@@ -291,6 +294,35 @@ Se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Fig
 \end{tikzpicture}
 \caption{No limite $\Delta t \to 0$, temos que a direção do vetor deslocamento instantâneo $\delta\vec{r}$ no ponto denotado por $\vec{r}$ é a mesma direção que a da reta que tange a curva no ponto.\label{Fig:Dir_vel}}
 \end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Variação do vetor velocidade com módulo constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Devido ao fato de que agora estamos trabalhando com vetores, temos a possibilidade de que exista uma variação de velocidade ao considerarmos dois vetores velocidade $\vec{v}_i$ e $\vec{v}_f$ cujos módulos são \emph{iguais}. Na Figura~\ref{Fig:DeltaVelocidadeComModulosIguais} temos uma partícula que efetua um movimento circular com velocidade cujo módulo é constante. Consideramos dois intantes inicial e final em particular. Note que os vetores apontam em direções diferentes. Determinando a diferença
+\begin{equation}
+	\Delta \vec{v} = \vec{v}_f - \vec{v}_i,
+\end{equation}
+%
+podemos ver que ela não é nula, isto é, \emph{mesmo no caso de termos dois vetores com módulos iguais, a diferença entre eles pode ser não nula}.
+
+\begin{marginfigure}
+   \begin{tikzpicture}[>=Stealth]
+        \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
+        \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
+        \draw[->] (60:2) -- node[above]{$\vec{v}_i$} +(-30:1);
+        \draw[->] (0,0) -- node[below]{$\vec{r}_f$} (30:2);
+        \draw[->] (30:2) -- node[right]{$\vec{v}_f$}+(-60:1);
+        
+        \draw[->] (1, -1) -- node[above]{$\vec{v}_i$} +(-30:1) coordinate (A);
+        \draw[->] (1, -1) -- node[left]{$\vec{v}_f$} +(-60:1) coordinate (B);
+        \draw[->] (A) -- node[right]{$\Delta \vec{v}$} (B);
+        
+   \end{tikzpicture}
+   \caption{Velocidades em diferentes instantes e a correspondente variação da velocidade $\Delta\vec{v}$ determinada através da diferença entre os vetores. \label{Fig:DeltaVelocidadeComModulosIguais}}
+\end{marginfigure}
+
+Esse aspecto é uma característica dos vetores também se manifesta com o vetor deslocamento, mas nesse caso nos parece mais natural, já que os vetores posição e deslocamento têm uma manifestação mais concreta do que o vetor velocidade. Veremos ao estudar o movimento circular que essa propriedade terá consequências interessantes para a aceleração, que definiremos a seguir.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}
@@ -308,22 +340,6 @@ No caso do cálculo da velocidade média, bastou redefinirmos a velocidade em te
 \end{align} 
 %
 A direção do vetor aceleração média é a própria direção do vetor $\Delta{\vec{v}}$. 
-
-\begin{marginfigure}[-3cm]
-   \begin{tikzpicture}[>=Stealth]
-        \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
-        \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
-        \draw[->] (60:2) -- node[above]{$\vec{v}_i$} +(-30:1);
-        \draw[->] (0,0) -- node[below]{$\vec{r}_f$} (30:2);
-        \draw[->] (30:2) -- node[right]{$\vec{v}_f$}+(-60:0.7);
-        
-        \draw[->] (1, -1) -- node[above]{$\vec{v}_i$} +(-30:1) coordinate (A);
-        \draw[->] (1, -1) -- node[left]{$\vec{v}_f$} +(-60:0.7) coordinate (B);
-        \draw[->] (A) -- node[below]{$\Delta \vec{v}$} (B);
-        
-   \end{tikzpicture}
-   \caption{Velocidades em diferentes instantes e a correspondente variação da velocidade $\Delta\vec{v}$ determinada através da diferença entre os vetores.}
-\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração instantânea}
@@ -343,100 +359,84 @@ onde utilizamos novamente a propriedade de que o limite da soma é a soma dos li
 %
 e observamos que para o caso da aceleração, também temos que as componentes do vetor são dadas pelos valores de -- neste caso -- aceleração dos eixos $x$, $y$ e $z$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Independência do movimento em eixos perpendiculares}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aceleração com módulo da velocidade constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verificamos no Capítulo~\ref{Chap:Vetores} que se temos
+Conforme verificamos na seção anterior, existem casos em que a velocidade se mantém constante, mas que mesmo assim possuem uma variação do \emph{vetor} velocidade. Isso se deve ao fato de que temos um $\Delta \vec{v}$ dado por
 \begin{equation}
-    \vec{c} = \vec{a} + \vec{b},
+	\Delta \vec{v} = \vec{v}_f - \vec{v}_i,
 \end{equation}
 %
-então
-\begin{align}
-    c_x &= a_x + b_x \\
-    c_y &= a_y + b_y.
-\end{align}
-%
-Em três dimensões, adicionamos mais uma relação desse tipo para o eixo $z$:
-\begin{equation}
-    c_z = a_z + b_z.
-\end{equation}
-%
-Verificamos através dessas relações que os três eixos são independentes no que se refere à soma de vetores.
-
-Observamos ainda que se tormarmos a definição de velocidade média
-\begin{equation}
-    \mean{\vec{v}} = \frac{\Delta \vec{r}}{\Delta t},
-\end{equation}
-%
-podemos escrever
-\begin{align}
-    \vec{r}_f - \vec{r}_i &= \mean{\vec{v}} \Delta t \\
-    \vec{r}_f &= \vec{r}_i + \mean{\vec{v}} \Delta t.
-\end{align}
-%
-Através da definição de aceleração média, obtemos uma relação semelhante:
-\begin{equation}
-    \vec{v}_f = \vec{v}_i + \mean{\vec{a}} \Delta t.
-\end{equation}
-
-\pagebreak
-\noindent{}Note que ambas as expressões acima são dadas por \emph{somas de vetores}. Portanto, podemos separar as expressões acima em três eixos:\footnote{Usamos \begin{align*} x \equiv r_x \\ y \equiv r_y \\ z \equiv r_z. \end{align*}}
-\begin{align}
-    x_f &= x_i + \mean{v}_x \Delta t \\
-    y_f &= y_i + \mean{v}_y \Delta t \\
-    z_f &= z_i + \mean{v}_y \Delta t
-\end{align}
-%
-e
-\begin{align}
-    v_x^f &= v_x^i + \mean{a}_x \Delta t \\
-    v_y^f &= v_y^i + \mean{a}_y \Delta t \\
-    v_z^f &= v_z^i + \mean{a}_z \Delta t. \\
-\end{align}
-%
-se tomarmos o limite $\Delta t \to 0 \equiv \delta t$, podemos escrever o equivalente das equações acima para o caso de velocidade e aceleração instantânea:
-\begin{align}
-    x_f &= x_i + v_x \delta t \\
-    y_f &= y_i + v_y \delta t \\
-    z_f &= z_i + v_y \delta t
-\end{align}
-%
-e
-\begin{align}
-    v_x^f &= v_x^i + a_x \delta t \\
-    v_y^f &= v_y^i + a_y \delta t \\
-    v_z^f &= v_z^i + a_z \delta t. \\
-\end{align}
-
-Podemos considerar que todo e qualquer movimento pode ser descrito através da soma de \emph{infinitos} deslocamentos infinitezimais, como descrito pelas equações acima. Isso implica no fato de que \emph{todo movimento pode ser separado em três eixos independentes}. Podemos, portanto, utilizar as equações obtidas para a cinemática unidimensional em cada eixo de maneira independente.
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale=1.8]
-    \draw[->] (0:2) -- (10:2);
-    \draw[->] (10:2) -- (20:2);
-    \draw[->] (20:2) -- (30:2);
-    \draw[->] (30:2) -- (40:2);
-    \draw[->] (40:2) -- (50:2);
-    \draw[->] (50:2) -- (60:2);
-    \draw[->] (60:2) -- (70:2);
-    \draw[->] (70:2) -- (80:2);
-    \draw[->] (80:2) -- (90:2);
-    
-\end{tikzpicture}
-\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura mostramos uma série de pequenos deslocamentos que constituem de maneira aproximada uma curva. Se tomarmos deslocamentos menores, a curva passará a ser mais suave. A direção de cada deslocamento muda pois estamos considerando que a direção da velocidade mude devido a uma aceleração.}
-\end{marginfigure}
+que é diferente de zero. Segundo a definição de aceleração, portanto, podemos ter acelerações que mantém o módulo da velocidade constante. Adiante, analisaremos mais a fundo os dois aspectos da aceleração --~alterar o módulo e/ou a direção da velocidade~--utilizando como exemplo o movimento circular.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento de projéteis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO Descrição
 
-O movimento de um projétil ao ser lançado com velocidade que faz um ângulo com a horizontal é conhecido como movimento balístico. Neste movimento, podemos usar a propriedade da decomposição da velocidade para analisar o movimento em cada eixo separadamente.
+O movimento de um projétil ao ser lançado com velocidade que faz um ângulo com a horizontal é conhecido como movimento balístico. Neste movimento, podemos usar a propriedade da decomposição da velocidade para analisar o movimento em cada eixo separadamente: no eixo horizontal, temos um movimento com velocidade constante, enquanto no eixo vertical temos um movimento com aceleração constante. Esses dois tipos de movimento correspondem aos dois mais simples que podemos estudar. Dessa forma, o movimento de um projétil serve como um bom exemplo de aplicação da descrição vetorial das variáveis cinemáticas.
 
-Podemos decompor a velocidade em dois eixos, um horizontal (eixo $x$) e um vertical (eixo $y$), obtendo
+\begin{figure}[!htb]\forceversofloat
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-0.25,0) -- (4,0) coordinate (hd);
+ 
+    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.75]
+        plot(\x,{\x*tan(45) - 9.8 * \x^2 / (2 * 6.062^2*(cos(45))^2)});
+    
+    \draw[->, thick] (0,0) coordinate(origin) -- node[above left]{$\vec{v}_i$} (45:1) coordinate (v);
+ 
+    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = hd--origin--v};
+\end{tikzpicture}
+\caption{Lançamento oblíquo de um projétil.}
+\end{figure}
+
+Devemos ter em mente, no entanto, que vamos fazer sérias restrições ao modelo, que fazem com que ele não possa ser aplicado de maneira realista para muitas situações: vamos desconsiderar a força de arrasto do ar, vamos considerar que a aceleração gravitacional é uniforme, e vamos desconsiderar a rotação da Terra\footnote{O arrasto faz com que a trajetória perca o aspecto parabólico e também faz com que o ângulo de maior alcance seja maior que \np[\tcdegree]{45}, já que a força de arrasto é menor em camadas superiores da atmosfera. Se o lançamento atingir alturas e distâncias muito grandes, ele tende a descrever uma elípse, já que a aceleração gravitacional diminui com $r^{-2}$. Finalmente, devido à força de Coriolis, característica de referenciais girantes, temos que a ``parábola'' descrita pelo projétil não está contida num plano.} . Todos esses fatores podem ser muito relevantes para lançamentos a longas distâncias. Apesar disso, tais restrições não prejudicam a principal característica na qual estamos interessados: temos um movimento bidimensional que pode ser descrito de maneira simples.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistema de referência}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para descrever o lançamento, vamos considerar que o projétil tem uma velocidade inicial $\vec{v}_i$ cujo módulo $v_i$ e o ângulo em relação à horizontal $\theta$ são conhecidos. Vamos estabelecer um sistema de referência bidimensional para descrever o movimento, tomando um eixo horizontal (eixo $x$) e um vertical (eixo $y$). Essa escolha é a mais adequada pois permite que \emph{haja aceleração somente no eixo vertical $y$}. Isso significa que o movimento no eixo horizontal $x$ é um movimento com \emph{velocidade constante}, enquanto no eixo $y$ temos que\footnote{Note que o sinal negativo reflete o fato de que a aceleração da gravidade aponta no \emph{sentido negativo} do eixo $y$. Se tomássemos um eixo $y$ cujo sentido fosse para baixo, então a aceleração da gravidade seria positiva.}
+\begin{equation}
+	a = -g,
+\end{equation}
+%
+o que implica que o movimento pode ser descrito nesse eixo pelas expressões para aceleração constante estudadados no Capítulo~\ref{Chap:MovimentoUnidimensional}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, 
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (-0.25,0) -- (4,0) coordinate (hd);
+ 
+    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.75]
+        plot(\x,{\x*tan(45) - 9.8 * \x^2 / (2 * 6.062^2*(cos(45))^2)});
+    
+    \draw[->, thick] (0,0) coordinate(origin) -- (45:1) coordinate (v) node[above left]{$\vec{v}_i$};
+ 
+    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = hd--origin--v};
+
+	\draw[->, thick] (0,0) -- (0,1.5) node[below left]{$y$};
+	\draw[->, thick] (0,0) -- (4.25,0) node[above left]{$x$};
+
+\end{tikzpicture}
+\caption{O sistema de referência mais adequado para o estudo do lançamento oblíquo é aquele em que a aceleração aponta na direção de um dois eixos coordenados, ou seja, temos um eixo vertical e um horizontal.}
+\end{marginfigure}
+
+Em termos dos eixos $x$ e $y$, o vetor velocidade inicial pode ser escrito como
+obtendo
 \begin{equation}
   \vec{v}_i = v_{ix} \versi + v_{iy} \versj,
 \end{equation}
@@ -446,17 +446,10 @@ onde
   v_{ix} &= v_i\cos\theta \\
   v_{iy} &= v_i\sen\theta.
 \end{align}
-%
-Como a aceleração gravitacional está na direção vertical e é dirigida para baixo, a denotamos como
-\begin{equation}
-  \vec{g} = -g\versj,
-\end{equation}
-%
-onde $g$ denota o módulo da aceleração da gravidade, cujo valor é de aproximadamente \np[m/s^2]{9,8}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Eixo $x$: Movimento com velocidade constante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Eixo $x$: Movimento com velocidade constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Analisando o movimento no eixo $x$, temos uma velocidade inicial -- dada por $v_{ix} = v_i\cos\theta$ -- e \emph{não temos nenhuma aceleração}. Como podemos analisar o movimento em cada eixo de maneira completamente independente dos demais, concluímos que
 \begin{align}
@@ -464,32 +457,47 @@ Analisando o movimento no eixo $x$, temos uma velocidade inicial -- dada por $v_
   x_{f} &= x_{i} + v_{ix}t.\label{Eq:PosXProj}
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Eixo $y$: Movimento com aceleração constante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Eixo $y$: Movimento com aceleração constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Verticalmente, temos um movimento com aceleração constante, dirigida para baixo. Se adotarmos o eixo $y$ crescendo para cima, a partir das Equações~\eqref{Eq:VV0AT} e~\eqref{Eq:XX0V0TAT22}, temos
 \begin{align}
   v_{fy} &= v_{iy} - gt \\
   y_f &= y_i + v_{iy}t - \frac{g}{2}t^2. \label{Eq:PosYProj}
 \end{align}
+%
+Além das expressões acima, podemos utilizar as demais que também se aplicam ao movimento com aceleração constante:
+\begin{align}
+	y_f &= y_i + v_{fy} t - \frac{(-g)t^2}{2} \\
+	y_f &= y_i + \frac{v_{iy} + v_{fy}}{2} t \\
+	v_{fy}^2 &= v_{iy}^2 - 2 g \Delta x.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações para o movimento de projéteis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para explorar melhor as características do movimento de projéteis, vamos a seguir determinar algumas expressões que nos permitem calcular alguns resultados interessantes para o lançamento de projéteis. É importante frizar que elas podem ser aplicadas a vários exercícios/problemas, porém elas não são suficientes para esgotar os resultados interessantes que podem ser retirados do movimento balístico. Muitas vezes seremos obrigados a obter resultados parciais para que possamos resovê-los.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Altura máxima}
+\paragraph{Altura máxima}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[-7cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- (4,0) node[below left]{$x$};
     \draw[->] (0,0) -- (0,2) node[below left]{$y$};
     
-    \draw[dashed, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    \draw[dashdotted, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
     
     \coordinate (O) at (0,0);
     \coordinate (A) at (1,0);
     \coordinate (B) at (63.434948823:1);
        
+	\draw[->] (O) -- (63.434948823:1.3) node[above left]{$\vec{v}$};
+
     \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
         
     \draw[dotted] (1.666, 1.666) -- +(2,0);
@@ -499,7 +507,7 @@ Verticalmente, temos um movimento com aceleração constante, dirigida para baix
 \caption{Altura máxima em relação ao ponto de lançamento.}
 \end{marginfigure}
 
-A partir da equação acima, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Utilizando a equação de Torricelli, obtemos\footnote[][-2cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
+A partir da equação acima, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Utilizando a equação de Torricelli, obtemos\footnote[][-1cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
 \begin{equation}
   v_{fy}^2 = v_{iy}^2 - 2 g \Delta y.
 \end{equation}
@@ -515,7 +523,7 @@ e, finalmente, denotando a altura máxima por $H$ e sabendo que $H = \Delta y$,
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Alcance horizontal}
+\paragraph{Alcance horizontal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 O alcance horizontal de um projétil pode ser calculado se soubermos qual é o tempo decorrido entre o objeto ser lançado e voltar à mesma posição no eixo $y$ que ocupava no momento do lançamento. Temos então que o deslocamento $\Delta y$ será nulo, logo, à partir da Equação~\eqref{Eq:XX0V0TAT22}, temos
@@ -542,7 +550,7 @@ Para calcularmos a distância percorrida pelo projétil, basta utilizarmos a Equ
 \end{align}
 %
 Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, podemos reescrever a expressão acima de uma maneira mais amigável:
-\begin{equation}
+\begin{equation}\label{Eq:Alcance}
   R = \frac{v_i^2}{g}\sen2\theta. \mathnote{Alcance horizontal.}
 \end{equation}
 
@@ -552,12 +560,14 @@ Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, 
     \draw[->] (0,0) -- (4,0) node[below left]{$x$};
     \draw[->] (0,0) -- (0,2) node[below left]{$y$};
     
-    \draw[dashed, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    \draw[dashdotted, smooth, samples=1000, domain=0:3.33] plot (\x, {2*\x - 0.6*\x*\x});
     
     \coordinate (O) at (0,0);
     \coordinate (A) at (1,0);
     \coordinate (B) at (63.434948823:1);
        
+	\draw[->] (O) -- (63.434948823:1.3) node[above left]{$\vec{v}$};
+
     \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
         
     \draw[|<->|] (0, -0.3) -- node[below]{$R$} (3.33, -0.3);
@@ -566,8 +576,88 @@ Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, 
 \caption{Alcance em relação ao ponto de lançamento.}
 \end{marginfigure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Distância horizontal percorrida}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em muitos casos estamos interessados em determinar a distância horizontal $\Delta x$ percorrida pelo projétil, mas tal distância difere do alcance $R$. Temos da própria definição do alcance que o projétil deve voltar ao mesmo ponto de que foi lançado, em relação ao eixo $y$. Em um cálculo mais geral da distância horizontal percorrida, podemos ter um lançamento que ocorre de cima de uma elevação, atingindo o solo mais abaixo (como no caso de um lançamento que parte de cima de uma mesa e que atinge o chão), ou mesmo um lançamento que parte de um ponto mais baixo e atinge uma elevação.
+
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[dashdotted, smooth, samples=1000, domain=0:2.75] plot (\x, {2*\x - 0.6*\x*\x});
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (63.434948823:1);
+
+	\draw[->] (O) -- (63.434948823:1.3) node[above left]{$\vec{v}$};
+
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+
+	\draw[pattern = north west lines] (2.26875,0) rectangle +(0.9625,0.9625);
+        
+	\draw[dotted] (2.75,0.9625) -- (2.75,2.5) (0,2) -- (0,2.5);
+
+    \draw[|<->|] (0, 2.5) -- node[above]{$\Delta x$} (2.75, 2.5);
+	\draw[|<->|] (3.4,0) -- node[right]{$h$} +(0,0.9625);
+    
+\end{tikzpicture}
+\caption{Distância horizontal percorrida no caso de um lançamento que parte de um ponto mais baixo e atinge uma elevação de altura $h$.}
+\end{marginfigure}
+
+Para determinar o valor de $\Delta x$, devemos proceder como no caso do alcance, determinando primeiramente o tempo através de
+\begin{equation}
+	y_f = y_i + v_{iy}t - \frac{gt^2}{2},
+\end{equation}
+%
+que, assumindo que $\Delta y \equiv h$, podemos escrever como
+\begin{equation}
+	- \frac{gt^2}{2} + v_{iy}t - h = 0.
+\end{equation}
+%
+Note que mesmo que a diferença de altura seja conhecida, não temos como determinar uma expressão para o cálculo do tempo. Nesse caso, devemos determinar o tempo utilizando os dados particulares do problema em questão e então determinar $\Delta x$ através de
+\begin{equation}
+	\Delta x = v_{ix} t.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Alcance máximimo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Através da Expresão~\eqref{Eq:Alcance}, podemos verificar que para um mesmo valor de velocidade $v_i$, obtemos distâncias diferentes de acordo com diferentes valores para o ângulo $\theta$ de lançamento. Através da Figura~\ref{Fig:SenoLimitado}, podemos notar que a função seno é limitada, e seu valor máximo é 1, o que corresponde a um ângulo de \np[\tcdegree]{90}. Essa observação nos permite determinar que quando o argumento $2\theta$ que aparece na expressão para o alcance $R$ for igual a \np[\tcdegree]{90}, teremos o alcance máximo. Logo,
+\begin{equation}
+	2\theta = \np[\tcdegree]{90}
+\end{equation}
+%
+o que implica em
+\begin{equation}
+	\theta = \np[\tcdegree]{45}
+\end{equation}
+%
+para o ângulo de máximo alcance.
+
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0);
+    \draw[->] (0,-1.5) -- (0,2);
+    
+    \draw[dashdotted, smooth, samples=1000, domain=0:2.75]
+		plot (\x, {sin(4*\x r)});
+
+	\draw[dotted] (0,1) node[left]{1} -- (3,1);
+	\draw[dotted] (0,-1) node[left]{-1} -- (3,-1);
+    
+\end{tikzpicture}
+\caption{A função seno é limitada a valores dentro do intervalo $[-1,1]$.\label{Fig:SenoLimitado}}
+\end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equação para a trajetória}
+\paragraph{Equação para a trajetória}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Podemos determinar a forma da trajetória do projétil a escrevendo como uma função $y(x)$. Para isso, podemos isolar o tempo na Equação~\eqref{Eq:PosXProj}, obtendo
@@ -594,19 +684,422 @@ verificamos que a equação da trajetória segue o mesmo formato, porém com $A 
 
 Note que podemos utilizar a expressão para a trajetória obtida acima mesmo para lançamentos horizontais --~bantando utilizar $\theta = \np[\tcdegree]{0}$~--, ou lançamentos para baixo. Nesse último caso, devemos utilizar ângulos negativos, medidos em relação ao eixo horizontal.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Lançamento a partir de uma elevação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+Uma bola é lançada a partir de uma elevação com altura $h = \np[m]{2,0}$, com uma velocidade $v_i = \np[m/s]{4,0}$, fazendo um ângulo $\theta = \np[\tcdegree]{60}$ com a horizontal. Instantes depois, a bola atinge a região plana abaixo da elevação com velocidade $\vec{v}_f$.
+\begin{itemize}
+\item[(a)] Determine a distância horizontal percorrida pela bola.
+\item[(b)] Determine o módulo $v_f$ da velocidade final e o ângulo $\phi$ que ela faz com o solo.
+\end{itemize}
+\end{quote}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, 
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	\draw[interface] (0.5,-1) -- (4.5,-1) coordinate (pd);
+
+	\draw[pattern = north west lines] (0.5,-1) rectangle (2,0);
+	\draw[|-|] (0.3, 0) -- node[left]{$h$} (0.3, -1);
+	
+    \draw[shift={(2, 2pt)},dashdotted, smooth, samples=1000, domain=0:1.86]
+		plot (\x, {\x * tan(60) - 9.8*\x^2 / (2*4^2*(cos(60))^2)});
+
+	\draw[->] (2, 2pt) coordinate (origin) -- +(60:0.7) coordinate (v) node[left]{$\vec{v}_i$};
+	\draw[fill] (origin) circle (2pt);
+
+	\draw[dotted,->] (origin) -- +(0,1.5) node[below left]{$y$};
+	\draw[dotted,->] (origin) -- +(2,0) coordinate (x) node[below left]{$x$};
+
+	\pic [draw, "$\theta$", angle eccentricity = 1.7, angle radius = 3mm]{angle = x--origin--v};
+
+	\draw[->] (3.86, -1) coordinate (ovf) -- node[left]{$\vec{v}_f$} +(-70.4:1.0) coordinate (vf);
+
+	\draw[fill, gray] (ovf)+(-70.4:-2pt) circle (2pt);
+
+	\pic [draw, "$\phi$", angle eccentricity = 1.6, angle radius = 4mm]{angle = vf--ovf--pd};
+
+\end{tikzpicture}
+\caption{Lançamento a partir de uma elevação.}
+\end{marginfigure}
+
+Para a solução, vamos considerar que o sistema de coordenadas possui um eixo horizontal $x$ e um eixo $y$ que aponta verticalmente para cima. Nesse caso temos que
+\begin{equation}
+	a_y = -g.
+\end{equation}
+%
+Nos eixos de referência, temos que a velocidade inicial tem componentes
+\begin{align}
+	v_{ix} &= v_i \cos\theta \label{Eq:VelocidadeXExemploLancamentoBola} \\
+	v_{iy} &= v_i \sen\theta.
+\end{align}
+
+Podemos determinar a distância horizontal percorrida pela bola através de
+\begin{equation}
+	\Delta x = v_x t,
+\end{equation}
+%
+bastando que descubramos o tempo necessário para que a bola descreva a trajetória enre o ponto inicial e o final. Se considerarmos o deslocamento vertical, temos
+\begin{equation}
+	\Delta y = v_{iy}t + \frac{at^2}{2},
+\end{equation}
+%
+ou, se considerarmos que $h = \Delta y$ e $a = -g$,
+\begin{equation}
+	h = v_{iy} t - \frac{gt^2}{2}.
+\end{equation}
+
+Podemos escrever a expressão acima com a forma
+\begin{equation}
+	-\frac{g}{2}t^2 + v_{iy} t - h = 0,
+\end{equation}
+%
+que podemos identificar com a forma geral de uma equação de segundo grau:
+\begin{equation}
+	At^2 + Bt + c = 0.
+\end{equation}
+%
+As raízes desse tipo de equação podem ser calculadas através de
+\begin{equation}
+	t = \frac{-B \pm \sqrt{B^2 - 4 A C}}{2A}.
+\end{equation}
+%
+Portanto, realizando as substituições, temos
+\begin{align}
+	t_{+} &= -\np[s]{0,38} \\
+	t_{-} &= \np[s]{1,08}.
+\end{align}
+%
+O primeiro tempo corresponde ao instante de tempo \emph{anterior} ao lançamento em que o corpo estaria na linha horizontal do solo. Tal solução não tem sentido físico. Logo, através da expressão para o deslocamento horizontal temos
+\begin{equation}
+	\Delta x = \np[m]{2,17}.
+\end{equation}
+
+Para determinar o módulo e o ângulo em relação à horizontal para o vetor velocidade final, devemos notar que a velocidade no eixo horizontal $x$ é constante, e seu valor é dado pela Equação~\eqref{Eq:VelocidadeXExemploLancamentoBola}. Além disso, a componente da velocidade final no eixo vertical pode ser calculada através de
+\begin{align}
+	v_{fy} &= v_{iy} - at \\
+	&= v_{iy} - gt \\
+	&= -\np[m/s]{8,58},
+\end{align}
+%
+onde utilizamos o valor de tempo determinado anteriormente. Para derterminarmos o módulo da velocidade, basta calcularmos
+\begin{equation}
+	v = \sqrt{v_x^2 + v_y^2}
+\end{equation}
+%
+de onde obtemos
+\begin{equation}
+	v = \np[m/s]{8,81}.
+\end{equation}
+
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 4]
+
+	\draw[dotted] (0,0) coordinate (origin) -- (0.335, 0) coordinate (right) -- (0.335, -0.9421);
+	\draw[->] (0,0) -- node[left]{$\vec{v}_f$} (0.335, -0.9421) coordinate (v);
+
+	\pic [draw, "$\phi$", angle eccentricity = 1.5]{angle = v--origin--right};
+
+	\draw[|-|] (0,0.1) -- node[above]{$v_x$} (0.335, 0.1);
+	\draw[|-|] (0.435, 0) -- node[right]{$v_y$} (0.435, -0.9421);
+
+\end{tikzpicture}
+\caption{Detalhe do ângulo entre o vetor velocidade final $\vec{v}_f$ e a horizontal.\label{Fig:TrianguloRetanguloAnguloVelocidadeFinalEmRelacaoAHorizontal}}
+\end{marginfigure}
+
+Para determinarmos o ângulo em relação à horizontal, basta notarmos que o as componentes e o próprio vetor formam um triângulo retângulo (Figura~\ref{Fig:TrianguloRetanguloAnguloVelocidadeFinalEmRelacaoAHorizontal}). Assim,
+\begin{equation}
+	\tan\phi = \frac{v_y}{v_x},
+\end{equation}
+%
+de onde podemos escrever
+\begin{equation}
+	\phi = \arctan \frac{v_y}{v_x}
+\end{equation}
+%
+e, finalmente,
+\begin{equation}
+	\phi = \np[\tcdegree]{-76,88}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Lançamento horizontal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Uma esfera rola sobre uma mesa com velocidade $v_r = \np[m/s]{3,5}$ e, ao chegar ao final dela, cai ao chão. Se a distância horizontal entre a borda da mesa e o ponto onde a esfera atinge o chão é de \np[m]{1,3}, qual é a altura da mesa?
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, 
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+	\draw (0,0) -- (2,0) -- (2,-0.2) -- (0,-0.2);
+	\draw (1.8, -0.2) -- (1.8, -0.6) -- (0,-0.6);
+	\draw (1.6, -0.6) -- (1.6, -2) -- (1.2, -2) -- (1.0, -0.6);
+	\draw[interface] (0,-2) -- (4,-2);
+	
+	\draw[fill] (0.5, 2pt) circle (2pt);
+	\draw[->] (0.5, 2pt) -- node[above]{$\vec{v}_r$} +(0.5,0);
+	\draw[densely dotted] (2, 2pt) circle (2pt);
+
+    \draw[shift={(2, 2pt)},dashdotted, smooth, samples=1000, domain=0:1.3]
+		plot (\x, {-9.8*\x^2 / (2*2^2)});
+
+	\draw[dotted] (2,-0.2) -- (2,-2) (3.3, -2) -- +(0,1);
+	\draw[|<->|] (2,-1.25) -- node[below]{$\Delta x$} (3.3,-1.25);
+
+	\draw[->] (3.3,0) -- +(0.5,0) node[above left]{$x$};
+	\draw[->] (3.3,0) -- +(0,-0.5) node[above left]{$y$};
+
+\end{tikzpicture}
+\caption{Laçamento horizontal.}
+\end{marginfigure}
+
+Como sistema de referência, vamos escolher um sistema de coordenadas com um eixo vertical $y$ apontando para baixo, e um eixo horizontal $x$ apontando para a direita. Nesse caso temos que
+\begin{align}
+	a_x &= 0 \\
+	a_y &= g.
+\end{align}
+%
+Note também que a velocidade inicial de no momento em que a esfera passa a estar sujeita à gravidade é dada por
+\begin{align}
+	v_{ix} &= v_r \\
+	v_{iy} &= 0.
+\end{align}
+
+Podemos então determinar a altura da mesa em termos do tempo de queda através da expressão
+\begin{equation}
+	y_f = y_i + v_{iy}t + \frac{at^2}{2}
+\end{equation}
+%
+que pode ser escrita como
+\begin{equation}
+	\Delta y = \frac{gt^2}{2}
+\end{equation}
+%
+ao utilizarmos $a_y = g$ e $v_{iy} = 0$.
+
+Resta agora determinar o valor de $t$, mas ele pode ser obtido através do eixo horizontal $x$, pois
+\begin{equation}
+	x_f = x_i + v_{ix}t,
+\end{equation}
+%
+o que pode ser reescrito como
+\begin{equation}
+	t = \frac{\Delta x}{v_r}.
+\end{equation}
+%
+Finalmente, obtemos para a altura da mesa
+\begin{align}
+	H &= \Delta y \\
+	  &= \frac{g}{2} \left(\frac{\Delta x}{v_r}\right)^2 \\
+	  &= \frac{g (\Delta x)^2}{2 v_r^2} \\
+	  &= \np[m]{0,68}.
+\end{align}
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Arremesso sobre obstáculo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+Uma bola é rebatida com uma raquete e adquire uma velocidade $\vec{v}_i$, cujo módulo é de \np[m/s]{6,0} e que faz um ângulo $\theta$ de \np[\tcdegree]{75} com a horizontal. A altura a partir da qual a bola é rebatida é $h = \np[m]{1,2}$. A uma distância $\ell$ de \np[m]{1.5}, medida horizontalmente, há uma cerca de altura $H = \np[m]{2,0}$. A bola passa sobre a cerca?
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	\draw[interface] (1.25,-0.5) -- (5,-0.5) coordinate (pd);
+
+	\draw[|<->|] (1.7, 0) -- node[left]{$h$} (1.7, -0.5);
+	
+    \draw[shift={(2, 2pt)},dashdotted, smooth, samples=1000, domain=0:1.25]
+		plot (\x, {\x * tan(75) - 9.8*\x^2 / (2*6^2*(cos(75))^2)});
+
+	\draw[->] (2, 2pt) coordinate (origin) -- coordinate (v) node[left]{$\vec{v}_i$} +(75:0.7);
+	\draw[fill] (origin) circle (2pt);
+
+	\draw[dotted,->] (origin) +(0,-0.25) -- +(0,1.5) node[below left]{$y$};
+	\draw[dotted,->] (origin) +(-0.25,0) -- +(2.5,0) coordinate (x) node[below left]{$x$};
+
+	\pic [draw, "$\theta$", angle eccentricity = 1.7, angle radius = 3mm]{angle = x--origin--v};
+
+	\draw[pattern = north west lines] (3.5, -0.5) rectangle +(0.15,1.5);
+	\draw[|<->|] (3.85, -0.5) -- node[right]{$H$} +(0,1.5); 
+
+	\draw[<->] (2,-0.05) -- node[below]{$\ell$} (3.5,-0.05);
+
+\end{tikzpicture}
+\caption{Lançamento a partir de uma elevação com possível colisão com obstáculo.}
+\end{marginfigure}
+
+Para determinarmos se haverá colisão, basta sabermos a que altura em relação ao solo a bola estará na posição onde está localizada a cerca. Podemos determinar tal altura em relação ao ponto de lançamento ao utilizar a equação para a trajetória:
+\begin{equation}
+	y(x) = (\tan\theta) x - \frac{g x^2}{2 v_i^2\cos^2\theta}.
+\end{equation}
+%
+Utilizando as informações dadas no problema,
+\begin{align}
+	\theta &= \np[\tcdegree]{75} \\
+	x &\equiv \ell = \np[m]{1.5} \\
+	v_i &= \np[m/s]{6,0},
+\end{align}
+%
+obtemos
+\begin{equation}
+	y(x) = \np[m]{1.03}.
+\end{equation}
+%
+Essa distância se refere à altura da bola em relação ao ponto de lançamento ao chegar na posição da cerca. Como a bola é rebatida a uma distância de \np[m]{1,2} acima do solo, concluímos que a altura da bola em relação ao solo ao passar sobre a cerca é de \np[m]{2.23}, passando a \np[cm]{23} acima dela.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Propriedades vetoriais e implicações nas variáveis cinemáticas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definimos o deslocamento de uma partícula através de
+\begin{equation}
+	\Delta \vec{r} = \vec{r}_f - \vec{r}_i,
+\end{equation}
+%
+de onde podemos escrever
+\begin{equation}
+	\vec{r}_f = \vec{r}_i + \Delta \vec{r}.
+\end{equation}
+%
+Como definimos a velocidade média em termos do vetor deslocamento, podemos escrever
+\begin{equation}
+	\Delta \vec{r} = \mean{\vec{v}} \Delta t.
+\end{equation}
+%
+No caso especial de termos uma velocidade constante, a velocidade média é igual à instantânea, logo, podemos escrever
+\begin{equation}
+	\vec{r}_f = \vec{r}_i + \vec{v} \Delta t.
+\end{equation}
+
+De acordo com a equação acima, as posições $\vec{r}_f$ ocupadas pela partícula estão todas ao logo da direção determinada pelo vetor $\vec{v}$. No caso de termos uma trajetória que não seja retilínea, podemos interpretar o deslocamento de acordo com deslocamentos infinitesimais na direção da velocidade instantânea:\footnote[][-1cm]{Veja que nessa situação a velocidade certamente não é constante, já que sua direção varia continuamente, porém podemos considerar como consntate devido ao fato que estamos considerando um tempo infinitesimal.}
+\begin{equation}
+	\delta \vec{r} = \vec{v} \delta t.
+\end{equation}
+
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.2]
+    \draw[->] (0:2) -- (10:2);
+    \draw[->] (10:2) -- (20:2);
+    \draw[->] (20:2) -- (30:2);
+    \draw[->] (30:2) -- (40:2);
+    \draw[->] (40:2) -- (50:2);
+    \draw[->] (50:2) -- (60:2);
+    \draw[->] (60:2) -- (70:2);
+    \draw[->] (70:2) -- (80:2);
+    \draw[->] (80:2) -- (90:2);
+    
+\end{tikzpicture}
+\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura mostramos uma série de pequenos deslocamentos que constituem de maneira aproximada uma curva. Se tomarmos deslocamentos menores, a curva passará a ser mais suave. A direção de cada deslocamento muda pois estamos considerando que a direção da velocidade mude devido a uma aceleração.}
+\end{marginfigure}
+
+Através desse conceito de deslocamento infinitesimal, podemos descrever um movimento que acontece com uma velocidade sempre perpendicular ao vetor posição. Na Figura~\ref{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular} temos uma partícula cuja posição é descrita por um vetor posição que parte de uma origem fixada no centro de um circulo. A partícula segue a trajetória circular, sendo que a velocidade é sempre tangente à trajetória, ou seja, \emph{a velocidade é sempre perpendicular ao vetor posição}.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+	\coordinate (origin) at (0,0) node[below left]{$O$};
+
+	\draw[dashdotted] (2,0)  arc[start angle = 0, end angle = 180, radius = 2];
+	\draw[fill] (0,0) circle (0.5pt);
+
+	\draw[->] (0,0) -- node[below, sloped]{$\vec{r}$}(60:1.95cm);
+	\draw[fill] (60:2cm) circle (0.05cm);
+
+	\draw[->] (60:2cm) coordinate (part) -- +(150:1cm) coordinate (v) node[above, sloped]{$\vec{v}$};
+
+	\pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3mm]{angle = v--part--origin};
+
+	\draw[->] (0,0) -- node[below, sloped]{$\vec{r}$}(120:1.95cm);
+	\draw[fill] (120:2cm) circle (0.05cm);
+
+	\draw[->] (120:2cm) coordinate (part2) -- +(210:1cm) coordinate (v2) node[above, sloped]{$\vec{v}$};
+
+	\pic[draw, "$\cdot$", angle eccentricity = 0.5, angle radius = 3mm]{angle = v2--part2--origin};
+
+	\draw[->] (60:0.5) arc[start angle = 60, end angle = 120, radius = 0.5] node[above, midway]{$\omega$};
+
+\end{tikzpicture}
+\caption{O efeito de um vetor velocidade continuamente perpendicular ao vetor posição é o de causar uma rotação neste último. \label{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular}}
+\end{marginfigure}
+
+A situação acima descreve uma propriedade importante de um vetor: quando ele ele é somado a uma variação infinitesimal que é perpendicular ao proprio vetor, o vetor resultante têm o mesmo módulo, porém é \emph{rotacionado} na direção da variação infinitesimal.
+
+Para o vetor aceleração, temos situações similares às discutidas acima. Devido à definição do vetor $\mean{\vec{a}}$, podemos escrever
+\begin{equation}
+	\vec{v}_f = \vec{v}_i + \mean{\vec{a}} t,
+\end{equation}
+%
+ou, se considerarmos que a aceleração é constante,
+\begin{equation}
+	\vec{v}_f = \vec{v}_i + \vec{a} t.
+\end{equation}
+
+O efeito do vetor aceleração no vetor velocidade é mais difícil de visualizar do que o efeito da velocidade no vetor deslocamento. É mais fácil considerarmos dois efeitos separadamente: a alteração do módulo e a alteração da direção do vetor.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- node[above]{$\vec{v}_i$} +(1,0);
+    \draw[->] (1,0) -- node[above]{$\vec{a} \Delta t$} +(0.5,0);
+    \draw[->] (0,-0.3) -- node[below]{$\vec{v}_f$} +(1.5,0);
+\end{tikzpicture}
+\caption{O efeito de uma aceleração constante e colinear com o vetor velocidade inicial é o de alterar o módulo da velocidade.\label{Fig:EfeitoAceleraaoColinear}}
+\end{marginfigure}
+
+Se o vetor aceleração tem a mesma direção do vetor velocidade inicial, então a soma $\vec{v}_f = \vec{v}_i + \vec{a} t$ corresponde à Figura~\ref{Fig:EfeitoAceleraaoColinear}: temos que os vetores $\vec{v}_i$ e $\vec{v}_f$ têm a mesma direção, porém têm módulos diferentes. Já no caso de termos um vetor aceleração que seja sempre perpendicular ao vetor velocidade, devemos novamente utilizar a ideia de variações infinitesimais. Nesse caso, percebemos que o papel de acelerações perpendiculares à velocidade é o de alterar a direção da velocidade, sem alterar o módulo.\footnote{Da mesma forma que o vetor posição $\vec{r}$ de uma partícula que executa um movimento circular é rotacionado por um vetor velocidade continuamente perpendicular a $\vec{r}$, uma velocidade $\vec{v}$ é rotacionada por um vetor aceleração continuamente perpendicular a $\vec{v}$.}
+
+Em situações mais complexas, podemos ter uma composição dos dois efeitos da aceleração. Se temos uma situação como a da Figura~\ref{Fig:DoisEfeitosAceleracaoNaVelocidade}, por exemplo, temos que o vetor velocidade final tem um módulo maior que o vetor velocidade inicial, e que sofreu uma rotação em relação ao vetor inicial. De qualquer forma, podemos utilizar a ideia de componentes vetoriais para decompor a aceleração em uma componente na direção da velocidade inicial, e outra na direção perpendicular ao vetor velocidade inicial. Essa estratégia simplifica bastante a análise de movimentos bi e tridimensionais, e será a base para a análise do movimento circular nas seções seguintes.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.75]
+
+	\draw[->] (0,0) -- node[below]{$\vec{v}_i$} (2,0);
+
+	\draw[->] (2,0) -- node[right]{$\vec{a} t$} +(1,2) coordinate (at);
+
+	\draw[->] (0,0) -- node[above, sloped]{$\vec{v}_i$} (at);
+
+\end{tikzpicture}
+\caption{O efeito mais geral de uma aceleração é o de alterar o módulo do vetor velocidade e também o de causar uma rotação em tal vetor.\label{Fig:DoisEfeitosAceleracaoNaVelocidade}}
+\end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento circular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Como um segundo exemplo de movimento bidimensional, vamos analisar o movimento circular. Esse é um caso especialmente interessante pois nos permite decompor o vetor aceleração em duas componentes com papeis distintos: uma delas será responsável por alterações no módulo da velocidade, enquanto a outra é responsável por alterações na direção da velocidade.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aceleração centrípeta}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%TiKZ 3.0 introduces angles and quotes libraries which simplifies this task.
-%A command like
-%\draw pic[draw] {angle=A--O--C};
-%will draw a sector line between line A--O and O--C with center at O and anticlockwise. Sector radius is 5mm by default but can be changed with angle radius parameter.
-%This sector line can be labelled with label or with new quotes syntax. The label is placed with certain angle eccentricity (default = 0.6) which is a factor to be applied to angle radius.
-%Next example is similar to student's code but using angle pic. 
 
 \begin{marginfigure}
 \centering
@@ -762,14 +1255,17 @@ O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum
 
 %%%
 
-    \path[name path=traj, draw, dotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
-    \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
-    \draw [->, thick, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
-    \draw [->, thick, use tangent] (0,0) -- node[above right]{$a_c$}(0,0.5);
-    \draw [use tangent, thin, dashed] (0,-1) -- (0,1);
-    \draw[thin, use tangent] ([shift={(0,0.75)}]210:0.75) arc[radius=0.75, start angle=210, end angle= 330];
-    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (0.5pt);
-   
+	\path[name path=traj, draw, dashdotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
+    \draw [densely dotted, thin, use tangent] (-1.5,0) -- (1.5,0);
+
+    \draw [->, use tangent, scale = 2] (0,0) -- node[below]{$a_t$}(0.5,0) coordinate (at);
+    \draw [->, use tangent, scale = 2] (0,0) -- node[above left]{$a_c$}(0,0.5) coordinate (ac);
+    \draw [use tangent, thin, densely dotted] (0,-1.5) -- (0,1.5);
+    \draw[thin, use tangent, gray] ([shift={(0,2)}]210:2) arc[radius=2, start angle=210, end angle= 330];
+    \draw[use tangent, fill] (0,2) node[right]{$C$} circle (0.4pt);
+    \draw[use tangent, thick, ->, scale = 2] (0,0) coordinate (origin) -- node[above]{$\vec{a}$}(0.5,0.5) coordinate (a);
+    
+	\draw[dotted] (a) -- (at) (a) -- (ac);
 \end{tikzpicture}
 \caption{Podemos aproximar uma região qualquer de uma curva por um círculo. Assim, é possível se decompor o vetor aceleração em uma componente \emph{centrípeta} (que aponto para o centro $C$ do círculo), cujo papel é o de alterar a direção, e uma componente tangencial (que aponta tangencialmente à trajetória, na mesma direção da velocidade instantânea), cujo papel é o de alterar o módulo da velocidade.\label{Fig:Decomp_acel_tan_centrip}}
 \end{figure}
@@ -815,7 +1311,7 @@ onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial.
 % adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale=1.4,
+\begin{tikzpicture}[>=Stealth, scale=3,
     tangent/.style={
         decoration={
             markings,% switch on markings
@@ -840,19 +1336,23 @@ onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial.
 
 %%%
 
-    \path[name path=traj, draw, dotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
-    \draw [dashed, thin, use tangent] (-1.5,0) -- (1.5,0);
-    \draw [->, use tangent] (0,0) -- node[below]{$a_t$}(0.5,0);
-    \draw [->, use tangent] (0,0) -- node[above left]{$a_c$}(0,0.5);
-    \draw [use tangent, thin, dashed] (0,-1) -- (0,1);
-    \draw[thin, use tangent, gray] ([shift={(0,0.75)}]210:0.75) arc[radius=0.75, start angle=210, end angle= 330];
-    \draw[use tangent, fill] (0,0.75) node[right]{$C$} circle (1pt);
-    \draw[use tangent, ->] (0,0) -- node[above]{$\vec{a}$}(0.5,0.5);
-    \draw[thin, use tangent] ([shift={(0,0)}]45:0.3) arc[radius=0.3, start angle=45, end angle= 0] node[above right]{$\theta$};
-   
+	\clip (0.2,2) rectangle (1.5, 1);
+
+    \path[name path=traj, draw, dashdotted, tangent=0.30] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5) coordinate [pos=0.24] (point);
+    \draw [densely dotted, thin, use tangent] (-1.5,0) -- (1.5,0);
+
+    \draw [->, use tangent, scale = 2] (0,0) -- node[below]{$a_t$}(0.5,0) coordinate (at);
+    \draw [->, use tangent, scale = 2] (0,0) -- node[above left]{$a_c$}(0,0.5) coordinate (ac);
+    \draw [use tangent, thin, densely dotted] (0,-1.5) -- (0,1.5);
+    \draw[thin, use tangent, gray] ([shift={(0,2)}]210:2) arc[radius=2, start angle=210, end angle= 330];
+    \draw[use tangent, fill] (0,2) node[right]{$C$} circle (0.4pt);
+    \draw[use tangent, thick, ->, scale = 2] (0,0) coordinate (origin) -- node[above]{$\vec{a}$}(0.5,0.5) coordinate (a);
     
+	\pic[draw, "$\theta$", angle eccentricity = 1.5]{angle = at--origin--a};
+	\draw[dotted] (a) -- (at) (a) -- (ac);
+
 \end{tikzpicture}
-\caption{Se conhecermos as componentes, podemos determinar o vetor aceleração através das propriedades dos vetores.\label{Fig:Decomp_acel_tan_centrip_mod_vet_acel}}
+\caption{Se conhecermos as componentes tangencial e centrípeta, através das propriedades dos vetores podemos determinar o módulo e o ângulo do vetor aceleração em relação à direção tangente à trajetória.\label{Fig:Decomp_acel_tan_centrip_mod_vet_acel}}
 \end{marginfigure}
 
 Através das componentes radial e tangencial, se -- por exemplo -- necessitarmos descrever o movimento de um carro que ganha velocidade com aceleração tangencial constante em uma pista circular, podemos utilizar as equações da cinemática para calcular a evolução temporal da velocidade. Assim, temos que
@@ -863,13 +1363,185 @@ Através das componentes radial e tangencial, se -- por exemplo -- necessitarmos
 %
 dentre outras relações. Veja que nesse caso utilizamos somente a aceleração tangencial $a_t$, sem nos preocupar com a componente radial. Além disso, utilizamos $s$ ao invés de $x$ para lembrar que estamos descrevendo a distância percorrida, não um deslocamento. Nesse movimento, a velocidade não é constante e, portanto, temos que a componente radial $a_r$ da aceleração aumenta ou diminui à medida que o tempo passa.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Componentes da aceleração de um carro em uma pista circular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+Em um certo instante, um carro se desloca em uma pista circular com velocidade $v = \np[m/s]{7,0}$, sendo que ele está sujeito a uma aceleração cuja componente na direção tangencial à trajetória é dada por $a_t = \np[m/s^2]{0,60}$. O raio $r$ da pista é de \np[m]{500,0}.
+\begin{itemize}
+	\item[(a)] Quais são o módulo e o ângulo do vetor aceleração $\vec{a}$ em relação à direção tangencial à trajetória nesse instante?
+	\item[(b)] Quais são o módulo e o ângulo do vetor aceleração em relação à direção tangencial após \np[s]{120}?
+	\item[(b)] Supondo que o piloto do veículo suporte uma aceleração máxima de módulo $5g$, isto é, cinco vezes a aceleração da gravidade, quanto tempo ele pode manter a aceleração tangencial mencionada antes de perder a consciência?
+\end{itemize}
+\end{quote}
+
+Na Figura~\ref{Fig:FiguraProblemaMovCircCarroAcelerando} temos uma representação da situação descrita no problema. Adotamos um sistema de referência onde o eixo $y$ liga a posição ocupada pelo carro ao centro da trajetória circular. Se o movimento tivesse velocidade constante em módulo, teríamos um vetor aceleração apontando nessa direção e sentido. No entanto, devido ao fato de que há variação no módulo da velocidade, sabemos que o vetor aceleração não aponta para o centro da trajetória, mas sim em uma direção que faz um ângulo $\theta$ com a direção tangente à trajetória.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.5]
+
+
+	\draw[dashdotted] (0:2) arc [start angle = 0, end angle = -100, radius = 2];
+	\draw[fill] (0,0) circle (1pt);
+
+	\draw[<->] (-7:1pt) -- node[above, sloped]{$R = \np[m]{500}$} (-7:2cm);
+
+	\draw[fill] (-60:2) circle (0.5mm);
+
+	\draw[densely dotted, <-] (-60:2) +(30:2) node[below right]{$x$} -- +(-150:1.5);
+	\draw[->] (-60:2) -- +(30:1.5) node[below]{$\vec{v}$} coordinate (vf);
+	\path (-60:2) -- +(30:0.75) coordinate (atf);
+	\draw[|<->|] (-60:2.2) -- node[below, sloped]{$a_t$} +(30:0.75);
+	\draw[|<->|] (-60:2) ++(30:-0.2) -- node[below, sloped]{$a_c$} +(120:1);
+
+	\draw[->, thick] (-60:2) coordinate (ai) -- +(83.13:1.25) coordinate (af) node[right]{$\vec{a}$};
+	\draw[dotted] (-60:2)++(30:0.75) -- (af);
+	\draw[dotted] (-60:1) -- (af);
+
+	\pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm]{angle = vf--ai--af};
+
+	\draw[densely dotted, ->] (-60:2) -- (-60:0.5) node[below left]{$y$};
+
+\end{tikzpicture}
+\caption{lorem ipsum dolor sihet amet contribus longus captionus co tambe curtas palavrorum.\label{Fig:FiguraProblemaMovCircCarroAcelerando}}
+\end{marginfigure}
+
+Como vimos ao analisar o movimento circular, as componentes da aceleração nos eixos tangencial e radial têm papeis distintos, e vemos que o problema nos dá o valor da componente tangencial:
+\begin{equation}
+	a_t = \np[m/s^2]{0,6}.
+\end{equation}
+%
+A componente centrípeta, por sua vez, pode ser determinada através de
+\begin{equation}
+	a_c = \frac{v^2}{r}.
+\end{equation}
+%
+No instante do item (a), a velocidade do veículo é de $\np[m/s]{7,0}$, e o raio $r = \np[m]{500}$. Logo,
+\begin{equation}
+	a_c = \np[m/s]{0.098}.
+\end{equation}
+%
+Para determinarmos o módulo do vetor aceleração e o ângulo que ele faz em relação à direção tangencial ao movimento, basta utilizarmos as propriedades da decomposição de vetores:
+\begin{align}
+	a &= \sqrt{a_x^2 + a_y^2} \\
+	\theta &= \arctan\frac{a_y}{a_x},
+\end{align}
+%
+o que em termos das componentes $a_t$ e $a_c$, resulta em 
+\begin{align}
+	a &= \sqrt{a_t^2 + a_c^2} \\
+	\theta &= \arctan\frac{a_c}{a_t}.
+\end{align}
+%
+Assim, obtemos
+\begin{align}
+	a &= \np[m/s^2]{0.608} \\
+	\theta &= \np[\tcdegree]{9.28}.
+\end{align}
+
+Após \np[s]{120}, devido à aceleração tangencial, temos um aumento de velocidade, obtendo
+\begin{align}
+	v_f &= v_i + a_t t \\
+	&= \np[m/s]{79}.
+\end{align}
+%
+Com essa nova velocidade, obtemos um novo valor de aceleração centrípeta, dado por
+\begin{equation}
+	a_c = \np[m/s^2]{12.48}.
+\end{equation}
+%
+Calculado as propriedades do vetor aceleração nesse instante, obtemos
+\begin{align}
+	a &= \np[m/s^2]{12.50} \\
+	\theta &= \np[\tcdegree]{87.25}.
+\end{align}
+
+Para determinarmos o tempo até que o piloto perca a consciência, devemos determinar o tempo até que a aceleração atinja o valor crítico $a_{\textrm{max}} = 5g = \np[m/s^2]{49,0}$. Sabemos que
+\begin{equation}
+	a = \sqrt{a_c^2 + a_t^2},
+\end{equation}
+%
+e que
+\begin{equation}
+	a_c = \frac{v^2}{r}.
+\end{equation}
+%
+Além disso,
+\begin{equation}
+	v = v_i + a_t t.
+\end{equation}
+%
+Substituindo a expressão acima na anterior, obtemos para o quadrado da aceleração centripeta
+\begin{equation}
+	a_c^2 = \frac{(v_i + a_t t)^4}{r^2},
+\end{equation}
+%
+que, por sua vez, pode ser substituida na expressão para aceleração, resultando em
+\begin{equation}
+	a_{\textrm{max}} = \sqrt{\frac{(v_i + a_t t)^4}{r^2} + a_t^2}.
+\end{equation}
+%
+Basta agora isolar $t$, o que resulta em
+\begin{equation}
+	t = \frac{\sqrt[4]{r^2(a_{\textrm{max}}^2 - a_t^2)} - v_i}{a_t},
+\end{equation}
+%
+de onde obtemos um tempo de
+\begin{equation}
+	t = \np[s]{249,20}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Tempo transcorrido em um movimento circular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Uma partícula descreve um movimento circular com raio $r = \np[m]{12.0}$. Em um certo instante, o vetor aceleração tem módulo $a = \np[m/s^2]{30,0}$, sendo que sua direção faz um ângulo $\theta = \np[\tcdegree]{60.0}$ em relação à direção tangente à trajetória. Se a aceleração tangencial é constante, quanto tempo transcorreu entre o início do movimento circular e o momento atual, assumindo que a partícula partiu do repouso.
+\end{quote}
+
+Decompondo o vetor aceleração, temos
+\begin{align}
+	a_c &= a\sen\theta \\
+	&= \np[m/s^2]{25.98} \\
+	a_t &= a\cos\theta \\
+	&= \np[m/s^2]{15,0}.
+\end{align}
+%
+Sabemos que a aceleração centripeta está associada ao módulo da velocidade e ao raio da trajetória através de
+\begin{equation}
+	a_c = \frac{v^2}{r},
+\end{equation}
+%
+logo,
+\begin{align}
+	v &= \sqrt{r a_c} \\
+	&= \np[m/s]{17.66}.
+\end{align}
+
+Utilizando a relação para o módulo da velocidade em um movimento com aceleração tangencial constante,
+\begin{equation}
+	v_f = v_i + a_t t,
+\end{equation}
+%
+temos
+\begin{equation}
+	t = \frac{v_f}{a_t},
+\end{equation}
+%
+onde usamos o fato de que $v_i = 0$. Obtemos então
+\begin{equation}
+	t = \np[s]{1.18}.
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento Relativo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo no solo. Assim, quando um ônibus passa, a velocidade que atribuímos a seus passageiros é a mesma do próprio ônibus, caso eles estejam sentados. Se fixarmos o referencial no piso do ônibus, veremos que a velocidade dos passageiros é nula. Portanto, a velocidade que medimos depende do referencial adotado. Isso se deve ao fato de que a própria posição depende do referencial.
 
-\begin{figure}[!h]
+\begin{figure}[!h]\forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -893,7 +1565,7 @@ Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo 
     
     \draw[->] (OSP) ++(0,2.5) -- node[above]{$\vec{v}_{S'S}$} +(1,0);
 \end{tikzpicture}
-\caption{Posião de uma partícula $P$ em dois referenciais diferentes. \label{Fig:Ref_mov_relativo}}
+\caption{Posição de uma partícula $P$ em dois referenciais diferentes. \label{Fig:Ref_mov_relativo}}
 \end{figure}
 
 Vamos analisar a situação mostrada na Figura~\ref{Fig:Ref_mov_relativo}. A posição da partícula $P$ no referencial $S'$ é dada pelo vetor $\vec{r}_{S'}$. Se estivermos interessados em calcular a posição desta partícula em um referencial $S$, sendo que a posição do referencial $S'$ é dada por $\vec{r}_{S'S}$ em relação a $S$, temos

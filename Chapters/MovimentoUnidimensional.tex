@@ -729,6 +729,165 @@ percebemos que o gráfico da posição em função da velocidade deve seguir uma
 \caption{Para o caso de \emph{velocidade constante} temos que o gráfico da velocidade é uma reta.}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Tempo para que um veículo alcance outro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Em um certo instante, dois carros trafegam por uma rua retilínea de forma que suas velocidades são constantes. A distância entre eles é de \np[m]{800}. Se as velocidades são $v_1 = \np[m/s]{25,2}$ e $v_2 = \np[m/s]{30,5}$,
+	\begin{itemize}
+		\item[(a)] quanto tempo transcorre até que o primeiro veículo seja alcançado pelo segundo?
+		\item[(b)] qual é a distância percorrida por cada um dos veículos entre o instante inicial e o instante onde o segundo alcança o primeiro?
+	\end{itemize}
+\end{quote}
+
+Para determinarmos o tempo transcorrido entre o instante inicial e o instante em que o primeiro carro é alcançado pelo segundo, podemos estabelecer um eixo coordenado na direção da estrada. Tomamos o sentido para o qual ambos os veículos se deslocam como o sentido positivo. Na Figura~\ref{Fig:EsboçoPerseguicaoCarros} temos um esboço do problema.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+	\draw[interface] (0,0) -- (4.5,0);
+
+	\draw[pattern = north west lines] (0.5,0) rectangle +(0.5,0.5) (3,0) rectangle +(0.5,0.5);
+	\draw[->] (0.75,0.65) +(-0.2, 0) -- node[above]{$v_2$} +(0.2,0);
+	\draw[->] (3.25,0.65) +(-0.15, 0) -- node[above]{$v_1$} +(0.15,0);
+
+	\draw[->, dotted] (0,0.25) -- (4.5,0.25) node[above left]{$x$};
+\end{tikzpicture}
+\caption{Esboço do problema no instante em que começamos a analisá-lo. \label{Fig:EsboçoPerseguicaoCarros}}
+\end{marginfigure}
+
+Podemos descrever a posição como função do tempo para cada um dos veículos como\footnote{Assumimos que $t_i = 0$ e $t_f = t$, o que resulta em $\Delta t = t$.}
+\begin{align}
+	x_1(t) &= x_1^i + v_1 t \\
+	x_2(t) &= x_2^i + v_2 t.
+\end{align}
+%
+Note que podemos escolher a origem do sistema de coordenadas para coincidir com a posição do segundo veículo. Assim, temos que
+\begin{align}
+	x_1^i &= \np[m]{800} \\
+	x_2^i &= 0,
+\end{align}
+%
+o que nos leva a
+\begin{align}
+	x_1(t) &= (\np[m]{800}) + v_1 t \\
+	x_2(t) &= v_2 t.
+\end{align}
+%
+A Figura~\ref{Fig:GraficoPosicaoPerseguicao} mostra um gráfico das posições $x_1(t)$ e $x_2(t)$.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+	\draw[->] (0,0) -- (4,0) node[below left]{$t$};
+	\draw[->] (0,0) -- (0,3) node[below left]{$x$};
+
+	\draw[smooth, dashdotted, name path=plotc,samples=1000,domain=0:3.75]
+        plot(\x,{0.15*(1.6 + 6*0.63*\x )}) node[below right]{$x_1$};
+	\draw[smooth, name path=plotc,samples=1000,domain=0:3.75]
+        plot(\x,{0.15*6*0.7625*\x }) node[above right]{$x_2$};
+
+\end{tikzpicture}
+\caption{Gráficos da posição em função do tempo para os dois veículos. Veja que eventualmente as retas se cruzam, o que indica que ambos ocupam a mesma posição no eixo $x$, em um mesmo tempo $t$.\label{Fig:GraficoPosicaoPerseguicao}}
+\end{marginfigure}
+
+Para determinarmos o tempo transcorrido entre o instante inicial e o instante onde os carros se encontram, basta determinarmos $t$ ao igualar os dois valores de posição:
+\begin{align}
+	x_1(t) &= x_2(t) \\
+	(\np[m]{800}) + v_1 t &= v_2 t \\
+	(\np[m]{800}) &= (v_2 - v_1) t \\
+	t &= \frac{(\np[m]{800})}{v_2-v_1},
+\end{align}
+%
+o que resulta em
+\begin{equation}
+	t = \np[s]{150,9}.
+\end{equation}
+
+Para determinar as distâncias percorridas pelo veículos, basta lembrar que
+\begin{equation}
+	\Delta x = v t,
+\end{equation}
+%
+o que resulta em
+\begin{align}
+	\Delta x_1 &= (\np[m/s]{25,2})\cdot(\np[s]{150,9}) \\
+	&= \np[m]{3803,8} \\
+	\Delta x_2 &= (\np[m/s]{30,5})\cdot(\np[s]{150,9}) \\
+	&= \np[m]{4603,8}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Colisão entre dois veículos que trafegam em sentidos opostos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Dois trens trafegam em sentidos opostos na mesma linha férrea retilínea. Em certo instante, a distância entre eles é de \np[km]{40,0}. Se as velocidades são $v_1 = \np[km/h]{25,0}$ e $v_2 = \np[km/h]{35,0}$ e são constantes, em que ponto da linha férrea --~em relação à posição inicial do primeiro trem~-- eles colidirão?
+\end{quote}
+
+Para determinarmos o ponto onde ocorre a colisão, devemos determinar as expressões que descrevem a posição como função do tempo, e então considerar que ao colidirem, os dois trens têm a mesma posição, para o mesmo valor de tempo. Na Figura~\ref{Fig:EsboçoColisaoTrens} temos um esboço do problema.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+	\draw[interface] (0,0) -- (4.5,0);
+
+	\draw[pattern = north west lines] (0.5,0) rectangle +(0.5,0.5) (3,0) rectangle +(0.5,0.5);
+	\draw[->] (0.75,0.65) +(-0.12, 0) -- node[above]{$v_1$} +(0.12,0);
+	\draw[<-] (3.25,0.65) +(-0.22, 0) -- node[above]{$v_2$} +(0.22,0);
+
+	\draw[->, dotted] (0,0.25) -- (4.5,0.25) node[above left]{$x$};
+\end{tikzpicture}
+\caption{Esboço do problema no instante em que começamos a analisá-lo. \label{Fig:EsboçoColisaoTrens}}
+\end{marginfigure}
+
+Devemos escrever as expressões para a posição em função do tempo utilizando
+\begin{equation}
+	x(t) = x_i + vt.
+\end{equation}
+%
+Vamos assumir que o eixo coordenado $x$ aponta na direção da linha férrea, sendo que o sentido positivo é o mesmo que o da velocidade do primeiro trem. Vamos considerar ainda que a origem do eixo está na posição inicial do primeiro trem. Assim,
+\begin{align}
+	x_1^i &= 0 \\
+	x_2^i &= \np[km]{40,0} \\  
+	v_1 &= \np[km/h]{25,0} \\
+	v_2 &= \np[km/h]{-35,0}.
+\end{align}
+%
+Temos, portanto, que as expressões para a posição em função do tempo são dadas por
+\begin{align}
+	x_1(t) &= (\np[km/h]{25,0})\cdot t \\
+	x_2(t) &= (\np[km]{40,0}) + (-\np[km/h]{35,0})\cdot t.
+\end{align}
+
+Igualando as expressões acima, obtemos o valor de $t$ para o qual acontece a colisão:
+\begin{align}
+	(\np[km/h]{25,0})\cdot t &= (\np[km]{40,0}) - (\np[km/h]{35,0})\cdot t \\
+	(\np[km/h]{25,0} - \np[km/h]{35,0})\cdot t &= (\np[km]{40,0}) \\
+	t &=\frac{(\np[km]{40,0})}{(\np[km/h]{25,0} - \np[km/h]{35,0})} \\
+	t &= \np[h]{0,67}.
+\end{align}
+%
+Finalmente, podemos encontra a posição onde os trens colidem ao calcular a posição do primeiro trem no instante da colisão:
+\begin{align}
+	x_1 &= (\np[km/h]{25,0})\cdot (\np[h]{0,67}) \\
+	&= \np[km]{16,67}.
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1469,9 +1628,179 @@ $v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
 \caption{Relação das equações para a cinemática unidimensional e a variável ausente em cada uma delas. \label{Tab:EqsCinematicasVarAusentes}}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Distância percorrida durante um movimento de queda livre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Um corpo cai de uma altura de \np[m]{100,0}. Determine qual é a distância que ele percorre nos primeiros 10\% e nos últimos 10\% do tempo de queda. Despreze os efeitos da resistência do ar.
+\end{quote}
+
+Em primeiro lugar, devemos determinar qual é o tempo necessário para que o corpo percorra a distância de \np[m]{100,0}. Para isso, basta utilizarmos
+\begin{equation}
+	\Delta x = vt + \frac{at^2}{2},
+\end{equation}
+%
+sendo que $v = 0$, uma vez que o corpo cai e --~portanto~-- subentende-se que partiu do repouso. Para descrever a queda, podemos utilizar um eixo que aponta verticalmente para baixo, assim temos que a aceleração da gravidade é dada por
+\begin{align}
+	a &= +g \\
+	&= \np[m/s^2]{9,8}.
+\end{align}
+%
+Assim,
+\begin{equation}
+	\Delta x = \frac{gt^2}{2},
+\end{equation}
+%
+de onde obtemos
+\begin{align}
+	t &= \sqrt{\frac{2 \Delta x}{g}} \\
+	&= \np[s]{4,52}.
+\end{align}
+
+Para determinarmos a distância percorrida nos primeiros 10\% do tempo, basta utilizarmos a expressão para $\Delta x$ acima:
+\begin{align}
+	\Delta x_{10\%} &= \frac{gt^2}{2} \\
+	&= \frac{(\np[m/s^2]{9,8}) \cdot (\np[s]{0,452})^2}{2} \\
+	&= \np[m]{1,0},
+\end{align}
+%
+onde \np[s]{0,452} corresponde a 10\% do tempo total transcorrido. Para determinar a distância percorrida nos últimos 10\%, basta utilizarmos a expressão acima para calcular qual é a distância percorrida no período inicial que corresponde a 90\% do tempo, depois subtrair o resultado da distância total. Logo,
+\begin{align}
+	\Delta x_{90\%} &= \frac{gt^2}{2} \\
+	&= \frac{(\np[m/s^2]{9,8}) \cdot (\np[s]{4,066})^2}{2} \\
+	&= \np[m]{81,0}
+\end{align}
+%
+e verificamos que nos últimos 10\% são percorridos
+\begin{equation}
+	\Delta x_{100\%} - \Delta x_{90\%} = \np[m]{19,0}.
+\end{equation}
+%
+Em outras palavras, verificamos que nos primeiros 10\% do tempo, o corpo percorre 1\% da distância, enquanto nos últimos 10\% do tempo, ele percorre 19\% da distância.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo:?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{lançamento para cima, calcular a velocidade inicial se após $t$ segundos o corpo está na posição $y$ (va volta)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo:?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{alguma coisa que use e eq da posição com velocidade final (carro chega na linha de chegada com velocidade tal, após certo tempo acelerando, qual é a aceleração?)} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Alguma coisa com torricelli (algo na linha de frenagem de um carro, velocidade mínima para passar uma distância, velocidade máxima para conseguir parar)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{qq coisa que permita usar a fórmula $\Delta x = (v_0 + v)t/2$} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Distância entre gotas sucessivas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+	Determine uma expressão para a distância entre duas gotas que caem de uma torneira, sendo o tempo entre a queda de cada gota dado por $\tau$.
+\end{quote}
+
+Podemos descrever a posição de cada gota de acordo com
+\begin{equation}
+	x_f = x_i + vt + \frac{at^2}{2}.
+\end{equation}
+%
+Como as gotas caem, temos que a velocidade inicial é nula. Escolhendo um eixo $x$ vertical, com sentido positivo para baixo, temos que $a = g$. Também podemos assumir que a origem do eixo está na posição de onde caem as gotas, o que nos permite escolher $x_i = 0$ e $x_f = x$. Assim,
+\begin{equation}
+	x = \frac{gt^2}{2}.
+\end{equation}
+
+Note que na expressão acima já temos implicitamente a escolha $t_i = 0$ e $t_f = t$, o que implica que estamos registrando o tempo a partir do momento em que a gota cai. Para que possamos determinar a distância entre as gotas, devemos perceber que quando a segunda gota cai, a primeira gota já está se movendo há um tempo $\tau$. Assim, se escrevermos a as expressões em termos do tempo no ``cronômetro da segunda gota'' temos para as posições:
+\begin{align}
+	x_1 &= \frac{g(t + \tau)^2}{2} \\
+	x_2 &= \frac{gt^2}{2}.
+\end{align}
+%
+Temos entaão para a distância entre as gotas
+\begin{align}
+	x_1 - x_2 &= \frac{g(t + \tau)^2}{2} - \frac{gt^2}{2}\\
+			  &= \frac{g}{2} \left[(t + \tau)^2 - t^2\right] \\
+			  &= \frac{g}{2} \left[t^2 + \tau^2 + 2\tau t - t^2\right] \\
+			  &= \frac{g}{2} [\tau^2 + 2\tau t],
+\end{align}
+%
+de onde podemos verificar que a distância entre as gotas aumenta linearmente com o tempo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Profundidade de um poço}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+Ao soltarmos uma pedra dentro de um poço, percebemos que o som é ouvido após \np[s]{4,2}. Se a velocidade do som no ar é de \np[m/s]{343,4} e é constante, qual é a profundidade do poço?
+\end{quote}
+
+Se soltamos a pedra, sabemos que sua velocidade inicial é nula. Assim, temos que a distância percorrida por ela até chegar à água é dada por
+\begin{equation}
+	\Delta x = \frac{gt^2}{2},
+\end{equation}
+%
+onde utilizamos $a = g$ pois escolhemos um eixo $x$ que aponta verticalmente para baixo. Temos então que o tempo $t_q$ para que a pedra atinja a água é dado por
+\begin{equation}
+	t_q = \sqrt{\frac{2 \Delta x}{g}}.
+\end{equation}
+%
+O som se propaga com velocidade constante, portanto temos que o tempo que ele demora parapercorrer a altura do poço pode ser calculado através de 
+\begin{equation}
+	\Delta x = v t,
+\end{equation}
+%
+resultando em
+\begin{equation}
+	t_s = \frac{\Delta x}{v_s}.
+\end{equation}
+
+Sabemos que a soma dos dois tempos é igual a \np[s]{4,2}:
+\begin{align}
+	t_q + t_s &= (\np[s]{4,2}) \\
+	\sqrt{\frac{2 \Delta x}{g}} + \frac{\Delta x}{v_s} &= (\np[s]{4,2}).
+\end{align}
+%
+Fazendo a mudança de variáveis
+\begin{equation}
+	\Delta x = \lambda^2,
+\end{equation}
+%
+na expressão acima, temos
+\begin{equation}
+	\sqrt{\frac{2}{g}} \lambda + \frac{1}{v_s} \lambda^2 - (\np[s]{4,2}) = 0.
+\end{equation}
+%
+Temos, portanto, uma equação de segundo grau, substituindo os valores da aceleração da gravidade e da velocidade do som, temos
+\begin{equation}
+	(\np[s/m]{2.9121E-3})\cdot \lambda^2 + (\np[s/m^{\nicefrac{1}{2}}]{0.45175})\cdot \lambda - (\np[s]{4,2}) = 0,
+\end{equation}
+%
+o que resulta em
+\begin{align}
+	\lambda' &= \np[m^{\nicefrac{1}{2}}]{-163.93} \\
+	\lambda''&= \np[m^{\nicefrac{1}{2}}]{8.798}.
+\end{align}
+%
+Vamos descartar o primeiro valor para $\lambda$ pois sabemos que ele corresponde à raiz quadrada de uma distância e deve ser positivo. Determinando $\Delta x$, temos
+\begin{equation}
+	\Delta x = \np[m]{77.40}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Seções opcionais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Acelerador}
@@ -1511,3 +1840,6 @@ Finalmente, note que uma apreciação mais profunda das situações discutidas a
 %Uma questão.
 %\end{question}
 
+%\begin{question}[type={exam}]
+%Dois trens andam na mesma linha férrea, no mesmo sentido, porém a velocidade do segundo é maior. Num dado instante, estão a uma dada distância. Além disso, há um desvio a uma certa distância, sendo que o primeiro trem tomará um dos ramos da estrada férrea e o outro tomará o outro ramo. Qual deve ser a distância máxima entre o primeiro trem e o desvio para que não haja colisão?
+%\end{question}
