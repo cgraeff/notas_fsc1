@@ -961,6 +961,55 @@ Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do 
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Projeções completas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Na Figura~\ref{Fig:ProjCompleta}, mostramos a projeção do vetor $\vec{a}$ em dois sistemas de referências diferentes. No sistema composto pelos eixos $x$ e $y$, verificamos que as componentes são
+\begin{align}
+    a_x &= a \cos\theta \\
+    a_y &= a \sen\theta.
+\end{align}
+%
+Quais são as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$?
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.3]
+
+    \draw[->, dashed] (0,0) coordinate (origin) -- (2,0) node[below left]{$x$} coordinate (x);
+    \draw[->, dashed] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[->, thick] (0,0) -- node[above, sloped]{$\vec{a}$}(35:1) coordinate (a);
+    \draw[dotted] (35:1) -- +(0,-0.5736);
+    \draw[dotted] (35:1) -- +(-0.8192,0);
+    
+    \draw[|-|] (0,-0.2) -- node[below]{$a_x$} +(0.8192,0);
+    \draw[|-|] (-0.2,0) -- node[left]{$a_y$} +(0,0.5736);
+    
+    \draw[->, densely dotted] (0,0) -- (35:2) node[right]{$x'$};
+    \draw[->, densely dotted] (0,0) -- (125:2) node[left]{$y'$};
+    
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = x--origin--a};
+    
+\end{tikzpicture}
+\caption{Projeção de um vetor $\vec{a}$ em dois sistemas de referência diferentes. No sistema de referência $x'-y'$ as componentes são dadas por $a_{x'} = a$ e $a_{y'} = 0$.\label{Fig:ProjCompleta}}
+\end{marginfigure}
+
+Verificamos através da figura que o vetor $\vec{a}$ aponta na mesma direção do eixo $x'$, portanto, podemos utilizar a decomposição com um ângulo de \np[\tcdegree]{0}:
+\begin{align}
+    a_{x'} &= a \cos\np[\tcdegree]{0} \\
+    a_{y'} &= a \sen\np[\tcdegree]{0},
+\end{align}
+%
+o que resulta em
+\begin{align}
+    a_{x'} &= a \\
+    a_{y'} &= 0.
+\end{align}
+%
+Concluímos, portanto, que se um vetor aponta na mesma direção que um eixo de referência, a projeção de tal vetor nesse eixo é igual ao próprio módulo do vetor. Por outro lado, se o vetor é perpendicular ao eixo, a projeção nesse eixo é nula.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Projeções negativas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -972,13 +1021,13 @@ Algo que é bastante importante notarmos é o fato de que muitos vetores têm pr
    
     \draw[->, thick] (2.25,0.5) coordinate (ai) -- node[above right]{$\vec{a}$} (1,2) coordinate (af);
 
-    \draw[->] (ai) +(-1.5,0) -- +(1.25,0) node[below left]{$x$};
-    \draw[->] (ai) -- +(0,2) node[below right]{$y$};
-    \draw[->, very thick] (ai) -- +(0.5,0) node[below] {$\versi$};
-    \draw[->, very thick] (ai) -- +(0, 0.5) node[right]{$\versj$};
+    \draw[->, dashed] (ai) +(-1.75,0) -- +(1.75,0) node[below left]{$x$};
+    \draw[->, dashed] (ai) -- +(0,2.5) node[below right]{$y$};
+    \draw[->, thick] (ai) -- +(0.5,0) node[below] {$\versi$};
+    \draw[->, thick] (ai) -- +(0, 0.5) node[right]{$\versj$};
         
-    \draw[->, thick] (ai) -- +(-1.25,0) node[below right]{$\vec{a}_x$};
-    \draw[->, thick] (ai) -- +(0,1.5) node[below right]{$\vec{a}_y$};
+    \draw[->] (ai) -- +(-1.25,0) node[below right]{$\vec{a}_x$};
+    \draw[->] (ai) -- +(0,1.5) node[below right]{$\vec{a}_y$};
     
     \draw[dotted] (af) -- +(1.25,0) (af) -- +(0,-1.5);
     

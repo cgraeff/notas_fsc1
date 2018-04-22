@@ -436,40 +436,118 @@ Conhecendo o valor de $\alpha$, basta voltarmos a qualquer uma das duas equaçõ
 \paragraph{Discussão: Sistema fora do equilíbrio de forças}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Toda situação onde não existe um perfeito equilíbrio das forças que atuam em um corpo implica na existência de uma aceleração. Se considerarmos a Figura~\ref{}, verificamos a existência de quatro forças atuando sobre um corpo. Assumimos que não há equilíbrio em tal sistema, por isso devemos levar em conta a aceleração devida à força resultante. Para que possamos determinar o vetor aceleração mais facilmente, escolhemos o sistema de coordenadas mostrado na Figura~\ref{}.
+Toda situação onde não existe um perfeito equilíbrio das forças que atuam em um corpo implica na existência de uma aceleração. Se considerarmos, por exemplo, considerarmos a situação mostrada na Figura~\ref{Fig:CorpoSujeitoForcasNaoEquilibrio}, verificamos a existência de quatro forças atuando sobre um corpo. As forças $\vec{F}_1$ e $\vec{F}_2$ são perpendiculares entre si, enquanto os ângulos entre $\vec{F}_3$ e $\vec{F}_2$, e entre $\vec{F}_4$ e $\vec{F}_2$ são $\theta$ e $\phi$, respectivamente. 
 
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
 
-    \draw[pattern = north west lines] (0,0) circle (0.5);
+    \draw[pattern = north west lines] (0.5,0.5) circle (0.5);
     
-    \draw[->] (0.5,1) -- +(0,1) node[left]{$\vec{F}_1$};
-    \draw[->] (1,0.5) -- +(1,0) node[below]{$\vec{F}_2$};
-    \draw[->] (0,0) -- +(-0.8,-1.3) node[left]{$\vec{F}_3$};
-    \draw[->] (1,1) -- +(0.5,0.4) node[above]{$\vec{F}_4$};
+    \draw[->, thick] (0.5,1) -- +(0,1) node[left]{$\vec{F}_1$};
+    \draw[->, thick] (1,0.5) -- +(1,0) node[below]{$\vec{F}_2$};
+    \draw[->, thick] (0.5,0.5)++(-115:0.5) -- +(-115:0.8) node[left]{$\vec{F}_3$};
+    \draw[->, thick] (0.5,0.5)++(40:0.5) -- +(40:0.5) node[above]{$\vec{F}_4$};
 \end{tikzpicture}
-\caption{.}
+\caption{Corpo sujeito a um conjunto de forças que não se encontram em equilíbrio.\label{Fig:CorpoSujeitoForcasNaoEquilibrio}}
 \end{marginfigure}
 
+Não há razão para assumimos que há equilíbrio em tal sistema, por isso devemos levar em conta a aceleração devida à força resultante. Para que possamos determinar o vetor aceleração mais facilmente, escolhemos o sistema de coordenadas mostrado na Figura~\ref{Fig:CorpoSujeitoForcasNaoEquilibrioRef}. A direção dos eixos se deu com base no fato de que dois dos vetores são nas direções dos eixos $x$ e $y$ escolhidos, e os outros dois vetores podem ser decompostos em tais eixos pois sabemos os ângulos entre esses vetores e o eixo $x$. Nesse sistema, vemos que é mais simples utilizar o ângulo $\alpha$ para descrever a direção do vetor $\vec{F}_3$, sendo que $\theta = \alpha + \np[\tcdegree]{90}$.
+
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
 
-    \draw[pattern = north west lines] (0,0) circle (0.5);
+    \draw[pattern = north west lines] (0.5,0.5) coordinate (center) circle (0.5);
     
     \draw[dashed, ->] (0.5,1) -- +(0,1.5) node[below right]{$y$};
-    \draw[dashed] (0.5,0) -- +(0,-1.5);
+    \draw[dashed] (0.5,0) -- +(0,-1.5) coordinate (yf);
     
     \draw[dashed] (0,0.5) -- +(-1.5,0);
-    \draw[dashed, ->] (1,0.5) -- +(1.5,0);
+    \draw[dashed, ->] (1,0.5) -- +(1.5,0) node[below left]{$x$};
     
-    \draw[->] (0.5,1) -- +(0,1) node[left]{$\vec{F}_1$};
-    \draw[->] (1,0.5) -- +(1,0) node[below]{$\vec{F}_2$};
-    \draw[->] (0,0) -- +(-0.8,-1.3) node[left]{$\vec{F}_3$};
-    \draw[->] (1,1) -- +(0.5,0.4) node[above]{$\vec{F}_4$};
+    \draw[->, thick] (0.5,1) -- +(0,1) node[left]{$\vec{F}_1$} coordinate (F1);
+    \draw[->, thick] (1,0.5) -- +(1,0) node[below]{$\vec{F}_2$} coordinate (F2);
+    \draw[->, thick] (0.5,0.5)++(-115:0.5) -- +(-115:0.8) node[left]{$\vec{F}_3$} coordinate (F3);
+    \draw[->, thick] (0.5,0.5)++(40:0.5) -- +(40:0.5) node[above]{$\vec{F}_4$} coordinate (F4);
+    
+    \pic[draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 7mm]{angle = F3--center--yf};
+    \pic[draw, "$\phi$", angle eccentricity = 1.5, angle radius = 7mm]{angle = F2--center--F4};
+
 \end{tikzpicture}
-\caption{.}
+\caption{Através de um sistema de referência, podemos determinar a aceleração resultante mais facilmente.\label{Fig:CorpoSujeitoForcasNaoEquilibrioRef}}
+\end{marginfigure}
+
+Aplicando a Segunda Lei de Newton para cada um dois eixos, temos
+\begin{description}
+\item[Eixo $x$:] Verificamos que para o eixo $x$,
+\begin{align}
+    F_R^x &= m a_x \\
+    F_2 + F_4^x - F_3^x &= m a_x, \\
+    F_2 + F_4 \cos\phi - F_3\sen\alpha &= m a_x.
+\end{align}
+
+\item[Eixo $y$:] Já para o eixo $y$, temos
+\begin{align}
+    F_R^y &= ma_y \\
+    F_1 + F_4^y - F_3^y &= m a_y \\
+    F_1 + F_4 \sen\phi - F_3\cos\alpha &= m a_y.
+\end{align}
+\end{description}
+
+Para que possamos determinar as componentes da aceleração, a partir desse ponto precisamos de valores numéricos específicos. Supondo que a massa do corpo seja de \np[kg]{2,0}, e que
+\begin{align*}
+    F_1 &= \np[N]{10} & F_3 &= \np[N]{8} \\
+    F_2 &= \np[N]{10} & F_4 &= \np[N]{5} \\
+    \theta &= \np[\tcdegree]{40} & \alpha &= \np[\tcdegree]{25},
+\end{align*}
+%
+obtemos
+\begin{align}
+    m a_x &= (\np[N]{10}) + (\np[N]{5})\cdot(\cos \np[\tcdegree]{40}) - (\np[N]{8})\cdot(\sen \np[\tcdegree]{25}) \\
+    m a_y &= (\np[N]{10}) + (\np[N]{5})\cdot(\sen \np[\tcdegree]{40}) - (\np[N]{8})\cdot(\cos \np[\tcdegree]{25})
+\end{align}
+%
+de onde obtemos
+\begin{align}
+    a_x &= \np[m/s^2]{5,22}\\
+    a_y &= \np[m/s^2]{2,98},
+\end{align}
+%
+ou, em termos dos vetores unitários,
+\begin{equation}
+    \vec{a} = \np[m/s^2]{5,22} \;\versi + \np[m/s^2]{2,98} \;\versj.
+\end{equation}
+%
+Podemos ainda determinar o módulo da aceleração e o ângulo que ela faz com o eixo $x$, obtendo
+\begin{align}
+    a &= \np[m/s^2]{6,01}\\
+    \beta &= \np[\tcdegree]{29,72}.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (0.5,0.5) coordinate (center) circle (0.5);
+    
+    \draw[dashed, ->] (0.5,1) -- +(0,1.5) node[below right]{$y$};
+    \draw[dashed] (0.5,0) -- +(0,-1.5) coordinate (yf);
+    
+    \draw[dashed] (0,0.5) -- +(-1.5,0);
+    \draw[dashed, ->] (1,0.5) -- +(1.5,0) node[below left]{$x$};
+    
+    \draw[->, thick] (0.5,1) -- +(0,1) node[left]{$\vec{F}_1$} coordinate (F1);
+    \draw[->, thick] (1,0.5) -- +(1,0) node[below]{$\vec{F}_2$} coordinate (F2);
+    \draw[->, thick] (0.5,0.5)++(-115:0.5) -- +(-115:0.8) node[left]{$\vec{F}_3$} coordinate (F3);
+    \draw[->, thick] (0.5,0.5)++(40:0.5) -- +(40:0.5) node[above]{$\vec{F}_4$} coordinate (F4);
+    
+    \draw[->] (0.5,0.5) ++(29.72:0.5) -- +(29.72:1.2) node[right]{$\vec{a}$} coordinate (a);
+    
+    \pic [draw, "$\beta$", angle eccentricity = 1.5, angle radius = 8mm] {angle = F2--center--a};
+
+\end{tikzpicture}
+\caption{Aceleração resultante da ação de um conjunto de forças em um corpo.\label{Fig:CorpoSujeitoForcasNaoEquilibrioRefAcel}}
 \end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -478,13 +556,72 @@ Toda situação onde não existe um perfeito equilíbrio das forças que atuam e
 
 \textbf{Um segundo exemplo numérico e com forças genéricas fora do equilíbrio. Pode ser um exemplo com diversas forças, de maneira que não seja possível saber de antemão em qual direção ocorrerá a aceleração. Assim obteremos uma aceleração que tem componentes nos dois eixos.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Sistema fora do equilíbrio de forças, com movimento limitado}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Sistema fora do equilíbrio de forças, com a direção da aceleração conhecida}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em diversas situações, um sistema físico está sujeito a uma série de \emph{vínculos} que limitam o movimento a uma só direção. Dessa forma, se há aceleração, a direção já é pré determinada
+Em diversas situações, um sistema físico está sujeito a uma série de \emph{vínculos} que limitam o movimento a uma só direção. Dessa forma, se há aceleração, sua direção já é pré determinada. Nesses casos, podemos obter uma grande simplificação do problema em questão se optarmos por um sistema de coordenadas em que a direção de um dos eixos é a própria direção da aceleração. Isso garante que os demais eixos possam ser tratados como uma situação de equilíbrio.
 
-\textbf{Enfatizar a escolha do sistema de coordenadas}
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (0,0) coordinate (center) circle (0.5);
+    \draw (-2,0) -- (-0.5,0) (0.5,0) -- (2,0);
+    
+    \draw[->, thick] (45:0.5) -- (45:1.5) node[above]{$\vec{F}_1$} coordinate (F1);
+    \draw[->, thick] (-90:0.5) -- (-90:1.5) node[left]{$\vec{F}_2$};
+    
+    \draw[->] (1.25, -0.3) -- node[below]{$\vec{a}$} +(0.75,0);
+    
+\end{tikzpicture}
+\caption{Uma conta que se move ao longo de um fio é um exemplo de um movimento sujeito a um vínculo que determina a direção da aceleração.\label{Fig:ContaDeslisandoEmFio}}
+\end{marginfigure}
+
+Como exemplo de um sistema submetido a um vínculo, vamos considerar uma conta --~isto é, uma pequena esfera perfurada~-- que pode deslisar ao longo de um fio. Vamos supor que a conta está sujeita a uma força $F\vec{F}_1$ que faz um ângulo $\theta$ com a direção do fio, e a uma força $\vec{F}_2$ exercida pelo próprio fio sobre a conta. Vamos considerar que a aceleração $a$ da conta e sua massa $m$ são conhecidas, além do ângulo $\theta$, e que procuramos os valores de $F_1$ e $F_2$.
+
+Se a conta está sujeita a forças como mostrado na Figura~\ref{Fig:ContaDeslisandoEmFio}, devemos escolher um sistema de coordenadas em que um dos eixos aponta na própria direção do fio, pois esta é a direção da aceleração. Ao decompormos as forças e utilizarmos a Segunda Lei de Newton, obtemos
+\begin{description}
+\item[Eixo $x$:] Para o eixo $x$ temos que $a_x \equiv a$, pois optamos por escolher esse eixo na direção da aceleração, logo,
+\begin{align}
+    F_R^x &= m a_x \\
+    F_1^x &= m a \\
+    F_1 \cos\theta &= m a \\
+    F_1 &= \frac{ma}{\cos\theta}.
+\end{align}
+
+\item[Eixo $y$:] Nesse eixo não existe aceleração, logo $a_y \equiv 0$, portanto,
+\begin{align}
+    F_R^y &= m a_y \\
+    F_1^y - F_2 &= 0 \\
+    F_2 &= F_1 \sen\theta \\
+    F_2 &= ma \frac{\sen\theta}{\cos\theta} \\
+    F_2 &= ma\tan\theta.
+\end{align}
+\end{description}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (0,0) coordinate (center) circle (0.5);
+    \draw (-2,0) -- (-0.5,0);
+    \draw[->] (0.5,0) -- (2,0) coordinate (x) node[above left]{$x$};
+    
+    \draw[dashed, ->] (0,0.5) -- +(0,1.5) node[below left]{$y$};
+    \draw[dashed] (0,-0.5) -- +(0,-1.5);
+    
+    \draw[->, thick] (45:0.5) -- (45:1.5) node[above]{$\vec{F}_1$} coordinate (F1);
+    \draw[->, thick] (-90:0.5) -- (-90:1.5) node[left]{$\vec{F}_2$};
+    
+    \draw[->] (1.25, -0.3) -- node[below]{$\vec{a}$} +(0.75,0);
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 7mm]{angle = x--center--F1};
+\end{tikzpicture}
+\caption{Ao escolhermos a direção de um dos eixos do sistema de referência como sendo aquela da aceleração, reduzimos a complexidade matemática do problema pois teremos uma situação de equilíbrio nos demais eixos.\label{Fig:ContaDeslisandoEmFioRef}}
+\end{marginfigure}
+
+Verificamos, portanto, que a escolha de um sistema de referência com um dos eixos apontando na direção da aceleração nos leva a um sistema de equações cuja solução é mais simples. Note que a ideia de simplificar o tratamento matemático ao escolher a aceleração na direção de um dos eixos coordenados já foi utilizada no Capítulo~\ref{Chap:MovimentoBidimensional}, ao tratarmos o movimento de projéteis.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: ?}
@@ -494,9 +631,9 @@ Em diversas situações, um sistema físico está sujeito a uma série de \emph{
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Terceira Lei de Newton}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A Terceira Lei de Newton foi por ele enunciada como
 \begin{quote}
@@ -656,6 +793,7 @@ Portanto, o valor $g$ a que nos referimos ao estudar a queda livre é dado pela 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{Verificar ordem: direção e sentido, módulo, reação}
+\textbf{Discutir a partir de um ponto de vista experimental, afinal já vimos equilíbrio e também a força peso.}
 
 Se usarmos uma corda para pendurar uma caixa ao teto de uma sala e passarmos a colocar objetos em tal caixa, não temos nenhuma indicação visual de qual é a força exercida pela corda. Poderíamos aferir a massa de cada objeto antes de os colocar na caixa e -- utilizando a segunda lei de Newton -- determinar a tensão exercida.
 
@@ -1110,6 +1248,178 @@ Verificamos, portanto, que a aceleração em um plano inclinado varia conforme a
 
 \textrm{Fazer exemplo numérico}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Múltiplos corpos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Devemos, antes de mais nada, discutir como tratar sistemas de múltiplos corpos através da solução ortodoxa, isto é, com sistemas de equações. Depois falar da simplificação de forças internas (paragraph). Usar como exemplo um sistema com dos blocos acelerados lateralmente. Enfatizar que temos que ter corpos rígidos, se tiver um pêndulo, ou um massa mola dentro de uma caixa, não temos como simplificar o sistema.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Forças internas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Rediscutir o exemplo com dois blocos acelerados lateralmente discutido acima, mas fazendo a discussão de forças internas. Depois deixar esse exemplo abaixo como um exemplo em um paragraph. Enfatizar a expressão $\vec{F}_R^{\rm{ext}} = m_{\rm{total}} \vec{a}$, decompor em eixos tb. Usar $m_t$ para a massa total.}
+
+Quando precisamos determinar a aceleração de um corpo, as forças que devem ser levadas em conta são as \emph{forças externas} -- mais precisamente, a \emph{força resultante externa} --. Essa observação pode ser muito útil em problemas que envolvem diversos corpos: muitas vezes eles podem ser considerados como componentes de um corpo composto, dessa forma as forças através das quais interagem passam a ser forças internas, que não influenciam na aceleração.
+
+Na Figura~\ref{Fig:BlocosForcasExternas}, temos diversas forças internas e externas. Caso estejamos interessados em calcular a aceleração do sistema, podemos fazê-lo determinando as equações para cada bloco em cada eixo. Isso resultará em seis equações que devem ser resolvidas:
+
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	% mesa
+	\draw[lightgray,interface] (0,0) -- (4,0);
+	
+    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (1,0) rectangle (2,1);
+    \draw[pattern = north east lines, pattern color = lightgray, draw = lightgray] (2,0) rectangle +(1.5,1.5);
+    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (2.25,1.5) rectangle +(1,1);
+    
+    % forças externas
+    \draw[fill] (1.5,0.5) circle (1pt);
+    \draw[->, thick] (1.5,0.5) -- +(0,-0.75) node[left]{$\vec{P}_1$};
+    \draw[fill] (2.75, 0.75) circle (1pt);
+    \draw[thick, ->] (2.75,0.75) -- +(0, -1.25) node[left]{$\vec{P}_2$};
+    \draw[fill] (2.75,2) circle (1pt);
+    \draw[thick, ->] (2.75, 2) -- node[right]{$\vec{P}_3$} +(0,-0.5);
+    
+    \draw[thick, ->] (1.5, 1) -- +(0,0.75) node[left]{$\vec{N}_1$};
+    \draw[thick, ->] (2.2, 1.5) -- +(0,1.75) node [left]{$\vec{N}_2$};
+    \draw[thick, ->] (2.45,2.5) -- +(0,0.5) node[right]{$\vec{N}_3$};
+    
+    \draw[thick, ->] (2.45, 1.5) -- +(0,-0.5) node[above right]{$\vec{N}'_3$};
+    
+    \draw[thick, ->] (3.25, 1.6) -- +(0.5,0) node[above]{$\vec{f}_{at}$};
+    \draw[thick, ->] (2,1.4) -- node[above]{$\vec{f}'_{at}$} +(-0.5,0);
+    
+    \draw[thick, ->] (2,0.85) node[above left]{$\vec{F}_{12}$} -- +(0.65,0);
+    \draw[thick, ->] (2,0.85) node[above right]{$\vec{F}'_{12}$} -- +(-0.65,0);
+    
+    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
+    
+    \draw[->, dashed] (0,0.5) -- (4,0.5) node[above]{$x$};
+    \draw[->, dashed] (2,-1) -- (2,3) node[below left]{$y$};
+\end{tikzpicture}
+\caption{Sistema composto por três blocos que interagem sujeitos às forças, peso, normal, de atrito, e a uma força $\vec{F}$ que empurra os blocos lateralmente. Desconsideramos o atrito na superfície da mesa e omitimos as reações das normais $\vec{N}_1$ e $\vec{N}_2$ exercidas pelos blocos sobre a mesa.\label{Fig:BlocosForcasExternas}}
+\end{marginfigure}
+\begin{description}
+    \item[Bloco 1:] Assumindo que o eixo $x$ é horizontal (paralelo à superfície onde se apoiam os blocos) e o eixo $y$ vertical:
+        \begin{description}
+            \item[Eixo $x$:]
+                \begin{align}
+                    F_R^x &= m_1 a_x \\
+                    F - F'_{12} &= m_1 a_x.
+                \end{align}
+            \item[Eixo $y$:]
+                \begin{align}
+                    F_R^y &= m_1 a_y \\
+                    N_1 - P_1 &= 0.
+                \end{align}
+        \end{description}
+    \item[Bloco 2:] Utilizando a mesma convenção para o eixos, temos para o bloco 2:
+        \begin{description}
+            \item[Eixo $x$:]
+                \begin{align}
+                    F_R^x = m_2 a_x \\
+                    F_{12} - f_{at} = m_2 a_x.
+                \end{align}
+            \item[Eixo $y$:]
+                \begin{align}
+                    F_R^y &= m_2 a_y \\
+                    N_2 - N'_3 - P_2 &= 0.
+                \end{align}
+        \end{description}
+    \item[Bloco 3:] Finalmente, para o bloco 3 temos -- usando mais uma vez a mesma convenção para os eixos --:
+        \begin{description}
+            \item[Eixo $x$:]
+                \begin{align}
+                    F_R^x &= m_3 a_x \\
+                    f_{at} &= m_3 a_x. \label{Eq:DiscForcasInternasBl2X}
+                \end{align}
+            \item[Eixo $y$:]
+                \begin{align}
+                    F_R^y &= m_3 a_y \\
+                    N_3 - P_3 &= 0.
+                \end{align}
+        \end{description}
+\end{description}
+
+\noindent{}Através das equações para o eixo vertical, podemos concluir que
+\begin{align}
+    N_t &= N_1 + N_2 \\
+    &= P_1 + P_2 + P_3\\
+    &= m_1g + m_2g + m_3g\\
+    &= (m_1 + m_2 + m_3)g.
+\end{align}
+%
+Se somarmos as equações para o eixo horizontal, temos
+\begin{align}
+    F - F'_{12} + f_{at} + F_{12} - f_{at} &= m_1 a_x + m_2 a_x + m_3 a_x \\
+    F &= (m_1 + m_2 + m_3) a_x,
+\end{align}
+%
+o que resulta em:
+\begin{equation}
+    a_x = \frac{F}{m_1 + m_2 + m_3}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Tratando os blocos de maneira conjunta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos simplificar o tratamento do sistema se considerarmos que os blocos compõem um bloco maior. Nesse caso, as forças internas não serão relevantes para a determinação da aceleração.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	% mesa
+	\draw[gray,interface] (0,0) -- (4,0);
+	   
+    \draw[pattern = north west lines, pattern color = gray, draw = gray] (1,0) -- (3.5,0) -- (3.5,1.5) -- (3.25,1.5) -- (3.25,2.5) -- (2.25,2.5) -- (2.25,1.5) -- (2,1.5) -- (2,1) -- (1,1) -- cycle;
+       
+    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
+    
+    \draw[fill] (2.15,0.85) circle (1pt);
+    \draw[thick, ->] (2.15,0.85) -- +(0,-2.5) node[above right]{$\vec{P}_t$};
+    \draw[thick, ->] (2.15, 1.5) -- node[left]{$\vec{N}_t$} +(0,2.5);
+\end{tikzpicture}
+\caption{O mesmo sistema da Figura~\ref{Fig:BlocosForcasExternas}, porém agora consideramos o \emph{bloco composto} pelos três blocos. Ao fazermos isso, as forças internas deixam de ser relevantes e só precisamos nos preocupar com as forças externas.\label{Fig:BlocosForcasExternasComposto}}
+\end{marginfigure}
+
+Verificamos, primeiramente, que o sistema deve estar em equilíbrio no eixo $y$ vertical: 
+\begin{align}
+    F_R^y &= m_t a_y \\
+    N_t - P_t &= 0 \\
+    N_r &= P_t \\
+    &= (m_1 + m_2 + m_3) g.
+\end{align}
+
+Já no eixo $x$ paralelo à superfície inferior, resta que
+\begin{equation}
+    F_R^x = m_t a_x,
+ \end{equation}
+ %
+ o que resulta em
+\begin{align}
+    a_x &= \frac{F}{m_t} \\
+    &= \frac{F}{m_1 + m_2 + m_3},
+\end{align}
+%
+onde usamos o fato de que a massa total $m_t$ do bloco composto é dada pela soma das massas dos três blocos.
+
+A ideia de considerar um bloco composto é bastante útil para calcular a aceleração do sistema. Já para calcular forças internas --~se, estivéssemos interessados em calcular $f_{at}$, $N_2$, ou $F_{12}$, no presente problema~--, devemos analisar cada bloco em separado, como fizemos primeiramente. Muitas vezes, no entanto, se já tivermos determinado a aceleração, esse trabalho se torna muito mais simples.\footnote{Para calcular $f_{at}$, por exemplo, basta substituir a aceleração na Equação~\eqref{Eq:DiscForcasInternasBl2X}.}
+
 %%%%%%%%%%%%%%%%%%%
 \subsection{Tensão} 
 %%%%%%%%%%%%%%%%%%%
@@ -1200,6 +1510,8 @@ Para um bloco suspenso por uma corda (Figura~\ref{Fig:TensaoBlocoAcelVertical}),
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Tensão em uma corda que liga dois blocos que aceleram lateralmente}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Fazer a solução canônica, depois fazer uma simplificação considerando a tensão como uma força interna.}
 
 Outra situação interessante é a mostrada na Figura~\ref{Fig:BlocosAcelLateral}: uma força $\vec{F}$ acelera dois blocos ligados por uma corda de massa desprezível. Como estamos considerando que a massa da corda é desprezível, temos que as forças efetuadas pela corda em cada caixa têm o mesmo módulo. Nessas condições, quais são os valores da aceleração e da tensão na corda, em função das massas dos blocos e do módulo da força $\vec{F}$?
 
@@ -1545,1111 +1857,8 @@ Substituindo o resultado acima na Equação~\eqref{Eq:BlocoSustentadoPorCordasT1
 
 \textrm{Just do it.}
 
-%%%%%%%%%%%%%%%%%%%
-\subsection{Atrito}
-%%%%%%%%%%%%%%%%%%%
-
-\textbf{Verificar ordem: direção e sentido, módulo, reação}
-
-Quando dois corpos interagem através de contato, além da força de interação normal à superfície -- isto é, a força normal --, temos outra força de interação. Essa força ocorre paralelamente às superfícies de contato e é sempre no sentido oposto ao deslizamento ou à \emph{tendência} de deslizamento entre elas, sendo denominada como \emph{força de atrito}.
-
-A origem da força de atrito, assim como para a força normal, é a interação eletromagnética entre os átomos que compõe as superfícies em contato. Podemos determinar a direção da força de atrito fazendo os seguintes raciocínios:
-\begin{itemize}
-    \item Se colocamos um bloco em um plano inclinado, ele desliza se não houver atrito. Se houver, no entanto, ele permanece em equilíbrio.
-    \item Se colocarmos um bloco sobre uma esteira parada e depois fizermos com que ela se mova, o bloco acelerará, sempre se movendo junto\footnote{Para que dois corpos se movam juntos, sem perder contato, é necessário que suas posições, velocidades, e acelerações sejam sempre as mesmas.} com a esteira.
-    \item Se lançarmos um bloco sobre uma superfície plana, eventualmente ele para.
-\end{itemize}
-%
-Em todas essas situações, temos a atuação de forças de atrito. Nelas vemos que o atrito é sempre contra o deslocamento relativo entre as superfícies, ou à tendência de deslocamento relativo. Isto é, a força de atrito é contra o \emph{deslizamento} ou a \emph{tendência de deslizamento}.
-
-%Na Figura ??? temos um gráfico que mostra o valor da força de atrito em função da força aplicada a um bloco. Verificamos que $F = f_{at}$ até uma valor máximo, à partir do qual ela diminui e atinge um valor constante. Esse valor constante é o valor da força de atrito no regime cinético, que discutiremos adiante. Antes vamos discutir o valor máximo da força.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito estático} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para um valor qualquer da força aplicada (Veja a Figura~\ref{Fig:BlocoEmEquilbrioDevidoAoAtrito}). De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a Segunda Lei de Newton:
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            F - f_{at}^e &= 0 \\
-            F &= f_{at}^e.
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P &= 0 \\
-            N &= P.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    \draw[interface, gray] (-2,0) -- (2,0);
-    
-    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
-    \draw[fill] (0,0.5) circle (1pt);
-    
-    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
-    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
-    
-    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
-    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
-    \node (A) at (1.2,1){$\vec{a} = 0$};
-    
-    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
-    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
-
-\end{tikzpicture}
-\caption{Numa situação com atrito, podemos ter um bloco sujeito a uma força lateral sem que haja aceleração. A força que garante o equilíbrio é a força de atrito e seu valor será igual ao da força $\vec{F}$, seja ele qual for. Sabemos, no entanto, que existe um valor máximo para a força de atrito, a partir do qual ela não será mais capaz de equilibrar a força lateral e o movimento iniciará.\label{Fig:BlocoEmEquilbrioDevidoAoAtrito}}
-\end{marginfigure}
-
-\noindent{}Nas equações acima, utilizamos o fato de que as acelerações em ambos os eixos são nulas, já que o corpo está em equilíbrio.
-
-Note que o fato de que temos aceleração nula implica que a força de atrito, além de ter a mesma intensidade que a força aplicada, tem a mesma direção, porém sentido contrário. Em situações mais complexas podemos ter uma relação menos direta do que essa acima, porém a análise necessária para obter seu valor é a mesma.
-
-A força de atrito não surge simplesmente em oposição a uma força aplicada ao sistema. Uma outra possibilidade é a termos uma superfície que acelera --~uma esteira--, sobre a qual se apoia um bloco. Como o atrito é contrario ao deslocamento relativo entre as superfícies, quando a esteira acelera, surje uma força que tende a acelerar o bloco. Novamente, para determinar o valor da força de atrito, é necessário aplicar a Segunda Lei de Newton:
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            f_{at}^e &= m a_x.
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P &= 0.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    \draw[interface, gray] (-2,0) -- (2,0);
-    
-    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
-    \draw[fill] (0,0.5) circle (1pt);
-    
-    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
-    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
-    
-    \draw[->, thick] (0.5,0) -- node[below]{$\vec{f}_{at}$} +(1,0);
-    
-    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
-    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
-    
-    \draw[->] (0.25, -1) -- node[below]{$\vec{a}$} +(1,0);
-
-\end{tikzpicture}
-\caption{Bloco apoiado sobre uma superfície que se desloca para a direita com aceleração $\vec{a}$.}
-\end{marginfigure}
-%
-Nas equações acima utilizamos o fato de que a aceleração no eixo vertical é nula. Vemos, que nesse caso a força de atrito está relacionada à aceleração do sistema.
-
-Concluímos então que a força de atrito será \emph{nula}, caso não haja tendência ao deslizamento das superfícies, e alterará seu valor de maneira a evitar que um deslizamento ocorra. No entanto, sabemos que --~a partir de algum valor limite~-- o sistema sai do equilíbrio: se a força $\vec{F}$ ou a aceleração $\vec{a}$ nos exemplos acima forem intensas o suficiente, o deslizamento das superfícies ocorrerá. Logo, existe um \emph{valor máximo} para a força de atrito estático.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Bloco sendo acelerado por esteira. Calcular o módulo da força, dada uma aceleração.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito estático máxima} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-No exemplo do bloco submetido a uma força $\vec{F}$ na seção anterior, se tomássemos um bloco mais pesado, porém feito do mesmo material -- ou mesmo colocarmos um segundo bloco sobre o primeiro, ou o empurrarmos para baixo de alguma forma --, verificaremos que a força necessária para que o bloco passe a se mover será maior do que quando temos só o bloco original. Isso nos leva à conclusão de que a \emph{força de atrito estático máxima} aumentou.
-
-Em um primeiro momento poderíamos relacionar a intensidade da força de atrito ao valor do peso do bloco, porém isso não contempla a possibilidade de o empurrarmos para baixo, por exemplo\footnote{A interação entre duas superfícies dá origem tanto à força normal, quanto ao atrito. A dependência do atrito deve ser dependente de características ou dos dois corpos que interagem, ou da interface de interação. O peso é resultado da interação dos corpos com a Terra, não faria sentido que a força de atrito entre as duas superfícies tivesse relação com um corpo externo ao sistema.}. No entanto, através das Leis de Newton, vemos que existe um aumento da normal para todos os casos onde ``forçamos'' o bloco contra a superfície. Analizando a Figura~\ref{Fig:BlocoEmpurradoParaBaixo}:
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    \draw[interface, gray] (-2,0) -- (2,0);
-    
-    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
-    \draw[fill] (0,0.5) circle (1pt);
-    
-    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
-    \draw[->, thick] (0,1) -- +(0,1.5) node[left]{$\vec{N}$};
-    
-    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
-    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
-    \node (A) at (1.2,1){$\vec{a} = 0$};
-    
-    \draw[->, thick] (-0.3, 1.5) -- node[left]{$\vec{F}_a$} (-0.3,1);
-    
-    \draw[->, dashed] (-2, 0.5) -- (2,0.5) node[above]{$x$};
-    \draw[->, dashed] (0,-1) -- (0, 3) node[below right]{$y$};
-
-\end{tikzpicture}
-\caption{Bloco sujeito a duas forças, uma o empurrando contra a superfície e outra tendendo a fazer com que ele deslize.\label{Fig:BlocoEmpurradoParaBaixo}}
-\end{marginfigure}
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            F - f_{at}^e|_{\textrm{Max}} &= 0
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P - F_a &= ma \\
-            N &= P + F_a
-        \end{align}
-\end{description}
-
-\noindent{}Nas equações acima, estamos considerando que a aceleração no eixo vertical $y$ é nula, pois não há movimento em tal eixo. Logo, temos que
-\begin{equation}
-    N = P + F_a.
-\end{equation}
-%
-No eixo horizontal $x$, \emph{também consideramos que a aceleração é nula}. Fazemos isso pois estamos considerando a hipótese de que estamos exatamente no valor máximo de força de atrito, não o excedendo. Nesse caso, verificamos que ainda não temos movimento e então
-\begin{equation}
-    F = f_{at}^e|_{\textrm{Max}}.
-\end{equation}
-
-% Será que isso é verdade? Nunca fiz isso!
-Finalmente, se fizermos um experimento onde alteramos o módulo da força $\vec{F}_a$ e registramos o valor do módulo de $\vec{F}$ para o qual o movimento inicia, vemos que --~utilizando as duas equações acima~--, podemos chegar na seguinte proporcionalidade:
-\begin{equation}
-    f_{at}^e|_{\textrm{Max}} \propto N.
-\end{equation}
-%
-Podemos transformar a proporcionalidade acima em uma equação se adotarmos uma constante, então escrevemos
-\begin{equation}
-  f_{at}^e|_{\textrm{Max}} = \mu_e N. \mathnote{Força de atrito estático máxima}
-\end{equation}
-%
-A constante de proporcionalidade $\mu_e$, denominada \emph{coeficiente de atrito estático} varia para cada par de superfícies que interagem e deve ser calculada experimentalmente.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Determinar o valor de aceleração máxima que podemos ter no exemplo da esteira.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força de atrito cinético} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Após o bloco passar a se mover, a força de atrito entra em um novo regime, denominado \emph{atrito cinético}. Experimentalmente, podemos verificar que o atrito cinético também depende de nomal: se tomarmos um aparato como o da Figura~\ref{Fig:AparatoAtritoCinetico}, verificamos que quanto maior for o valor da força $\vec{F}_a$ aplicada, maior será a distensão da mola\footnote{Veremos adiante a relação entre a força exercida por uma mola e a sua distensão.}, demonstrando o consequente aumento de $\vec{F}_e$ necessário para manter o sistema em equilíbrio. Aplicando a Segunda Lei de Newton para ambos os eixos:
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            f_{at}^c - F_e &= 0 \\
-            f_{at}^c &= F_e.
-        \end{align}
-    \item{Eixo $y$:}
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - F_a - P &= 0 \\
-            N &= F_a + P.
-        \end{align}
-\end{description}
-\begin{marginfigure}[-5cm]
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-   
-    \draw[interface, gray] (1,-1.5) -- (1,-2.2);
-    \draw[interface, gray] (0.7,-2.5) -- (5.5, -2.5);
-    
-    \draw[gray] (1,-2) -- (1.2,-2);
-    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate,gray] (1.2,-2) -- (3.3,-2);
-    \draw[gray] (3.3, -2) -- (3.5,-2);
-    
-    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
-   % \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
-    
-    \draw[fill] (4,-2) circle (1pt);
-    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
-    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1.5);
-    \draw[->, thick] (3.5, -2) -- node[above]{$\vec{F}_e$} +(-0.5,0);
-    \draw[->, thick] (4.5,-2.5) -- node[above]{$\vec{f}_{at}$} +(1,0);
-    \draw[<-, thick] (3.7,-1.5) -- node[left]{$\vec{F}_a$} +(0,0.5);
-
-    \draw[->] (2.4, -2.8) +(-0.5,0) -- node[below]{$\vec{v}$} +(0.5,0);
-    
-    \draw[->, dashed] (4,-2) +(-1.5,0) -- +(1.5,0) node[above]{$x$};
-    \draw[->, dashed] (4,-2) +(0,-1) -- +(0,2) node[right]{$y$};
-        
-\end{tikzpicture}
-\caption{Aparato para a determinação do coeficiente de atrito cinético: dispomos um bloco preso a uma mola e apoiado em um disco que gira, de forma que o bloco desliza sobre ele. Aplicando uma força $\vec{F}_a$ conhecida sobre o bloco e medindo a distensão da mola, podemos determinar a constante de proporcionalidade entre a força de atrito e a normal.\label{Fig:AparatoAtritoCinetico}}
-\end{marginfigure}
-
-Se variarmos a força $\vec{F}_a$ e verificarmos a distensão correspondente da mola, verificamos, com o auxílio das equações obtidas acima, que existe uma proporcionalidade entre a força de atrito e a força normal:
-\begin{equation}
-    f_{at}^c \propto N.
-\end{equation}
-%
-Novamente, podemos transformar a proporcionalidade em uma equação com o auxílio de uma constante, obtendo
-\begin{equation}
-    f_{at}^c = \mu_c N,
-\end{equation}
-%
-onde $\mu_c$ é conhecido como \emph{coeficiente de atrito cinético}. Assim como no caso do coeficiente de atrito estático, tal constante é uma propriedade do par de superfícies que interagem e deve ser determinado experimentalmente. Vale ainda notar que $\mu_c$ deve ser menor ou igual a $\mu_e$: se a força de atrito cinético fosse maior que a força de atrito estático máximo, tão logo um objeto passasse a se mover, ele encontraria uma força de resistência maior, que faria com que ele voltasse a ficar parado, ou seja, ele não poderia iniciar o movimento.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Calcular distância até parar, dada uma situação onde haja uma força de atrito (pode ser em um plano inclinado, pra ficar um pouco mais rico)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Determinação do coeficiente de atrito estático}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{marginfigure}[5cm]
-\centering
-\begin{tikzpicture}[>=Stealth, rotate=-35,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-      
-    \draw[interface] (0,0) -- (4,0);
-    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
-        
-    \draw[fill] (2,0.5) circle (1pt);
-    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
-    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
-    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
-    
-    \node at (3,1) {$\vec{a} = 0$};
-    
-    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
-    
-    \coordinate (B) at (4,0);
-    \coordinate (C) at (0,0);
-    
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
-
-\end{tikzpicture}
-\caption{Bloco em equilíbrio devido à força de atrito sobre um plano inclinado.}
-\end{marginfigure}
-
-Uma maneira simples de determinar o coeficiente de atrito estático entre dois tipos de superfícies consiste em utilizar um plano cuja inclinação pode ser alterada, sobre o qual apoiamos um bloco. Quando o plano for inclinado até que o bloco esteja na iminência de se mover, podemos analisar o sistema ainda como uma situação de equilíbrio.
-
-Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado (Veja a Figura~\ref{Fig:DetCoefAtEstatico}). Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente. Aplicando a Segunda Lei de Newton aos eixos, temos:
-\begin{description}
-    \item[Eixo $x$:] Neste eixo temos, sabendo que $a_x = 0$,
-        \begin{align}
-            F_R^x &= m a_x \\
-            P_x - f_{at} &= 0 \\
-            P \sen\theta - \mu_e N &= 0 \\
-            mg \sen\theta - \mu_e N &= 0 \\
-            mg \sen\theta &= \mu_e N \label{coef_atrito_deduc}
-        \end{align}
-    \item[Eixo $y$:] Novamente, a aceleração é nula,
-        \begin{align}
-            F_R^y &= m a_y \\
-            N - P_y &= 0 \\
-            N &= P\cos\theta \\
-            N &= mg \cos\theta
-        \end{align}
-\end{description}
-\begin{marginfigure}[-7cm]
-\centering
-\begin{tikzpicture}[>=Stealth, rotate=-35,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-      
-    \draw[interface, gray] (0,0) -- (4,0);
-    \draw[pattern= dots, draw = gray, pattern color = gray] (1.5,0) rectangle (2.5,1);
-        
-    \draw[fill, gray] (2,0.5) coordinate (center) circle (1pt);
-    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$} coordinate (P);
-    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
-    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
-    
-    \node at (3,1) {$\vec{a} = 0$};
-    
-    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
-    
-    \coordinate (B) at (4,0);
-    \coordinate (C) at (0,0);
-    
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
-    
-    \draw[dashed, ->] (0.5,0.5) -- (3.5,0.5) node[below left]{$x$};
-    \draw[dashed, ->] (2,-1) coordinate (X) -- (2,2.5) node[left]{$y$};
-    
-\end{tikzpicture}
-\caption{Sistema de referência para a análise do sistema.\label{Fig:DetCoefAtEstatico}}
-\end{marginfigure}
-
-\noindent{}Utilizamos acima o fato de que o ângulo entre o peso e o eixo $y$ é igual ao ângulo $\theta$ entre a superfície do plano inclinado e a horizontal.
-
-Substituindo a expressão acima para a força normal na Equação~\eqref{coef_atrito_deduc}, obtemos
-\begin{equation}
-    \mu_e mg \cos\theta = mg \sen\theta,
-\end{equation}
-%
-o que resulta em
-\begin{equation}
-    \mu_e = \tan\theta.
-\end{equation}
-%
-Experimentalmente, basta elevar lentamente a inclinação do plano até que o bloco comece a deslisar. Registrando o ângulo para o qual o movimento inicia, temos um valor limite para o ângulo. Repetindo o procedimento algumas vezes, podemos determinar com alguma precisão qual é o ângulo para o qual temos iminência de movimento.
-
-%%%%%%%%%%%%%%%%%%%%
-\subsection{Arrasto}
-%%%%%%%%%%%%%%%%%%%%
-
-Sabemos que um para-quedista é atraído pela força gravitacional da Terra e, portanto, deve estar submetido a uma aceleração na mesma direção dessa força. Se considerarmos somente esta força, teremos um movimento com aceleração constante, levando a um aumento linear da velocidade com o tempo. No entanto, não é o que se observa na realidade: a velocidade aumenta até certo ponto e se torna constante. Quando o para-quedas abre, a velocidade diminui progressivamente até chegar a outro valor constante.
-
-Para explicarmos essa situação, precisamos levar em conta a \emph{força de arrasto}. Essa força é notável para um ciclista que se move em grande velocidade, ou para um passageiro de um automóvel que coloca a mão para fora da janela em velocidades elevadas. Sempre que um objeto se move através de um meio fluido, ele estará sujeito a uma força no sentido contrário ao do movimento relativo entre o objeto e o meio. A intensidade dessa força aumenta com a velocidade, o que -- como veremos adiante -- explica a existência de uma velocidade máxima. Além dessa dependência na velocidade, temos uma dependência na densidade do meio (o arrasto é maior na água que no ar, por exemplo) e na área de seção reta do objeto que se desloca no meio fluido. Essa área é a ``área frontal'' do objeto, isto é, a área máxima que ele tem quando cortado por um plano perpendicular à direção do movimento. Tal dependência explica o funcionamento do para-quedas, pois a área aumenta significativamente quando ele é aberto. Portanto, podemos escrever
-\begin{equation}\label{Eq:ExpPadraoArrasto}
-  F_A = \frac{1}{2}C_D \rho A v^2. \mathnote{Força de arrasto}
-\end{equation}
-%
- A força de arrasto é uma força muito complexa e essa expressão tem interpretações diferentes de acordo com a velocidade. O valor de $C_D$ pode ser considerado constante somente no caso em que consideramos a força de arrasto que atua em um objeto com formas ``angulosas'', como um cilindro cuja base faz um ângulo de \degree{90} com a lateral, e quando temos velocidade suficiente para que -- após passar pelo objeto -- o escoamento do fluido seja turbulento. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\paragraph{Arrasto de Stokes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A força de arrasto é uma força que não tem uma forma bem definida. Uma determinação precisa dessa força exige a solução de equações complexas de mecânica dos fluidos. A expressão dada na seção anterior é uma aproximação que é válida para alguns regimes de velocidade e de escoamento do fluido.
-
-Se temos velocidades pequenas e objetos com formas mais suaves,  como uma esfera, a ``constante'' $C_D$ -- que é na verdade uma função da velocidade -- poderá assumir uma dependência com o inverso da velocidade, o que se reflete em uma dependência linear na velocidade:
-\begin{equation}
-  F_A = 6 \pi R \eta v, \mathnote{Arrasto de Stokes}
-\end{equation}
-%
-onde $R$ é o raio da esfera e $\eta$ é a viscosidade dinâmica do fluido. Essa equação assume que o escoamento do fluido não sofre turbulência após passar pelo objeto, e que a superfície da esfera seja lisa.
-
-Se a velocidade de escoamento for muito alta, podemos ter uma dependência linear de $C_D$ com a velocidade, o que se reflete em uma dependência cúbica da força de arrasto na velocidade. Apesar da complexidade da quantificação da força, temos meios de entender qualitativamente alguns problemas.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Velocidade terminal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{marginfigure}[-3cm]
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[->, dashed] (0,1.5) -- (0,2.5) node[below left]{$y$};
-    \draw[dashed] (0,-1.5) -- (0,-2);
-        
-    \draw[pattern = north west lines] (0,0) circle (0.5);
-    
-    \draw[->] (0,0.5) -- +(0,1) node[below right]{$\vec{F}_a$};
-    \draw[->] (0,-0.5) -- +(0,-1) node[above right]{$\vec{P}$};
-    
-\end{tikzpicture}
-\caption{Na condição de velocidade terminal, temos que a força de arrasto é igual ao peso. Consequentemente, temos equilíbrio, isto é, a aceleração é zero. Dessa forma, temos velocidade constante.}
-\end{marginfigure}
-
-Se um objeto é solto a partir do repouso, caindo sob efeito da força peso e da força de arrasto, podemos escrever -- utilizando a segunda lei de Newton --
-\begin{equation}
-  P - F_A = ma.
-\end{equation}
-%
-Isolando a aceleração, obtemos
-\begin{equation}
-  a = \frac{mg - F_A}{m}.
-\end{equation}
-%
-Como vimos acima, a força de arrasto é sempre proporcional de alguma forma à velocidade. No início do movimento, $v = 0$ e temos nesse instante $F_A = 0$, logo
-\begin{equation}
-  a = g.
-\end{equation}
-%
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
- extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
-    % Draw axes: acho que o |- é pra desenhar um "canto", um L
-    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
-        |- (4.3,0) node (xaxis) [below left] {$t$};
-    % Desenhar função:
-    % Solução para F_a = -bv:
-    % m dv/dt = mg - b v
-    % m dv/dt / (mg -bv) = 1
-    % m\int [dv/dt / (mg - bv)] dt = \Delta t ;
-    %   y(t) = mg - b v(t) 
-    %   b v(t) = mg - y(t)
-    %   v(t) = mg/b - y(t)/b
-    %   dv/dt = -(1/b)dy/dt
-    % -m/b \int (dy/dt / y) dt = \Delta t
-    % -m/b ln y |_y_0^y = \Delta t
-    % ln y |_y0^y = -b/m \Delta t
-    % y/y_0 = exp(-b/m \Delta t)
-    % y = y_0 exp(-b/m \Delta t)
-    % mg - b v(t) = (mg - b v_0) exp(-b/m \Delta t)
-    % mg - (mg - b v_0)exp (-b/m \Delta t) = b v(t)
-    % v(t) = mg/b - (mg/b - v_0) exp (-b/m \Delta t)
-    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
-    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
-        plot(\x,{2 * (1 - exp(-2*\x))});
-        
-    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
-    
-\end{tikzpicture}
-\caption{Velocidade de um objeto solto a partir do repouso em função do tempo em uma situação onde a força de arrasto não pode ser desprezada. Note que inicialmente a velocidade aumenta linearmente, pois para velocidades baixas temos (aproximadamente) um movimento com aceleração constante $g$. Após um longo tempo, no entanto, atinge-se uma velocidade terminal $v_t$.}
-\end{marginfigure}
-%
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
- extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
-    % Draw axes: acho que o |- é pra desenhar um "canto", um L
-    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
-        |- (4.3,0) node (xaxis) [below left] {$t$};
-
-    \draw[smooth,name path=plota,samples=1000,domain=0:1.5]
-        plot(\x,{2 * (1 - exp(-4*\x))});
-       
-    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
-    \draw[smooth,name path=plota,samples=1000,domain=1.5:3.5]
-        plot(\x,{1 + (2 - 1) * exp(-8*(\x - 1.5))});
-        
-    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
-    \draw[dashed] (0,1) node[left]{$v_t^p$} -- (3.5,1);
-    
-\end{tikzpicture}
-\caption{Em um salto de para-quedas, temos uma velocidade que aumenta até uma certa velocidade terminal $v_t$. Após a abertura do para quedas, a velocidade diminui até uma nova velocidade terminal $v_t^p$, menor do que a anterior.}
-\end{marginfigure}
-%
-A partir do momento que a velocidade não é mais nula, temos uma força de arrasto que equilibra parcialmente o peso, o que diminuirá a força resultante e, consequentemente, diminuirá a aceleração. Mesmo com a diminuição da aceleração, o objeto continua ganhando velocidade, o que leva a um aumento na força de arrasto. Esse processo continua até que a força de arrasto cresça o suficiente para equilibrar o peso. Nessa situação, não existe mais aceleração, portanto atingimos um valor de velocidade máxima, que denominamos como \emph{velocidade terminal}. Podemos obter tal valor de velocidade através de
-\begin{equation}
-  a = \frac{mg - F_A}{m} = 0,
-\end{equation}
-%
-de onde podemos escrever
-\begin{equation}
-  F_A = mg,
-\end{equation}
-%
-e -- utilizando a expressão \eqref{Eq:ExpPadraoArrasto} -- podemos isolar $v$ obtendo
-\begin{equation}
-  v = \sqrt{\frac{2mg}{\rho A C_D}}.
-\end{equation}
-%
-Mesmo que para o caso do arrasto de Stokes tenhamos uma expressão diferente, a análise qualitativa que fizemos antes de obter o resultado acima continua sendo válida. Isto significa que para qualquer movimento onde exista uma força de arrasto, teremos uma velocidade terminal.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Forças no movimento circular}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \draw[pattern = north west lines] (0,0) circle (1);
-    
-    \draw[dashed] (0,0) circle (2);
-    
-    \draw[fill] (0,2) circle (2pt);
-    
-    \draw[->, thick] (0,2) -- +(0,-0.5) node[right]{$\vec{P}$};
-\end{tikzpicture}
-\caption{Um movimento curvilíneo é sempre uma situação em que não há equilíbrio de forças, pois é sempre necessária uma aceleração perpendicular à direção da velocidade instantânea para que haja mudança na direção do deslocamento. No caso de satélite em um movimento orbital circular, por exemplo, a força peso causa uma aceleração centrípeta.}
-\end{marginfigure}
-
-Analisando um movimento unidimensional, temos que um objeto que se move em linha reta com certa velocidade precisa sofrer a atuação de uma força resultante para sofrer uma mudança no módulo de sua velocidade. Para um corpo que realiza um movimento circular, analogamente, se sua velocidade sofre uma mudança de direção -- mantendo constante seu módulo $\vec{v}$ --, o corpo também deve estar sujeito a atuação de uma força. No primeiro caso, a direção da força é a mesma do movimento (caso contrário o corpo sofreria uma alteração também da direção de seu movimento). No segundo caso, a força precisa atuar perpendicularmente à direção da velocidade (caso contrário sofreria uma alteração no módulo da velocidade). Da mesma forma que diferenciamos o papel exercido pelas acelerações tangencial e centrípeta, podemos diferenciar o papel entre uma força que aponta tangencialmente à trajetória e uma que aponta para o centro da trajetória circular: a primeira causa aceleração tangencial, alterando então o módulo da velocidade, já a segunda causa aceleração centrípeta, alterando então a direção do movimento\footnote{Podemos ter o resultado combinado dessas duas alterações (módulo e direção) quando exercemos uma força que faz um ângulo diferente de \np[\tcdegree]{0} ou \np[\tcdegree]{90} com a direção da velocidade.}. Denominamos a componente da força resultante que aponta em direção ao centro da trajetória como \emph{força centrípeta}. De acordo com Newton:
-\begin{quote}
-    Uma força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma maneira, em direção a um ponto como um centro.
-\end{quote}
-
-Podemos utilizar a segunda lei de Newton e a expressão para a aceleração centrípeta
-\begin{align}
-  F &= ma \\
-  a_c &= \frac{v^2}{R}
-\end{align}
-%
-para relacionar a força exercida para manter um objeto em uma trajetória circular aos valores de massa, velocidade e raio da trajetória:
-\begin{equation}
-  F_c = m \frac{v^2}{R}. \mathnote{Força centrípeta.}
-\end{equation}
-%
-Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$:
-\begin{itemize}
-    \item Se temos um corpo que gira preso a um fio, a força é uma tensão;
-    \item Se temos um satélite em órbita em torno da Terra, temos a força gravitacional;
-    \item Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito.
-\end{itemize}
-%
-Note que a força centrípeta não é uma nova força.
-
-Em algumas situações, temos mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular: 
-\begin{itemize}
-    \item Em uma estrada com uma curva inclinada, temos uma \emph{componente} da normal e uma \emph{componente} da força de atrito. A soma dessas duas componentes atua como força centrípeta.
-    \item No caso de um corpo que executa um movimento circular vertical, como na Figura~\ref{Fig:MovimentoCircularVerticalCorpoFio.}, a tensão sempre aponta para o centro da trajetória, mas o peso tem uma componente que aponta para o centro que muda de acordo com a posição. A soma da tensão e do valor instantâneo dessa componente atua como força centrípeta.
-\end{itemize}
-%
-De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}.
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-  
-    \draw[densely dotted] (0,0) circle (1.75);
-    
-    \draw[<-] ([shift={(0,0)}]60:2) arc[radius=2, start angle=60, end angle= 30] node[midway, above right]{$v$};
-    % Topo
-    \draw[pattern = north west lines] (0,1.75) circle (0.25);
-    \draw[fill] (0,1.75) circle (1pt);
-    \draw[->, thick] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw (0,0) -- (0,1.25);
-    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{T}$};
-    \draw[dotted, ->] (0,1.75)++(0,0.5) -- +(0, -2) node[above right]{$x$};
-    
-    % Fundo
-    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
-    \draw[fill] (0,-1.75) circle (1pt);
-    \draw[->, thick] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw (0,0) -- (0,-0.5);
-    \draw[->, thick] (0,-1.5) -- +(0,1) node[below right]{$\vec{T}$};
-    \draw[dotted, ->] (0,-1.75)++(0,-0.5) -- +(0, 2) node[below left]{$x$};
-    
-    % Direita
-    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
-    \draw[fill] (1.75,0) circle (1pt);
-    \draw[->, thick] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw (0,0) -- (1,0);
-    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above right]{$\vec{T}$};
-    \draw[dotted, ->] (1.75,0)++(0.5,0) -- +(-2,0) node[below right]{$x$};
-    
-    % Esquerda
-    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
-    \draw[fill] (-1.75,0) circle (1pt);
-    \draw[->, thick] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw (0,0) -- (-1,0);
-    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above left]{$\vec{T}$};
-    \draw[dotted, ->] (-1.75,0)++(-0.5,0) -- +(2,0) node[above left]{$x$};
-    
-    \draw[fill] (0,0) circle (1pt);
-\end{tikzpicture}
-\caption{Forças em um movimento circular vertical executado por um corpo preso a um fio.\label{Fig:MovimentoCircularVerticalCorpoFio.}}
-\end{marginfigure}
-
-Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^2/R$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Forças fictícias em um referencial acelerado}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Em diversas situações ouvimos falar de \emph{forças centrífugas} --~um exemplo disso é a força centrífuga de uma lava-roupas no final do processo de lavagem, retirando o excesso de água~--. A força centrífuga é então uma força que tende a levar um objeto em um momento circular para fora de tal trajetória.
-
-Se considerarmos a experiência como passageiros em automóvel que realiza uma curva, o que sentimos é uma tendência de nos afastar do centro da trajetória --~o que está de acordo com a descrição de forças centrífugas descrita acima~--. No entanto, o que estudamos nas seções anteriores foi a existência de forças que apontam para o centro da trajetória.
-
-Na verdade, temos que tratar com cuidado uma situação desse tipo pois o interior do carro não é adequado para fixarmos um referencial: devido ao fato e que o carro está sujeito a uma aceleração, um referencial fixado no carro não é um \emph{referencial inercial}. Nesse caso, podem ocorrer forças cuja explicação é dificil de justificar dentro do referencial. Tais forças são conhecidas como \emph{forças fictícias} ou \emph{forças inerciais}.
-
-No caso do carro, o passageiro sente uma ação que o empurra para fora da trajetória circular, no entanto, tal força pode ser explicada de maneira simples em um referencial fixado no solo: o passageiro está se deslocando para fora da trajetória simplesmente por inércia. Sabemos que para que possamos ter uma trajetória circular, devemos ter a ação de alguma força que aponta para o centro da trajetória. Ora, que força seria essa no caso do passageiro? Nesse caso temos diversas forças atuando conjuntamente: o atrito no banco, forças normais devido às abas laterais dos assentos --~e também na parte inferior, se a curva for compensada~--, forças devido ao cinto de segurança que prende o passageiro, e mesmo forças exercidas ao nos segurarmos em outras partes do carro. Caso essas forças não sejam suficientes, a tendência é a de seguirmos em linha reta no referencial do solo.
-
-Dentro do referencial do carro, no entanto, essa tendência em se afastar do centro se torna uma força centrífuga aparente\footnote{Onde está a reação dessa força?}, cujo módulo é idêntico ao da força centrípeta --~isto é, $F = mv^2/r$~--, porém aponta para longe do centro de rotação. Mesmo que bem presos ao veículo, sem nos deslocarmos, sentimos essa força aparente pois sentimos nossos orgãos internos: para que eles realizem a trajetória circular, a cavidade abdominal deve exercer uma força que aponta para o centro da trajetória, e sentimos a reação a tal força sendo exercida na parede da cavidade, o que interpretamos como se estivéssemos sendo puxados para fora da trajetória circular.
-
-Objetivamente, devemos reconhecer que as forças que surgem em referenciais acelerados não são fictíciais, elas de fato existem --~o nome mais adequado é mesmo \emph{forças inerciais}~--. No caso do carro, podemos utilizar o conceito de força centrífuga dentro do referencial girante para descrever o movimento circular como uma situação de equilíbrio entre as forças reais e a força centrífuga. No entanto, interpretar fenômenos físicos com base em tais forças é sempre mais complexo do que empregar um referencial inercial, onde temos a garantia de poder aplicar as Leis de Newton sem resalvas ou forças difíceis de se interpretar.
-
-De qualquer forma, algo fundamental de se notar é que jamais devemos misturar os dois referenciais: \emph{ou trabalhamos no referencial inercial}, onde a soma das forças que atuam sobre um corpo que sofre um movimento circular é igual ao produto da massa pela aceleração centrípeta, \emph{ou trabalhamos no referencial não-inercial}, onde temos equilíbrio entre as forças reais e a força centrífuga.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Direção aparente do peso em um avião}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Uma experiência bastante curiosa é a de estar em avião que faz uma curva, verificar que um copo com água sobre a bandeja está com o nível perfeitamente paralelo ao piso da aeronave, e olhar pela janela e ver o chão. Devido a este fenômeno, para que o avião possa ser pilotado sem visualizar o solo, o piloto precisa de um instrumento cujo único propósito é indicar qual é a orientação do avião em relação ao solo: o horizonte artificial.
-
-Podemos interpretar os fenômenos que acontecem na aeronave em ambos os referenciais:
-\begin{description}
-    \item[Referencial da aeronave] Se imaginarmos o que aconteceria com uma esfera que estivesse sobre a bandeja temos que, devido à ação da força centrífuga, temos uma força resultante entre a força peso, a força normal e a força centrífuga, sendo que o sistema permanece em equilíbrio. Outra possibilidade é imaginar que a força centrífuga determina uma \emph{aceleração centrífuga} que aponta para longe do centro de rotação. A aceleração total\footnote{Podemos interpretar essa aceleração total como uma aceleração gravitacional aparente} --~soma da aceleração centrífuga com a aceleração da gravidade~-- aponta então perpendicularmente ao piso da aeronave, e temos então o equilíbrio entre a normal e o peso aparente. No caso do líquido, temos algo um pouco mais complexo: como a força centrífuga/aceleração depende da distância ao eixo de rotação, temos que pontos diferentes estarão submetidos a forças/acelerações diferentes. Isso significa que a cada ponto da superfície do líquido temos uma força ``normal'' que aponta em uma direção diferente --~mais vertical próximo do centro de rotação, mais inclinada ao se distanciar~--, de forma a equilibrar a força centrífuga crescente ao se afastar do centro\footnote{Lembre-se que o peso não pode fazer nada, ele tem o módulo constante e está restrito a apontar sempre na mesma direção}. Isso dá origem a uma curva denominada como um \emph{paraboloide de revolução}.
-
-    \item[Referencial inercial] Por outro lado, em um referencial inercial temos um sistema similar ao pêndulo cônico, ou a uma curva compensada sem atrito: temos uma situação onde não há equilíbrio, porém na qual a aceleração é a aceleração centrípeta. Nesse caso, temos que a força normal exercida pela bandeja sobre a bola tem uma componente que aponta para o centro da trajetória circular, agindo como força centrípeta. Além disso, temos que a componente vertical da normal equilibra o peso da esfera. No caso do líquido, como cada ponto está a uma distância diferente do centro de rotação, temos que as componentes da normal que apontam para o centro em cada ponto variam: a ``normal'' é mais vertical próxima ao centro de rotação, provendo uma força/aceleração centrípeta menor, e maior distante do centro de rotação, provendo uma força/aceleraçao centrípeta maior. Isso implica que a direção da normal varia na superfície do líquido, o que significa que o líquido não está plano, ele forma um segmento de um paraboloide de revolução.
-\end{description}
-%
-Vemos que ambas as descrições são coerentes e chegam ao mesmo resultado. Em ambos os casos, concluímos que a superfície do líquido forma um menisco, porém, como temos um segmento muito pequeno da superfície, e não incluímos o centro de rotação, percebemos uma superfície plana. Podemos formar o paraboloide completo ao girar um balde cheio de água, e nesse caso, o referencial do avião seria equivalente a um referencial que flutuasse sobre a superfície do líquido. Se a superfície for grande, e o segmento pequeno, não percebemos a curvatura da superfície.
-
-No caso de sólidos, essas diferenças nas forças/acelerações em pontos a diferentes distâncias do eixo de rotação também existem, mas em geral não trazem efeitos perceptíveis por serem de pequena intensidade. No entanto, para velocidades de rotação extremamente elevadas, os efeitos são relavantes: se um objeto for submetido a velocidades de rotação muito altas, ele pode se desintegrar espontaneamente, pois as forças entre as partículas não são intensas o suficiente para manter a coesão do objeto. No referencial inercial, podemos afirmar que as forças não foram suficentes para fazer com que todas as partes realizassem as suas respectivas trajetórias circulares; No referencial não-inercial do próprio corpo que gira, podemos afimar que a força centrífuga foi intensa o suficientes para estilhaçar o objeto.
-
-Finalmente, devemos notar algo muito importante em toda essa discussão: a força de sustentação que age sobre o avião tem sempre a mesma direção da força normal que age sobre os ocupantes. Quando o avião faz a curva, sabemos que --~no referencial do avião~-- a força centrífuga aumenta de acordo com $F = mv^2/2$. Devido à inclinação da aeronave, a força normal exercida sobre os ocupantes também se inclina, fazendo com que exista uma situação de equilíbrio. Se o avião fizesse a curva por qualquer outro meio que não fosse a inclinação da própria aeronave, teríamos uma situação em que não ocorreria o equilírio.
-
-% Obs: Tudo recai no fato de que a força centrípeta/centrífuga depende da massa. O Einstein pensa que todas desse tipo são fictícias, incluindo a gravidade.
-
-% Obs2: a superfície é um paraboloide de revolução, ver Kleppner
-
-% Obs3: Se um campo gravitacional for muito intenso, ele pode ser grande o suficiente para que as forças de maré desintegrem qualquer coisa que seja (um planeta, um astronauta que caia no campo gravitacional). Se a velocidade de rotação for intensa o suficiente, temos algo parecido para um sólido. Por isso que o disco do CVT do Nissan quebrava.
-
-% Obs 4: o fato de nunca se sentir nada numa curva do avião se deve ao fato de que a normal pra qq coisa dentro do avião está na mesma direão da sustentação. Além disso, elas são o que equilibram o peso e agem como centrípetas. Se houvesse uma maneira diferente de fazer uma curva com o avião, o resultado não seria assim. Seria análogo a fazer uma curva com um carro em um plano, simplesmente seríamos jogados para fora da curva.
-
-% Texto interessante sobre o referencial girante, força de Coriolis, centrífuga e de Euler (qd existe aceleração angular): http://www.mathpages.com/home/kmath633/kmath633.htm
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Força centrípeta em um pêndulo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Em um pêndulo, durante a oscilação da massa, temos uma tensão que varia constantemente. Considerando o movimento circular descrito, temos
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            T - P_x &= m \frac{v^2}{R} \\
-            T &= P_x + m\frac{v^2}{R}.
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            P_y &= m a_y \\
-            mg \sen\theta &= m a_y.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}[-6cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.2,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    \draw[interface] (1,0) -- (-1,0);
-    
-    \draw[pattern = north west lines] (-1,-1.73) coordinate (bob) circle (3mm);
-    \draw (-0.85,-1.47) coordinate (fix) -- (0,0) coordinate (O);
-    \draw[densely dotted] (O) -- +(0,-0.75) coordinate (Oi);
-    \draw[fill] (bob) circle (1pt);
-    \draw[->, thick] (bob) -- +(0,-0.65) coordinate (P) node[right] {$\vec{P}$};
-    \draw[->, thick] (fix) -- node[below right]{$\vec{N}$} +(60:0.866);
-    
-    \draw[dashed,->] (bob) +(240:1.5) coordinate (Xi) -- +(60:1.5) node[left]{$x$};
-    \draw[dashed,->] (bob) +(150:1.5) -- +(-30:1.5) coordinate (Y) node[below left]{$y$};
-    
-    \pic[draw, "$\theta$", angle eccentricity = 1.5]{angle = fix--O--Oi};
-    \pic[draw, "$\theta$", angle eccentricity = 1.5]{angle = Xi--bob--P};
-    
-    \draw[dashdotted, <->, gray] (O) -- node[right]{$R$} +(-70:2);
-    
-    \draw[dotted] ([shift={(0,0)}]-150:2) arc[radius=2, start angle=-150, end angle= -60];
-\end{tikzpicture}
-\caption{Força centrípeta em um pêndulo.}
-\end{marginfigure}
-
-\noindent{}Nas equações acima utilizamos o fato de que o eixo $x$ aponta para o centro da trajetória circular descrita pela massa. Logo, a aceleração $a_x$ é a própria aceleração centrípeta e
-\begin{equation}
-    a_x = \frac{v^2}{R},
-\end{equation}
-%
-onde $R$ é o raio da trajetória circular.
-
-Podemos ver que mesmo que o ângulo $\theta$ entre o eixo $x$ e a vertical seja conhecido, não podemos calcular a tensão na corda a menos que a \emph{velocidade} também seja conhecida. Note que o termo devido à velocidade se torna preponderante rapidamente com o aumento de $v$, pois temos uma função quadrática da velocidade. 
-
-Finalmente, verificamos que no eixo $y$ a aceleração é \emph{tangencial}, e é dada por
-\begin{equation}
-    a_t = a_y = g\sen\theta.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Movimento sobre a superfície do planeta}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Verificamos anteriormente que se um objeto estiver em repouso sobre uma mesa, temos que a força normal é igual ao peso. No entanto, devido à rotação do planeta, bem como a qualquer movimento sobre a superfície, temos um movimento circular.
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.3]
-    \draw[pattern = north west lines, pattern color = gray] (0,0) circle (1);
-    
-    \draw[dashed] (0,0) circle (1.1);
-    
-    \draw[fill] (0,1.1) coordinate (body) circle (1mm);
-    
-    \draw[->, thick] (0,1.1) -- +(0,-0.5) node[right]{$\vec{P}$};
-    \draw[->, thick] (0,1.1) -- +(0,0.4) node[left]{$\vec{N}$};
-    
-    \draw[->] ([shift={(0,0)}]80:1.1) arc[radius=1.1, start angle=80, end angle = 65] node[midway, above]{$\vec{v}$};
-    
-    \draw[dashed,->] (body) +(0,0.75) -- +(0,-1) node[above left]{$x$};
-    
-\end{tikzpicture}
-\caption{Movimento sobre a superfície do planeta.}
-\end{marginfigure}
-
-\begin{description}
-    \item[Eixo $x$:] 
-        \begin{align}
-            F_R^x &= m a_x \\
-            P - N &= m \frac{v^2}{R}.
-        \end{align}
-    \item[Eixo $y$:] Não há forças.
-\end{description}
-
-\noindent{}A partir da equação para o eixo $x$ podemos escrever para a normal
-\begin{align}
-    N &= mg-m\frac{v^2}{R} \\
-    &= m \left(g - \frac{v^2}{R}\right).
-\end{align}
-%
-Note que a alteração na normal não é perceptível devido ao fato de que o raio $R$ da trajetória é muito grande, pois é \emph{o raio da Terra}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Movimento circular vertical}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-  
-    \draw[dashed] (0,0) circle (2);
-    
-    \draw[dashed, <-] ([shift={(0,0)}]60:1.75) arc[radius=1.75, start angle=60, end angle= 30] node[midway, below left]{$v$};
-    % Topo
-    \draw[pattern = north west lines] (0,1.75) circle (0.25);
-    \draw[fill] (0,1.75) circle (1pt);
-    \draw[->, thick] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{N}$};
-    \draw[dotted, ->] (0,1.75)++(0,0.5) -- +(0, -2) node[above right]{$x$};
-    
-    % Fundo
-    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
-    \draw[fill] (0,-1.75) circle (1pt);
-    \draw[->, thick] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw[->, thick] (0,-1.5) -- +(0,1) node[below right]{$\vec{N}$};
-    \draw[dotted, ->] (0,-1.75)++(0,-0.5) -- +(0, 2) node[below left]{$x$};
-    
-    % Direita
-    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
-    \draw[fill] (1.75,0) circle (1pt);
-    \draw[->, thick] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above right]{$\vec{N}$};
-    \draw[dotted, ->] (1.75,0)++(0.5,0) -- +(-2,0) node[below right]{$x$};
-    
-    % Esquerda
-    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
-    \draw[fill] (-1.75,0) circle (1pt);
-    \draw[->, thick] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
-    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above left]{$\vec{N}$};
-    \draw[dotted, ->] (-1.75,0)++(-0.5,0) -- +(2,0) node[above left]{$x$};
-    
-    \draw[fill] (0,0) circle (1pt);
-\end{tikzpicture}
-\caption{Para cada uma das posições, temos uma componente da força resultante que aponta para o centro da trajetória. A componente tangencial será a responsável pela alteração do módulo da velocidade. \label{Fig:LoopVertical}}
-\end{marginfigure}
-
-Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
-
-O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Condição de perder contato e velocidade mínima}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Uma situação de particular interesse no movimento circular vertical é a de determinar qual é a velocidade mínima necessária para que um corpo qualquer execute o movimento circular sem perder contato com a superfície. Nosso ponto de interesse em particular é o ponto mais alto na Figura~\ref{Fig:LoopVertical}. A força que precisa ser exercida sobre o corpo para que ele se mantenha na trajetória circular determinada pela pista é dada por
-\begin{equation}
-    F_R = m \frac{v^2}{r}.
-\end{equation}
-%
-De acordo com a figura, vemos que a força resultante é dada pela soma da normal com o peso:
-\begin{equation}
-    P + N = m\frac{v^2}{r}.
-\end{equation}
-%
-Na expressão acima, o peso é constante, portanto, se aumentamos ou diminuímos a velocidade com que executamos a trajetória circular, o aumento ou diminuição da força que atua sobre o corpo conforme variamos a velocidade é inteiramente dado através da variação da força normal. Se ao efetuarmos várias voltas, diminuindo progressivamente a velocidade no topo da trajetória, verificamos que a normal deve diminuir progressivamente, até que atinja o seu valor mínimo: zero. Nesse caso, temos que não há mais interação entre o corpo e a pista, ou seja, estamos na \emph{iminência de perder contato}. Nesse caso,
-\begin{equation}
-    P = m \frac{v^2}{r}
-\end{equation}
-%
-e a velocidade mínima será então dada por
-\begin{align}
-    P &= m\frac{v^2}{r} \\
-    mg &= m\frac{v^2}{r} \\
-    rg &= v^2,
-\end{align}
-%
-e finalmente
-\begin{equation}
-    v = \sqrt{rg}.
-\end{equation}
-
-Para qualquer velocidade abaixo daquela dada pela expressão acima, teremos que o corpo perderá contato com a pista antes de chegar ao topo da trajetória. A partir do momento em que ocorre a perda de contato, o corpo passa a estar sob influência da gravidade somente. Nesse caso, ele passa a executar um movimento parabólico, característico de um lançamento oblíquo.
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[->] (-0.5, 3.5) -- node[above]{$\vec{v}$}(0.5, 3.5); 
-  
-    \draw[dashed] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 0];
-    
-    % Topo
-    \draw[pattern = north west lines] (0,2.25) circle (0.25);
-    \draw[fill] (0,2.25) circle (1pt);
-    \draw[->, thick] (0,2.25) -- +(0,-1) node[right]{$\vec{P}$};
-    \draw[->, thick] (0,2.5) -- +(0,0.7) node[left]{$\vec{N}$};
-    \draw[dotted, ->] (0,2.75) -- +(0, -2) node[above right]{$x$};
-
-\end{tikzpicture}
-\caption{Corpo percorrendo a parte externa de uma pista com perfil circular. Veja que a normal tem que ser menor que o peso na posição indicada pois a diferença entre essas duas forças é responsável pela aceleração centrípeta que faz com que o corpo execute a curva.\label{Fig:VelocidadeMaximaFlugplatz}}
-\end{marginfigure}
-
-Uma outra possibilidade de movimento em que pode ocorrer perda de contato é se o corpo de desloca pela parte externa da pista (veja a Figura~\ref{Fig:VelocidadeMaximaFlugplatz}). Nesse caso, temos que no caso de velocidade nula, teríamos que a normal seria igual ao peso. Conforme aumentamos a velocidade, a força normal deve diminuir, para que a força resultante para o centro da trajetória aumente. Para um certo valor de velocidade máxima, temos que a normal será zero. Nesse caso, podemos afirmar que
-\begin{align}
-    F_R &= m \frac{v^2}{r} \\
-    N + P &= m \frac{v^2}{r} \\
-    mg &= m \frac{v^2}{r} \\
-    g &= \frac{v^2}{r},
-\end{align}
-%
-ou seja, a velocidade máxima com que podemos fazer a trajetória circular sem perder contato\footnote[][-2cm]{Isto é, estamos na iminência de perder contato.} é
-\begin{equation}
-    v = \sqrt{rg}.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Pendulo cônico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como mostra a Figura~\ref{Fig:PenduloConico}. O corpo descreve uma trajetória circular em um plano horizontal, sendo que o fio descreve um cone. Podemos relacionar a velocidade do corpo ao ângulo $\theta$ e ao comprimento $\ell$ do fio.
-
-\begin{marginfigure}[-3cm]
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-\def\h{3}% altura
-\def\r{2}% raio
-
-\draw[interface] (2,0,0) -- (-2,0,0);
-
-\coordinate (bob) at (\r,-\h,0);
-
-\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
-\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
-
-\draw[dotted] (0,0,0) -- (0,-\h,0);
-\coordinate (center) at (0,-\h,0);
-\draw[fill] (center) circle (1pt);
-
-\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
-
-\draw[->] (bob) -- +(0,0,1.75) node[below right]{$\vec{v}$};
-
-\draw[fill] (\r,-\h,0) circle (3pt);
- 
-\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
-
-\draw (bob)++(0,-0.3,0) -- +(0,0,0.3);
-\draw (bob)++(0,0,0.3) -- +(0,-0.3,0);
-
-\end{tikzpicture}
-\caption{Pêndulo cônico.\label{Fig:PenduloConico}}
-\end{marginfigure}
-
-Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertical e um que aponta para o centro da trajetória temos:
-
-\begin{description}
-    \item{Eixo $x$:}
-        \begin{align}
-            F_R^x &= m a_x \\
-            T_x &= m a_c \\
-            T \sen\theta &= m \frac{v^2}{r}.
-        \end{align} 
-    \item{Eixo $y$:}
-        \begin{align}
-            F_R^y &= m a_y \\
-            T_y - P &= 0 \\
-            T \cos\theta &= P \\
-            T \cos\theta &= mg.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}[-5cm]
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-\def\h{3}% altura
-\def\r{2}% raio
-
-\draw[interface] (2,0,0) -- (-2,0,0);
-
-\coordinate (bob) at (\r,-\h,0);
-
-\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
-\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
-
-\draw[dotted] (0,0,0) -- (0,-\h,0);
-\coordinate (center) at (0,-\h,0);
-\draw[fill] (center) circle (1pt);
-
-\draw[->, thick] (bob) -- ($ (bob) !.333! (origin) $) coordinate (tension) node[left]{$\vec{T}$};
-\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
-
-\draw[->, dashed] (bob) -- (0.2,-\h,0) node[below right]{$x$};
-\draw[->, dashed] (bob) -- +(0,1.5,0) node[below right]{$y$} coordinate (Y);
-
-\draw[dotted] (tension) -- +(0.666,0,0);
-\draw[dotted] (tension) -- +(0,-1,0);
-\draw[->, thick, gray] (bob) -- +(-0.666,0,0);
-\draw[->, thick, gray] (bob) -- +(0,1,0);
-
-\draw[fill] (\r,-\h,0) circle (3pt);
-  
-\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
-
-\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = Y--bob--tension};
-
-\end{tikzpicture}
-\caption{Diagrama de forças do pêndulo cônico. Note que a força centrípeta pode ser identificada nesse caso com a componente da tensão no eixo $x$ apresentado na figura.\label{Fig:PenduloConicoDiag}}
-\end{marginfigure}
-
-\noindent{}Nas expressões acima assumimos que a aceleração no eixo vertical $y$ será zero, pois se a velocidade for constante o plano horizontal descrito pela trajetória circular não se desloca verticalmente. A partir dessas expressões, podemos escrever
-\begin{align}
-    m\frac{v^2}{r} &= \frac{mg}{\cos\theta} \sen\theta \\
-    v^2 &= rg \tan\theta \\
-    v &= \sqrt{rg\tan\theta}.
-\end{align}
-
-Finalmente, podemos escrever o raio $r$ usando a função trigonométrica $\sen\theta$ como
-\begin{equation}
-    r = \ell \sen\theta,
-\end{equation}
-%
-logo
-\begin{equation}
-    v = \sqrt{\ell g \sen\theta\tan\theta}.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Curva compensada}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Em estradas, é essencial que as curvas tenham uma inclinação. Tal inclinação faz com que uma componente da força normal atue de maneira a, junto com a força de atrito, fazer com que os veículos possam executar a curva com segurança. Podemos determinar as velocidades máxima e mínima para executar a curva sem deslizar através de uma análise das forças presentes no sistema.
-
-Na Figura~\ref{Fig:CurvaCompensadaRef} mostramos representação de uma visão frontal de um veículo que executa uma curva, mostrando as forças que atuam nesse movimento. Verificamos que existem duas possibilidades para o atrito: ou ele aponta para baixo, o que corresponde ao caso em que o corpo tende a escapar pela parte externa da curva, ou ele aponta para cima, o que corresponde ao caso em que o corpo tende a escapar para baixo. As forças de atrito são estáticas, já que não deve ocorrer deslizamento do veículo. Logo, considerando as forças de atrito são estático máxima, as situações indicadas correspondem à velocidade máxima e à velocidade mínima para as quais a curva pode ser executada sem deslizar. Note que as forças de atrito mostradas não podem ocorrer simultaneamente.
-
-Analisando o movimento utilizando um eixo $x$ que aponta para o centro da trajetória circular e um eixo $y$ que aponta verticalmente, perpendicular ao primeiro, temos:
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_R^x &= m a_x \\
-            N_x \pm f_{at}^x &= m \frac{v^2}{r}.
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_R^y &= m a_y \\
-            N_y \mp f_{at}^y - P &= 0.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}[-5cm]
-\centering
-\begin{tikzpicture}[>=Stealth, rotate=30,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-    \draw[interface, gray] (-2,0) coordinate (bot) -- (2,0) coordinate (top);
-    
-    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-0.5,0) rectangle (0.5,1);
-    
-    \draw[->, thick] (0,0.5) coordinate (O) -- +(-120:1) node[right]{$\vec{P}$};
-    \draw[fill] (0,0.5) circle (1pt);
-    
-    \draw[->, thick] (0,1) -- +(0,1.1547) node[left]{$\vec{N}$} coordinate (N);
-    \draw[->, thick] (0.5,0) coordinate (fs_o) -- +(0.8,0) coordinate (fs_f) node[above]{$\vec{f}_{at}$};
-    \draw[->, thick] (-0.5,0) coordinate (fi_o) -- +(-0.8,0) coordinate (fi_f) node[above left]{$\vec{f}_{at}$};
-    
-    \draw[->, dashed] (0,0.5) +(-30:2) -- +(150:2) node[above]{$x$};
-    \draw[->, dashed] (0,0.5) +(-120:1.5) -- +(60:1.5) node[right]{$y$} coordinate (Y);
-    
-    \draw[densely dotted] (fs_o) -- +(-30:0.5) coordinate (fs_x);
-    \draw[densely dotted] (fi_o) -- +(150:0.5) coordinate (fi_x);
-    \draw[dashed, gray] (bot) -- +(-30:1) coordinate (horiz);
-    
-    \pic [draw, "", angle eccentricity = 1.5, angle radius = 3mm] {angle = fi_x--fi_o--fi_f};
-    \pic [draw, "", angle eccentricity = 1.5, angle radius = 3mm] {angle = fs_x--fs_o--fs_f};
-    
-    \pic [draw, "$\theta$", angle radius = 8mm, angle eccentricity = 1.5] {angle = Y--O--N};
-    \pic [draw, gray, "$\theta$", angle eccentricity = 1.5] {angle = horiz--bot--top};
-\end{tikzpicture}
-\caption{Visão em seção reta de uma curva compensada (a velocidade é tal que o bloco entra na página). Verificamos que existem duas possibilidades para o atrito neste movimento. O eixo $x$ indicado aponta para o centro da trajetória circular. Os ângulos entre as forças de atrito e as linhas pontilhadas são iguais ao ângulo de inclinação $\theta$ da superfície.\label{Fig:CurvaCompensadaRef}}
-\end{marginfigure}
-
-\noindent{}Usamos nas equações acima o fato de que $a_x$ é a aceleração que aponta para o centro da trajetória --~ou seja, é a aceleração centrípeta~-- e que a aceleração $a_y$ é nula. Além disso, denotamos os dois sinais possíveis para a força de atrito: o sinal positivo se refere ao caso em que a força de atrito aponta para baixo --~o que corresponde ao caso de velocidade máxima~-- e o sinal negativo corresponde ao caso em que a força de atrito aponta para cima --~o que corresponde ao caso de velocidade mínima~--.
-
-Utilizando as funções trigonométricas, podemos decompor as forças, o que nos leva a
-\begin{equation}
-\begin{system}
-    N \sen\theta \pm f_{at}\cos\theta &= m \frac{v^2}{r} \\
-    N \cos\theta \mp f_{at}\sen\theta &= P.
-\end{system}
-\end{equation}
-%
-Como estamos trabalhando com a condição de atrito estático máximo, temos que $f_{at} = \mu_e N$, logo
-\begin{equation}
-\begin{system}
-    N \sen\theta \pm \mu_e N \cos\theta &= m \frac{v^2}{r} \\
-    N \cos\theta \mp \mu_e N \sen\theta &= mg.
-\end{system}
-\end{equation}
-%
-Da segunda equação do sistema acima, temos
-\begin{equation}
-    N = \frac{mg}{\cos\theta \mp \mu_e\sen\theta}.
-\end{equation}
-%
-Substituindo essa equação na primeira equação do sistema, resulta em
-\begin{equation}
-    \frac{mg}{\cos\theta \mp \mu_e\sen\theta} (\sen\theta \pm \mu_e \cos\theta) = m\frac{v^2}{r}.
-\end{equation}
-%
-Como estamos interessados em determinar as velocidades máxima e mínima, podemos reescrever a equação acima como
-\begin{equation}
-    v = \sqrt{rg \frac{\sen\theta \pm \mu_e \cos\theta}{\cos\theta \mp \mu_e\sen\theta}},
-\end{equation}
-%
-onde o sinal positivo nos dá a velocidade máxima e o sinal negativo nos dá a velocidade mínima.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Direção aparente do peso}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Quando um avião faz uma curva, não sentimos uma alteração da direção do peso em relação ao assoalho da aeronave. Explicar o por quê. Não tenho certeza absoluta, mas acredito que está ligado ao fato de que a força de sustentação é na mesma direção que a normal para os passageiros. Para que sentíssemos um peso não perpendicular ao chão, temos que ter alguma aceleração lateral em relação à aeronave, coisa que a normal ou mesmo a força de sustentação não são capazes de prover. Dá pra interpretar que o campo gravitacional efetivo tem uma componente radial para fora igual à centrípeta e a própria aceleração gravitacional, aí a resultante é perpendicular ao assoalho
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Observações importantes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistemas com diversos corpos e aceleração: sistemas de referência}
+\subsection{Múltiplos corpos: sistemas de referência}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 É comum que tenhamos que tratar de sistemas com mais que um corpo. Se não tivermos aceleração no sistema, isso não nos trás nenhuma complicação, porém se temos aceleração, podemos ter que determinar a relação entre acelerações que ocorrem em eixos diferentes para cada corpo. Algumas vezes podemos utilizar os mesmo eixos de referência para todos os corpos, porém -- em muitos casos -- isso não é possivel.
@@ -2889,6 +2098,12 @@ Assim, temos ao analisar o sistema:
 %
 cujas soluções para $a_x$ e $T$ são as mesmas dadas pelas equações \eqref{Eq:MaquinaAtwoodHorizResultAcel} e \eqref{Eq:MaquinaAtwoodHorizResultTensao}, respectivamente.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Um sistema onde não podemos utilizar eixos de referência em comum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Discutir aqui a questão da reação das tensões, que devem atuar sobre o bloco maior através da roldana (na verdade não é reação, pois não é no ponto de contato)}
+
 Apesar de termos uma simplificação bastante grande ao utilizar um eixo na direção do movimento, temos que tomar cuidado, pois em alguns sistemas não é possível utilizar essa técnica. Na Figura~\ref{Fig:BlocoSuspensoAcelerado} temos um sistema no qual, para um valor específico da aceleração $\vec{a}$ mostrada, o bloco suspenso se mantém em equilíbrio no eixo vertical. Note que a aceleração no eixo $x$ não está ligada à aceleração no eixo $y'$. Se tentássemos aplicar a ideia de um eixo na direção da corda --~ isto é, na direção do movimento presumido para o sistema~--, teríamos resultados incoerentes: a aceleração do bloco superior em $x$ teria que ser igual à aceleração do bloco suspenso em $y'$, porém a primeira é igual à aceleração $a$ indicada pela seta, enquanto a segunda é nula.
 
 Para resolver este sistema, isto é, para determinar a aceleração para a qual o bloco suspenso se mantém sem acelerar verticalmente, só nos resta aplicar a Segunda Lei de Newton para os blocos individualmente. Para os dois blocos menores, temos
@@ -2994,170 +2209,1125 @@ Para resolver este sistema, isto é, para determinar a aceleração para a qual 
 \begin{equation}
     a = a_x = a_{x'}= \frac{m_i}{m_s} g.
 \end{equation}
+%%%%%%%%%%%%%%%%%%%
+\subsection{Atrito}
+%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Forças internas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Verificar ordem: direção e sentido, módulo, reação}
 
-Quando precisamos determinar a aceleração de um corpo, as forças que devem ser levadas em conta são as \emph{forças externas} -- mais precisamente, a \emph{força resultante externa} --. Essa observação pode ser muito útil em problemas que envolvem diversos corpos: muitas vezes eles podem ser considerados como componentes de um corpo composto, dessa forma as forças através das quais interagem passam a ser forças internas, que não influenciam na aceleração.
+Quando dois corpos interagem através de contato, além da força de interação normal à superfície -- isto é, a força normal --, temos outra força de interação. Essa força ocorre paralelamente às superfícies de contato e é sempre no sentido oposto ao deslizamento ou à \emph{tendência} de deslizamento entre elas, sendo denominada como \emph{força de atrito}.
 
-Na Figura~\ref{Fig:BlocosForcasExternas}, temos diversas forças internas e externas. Caso estejamos interessados em calcular a aceleração do sistema, podemos fazê-lo determinando as equações para cada bloco em cada eixo. Isso resultará em seis equações que devem ser resolvidas:
+A origem da força de atrito, assim como para a força normal, é a interação eletromagnética entre os átomos que compõe as superfícies em contato. Podemos determinar a direção da força de atrito fazendo os seguintes raciocínios:
+\begin{itemize}
+    \item Se colocamos um bloco em um plano inclinado, ele desliza se não houver atrito. Se houver, no entanto, ele permanece em equilíbrio.
+    \item Se colocarmos um bloco sobre uma esteira parada e depois fizermos com que ela se mova, o bloco acelerará, sempre se movendo junto\footnote{Para que dois corpos se movam juntos, sem perder contato, é necessário que suas posições, velocidades, e acelerações sejam sempre as mesmas.} com a esteira.
+    \item Se lançarmos um bloco sobre uma superfície plana, eventualmente ele para.
+\end{itemize}
+%
+Em todas essas situações, temos a atuação de forças de atrito. Nelas vemos que o atrito é sempre contra o deslocamento relativo entre as superfícies, ou à tendência de deslocamento relativo. Isto é, a força de atrito é contra o \emph{deslizamento} ou a \emph{tendência de deslizamento}.
 
-\begin{marginfigure}[-3cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.2,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
+\textbf{Explorar o aspecto microscópico da força de atrito. Ver se tem alguma fonte segura de que quem fez esse modelo de atrito foi o Coulomb mesmo.}
 
-	% mesa
-	\draw[lightgray,interface] (0,0) -- (4,0);
-	
-    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (1,0) rectangle (2,1);
-    \draw[pattern = north east lines, pattern color = lightgray, draw = lightgray] (2,0) rectangle +(1.5,1.5);
-    \draw[pattern = north west lines, pattern color = lightgray, draw = lightgray] (2.25,1.5) rectangle +(1,1);
-    
-    % forças externas
-    \draw[fill] (1.5,0.5) circle (1pt);
-    \draw[->, thick] (1.5,0.5) -- +(0,-0.75) node[left]{$\vec{P}_1$};
-    \draw[fill] (2.75, 0.75) circle (1pt);
-    \draw[thick, ->] (2.75,0.75) -- +(0, -1.25) node[left]{$\vec{P}_2$};
-    \draw[fill] (2.75,2) circle (1pt);
-    \draw[thick, ->] (2.75, 2) -- node[right]{$\vec{P}_3$} +(0,-0.5);
-    
-    \draw[thick, ->] (1.5, 1) -- +(0,0.75) node[left]{$\vec{N}_1$};
-    \draw[thick, ->] (2.2, 1.5) -- +(0,1.75) node [left]{$\vec{N}_2$};
-    \draw[thick, ->] (2.45,2.5) -- +(0,0.5) node[right]{$\vec{N}_3$};
-    
-    \draw[thick, ->] (2.45, 1.5) -- +(0,-0.5) node[above right]{$\vec{N}'_3$};
-    
-    \draw[thick, ->] (3.25, 1.6) -- +(0.5,0) node[above]{$\vec{f}_{at}$};
-    \draw[thick, ->] (2,1.4) -- node[above]{$\vec{f}'_{at}$} +(-0.5,0);
-    
-    \draw[thick, ->] (2,0.85) node[above left]{$\vec{F}_{12}$} -- +(0.65,0);
-    \draw[thick, ->] (2,0.85) node[above right]{$\vec{F}'_{12}$} -- +(-0.65,0);
-    
-    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
-    
-    \draw[->, dashed] (0,0.5) -- (4,0.5) node[above]{$x$};
-    \draw[->, dashed] (2,-1) -- (2,3) node[below left]{$y$};
-\end{tikzpicture}
-\caption{Sistema composto por três blocos que interagem sujeitos às forças, peso, normal, de atrito, e a uma força $\vec{F}$ que empurra os blocos lateralmente. Desconsideramos o atrito na superfície da mesa e omitimos as reações das normais $\vec{N}_1$ e $\vec{N}_2$ exercidas pelos blocos sobre a mesa.\label{Fig:BlocosForcasExternas}}
-\end{marginfigure}
+%Na Figura ??? temos um gráfico que mostra o valor da força de atrito em função da força aplicada a um bloco. Verificamos que $F = f_{at}$ até uma valor máximo, à partir do qual ela diminui e atinge um valor constante. Esse valor constante é o valor da força de atrito no regime cinético, que discutiremos adiante. Antes vamos discutir o valor máximo da força.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito estático} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se tomarmos um bloco que repousa sobre uma superfície e o empurrarmos, verificaremos que não ocorre movimento para um valor qualquer da força aplicada (Veja a Figura~\ref{Fig:BlocoEmEquilbrioDevidoAoAtrito}). De fato, se a força for pequena, o objeto se mantém parado. Se aumentarmos um pouco a força, podemos iniciar o movimento, porém se o aumento não for suficiente, ele pode continuar parado. À partir de um certo valor, no entanto, o objeto passa a se mover. Verificamos então que a força de atrito, assim como a normal e a tensão, tem um valor máximo. Para determinarmos o valor da força de atrito \emph{antes} de o movimento se iniciar, precisamos aplicar a Segunda Lei de Newton:
 \begin{description}
-    \item[Bloco 1:] Assumindo que o eixo $x$ é horizontal (paralelo à superfície onde se apoiam os blocos) e o eixo $y$ vertical:
-        \begin{description}
-            \item[Eixo $x$:]
-                \begin{align}
-                    F_R^x &= m_1 a_x \\
-                    F - F'_{12} &= m_1 a_x.
-                \end{align}
-            \item[Eixo $y$:]
-                \begin{align}
-                    F_R^y &= m_1 a_y \\
-                    N_1 - P_1 &= 0.
-                \end{align}
-        \end{description}
-    \item[Bloco 2:] Utilizando a mesma convenção para o eixos, temos para o bloco 2:
-        \begin{description}
-            \item[Eixo $x$:]
-                \begin{align}
-                    F_R^x = m_2 a_x \\
-                    F_{12} - f_{at} = m_2 a_x.
-                \end{align}
-            \item[Eixo $y$:]
-                \begin{align}
-                    F_R^y &= m_2 a_y \\
-                    N_2 - N'_3 - P_2 &= 0.
-                \end{align}
-        \end{description}
-    \item[Bloco 3:] Finalmente, para o bloco 3 temos -- usando mais uma vez a mesma convenção para os eixos --:
-        \begin{description}
-            \item[Eixo $x$:]
-                \begin{align}
-                    F_R^x &= m_3 a_x \\
-                    f_{at} &= m_3 a_x. \label{Eq:DiscForcasInternasBl2X}
-                \end{align}
-            \item[Eixo $y$:]
-                \begin{align}
-                    F_R^y &= m_3 a_y \\
-                    N_3 - P_3 &= 0.
-                \end{align}
-        \end{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            F - f_{at}^e &= 0 \\
+            F &= f_{at}^e.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P &= 0 \\
+            N &= P.
+        \end{align}
 \end{description}
-
-\noindent{}Através das equações para o eixo vertical, podemos concluir que
-\begin{align}
-    N_t &= N_1 + N_2 \\
-    &= P_1 + P_2 + P_3\\
-    &= m_1g + m_2g + m_3g\\
-    &= (m_1 + m_2 + m_3)g.
-\end{align}
-%
-Se somarmos as equações para o eixo horizontal, temos
-\begin{align}
-    F - F'_{12} + f_{at} + F_{12} - f_{at} &= m_1 a_x + m_2 a_x + m_3 a_x \\
-    F &= (m_1 + m_2 + m_3) a_x,
-\end{align}
-%
-o que resulta em:
-\begin{equation}
-    a_x = \frac{F}{m_1 + m_2 + m_3}.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Tratando os blocos de maneira conjunta}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Podemos simplificar o tratamento do sistema se considerarmos que os blocos compõem um bloco maior. Nesse caso, as forças internas não serão relevantes para a determinação da aceleração.
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale = 1.2,
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
+    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
+    \node (A) at (1.2,1){$\vec{a} = 0$};
+    
+    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
+
+\end{tikzpicture}
+\caption{Numa situação com atrito, podemos ter um bloco sujeito a uma força lateral sem que haja aceleração. A força que garante o equilíbrio é a força de atrito e seu valor será igual ao da força $\vec{F}$, seja ele qual for. Sabemos, no entanto, que existe um valor máximo para a força de atrito, a partir do qual ela não será mais capaz de equilibrar a força lateral e o movimento iniciará.\label{Fig:BlocoEmEquilbrioDevidoAoAtrito}}
+\end{marginfigure}
+
+\noindent{}Nas equações acima, utilizamos o fato de que as acelerações em ambos os eixos são nulas, já que o corpo está em equilíbrio.
+
+Note que o fato de que temos aceleração nula implica que a força de atrito, além de ter a mesma intensidade que a força aplicada, tem a mesma direção, porém sentido contrário. Em situações mais complexas podemos ter uma relação menos direta do que essa acima, porém a análise necessária para obter seu valor é a mesma.
+
+A força de atrito não surge simplesmente em oposição a uma força aplicada ao sistema. Uma outra possibilidade é a termos uma superfície que acelera --~uma esteira--, sobre a qual se apoia um bloco. Como o atrito é contrario ao deslocamento relativo entre as superfícies, quando a esteira acelera, surje uma força que tende a acelerar o bloco. Novamente, para determinar o valor da força de atrito, é necessário aplicar a Segunda Lei de Newton:
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            f_{at}^e &= m a_x.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P &= 0.
+        \end{align}
+\end{description}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1) node[left]{$\vec{N}$};
+    
+    \draw[->, thick] (0.5,0) -- node[below]{$\vec{f}_{at}$} +(1,0);
+    
+    \draw[->, dashed] (-2,0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0, -1) -- (0, 2.5) node[right]{$y$};
+    
+    \draw[->] (0.25, -1) -- node[below]{$\vec{a}$} +(1,0);
+
+\end{tikzpicture}
+\caption{Bloco apoiado sobre uma superfície que se desloca para a direita com aceleração $\vec{a}$.}
+\end{marginfigure}
+%
+Nas equações acima utilizamos o fato de que a aceleração no eixo vertical é nula. Vemos, que nesse caso a força de atrito está relacionada à aceleração do sistema.
+
+Concluímos então que a força de atrito será \emph{nula}, caso não haja tendência ao deslizamento das superfícies, e alterará seu valor de maneira a evitar que um deslizamento ocorra. No entanto, sabemos que --~a partir de algum valor limite~-- o sistema sai do equilíbrio: se a força $\vec{F}$ ou a aceleração $\vec{a}$ nos exemplos acima forem intensas o suficiente, o deslizamento das superfícies ocorrerá. Logo, existe um \emph{valor máximo} para a força de atrito estático.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Bloco sendo acelerado por esteira. Calcular o módulo da força, dada uma aceleração.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito estático máxima} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Pensando em um bloco sobre uma superfície plana, sendo que existe uma força $F$ sendo exercida lateralmente, e uma força $F_a$ sendo exercida de cima pra baixo, temos que o valor de $F$ para o qual o movimento inicia é proporcional ao peso do próprio bloco (imagine uma caixa onde podemos colocar coisas dentro), tb é proporcional ao valor de $F_a$, e ao valor da aceleração vertical. Isso corresponde a ser proporcional a $N$, pois é a soma desses três fatores. Explorar isso no texto abaixo.}
+
+No exemplo do bloco submetido a uma força $\vec{F}$ na seção anterior, se tomássemos um bloco mais pesado, porém feito do mesmo material -- ou mesmo colocarmos um segundo bloco sobre o primeiro, ou o empurrarmos para baixo de alguma forma --, verificaremos que a força necessária para que o bloco passe a se mover será maior do que quando temos só o bloco original. Isso nos leva à conclusão de que a \emph{força de atrito estático máxima} aumentou.
+
+Em um primeiro momento poderíamos relacionar a intensidade da força de atrito ao valor do peso do bloco, porém isso não contempla a possibilidade de o empurrarmos para baixo, por exemplo\footnote{A interação entre duas superfícies dá origem tanto à força normal, quanto ao atrito. A dependência do atrito deve ser dependente de características ou dos dois corpos que interagem, ou da interface de interação. O peso é resultado da interação dos corpos com a Terra, não faria sentido que a força de atrito entre as duas superfícies tivesse relação com um corpo externo ao sistema.}. No entanto, através das Leis de Newton, vemos que existe um aumento da normal para todos os casos onde ``forçamos'' o bloco contra a superfície. Analizando a Figura~\ref{Fig:BlocoEmpurradoParaBaixo}:
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface, gray] (-2,0) -- (2,0);
+    
+    \draw[pattern= north west lines, pattern color = gray, draw = gray] (-0.5,0) rectangle (0.5,1);
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0, 0.5) -- +(0,-1) node[left]{$\vec{P}$};
+    \draw[->, thick] (0,1) -- +(0,1.5) node[left]{$\vec{N}$};
+    
+    \draw[<-, thick] (-0.5,0.5) -- node[above]{$\vec{F}$} +(-1,0);
+    \draw[->, thick] (-0.5,0) -- node[below]{$\vec{f}_{at}$} +(-1,0);
+    \node (A) at (1.2,1){$\vec{a} = 0$};
+    
+    \draw[->, thick] (-0.3, 1.5) -- node[left]{$\vec{F}_a$} (-0.3,1);
+    
+    \draw[->, dashed] (-2, 0.5) -- (2,0.5) node[above]{$x$};
+    \draw[->, dashed] (0,-1) -- (0, 3) node[below right]{$y$};
+
+\end{tikzpicture}
+\caption{Bloco sujeito a duas forças, uma o empurrando contra a superfície e outra tendendo a fazer com que ele deslize.\label{Fig:BlocoEmpurradoParaBaixo}}
+\end{marginfigure}
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            F - f_{at}^e|_{\textrm{Max}} &= 0
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P - F_a &= ma \\
+            N &= P + F_a
+        \end{align}
+\end{description}
+
+\noindent{}Nas equações acima, estamos considerando que a aceleração no eixo vertical $y$ é nula, pois não há movimento em tal eixo. Logo, temos que
+\begin{equation}
+    N = P + F_a.
+\end{equation}
+%
+No eixo horizontal $x$, \emph{também consideramos que a aceleração é nula}. Fazemos isso pois estamos considerando a hipótese de que estamos exatamente no valor máximo de força de atrito, não o excedendo. Nesse caso, verificamos que ainda não temos movimento e então
+\begin{equation}
+    F = f_{at}^e|_{\textrm{Max}}.
+\end{equation}
+
+% Será que isso é verdade? Nunca fiz isso!
+Finalmente, se fizermos um experimento onde alteramos o módulo da força $\vec{F}_a$ e registramos o valor do módulo de $\vec{F}$ para o qual o movimento inicia, vemos que --~utilizando as duas equações acima~--, podemos chegar na seguinte proporcionalidade:
+\begin{equation}
+    f_{at}^e|_{\textrm{Max}} \propto N.
+\end{equation}
+%
+Podemos transformar a proporcionalidade acima em uma equação se adotarmos uma constante, então escrevemos
+\begin{equation}
+  f_{at}^e|_{\textrm{Max}} = \mu_e N. \mathnote{Força de atrito estático máxima}
+\end{equation}
+%
+A constante de proporcionalidade $\mu_e$, denominada \emph{coeficiente de atrito estático} varia para cada par de superfícies que interagem e deve ser calculada experimentalmente.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Determinação do coeficiente de atrito estático}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface] (0,0) -- (4,0);
+    \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill] (2,0.5) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
+    
+    \node at (3,1) {$\vec{a} = 0$};
+    
+    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
+
+\end{tikzpicture}
+\caption{Bloco em equilíbrio devido à força de atrito sobre um plano inclinado.}
+\end{marginfigure}
+
+Uma maneira simples de determinar o coeficiente de atrito estático entre dois tipos de superfícies consiste em utilizar um plano cuja inclinação pode ser alterada, sobre o qual apoiamos um bloco. Quando o plano for inclinado até que o bloco esteja na iminência de se mover, podemos analisar o sistema ainda como uma situação de equilíbrio.
+
+Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado (Veja a Figura~\ref{Fig:DetCoefAtEstatico}). Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente. Aplicando a Segunda Lei de Newton aos eixos, temos:
+\begin{description}
+    \item[Eixo $x$:] Neste eixo temos, sabendo que $a_x = 0$,
+        \begin{align}
+            F_R^x &= m a_x \\
+            P_x - f_{at} &= 0 \\
+            P \sen\theta - \mu_e N &= 0 \\
+            mg \sen\theta - \mu_e N &= 0 \\
+            mg \sen\theta &= \mu_e N \label{coef_atrito_deduc}
+        \end{align}
+    \item[Eixo $y$:] Novamente, a aceleração é nula,
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - P_y &= 0 \\
+            N &= P\cos\theta \\
+            N &= mg \cos\theta
+        \end{align}
+\end{description}
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-35,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+      
+    \draw[interface, gray] (0,0) -- (4,0);
+    \draw[pattern= dots, draw = gray, pattern color = gray] (1.5,0) rectangle (2.5,1);
+        
+    \draw[fill, gray] (2,0.5) coordinate (center) circle (1pt);
+    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$} coordinate (P);
+    \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
+    \draw[->, thick] (1.5,0) -- +(-0.573576,0) node[above]{$\vec{f}_{at}$};
+    
+    \node at (3,1) {$\vec{a} = 0$};
+    
+    \draw[dashed] (4,0) -- +(-145:1) coordinate (A);
+    
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,0);
+    
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = C--B--A};
+    
+    \draw[dashed, ->] (0.5,0.5) -- (3.5,0.5) node[below left]{$x$};
+    \draw[dashed, ->] (2,-1) coordinate (X) -- (2,2.5) node[left]{$y$};
+    
+\end{tikzpicture}
+\caption{Sistema de referência para a análise do sistema.\label{Fig:DetCoefAtEstatico}}
+\end{marginfigure}
+
+\noindent{}Utilizamos acima o fato de que o ângulo entre o peso e o eixo $y$ é igual ao ângulo $\theta$ entre a superfície do plano inclinado e a horizontal.
+
+Substituindo a expressão acima para a força normal na Equação~\eqref{coef_atrito_deduc}, obtemos
+\begin{equation}
+    \mu_e mg \cos\theta = mg \sen\theta,
+\end{equation}
+%
+o que resulta em
+\begin{equation}
+    \mu_e = \tan\theta.
+\end{equation}
+%
+Experimentalmente, basta elevar lentamente a inclinação do plano até que o bloco comece a deslisar. Registrando o ângulo para o qual o movimento inicia, temos um valor limite para o ângulo. Repetindo o procedimento algumas vezes, podemos determinar com alguma precisão qual é o ângulo para o qual temos iminência de movimento.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Determinar o valor de aceleração máxima que podemos ter no exemplo da esteira.}
+
+\paragraph{Exemplo: ?}
+
+\textbf{Calcular o valor máximo de uma massa para o qual um sistema fica em repouso (tipo o problema que têm três blocos $A$, $B$, e $C$ da lista).}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Força de atrito cinético} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Tb fazer aqui o esquema de proporcionalidade com $P$, $F_a$, e $a$.}
+Após o bloco passar a se mover, a força de atrito entra em um novo regime, denominado \emph{atrito cinético}. Experimentalmente, podemos verificar que o atrito cinético também depende de nomal: se tomarmos um aparato como o da Figura~\ref{Fig:AparatoAtritoCinetico}, verificamos que quanto maior for o valor da força $\vec{F}_a$ aplicada, maior será a distensão da mola\footnote{Veremos adiante a relação entre a força exercida por uma mola e a sua distensão.}, demonstrando o consequente aumento de $\vec{F}_e$ necessário para manter o sistema em equilíbrio. Aplicando a Segunda Lei de Newton para ambos os eixos:
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            f_{at}^c - F_e &= 0 \\
+            f_{at}^c &= F_e.
+        \end{align}
+    \item{Eixo $y$:}
+        \begin{align}
+            F_R^y &= m a_y \\
+            N - F_a - P &= 0 \\
+            N &= F_a + P.
+        \end{align}
+\end{description}
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+   
+    \draw[interface, gray] (1,-1.5) -- (1,-2.2);
+    \draw[interface, gray] (0.7,-2.5) -- (5.5, -2.5);
+    
+    \draw[gray] (1,-2) -- (1.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate,gray] (1.2,-2) -- (3.3,-2);
+    \draw[gray] (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3.5,-2.5) rectangle (4.5,-1.5);
+   % \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1.5);
+    \draw[->, thick] (3.5, -2) -- node[above]{$\vec{F}_e$} +(-0.5,0);
+    \draw[->, thick] (4.5,-2.5) -- node[above]{$\vec{f}_{at}$} +(1,0);
+    \draw[<-, thick] (3.7,-1.5) -- node[left]{$\vec{F}_a$} +(0,0.5);
+
+    \draw[->] (2.4, -2.8) +(-0.5,0) -- node[below]{$\vec{v}$} +(0.5,0);
+    
+    \draw[->, dashed] (4,-2) +(-1.5,0) -- +(1.5,0) node[above]{$x$};
+    \draw[->, dashed] (4,-2) +(0,-1) -- +(0,2) node[right]{$y$};
+        
+\end{tikzpicture}
+\caption{Aparato para a determinação do coeficiente de atrito cinético: dispomos um bloco preso a uma mola e apoiado em um disco que gira, de forma que o bloco desliza sobre ele. Aplicando uma força $\vec{F}_a$ conhecida sobre o bloco e medindo a distensão da mola, podemos determinar a constante de proporcionalidade entre a força de atrito e a normal.\label{Fig:AparatoAtritoCinetico}}
+\end{marginfigure}
+
+Se variarmos a força $\vec{F}_a$ e verificarmos a distensão correspondente da mola, verificamos, com o auxílio das equações obtidas acima, que existe uma proporcionalidade entre a força de atrito e a força normal:
+\begin{equation}
+    f_{at}^c \propto N.
+\end{equation}
+%
+Novamente, podemos transformar a proporcionalidade em uma equação com o auxílio de uma constante, obtendo
+\begin{equation}
+    f_{at}^c = \mu_c N,
+\end{equation}
+%
+onde $\mu_c$ é conhecido como \emph{coeficiente de atrito cinético}. Assim como no caso do coeficiente de atrito estático, tal constante é uma propriedade do par de superfícies que interagem e deve ser determinado experimentalmente. Vale ainda notar que $\mu_c$ deve ser menor ou igual a $\mu_e$: se a força de atrito cinético fosse maior que a força de atrito estático máximo, tão logo um objeto passasse a se mover, ele encontraria uma força de resistência maior, que faria com que ele voltasse a ficar parado, ou seja, ele não poderia iniciar o movimento.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Calcular distância até parar, dada uma situação onde haja uma força de atrito (pode ser em um plano inclinado, pra ficar um pouco mais rico)}
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Arrasto}
+%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Ver de onde vem essa expressão para a força de arrasto.}
+
+Sabemos que um para-quedista é atraído pela força gravitacional da Terra e, portanto, deve estar submetido a uma aceleração na mesma direção dessa força. Se considerarmos somente esta força, teremos um movimento com aceleração constante, levando a um aumento linear da velocidade com o tempo. No entanto, não é o que se observa na realidade: a velocidade aumenta até certo ponto e se torna constante. Quando o para-quedas abre, a velocidade diminui progressivamente até chegar a outro valor constante.
+
+Para explicarmos essa situação, precisamos levar em conta a \emph{força de arrasto}. Essa força é notável para um ciclista que se move em grande velocidade, ou para um passageiro de um automóvel que coloca a mão para fora da janela em velocidades elevadas. Sempre que um objeto se move através de um meio fluido, ele estará sujeito a uma força no sentido contrário ao do movimento relativo entre o objeto e o meio. A intensidade dessa força aumenta com a velocidade, o que -- como veremos adiante -- explica a existência de uma velocidade máxima. Além dessa dependência na velocidade, temos uma dependência na densidade do meio (o arrasto é maior na água que no ar, por exemplo) e na área de seção reta do objeto que se desloca no meio fluido. Essa área é a ``área frontal'' do objeto, isto é, a área máxima que ele tem quando cortado por um plano perpendicular à direção do movimento. Tal dependência explica o funcionamento do para-quedas, pois a área aumenta significativamente quando ele é aberto. Portanto, podemos escrever
+\begin{equation}\label{Eq:ExpPadraoArrasto}
+  F_A = \frac{1}{2}C_D \rho A v^2. \mathnote{Força de arrasto}
+\end{equation}
+%
+ A força de arrasto é uma força muito complexa e essa expressão tem interpretações diferentes de acordo com a velocidade. O valor de $C_D$ pode ser considerado constante somente no caso em que consideramos a força de arrasto que atua em um objeto com formas ``angulosas'', como um cilindro cuja base faz um ângulo de \degree{90} com a lateral, e quando temos velocidade suficiente para que -- após passar pelo objeto -- o escoamento do fluido seja turbulento. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\paragraph{Arrasto de Stokes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A força de arrasto é uma força que não tem uma forma bem definida. Uma determinação precisa dessa força exige a solução de equações complexas de mecânica dos fluidos. A expressão dada na seção anterior é uma aproximação que é válida para alguns regimes de velocidade e de escoamento do fluido.
+
+Se temos velocidades pequenas e objetos com formas mais suaves,  como uma esfera, a ``constante'' $C_D$ -- que é na verdade uma função da velocidade -- poderá assumir uma dependência com o inverso da velocidade, o que se reflete em uma dependência linear na velocidade:
+\begin{equation}
+  F_A = 6 \pi R \eta v, \mathnote{Arrasto de Stokes}
+\end{equation}
+%
+onde $R$ é o raio da esfera e $\eta$ é a viscosidade dinâmica do fluido. Essa equação assume que o escoamento do fluido não sofre turbulência após passar pelo objeto, e que a superfície da esfera seja lisa.
+
+Se a velocidade de escoamento for muito alta, podemos ter uma dependência linear de $C_D$ com a velocidade, o que se reflete em uma dependência cúbica da força de arrasto na velocidade. Apesar da complexidade da quantificação da força, temos meios de entender qualitativamente alguns problemas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Velocidade terminal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[->, dashed] (0,1.5) -- (0,2.5) node[below left]{$y$};
+    \draw[dashed] (0,-1.5) -- (0,-2);
+        
+    \draw[pattern = north west lines] (0,0) circle (0.5);
+    
+    \draw[->] (0,0.5) -- +(0,1) node[below right]{$\vec{F}_a$};
+    \draw[->] (0,-0.5) -- +(0,-1) node[above right]{$\vec{P}$};
+    
+\end{tikzpicture}
+\caption{Na condição de velocidade terminal, temos que a força de arrasto é igual ao peso. Consequentemente, temos equilíbrio, isto é, a aceleração é zero. Dessa forma, temos velocidade constante.}
+\end{marginfigure}
+
+Se um objeto é solto a partir do repouso, caindo sob efeito da força peso e da força de arrasto, podemos escrever -- utilizando a segunda lei de Newton --
+\begin{equation}
+  P - F_A = ma.
+\end{equation}
+%
+Isolando a aceleração, obtemos
+\begin{equation}
+  a = \frac{mg - F_A}{m}.
+\end{equation}
+%
+Como vimos acima, a força de arrasto é sempre proporcional de alguma forma à velocidade. No início do movimento, $v = 0$ e temos nesse instante $F_A = 0$, logo
+\begin{equation}
+  a = g.
+\end{equation}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    % Solução para F_a = -bv:
+    % m dv/dt = mg - b v
+    % m dv/dt / (mg -bv) = 1
+    % m\int [dv/dt / (mg - bv)] dt = \Delta t ;
+    %   y(t) = mg - b v(t) 
+    %   b v(t) = mg - y(t)
+    %   v(t) = mg/b - y(t)/b
+    %   dv/dt = -(1/b)dy/dt
+    % -m/b \int (dy/dt / y) dt = \Delta t
+    % -m/b ln y |_y_0^y = \Delta t
+    % ln y |_y0^y = -b/m \Delta t
+    % y/y_0 = exp(-b/m \Delta t)
+    % y = y_0 exp(-b/m \Delta t)
+    % mg - b v(t) = (mg - b v_0) exp(-b/m \Delta t)
+    % mg - (mg - b v_0)exp (-b/m \Delta t) = b v(t)
+    % v(t) = mg/b - (mg/b - v_0) exp (-b/m \Delta t)
+    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
+    \draw[smooth,name path=plota,samples=1000,domain=0:3.5]
+        plot(\x,{2 * (1 - exp(-2*\x))});
+        
+    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
+    
+\end{tikzpicture}
+\caption{Velocidade de um objeto solto a partir do repouso em função do tempo em uma situação onde a força de arrasto não pode ser desprezada. Note que inicialmente a velocidade aumenta linearmente, pois para velocidades baixas temos (aproximadamente) um movimento com aceleração constante $g$. Após um longo tempo, no entanto, atinge-se uma velocidade terminal $v_t$.}
+\end{marginfigure}
+%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+
+    \draw[smooth,name path=plota,samples=1000,domain=0:1.5]
+        plot(\x,{2 * (1 - exp(-4*\x))});
+       
+    % v(t) = mg/b + (v_0 - mg/b) exp (-b/m \Delta t)
+    \draw[smooth,name path=plota,samples=1000,domain=1.5:3.5]
+        plot(\x,{1 + (2 - 1) * exp(-8*(\x - 1.5))});
+        
+    \draw[dashed] (0,2) node[left]{$v_t$} -- (3.5,2);
+    \draw[dashed] (0,1) node[left]{$v_t^p$} -- (3.5,1);
+    
+\end{tikzpicture}
+\caption{Em um salto de para-quedas, temos uma velocidade que aumenta até uma certa velocidade terminal $v_t$. Após a abertura do para quedas, a velocidade diminui até uma nova velocidade terminal $v_t^p$, menor do que a anterior.}
+\end{marginfigure}
+%
+A partir do momento que a velocidade não é mais nula, temos uma força de arrasto que equilibra parcialmente o peso, o que diminuirá a força resultante e, consequentemente, diminuirá a aceleração. Mesmo com a diminuição da aceleração, o objeto continua ganhando velocidade, o que leva a um aumento na força de arrasto. Esse processo continua até que a força de arrasto cresça o suficiente para equilibrar o peso. Nessa situação, não existe mais aceleração, portanto atingimos um valor de velocidade máxima, que denominamos como \emph{velocidade terminal}. Podemos obter tal valor de velocidade através de
+\begin{equation}
+  a = \frac{mg - F_A}{m} = 0,
+\end{equation}
+%
+de onde podemos escrever
+\begin{equation}
+  F_A = mg,
+\end{equation}
+%
+e -- utilizando a expressão \eqref{Eq:ExpPadraoArrasto} -- podemos isolar $v$ obtendo
+\begin{equation}
+  v = \sqrt{\frac{2mg}{\rho A C_D}}.
+\end{equation}
+%
+Mesmo que para o caso do arrasto de Stokes tenhamos uma expressão diferente, a análise qualitativa que fizemos antes de obter o resultado acima continua sendo válida. Isto significa que para qualquer movimento onde exista uma força de arrasto, teremos uma velocidade terminal.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Não sei, qq coisa que envolva arrasto.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forças no movimento circular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+Quando analisamos o movimento circular, verificamos que para o caso não uniforme -- o mais geral -- podemos dividir a aceleração em duas componentes com papeis distintos: a aceleração tangencial, responsável por alterar o módulo da velocidade, e a componente centrípeta, responsável por alterar a direção da velocidade. Como vimos, no entanto, para que haja uma aceleração, é necessário que haja uma força. 
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines] (0,0) circle (1);
+    
+    \draw[dashed] (0,0) circle (2);
+    
+    \draw[fill] (0,2) circle (2pt);
+    
+    \draw[->, thick] (0,2) -- +(0,-0.5) node[right]{$\vec{P}$};
+\end{tikzpicture}
+\caption{Um movimento curvilíneo é sempre uma situação em que não há equilíbrio de forças, pois é sempre necessária uma aceleração perpendicular à direção da velocidade instantânea para que haja mudança na direção do deslocamento. No caso de satélite em um movimento orbital circular, por exemplo, a força peso causa uma aceleração centrípeta.}
+\end{marginfigure}
+
+Analisando um movimento unidimensional, temos que um objeto que se move em linha reta com certa velocidade precisa sofrer a atuação de uma força resultante para sofrer uma mudança no módulo de sua velocidade. Para um corpo que realiza um movimento circular, analogamente, se sua velocidade sofre uma mudança de direção -- mantendo constante seu módulo $\vec{v}$ --, o corpo também deve estar sujeito a atuação de uma força. No primeiro caso, a direção da força é a mesma do movimento (caso contrário o corpo sofreria uma alteração também da direção de seu movimento). No segundo caso, a força precisa atuar perpendicularmente à direção da velocidade (caso contrário sofreria uma alteração no módulo da velocidade). Da mesma forma que diferenciamos o papel exercido pelas acelerações tangencial e centrípeta, podemos diferenciar o papel entre uma força que aponta tangencialmente à trajetória e uma que aponta para o centro da trajetória circular: a primeira causa aceleração tangencial, alterando então o módulo da velocidade, já a segunda causa aceleração centrípeta, alterando então a direção do movimento\footnote{Podemos ter o resultado combinado dessas duas alterações (módulo e direção) quando exercemos uma força que faz um ângulo diferente de \np[\tcdegree]{0} ou \np[\tcdegree]{90} com a direção da velocidade.}. Denominamos a componente da força resultante que aponta em direção ao centro da trajetória como \emph{força centrípeta}. De acordo com Newton:
+\begin{quote}
+    Uma força centrípeta é aquela pela qual corpos são puxados ou impelidos, ou tendem de alguma maneira, em direção a um ponto como um centro.
+\end{quote}
+
+Podemos utilizar a segunda lei de Newton e a expressão para a aceleração centrípeta
+\begin{align}
+  F &= ma \\
+  a_c &= \frac{v^2}{R}
+\end{align}
+%
+para relacionar a força exercida para manter um objeto em uma trajetória circular aos valores de massa, velocidade e raio da trajetória:
+\begin{equation}
+  F_c = m \frac{v^2}{R}. \mathnote{Força centrípeta.}
+\end{equation}
+%
+Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$:
+\begin{itemize}
+    \item Se temos um corpo que gira preso a um fio, a força é uma tensão;
+    \item Se temos um satélite em órbita em torno da Terra, temos a força gravitacional;
+    \item Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito.
+\end{itemize}
+%
+Note que a força centrípeta não é uma nova força.
+
+Em algumas situações, temos mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular: 
+\begin{itemize}
+    \item Em uma estrada com uma curva inclinada, temos uma \emph{componente} da normal e uma \emph{componente} da força de atrito. A soma dessas duas componentes atua como força centrípeta.
+    \item No caso de um corpo que executa um movimento circular vertical, como na Figura~\ref{Fig:MovimentoCircularVerticalCorpoFio.}, a tensão sempre aponta para o centro da trajetória, mas o peso tem uma componente que aponta para o centro que muda de acordo com a posição. A soma da tensão e do valor instantâneo dessa componente atua como força centrípeta.
+\end{itemize}
+%
+De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+  
+    \draw[densely dotted] (0,0) circle (1.75);
+    
+    \draw[<-] ([shift={(0,0)}]60:2) arc[radius=2, start angle=60, end angle= 30] node[midway, above right]{$v$};
+    % Topo
+    \draw[pattern = north west lines] (0,1.75) circle (0.25);
+    \draw[fill] (0,1.75) circle (1pt);
+    \draw[->, thick] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw (0,0) -- (0,1.25);
+    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{T}$};
+%    \draw[dotted, ->] (0,1.75)++(0,0.5) -- +(0, -2) node[above right]{$x$};
+    
+    % Fundo
+    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
+    \draw[fill] (0,-1.75) circle (1pt);
+    \draw[->, thick] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw (0,0) -- (0,-0.5);
+    \draw[->, thick] (0,-1.5) -- +(0,1) node[below right]{$\vec{T}$};
+%    \draw[dotted, ->] (0,-1.75)++(0,-0.5) -- +(0, 2) node[below left]{$x$};
+    
+    % Direita
+    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
+    \draw[fill] (1.75,0) circle (1pt);
+    \draw[->, thick] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw (0,0) -- (1,0);
+    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above right]{$\vec{T}$};
+%    \draw[dotted, ->] (1.75,0)++(0.5,0) -- +(-2,0) node[below right]{$x$};
+    
+    % Esquerda
+    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
+    \draw[fill] (-1.75,0) circle (1pt);
+    \draw[->, thick] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw (0,0) -- (-1,0);
+    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above left]{$\vec{T}$};
+%    \draw[dotted, ->] (-1.75,0)++(-0.5,0) -- +(2,0) node[above left]{$x$};
+    
+    \draw[fill] (0,0) circle (1pt);
+\end{tikzpicture}
+\caption{Forças em um movimento circular vertical executado por um corpo preso a um fio.\label{Fig:MovimentoCircularVerticalCorpoFio.}}
+\end{marginfigure}
+
+Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coordenado que ligue o corpo ao centro da trajetória circular, com sentido apontando para o centro da trajetória. Feito isso, basta tomar todas as componentes de força em tal direção, somá-las (levando em conta o sinal adequado) e igualá-las a $m v^2/R$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Movimento circular vertical em uma pista}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+  
+    \draw[dashed] (0,0) circle (2);
+    
+    \draw[<-] ([shift={(0,0)}]60:1.75) arc[radius=1.75, start angle=60, end angle= 30] node[midway, below left]{$v$};
+    % Topo
+    \draw[pattern = north west lines] (0,1.75) circle (0.25);
+    \draw[fill] (0,1.75) circle (1pt);
+    \draw[->, thick] (0,1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,1.5) -- +(0,-0.25) node[left]{$\vec{N}$};
+    \draw[dotted, ->] (0,1.75)++(0,0.5) -- +(0, -2) node[above right]{$x$};
+    
+    % Fundo
+    \draw[pattern = north west lines] (0,-1.75) circle (0.25);
+    \draw[fill] (0,-1.75) circle (1pt);
+    \draw[->, thick] (0,-1.75) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,-1.5) -- +(0,1) node[below right]{$\vec{N}$};
+    \draw[dotted, ->] (0,-1.75)++(0,-0.5) -- +(0, 2) node[below left]{$x$};
+    
+    % Direita
+    \draw[pattern = north west lines] (1.75, 0) circle (0.25);
+    \draw[fill] (1.75,0) circle (1pt);
+    \draw[->, thick] (1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (1.5,0) -- +(-0.5,0) node[above right]{$\vec{N}$};
+    \draw[dotted, ->] (1.75,0)++(0.5,0) -- +(-2,0) node[below right]{$x$};
+    
+    % Esquerda
+    \draw[pattern = north west lines] (-1.75,0) circle (0.25);
+    \draw[fill] (-1.75,0) circle (1pt);
+    \draw[->, thick] (-1.75,0) -- +(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (-1.5,0) -- +(0.5,0) node[above left]{$\vec{N}$};
+    \draw[dotted, ->] (-1.75,0)++(-0.5,0) -- +(2,0) node[above left]{$x$};
+    
+    \draw[fill] (0,0) circle (1pt);
+\end{tikzpicture}
+\caption{Para cada uma das posições, temos uma componente da força resultante que aponta para o centro da trajetória. A componente tangencial será a responsável pela alteração do módulo da velocidade. \label{Fig:LoopVertical}}
+\end{marginfigure}
+
+Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
+
+O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal -- exercida pelo fundo do balde -- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Condição de perda de contato e velocidade mínima}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma situação de particular interesse no movimento circular vertical é a de determinar qual é a velocidade mínima necessária para que um corpo qualquer execute o movimento circular sem perder contato com a superfície. Nosso ponto de interesse em particular é o ponto mais alto na Figura~\ref{Fig:LoopVertical}. A força que precisa ser exercida sobre o corpo para que ele se mantenha na trajetória circular determinada pela pista é dada por
+\begin{equation}
+    F_R = m \frac{v^2}{r}.
+\end{equation}
+%
+De acordo com a figura, vemos que a força resultante é dada pela soma da normal com o peso:
+\begin{equation}
+    P + N = m\frac{v^2}{r}.
+\end{equation}
+%
+Na expressão acima, o peso é constante, portanto, se aumentamos ou diminuímos a velocidade com que executamos a trajetória circular, o aumento ou diminuição da força que atua sobre o corpo conforme variamos a velocidade é inteiramente dado através da variação da força normal. Se ao efetuarmos várias voltas, diminuindo progressivamente a velocidade no topo da trajetória, verificamos que a normal deve diminuir progressivamente, até que atinja o seu valor mínimo: zero. Nesse caso, temos que não há mais interação entre o corpo e a pista, ou seja, estamos na \emph{iminência de perder contato}. Nesse caso,
+\begin{equation}
+    P = m \frac{v^2}{r}
+\end{equation}
+%
+e a velocidade mínima será então dada por
+\begin{align}
+    P &= m\frac{v^2}{r} \\
+    mg &= m\frac{v^2}{r} \\
+    rg &= v^2,
+\end{align}
+%
+e finalmente
+\begin{equation}
+    v = \sqrt{rg}.
+\end{equation}
+
+Para qualquer velocidade abaixo daquela dada pela expressão acima, teremos que o corpo perderá contato com a pista antes de chegar ao topo da trajetória. A partir do momento em que ocorre a perda de contato, o corpo passa a estar sob influência da gravidade somente. Nesse caso, ele passa a executar um movimento parabólico, característico de um lançamento oblíquo.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+  
+    \draw[dashed] ([shift={(0,0)}]180:2) arc[radius=2, start angle=180, end angle= 0];
+    
+    % Topo
+    \draw[pattern = north west lines] (0,2.25) circle (0.25);
+    \draw[fill] (0,2.25) circle (1pt);
+    \draw[->, thick] (0,2.25) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,2.5) -- +(0,0.7) node[left]{$\vec{N}$};
+    \draw[dotted, ->] (0,2.75) -- +(0, -2) node[above right]{$x$};
+    
+    \draw[->] (0.25, 2.25) -- +(0.5, 0) node[above left]{$\vec{v}$}; 
+
+\end{tikzpicture}
+\caption{Corpo percorrendo a parte externa de uma pista com perfil circular. Veja que a normal tem que ser menor que o peso na posição indicada pois a diferença entre essas duas forças é responsável pela aceleração centrípeta que faz com que o corpo execute a curva.\label{Fig:VelocidadeMaximaFlugplatz}}
+\end{marginfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Condição de perda de contato e velocidade máxima}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma outra possibilidade de movimento em que pode ocorrer perda de contato é se o corpo de desloca pela parte externa da pista (veja a Figura~\ref{Fig:VelocidadeMaximaFlugplatz}). Nesse caso, temos que no caso de velocidade nula, teríamos que a normal seria igual ao peso. Conforme aumentamos a velocidade, a força normal deve diminuir, para que a força resultante para o centro da trajetória aumente. Para um certo valor de velocidade máxima, temos que a normal será zero. Nesse caso, podemos afirmar que
+\begin{align}
+    F_R &= m \frac{v^2}{r} \\
+    N + P &= m \frac{v^2}{r} \\
+    mg &= m \frac{v^2}{r} \\
+    g &= \frac{v^2}{r},
+\end{align}
+%
+ou seja, a velocidade máxima com que podemos fazer a trajetória circular sem perder contato\footnote[][-2cm]{Isto é, estamos na iminência de perder contato.} é
+\begin{equation}
+    v = \sqrt{rg}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Movimento sobre a superfície do planeta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificamos anteriormente que se um objeto estiver em repouso sobre uma mesa, temos que a força normal é igual ao peso. No entanto, devido à rotação do planeta, bem como a qualquer movimento sobre a superfície, temos um movimento circular.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.3]
+    \draw[pattern = north west lines, pattern color = gray] (0,0) circle (1);
+    
+    \draw[dashed] (0,0) circle (1.1);
+    
+    \draw[fill] (0,1.1) coordinate (body) circle (1mm);
+    
+    \draw[->, thick] (0,1.1) -- +(0,-0.5) node[right]{$\vec{P}$};
+    \draw[->, thick] (0,1.1) -- +(0,0.4) node[left]{$\vec{N}$};
+    
+    %\draw[->] ([shift={(0,0)}]80:1.1) arc[radius=1.1, start angle=80, end angle = 65] node[midway, above]{$\vec{v}$};
+    \draw[->] (0.1,1.1) -- +(0.4,0) node[above left]{$\vec{v}$};
+    
+    \draw[dashed,->] (body) +(0,0.75) -- +(0,-1) node[above left]{$x$};
+    
+\end{tikzpicture}
+\caption{Movimento sobre a superfície do planeta.}
+\end{marginfigure}
+
+\begin{description}
+    \item[Eixo $x$:] 
+        \begin{align}
+            F_R^x &= m a_x \\
+            P - N &= m \frac{v^2}{R}.
+        \end{align}
+    \item[Eixo $y$:] Não há forças.
+\end{description}
+
+\noindent{}A partir da equação para o eixo $x$ podemos escrever para a normal
+\begin{align}
+    N &= mg-m\frac{v^2}{R} \\
+    &= m \left(g - \frac{v^2}{R}\right).
+\end{align}
+%
+Note que a alteração na normal não é perceptível devido ao fato de que o raio $R$ da trajetória é muito grande, pois é \emph{o raio da Terra}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Pendulo cônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como mostra a Figura~\ref{Fig:PenduloConico}. O corpo descreve uma trajetória circular em um plano horizontal, sendo que o fio descreve um cone. Podemos relacionar a velocidade do corpo ao ângulo $\theta$ e ao comprimento $\ell$ do fio.
+
+\begin{figure}[!htb]\forceversofloat
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.25,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
                     amplitude=0.2cm,segment length=2mm}}},
     ]
 
-	% mesa
-	\draw[gray,interface] (0,0) -- (4,0);
-	   
-    \draw[pattern = north west lines, pattern color = gray, draw = gray] (1,0) -- (3.5,0) -- (3.5,1.5) -- (3.25,1.5) -- (3.25,2.5) -- (2.25,2.5) -- (2.25,1.5) -- (2,1.5) -- (2,1) -- (1,1) -- cycle;
-       
-    \draw[thick, ->] (0,0.5) -- node[above]{$\vec{F}$} +(1,0);
-    
-    \draw[fill] (2.15,0.85) circle (1pt);
-    \draw[thick, ->] (2.15,0.85) -- +(0,-2.5) node[above right]{$\vec{P}_t$};
-    \draw[thick, ->] (2.15, 1.5) -- node[left]{$\vec{N}_t$} +(0,2.5);
+% plano
+
+\draw[dotted] (2, -3, -2) -- (2, -3, 2) -- (-2,-3,2) -- (-2,-3,-2) -- cycle;
+
+\def\h{3}% altura
+\def\r{2}% raio
+
+\draw[interface] (2,0,0) -- (-2,0,0);
+
+\coordinate (bob) at (\r,-\h,0);
+
+\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
+\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
+
+\draw[densely dotted] (0,0,0) -- (0,-\h,0);
+\coordinate (center) at (0,-\h,0);
+\draw[fill] (center) circle (1pt);
+
+\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
+
+\draw[->] (bob) -- +(0,0,1.75) node[below right]{$\vec{v}$};
+
+\draw[fill] (\r,-\h,0) circle (3pt);
+ 
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
+
+\draw (bob)++(0,-0.3,0) -- +(0,0,0.3);
+\draw (bob)++(0,0,0.3) -- +(0,-0.3,0);
+
 \end{tikzpicture}
-\caption{O mesmo sistema da Figura~\ref{Fig:BlocosForcasExternas}, porém agora consideramos o \emph{bloco composto} pelos três blocos. Ao fazermos isso, as forças internas deixam de ser relevantes e só precisamos nos preocupar com as forças externas.\label{Fig:BlocosForcasExternasComposto}}
+\caption{Pêndulo cônico. O quadrado pontilhado mostra o plano horizontal no qual a trajetória circular do pêndulo está contida.\label{Fig:PenduloConico}}
+\end{figure}
+
+Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertical e um que aponta para o centro da trajetória temos:
+
+\begin{description}
+    \item{Eixo $x$:}
+        \begin{align}
+            F_R^x &= m a_x \\
+            T_x &= m a_c \\
+            T \sen\theta &= m \frac{v^2}{r}.
+        \end{align} 
+    \item{Eixo $y$:}
+        \begin{align}
+            F_R^y &= m a_y \\
+            T_y - P &= 0 \\
+            T \cos\theta &= P \\
+            T \cos\theta &= mg.
+        \end{align}
+\end{description}
+
+\begin{marginfigure}[-5cm]
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+\def\h{3}% altura
+\def\r{2}% raio
+
+\draw[interface] (2,0,0) -- (-2,0,0);
+
+\coordinate (bob) at (\r,-\h,0);
+
+\draw[dashdotted] (bob) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},-\h,{\r*sin(\t)})}--cycle;
+\draw (0,0,0) coordinate(origin) -- node[right]{$\ell$}(\r,-\h,0);
+
+\draw[dotted] (0,0,0) -- (0,-\h,0);
+\coordinate (center) at (0,-\h,0);
+\draw[fill] (center) circle (1pt);
+
+\draw[->, thick] (bob) -- ($ (bob) !.333! (origin) $) coordinate (tension) node[left]{$\vec{T}$};
+\draw[->, thick] (bob) -- +(0,-1,0) node[right]{$\vec{P}$};
+
+\draw[->, dashed] (bob) -- (0.2,-\h,0) node[below right]{$x$};
+\draw[->, dashed] (bob) -- +(0,1.5,0) node[below right]{$y$} coordinate (Y);
+
+\draw[dotted] (tension) -- +(0.666,0,0);
+\draw[dotted] (tension) -- +(0,-1,0);
+\draw[->, thick, gray] (bob) -- +(-0.666,0,0);
+\draw[->, thick, gray] (bob) -- +(0,1,0);
+
+\draw[fill] (\r,-\h,0) circle (3pt);
+  
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = center--origin--bob};
+
+\pic [draw, "$\theta$", angle eccentricity=1.5] {angle = Y--bob--tension};
+
+\end{tikzpicture}
+\caption{Diagrama de forças do pêndulo cônico. Note que a força centrípeta pode ser identificada nesse caso com a componente da tensão no eixo $x$ apresentado na figura.\label{Fig:PenduloConicoDiag}}
 \end{marginfigure}
 
-Verificamos, primeiramente, que o sistema deve estar em equilíbrio no eixo $y$ vertical: 
+\noindent{}Nas expressões acima assumimos que a aceleração no eixo vertical $y$ será zero, pois se a velocidade for constante o plano horizontal descrito pela trajetória circular não se desloca verticalmente. A partir dessas expressões, podemos escrever
 \begin{align}
-    F_R^y &= m_t a_y \\
-    N_t - P_t &= 0 \\
-    N_r &= P_t \\
-    &= (m_1 + m_2 + m_3) g.
+    m\frac{v^2}{r} &= \frac{mg}{\cos\theta} \sen\theta \\
+    v^2 &= rg \tan\theta \\
+    v &= \sqrt{rg\tan\theta}.
 \end{align}
 
-Já no eixo $x$ paralelo à superfície inferior, resta que
+Finalmente, podemos escrever o raio $r$ usando a função trigonométrica $\sen\theta$ como
 \begin{equation}
-    F_R^x = m_t a_x,
- \end{equation}
- %
- o que resulta em
-\begin{align}
-    a_x &= \frac{F}{m_t} \\
-    &= \frac{F}{m_1 + m_2 + m_3},
-\end{align}
+    r = \ell \sen\theta,
+\end{equation}
 %
-onde usamos o fato de que a massa total $m_t$ do bloco composto é dada pela soma das massas dos três blocos.
+logo
+\begin{equation}
+    v = \sqrt{\ell g \sen\theta\tan\theta}.
+\end{equation}
 
-A ideia de considerar um bloco composto é bastante útil para calcular a aceleração do sistema. Já para calcular forças internas --~se, estivéssemos interessados em calcular $f_{at}$, $N_2$, ou $F_{12}$, no presente problema~--, devemos analisar cada bloco em separado, como fizemos primeiramente. Muitas vezes, no entanto, se já tivermos determinado a aceleração, esse trabalho se torna muito mais simples.\footnote{Para calcular $f_{at}$, por exemplo, basta substituir a aceleração na Equação~\eqref{Eq:DiscForcasInternasBl2X}.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Curva compensada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em estradas, é essencial que as curvas tenham uma inclinação. Tal inclinação faz com que uma componente da força normal atue de maneira a, junto com a força de atrito, fazer com que os veículos possam executar a curva com segurança. Podemos determinar as velocidades máxima e mínima para executar a curva sem deslizar através de uma análise das forças presentes no sistema.
+
+Na Figura~\ref{Fig:CurvaCompensadaRef} mostramos representação de uma visão frontal de um veículo que executa uma curva, mostrando as forças que atuam nesse movimento. Verificamos que existem duas possibilidades para o atrito: ou ele aponta para baixo, o que corresponde ao caso em que o corpo tende a escapar pela parte externa da curva, ou ele aponta para cima, o que corresponde ao caso em que o corpo tende a escapar para baixo. As forças de atrito são estáticas, já que não deve ocorrer deslizamento do veículo. Logo, considerando as forças de atrito são estático máxima, as situações indicadas correspondem à velocidade máxima e à velocidade mínima para as quais a curva pode ser executada sem deslizar. Note que as forças de atrito mostradas não podem ocorrer simultaneamente.
+
+Analisando o movimento utilizando um eixo $x$ que aponta para o centro da trajetória circular e um eixo $y$ que aponta verticalmente, perpendicular ao primeiro, temos:
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            N_x \pm f_{at}^x &= m \frac{v^2}{r}.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            N_y \mp f_{at}^y - P &= 0.
+        \end{align}
+\end{description}
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=30,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+    \draw[interface, gray] (-2,0) coordinate (bot) -- (2,0) coordinate (top);
+    
+    \draw[pattern = north west lines, draw = gray, pattern color = gray] (-0.5,0) rectangle (0.5,1);
+    
+    \draw[->, thick] (0,0.5) coordinate (O) -- +(-120:1) node[right]{$\vec{P}$};
+    \draw[fill] (0,0.5) circle (1pt);
+    
+    \draw[->, thick] (0,1) -- +(0,1.1547) node[left]{$\vec{N}$} coordinate (N);
+    \draw[->, thick] (0.5,0) coordinate (fs_o) -- +(0.8,0) coordinate (fs_f) node[above]{$\vec{f}_{at}$};
+    \draw[->, thick] (-0.5,0) coordinate (fi_o) -- +(-0.8,0) coordinate (fi_f) node[above left]{$\vec{f}_{at}$};
+    
+    \draw[->, dashed] (0,0.5) +(-30:2) -- +(150:2) node[above]{$x$};
+    \draw[->, dashed] (0,0.5) +(-120:1.5) -- +(60:1.5) node[right]{$y$} coordinate (Y);
+    
+    \draw[densely dotted] (fs_o) -- +(-30:0.5) coordinate (fs_x);
+    \draw[densely dotted] (fi_o) -- +(150:0.5) coordinate (fi_x);
+    \draw[dashed, gray] (bot) -- +(-30:1) coordinate (horiz);
+    
+    \pic [draw, "", angle eccentricity = 1.5, angle radius = 3mm] {angle = fi_x--fi_o--fi_f};
+    \pic [draw, "", angle eccentricity = 1.5, angle radius = 3mm] {angle = fs_x--fs_o--fs_f};
+    
+    \pic [draw, "$\theta$", angle radius = 8mm, angle eccentricity = 1.5] {angle = Y--O--N};
+    \pic [draw, gray, "$\theta$", angle eccentricity = 1.5] {angle = horiz--bot--top};
+\end{tikzpicture}
+\caption{Visão em seção reta de uma curva compensada (a velocidade é tal que o bloco entra na página). Verificamos que existem duas possibilidades para o atrito neste movimento. O eixo $x$ indicado aponta para o centro da trajetória circular. Os ângulos entre as forças de atrito e as linhas pontilhadas são iguais ao ângulo de inclinação $\theta$ da superfície.\label{Fig:CurvaCompensadaRef}}
+\end{marginfigure}
+
+\noindent{}Usamos nas equações acima o fato de que $a_x$ é a aceleração que aponta para o centro da trajetória --~ou seja, é a aceleração centrípeta~-- e que a aceleração $a_y$ é nula. Além disso, denotamos os dois sinais possíveis para a força de atrito: o sinal positivo se refere ao caso em que a força de atrito aponta para baixo --~o que corresponde ao caso de velocidade máxima~-- e o sinal negativo corresponde ao caso em que a força de atrito aponta para cima --~o que corresponde ao caso de velocidade mínima~--.
+
+Utilizando as funções trigonométricas, podemos decompor as forças, o que nos leva a
+\begin{equation}
+\begin{system}
+    N \sen\theta \pm f_{at}\cos\theta &= m \frac{v^2}{r} \\
+    N \cos\theta \mp f_{at}\sen\theta &= P.
+\end{system}
+\end{equation}
+%
+Como estamos trabalhando com a condição de atrito estático máximo, temos que $f_{at} = \mu_e N$, logo
+\begin{equation}
+\begin{system}
+    N \sen\theta \pm \mu_e N \cos\theta &= m \frac{v^2}{r} \\
+    N \cos\theta \mp \mu_e N \sen\theta &= mg.
+\end{system}
+\end{equation}
+%
+Da segunda equação do sistema acima, temos
+\begin{equation}
+    N = \frac{mg}{\cos\theta \mp \mu_e\sen\theta}.
+\end{equation}
+%
+Substituindo essa equação na primeira equação do sistema, resulta em
+\begin{equation}
+    \frac{mg}{\cos\theta \mp \mu_e\sen\theta} (\sen\theta \pm \mu_e \cos\theta) = m\frac{v^2}{r}.
+\end{equation}
+%
+Como estamos interessados em determinar as velocidades máxima e mínima, podemos reescrever a equação acima como
+\begin{equation}
+    v = \sqrt{rg \frac{\sen\theta \pm \mu_e \cos\theta}{\cos\theta \mp \mu_e\sen\theta}},
+\end{equation}
+%
+onde o sinal positivo nos dá a velocidade máxima e o sinal negativo nos dá a velocidade mínima.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Força centrípeta em um pêndulo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em um pêndulo, durante a oscilação da massa, temos uma tensão que varia constantemente. Considerando o movimento circular descrito, temos
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_R^x &= m a_x \\
+            T - P_x &= m \frac{v^2}{R} \\
+            T &= P_x + m\frac{v^2}{R}.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_R^y &= m a_y \\
+            P_y &= m a_y \\
+            mg \sen\theta &= m a_y.
+        \end{align}
+\end{description}
+
+\begin{marginfigure}[-6cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.2,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (1,0) -- (-1,0);
+    
+    \draw[pattern = north west lines] (-1,-1.73) coordinate (bob) circle (3mm);
+    \draw (-0.85,-1.47) coordinate (fix) -- (0,0) coordinate (O);
+    \draw[densely dotted] (O) -- +(0,-0.75) coordinate (Oi);
+    \draw[fill] (bob) circle (1pt);
+    \draw[->, thick] (bob) -- +(0,-0.65) coordinate (P) node[right] {$\vec{P}$};
+    \draw[->, thick] (fix) -- node[below right]{$\vec{N}$} +(60:0.866);
+    
+    \draw[dashed,->] (bob) +(240:1.5) coordinate (Xi) -- +(60:1.5) node[left]{$x$};
+    \draw[dashed,->] (bob) +(150:1.5) -- +(-30:1.5) coordinate (Y) node[below left]{$y$};
+    
+    \pic[draw, "$\theta$", angle eccentricity = 1.5]{angle = fix--O--Oi};
+    \pic[draw, "$\theta$", angle eccentricity = 1.5]{angle = Xi--bob--P};
+    
+    \draw[dashdotted, <->, gray] (O) -- node[right]{$R$} +(-70:2);
+    
+    \draw[dotted] ([shift={(0,0)}]-150:2) arc[radius=2, start angle=-150, end angle= -60];
+\end{tikzpicture}
+\caption{Força centrípeta em um pêndulo.}
+\end{marginfigure}
+
+\noindent{}Nas equações acima utilizamos o fato de que o eixo $x$ aponta para o centro da trajetória circular descrita pela massa. Logo, a aceleração $a_x$ é a própria aceleração centrípeta e
+\begin{equation}
+    a_x = \frac{v^2}{R},
+\end{equation}
+%
+onde $R$ é o raio da trajetória circular.
+
+Podemos ver que mesmo que o ângulo $\theta$ entre o eixo $x$ e a vertical seja conhecido, não podemos calcular a tensão na corda a menos que a \emph{velocidade} também seja conhecida. Note que o termo devido à velocidade se torna preponderante rapidamente com o aumento de $v$, pois temos uma função quadrática da velocidade. 
+
+Finalmente, verificamos que no eixo $y$ a aceleração é \emph{tangencial}, e é dada por
+\begin{equation}
+    a_t = a_y = g\sen\theta.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Forças fictícias em um referencial acelerado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em diversas situações ouvimos falar de \emph{forças centrífugas} --~um exemplo disso é a força centrífuga de uma lava-roupas no final do processo de lavagem, retirando o excesso de água~--. A força centrífuga é então uma força que tende a levar um objeto em um movimento circular para fora de tal trajetória.
+
+Se considerarmos a experiência como passageiros em automóvel que realiza uma curva, o que sentimos é uma tendência de nos afastar do centro da trajetória --~o que está de acordo com a descrição de forças centrífugas descrita acima~--. No entanto, o que estudamos na seção anterior foi a existência de forças que apontam para o \emph{centro} da trajetória.
+
+Na verdade, temos que tratar com cuidado uma situação desse tipo pois o interior do carro não é adequado para fixarmos um referencial: devido ao fato e que o carro está sujeito a uma aceleração, um referencial fixado no carro não é um \emph{referencial inercial}. Nesse caso, podem ocorrer forças cuja explicação é dificil de justificar dentro do referencial. Tais forças são conhecidas como \emph{forças fictícias} ou \emph{forças inerciais}.
+
+No caso do carro, o passageiro sente uma ação que o empurra para fora da trajetória circular, no entanto, tal força pode ser explicada de maneira simples em um referencial fixado no solo: o passageiro está se deslocando para fora da trajetória simplesmente por inércia. Sabemos que para que possamos ter uma trajetória circular, devemos ter a ação de alguma força que aponta para o centro da trajetória. Ora, que força seria essa no caso do passageiro? Nesse caso temos diversas forças atuando conjuntamente: o atrito no banco, forças normais devido às abas laterais dos assentos --~e também na parte inferior do assento, se a curva for compensada~--, forças devido ao cinto de segurança que prende o passageiro, e mesmo forças exercidas ao nos segurarmos em outras partes do carro. Caso essas forças não sejam suficientes, a tendência é a de seguirmos em linha reta no referencial do solo.
+
+Dentro do referencial do carro, no entanto, essa tendência em se afastar do centro se torna uma \emph{força centrífuga} aparente\footnote{Onde está a reação dessa força?}, cujo módulo é idêntico ao da força centrípeta --~isto é, $F = mv^2/r$~--, porém aponta para longe do centro de rotação. Mesmo que bem presos ao veículo, sem nos deslocarmos, sentimos essa força aparente pois sentimos nossos orgãos internos: para que eles realizem a trajetória circular, a cavidade abdominal deve exercer uma força que aponta para o centro da trajetória, e sentimos a reação a tal força sendo exercida na parede da cavidade, o que interpretamos como se estivéssemos sendo puxados para fora da trajetória circular.
+
+Objetivamente, devemos reconhecer que as forças que surgem em referenciais acelerados não são fictíciais, elas de fato existem --~o nome mais adequado é mesmo \emph{forças inerciais}~--. No caso do carro, podemos utilizar o conceito de força centrífuga dentro do referencial girante para descrever o movimento circular como uma situação de equilíbrio entre as forças reais e a força centrífuga. No entanto, interpretar fenômenos físicos com base em tais forças é sempre mais complexo do que empregar um referencial inercial, onde temos a garantia de poder aplicar as Leis de Newton sem resalvas ou forças difíceis de se interpretar.
+
+De qualquer forma, algo fundamental de se notar é que jamais devemos misturar os dois referenciais: \emph{ou trabalhamos no referencial inercial}, onde a componente da força resultante que aponta para centro e que atua sobre o corpo que descreve a trajetória circular é igual ao produto da massa pela aceleração centrípeta, \emph{ou trabalhamos no referencial não-inercial}, onde temos equilíbrio entre as forças reais e a força centrífuga.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Direção aparente do peso em um avião}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Uma experiência bastante curiosa é a de estar em avião que faz uma curva, verificar que um copo com água sobre a bandeja está com o nível perfeitamente paralelo ao piso da aeronave, e olhar pela janela e ver o chão. Devido a este fenômeno, para que o avião possa ser pilotado sem visualizar o solo, o piloto precisa de um instrumento cujo único propósito é indicar qual é a orientação do avião em relação ao solo: o horizonte artificial.
+
+Podemos interpretar os fenômenos que acontecem na aeronave em ambos os referenciais:
+\begin{description}
+    \item[Referencial da aeronave] Se imaginarmos o que aconteceria com uma esfera que estivesse sobre a bandeja temos que, devido à ação da força centrífuga, temos uma força resultante entre a força peso, a força normal e a força centrífuga, sendo que o sistema permanece em equilíbrio. Outra possibilidade é imaginar que a força centrífuga determina uma \emph{aceleração centrífuga} que aponta para longe do centro de rotação. A aceleração total\footnote{Podemos interpretar essa aceleração total como uma aceleração gravitacional aparente} --~soma da aceleração centrífuga com a aceleração da gravidade~-- aponta então perpendicularmente ao piso da aeronave, e temos então o equilíbrio entre a normal e o peso aparente. No caso do líquido, temos algo um pouco mais complexo: como a força centrífuga/aceleração depende da distância ao eixo de rotação, temos que pontos diferentes estarão submetidos a forças/acelerações diferentes. Isso significa que a cada ponto da superfície do líquido temos uma força ``normal'' que aponta em uma direção diferente --~mais vertical próximo do centro de rotação, mais inclinada ao se distanciar~--, de forma a equilibrar a força centrífuga crescente ao se afastar do centro\footnote{Lembre-se que o peso não pode fazer nada, ele tem o módulo constante e está restrito a apontar sempre na mesma direção}. Isso dá origem a uma curva denominada como um \emph{paraboloide de revolução}.
+
+    \item[Referencial inercial] Por outro lado, em um referencial inercial temos um sistema similar ao pêndulo cônico, ou a uma curva compensada sem atrito: temos uma situação onde não há equilíbrio, porém na qual a aceleração é a aceleração centrípeta. Nesse caso, temos que a força normal exercida pela bandeja sobre a bola tem uma componente que aponta para o centro da trajetória circular, agindo como força centrípeta. Além disso, temos que a componente vertical da normal equilibra o peso da esfera. No caso do líquido, como cada ponto está a uma distância diferente do centro de rotação, temos que as componentes da normal que apontam para o centro em cada ponto variam: a ``normal'' é mais vertical próxima ao centro de rotação, provendo uma força/aceleração centrípeta menor, e maior distante do centro de rotação, provendo uma força/aceleraçao centrípeta maior. Isso implica que a direção da normal varia na superfície do líquido, o que significa que o líquido não está plano, ele forma um segmento de um paraboloide de revolução.
+\end{description}
+%
+Vemos que ambas as descrições são coerentes e chegam ao mesmo resultado. Em ambos os casos, concluímos que a superfície do líquido forma um menisco, porém, como temos um segmento muito pequeno da superfície, e não incluímos o centro de rotação, percebemos uma superfície plana. Podemos formar o paraboloide completo ao girar um balde cheio de água, e nesse caso, o referencial do avião seria equivalente a um referencial que flutuasse sobre a superfície do líquido. Se a superfície for grande, e o segmento pequeno, não percebemos a curvatura da superfície.
+
+No caso de sólidos, essas diferenças nas forças/acelerações em pontos a diferentes distâncias do eixo de rotação também existem, mas em geral não trazem efeitos perceptíveis por serem de pequena intensidade. No entanto, para velocidades de rotação extremamente elevadas, os efeitos são relavantes: se um objeto for submetido a velocidades de rotação muito altas, ele pode se desintegrar espontaneamente, pois as forças entre as partículas não são intensas o suficiente para manter a coesão do objeto. No referencial inercial, podemos afirmar que as forças não foram suficentes para fazer com que todas as partes realizassem as suas respectivas trajetórias circulares; No referencial não-inercial do próprio corpo que gira, podemos afimar que a força centrífuga foi intensa o suficientes para estilhaçar o objeto.
+
+Finalmente, devemos notar algo muito importante em toda essa discussão: a força de sustentação que age sobre o avião tem sempre a mesma direção da força normal que age sobre os ocupantes. Quando o avião faz a curva, sabemos que --~no referencial do avião~-- a força centrífuga aumenta de acordo com $F = mv^2/2$. Devido à inclinação da aeronave, a força normal exercida sobre os ocupantes também se inclina, fazendo com que exista uma situação de equilíbrio. Se o avião fizesse a curva por qualquer outro meio que não fosse a inclinação da própria aeronave, teríamos uma situação em que não ocorreria o equilírio.
+
+% Obs: Tudo recai no fato de que a força centrípeta/centrífuga depende da massa. O Einstein pensa que todas desse tipo são fictícias, incluindo a gravidade.
+
+% Obs2: a superfície é um paraboloide de revolução, ver Kleppner
+
+% Obs3: Se um campo gravitacional for muito intenso, ele pode ser grande o suficiente para que as forças de maré desintegrem qualquer coisa que seja (um planeta, um astronauta que caia no campo gravitacional). Se a velocidade de rotação for intensa o suficiente, temos algo parecido para um sólido. Por isso que o disco do CVT do Nissan quebrava.
+
+% Obs 4: o fato de nunca se sentir nada numa curva do avião se deve ao fato de que a normal pra qq coisa dentro do avião está na mesma direão da sustentação. Além disso, elas são o que equilibram o peso e agem como centrípetas. Se houvesse uma maneira diferente de fazer uma curva com o avião, o resultado não seria assim. Seria análogo a fazer uma curva com um carro em um plano, simplesmente seríamos jogados para fora da curva.
+
+% Texto interessante sobre o referencial girante, força de Coriolis, centrífuga e de Euler (qd existe aceleração angular): http://www.mathpages.com/home/kmath633/kmath633.htm
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Seções opcionais}
@@ -3608,7 +3778,7 @@ e então
 %%%%%%%%%%%%%%%%%%%%
 
 \begin{question}[type={exam}]\label{Q:PlanetaKaioh}
-Após Goku morrer para que Piccolo pudesse derrotar Raditz, graças à intervenção de Kami-Sama perante Enma Daioh, ele recebe permissão para viajar pelo Caminho da Serpente e treinar com o lendário Senhor Kaioh. Tal treinamento é necessário para que Goku possa derrotar os Saiyajins que estão a caminho da Terra e que chegarão em um ano, com o intuito de destruí-la. A grande vantagem de treinar no planeta do Senhor Kaioh é o fato de que a gravidade é muito elevada, sendo 10 vezes maior que a da Terra.\footnote{\url{https://goo.gl/h59eoQ}}
+Após Goku morrer para que Piccolo pudesse derrotar Raditz, graças à intervenção de Kami-Sama perante Enma Daioh, ele recebe permissão para viajar pelo Caminho da Serpente e treinar com o lendário Senhor Kaioh. Tal treinamento é necessário para que Goku possa derrotar os Saiyajins que estão a caminho da Terra e que chegarão em um ano, com o intuito de destruí-la. A grande vantagem de treinar no planeta do Senhor Kaioh é o fato de que a gravidade é muito elevada, sendo 10 vezes maior que a da Terra.\footnote{\href{http://pt-br.dragonball.wikia.com/wiki/Planeta_do_Senhor_Kaioh}{dragonball.wikia.com}}
 
 O planeta é bastante curioso: apesar da gravidade extremamente elevada, seu raio é pequeno. Apesar disso, Senhor Kaioh gosta muito de dirigir e possui um carro, sendo que ele pode trafegar somente por uma pista que descreve um círculo ao redor do planeta (o raio da pista é o mesmo do planeta). A Figura~\ref{Fig:Q:PlanetaKaioh} abaixo mostra um esboço dessa situação, sendo que o carro é representado pelo círculo preto.
 \begin{enumerate}[label=(\alph*)]

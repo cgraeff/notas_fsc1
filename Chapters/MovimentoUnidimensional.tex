@@ -1105,6 +1105,7 @@ Assim como no caso da posição em função do tempo para velocidade constante, 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sentidos dos eixos de referência e sinais das variáveis cinemáticas}
+\label{Sec:Sinais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ao adotarmos a reta real para descrever a posição, utilizamos o \emph{sinal} para denotar o sentido. Ao calcularmos o deslocamento $\Delta x = x_f - x_i$, temos que se o deslocamento é no sentido positivo do eixo, ele será positivo; se for no sentido negativo do eixo, então o deslocamento é negativo.
@@ -1470,6 +1471,18 @@ Quando um objeto cai livremente próximo da superfície da Terra, ele sofre uma 
 
 A aceleração da gravidade próximo da superfície da terrestre é a principal justificativa para o estudo de movimentos com aceleração constante. Em geral, não há razões para supor que um objeto qualquer que se movimente esteja sujeito a uma aceleração constante, exceto se ele estiver claramente sob efeito da força gravitacional, sendo as demais forças desprezíveis. Nas próximas seções verificaremos expressões que relacionarão as variáveis cinemáticas, nos permitindo realizar previsões teóricas acerca do movimento em diversas situações.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Sinal da aceleração em movimentos envolvendo a aceleração gravitacional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Como discutido na Seção\ref{Sec:Sinais}, a determinação do sinal da aceleração depende de o módulo da velocidade aumentar ou diminuir, e do próprio sinal da velocidade. Aplicando tal raciocínio ao caso da aceleração gravitacional percebemos que os casos podem ser reduzidos a dois: ou o sobe e a velocidade diminui, ou ele desce e ela aumenta. 
+
+No primeiro caso, sabemos que a aceleração tem o sinal oposto ao da velocidade. Se o eixo de referência aponta para cima, então a velocidade é positiva e a aceleração é negativa. Se o eixo de referência aponta para baixo, então a velocidade é negativa e a aceleração é positiva.
+
+No segundo caso, a aceleração tem o mesmo sinal que a velocidade. Logo, se o eixo de referência aponta para cima, então a velocidade é negativa e a aceleração também é negativa. Se o eixo aponta para baixo, a velocidade é positiva e a aceleração também é positiva.
+
+Em ambos os casos, podemos afirmar que \emph{se o eixo aponta para cima}, então \emph{a aceleração é negativa}, e que \emph{se o eixo aponta para baixo} então \emph{a aceleração é positiva}. Verificaremos no Capítulo~\ref{Chap:MovimentoBidimensional} que essa relação pode ser entendida de maneira muito mais simples e intuitiva através de uma análise da aceleração do ponto de vista de \emph{vetores}. Mais adiante, no Capítulo~\ref{Chap:Dinamica}, verificaremos que a relação entre aceleração e força, o que deve tornar a determinação do sinal da aceleração gravitacional ainda mais intuitivo.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equação para a velocidade}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1628,6 +1641,46 @@ $v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
 \caption{Relação das equações para a cinemática unidimensional e a variável ausente em cada uma delas. \label{Tab:EqsCinematicasVarAusentes}}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Lançamento vertical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Uma pedra é lançada verticalmente para cima, sendo que após \np[s]{4,0} ela se encontra a uma altura de \np[m]{9,6} em relação ao ponto de lançamento. Qual era a velocidade inicial da pedra?
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[pattern = north west lines, dashed] (0,-1.5) circle (3mm);
+    \draw[pattern = north west lines] (0.5,0) circle (3mm);
+    
+    \draw[->] (0,-1.2) -- +(0,0.5) node[below right]{$v_i$};
+    
+    \draw[->] (-0.5,-2) -- (-0.5,1) node[below left]{$x$};
+    \draw[|-|] (-0.5,-1.5) node[left]{$x_i$} -- (-0.5,0) node[left]{$x_f$};
+\end{tikzpicture}
+\caption{Corpo lançado verticalmente.}
+\end{marginfigure}
+
+Sabemos que a pedra sofre um deslocamento $\Delta y = \np[m]{9,6}$ em relação ao ponto de lançamento, porém não sabemos se tal deslocamento se refere ao movimento de subida ou de descida. Sabemos, no entanto, que o tempo necessário para que o movimento aconteça é de \np[s]{4,0}.
+
+Nas equações para movimentos com aceleração constante, verificamos que existe uma expressão que relaciona as informações que temos (deslocamento, tempo e aceleração) e a informação que desejamos (velocidade inicial):
+\begin{align}
+    \Delta x &= v_i t + \frac{a}{2}t^2 \\
+    &= v_i t - \frac{g}{2}t^2.
+\end{align}
+%
+Veja que a aceleração aparece com um sinal negativo pois adotamos um eixo vertical $y$ que aponta para cima. Isolando a velocidade, obtemos
+\begin{equation}
+    v_i = \frac{\Delta x}{t} + \frac{gt}{2},
+\end{equation}
+%
+o que resulta em
+\begin{equation}
+    v_i = \np[m/s]{22,0}.
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Distância percorrida durante um movimento de queda livre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1679,30 +1732,93 @@ e verificamos que nos últimos 10\% são percorridos
 %
 Em outras palavras, verificamos que nos primeiros 10\% do tempo, o corpo percorre 1\% da distância, enquanto nos últimos 10\% do tempo, ele percorre 19\% da distância.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Distância percorrida no último segundo de queda}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo:?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quote}
+    Um corpo é solto a partir do repouso, caindo uma distância de \np[m]{100} até atingir o solo. Qual é a distância percorrida no último segundo de queda? Desconsidere a resistência do ar ao movimento.
+\end{quote}
 
-\textbf{lançamento para cima, calcular a velocidade inicial se após $t$ segundos o corpo está na posição $y$ (va volta)}
+Podemos determinar a distância percorrida no último segundo de queda através de
+\begin{equation}
+    \Delta x = v_f t - a\frac{t^2}{2},
+\end{equation}
+%
+bastanto determinar a velocidade final através de
+\begin{equation}
+    v_f^2 = v_i^2 + 2 a \Delta x.
+\end{equation}
+%
+Em ambos os casos, a aceleração $a$ será a própria aceleração gravitacional, com o sinal positivo, já que adotamos um eixo de referência que aponta para baixo (Figura~\ref{Fig:DeslUltimoSegQueda}).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo:?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+    interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    \draw[interface](-0.5,0) -- (0.5,0);
+    
+    \draw[fill] (0, 3) circle (2pt);
+    
+    \draw[densely dotted] (0,1.18) circle (2pt);
+    
+    \draw[->] (-0.75, 3.5) -- (-0.75, -0.5) node[above left]{$x$};
+    \draw[|-|] (-0.75, 3) -- (-0.75,1.18);
+    \draw[|<->|] (-0.75, 1.18) -- node[left]{$\Delta x$} (-0.75,0);
+    
+\end{tikzpicture}
+\caption{Desejamos determinar a distância $\Delta x$ percorrida no último segundo de queda.\label{Fig:DeslUltimoSegQueda}}
+\end{marginfigure}
 
-\textbf{alguma coisa que use e eq da posição com velocidade final (carro chega na linha de chegada com velocidade tal, após certo tempo acelerando, qual é a aceleração?)} 
+Como a velocidade inicial é zero, temos
+\begin{align}
+    v_f &= \sqrt{2 a \Delta x} \\
+    &= \sqrt{2 \cdot (\np[m/s^2]{9,8}) \cdot (\np[m]{100})} \\
+    &= \np[m/s]{44,27}
+\end{align}
+%
+Substituindo tal resultado na expressão para o deslocamento, temos
+\begin{align}
+    \Delta x &= v_f t - a\frac{t^2}{2} \\
+    &= (\np[m/s]{44,27})\cdot(\np[s]{1,0}) - \frac{(\np[m/s^2]{9,8})\cdot(\np[s]{1,0})^2}{2} \\
+    &= \np[m]{39,37}.
+\end{align}
+%
+Note que utilizamos como tempo a própria duração do intervalo de tempo em que ocorre o deslocamento $\Delta x$, uma vez que o valor de $t$ que aparece na expressão para o cálculo do deslocamento é o tempo transcorrido entre o corpo passar pelo ponto inicial $x_i$ e o ponto final $x_f$.\footnote{Lembre-se que para obter a expressão $\Delta x = v_ft-at^2/2$ e as expressões $\Delta x = v_it+at^2/2$ e $v_f = v_i + a t$, escolhemos ``zerar o cronômetro'' no início do intervalo, utilizando $t_i = 0$ e $t_f = t$.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Velocidade inicial em uma pista retilínea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Alguma coisa com torricelli (algo na linha de frenagem de um carro, velocidade mínima para passar uma distância, velocidade máxima para conseguir parar)}
+\begin{quote}
+    Em uma corrida de carros, na reta final, um competidor cruza a linha de chegada com uma velocidade de \np[km/h]{268,3}. Sabendo que a reta tem um comprimento de \np[m]{300,0} e que o tempo necessário para que o veículo a percorresse foi de \np[s]{4,82}, determine a velocidade com que o competidor entrou na reta final.
+\end{quote}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{qq coisa que permita usar a fórmula $\Delta x = (v_0 + v)t/2$} 
+Sabemos que a velocidade final é dada por
+\begin{equation*}
+    \np[km/h]{268,3} = \np[m/s]{74,53}.
+\end{equation*}
+%
+Não sabemos qual é o valor da aceleração, por isso não podemos determinar a velocidade inicial a partir da velocidade final e do tempo. No entanto, temos a distância percorrida, logo, podemos utilizar a expressão
+\begin{equation}
+    \Delta x = \frac{v_i + v_f}{2} t,
+\end{equation}
+%
+de onde obtemos
+\begin{align}
+    v_i &= 2\frac{\Delta x}{t} - v_f \\
+    &= 2 \frac{(\np[m]{300,0})}{(\np[s]{4,82})} - (\np[m/s]{74,53}) \\
+    &= \np[m/s]{49,95},
+\end{align}
+%
+ou, em quilômetros por hora
+\begin{equation}
+    v_i = \np[km/h]{179,82}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Distância entre gotas sucessivas}
