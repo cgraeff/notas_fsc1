@@ -1,5 +1,5 @@
 \chapter{Dinâmica da partícula}
-\label{Chap:Dinâmica}
+\label{Chap:Dinamica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\minitoc
 
@@ -20,7 +20,9 @@ Vamos passar agora a nos preocupar com as causas do movimento. Para isso, vamos 
 %%%%%%%%%%%%%%%%%%%%
 
 \textbf{Aqui devemos fazer uma introdução da importância das teorias acerca do movimento.}
-% nesse capítulo, a introdução deveria discutir toda a dinâmica
+% Discutir a importância da dinâmica de um ponto de vista aplicado a engenharias
+% Discutir a ideia de unificação da mecânica celeste com a terrestre
+% Discutir a ideia filosófica do mecanicismo?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aspectos históricos das teorias sobre o movimento}
@@ -210,7 +212,7 @@ As medidas de força podem ser feitas através de uma mola. Veremos adiante que 
 onde utilizamos a definição $N \equiv \rm{kg}\cdot\rm{m}/\rm{s}^2$ para nomear a unidade da força como \emph{Newton}, isto é, $\np[N]{1} \equiv \np[kg\cdot m/s^2]{1}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Diagramas de forças, sistemas de referência}
+\subsection{Diagramas de forças, sistemas de referência}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Um artifício fundamental para a interpretação e solução de problemas de dinâmica é o \emph{diagrama de corpo livre}, ou \emph{diagrama de forças}. Tal diagrama consiste em um ponto que representa um corpo, sendo que todas as forças que atuam sobre tal corpo são representadas como atuando sobre um ponto, que representa o centro de massa do corpo (veja a parte à direita na Figura~\ref{Fig:DiagramaDeForcasEEsboco}). Além disso, não devemos incluir acelerações, velocidades, ou quaisquer outros vetores no diagrama de forças.
@@ -3808,3 +3810,57 @@ O planeta é bastante curioso: apesar da gravidade extremamente elevada, seu rai
 %
 % Calcular tb no planetinha no pequeno principe (a gravidade parece similar à da Terra)
 %
+
+\begin{question}[type={exam}]\label{Q:DistencaoMaxMassaMolaParaSegundoBlocoNaoDeslisar}
+A figura abaixo mostra um bloco que está apoiado sobre uma mesa sem atrito e que está ligado a uma mola. Sobre este bloco, repousa um segundo bloco. Na interface entre os blocos, existe atrito. Qual é a maxima distensão $x_m$ que a mola pode ter para a qual os blocos aceleram juntos ao liberarmos o sistema para se mover? Considere que $k = \np[N/m]{120.0}$, $m_1 = \np[kg]{3,0}$, $m_2 = \np[kg]{1.0}$, e $\mu_e = \np{0.65}$.
+
+\begin{marginfigure}
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    \draw[interface] (0,1.5) -- (0,0);
+    \draw[interface] (0,0) -- (4.8,0);
+    
+    \draw (0,0.5) -- (0.2,0.5);
+    \draw[decoration={aspect=0.3, segment length=1.2mm, amplitude=2mm,coil},decorate] (0.2,0.5) -- +(1.6,0);
+    \draw (1.8, 0.5) -- (2,0.5);
+    
+    \draw[pattern = north west lines] (2,0) rectangle (3,1);
+    \draw[pattern = north west lines] (2.25,1) rectangle (2.75,1.5);
+    
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
+    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
+    \draw[pattern = north west lines] (3.75,-1.5) rectangle (4.25,-1);
+    
+    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) node[below]{$0$} -- (4,-3.5) node[below]{$x_m$};
+    
+    \node[draw, circle, dashed, scale = 0.7] (BL1) at (3.35,0.75) {1};
+    \node[draw, circle, dashed, scale = 0.7] (BL2) at (3,1.65) {2};
+        
+\end{tikzpicture}
+\caption{Questão~\ref{Q:DistencaoMaxMassaMolaParaSegundoBlocoNaoDeslisar}.}
+\end{marginfigure}
+\end{question}
+
+\begin{question}[type={exam}]\label{Q:BrinquedoParqueTuboAtrito}
+A figura abaixo mostra um brinquedo de um parque de diversões. Os ocupantes sobem em uma plataforma circular que é então levantada de forma a fechar a parte inferior de um cilindro. Após isso, todos se dispõe em pé, com as costas tocando a parede cilíndrica, e o sistema começa a girar. A ``diversão'' consiste em descer a plataforma enquanto o sistema gira, sendo que os passageiros permanecem presos à parte cilíndrida devido à força de atrito. Se o coeficiente de atrito entre a parede e os ocupantes é de \np{0,65}, e o raio do cilindro é \np[m]{3,0}, qual é o valor mínimo do módulo da velocidade dos ocupantes para eles que não caiam quando a plataforma se abrir?
+
+\textbf{Fazer a figura, usar o manequim para tirar uma foto, mas precisa de um fundo com linhas ou qq coisa do tipo pra poder ter ideia da curvatura.}
+\end{question}
