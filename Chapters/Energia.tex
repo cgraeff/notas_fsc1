@@ -1267,7 +1267,7 @@ As forças podem ser então classificadas\footnote{A denominação \emph{conserv
 \section{Energia mecânica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Fazer uma introdução.}
+Verificamos nas seções anteriores a existência de meios diferentes de ``armazenar'' energia e que ela pode ser transferida de um tipo para outro. Veremos a seguir, que em algumas situações podemos dizer que a soma de todos os tipos de energia em um sistema é uma \emph{constante}. Isso será de grande utilidade ao analisarmos fenômenos físicos diversos, facilitando a determinação de grandezas que temos interesse em calcular.
 
 Se analisarmos um caso em que existam $n_f$ forças conservativas atuando sobre o sistema, podemos escrever
 \begin{align}
@@ -1282,38 +1282,115 @@ Se cada um dos trabalhos associados às forças $F_j$ puder ser escrito como
 %
 então temos
 \begin{align}
-  \Delta K &= \sum_{j = 1}^{n_f} \Delta U_j \\
+  \Delta K &= \sum_{j = 1}^{n_f} \Delta U_j \label{Eq:TeoremTrabEnergiaSohConservativas}\\
   &= \sum_{j = 1}^{n_f} (U_j^f - U_j^i) \\
   &= \left(\sum_{j = 1}^{n_f} U_j^f\right) - \left(\sum_{j = 1}^{n_f} U_j^i\right).
 \end{align}
 %
-de onde temos
+de onde obtemos
 \begin{equation}
   K_f + \sum_{j = 1}^{n_f} U_j^f = K_i + \sum_{j = 1}^{n_f} U_j^i.
 \end{equation}
-%
+
 A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinética e das potenciais deve ser uma constante:
 \begin{equation}\label{Eq:DefEnergiaMecanicaParticula}
   K + \sum_{j = 1}^{n_f} U_j = E, \mathnote{Definição de Energia Mecânica}
 \end{equation}
 %
-onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. 
+onde $E$ representa o que denominamos como \emph{energia mecânica} do sistema. Assim, podemos escrever a relação
+\begin{equation}
+    E_i^{\textrm{mec}} = E_f^{\textrm{mec}}, \mathnote{Conservação da energia mecânica}
+\end{equation}
+%
+ou, equivalentemente,
+\begin{equation}
+    \Delta E^{\textrm{mec}} = 0,
+\end{equation}
+%
+onde $E_i$ representa a energia em uma configuração inicial qualquer do sistema e $E_f$ a energia em uma configuração final qualquer do sistema.
 
-Verificamos portanto que se as forças que atuam em um sistema dão origem a potenciais, a energia mecânica do sistema é uma constante. Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico. Podemos agora imaginar que existe uma grandeza -- a energia -- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante. Anteriormente classificamos as forças que dão origem a potenciais como \emph{forças conservativas}. Nos referíamos justamente ao fato de que tais forças conservam a energia mecânica, enquanto as \emph{forças não-conservativas}, ou \emph{forças dissipativas}, são aquelas que --~quando presentes em um sistema~-- fazem com que a energia mecânica não se conserve.\footnote{Veremos adiante que no caso em que a energia mecânica não é constante poderemos associá-la a outras formas de energia e teremos um princípio geral de conservação da energia.}
+Verificamos, portanto, que se as forças que atuam em um sistema dão origem a potenciais, a energia mecânica de tal sistema é uma constante. Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico: podemos agora imaginar que existe uma grandeza ---~a energia~--- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante. Anteriormente classificamos as forças que dão origem a potenciais como \emph{forças conservativas}. Nos referíamos justamente ao fato de que tais forças conservam a energia mecânica, enquanto as \emph{forças não-conservativas}, também chamadas de \emph{forças dissipativas}, são aquelas que ---~quando presentes em um sistema~--- fazem com que a energia mecânica não se conserve.\footnote{Veremos adiante que no caso em que a energia mecânica não é constante poderemos associá-la a outras formas de energia e teremos um princípio geral de conservação da energia.}
 
-\textbf{Precisamos esclarecer aqui que se existem forças que não realizam trabalho, não precisamos levá-las em conta. No caso de forças conservativas, isso se deve ao fato de que a variação do potencial é nula. No caso de forças não conservativas, tb não é preciso levar em conta, mas vamos entender o por quê só um pouco adiante, na seção de Trab. de Forças não conservativas/Energia interna. Isso poderia até ficar como um footnote.}
+Um ponto importante que devemos ainda discutir é o fato de que em muitos casos existem forças não-conservativas que atuam no sistema. Caso tais forças não realizem trabalho, não precisamos nos preocupar com elas, pois a relação dada pela Equação~\eqref{Eq:TeoremTrabEnergiaSohConservativas} continua sendo válida. Já no caso de as forças não-conservativas efetuarem trabalho, teremos uma situação um pouco mais complexa, que será discutida nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Pêndulo simples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Discutir o pêndulo antes, mas de maneira mais simples do que está feito para o oscilador harmônico abaixo. Mesmo assim, talvez seja preciso mexer no que está abaixo. Outra ideia é fazer algo bem simples, parecido com o exercício 32b da lista, mas mais simples.}
+\begin{quote}
+    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado em uma pista circular vertical empregando uma mola. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.4,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-0.5) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (7.05, -2.5);
+    \draw[interface] (7.05,-2.5) arc[start angle = -90, end angle = 123, radius = 3 cm];
+    
+    \draw[->] (0,-3.2) -- (6.5,-3.2) node[below left]{$x$};
+    \draw[|-|] (2.2, -3.2) -- (4.2,-3.2);
+    \path (2.2,-3.3) node[below]{$\ell$} -- (4.2,-3.3) node[below]{0};
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.4, segment length=1.5625mm, amplitude=1.6mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
+    \draw[pattern = north east lines] (3.5,-2.5) rectangle (3.7,-1.5);
+
+        
+\end{tikzpicture}
+\caption{Lançamento de um bloco em uma pista circular vertical. \label{Fig:BlocoArremessadoEmLoop}}
+\end{marginfigure}
+
+No sistema formado pelo bloco, a mola, e a pista, temos a atuação de três forças: o peso do bloco, a força normal exercida pelas superfícies, e a força exercida pela mola. Dessas, somente a força normal não é conservativa, porém seu trabalho é nulo pois ela atua sempre perpendicularmente ao deslocamento instantâneo do bloco. Portanto, podemos utilizar a conservação da energia mecânica:
+\begin{align}
+    E_i^{\textrm{mec}} &= E_f^{\textrm{mec}} \\
+    K_i + U_e^i + U_g^i &= K_f + U_g^f + U_e^f
+\end{align}
+%
+Como o bloco parte do repouso, sua energia cinética inicial é zero. Além disso, podemos escolher a posição inicial do bloco como a origem do eixo vertical, assim a energia potencial gravitacional inicial é nula. Por fim, sabemos que quando o bloco deixa a mola, a energia potencial elástica é zero. Assim, a expressão acima simplifica-se a:
+\begin{equation}\label{Eq:EnergiasParaOBlocoEmLoop}
+    U_e^i = K_f + U_g^f.
+\end{equation}
+%
+Note que a energia cinética final não é nula, já que o bloco não pode ter velocidade nula ao chegar ao topo da seção circular da pista. Sua velocidade será dada por\footnote{Esse resultado foi obtido na subseção \emph{Condição de perda de contato e velocidade mínima}, na Seção~\ref{Sec:ForcasNoMovCircular}.}
+\begin{equation}
+    v = \sqrt{Rg}.
+\end{equation}
+%
+Se as dimensões do bloco são desprezíveis\footnote{Lembre-se que estamos tratando do movimento de partículas, trataremos corpos extensos somente a partir do próximo capítulo.}, sua posição vertical final será igual ao diâmetro da pista circular ---~ou seja, $y_f = 2R$ ~---.
+
+Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoop} obtemos
+\begin{align}
+    \frac{kx_i^2}{2} &= \frac{mv_f^2}{2} + mgy_f \\
+    \frac{k\ell^2}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg2R \\
+    \frac{k\ell^2}{2} &= \frac{mgR}{2} + 2mgR \\
+    \frac{k\ell^2}{2} &= 5mgR \\
+    \ell &= \sqrt{\frac{5mgR}{k}}.
+\end{align}
+%
+Substituindo os valores das constantes, temos finalmente
+\begin{align}
+    \ell &= \sqrt{\frac{5\cdot(\np[kg]{0.750}) \cdot (\np[m/s^2]{9.8}) \cdot (\np[m]{1.30}) }{(\np[N/m]{1200})}} \\
+    &\approx \np[m]{0.20}.
+\end{align}
+
 
 %%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
+%\paragraph{Exemplo: ?}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Algo parecido com o 25 da lista.}
+%\textbf{Algo parecido com o 25 da lista.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Oscilador harmônico}
@@ -1356,8 +1433,10 @@ o que pode ser escrito como
     \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
     
     \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
-    \draw[|-|] (2.5,-3.5) node[below]{$0$} -- (4,-3.5) node[below]{$A$};
-    \draw[|-|] (2.5,-3.5) -- (1,-3.5) node[below]{\llap{$-$}$A$};
+    \draw[|-|] (2.5,-3.5) -- (4,-3.5);
+    \path (2.5,-3.6) node[below]{$0$} -- (4,-3.6) node[below]{$A$};
+    \draw[-|] (2.5,-3.5) -- (1,-3.5);
+    \path (2.5,-3.6) -- (1,-3.6) node[below]{\llap{$-$}$A$};
         
 \end{tikzpicture}
 \caption{Um oscilador harmônico exibe duas formas de energia: cinética e potencial elástica. \label{Fig:OsciladorHarmDeducao}}
@@ -1449,10 +1528,10 @@ onde usamos $\sen^2\alpha + \cos^2\alpha = 1$. Observe que o resultado obtido co
 Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência temporal de cada uma das energias. Note que, como esperado, a energia mecânica é constante. Podemos afirmar que a energia do oscilador harmônico é convertida ciclicamente entre as duas formas disponíveis no sistema.
 
 %%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
+%\paragraph{Exemplo: ?}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Alguns exemplos que possam ser resolvidos utilizando conservação da energia mecânica.}
+%\textbf{Alguns exemplos que possam ser resolvidos utilizando conservação da energia mecânica.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sistemas com múltiplos corpos}
@@ -2021,7 +2100,7 @@ Calcular a aproximação máxima de duas cargas que incidem uma diretamente cont
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho de forças não conservativas}
-\label{Sec:TrabalhoForcasExternas}
+\label{Sec:TrabalhoForcasNaoConservativas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{Rever essa seção e a próxima, acho que a divisão interna/externa não é tão clara, e não faz diferença nas contas, juntas as seções. Outra coisa que me intriga é o fato de que em alguns casos podemos ignorar uma força interna, mas em outros não: O atrito entre dois blocos pode ser ignorado, pois as parcelas de trabalho da força e da reação são iguais e opostas; já para um bloco lançado horizontalmente, que cai sobre uma prancha que pode se deslocar sem atrito em relação ao solo, temos trabalhos diferentes, que fazem com que uma parte da energia seja perdida, sendo transformada em calor: os módulos das forças são iguais, porém o deslocamento do bloco é maior que o da prancha. Acho que o fato sobre essa questão de forças internas é que tudo depende da situação. Se considerarmos o par ação/reação que atua sobre um bloco dentro de um elevador que acelera, também temos uma força interna, a questão é que os trabalhos das duas componentes do par ação/reação diferem por um sinal. Talvez o atrito seja justamente a chave para verificar que existe uma energia interna.}
@@ -2151,6 +2230,7 @@ Na Figura~\ref{Fig:PotElasticoComMassaMolaComAtrito} temos um gráfico da energi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Princípio da conservação da energia}
+\label{Sec:PrincipioDaConsDaEnergia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\textbf{Enfatizar que as forças normal, tensão, etc. que não podem ser escritas como derivada de um potencial sempre entram como não-conservativas, estejam dentro do sistema ou não, façam trabalho ou não. O que vai mudar é pra onde elas levam a energia: ou para energia interna, ou para fora do sistema.}
@@ -2259,7 +2339,11 @@ Através do princípio da conservação da energia e da flexibilidade que temos 
 \section{Seções opcionais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% pseudo trabalho (esqueci completamente o que é isso)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pseudo trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{pseudo trabalho (esqueci completamente o que é isso) [acho que é aquela história o patinador que empurra a parede do Fiolhais. Ver, se for, explicar com uma caneta de mola que pula (modelar com dois blocos ligados por uma mola comprimida, ao liberar a mola, o sistema pula)]}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Energia cinética e referenciais inerciais}
