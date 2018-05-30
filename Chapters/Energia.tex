@@ -79,7 +79,8 @@ Se tomarmos um objeto que pode se mover ao longo de um fio esticado horizontalme
     
     \draw[->] (0.5, -0.5) +(-0.25, 0) -- node[below]{$\vec{v}_i$}+(0.25, 0);
     
-    \draw[pattern = north west lines, dotted] (3.5,0) coordinate (c2) circle (2mm);
+    \coordinate (c2) at (3.5, 0);
+    \draw[pattern = north west lines, dotted] (c2) circle (2mm);
     \draw[->, thick, dotted] (3.5,0)+(30:2mm) -- +(30:1.2) coordinate (f2) node[above]{$\vec{F}$};
     \draw[->, dotted] (3.5, -0.5) +(-0.35, 0) -- node[below]{$\vec{v}_i$}+(0.35, 0);
     
@@ -1313,9 +1314,9 @@ Verificamos, portanto, que se as forças que atuam em um sistema dão origem a p
 
 Um ponto importante que devemos ainda discutir é o fato de que em muitos casos existem forças não-conservativas que atuam no sistema. Caso tais forças não realizem trabalho, não precisamos nos preocupar com elas, pois a relação dada pela Equação~\eqref{Eq:TeoremTrabEnergiaSohConservativas} continua sendo válida. Já no caso de as forças não-conservativas efetuarem trabalho, teremos uma situação um pouco mais complexa, que será discutida nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Pêndulo simples}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Bloco lançado por uma mola}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
     A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado em uma pista circular vertical empregando uma mola. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
@@ -1714,7 +1715,7 @@ Podemos analisar o potencial acima através da inclinação da reta tangente ao 
 
 No caso de termos cargas com sinais opostos, temos que a força é atrativa. Na Figura~\ref{Fig:PotencialEletromagRepulsivoAtrativo} à direita temos o potencial que corresponde a essa situação. Veja que para todos os valores de $r$ temos uma reta com inclinação positiva, o que corresponde a uma força no sentido negativo do eixo $r$ (força atrativa).
 
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
 \begin{minipage}[c]{0.45\linewidth}
 \centering
@@ -1880,7 +1881,7 @@ onde as constantes $U_0$ e $R$ determinam a profundidade e a largura do ``poço'
 
 As características notáveis desse potencial são uma região externa onde a força é nula, uma região onde a existe uma força atrativa muito intensa e uma região central de equilíbrio.
 
-\begin{marginfigure}[-12cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
     
@@ -1904,39 +1905,136 @@ As características notáveis desse potencial são uma região externa onde a fo
 
 Os pontos de equilíbrio podem ser classificados com base em sua estabilidade: se o ponto de equilíbrio for um máximo local, ele é um ponto de equilíbrio \emph{instável}; se for um ponto de mínimo local, é um ponto de equilíbrio \emph{estável}.
 
-\textbf{Discutir genericamente a questão de equilíbrio: analisar o que acontece com a força em cada situação. Tirar  a molécula de amônia do meio da discussão e a colocar em um paragraph.}
+\begin{marginfigure}[2cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0:3.14]
+    plot(\x,{-sin(2*\x r)}) node[right]{$U(x)$};
+    
+    \draw[->] (-0.5,-1.5) -- (4,-1.5) node[below left]{$x$};
+    \draw[->] (-0.5,-1.5) -- (-0.5,1.5) node[below left]{$U$};
+    
+    \draw[fill] (0.785,-1) circle (1pt) node[above]{$A$};
+    \draw[fill] (2.356,1) circle (1pt) node[below]{$B$};
+    
+    \draw[dashed] (0.785,-1)+(-0.75,0) -- +(0.75,0);
+    \draw[dashed] (2.356,1)+(-0.75,0) -- +(0.75,0);
+    
 
-No caso de o átomo ocupar a posição central, no entanto, temos uma situação diferente. Se ele for deslocado no sentido positivo de $x$, surge uma força no sentido \emph{positivo}, tendendo a o afastar ainda mais da posição central. O mesmo acontece se o deslocamento é no sentido negativo, já que surge uma força também no sentido \emph{negativo}, tendendo a o afastar ainda mais da posição central.
+\end{tikzpicture}
+\caption{Potencial com dois pontos de equilíbrio, um estável em $A$ e outro instável em $B$. \label{Fig:PotEquilEstavelEInstavel}}
+\end{marginfigure}
 
-Podemos determinar se o ponto é estável ou instável do ponto de vista de cálculo ao verificar o valor da derivada segunda no ponto de equilíbrio. Podemos determinar se um ponto crítico --~isto é, o ponto onde a derivada é zero~-- de uma função qualquer é ponto de máximo ou ponto de mínimo através da derivada segunda:
+Na Figura~\ref{Fig:PotEquilEstavelEInstavel} temos dois pontos de equilíbrio em um potencial $U(x)$, um estável em $A$ e outro instável em $B$. Essa classificação é simples de se entender através da figura:
+\begin{description}
+    \item[Equilíbrio estável:] Se tomarmos o ponto $A$ temos que um deslocamento ao longo do eixo $x$ em qualquer direção dá origem a uma força que sempre aponta em direção ao ponto de equilíbrio: um deslocamento no sentido positivo de $x$ dá origem a uma força no sentido negativo, enquanto um deslocamento no sentido negativo de $x$ dá origem a uma força no sentido positivo.
+
+    \item[Equilíbrio instável:] No caso do $B$, no entanto, temos uma situação diferente. Um deslocamento em relação ao ponto de equilíbrio faz surgir sempre uma força que aponta para longe do ponto de equilíbrio: para um deslocamento no sentido positivo de $x$, surge uma força no sentido positivo; se o deslocamento é no sentido negativo, surge uma força também no sentido negativo.
+\end{description}
+
+Podemos determinar se o ponto é estável ou instável do ponto de vista de cálculo ao verificar o valor da derivada segunda no ponto de equilíbrio. Podemos determinar se um ponto crítico ---~isto é, o ponto onde a derivada é zero~--- de uma função qualquer é ponto de máximo ou ponto de mínimo através da derivada segunda:
 \begin{itemize}
-    \item Se $\frac{d^2}{dx^2}U(x)|_{x = x_p} > 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{mínimo} --~ou seja, um ponto de equilíbrio \emph{estável}--;
-    \item Se $\frac{d^2}{dx^2}U(x)|_{x = x_p} < 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{máximo} --~ou seja, um ponto de equilíbrio \emph{instável}--;
-    \item \textbf{Falar dos pontos de sela.}
+    \item Se $\frac{d^2}{dx^2}U(x)|_{x = x_p} > 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{mínimo} ---~ou seja, um ponto de equilíbrio \emph{estável}---;
+    \item Se $\frac{d^2}{dx^2}U(x)|_{x = x_p} < 0$, onde o ponto $x_p$ é o ponto crítico, então o ponto é um \emph{máximo} ---~ou seja, um ponto de equilíbrio \emph{instável}---;
 \end{itemize}
+%
+Essa interpretação pode ser entendida da seguinte maneira: se nos deslocamos no sentido positivo de $x$, ao atingirmos um ponto de equilíbrio temos uma derivada nula; nesse ponto, se a derivada segunda for maior que zero, isso implica que se avançarmos além do ponto de equilíbrio, encontraremos uma região onde a derivada primeira é maior do que zero, indicando que o ponto era de equilíbrio estável. Se a derivada segunda no ponto de equilíbrio for negativa, isso implica que ao avançarmos além desse ponto encontraremos uma região em que o potencial é menor do que aquele registrado no próprio ponto de equilíbrio, indicando um ponto de equilíbrio instável.
 
-\textbf{Interpretar essa questão do ponto de máximo ou mínimo para o caso da força: se num ponto temos que a derivada é zero, se a derivada segunda é positiva, isso quer dizer que existe uma tendência a: no ponto imediatamente à esquerda do mínimo, de a inclinação ficar ``menos negativa''; já no ponto imediatamente à direita, ficar ``mais positiva''. Fazer gráfico, senão ninguém vai entender. (É como se a derivada ser positiva no ponto causasse uma rotação da reta tangente no sentido anti-horário; no caso de ser negativa, há uma tendência a rotacionar a reta no sentido horário.)}
+\begin{marginfigure}[-2cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-2:2]
+    plot(\x,{(\x)^3/8}) node[right]{$U(x)$};
+    
+    \draw[->] (-2.5,-1.5) -- (2.5,-1.5) node[below left]{$x$};
+    \draw[->] (-2.5,-1.5) -- (-2.5,1.5) node[below left]{$U$};
+    
+    \draw[fill] (0,0) circle (1pt) node[above]{$A$};
+    
+    \draw[dashed] (-1.5,0) -- (1.5,0);
+    
+\end{tikzpicture}
+\caption{Potencial com um ponto de inflexão. \label{Fig:PotPontoDeSela}}
+\end{marginfigure}
+
+Vale notar ainda que existe um outro tipo de ponto de crítico, denominado \emph{ponto de inflexão}, ou \emph{ponto de sela}\footnote{Em um gráfico de uma função bidimensional o ponto de inflexão está ligado a uma região cujo formato é o de uma sela de cavalo}. Na Figura~\ref{Fig:PotPontoDeSela} mostramos um potencial com esse tipo de ponto crítico. Note que para deslocamentos à esquerda do ponto de equilíbrio, temos características de instabilidade, enquanto que para deslocamentos à direta temos características de estabilidade.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Molécula de amônia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Adaptar essa seção para que ela seja independente. (costumava ser parte do texto da seção anterior.}
+Um exemplo de potencial que exibe pontos de equilíbrio estáveis e instáveis é o potencial efetivo sobre o átomo de nitrogênio em uma molécula de amônia. Essa molécula é formada por três átomos de hidrogênio e um de nitrogênio, de forma que sua estrutura tem um aspecto tetraédrico, com os átomos de hidrogênio formando um triângulo (veja a Figura~\ref{Fig:MoleculaAmonia}).
 
-Essa classificação é simples de se entender através da Figura~\ref{Fig:MoleculaAmoniaEPotencial}, onde mostramos uma molécula de amônia. O átomo de nitrogênio pode ocupar três posições de equilíbrio: uma de cada lado do plano formado pelos três átomos de hidrogênio e a posição central, exatamente no meio de tal plano. De acordo com o potencial mostrado na figura, se tomarmos qualquer uma das posições fora do plano, temos que um deslocamento ao longo do eixo $x$ em qualquer direção dá origem a uma força que tende a \emph{restaurar} o nitrogênio à posição inicial: um deslocamento no sentido positivo de $x$ dá origem a uma força no sentido negativo, enquanto um deslocamento no sentido negativo de $x$ dá origem a uma força no sentido positivo.
+Considerando que a interação entre os átomos tenha um potencial com as mesmas propriedades qualitativas que o potencial inter-atômico discutido anteriormente, verificamos que existem duas posições de equilíbrio para o átomo de nitrogênio, ambas fora do plano dos átomos de hidrogênio, simétricas a ele. Em tais posições, o nitrogênio fica equidistante dos três hidrogênios. Se considerarmos o caso em que os átomos são pontuais, verificamos que além dessas duas posições de equilíbrio, deve haver uma terceira, contida no plano dos hidrogênios e equidistante a eles.
 
-\begin{figure}[tb]
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-1.75:1.75]
+    plot(\x,{0.25*(0.1*(2*\x)^4 - (2*\x)^2)}) node[right]{$U(x)$};
+    
+    \draw[->] (-2,1) -- (2,1) node[above left]{$x$};
+    \draw[->] (0,-0.2) -- (0,2.5) node[below left]{$U$};
+    
+    \draw[fill] (-1.118, -0.625) circle (1.3pt);
+    \draw[fill] (0,0) circle (1.3pt);
+    \draw[fill] (1.118,-0.625) circle (1.3pt);
+
+\end{tikzpicture}
+\caption{O potencial ao qual o nitrogênio está sujeito tem a forma mostrada à direita. Note que existem dois pontos de equilíbrio \emph{estáveis} e um ponto de equilíbrio \emph{instável}. \label{Fig:PotencialMoleculaAmonia}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:PotencialMoleculaAmonia}, temos um esboço do potencial efetivo a que o átomo de nitrogênio está sujeito. Nela verificamos a existência dos três pontos de equilíbrio, sendo dois de equilíbrio estável, e um de equilíbrio instável.
+
+
+\begin{figure*}[tb]\forceversofloat
 \begin{minipage}[c]{0.45\linewidth}
 \centering
-\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -15, rotate around z = -15, extended line/.style={shorten >=#1,shorten <=#1},
+\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -15, rotate around z = -20, extended line/.style={shorten >=#1,shorten <=#1},
  extended line/.default=2mm]]
  
+    % Origem e eixos
     \draw[fill] (0,0,0) circle (1pt);
 
     \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
-%    \draw[dotted] (0,0,0) -- (1.5,0,0);
-%    \draw[dotted] (0,0,0) -- (0,1.5,0);
+    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
+    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
+
+    % Cubo
+    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
+    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
+    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
     
+    % Inserseções dos eixos e das faces
+    \draw[fill] (1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (0, 1.25, 0) circle (0.5pt);
+    \draw[fill] (0, -1.25, 0) circle (0.5pt);
+    \draw[fill] (0, 0, 1.25) circle (0.5pt);
+    \draw[fill] (0, 0, -1.25) circle (0.5pt);
+    
+    % Molécula
     \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
     \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
     \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
@@ -1960,6 +2058,61 @@ Essa classificação é simples de se entender através da Figura~\ref{Fig:Molec
 %
 \begin{minipage}[c]{0.45\linewidth}
 \centering
+\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -11, rotate around z = -20, extended line/.style={shorten >=#1,shorten <=#1},
+ extended line/.default=2mm]]
+ 
+    % Origem e eixos
+    \draw[fill] (0,0,0) circle (1pt);
+
+    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
+    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
+
+    % Cubo
+    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
+    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
+    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
+    
+    % Inserseções dos eixos e das faces
+    \draw[fill] (1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (0, 1.25, 0) circle (0.5pt);
+    \draw[fill] (0, -1.25, 0) circle (0.5pt);
+    \draw[fill] (0, 0, 1.25) circle (0.5pt);
+    \draw[fill] (0, 0, -1.25) circle (0.5pt);
+    
+    % Molécula
+    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
+    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
+    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
+    
+    \draw[dashed, extended line] (H1) -- (H2);
+    \draw[dashed, extended line] (H2) -- (H3);
+    \draw[dashed, extended line] (H3) -- (H1);
+    
+    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
+    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
+    \draw[dashed, extended line] (N) -- (H1);
+    \draw[dashed, extended line] (N) -- (H2);
+    \draw[dashed, extended line] (N) -- (H3);
+    
+    \draw[dotted, extended line] (N2) -- (H1);
+    \draw[dotted, extended line] (N2) -- (H2);
+    \draw[dotted, extended line] (N2) -- (H3);
+    
+\end{tikzpicture}
+\end{minipage}
+\caption{\emph{Figura estereoscópica:} A molécula de amônia é composta por três átomos de hidrogênio e um átomo de nitrogênio, formando um tetraedro. Os circulos nos eixos denotam o ponto onde atravessam os planos das faces do cubo. \label{Fig:MoleculaAmonia}}
+\end{figure*}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplos: ?}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Dar exemplos onde procuramos os pontos de equilíbrio, classificação da força em ordem crescente em pontos selecionados.}
+
+\begin{marginfigure}
+\centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -1968,26 +2121,15 @@ Essa classificação é simples de se entender através da Figura~\ref{Fig:Molec
     ]
     
     % Desenhar função:
-    \draw[smooth, thick, name path=plot,samples=1000,domain=-2:2]
-    plot(\x,{0.25*(0.1*(2*\x)^4 - (2*\x)^2)}) node[right]{$U$};
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.5:4]
+    plot(\x,{sin(\x r)}) node[right]{$U(x)$};
     
-    \draw[->] (-2,0) -- (2,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (4.5,0) node[above left]{$x$};
     \draw[->] (0,-0.2) -- (0,2.5) node[below left]{$U$};
     
-    \draw[fill] (-1.118, -0.625) circle (1.3pt);
-    \draw[fill] (0,0) circle (1.3pt);
-    \draw[fill] (1.118,-0.625) circle (1.3pt);
-
 \end{tikzpicture}
-\end{minipage}
-\caption{A molécula de amônia é composta por três átomos de hidrogênio e um átomo de nitrogênio, formando um tetraedro. O potencial ao qual o nitrogênio está sujeito tem a forma mostrada à direita. Note que existem dois pontos de equilíbrio \emph{estáveis} e um ponto de equilíbrio \emph{instável}. \label{Fig:MoleculaAmoniaEPotencial}}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplos: ?}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Dar exemplos onde procuramos os pontos de equilíbrio, classificação da força em ordem crescente em pontos selecionados.}
+\caption{Um potencial unidimensional $U(x)$. \label{Fig:ClassificarPontos}}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia mecânica em gráficos de potencial: Pontos de retorno}
