@@ -1,2 +1,95 @@
 # notas_fsc1
 Notas de Física 1
+
+Os arquivos nesse repositório são os códigos-fonte necessários para produzir
+minhas notas de aula de Física 1 utilizando LaTeX. Se você deseja obter uma
+cópia do PDF diretamente, no repositório existe uma cópia que é atualizada
+regularmente, mas não em todas as revisões intermediárias.
+
+## Licença
+Os arquivos deste repositório são distribuidos de acordo com a licença Creative
+Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional
+(http://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR).
+
+## Obtenção de uma cópia, produção do PDF
+Para obter uma cópia, você pode baixá-la em
+`http://github.com/cgraeff/notas_fsc1` (tanto em versão PDF, quanto os arquivos
+para gerar o PDF).
+
+Para gerar o PDF, é necessária uma distribuição TeX. Versões existem para todos
+os sistemas operacionais, porém nas instruções abaixo vou detalhar os passos
+assumindo o sitema operacional GNU/Linux Fedora, pois ele é gratuito (e é o que
+eu uso). Deve ser possível gerar o PDF em outros sistemas operacionais, mas não
+tenho ideia de como fazer isso, ou de quanto trabalho isso vai dar.
+
+### Como obter uma cópia dos arquivos
+Para obter uma cópia mais facilmente, basta executar em um terminal o comando
+```
+git clone http://
+```
+
+### Pacotes necessários para gerar o arquivo PDF
+Uma série de pacotes que não fazem parte da instalação usual do TeXLive são
+necessários para poder gerar o arquivo PDF. Em particular no Fedora tenho os
+seguintes pacotes (nem todos são necessários para essas notas de aula):
+```
+texlive
+texlive-beamertheme-metropolis
+texlive-biblatex
+texlive-braket
+texlive-calrsfs
+texlive-ccicons
+texlive-collection-langgreek
+texlive-collection-langportuguese
+texlive-epstopdf
+texlive-exam
+texlive-exsheets
+texlive-hardwrap
+texlive-hyphenat
+texlive-lgreek
+texlive-lipsum
+texlive-mathcomp
+texlive-mdframed
+texlive-numprint
+texlive-revtex
+texlive-revtex4
+texlive-standalone
+texlive-textgreek
+texlive-tikz-3dplot
+texlive-tikz-qtree
+texlive-titlesec
+texlive-tkz-euclide
+texlive-tufte-latex
+texlive-units
+gnuplot-latex
+biber
+```
+
+### Como gerar o arquivo PDF
+Para gerar o arquivo PDF, é necessário executar o comando `pdflatex` com a opção
+`-shell-escape`:
+```
+pdflatex -shell-escape main.tex
+```
+A primeira execução será mais demorada, uma vez que é necessário gerar todas
+as figuras. Ao modificar o texto de um capítulo, é interessante desabilitar
+o processamento dos demais capítulos, caso contrário o processamento das figuras
+pode ser muito demorado. (A modificação da ordem, ou a adição de figuras novas
+pode levar ao reprocessamento de todas as figuras subsequentes, o que leva a uma
+demora desnecessária ao processar todos os capítulos.)
+
+Após executar o `pdflatex` uma vez, devemos gerar a bibliografia através do
+comando `biber`:
+```
+biber main
+```
+seguido do comando `pdflatex -shell-escape main.tex` mais algumas vezes (até que
+o próprio comando pare de pedir para ser executado novamente).
+
+### Exluir arquivos desnecessários
+Uma maneira simples de excluir os arquivos de log, figuras temporárias, etc, é
+excluir todos os arquivos que não foram adicionados ao git através de
+```
+git clean -x
+```
+

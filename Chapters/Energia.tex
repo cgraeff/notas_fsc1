@@ -184,7 +184,7 @@ Uma, em especial, se origina no fato de que somente a componente da força no se
     
     \draw[->, thick] (0.5,0) -- +(30:1.2) coordinate (f1) node[above]{$\vec{F}$};
     \draw[dotted] (f1) -- +(0, -0.6) (f1)-- +(-1.039,0);
-    \draw[->, thick] (0.5,0) -- node[below]{$\vec{F}_{\parallel}$} +(1.039 , 0);
+    \draw[->, thick] (0.5,0) -- node[below]{$\vec{F}_{\parallel}$} +(1.039 , 0) coordinate (c2);
     \draw[->, thick] (0.5,0) -- node[left]{$\vec{F}_{\perp}$} +(0,0.6);
        
     \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = c2--c1--f1};
@@ -1266,6 +1266,7 @@ As forças podem ser então classificadas\footnote{A denominação \emph{conserv
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Energia mecânica}
+\label{Sec:EnergiaMecanica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Verificamos nas seções anteriores a existência de meios diferentes de ``armazenar'' energia e que ela pode ser transferida de um tipo para outro. Veremos a seguir, que em algumas situações podemos dizer que a soma de todos os tipos de energia em um sistema é uma \emph{constante}. Isso será de grande utilidade ao analisarmos fenômenos físicos diversos, facilitando a determinação de grandezas que temos interesse em calcular.
@@ -1319,7 +1320,7 @@ Um ponto importante que devemos ainda discutir é o fato de que em muitos casos 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
-    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado em uma pista circular vertical empregando uma mola. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
+    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado, empregando uma mola, em uma pista composta de uma seção plana e de uma seção circular vertical. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
 \end{quote}
 
 \begin{marginfigure}
@@ -1376,7 +1377,7 @@ Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoop} 
     \frac{kx_i^2}{2} &= \frac{mv_f^2}{2} + mgy_f \\
     \frac{k\ell^2}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg2R \\
     \frac{k\ell^2}{2} &= \frac{mgR}{2} + 2mgR \\
-    \frac{k\ell^2}{2} &= 5mgR \\
+    k\ell^2 &= 5mgR \\
     \ell &= \sqrt{\frac{5mgR}{k}}.
 \end{align}
 %
@@ -1734,7 +1735,7 @@ No caso de termos cargas com sinais opostos, temos que a força é atrativa. Na 
     \draw[dashed] (1, 0.5)+(-26.57:0.75) -- +(153.43:0.75);
        
     \draw[->] (-0.2,0) -- (4,0) node[above left]{$r$};
-    \draw[->] (0,-0.2) -- (0,2.2) node[below left]{$U$};
+    \draw[->] (0,-0.2) -- (0,2.2) node[below left]{$V$};
     
     \draw[pattern = north west lines, pattern color = gray] (0,-1.5) node{$+$} circle (2mm);
     \draw[pattern = north west lines, pattern color = gray] (1,-1.5) node{$+$} circle (2mm);
@@ -1770,7 +1771,7 @@ No caso de termos cargas com sinais opostos, temos que a força é atrativa. Na 
     \draw[dashed] (1.25, -0.4)+(17.74:0.75) -- +(-162.26:0.75);
        
     \draw[->] (-0.2,0) -- (4,0) node[above left]{$r$};
-    \draw[->] (0,-2.2) -- (0,0.5) node[below left]{$U$};
+    \draw[->] (0,-2.2) -- (0,0.5) node[below left]{$V$};
     
     %
     
@@ -1977,9 +1978,101 @@ Vale notar ainda que existe um outro tipo de ponto de crítico, denominado \emph
 \paragraph{Exemplo: Molécula de amônia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{figure}[tb]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1, extended line/.style={shorten >=#1,shorten <=#1},
+ extended line/.default=2mm]]
+ 
+ \begin{scope}[ rotate around y = -15, rotate around z = -20]
+    % Origem e eixos
+    \draw[fill] (0,0,0) circle (1pt);
+
+    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
+    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
+
+    % Cubo
+    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
+    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
+    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
+    
+    % Inserseções dos eixos e das faces
+    \draw[fill] (1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (0, 1.25, 0) circle (0.5pt);
+    \draw[fill] (0, -1.25, 0) circle (0.5pt);
+    \draw[fill] (0, 0, 1.25) circle (0.5pt);
+    \draw[fill] (0, 0, -1.25) circle (0.5pt);
+    
+    % Molécula
+    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
+    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
+    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
+    
+    \draw[dashed, extended line] (H1) -- (H2);
+    \draw[dashed, extended line] (H2) -- (H3);
+    \draw[dashed, extended line] (H3) -- (H1);
+    
+    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
+    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
+    \draw[dashed, extended line] (N) -- (H1);
+    \draw[dashed, extended line] (N) -- (H2);
+    \draw[dashed, extended line] (N) -- (H3);
+    
+    \draw[dotted, extended line] (N2) -- (H1);
+    \draw[dotted, extended line] (N2) -- (H2);
+    \draw[dotted, extended line] (N2) -- (H3);
+\end{scope}
+
+\begin{scope}[shift={(5,0)}, rotate around y = -11, rotate around z = -20]
+    % Origem e eixos
+    \draw[fill] (0,0,0) circle (1pt);
+
+    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
+    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
+    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
+
+    % Cubo
+    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
+    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
+    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
+    
+    % Inserseções dos eixos e das faces
+    \draw[fill] (1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
+    \draw[fill] (0, 1.25, 0) circle (0.5pt);
+    \draw[fill] (0, -1.25, 0) circle (0.5pt);
+    \draw[fill] (0, 0, 1.25) circle (0.5pt);
+    \draw[fill] (0, 0, -1.25) circle (0.5pt);
+    
+    % Molécula
+    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
+    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
+    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
+    
+    \draw[dashed, extended line] (H1) -- (H2);
+    \draw[dashed, extended line] (H2) -- (H3);
+    \draw[dashed, extended line] (H3) -- (H1);
+    
+    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
+    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
+    \draw[dashed, extended line] (N) -- (H1);
+    \draw[dashed, extended line] (N) -- (H2);
+    \draw[dashed, extended line] (N) -- (H3);
+    
+    \draw[dotted, extended line] (N2) -- (H1);
+    \draw[dotted, extended line] (N2) -- (H2);
+    \draw[dotted, extended line] (N2) -- (H3);
+\end{scope}
+\end{tikzpicture}
+\caption{\emph{Figura estereoscópica:} A molécula de amônia é composta por três átomos de hidrogênio e um átomo de nitrogênio, formando um tetraedro. Os circulos nos eixos denotam o ponto onde atravessam os planos das faces do cubo. \label{Fig:MoleculaAmonia}}
+\end{figure}
+
 Um exemplo de potencial que exibe pontos de equilíbrio estáveis e instáveis é o potencial efetivo sobre o átomo de nitrogênio em uma molécula de amônia. Essa molécula é formada por três átomos de hidrogênio e um de nitrogênio, de forma que sua estrutura tem um aspecto tetraédrico, com os átomos de hidrogênio formando um triângulo (veja a Figura~\ref{Fig:MoleculaAmonia}).
 
 Considerando que a interação entre os átomos tenha um potencial com as mesmas propriedades qualitativas que o potencial inter-atômico discutido anteriormente, verificamos que existem duas posições de equilíbrio para o átomo de nitrogênio, ambas fora do plano dos átomos de hidrogênio, simétricas a ele. Em tais posições, o nitrogênio fica equidistante dos três hidrogênios. Se considerarmos o caso em que os átomos são pontuais, verificamos que além dessas duas posições de equilíbrio, deve haver uma terceira, contida no plano dos hidrogênios e equidistante a eles.
+
+Na Figura~\ref{Fig:PotencialMoleculaAmonia}, temos um esboço do potencial efetivo a que o átomo de nitrogênio está sujeito. Nela verificamos a existência dos três pontos de equilíbrio, sendo dois de equilíbrio estável, e um de equilíbrio instável.
 
 \begin{marginfigure}
 \centering
@@ -2005,111 +2098,39 @@ Considerando que a interação entre os átomos tenha um potencial com as mesmas
 \caption{O potencial ao qual o nitrogênio está sujeito tem a forma mostrada à direita. Note que existem dois pontos de equilíbrio \emph{estáveis} e um ponto de equilíbrio \emph{instável}. \label{Fig:PotencialMoleculaAmonia}}
 \end{marginfigure}
 
-Na Figura~\ref{Fig:PotencialMoleculaAmonia}, temos um esboço do potencial efetivo a que o átomo de nitrogênio está sujeito. Nela verificamos a existência dos três pontos de equilíbrio, sendo dois de equilíbrio estável, e um de equilíbrio instável.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Classificação de pontos de equilíbrio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{quote}
+A Figura~\ref{Fig:ClassificarPontos} mostra o potencial associado a uma força conservativa unidimensional. Determine os pontos de equilíbrio e os classifique como estáveis e instáveis. O que podemos afirmar sobre a intensidade da força nos pontos onde $U(x) = 0$?
+\end{quote}
 
-\begin{figure*}[tb]\forceversofloat
-\begin{minipage}[c]{0.45\linewidth}
+\begin{figure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -15, rotate around z = -20, extended line/.style={shorten >=#1,shorten <=#1},
- extended line/.default=2mm]]
- 
-    % Origem e eixos
-    \draw[fill] (0,0,0) circle (1pt);
-
-    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
-    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
-    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
-
-    % Cubo
-    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
-    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
-    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
+\begin{tikzpicture}[>=Stealth, scale = 1.25,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
     
-    % Inserseções dos eixos e das faces
-    \draw[fill] (1.25, 0, 0) circle (0.5pt);
-    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
-    \draw[fill] (0, 1.25, 0) circle (0.5pt);
-    \draw[fill] (0, -1.25, 0) circle (0.5pt);
-    \draw[fill] (0, 0, 1.25) circle (0.5pt);
-    \draw[fill] (0, 0, -1.25) circle (0.5pt);
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-0.05:3.8]
+    plot(\x,{2*sin(6*\x r) * exp(-\x)});
     
-    % Molécula
-    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
-    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
-    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
-    
-    \draw[dashed, extended line] (H1) -- (H2);
-    \draw[dashed, extended line] (H2) -- (H3);
-    \draw[dashed, extended line] (H3) -- (H1);
-    
-    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
-    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
-    \draw[dashed, extended line] (N) -- (H1);
-    \draw[dashed, extended line] (N) -- (H2);
-    \draw[dashed, extended line] (N) -- (H3);
-    
-    \draw[dotted, extended line] (N2) -- (H1);
-    \draw[dotted, extended line] (N2) -- (H2);
-    \draw[dotted, extended line] (N2) -- (H3);
+    \draw[->] (0,0) -- (4.5,0) node[above left]{$x$};
+    \draw[->] (0,-1.25) -- (0,2) node[below left]{$U$};
     
 \end{tikzpicture}
-\end{minipage}
-%
-\begin{minipage}[c]{0.45\linewidth}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.3, rotate around y = -11, rotate around z = -20, extended line/.style={shorten >=#1,shorten <=#1},
- extended line/.default=2mm]]
- 
-    % Origem e eixos
-    \draw[fill] (0,0,0) circle (1pt);
+\caption{Um potencial unidimensional $U(x)$. \label{Fig:ClassificarPontos}}
+\end{figure}
 
-    \draw[densely dotted, ->] (0,0,-2) -- (0,0,2) node[below]{$x$};
-    \draw[densely dotted, ->] (-2,0,0) -- (2,0,0) node[below]{$y$};
-    \draw[densely dotted, ->] (0,-2,0) -- (0,2,0) node[below right]{$z$};
-
-    % Cubo
-    \draw[dotted] (1.25,1.25,1.25) coordinate (A1) -- (1.25,-1.25,1.25) coordinate (A2) -- (-1.25,-1.25,1.25) coordinate (A3) -- (-1.25, 1.25,1.25) coordinate (A4)  -- cycle;
-    \draw[dotted] (1.25,1.25,-1.25) coordinate (B1) -- (1.25,-1.25,-1.25) coordinate (B2) -- (-1.25,-1.25,-1.25) coordinate (B3) -- (-1.25, 1.25,-1.25) coordinate (B4)  -- cycle;
-    \draw[dotted] (A1) -- (B1) (A2) -- (B2) (A3) -- (B3) (A4) -- (B4);
-    
-    % Inserseções dos eixos e das faces
-    \draw[fill] (1.25, 0, 0) circle (0.5pt);
-    \draw[fill] (-1.25, 0, 0) circle (0.5pt);
-    \draw[fill] (0, 1.25, 0) circle (0.5pt);
-    \draw[fill] (0, -1.25, 0) circle (0.5pt);
-    \draw[fill] (0, 0, 1.25) circle (0.5pt);
-    \draw[fill] (0, 0, -1.25) circle (0.5pt);
-    
-    % Molécula
-    \draw[pattern = north west lines] (0,1,0) coordinate (H1) circle (1.3mm);
-    \draw[pattern = north west lines] (0.866,-0.5,0) coordinate (H2) circle (1.3mm);
-    \draw[pattern = north west lines] (-0.866,-0.5,0) coordinate (H3) circle (1.3mm);
-    
-    \draw[dashed, extended line] (H1) -- (H2);
-    \draw[dashed, extended line] (H2) -- (H3);
-    \draw[dashed, extended line] (H3) -- (H1);
-    
-    \draw[pattern = north east lines] (0,0,0.35) coordinate (N) circle (1.5mm);
-    \draw[pattern = north east lines, pattern color = gray, draw = gray] (0,0,-0.35) coordinate (N2) circle (1.5mm);
-    \draw[dashed, extended line] (N) -- (H1);
-    \draw[dashed, extended line] (N) -- (H2);
-    \draw[dashed, extended line] (N) -- (H3);
-    
-    \draw[dotted, extended line] (N2) -- (H1);
-    \draw[dotted, extended line] (N2) -- (H2);
-    \draw[dotted, extended line] (N2) -- (H3);
-    
-\end{tikzpicture}
-\end{minipage}
-\caption{\emph{Figura estereoscópica:} A molécula de amônia é composta por três átomos de hidrogênio e um átomo de nitrogênio, formando um tetraedro. Os circulos nos eixos denotam o ponto onde atravessam os planos das faces do cubo. \label{Fig:MoleculaAmonia}}
-\end{figure*}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplos: ?}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Dar exemplos onde procuramos os pontos de equilíbrio, classificação da força em ordem crescente em pontos selecionados.}
+Sabemos que os pontos de equilíbrio em um gráfico de potencial em função da posição são aqueles que são máximos ou mínimos locais, marcados na Figura~\ref{Fig:ClassificarPontos2}. Além disso, sabemos que os pontos de máximo são pontos de equilíbrio instável e os pontos de mínimo são pontos de equilíbrio estável. Assim, temos que
+\begin{description}
+    \item[Equilíbrio instável:] Pontos $A$, $C$, $E$, $G$.
+    \item[Equilíbrio estável:] Pontos $B$, $D$, $F$.
+\end{description}
 
 \begin{marginfigure}
 \centering
@@ -2121,15 +2142,106 @@ Na Figura~\ref{Fig:PotencialMoleculaAmonia}, temos um esboço do potencial efeti
     ]
     
     % Desenhar função:
-    \draw[smooth, thick, name path=plot,samples=1000,domain=0.5:4]
-    plot(\x,{sin(\x r)}) node[right]{$U(x)$};
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-0.05:3.8]
+    plot(\x,{2*sin(6*\x r) * exp(-\x)});
     
     \draw[->] (0,0) -- (4.5,0) node[above left]{$x$};
-    \draw[->] (0,-0.2) -- (0,2.5) node[below left]{$U$};
+    \draw[->] (0,-1.25) -- (0,2) node[below left]{$U$};
     
+    % Pontos de equilíbrio 
+    \fill (0.234274608230045, 1.56076031702256)  circle (1pt) node[above] {$A$};
+    \fill (0.757873383828344, -0.924570761897113)  circle (1pt) node[below] {$B$};
+    \fill (1.28147215942664, 0.547701709501274)  circle (1pt) node[above] {$C$};
+    \fill (1.80507093502494, -0.324450193487731)  circle (1pt) node[below] {$D$};
+    \fill (2.32866971062324, 0.192199378289473)  circle (1pt) node[above] {$E$};
+    \fill (2.85226848622154, -0.113855999337713)  circle (1pt) node[below] {$F$};
+    \fill (3.37586726181984, 0.067446568769152)  circle (1pt) node[above] {$G$};
+    
+    % Zeros do potencial
+    \draw[fill = white, draw = black] (0,0) circle (1pt);
+    \draw[fill = white, draw = black] (0.523583333,0) circle (1pt);
+    \draw[fill = white, draw = black] (1.047166667,0) circle (1pt);
+    \draw[fill = white, draw = black] (1.57075,0) circle (1pt);
+    \draw[fill = white, draw = black] (2.094333333,0) circle (1pt);
+    \draw[fill = white, draw = black] (2.617916667,0) circle (1pt);
+    \draw[fill = white, draw = black] (3.1415,0) circle (1pt);
+    \draw[fill = white, draw = black] (3.665083333,0) circle (1pt);
+
 \end{tikzpicture}
-\caption{Um potencial unidimensional $U(x)$. \label{Fig:ClassificarPontos}}
+\caption{Pontos de equilíbrio do potencial $U(x)$. \label{Fig:ClassificarPontos2}}
 \end{marginfigure}
+
+Já sobre os pontos em que $U(x) = 0$, marcados com circulos vazados sobre o eixo $x$, podemos destacar que, apesar de o potencial ser nulo, a sua derivada é diferente de zero. Percebemos que no sentido crescente de $x$ se alternam pontos onde a força aponta para o sentido negativo do eixo $x$ e pontos onde a força aponta no sentido positivo de $x$. Além disso, percebemos que a intensidade da força diminui progressivamente, pois a inclinação da curva do potencial diminui em cada passagem sobre o eixo $x$.
+
+\begin{quote}
+    Se o potencial $U(x)$ é dado pela expressão
+    \begin{equation}
+        U(x) = 2\cdot\sen(6x)\cdot e^{-x},
+    \end{equation}
+    %
+    determine os pontos de equilíbrio através da derivada do potencial e os classifique quanto à estabilidade através da derivada segunda.
+\end{quote}
+
+Para determinarmos os pontos de equilíbrio, basta determinarmos a derivada primeira e a igualar a zero:
+\begin{align}
+    \frac{d}{dx} U(x) &= 0 \\
+    \frac{d}{dx} [2\cdot\sen(6x)\cdot e^{-x}] &= 0 \\
+    2\cdot[(6\cos(6x)e^{-x}) + (\sen(6x)\cdot (-1) \cdot e^{-x})] &= 0 \\
+    2\cdot(6\cos(6x) - \sen(6x))\cdot e^{-x} &= 0.
+\end{align}
+%
+A expressão acima só é zero se o termo entre parêntesis é zero, uma vez que $e^{-x}$ só é zero no limite $x \to \infty$. Assim, temos que
+\begin{align}
+    6\cos(6x) - \sen(6x) &= 0 \\
+    6\cos(6x) &= \sen(6x) \\
+    6 &= \tan(6x),
+\end{align}
+%
+de onde obtemos
+\begin{align}
+    x &= \frac{\arctan(6)}{6} \\
+    &\approx \np{0.2342746}.
+\end{align}
+%
+Para encontrar as demais soluções, devemos notar que $\tan(\theta) = \tan(\theta + n\pi)$ ---~onde $n = 0, 1, 2, \dots$~---. Portanto,
+\begin{align}
+    \tan(6x + n\pi) &= 6 \\
+    \tan\left(6\left(x + \frac{n\pi}{6}\right)\right) &= 6,
+\end{align}
+%
+ou seja, as soluções seguintes à primeira são dadaos por
+\begin{equation}
+    x_n = x + \frac{n\pi}{6},
+\end{equation}
+%
+onde $x = \arctan(6)/ 6 = \np{0.2342746}$, conforme a solução encontrada acima. Isso resulta nas soluções
+\begin{align*}
+x_0 &= \np{0.2342746} & x_4 &= \np{2.3286697} \\
+x_1 &= \np{0.7578734} & x_5 &= \np{2.8522685} \\
+x_2 &= \np{1.2814722} & x_6 &= \np{3.3758676} \\
+x_3 &= \np{1.8050709}.
+\end{align*}
+
+Para classificarmos quanto à estabilidade, basta calcularmos a derivada segunda,
+\begin{align}
+    \frac{d^2}{dx^2} U(x) &= \frac{d^2}{dx^2} [2\cdot\sen(6x)\cdot e^{-x}] \\
+    &= \frac{d}{dx} [2\cdot(6\cos(6x) - \sen(6x))\cdot e^{-x}] \\
+    &= 2\cdot[(-36\sen(6x) - 6\cos(6x)) e^{-x} \\
+    &\phantom{=2\cdot[} + (6\cos(6x) - \sen(6x))\cdot(-1)\cdot e^{-x}] \nonumber \\
+    &= -2\cdot[35\sen(6x) + 12\cos(6x)]e^{-x},
+\end{align}
+%
+e determinarmos o valor de tal derivada nos pontos de equilíbrio:
+\begin{align*}
+    \frac{d^2}{dx^2} U(x)|_{x = x_0} &= -57.748 < 0 & \frac{d^2}{dx^2} U(x)|_{x = x_4} &= -7.111 < 0 \\
+    \frac{d^2}{dx^2} U(x)|_{x = x_1} &= 34.209 > 0  & \frac{d^2}{dx^2} U(x)|_{x = x_5} &= 4.213 > 0 \\
+    \frac{d^2}{dx^2} U(x)|_{x = x_2} &= -20.265 < 0 & \frac{d^2}{dx^2} U(x)|_{x = x_6} &= -2.496 < 0 \\
+    \frac{d^2}{dx^2} U(x)|_{x = x_3} &= 12.005 > 0.
+\end{align*}
+%
+Logo, são pontos de equilíbrio instável os pontos $x_0$, $x_2$, $x_4$, e $x_6$ ---~que equivalem aos pontos $A$, $C$, $E$, e $F$ na Figura~\ref{Fig:ClassificarPontos2}~---, enquanto os pontos de equilíbrio estável são os pontos $x_1$, $x_3$, e $x_5$ ---~que equivalem aos pontos $B$, $D$, e $F$~---.
+
+Finalmente, devemos notar que através da função do potencial podemos determinar diversos outros pontos de equilíbrio. Acima determinamos somente os pontos que estão presentes no gráfico da Figura~\ref{Fig:ClassificarPontos2}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia mecânica em gráficos de potencial: Pontos de retorno}
@@ -2226,13 +2338,72 @@ o que fará com que ele sofra uma aceleração no sentido contrário ao deslocam
 \paragraph{Exemplo: Aproximação máxima entre duas partículas com cargas de mesmo sinal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Calcular a aproximação máxima de duas cargas que incidem uma diretamente contra a outra.
+\begin{quote}
+    Uma partícula com carga positiva $q_1$ é lançada em direção a outra partícula, fixa, também de carga positiva $q_2$. Se sua velocidade inicial é $v$, sua massa é $m$, as cargas são $q_1 = q_2 = q$, e o ponto de lançamento é muito distante da carga $q_2$, qual é a máxima aproximação entre as partículas?
+\end{quote}
+
+No sistema formado pelas duas cargas, podemos considerar que só atua a força eletrostática, uma vez que as demais forças têm intensidade muito pequena em comparação a ela. Como essa força é conservativa, podemos considerar que a energia mecânica é constante. Verificando o gráfico do potencial eletrostático, mostrado na Figura~\ref{Fig:PotencialAproximacaoCargas} identificamos um ponto de retorno, que corresponde justamente ao ponto de máxima aproximação. Portanto, basta igualarmos o potencial à energia mecânica:
+\begin{align}
+    V(r) &= E \\
+    \frac{kq_1q_2}{r} &= E.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0.25:3.5]
+    plot(\x,{1/(2*\x)});
+    
+       
+    \draw[->] (-0.2,0) -- (4,0) node[below left]{$r$};
+    \draw[->] (0,-0.2) -- (0,2.2) node[below left]{$V$};
+    
+    \draw[pattern = north west lines, pattern color = gray] (0,-1.5) node{$+$} circle (2mm);
+    \draw[pattern = north west lines, pattern color = gray] (1,-1.5) node{$+$} circle (2mm);
+    
+    \draw[dashed] (-0.7,-1.5) -- (-0.2,-1.5);
+    \draw[dashed] (0.2,-1.5) -- (0.8,-1.5);
+    \draw[dashed, ->] (1.2,-1.5) -- (4,-1.5) node[below left]{$r$};
+    \draw[dashed] (0,-2.2) -- (0,-1.7);
+    \draw[dashed] (0,-1.3) -- (0,-0.8);
+    
+    \draw[->, thick] (-0.2,-1.5) -- node[above]{$F'$} +(-0.5,0);
+    \draw[->, thick] (1.2,-1.5) -- node[above]{$F$} +(0.5,0);
+    
+    \draw[dotted] (1,0.5) -- (1,-1.3);
+    \draw[dashdotted] (1,0.5)+(-1,0) node[left]{$E$} -- +(3,0);
+    \fill (1,0.5) circle (1.5pt);
+    
+\end{tikzpicture}
+\caption{Gráfico do potencial eletrostático $V(r)$ entre as partículas, juntamente com a energia mecânica $E$. Note a existência de um ponto de retorno. \label{Fig:PotencialAproximacaoCargas}}
+\end{marginfigure}
+
+Como a partícula está muito distante, podemos considerar que no momento de seu lançamento sua energia potencial é nula. Assim, temos que
+\begin{align}
+    \frac{kq_1q_2}{r} &= E \\
+    &= K_i + V_i \\
+    &= K_i \\
+    &= \frac{mv^2}{2},
+\end{align}
+%
+de onde obtemos
+\begin{equation}
+    r = \frac{2kq^2}{mv^2}.
+\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
+%\paragraph{Exemplo: ?}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Exemplos de determinação de pontos de retorno.}
+%\textbf{Exemplos de determinação de pontos de retorno.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Montanha russa}
@@ -2245,11 +2416,10 @@ Calcular a aproximação máxima de duas cargas que incidem uma diretamente cont
 \label{Sec:TrabalhoForcasNaoConservativas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Rever essa seção e a próxima, acho que a divisão interna/externa não é tão clara, e não faz diferença nas contas, juntas as seções. Outra coisa que me intriga é o fato de que em alguns casos podemos ignorar uma força interna, mas em outros não: O atrito entre dois blocos pode ser ignorado, pois as parcelas de trabalho da força e da reação são iguais e opostas; já para um bloco lançado horizontalmente, que cai sobre uma prancha que pode se deslocar sem atrito em relação ao solo, temos trabalhos diferentes, que fazem com que uma parte da energia seja perdida, sendo transformada em calor: os módulos das forças são iguais, porém o deslocamento do bloco é maior que o da prancha. Acho que o fato sobre essa questão de forças internas é que tudo depende da situação. Se considerarmos o par ação/reação que atua sobre um bloco dentro de um elevador que acelera, também temos uma força interna, a questão é que os trabalhos das duas componentes do par ação/reação diferem por um sinal. Talvez o atrito seja justamente a chave para verificar que existe uma energia interna.}
+\textbf{Nesse contexto de trabalho de forças não conservativas, devemos explicar pq tem casos em que uma força não conservativa não realiza trabalho quando aparece num sistema: exemplos claros são a força de atrito entre blocos empilhados que são acelerados lateralmente por uma força que atua no inferior, ou o caso de tensões em cordas que ligam dois corpos. Em muitos casos, temos trabalho realizado por cada força, mas por serem pares ação-reação, sempre há duas forças com sentidos opostos atuando uma em cada corpo, porém através do mesmo ponto de contato. Isso faz com que num caso o trabalho tenha um sinal e no outro o sinal oposto. Logo, o trabalho total do par ação-reação é nulo. Se, no caso específico do atrito, há deslocamento relativo, acho que podemos dizer que os deslocamentos dos pontos de aplicação da força são diferentes, por isso o trabalho é diferente. Mas, nesse caso, não estou certo de como explicar o fato de que duas forças, que compõe um par ação-reação não interagem através do mesmo ponto (de qq forma, acho que isso não é um problema, pois acho que não é necessário para caracterizar um par ação-reação).}
 
-\textbf{Considerar o trabalho de forças não conservativas. Depois verificar o que acontece com a energia, se vai pra fora do sistema ou não.}
+Notamos na Seção~\ref{Sec:EnergiaMecanica} que se o trabalho de forças não-conservativas é nulo, então a energia mecânica do sistema é constante. Nos preocuparemos agora com os efeitos da existência de forças não-conservativas que realizem trabalho em um sistema.
 
-\textbf{Fazer uma introdução aqui.}
 Vamos considerar um sistema de $N$ partículas que interagem através de $n_f$ forças conservativas e também um conjunto de forças não-conservativas. A partir do teorema trabalho-energia, temos que
 \begin{align}
     \sum_{n=1}^N \Delta K &= W_{\textrm{Total}} \\
@@ -2278,14 +2448,7 @@ e, finalmente,
     \Delta E_S = W_{\textrm{NC}}. \mathnote{Variação da energia mecânica de um sistema devido a forças não-conservativas}
 \end{equation}
 %
-Portanto, verificamos que no caso de uma ou mais forças não-conservativas realisarem trabalho sobre um sistema, \emph{a variação da energia mecânica do sistema é igual ao trabalho realizado por tais forças.} Note que não impusemos nenhum sinal para o trabalho, portanto ele pode aumentar ou diminuir a energia do sistema. Finalmente, esse resultado também é válido para um sistema que possui só um corpo. Nesse caso a energia mecânica total do sistema é a própria energia mecânica de tal corpo. 
-
-\textbf{A justificativa da denominação conservativa/não-conservativa deve entrar aqui. Reaproveitar o texto abaixo?}
-Verificamos, portanto, que uma força não-conservativa pode variar a energia mecânica, mesmo que ela seja interna\footnote{Isso justifica a denominação conservativa/não-conservativa adotada: as forças conservativas \emph{conservam} a energia mecânica; as não-conservativas variam a energia mecânica}. No caso de uma força de atrito oposto ao sentido do movimento dos corpos que compõe o sistema, verificamos que a energia mecânica diminui. Eventualmente, um sistema nessas condições ficará sem energia mecânica disponível e seu movimento cessará.
-
-Se, por outro lado, temos um motor acoplado a uma \emph{fonte de energia}, podemos aumentar a energia mecânica do sistema. Em geral, em qualquer dispositivo cujo movimento é interessante, temos tanto forças de atrito, quanto uma fonte de energia. A própria fonte de energia, seja ela uma bateria, ou o combustível para uma máquina térmica, é uma forma de \emph{energia interna}. Veremos na adiante que a energia segue um princípio de conservação geral, sendo este um dos resultados mais úteis e interessantes da Física.
-
-\textbf{Aqui seria interessante, acredito, abordar a questão de que quando há forças internas, em muitos casos elas não realizam trabalho liquido. Não tenho certeza de quando isso acontece e quando não acontece, mas seria importante verificar. A força de atrito é notória nesse quesito, pois, me parece, se ela é estática, o trabalho líquido do par ação-reação será zero, mas se for atrito cinético, o trabalho será diferente de zero (dentro do sistema).}
+Portanto, através da expressão acima, verificamos que no caso de uma ou mais forças não-conservativas realisarem trabalho sobre um sistema, \emph{a variação da energia mecânica do sistema é igual ao trabalho realizado por tais forças.} Note que não impusemos nenhum sinal para o trabalho, portanto ele pode aumentar ou diminuir a energia do sistema. Finalmente, esse resultado também é válido para um sistema que possui só um corpo. Nesse caso a energia mecânica total do sistema é a própria energia mecânica de tal corpo. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Oscilador harmônico com atrito}
@@ -2364,11 +2527,91 @@ onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo
 
 Na Figura~\ref{Fig:PotElasticoComMassaMolaComAtrito} temos um gráfico da energia em função do deslocamento. Note que a cada oscilação, devido à diminuição da energia mecânica, a amplitude da oscilação diminui. Note também que nos pontos de retorno a velocidade é nula, e por isso a condição passa a ser de atrito estático. Nas primeiras oscilações, a força exercida pela mola é suficiente para fazer com que o corpo volte a oscilar, porém, eventualmente, a amplitude será tal que a força exercida pela mola é \emph{menor que a força de atrito estático máxima}. Nesse momento, o sistema para de oscilar, armazenando uma energia residual na forma de energia potencial elástica na mola.
 
-%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Bloco lançado por uma mola}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Colocar um exemplo aqui, como o exercício 39 da lista.}
+\begin{quote}
+    A Figura~\ref{Fig:BlocoArremessadoEmLoopComAtrito} mostra um bloco que será lançado, empregando uma mola, em uma pista composta de uma seção plana e de uma seção circular vertical. Na seção plana da pista, o coeficiente de atrito cinético é $\mu_c = \np{0.75}$, enquanto na parte circular o atrito é nulo. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, o tamanho da seção reta é $d = \np[cm]{60}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?\footnote{Esse problema foi visto na Seção~\ref{Sec:EnergiaMecanica}, porém sem atrito.}
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.4,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-0.5) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (7.05, -2.5);
+    \draw[interface] (7.05,-2.5) arc[start angle = -90, end angle = 123, radius = 3 cm];
+    
+    \draw[->] (0,-3.2) -- (9,-3.2) node[below left]{$x$};
+    \draw[|-|] (2.2, -3.2) -- (4.2,-3.2);
+    \path (2.2,-3.3) node[below]{$\ell$} -- (4.2,-3.3) node[below]{0};
+    \draw[-|] (4.2,-3.2) -- (7.05, -3.2);
+    \path (4.2,-3.3) -- (7.05, -3.3) node[below]{$d$};
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.4, segment length=1.5625mm, amplitude=1.6mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
+    \draw[pattern = north east lines] (3.5,-2.5) rectangle (3.7,-1.5);
+
+\end{tikzpicture}
+\caption{Lançamento de um bloco em uma pista circular vertical. \label{Fig:BlocoArremessadoEmLoopComAtrito}}
+\end{marginfigure}
+
+Sabemos que
+\begin{equation}
+    \Delta E^{\textrm{mec}} = W_{\textrm{NC}}.
+\end{equation}
+%
+No sistema em questão, temos a presença de uma força não-conservativa que realiza trabalho ---~a força de atrito~---. Temos também uma força normal, porém ela não realiza trabalho por estar sempre perpendicular ao deslocamento instantâneo. Vamos desprezar os efeitos da força de arrasto do ar. Além dessas forças não-conservativas, existem duas forças conservativas: a força elástica e a força peso. Considerando tais forças, temos então que
+\begin{equation}
+    (K_f + U_e^f + U_g^f) - (K_i + U_e^i + U_g^i) = W_{\textrm{at}}.
+\end{equation}
+
+Como o bloco parte do repouso, sua energia cinética inicial é zero. Além disso, podemos escolher a posição inicial do bloco como a origem do eixo vertical, assim a energia potencial gravitacional inicial é nula. Por fim, sabemos que quando o bloco deixa a mola, a energia potencial elástica é zero. Assim, a expressão acima simplifica-se a:
+\begin{equation}\label{Eq:EnergiasParaOBlocoEmLoopComAtrito}
+    (K_f + U_g^f) - (U_e^i) = f_{\textrm{at}} d \cos(\np[\tcdegree]{180}).
+\end{equation}
+%
+Note que a energia cinética final não é nula, já que o bloco não pode ter velocidade nula ao chegar ao topo da seção circular da pista. Sua velocidade será dada por\footnote{Esse resultado foi obtido na subseção \emph{Condição de perda de contato e velocidade mínima}, na Seção~\ref{Sec:ForcasNoMovCircular}.}
+\begin{equation}
+    v = \sqrt{Rg}.
+\end{equation}
+%
+Se as dimensões do bloco são desprezíveis\footnote{Lembre-se que estamos tratando do movimento de partículas, trataremos corpos extensos somente a partir do próximo capítulo.}, sua posição vertical final será igual ao diâmetro da pista circular ---~ou seja, $y_f = 2R$ ~---. Finalmente, sabemos que o atrito é dado por $f_{\textrm{at}} = \mu_c N$, sendo que ---~devido ao fato de que não há aceleração vertical na seção reta da pista~--- a normal é igual ao peso.
+
+Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoopComAtrito} obtemos
+\begin{equation}
+    \left(\frac{mv_f^2}{2} + mgy_f\right) - \left(\frac{kx_i^2}{2}\right) = - \mu_c mg d.
+\end{equation}
+%
+de onde podemos escrever
+\begin{align}
+    \frac{k\ell^2}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg2R + \mu_c mg d \\
+    &= \frac{5mgR}{2} + \mu_c mg d,
+\end{align}
+%
+o que resulta em
+\begin{align}
+    k\ell^2 &= 5mgR + 2 \mu_c mg d \\
+    \ell &= \sqrt{\frac{mg(5R + 2 \mu_c d)}{k}}
+\end{align}
+%
+Substituindo os valores das constantes, temos finalmente
+\begin{align}
+    \ell &= \sqrt{\frac{(\np[kg]{0.750}) \cdot (\np[m/s^2]{9.8}) \cdot [5 \cdot (\np[m]{1.30}) + 2 \cdot (\np{0.75}) \cdot (\np[m]{0,60})]}{(\np[N/m]{1200})}} \\
+    &\approx \np[m]{0.21}.
+\end{align}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Princípio da conservação da energia}
@@ -2450,9 +2693,9 @@ Vamos supor agora que temos um sistema onde atuam forças conservativas e uma fo
 \caption{Sistema formado por um oscilador massa-mola sujeito a uma força de atrito. Se nenhuma força que atravessa a fronteira do sistema realiza trabalho, então o sistema é \emph{fechado}.\label{Fig:MassaMolaSistemaFechado}}
 \end{marginfigure}
 
-Segundo a equação acima, a energia mecânica deve diminuir, porém estamos considerando um \emph{sistema fechado}, ou seja, não pode haver fluxo de energia através da fronteira. Nesse momento, aparentemente deveríamos argumentar que a energia se perdeu, afinal, estamos tratando de uma situação em que atua uma força não conservativa. Essa ideia, porém, não descreve o que acontece quando uma força não conservativa atua de maneira a realizar trabalho através da fronteira, como no caso da força exercida pela haste no exemplo anterior. Além disso, é comum em situações como a da Figura~\ref{Fig:MassaMolaSistemaFechado} que se note um \emph{aumento da temperatura do sistema}, isto é, um aumento da temperatura do bloco e da superfície onde ele se apoia.
+Segundo a equação acima, a energia mecânica deve diminuir, porém estamos considerando um \emph{sistema fechado}, ou seja, não pode haver fluxo de energia através da fronteira. Nesse momento, aparentemente deveríamos argumentar que a energia se perdeu, afinal, estamos tratando de uma situação em que atua uma força não conservativa. Essa ideia, porém, não descreve o que acontece quando uma força não conservativa atua de maneira a realizar trabalho através da fronteira, como no caso da força exercida pela haste no exemplo anterior. Além disso, é comum em situações como a da Figura~\ref{Fig:MassaMolaSistemaFechado} que se note um \emph{aumento da temperatura do sistema}, isto é, um aumento da temperatura do bloco e da superfície onde ele se apoia.\footnote{\textrm{Falar sobre a observação do Rumford ao perfurar canhões: enquanto houvesse trabalho sendo efetuado, havia aumento de temperatura (na real colocavam água para que isso não acontecesse). Diz que ele até usou uma broca intencionalmente cega, para poder ver essa relação melhor. Falar sobre a exp. do Joule para determinar o equivalente mecânico do calor.}}
 
-Concluímos, portanto, que a energia mecânica deve ter sido transformada em algum outro tipo de energia, que denominamos como \emph{energia interna}, e que está relacionada à temperatura do corpo\footnote{Microscopicamente, a energia interna associada à temperatura de um corpo está relacionada à velocidade média das partículas que o compõe.}. A relação entre trabalho de uma força não conservativa e a variação da temperatura foi estabelecida por James P. Joule em um experimento que consistia em deixar cair um bloco ligado a uma corda que era capaz de girar um conjunto de pás submersas em água, contida em um recipiente termicamente isolado. Devido à força de arrasto presente no sistema, verifica-se que ocorre um aumento da temperatura da água ---~ou seja, a energia mecânica é transformada em energia interna~---. Logo, podemos tornar a Expressão~\eqref{Eq:TrabalhoNCIgualVarEnergiaMec} para a variação da energia mecânica de um sistema em algo mais completo se escrevermos
+Concluímos, portanto, que a energia mecânica deve ter sido transformada em algum outro tipo de energia, que denominamos como \emph{energia interna}, e que está relacionada à temperatura do corpo\footnote{Microscopicamente, a energia interna associada à temperatura de um corpo está relacionada à velocidade média das partículas que o compõe.}. Devido à força de arrasto presente no sistema, verifica-se que ocorre um aumento da temperatura da água ---~ou seja, a energia mecânica é transformada em energia interna~---. Logo, podemos tornar a Expressão~\eqref{Eq:TrabalhoNCIgualVarEnergiaMec} para a variação da energia mecânica de um sistema em algo mais completo se escrevermos
 \begin{equation}\label{Eq:ConservacaoDaEnergia1}
     \Delta E_S^{\textrm{mec}} + \Delta E_S^{\textrm{int}} = W_{F_{\textrm{ext}}}.
 \end{equation}
@@ -2658,57 +2901,53 @@ onde
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%
-%\section{Questionário}
+\section{Exercícios}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\begin{question}[type={exam}]\label{Q:MaxDistensaoMolaParaNaoDeslizar}
-A Figura~\ref{Fig:Q:MaxDistensaoMolaParaNaoDeslizar} mostra um bloco que está apoiado sobre uma mesa sem atrito e que está ligado a uma mola. Sobre este bloco, repousa um segundo bloco. Na interface entre os blocos, existe atrito. Qual é a maxima distensão $x_m$ que a mola pode ter para a qual os blocos aceleram juntos ao liberarmos o sistema para se mover? Considere que $k = \np[N/m]{120.0}$, $m_1 = \np[kg]{3,0}$, $m_2 = \np[kg]{1.0}$, e $\mu_e = \np{0.65}$.
+%%%
+%%%
+
+\begin{question}[type={exam}]\label{Q:PtoEquilDeriv}
+Uma força conservativa unidimensional $F(x)$ atua sobre uma partícula de \np[kg]{1,0} que pode se mover ao longo do eixo $x$. A energia potencial $U(x)$ associada à força é dada por (veja a Figura~\ref{Fig:PtoEquilDeriv})
+\begin{equation}
+	U(x) = -4x e^{-x/4}~\rm{J}.
+\end{equation}
+onde $x$ é dado em metros. Na posição $x = \np[m]{5,0}$, a partícula possui uma energia cinética de \np[J]{2,0}.
+\begin{itemize}
+	\item Determine a posição do ponto de equilíbrio através da derivada do potencial.
+	\item Considerando que a energia mecânica do sistema seja constante, determine seu valor e trace uma reta no gráfico representando tal quantidade. Determine os pontos de retorno de maneira aproximada.
+\end{itemize}
 
 \begin{marginfigure}
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [->] (0,-3) -- (0,1) node [below left]{$U$};
+    \draw[->] (0,0) -- (4,0)  node [above left] {$x$};
     
-    \draw[interface] (0,1.5) -- (0,0);
-    \draw[interface] (0,0) -- (4.8,0);
+    \draw[|-|] (0,-1) node[left]{-2} -- (0,-2) node[left]{-4};
+    \draw[-|] (0,-2) -- (0,-3) node[left]{-6};
+    \draw[|-|] (1, 0) node[above]{5} -- (2,0) node[above]{10};
+    \draw[|-] (3, 0) node[above]{15} -- (4, 0);
     
-    \draw (0,0.5) -- (0.2,0.5);
-    \draw[decoration={aspect=0.3, segment length=1.2mm, amplitude=2mm,coil},decorate] (0.2,0.5) -- +(1.6,0);
-    \draw (1.8, 0.5) -- (2,0.5);
+    % Desenhar função:
+    \draw[thick, smooth,name path=plota,samples=1000,domain=0:3.8]
+    plot(\x,{-(1/2)*4*(\x * 5)*exp(-(\x * 5)/4)});
     
-    \draw[pattern = north west lines] (2,0) rectangle (3,1);
-    \draw[pattern = north west lines] (2.25,1) rectangle (2.75,1.5);
-    
-    
-    %%
-    
-    \draw[interface] (0,-1) -- (0,-2.5);
-    \draw[interface] (0,-2.5) -- (4.8, -2.5);
-    
-    \draw (0,-2) -- (0.2,-2);
-    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
-    \draw (3.3, -2) -- (3.5,-2);
-    
-    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
-    \draw[dotted, pattern = north west lines, pattern color = gray] (2,-2.5) rectangle (3,-1.5);
-    \draw[pattern = north west lines] (3.75,-1.5) rectangle (4.25,-1);
-    
-    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
-    
-    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
-    \draw[|-|] (2.5,-3.5) node[below]{$0$} -- (4,-3.5) node[below]{$x_m$};
-    
-    \node[draw, circle, dashed, scale = 0.7] (BL1) at (3.35,0.75) {1};
-    \node[draw, circle, dashed, scale = 0.7] (BL2) at (3,1.65) {2};
-        
 \end{tikzpicture}
-\caption{Questão~\ref{Q:MaxDistensaoMolaParaNaoDeslizar}. \label{Fig:Q:MaxDistensaoMolaParaNaoDeslizar}}
+\caption{Questão~\ref{Q:PtoEquilDeriv}.\label{Fig:PtoEquilDeriv}}
 \end{marginfigure}
 \end{question}
 
+%%%
+%%%
+
 % Considerando uma força de arrasto específica, qual é a velocidade máxima dada uma certa potência.
 
+%%%
+%%%
 
+\begin{question}[type={exam}]
+Considerando que a energia cinética de um projétil que emerge de um canhão é sempre a mesma, que a energia potencial gravitacional só depende da posição no eixo vertical, e desprezando a força de arrasto, não deveríamos observar sempre a mesma altura máxima para qualquer ângulo de lançamento do projétil? Explique.
+\end{question}

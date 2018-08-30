@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Rotações e Rolamento}\label{Chap:Rotacoes}
+\chapter{Rotações}\label{Chap:Rotacoes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\minitoc
@@ -2304,8 +2304,9 @@ Finalmente, para obtermos o trabalho total, basta integrarmos entre os valores i
 %
 Na expressão acima, a determinação do sinal do deslocamento está ligada aos limites de integração: se $\theta_f > \theta_i$, então temos um deslocamento angular positivo; caso contrário, o deslocamento angular é negativo. Note que nesse caso não estamos nos referindo ao módulo da variável: se, por exemplo, $\theta_f = -\np[rad]{2,0}$ e $\theta_i = -\np[rad]{10,0}$, então $\theta_f > \theta_i$.
 
-
 Finalmente, é importante destacar que tanto a expressão obtida para o trabalho realizado por um torque constante, quanto a obtida para o trabalho realizado por um torque variável são análogas àquelas que obtivemos para o caso da translação.
+
+\textbf{Veja que em nenhum momento é mostrado que $\Delta K = W$ também para o caso das rotações.}
 
 %%%%%%%%%%%%%%%%%%%%
 \paragraph{Potência}
@@ -2385,6 +2386,8 @@ Portanto, para um sistema que está sujeito a uma simples rotação, podemos uti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: velocidade angular de uma haste após sofrer um deslocamento sujeita à força peso}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Dúvida: Veja, existe deslocamento do centro de massa, é daí que vem a energia (de origem potencial gravitacional). No final, temos um centro de massa que está se movendo, mas estamos ignorando a energia cinética de translação. Por que razão podemos fazer isso?}
 
 Utilizando a conservação da energia mecânica, podemos determinar a velocidade da haste na Figura~\ref{Fig:EnergiaMecanicaNaRotacao} após ela sofrer um deslocamento de \np[\tcdegree]{90,0}, partindo do repouso:
 \begin{align}
@@ -3002,7 +3005,7 @@ Se ignorarmos a força de arrasto oferecida pelo ar, quando um corpo rola sem de
     \draw[fill] (0.15,-6) circle (0.8pt);
     
 \end{tikzpicture}
-\caption{.}
+\caption{Forças de atrito no ponto de contato com o solo para um corpo que rola sem deslizar. Note que as figuras correspondem ao caso em que o próprio atrito é o responsável pela aceleração, como no caso da roda motriz de um veículo (a roda traseira de uma bicicleta, por exemplo).}
 \end{marginfigure}
 
 Verificamos através do eixo horizontal que a existência da força de atrito está condicionada à existência de uma aceleração horizontal:
@@ -3011,12 +3014,15 @@ Verificamos através do eixo horizontal que a existência da força de atrito es
     \item[Caso $a_x \neq 0$:] Se o objeto que rola for uma roda de bicicleta, por exemplo, ao frearmos deve agir sobre algum ponto da roda uma força dirigida para trás, que será responsável por desacelerar o centro de massa do sistema\footnote{As forças exercidas sobre as rodas seja pelos freios da bicicleta, seja pelo ciclista, são forças internas e não são capazes de alterar a velocidade do centro de massa da roda/bicicleta.}. Claramente essa força será uma força de atrito que atuará no ponto de contato da roda com o solo. Se, por outro lado, o ciclista resolver acelerar a bicicleta, deverá aparecer uma força de atrito no ponto de contato da roda com o solo, dirigida para frente.
 \end{description}
 
-Concluímos então que no caso de um rolamento, do ponto de vista de translação,as forças que aceleram ou desaceleram o centro de massa são \emph{forças de atrito no ponto de contato com o solo}. Já do ponto de vista da rotação, as forças de atrito -- sendo as únicas forças externas que não estão equilibradas e que não atuam em direção ao eixo de rotação -- devem ser responsáveis pela aceleração angular. Além disso, as forças de atrito atuam de forma que o ângulo entre a força e o raio que liga o eixo de rotação ao ponto de aplicação da força é de \degree{90}.\footnote[][-2cm]{Se considerarmos uma força de arrasto que atue durante o rolamento, tal força atuará de maneira a desacelerar o corpo que rola, porém não exercerá nenhum torque. Nesse caso, deve surgir um torque devido à força de atrito e que seja capaz de causar uma desaceleração angular na roda. Isso implica em uma força de atrito \emph{na direção do movimento!}}
+Concluímos então que no caso de um rolamento, do ponto de vista de translação,as forças que aceleram ou desaceleram o centro de massa são \emph{forças de atrito no ponto de contato com o solo}. \textbf{Rever o que está adiante, depende muito de a roda ser motriz ou não. Devemos considerar o papel das forças internas nesse problema, pois ele é bastante complexo. Na frenagem, por exemplo, a força de atrito tende a fazer um torque que ---~apesar de desacelerar a bicicleta~---, tem o papel de \emph{aumentar} a velocidade angular. É essencial que exista o torque exercido pelos freios nessa situação. Não podemos considerar que o atrito no freio seja uma força interna para a roda em si, só para a bicicleta.} Já do ponto de vista da rotação, as forças de atrito -- sendo as únicas forças externas que não estão equilibradas e que não atuam em direção ao eixo de rotação -- devem ser responsáveis pela aceleração angular. Além disso, as forças de atrito atuam de forma que o ângulo entre a força e o raio que liga o eixo de rotação ao ponto de aplicação da força é de \degree{90}.\footnote[][-2cm]{Se considerarmos uma força de arrasto que atue durante o rolamento, tal força atuará de maneira a desacelerar o corpo que rola, porém não exercerá nenhum torque. Nesse caso, deve surgir um torque devido à força de atrito e que seja capaz de causar uma desaceleração angular na roda. Isso implica em uma força de atrito \emph{na direção do movimento!}}
+
+\textbf{Tentar se generalista aqui para poder transformar a seção seguinte em um exemplo. Temos que chegar em alguma coisa que indique que o caminho para resolver o problema é aplicar a segunda lei para a rotação E a segunda lei para a translação. (Veja que a novidade aqui em relação à máquina de Atwood é o fato de que precisamos aplicar ambas as leis \emph{para o mesmo corpo}.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rolamento em uma Rampa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textbf{Fazer o quote do ``problema''}
 Um problema que pode ser tratado a partir das observações acima e que trás um resultado bastante interessante é o de um objeto que rola rampa abaixo. Analizando o corpo do ponto de vista da translação (como se ele fosse um bloco e não pudesse girar) através da Segunda Lei de Newton para a Translação, temos
 \begin{description}
     \item[Eixo $x$:] Adotando um eixo $x$ na direção da aceleração, isto é, paralelo ao plano inclinado, temos
@@ -3165,7 +3171,7 @@ De acordo com a Figura~\ref{Fig:PosPRelCMRol}, verificamos que a posição no ei
     y_i = r_\perp^i \cos\theta_i,
 \end{equation}
 %
-onde $y_i$ é a posição do ponto no referencial do centro de massa. Devido à simetria do corpo, no entanto, se assumirmos que ele é homogêneo, verificamos que para cada ponto na região positiva do eixo $y$ corresponde um ponto na região negativa. Logo, o somatório se anula. Portanto, concluímos que
+onde $y_i$ é a posição do ponto no referencial do centro de massa. Devido à simetria do corpo, no entanto, se assumirmos que ele é homogêneo, verificamos que para cada ponto na região positiva do eixo $y$ corresponde um ponto na região negativa. Logo, o somatório se anula\footnote{\textbf{Se não for homogêneo, acontece o que? Eu esperaria que essa relação continuasse sendo válida, apesar de que certamente não teríamos algo com velocidade constante, como numa roda desbalanceada (na roda, quando ela perde velocidade angular, perde de translação tb, o que ocorre é que existe uma variação da energia potencial pois o centro de massa fica subindo e descendo). Veja que esse termo está relacionado à posição do centro de massa. Acho que nesse caso deveríamos é determinar a energia mecânica de todos os pontos e somá-las. Deve ser possível escrever $K_r + K_t + U_g^{\textrm{CM}}$}}. Portanto, concluímos que
 \begin{equation}
     K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}.
 \end{equation}

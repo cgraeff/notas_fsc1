@@ -195,7 +195,7 @@ Algo importante a se notar é que o deslocamento é a diferença de posição en
   d_s = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
 \end{equation}
 
-Novamente, temos que a dimensão é de \emph{comprimento} e as unidades no SI são metros, uma vez que o deslocamento escalar é determinado a partir de uma equação e da soma de termos com tais dimensões.
+Novamente, temos que a dimensão é de \emph{comprimento} e as unidades no SI são metros, uma vez que o deslocamento escalar é determinado a partir de uma equação que envolve a soma de termos com tais dimensões.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -633,8 +633,6 @@ Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento ness
 \subsection{Velocidade como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De maneira análoga ao caso da evolução temporal da posição, podemos dizer que para cada instante de tempo $t_i$ temos uma velocidade $v_i$ associada. Assim, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:
-
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
@@ -656,6 +654,8 @@ De maneira análoga ao caso da evolução temporal da posição, podemos dizer q
 \end{tikzpicture}
 \caption{Gráficos que exemplificam possíveis formas para os gráficos da velocidade $v(t)$.\label{Fig:Graf_vel_func_tempo}}
 \end{marginfigure}
+
+De maneira análoga ao caso da evolução temporal da posição, podemos dizer que para cada instante de tempo $t_i$ temos uma velocidade $v_i$ associada. Assim, podemos denotar o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondentes a tais instantes como uma função:
 
 \begin{equation}
     x: t \mapsto x(t),
@@ -717,7 +717,7 @@ Comparando a equação acima com uma \emph{equação da reta},
 %
 percebemos que o gráfico da posição em função da velocidade deve seguir uma reta:
 
-\begin{figure}
+\begin{figure}[!h]\forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- (5,0) node[below left]{$t$};
@@ -1038,7 +1038,7 @@ Novamente em analogia com a velocidade, graficamente tal limite pode ser interpr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Assim como podemos descrever a posição e a velocidade como funções do tempo, podemos fazer o mesmo para a aceleração:
-\begin{figure}[h]\forcerectofloat
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}
 \draw (0,0.5) node[above] {$t$};
@@ -1211,7 +1211,7 @@ Finalmente, devemos nos lembrar de que a escolha do sentido positivo do eixo é 
 \section{Interpretação da área de um gráfico $v \times t$ e $a \times t$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{marginfigure}[-6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1246,7 +1246,7 @@ Se temos que um objeto se move com velocidade constante, a distância percorrida
 %
 Ao fazer um gráfico de $v\times t$, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $t$ e os eixos verticais que passam por $t_1$ e $t_2$. Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_1$ e $t_2$ simplesmente calculando a área entre a curva, o eixo $x$ e os eixos verticais passando por $t_1$ e $t_2$. Se a curva $v(t)$ está abaixo do eixo $t$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo.
 
-\begin{marginfigure}
+\begin{marginfigure}[-7cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1275,7 +1275,7 @@ Ao fazer um gráfico de $v\times t$, percebemos que a equação acima determina 
 
 Para determinar o valor numérico do deslocamento através da área, podemos dividir a região hachurada em várias barras de uma largura arbitrária $\Delta t$ e altura dada pela própria curva $v(t)$. Somando os valores obtidos para cada uma das barras, podemos determinar -- pelo menos de forma aproximada -- o deslocamento total. Se tomarmos intervalos $\Delta t$ sucessivamente menores, eventualmente conseguiremos calcular a área com grande precisão e verificaremos que nesse caso temos exatamente a área ``abaixo'' da curva.
 
-\begin{marginfigure}
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1653,7 +1653,7 @@ $v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines, dashed] (0,-1.5) circle (3mm);
-    \draw[pattern = north west lines] (0.5,0) circle (3mm);
+    \draw[pattern = north west lines] (0,0) circle (3mm);
     
     \draw[->] (0,-1.2) -- +(0,0.5) node[below right]{$v_i$};
     

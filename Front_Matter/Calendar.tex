@@ -5,51 +5,60 @@
 \end{center}
 \end{fullwidth}
 
-\vspace{3cm}
+\vspace{1cm}
+\begin{fullwidth}
+\it
+As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circuladas as datas das provas.
+\end{fullwidth}
+
 
 \begin{marginfigure}[5cm]
 \centering
-Março\\
+Agosto\\
 \begin{tikzpicture}
-\calendar (mycal) [dates=2018-03-05 to 2018-03-last,week list] if (Saturday,Sunday) [gray];
-\draw (mycal-2018-03-28) circle (6pt);
+\calendar (mycal) [dates=2018-08-01 to 2018-08-last,week list] if (Saturday,Sunday) [gray];
+\draw (mycal-2018-08-29) circle (6pt);
 \end{tikzpicture}
 \end{marginfigure}
 \begin{marginfigure}
 \centering
-Abril\\
+Setembro\\
 \begin{tikzpicture}
-\calendar (mycal) [dates=2018-04-01 to 2018-04-last,week list] if (Saturday,Sunday,equals=2018-04-30) [gray];
-\draw (mycal-2018-04-25) circle (6pt);
+\calendar (mycal) [dates=2018-09-01 to 2018-09-last,week list] if (Saturday,Sunday,equals=2018-04-30) [gray];
+\draw (mycal-2018-09-26) circle (6pt);
 \end{tikzpicture}
 \end{marginfigure}
 \begin{marginfigure}
 \centering
-Maio\\
+Outubro\\
 \begin{tikzpicture}
-\calendar (mycal) [dates=2018-05-01 to 2018-05-last,week list] if (Saturday,Sunday,equals=2018-05-02) [gray];
-\draw[densely dotted] (mycal-2018-05-14) circle (6pt);
+\calendar (mycal) [dates=2018-10-01 to 2018-10-last,week list] if (Saturday,Sunday,equals=2018-10-08, equals=2018-10-09, equals=2018-10-10, equals=2018-10-11, equals=2018-10-12) [gray];
+\draw[densely dotted] (mycal-2018-10-15) circle (6pt);
+\draw[dashed] (mycal-2018-10-22) circle (6pt);
 \end{tikzpicture}
 \end{marginfigure}
 \begin{marginfigure}
 \centering
-Junho\\
+Novembro\\
 \begin{tikzpicture}
-\calendar (mycal) [dates=2018-06-01 to 2018-06-last,week list] if (Saturday,Sunday) [gray];
-\draw (mycal-2018-06-06) circle (6pt);
+\calendar (mycal) [dates=2018-11-01 to 2018-11-last,week list] if (Saturday,Sunday) [gray];
+\draw (mycal-2018-11-12) circle (6pt);
 \end{tikzpicture}
 \end{marginfigure}
 \begin{marginfigure}
 \centering
-Julho\\
+Dezembro\\
 \begin{tikzpicture}
-\calendar (mycal) [dates=2018-07-01 to 2018-07-last,week list] if (Saturday,Sunday) [gray];
-\draw (mycal-2018-07-02) circle (6pt);
-\draw[densely dotted] (mycal-2018-07-09) circle (6pt);
+\calendar (mycal) [dates=2018-12-01 to 2018-12-last,week list] if (Saturday,Sunday) [gray];
+\draw (mycal-2018-12-05) circle (6pt);
+\draw[densely dotted] (mycal-2018-12-12) circle (6pt);
 \end{tikzpicture}
 \end{marginfigure}
 
-As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circuladas as datas das provas. \textbf{Rever assuntos por aula para ficar na mesma ordem do conteúdo das notas de aula}
+\vspace{1cm}
+\begin{center}
+\Large\textsc{Engenharia Mecânica}
+\end{center}
 \begin{center}
 \begin{longtable}{ccp{70mm}}
 \toprule
@@ -58,43 +67,141 @@ Aula & Data & Conteúdo \\
 \endhead
 \bottomrule
 \endfoot
-1 & 05/03 & Apresentação da disciplina: informações de contato, horários de atendimento, conteúdo, métodos de ensino e avaliação, cronograma e plano de ensino. \\
-2 & 07/03 & Movimento unidimensional: posição e deslocamento (posição, deslocamento, deslocamento escalar, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea), aceleração (aceleração média, aceleração instantânea), sentido dos eixos de referência e sinais das variáveis cinemáticas. \\
-3 & 12/03 & Movimento unidimensional: interpretação da área de gráficos (v × t, a × t), movimentos com aceleração constante (equações cinemáticas para movimentos com aceleração constante: evolução temporal da velocidade, evolução temporal da posição, equação de torricelli, variáveis ausentes em cada equação). \\
-4 & 14/03 & Vetores: vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, subtração), outras propriedades, sistemas de referência (bases) (componentes vetoriais, notação módulo-ângulo, soma através de componentes, vetores unitários, equações e vetores unitários). \\
-5 & 19/03 & Movimento bi e tridimensional: vetores posição e deslocamento (posição, deslocamento), velocidade (velocidade média, velocidade instantânea), aceleração (aceleração média, aceleração instantânea), independência do movimento em eixos perpendiculares, movimento de projéteis (eixo x: movimento com velocidade constante, eixo y: movimento com aceleração constante, altura máxima, alcance horizontal, equação para a trajetória). \\
-6 & 21/03 & Movimento bi e tridimensional: movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta). Movimento relativo. \\
-7 & 26/03 & Revisão para prova 1. \\
-8 & 28/03 & Prova 1. \\
-9 & 02/04 & Dinâmica da partícula: conceitos de força e massa, princípio da inércia segundo galileu e segundo newton, segunda lei de newton (relação entre força e aceleração, relação entre massa e aceleração, medidas de massa), terceira lei de newton, forças (forças fundamentais, forças resultantes e diagramas de forças, equilíbrio de forças). \\
-10 & 04/04 & Dinâmica da partícula: força gravitacional e força peso, normal, tensão. \\
-11 & 09/04 & Dinâmica da partícula: forças (atrito, arrasto, força elástica). \\
-12 & 11/04 & Dinâmica da partícula: forças no movimento circular. \\
-13 & 16/04 & Dinâmica da partícula: sistemas com diversos corpos e aceleração, forças internas. \\
-14 & 18/04 & Exercícios. \\
-15 & 23/04 & Revisão para a prova 2. \\
-16 & 25/04 & Prova 2. \\
--- & 30/04 & Recesso. \\
--- & 02/05 & Recesso. \\
-17 & 07/05 & Trabalho e energia cinética: teorema trabalho-energia, trabalho realizado pela força peso, trabalho realizado por forças de atrito e arrasto, trabalho de um conjunto de forças e trabalho em uma situação de equilíbrio. \\
-18 & 09/05 & Trabalho e energia cinética: trabalho como a área de um gráfico f × x (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), potência. Exercícios. \\
-19 & 14/05 & Provas Substitutivas 1 e 2. Os alunos que optarem por não realizar a recuperação estão dispensados. \\
-20 & 16/05 & Energia potencial e energia mecânica: energia potencial gravitacional, energia potencial elástica, potencial e trabalho, cálculo da força a partir de um potencial, dependência da energia na escolha do referencial, condições para a existência de um potencial. \\
-21 & 21/05 & Energia potencial e energia mecânica: energia mecânica, análise de gráficos de potencial (forças, equilíbrio e estabilidade, pontos de retorno).  \\
-22 & 23/05 & Sistemas, trabalho de forças externas, energia interna, princípio da conservação da energia. Exercícios. \\
-23 & 28/05 & Momento linear: momento linear, impulso, momento linear e segunda lei de newton para um sistema de partículas. Centro de massa: centro de massa de um conjunto de partículas. Centro de massa de um corpo extenso: simetria, discretização, distribuição arbitrária.  \\
-24 & 30/05 & Movimento do centro de massa. Conservação do momento linear. Colisões, forças em uma colisão. Energia cinética em uma colisão.  \\
-25 & 04/06 & Revisão para prova 3. \\
-26 & 06/06 & Prova 3. \\
-27 & 11/06 & Rotações: cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação). \\
-28 & 13/06 & Rotações: dinâmica da rotação (torque, segunda lei de newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, propriedades do momento de inércia, discretização, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos).  \\
-29 & 18/06 & Rotações: trabalho e energia cinética para rotações (energia cinética de rotação, teorema trabalho-energia para rotações. Energia mecânica. \\
-30 & 20/06 & Rolamento: características do rolamento, forças no rolamento, energia cinética no rolamento. \\
-31 & 25/06 & Momento angular: caráter vetorial das variáveis da rotação, velocidade e aceleração, torque como o produto vetorial r × f, momento angular e segunda lei de newton, momento angular para uma partícula que se desloca em linha reta, momento angular de um sistema de partículas, momento angular de um corpo rígido. Conservação do momento angular. \\
-32 & 27/06 & Revisão para a prova 4. \\
-33 & 02/07 & Prova 4. \\
-34 & 04/07 & Entrega das notas das provas. \\
-35 & 09/07 & Provas substitutivas 3 e 4. Os alunos que optarem por não realizar a recuperação estão dispensados.
+  1 & 06/08 & \textbf{Apresentação da disciplina:} informações de contato, horários de atendimento, conteúdo, métodos de ensino e avaliação, cronograma e plano de ensino.\\
+  2 & 08/08 & \textbf{Movimento unidimensional:} posição e deslocamento (posição, deslocamento, deslocamento escalar, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea), aceleração (aceleração média, aceleração instantânea), sentido dos eixos de referência e sinais das variáveis cinemáticas, interpretação da área de gráficos (v × t, a × t).\\
+  3 & 13/08 & \textbf{Movimento unidimensional:} movimentos com aceleração constante (equações cinemáticas para movimentos com aceleração constante: evolução temporal da velocidade, evolução temporal da posição, equação de torricelli, variáveis ausentes em cada equação).\\
+  4 & 15/08 & \textbf{Vetores:} vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, subtração), outras propriedades, sistemas de referência (bases) (componentes vetoriais, vetores unitários, notação módulo-ângulo, soma através de componentes, equações)\\
+  5 & 20/08 & \textbf{Movimento bi e tridimensional:} vetores posição e deslocamento (posição, deslocamento), velocidade (velocidade média, velocidade instantânea), aceleração (aceleração média, aceleração instantânea), independência do movimento em eixos perpendiculares, movimento de projéteis (eixo x: movimento com velocidade constante, eixo y: movimento com aceleração constante, altura máxima, alcance horizontal, equação para a trajetória)\\
+  6 & 22/08 & \textbf{Movimento bi e tridimensional:} movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta). Movimento relativo.\\
+  7 & 27/08 & Revisão para prova 1\\
+  8 & 29/08 & Prova 1\\
+  9 & 03/09 & \textbf{Dinâmica da partícula:} conceitos de força e massa, princípio da inércia segundo galileu e segundo newton, segunda lei de newton (relação entre força e aceleração, relação entre massa e aceleração, medidas de massa), terceira lei de newton, forças (forças fundamentais, forças resultantes e diagramas de forças, equilíbrio de forças).\\
+ 10 & 05/09 & \textbf{Dinâmica da partícula:} força gravitacional e força peso, normal, tensão.\\
+ 11 & 10/09 & \textbf{Dinâmica da partícula:} forças de atrito, arrasto, elástica.\\
+ 12 & 12/09 & \textbf{Dinâmica da partícula:} forças no movimento circular.\\
+ 13 & 17/09 & \textbf{Dinâmica da partícula:} sistemas com diversos corpos e aceleração, forças internas, teorema de lamy.\\
+ 14 & 19/09 & Exercícios\\
+ 15 & 24/09 & Revisão para a prova 2\\
+ 16 & 26/09 & Prova 2\\
+ 17 & 01/10 & \textbf{Trabalho e energia cinética:} teorema trabalho-energia, trabalho realizado pela força peso, trabalho realizado por forças de atrito e arrasto, trabalho de um conjunto de forças e trabalho em uma situação de equilíbrio.\\
+ 18 & 03/10 & \textbf{Trabalho e energia cinética:} trabalho como a área de um gráfico f × x (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), potência. Exercícios.\\
+ -- & 08/10 & \textbf{Recesso}\\
+ -- & 10/10 & \textbf{Recesso} \\
+ 19 & 15/10 & Provas Substitutivas 1 e 2. Os alunos que optarem por não realizar a prova estão dispensados.\\
+ 20 & 17/10 & \textbf{Energia potencial e energia mecânica:} energia potencial gravitacional, energia potencial elástica, potencial e trabalho, cálculo da força a partir de um potencial, dependência da energia na escolha do referencial, condições para a existência de um potencial.\\
+ 21 & 22/10 & \textit{Semana Acadêmica de Engenharia Mecânica e Manutenção Industrial (III SAEMMI). Os alunos que participaram da semana acadêmica foram dispensados.} \\ 
+ 22 & 24/10 & \textbf{Energia potencial e energia mecânica:} energia mecânica, análise de gráficos de potencial (forças, equilíbrio e estabilidade, pontos de retorno). \\
+ 23 & 29/10 & \textbf{Energia potencial e energia mecânica:} Sistemas, trabalho de forças externas, energia interna, princípio da conservação da energia. Exercícios.\\
+ 24 & 31/10 & \textbf{Momento linear:} momento linear, impulso, momento linear e segunda lei de newton para um sistema de partículas. Centro de massa: centro de massa de um conjunto de partículas. Centro de massa de um corpo extenso: simetria, discretização, distribuição arbitrária. \\
+ 25 & 05/11 & \textbf{Momento linear:} Movimento do centro de massa. Conservação do momento linear. Colisões, forças em uma colisão. Energia cinética em uma colisão. \\
+ 26 & 07/11 & Revisão para prova 3\\
+ 27 & 12/11 & Prova 3\\
+ 28 & 14/11 & \textbf{Rotações:} cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação).\\
+ 29 & 19/11 & \textbf{Rotações:} dinâmica da rotação (torque, segunda lei de newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, propriedades do momento de inércia, discretização, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos). \\
+ 30 & 21/11 & \textbf{Rotações:} trabalho e energia cinética para rotações (energia cinética de rotação, teorema trabalho-energia para rotações. Energia mecânica.\\
+ 31 & 26/11 & \textbf{Rolamento:} características do rolamento, forças no rolamento, energia cinética no rolamento.\\
+ 32 & 28/11 & \textbf{Momento angular:} caráter vetorial das variáveis da rotação, velocidade e aceleração, torque como produto vetorial, momento angular e segunda lei de newton, momento angular para uma partícula que se desloca em linha reta, momento angular de um sistema de partículas, momento angular de um corpo rígido. Conservação do momento angular.\\
+ 33 & 03/12 & Revisão para a prova 4\\
+ 34 & 05/12 & Prova 4.\\
+ 35 & 10/12 & Entrega das notas das provas\\
+ 36 & 12/12 & Provas substitutivas 3 e 4. Os alunos que optarem por não realizar a prova estão dispensados.
+\end{longtable}
+\end{center}
+
+\begin{marginfigure}[5cm]
+\centering
+Agosto\\
+\begin{tikzpicture}
+\calendar (mycal) [dates=2018-08-01 to 2018-08-last,week list] if (Saturday,Sunday) [gray];
+\draw[dashed] (mycal-2018-08-20) circle (6pt);
+\draw[dashed] (mycal-2018-08-22) circle (6pt);
+\end{tikzpicture}
+\end{marginfigure}
+\begin{marginfigure}
+\centering
+Setembro\\
+\begin{tikzpicture}
+\calendar (mycal) [dates=2018-09-01 to 2018-09-last,week list] if (Saturday,Sunday,equals=2018-04-30) [gray];
+\draw (mycal-2018-09-05) circle (6pt);
+\end{tikzpicture}
+\end{marginfigure}
+\begin{marginfigure}
+\centering
+Outubro\\
+\begin{tikzpicture}
+\calendar (mycal) [dates=2018-10-01 to 2018-10-last,week list] if (Saturday,Sunday,equals=2018-10-08, equals=2018-10-09, equals=2018-10-10, equals=2018-10-11, equals=2018-10-12) [gray];
+\draw (mycal-2018-10-01) circle (6pt);
+\draw[densely dotted] (mycal-2018-10-17) circle (6pt);
+\end{tikzpicture}
+\end{marginfigure}
+\begin{marginfigure}
+\centering
+Novembro\\
+\begin{tikzpicture}
+\calendar (mycal) [dates=2018-11-01 to 2018-11-last,week list] if (Saturday,Sunday) [gray];
+\draw (mycal-2018-11-12) circle (6pt);
+\end{tikzpicture}
+\end{marginfigure}
+\begin{marginfigure}
+\centering
+Dezembro\\
+\begin{tikzpicture}
+\calendar (mycal) [dates=2018-12-01 to 2018-12-last,week list] if (Saturday,Sunday) [gray];
+\draw (mycal-2018-12-05) circle (6pt);
+\draw[densely dotted] (mycal-2018-12-12) circle (6pt);
+\end{tikzpicture}
+\end{marginfigure}
+
+\vspace{1cm}
+\begin{center}
+\Large\textsc{Engenharia da Computação}
+\end{center}
+\begin{center}
+\begin{longtable}{ccp{70mm}}
+\toprule
+Aula & Data & Conteúdo \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+  1 & 06/08 & \textbf{Apresentação da disciplina:} informações de contato, horários de atendimento, conteúdo, métodos de ensino e avaliação, cronograma e plano de ensino.\\
+  2 & 08/08 & \textbf{Movimento unidimensional:} posição e deslocamento (posição, deslocamento, deslocamento escalar, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea), aceleração (aceleração média, aceleração instantânea), sentido dos eixos de referência e sinais das variáveis cinemáticas, interpretação da área de gráficos (v × t, a × t).\\
+  3 & 13/08 & \textbf{Movimento unidimensional:} movimentos com aceleração constante (equações cinemáticas para movimentos com aceleração constante: evolução temporal da velocidade, evolução temporal da posição, equação de torricelli, variáveis ausentes em cada equação).\\
+  4 & 15/08 & \textbf{Vetores:} vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, subtração), outras propriedades, sistemas de referência (bases) (componentes vetoriais, vetores unitários, notação módulo-ângulo, soma através de componentes, equações)\\
+  5 & 20/08 & \textit{Semana Acadêmica da Engenharia de Computação. Os alunos que participaram da semana acadêmica foram dispensados.} \\
+  6 & 22/08 & \textit{Semana Acadêmica da Engenharia de Computação. Os alunos que participaram da semana acadêmica foram dispensados.} \\
+  7 & 27/08 & \textbf{Movimento bi e tridimensional:} vetores posição e deslocamento (posição, deslocamento), velocidade (velocidade média, velocidade instantânea), aceleração (aceleração média, aceleração instantânea), independência do movimento em eixos perpendiculares, movimento de projéteis (eixo x: movimento com velocidade constante, eixo y: movimento com aceleração constante, altura máxima, alcance horizontal, equação para a trajetória)\\
+  8 & 29/08 & \textbf{Movimento bi e tridimensional:} movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta). Movimento relativo.\\
+  9 & 03/09 & Revisão para prova 1\\
+ 10 & 05/09 & Prova 1\\
+ 11 & 10/09 & \textbf{Dinâmica da partícula:} conceitos de força e massa, princípio da inércia segundo galileu e segundo newton, segunda lei de newton (relação entre força e aceleração, relação entre massa e aceleração, medidas de massa), terceira lei de newton, forças (forças fundamentais, forças resultantes e diagramas de forças, equilíbrio de forças).\\
+ 12 & 12/09 & \textbf{Dinâmica da partícula:} força gravitacional e força peso, normal, tensão.\\
+ 13 & 17/09 & \textbf{Dinâmica da partícula:} forças de atrito, arrasto, elástica.\\
+ 14 & 19/09 & \textbf{Dinâmica da partícula:} forças no movimento circular.\\
+ 15 & 24/09 & \textbf{Dinâmica da partícula:} sistemas com diversos corpos e aceleração, forças internas, teorema de lamy.\\
+ 16 & 26/09 & Revisão para a prova 2\\
+ 17 & 01/10 & Prova 2\\
+ 18 & 03/10 & \textbf{Trabalho e energia cinética:} teorema trabalho-energia, trabalho realizado pela força peso, trabalho realizado por forças de atrito e arrasto, trabalho de um conjunto de forças e trabalho em uma situação de equilíbrio.\\
+ -- & 08/10 & \textbf{Recesso}\\
+ -- & 10/10 & \textbf{Recesso} \\
+ 19 & 15/10 & \textbf{Trabalho e energia cinética:} trabalho como a área de um gráfico f × x (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), potência. Exercícios.\\
+ 20 & 17/10 & Provas Substitutivas 1 e 2. Os alunos que optarem por não realizar a prova estão dispensados.\\
+ 21 & 22/10 & \textbf{Energia potencial e energia mecânica:} energia potencial gravitacional, energia potencial elástica, potencial e trabalho, cálculo da força a partir de um potencial, dependência da energia na escolha do referencial, condições para a existência de um potencial.\\
+ 22 & 24/10 & \textbf{Energia potencial e energia mecânica:} energia mecânica, análise de gráficos de potencial (forças, equilíbrio e estabilidade, pontos de retorno). \\
+ 23 & 29/10 & \textbf{Energia potencial e energia mecânica:} Sistemas, trabalho de forças externas, energia interna, princípio da conservação da energia. Exercícios.\\
+ 24 & 31/10 & \textbf{Momento linear:} momento linear, impulso, momento linear e segunda lei de newton para um sistema de partículas. Centro de massa: centro de massa de um conjunto de partículas. Centro de massa de um corpo extenso: simetria, discretização, distribuição arbitrária. \\
+ 25 & 05/11 & \textbf{Momento linear:} Movimento do centro de massa. Conservação do momento linear. Colisões, forças em uma colisão. Energia cinética em uma colisão. \\
+ 26 & 07/11 & Revisão para prova 3\\
+ 27 & 12/11 & Prova 3\\
+ 28 & 14/11 & \textbf{Rotações:} cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação).\\
+ 29 & 19/11 & \textbf{Rotações:} dinâmica da rotação (torque, segunda lei de newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, propriedades do momento de inércia, discretização, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos). \\
+ 30 & 21/11 & \textbf{Rotações:} trabalho e energia cinética para rotações (energia cinética de rotação, teorema trabalho-energia para rotações. Energia mecânica.\\
+ 31 & 26/11 & \textbf{Rolamento:} características do rolamento, forças no rolamento, energia cinética no rolamento.\\
+ 32 & 28/11 & \textbf{Momento angular:} caráter vetorial das variáveis da rotação, velocidade e aceleração, torque como produto vetorial, momento angular e segunda lei de newton, momento angular para uma partícula que se desloca em linha reta, momento angular de um sistema de partículas, momento angular de um corpo rígido. Conservação do momento angular.\\
+ 33 & 03/12 & Revisão para a prova 4\\
+ 34 & 05/12 & Prova 4.\\
+ 35 & 10/12 & Entrega das notas das provas\\
+ 36 & 12/12 & Provas substitutivas 3 e 4. Os alunos que optarem por não realizar a prova estão dispensados.
 \end{longtable}
 \end{center}
 \cleardoublepage

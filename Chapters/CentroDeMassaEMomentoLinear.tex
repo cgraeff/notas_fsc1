@@ -46,72 +46,6 @@ Através da definição do momento linear e das propriedades da derivada, podemo
 %
 Note que se temos uma massa constante, o primeiro termo é zero, restando a conhecida expressão $\vec{F} = m\vec{a}$. No entanto, sistemas com massa variável não são incomuns: um exemplo onde a variação se massa é importante é o caso do lançamento de um foguete, pois tal grandeza varia sensivelmente conforme o combustível é consumido. Não trataremos aqui sistemas onde a massa possa variar, pois estamos tratando somente de corpos rígidos\footnote{Mais do que isso, só tratamos de translações do \emph{centro de massa} de um corpo rígido. Verificaremos como determinar a posição desse ponto nas próximas seções desse capítulo.}, mas uma análise a partir do conceito de momento nos trás resultados bastante interessantes. O principal deles é o surgimento de uma nova lei de conservação, que permitirá uma análise mais simples de diversos problemas.
 
-%%%%%%%%%%%%%%%%%
-\section{Impulso}
-%%%%%%%%%%%%%%%%%
-
-A Equação~\eqref{Eq:SegundaLeiMomento} nos dá uma maneira de ligar o valor da força exercida sobre um corpo à variação instantânea do momento linear. Muitas vezes, no entanto, estamos interessados em determinar qual é a \emph{variação total} do momento linear. Isso pode ser feito através de uma integração da expressão~\eqref{Eq:SegundaLeiMomento}:
-\begin{align}\label{Eq:SegundaLeiIntegrando}
-    \frac{d\vec{p}}{dt} &= \vec{F}(t) \\
-    d\vec{p} &= \vec{F}(t) \; dt \\
-    \int_{t_i}^{t_f} \vec{p} &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.
-\end{align} 
-%
-A integral à esquerda resulta simplesmente na variação total do momento linear
-\begin{equation}
-    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{p}.
-\end{equation}
-
-\begin{marginfigure}[-4cm]
-\centering
-\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
- extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
-    % Draw axes: acho que o |- é pra desenhar um "canto", um L
-    \draw [<->] (0,2.5) node (yaxis) [below left] {$F_x$}
-        |- (4.3,0) node (xaxis) [below left] {$t$};
-    % Desenhar função:
-    \draw[smooth,name path=plota,samples=1000,domain=0:3]
-    plot(\x,{-0.02*\x^3 + 0.3*\x^2 - \x + 2});
-    
-     \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
-      (0.5, 0) node[below]{$t_i$}
-      -- plot ({\x}, {-0.02*\x^3 + 0.3*\x^2 - \x + 2})
-      -- (2.5, 0) node[below]{$t_f$}
-      -- cycle;
-     
-    \path[name path=fromi](0.5,0)--+(0,3);
-    \draw[dashed, name intersections={of=fromi and plota}](0.5,0) -- (intersection-1);
-    
-    \path[name path=fromi](2.5,0)--+(0,3);
-    \draw[dashed, name intersections={of=fromi and plota}](2.5,0) -- (intersection-1);
-
-    \node[fill = white, circle, scale = 0.8] (area) at (1.5,0.55) {$J$};
-    
-\end{tikzpicture}
-\caption{A área hachurada corresponde ao impulso dado pela componente $F_x(t)$ de uma força hipotética $\vec{F}(t)$ no intervalo $[t_i, t_f]$. Se as componentes $F_y(t)$ e $F_z(t)$ forem não nulas, temos figuras semelhantes para os eixos $y$ e $z$.}
-\end{marginfigure}
-
-\noindent{}A integral à direita na Equação~\eqref{Eq:SegundaLeiIntegrando} recebe o nome de \emph{impulso}, denotado por $\vec{J}$:
-\begin{equation}
-    \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Impulso}
-\end{equation}
-%
-Assim, temos que a Segunda Lei de Newton pode ser escrita como
-\begin{equation}\label{Eq:Impulso}
-    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Segunda Lei de Newton \\ (forma integral)}
-\end{equation}
-
-Nos resultados acima, devemos destacar que a força, a variação do momento e o impulso são grandezas vetoriais. Assim, devemos aplicar tais equações a cada eixo separadamente:
-\begin{align}
-    \Delta p_x &= \int_{t_i}^{t_f} \vec{F}_x(t) \; dt \\
-    \Delta p_y &= \int_{t_i}^{t_f} \vec{F}_y(t) \; dt \\
-    \Delta p_z &= \int_{t_i}^{t_f} \vec{F}_z(t) \; dt.
-\end{align}
-%
-No entanto, uma escolha adequada do sistema de referências muitas vezes implicará na ausência de forças --~ou de componentes de forças~-- em um ou mais eixos, levando a uma variação nula do momento linear de tal eixo.
-
-Também devemos considerar que em muitos casos o impulso de uma força pode ser desprezível: se uma força atua por pouco tempo, o resultado da integral na Equação~\eqref{Eq:Impulso} será pequeno, exceto se a força for extremamente intensa. Veremos que isso permitirá que ignoremos o efeito de algumas forças ao estudarmos colisões, uma vez que as forças em uma colisão são muito intensas.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Momento linear e Segunda Lei de Newton para um sistema de partículas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,6 +114,8 @@ ou, se a massa do sistema é constante,
 \end{equation}
 
 A expressão acima tem a mesma forma que a Segunda Lei de Newton para uma partícula. De certa forma, sempre que consideramos um corpo extenso, estamos utilizando a equação acima, já que todo corpo extenso é formado por um conjunto de partículas que se mantém coesas devido a forças internas muito intensas. Outro aspecto importante é o fato de que a força resultante externa pode ser tanto uma força única que age sobre uma partícula do sistema --~como no caso de uma força aplicada a um ponto de um bloco~--, ou a soma de inúmeras forças que atuam sobre cada uma das partículas --~como no caso da força peso~--. Finalmente, devemos destacar que a expressão acima não se limita a corpos rígidos, e veremos que isso dará origem a resultados muito interessantes e bastante úteis.
+
+\textbf{Não tá boa essa passagem onde introduzimos o centro de massa. Não está claro por que fazemos isso depois da Eq. \eqref{Eq:SegundaLeiSistemaDeParticulas}. Pra obter a Eq. \eqref{Eq:SegundaLeiSistemaDeParticulasMConst}, podemos considerar que a velocidade é a mesma (como em um corpo rígido), mas isso não leva a uma velocidade do CM. Além disso, tem o problema de não cobrir o caso de não termos um corpo rígido.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\paragraph{Algum exemplo}
@@ -527,7 +463,7 @@ Suponha que estamos interessados em determinar a posição do centro de massa de
     
     \draw[|-|] (-0.2,2) -- node[left]{$L_1$} (-0.2,0);
     \draw[|-|] (0,-0.2) -- node[below]{$L_2$} (3,-0.2);
-    \draw[|-|] (3.2, 0) -- node[right]{$L_2$} (3.2,3);
+    \draw[|-|] (3.2, 0) -- node[right]{$L_3$} (3.2,3);
     
     \draw[fill] (0,1) circle (1.5pt);
     \draw[fill] (1.5,0) circle (1.5pt);
@@ -559,7 +495,7 @@ Finalmente, para determinarmos o centro de massa do sistema como um todo, basta 
     &\phantom{= \frac{1}{(\np[cm]{20} + \np[cm]{30} + \np[cm]{30})} \Big[}+ (\np[cm]{30}) (\np[cm]{30} \;\versi + \np[cm]{15} \;\versj)\Big]\\
     &= \frac{\np[cm^2]{200}\;\versj + \np[cm^2]{450}\;\versi + \np[cm^2]{900}\;\versi + \np[cm^2]{450}\;\versj}{\np[cm]{80}} \\
     &= \frac{(\np[cm^2]{450} + \np[cm^2]{900})\versi + (\np[cm^2]{200} + \np[cm^2]{450})\versj}{\np[cm]{80}} \\
-    &= \frac{\np[cm^2]{1350}}{\np[cm]{80}}\versi + \frac{\np[cm^2]{650}}{\np[cm]{80}}\versj
+    &= \frac{\np[cm^2]{1350}}{\np[cm]{80}}\versi + \frac{\np[cm^2]{650}}{\np[cm]{80}}\versj.
 \end{align*}
 %
 Finalmente, temos
@@ -580,7 +516,7 @@ que corresponde à posição mostrada na Figura~\eqref{Fig:CMBarrasFinasComCM}.
     
     \draw[|-|] (-0.2,2) -- node[left]{$L_1$} (-0.2,0);
     \draw[|-|] (0,-0.2) -- node[below]{$L_2$} (3,-0.2);
-    \draw[|-|] (3.2, 0) -- node[right]{$L_2$} (3.2,3);
+    \draw[|-|] (3.2, 0) -- node[right]{$L_3$} (3.2,3);
     
     \draw[fill] (0,1) circle (1.5pt);
     \draw[fill] (1.5,0) circle (1.5pt);
@@ -899,10 +835,10 @@ Observe que o resultado é igual para todos os eixos: existem três planos que s
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: Massa negativa/soma-subtração}
+\paragraph{Exemplo: Massa negativa/soma-subtração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Exemplo com massa negativa, ou soma e subtração (lembrar do exemplo de um livro em que se extrai uma região circular de um circulo maior}
+\textbf{Exemplo com massa negativa, ou soma e subtração (lembrar do exemplo de um livro em que se extrai uma região circular de um circulo maior}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\paragraph{Centro de massa de uma barra} % tirar
@@ -1140,6 +1076,72 @@ Substituindo essa expressão na Equação~\eqref{Eq:EnPotGravSisPartSoma}, obtem
 \end{equation}
 
 Constatamos, portanto, que a energia potencial gravitacional de um sistema de partículas é a mesma energia associada a uma partícula de massa $M$, dada pela soma das massas de todas as partículas, e cuja posição vertical é a do próprio centro de massa do sistema. Isso permite que determinemos a variação da energia potencial gravitacional de um corpo rígido simplesmente considerando a variação da posição vertical do centro de massa do corpo.
+
+%%%%%%%%%%%%%%%%%
+\section{Impulso}
+%%%%%%%%%%%%%%%%%
+
+A Equação~\eqref{Eq:SegundaLeiMomento} nos dá uma maneira de ligar o valor da força exercida sobre um corpo à variação instantânea do momento linear. Muitas vezes, no entanto, estamos interessados em determinar qual é a \emph{variação total} do momento linear. Isso pode ser feito através de uma integração da expressão~\eqref{Eq:SegundaLeiMomento}:
+\begin{align}\label{Eq:SegundaLeiIntegrando}
+    \frac{d\vec{p}}{dt} &= \vec{F}(t) \\
+    d\vec{p} &= \vec{F}(t) \; dt \\
+    \int_{t_i}^{t_f} \vec{p} &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.
+\end{align} 
+%
+A integral à esquerda resulta simplesmente na variação total do momento linear
+\begin{equation}
+    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{p}.
+\end{equation}
+
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->] (0,2.5) node (yaxis) [below left] {$F_x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3]
+    plot(\x,{-0.02*\x^3 + 0.3*\x^2 - \x + 2});
+    
+     \fill [pattern=north west lines, pattern color=gray, domain=0.5:2.5, variable=\x]
+      (0.5, 0) node[below]{$t_i$}
+      -- plot ({\x}, {-0.02*\x^3 + 0.3*\x^2 - \x + 2})
+      -- (2.5, 0) node[below]{$t_f$}
+      -- cycle;
+     
+    \path[name path=fromi](0.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](0.5,0) -- (intersection-1);
+    
+    \path[name path=fromi](2.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](2.5,0) -- (intersection-1);
+
+    \node[fill = white, circle, scale = 0.8] (area) at (1.5,0.55) {$J$};
+    
+\end{tikzpicture}
+\caption{A área hachurada corresponde ao impulso dado pela componente $F_x(t)$ de uma força hipotética $\vec{F}(t)$ no intervalo $[t_i, t_f]$. Se as componentes $F_y(t)$ e $F_z(t)$ forem não nulas, temos figuras semelhantes para os eixos $y$ e $z$.}
+\end{marginfigure}
+
+\noindent{}A integral à direita na Equação~\eqref{Eq:SegundaLeiIntegrando} recebe o nome de \emph{impulso}, denotado por $\vec{J}$:
+\begin{equation}
+    \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Impulso}
+\end{equation}
+%
+Assim, temos que a Segunda Lei de Newton pode ser escrita como
+\begin{equation}\label{Eq:Impulso}
+    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Segunda Lei de Newton \\ (forma integral)}
+\end{equation}
+
+Nos resultados acima, devemos destacar que a força, a variação do momento e o impulso são grandezas vetoriais. Assim, devemos aplicar tais equações a cada eixo separadamente:
+\begin{align}
+    \Delta p_x &= \int_{t_i}^{t_f} F_x(t) \; dt \\
+    \Delta p_y &= \int_{t_i}^{t_f} F_y(t) \; dt \\
+    \Delta p_z &= \int_{t_i}^{t_f} F_z(t) \; dt.
+\end{align}
+%
+No entanto, uma escolha adequada do sistema de referências muitas vezes implicará na ausência de forças --~ou de componentes de forças~-- em um ou mais eixos, levando a uma variação nula do momento linear de tal eixo.
+
+Também devemos considerar que em muitos casos o impulso de uma força pode ser desprezível: se uma força atua por pouco tempo, o resultado da integral na Equação~\eqref{Eq:Impulso} será pequeno, exceto se a força for extremamente intensa. Veremos que isso permitirá que ignoremos o efeito de algumas forças ao estudarmos colisões, uma vez que as forças em uma colisão são muito intensas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conservação do momento linear}
