@@ -16,11 +16,13 @@ Para que possamos estender o tratamento do movimento obtido no Capítulo~\ref{Ch
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-No movimento retilíneo denotamos o sentido de uma grandeza simplesmente pelo sinal. Em duas ou três dimensões, precisamos usar \emph{vetores}. Uma grandeza vetorial possui módulo, direção e sentido, e as regras para sua soma, subtração e multiplicação são diferentes de grandezas escalares.
+As grandezas físicas podem ser divididas em dois tipos: escalares e vetoriais. As escalares são aquelas que são compostas por um valor numérico e, em geral, uma unidade. Podemos citar como exemplos desse tipo de grandeza a temperatura, o tempo e a massa. Se, por exemplo, denotarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa.
 
-Grandezas escalares são aquelas que não possuem direção e sentido. Podemos citar como exemplos de grandezas escalares a temperatura, o tempo e a massa. Ao expressarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa. As regras de soma, subtração, multiplicação e divisão para esse tipo de grandeza são aquelas da álgebra comum.
+Já no caso de grandezas vetoriais, temos ---~além de um valor numérico e de uma unidade~--- uma direção no espaço\footnote{Uma direção no espaço é simplesmente uma linha reta.} e um sentido\footnote{A partir de um ponto qualquer de uma reta, podemos nos mover em dois sentidos, um para cada extremidade.}. No movimento retilíneo a linha reta onde ocorre o movimento é a direção, enquanto o sentido denotamos simplesmente pelo sinal. Note, portanto, que um movimento unidimensional tem todas as características de um vetor, apesar de permitir um tratamento simplificado através de uma variável $x$ para a posição e que se comporta como um escalar\footnote{Veremos adiante que a posição $x$ é na verdade uma \emph{projeção} de um vetor em uma direção do espaço. De fato, as projeções se comportam como escalares.} Para que possamos trabalhar em duas ou três dimensões, no entanto, precisamos tratar algumas grandezas como vetores propriamente.
 
-Já no caso de grandezas vetoriais, temos situações em que a \emph{soma} de dois vetores pode resultar em um vetor \emph{nulo}. Além disso, os vetores não são utilizados exclusivamente: em muitas equações eles são relacionados de alguma maneira a grandezas escalares.
+ Uma grandeza vetorial possui módulo, direção e sentido, e as regras para sua soma, subtração e multiplicação são diferentes de grandezas escalares. 
+
+As regras de soma, subtração, multiplicação e divisão para grandezas escalares são aquelas da álgebra comum e não nos oferecem dificuldades. Os vetores, por sua vez, possuem propriedades diferentes de soma, subtração, e multiplicação. Teremos que verificar exatamente como trabalhar com essas grandezas e nos acostumar com suas propriedades diferenciadas em relação ao escalares.
 
 % Existe diferença entre bounded e unbounded vectors: o deslocamento é bounded, pq está ligado à posição onde ele está. Outros podem não ser, como o momento angular, podendo ser transladado. De qq forma, as regras da soma precisam dessa translação pra ser explicadas. Ver Quick introduction to tensor analysis.
 
@@ -34,8 +36,8 @@ Já no caso de grandezas vetoriais, temos situações em que a \emph{soma} de do
 
     \draw[->, thick] (0,0) node[below left]{$A$} -- (0,2) node[above right]{$B$};
     
-    \fill[opacity=1] (0,0) circle (2pt);
-    \fill[opacity=1] (0,2) circle (2pt);
+    \fill[opacity=1] (0,0) circle (1.25pt);
+    \fill[opacity=1] (0,2) circle (1.25pt);
      
     \draw [name path=curve 1, dashdotted] (0,0) .. controls (2,1) and (-2,1) .. (0,2);
 
@@ -56,8 +58,8 @@ O exemplo mais simples de vetor é o deslocamento. Se ocorre um deslocamento em 
 
     \draw[->, thick] (0,0) node[below left]{$A$} -- (0,2) node[above right]{$B$};
     
-    \fill (0,0) circle (2pt);
-    \fill (0,2) circle (2pt);
+    \fill (0,0) circle (1.25pt);
+    \fill (0,2) circle (1.25pt);
      
     \draw [name path=curve 1, dashdotted] (0,0) .. controls (2,1) and (-2,1) .. (0,2);
     

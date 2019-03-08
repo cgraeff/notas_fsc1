@@ -35,3 +35,24 @@
 {\left\lbrace\begin{aligned}}%
 {\end{aligned}\right.}
 
+% Adaptado de https://tex.stackexchange.com/questions/385097/tikz-calendar-is-it-possible-to-mark-half-a-day/385283
+\makeatletter%
+\tikzoption{day headings}{\tikzstyle{day heading}=[#1]}
+\tikzstyle{day heading}=[]
+\tikzstyle{day letter headings}=[
+execute before day scope={ \ifdate{day of month=1}{%
+  \pgfmathsetlength{\pgf@ya}{\tikz@lib@cal@yshift}%
+  \pgfmathsetlength\pgf@xa{\tikz@lib@cal@xshift}%
+  \pgftransformyshift{-\pgf@ya}
+  \foreach \d/\l in {0/S,1/T,2/Q,3/Q,4/S,5/S,6/D} {
+    \pgf@xa=\d\pgf@xa%
+    \pgftransformxshift{\pgf@xa}%
+    \pgftransformyshift{\pgf@ya}%
+    \node[every day,day heading]{\l};%
+  } 
+}{}%
+}%
+]
+
+\makeatother%
+

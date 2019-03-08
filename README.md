@@ -25,7 +25,7 @@ tenho ideia de como fazer isso, ou de quanto trabalho isso vai dar.
 ### Como obter uma cópia dos arquivos
 Para obter uma cópia mais facilmente, basta executar em um terminal o comando
 ```
-git clone http://
+git clone http://github.com/cgraeff/notas_fsc1
 ```
 
 ### Pacotes necessários para gerar o arquivo PDF
