@@ -16,13 +16,11 @@ Para que possamos estender o tratamento do movimento obtido no Capítulo~\ref{Ch
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-As grandezas físicas podem ser divididas em dois tipos: escalares e vetoriais. As escalares são aquelas que são compostas por um valor numérico e, em geral, uma unidade. Podemos citar como exemplos desse tipo de grandeza a temperatura, o tempo e a massa. Se, por exemplo, denotarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa.
+As grandezas físicas podem ser divididas em dois tipos: escalares e vetoriais. As escalares são aquelas que são compostas por um valor numérico e, na maioria das vezes, uma unidade. Podemos citar como exemplos desse tipo de grandeza a temperatura, o tempo e a massa. Se, por exemplo, denotarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa.
 
 Já no caso de grandezas vetoriais, temos ---~além de um valor numérico e de uma unidade~--- uma direção no espaço\footnote{Uma direção no espaço é simplesmente uma linha reta.} e um sentido\footnote{A partir de um ponto qualquer de uma reta, podemos nos mover em dois sentidos, um para cada extremidade.}. No movimento retilíneo a linha reta onde ocorre o movimento é a direção, enquanto o sentido denotamos simplesmente pelo sinal. Note, portanto, que um movimento unidimensional tem todas as características de um vetor, apesar de permitir um tratamento simplificado através de uma variável $x$ para a posição e que se comporta como um escalar\footnote{Veremos adiante que a posição $x$ é na verdade uma \emph{projeção} de um vetor em uma direção do espaço. De fato, as projeções se comportam como escalares.} Para que possamos trabalhar em duas ou três dimensões, no entanto, precisamos tratar algumas grandezas como vetores propriamente.
 
- Uma grandeza vetorial possui módulo, direção e sentido, e as regras para sua soma, subtração e multiplicação são diferentes de grandezas escalares. 
-
-As regras de soma, subtração, multiplicação e divisão para grandezas escalares são aquelas da álgebra comum e não nos oferecem dificuldades. Os vetores, por sua vez, possuem propriedades diferentes de soma, subtração, e multiplicação. Teremos que verificar exatamente como trabalhar com essas grandezas e nos acostumar com suas propriedades diferenciadas em relação ao escalares.
+As regras de soma, subtração, multiplicação e divisão para grandezas escalares são aquelas da álgebra comum e não nos oferecem dificuldades. Os vetores, por sua vez, possuem propriedades diferentes de soma, subtração, e multiplicação; além disso, não existe o conceito de divisão entre dois vetores. Teremos que verificar exatamente como realizar operações envolvendo vetores e nos acostumar com suas propriedades diferenciadas em relação ao escalares.
 
 % Existe diferença entre bounded e unbounded vectors: o deslocamento é bounded, pq está ligado à posição onde ele está. Outros podem não ser, como o momento angular, podendo ser transladado. De qq forma, as regras da soma precisam dessa translação pra ser explicadas. Ver Quick introduction to tensor analysis.
 
@@ -45,7 +43,7 @@ As regras de soma, subtração, multiplicação e divisão para grandezas escala
 \caption{Ilustração de um deslocamento entre os pontos $A$ e $B$. Por mais que o caminho percorrido seja distinto da ``linha que liga os dois pontos'', o deslocamento é sempre ao longo de tal reta.}
 \end{marginfigure}
 
-O exemplo mais simples de vetor é o deslocamento. Se ocorre um deslocamento em um plano entre os pontos $A$ e $B$, o vetor deslocamento é simplesmente (geometricamente) uma ``flecha'' que liga os dois pontos, partindo de $A$ e apontando para $B$. Veja que \emph{não importa o caminho percorrido}, o vetor liga os pontos em linha reta. Nessa definição estão englobadas claramente duas das três propriedades vetoriais:
+O exemplo mais simples de vetor é o \emph{deslocamento}. Se ocorre um deslocamento em um plano entre os pontos $A$ e $B$, o vetor deslocamento é geometricamente uma ``flecha'' que liga os dois pontos, partindo de $A$ e apontando para $B$. Veja que \emph{não importa o caminho percorrido}, o vetor liga os pontos em linha reta (Figura~\ref{Fig:Deslocamento_eh_o_vetor_mais_simples}). Nessa definição estão englobadas claramente as três propriedades vetoriais:
 \begin{description}
     \item[Direção:] A reta que liga $A$ a $B$;
     \item[Sentido:] De $A$ para $B$;
@@ -67,10 +65,37 @@ O exemplo mais simples de vetor é o deslocamento. Se ocorre um deslocamento em 
     \draw[|-|] (0.3,0) -- node[below]{$d$} (0.3,2);
 
 \end{tikzpicture}
-\caption{Destacamos nesta figura a direção do deslocamento através de uma linha reta pontilhada. Além disso, mostramos o valor do deslocamento, que é o próprio valor de distância.}
+\caption{Destacamos nesta figura a direção do deslocamento através de uma linha reta pontilhada. Além disso, mostramos o valor do deslocamento, que é o próprio valor de distância.\label{Fig:Deslocamento_eh_o_vetor_mais_simples}}
 \end{marginfigure}
 
-No caso de uma outra grandeza, como a velocidade, também associamos o módulo ao comprimento do vetor, porém não temos uma relação direta entre seu tamanho geométrico e o módulo: podemos adotar que um vetor com \np[cm]{1,0} denote uma velocidade de \np[m/s]{1,0} ou \np[m/s]{20,0}. Mesmo para o deslocamento, ao fazermos um desenho, adotamos esse tipo de fator de escala: \np[cm]{1,0} pode denotar \np[m]{1,0}, ou \np[km]{1,0}, por exemplo. Apesar disso, ao representarmos vários vetores da mesma grandeza, devemos utilizar o mesmo fator de proporcionalidade.
+No caso de uma outra grandeza, como a velocidade, também associamos o módulo ao comprimento do vetor, porém não temos uma relação direta entre seu tamanho geométrico e o módulo: podemos adotar que um vetor com \np[cm]{1,0} denote uma velocidade de \np[m/s]{1,0} ou \np[m/s]{20,0}. Mesmo para o deslocamento, ao fazermos um desenho, adotamos esse tipo de fator de escala: \np[cm]{1,0} pode denotar \np[m]{1,0}, ou \np[km]{1,0}, por exemplo. Apesar disso, ao representarmos vários vetores da mesma grandeza, devemos utilizar o mesmo fator de proporcionalidade.\footnote{Veremos que manter essa escala não é uma tarefa fácil: muitas vezes os vetores de uma mesma grandeza podem ter tamanhos inconvenientes se respeitarmos a mesma escala. Em alguns casos, o módulo do vetor pode até mesmo ser desconhecido. Nesses casos, optamos por denotar mais precisamente a direção e o sentido dos vetores, deixando o comprimento das flechas como um indicador qualitativo.}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, rotate=-60]
+
+    \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (0,2);
+    
+    \fill (0,0) circle (1.25pt) node[below left]{$A$};
+    \fill (0,2) circle (1.25pt) node[above right]{$B$};
+     
+    \draw[|-|] (0.3,0) -- node[below]{$a$} (0.3,2);
+
+\end{tikzpicture}
+\caption{Um vetor $\vec{a}$ qualquer, cujo módulo é denotado por $a$ .\label{Fig:vetor_simples_com_nome}}
+\end{marginfigure}
+
+Finalmente, resta notar que matematicamente, um vetor é denotado por uma pequena flecha sobre um símbolo
+\begin{equation*}
+    \vec{a},
+\end{equation*}
+%
+ou por um símbolo em negrito
+\begin{equation*}
+    \bm{b}.
+\end{equation*}
+%
+Adotaremos o primeiro tipo de notação, porém a segunda é mais comum em textos mais avançados. Além disso, ao utilizarmos somente a letra usada para denotar o vetor, sem a flecha e sem negrito, entende-se que se trata do módulo do vetor. Alternativamente, podemos usar $|\vec{a}|$ para denotar o módulo\footnote{Os matemáticos costumam olhar com cara feia que fala em ``módulo'' de um vetor. Eles preferem o termo \emph{norma de um vetor}, e usam a notação $\lVert\vec{a}\rVert$. Na Física, no entanto, todos usam o termo ``módulo''.}. Se, por exemplo, temos um vetor $\vec{a}$ como o da Figura~\ref{Fig:vetor_simples_com_nome}, o símbolo $a$ se refere ao módulo de tal vetor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Operações envolvendo vetores}
@@ -91,24 +116,30 @@ Tais operações diferem daquelas realizadas com escalares: devido ao fato de qu
 \subsection{Soma}
 %%%%%%%%%%%%%%%%%
 
-Dados dois vetores\footnote{Matematicamente, um vetor é denotado por uma pequena flecha sobre um símbolo, ou por um símbolo em negrito.} $\vec{a}$ e $\vec{b}$, a soma $\vec{a}+\vec{b}$ pode ser ``calculada'' geometricamente da seguinte forma: tomamos o segundo vetor e efetuamos uma translação deste vetor de forma que sua origem coincida com o final do primeiro vetor; traçamos um vetor da origem do primeiro vetor até o final do segundo. 
-
-\begin{figure}
+\begin{marginfigure}[2cm]
 \centering
-\begin{tikzpicture}[>=Stealth, rotate=-60]
+\begin{tikzpicture}[>=Stealth, rotate=30]
 
-    \fill[opacity=1] (0,0) circle (2pt);
-    \fill[opacity=1] (0,2) circle (2pt);
-    \fill[opacity=1] (1.5,3.5) circle (2pt);
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,2.5);
+    \coordinate (C) at (2.5,1.25);
+    
+%    \fill[opacity=1] (A) circle (1.25pt) node[below left]{$A$};
+%    \fill[opacity=1] (B) circle (1.25pt) node[above right]{$B$};
+%    \fill[opacity=1] (C) circle (1.25pt) node[right]{$C$};
 
-    \draw[->, thick] (0,0) node[below left]{$A$} -- node[above]{$\vec{a}$}(0,2) node[above right]{$B$};
-    \draw[->, thick] (0, 2) -- node[above]{$\vec{b}$} (1.5,3.5) node[right]{$C$};
-    \draw[->, thick] (0,0) -- node[below]{$\vec{c}$} (1.5,3.5);
+    \draw[->, thick] (A) -- node[left]{$\vec{a}$}(B);
+    \draw[->, thick] (B) -- node[above]{$\vec{b}$} (C);
+    \draw[->, thick, dashed] (A) -- node[below]{$\vec{c}$} (C);
 
 \end{tikzpicture}
-\caption{Soma de dois vetores.}
-\end{figure}
+\caption{Soma de dois vetores.\label{Fig:SomaGeometricaDeDoisVetores}}
+\end{marginfigure}
 
+Dados dois vetores $\vec{a}$ e $\vec{b}$, a soma $\vec{a}+\vec{b}$ pode ser ``calculada'' geometricamente da seguinte forma (Figura~\ref{Fig:SomaGeometricaDeDoisVetores}): tomamos o segundo vetor ($\vec{b}$) e o transladamos de forma que sua origem coincida com o final do primeiro vetor ($\vec{a}$); traçamos um vetor da origem do primeiro vetor até o final do segundo ($\vec{c}$). Este último vetor ($\vec{c}$) representa a soma dos dois primeiros:
+\begin{equation}
+    \vec{c} = \vec{a} + \vec{b}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Comutatividade, regra do paralelogramo}
@@ -118,13 +149,23 @@ Se fizermos o contrário, isto é, transladarmos o primeiro vetor até que sua o
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, rotate=-60]
+\begin{tikzpicture}[>=Stealth, rotate=0]
 
-    \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (0,2);
-    \draw[->, thick] (0, 2) -- node[above]{$\vec{b}$} (1.5,3.5);
-    \draw[->, thick] (0,0) -- node[below]{$\vec{c}$} (1.5,3.5);
-    \draw[->, thick, dashed] (1.5,1.5) -- (1.5,3.5);
-    \draw[->, thick, dashed] (0,0) -- (1.5, 1.5);
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,2.5);
+    \coordinate (C) at (2.5,1.25);
+    \coordinate (Ap) at (2.5,-1.25);
+    
+%    \fill[opacity=1] (A) circle (1.25pt) node[below left]{$A$};
+%    \fill[opacity=1] (B) circle (1.25pt) node[above right]{$B$};
+%    \fill[opacity=1] (C) circle (1.25pt) node[right]{$C$};
+
+    \draw[->, thick] (A) -- node[left]{$\vec{a}$}(B);
+    \draw[->, thick] (B) -- node[above]{$\vec{b}$} (C);
+    \draw[->, thick, dashed] (A) -- node[below]{$\vec{c}$} (C);
+    
+    \draw[dotted, ->] (Ap) -- node[right]{$\vec{a}$} (C);
+    \draw[dotted, ->] (A) -- node[below]{$\vec{b}$} (Ap);
 
 \end{tikzpicture}
 \caption{Soma de dois vetores através da ``regra do paralelogramo''. \label{Fig:RegraParalelogramoSoma}}
@@ -134,6 +175,8 @@ Logo, concluímos que a soma é comutativa:
 \begin{equation}
   \vec{a} + \vec{b} = \vec{b} + \vec{a}.
 \end{equation}
+%
+Devido ao fato de que os vetores formam a figura de um paralelogramo, é comum que a soma geométrica dos vetores seja feita através da elaboração de tal figura. Por isso, a soma geométrica também é conhecida como ``regra do paralelogramo''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Associatividade}
@@ -149,19 +192,22 @@ Graficamente, através da Figura ~\ref{Fig:VetoresAssociatividade}, podemos ver 
 
 \begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale=1.5]
+\begin{tikzpicture}[>=Stealth, scale=1.5,
+shortened line/.style={shorten >=-#1,shorten <=-#1},
+ shortened line/.default=-0.3mm]
 
+    \fill (1,3) circle (0.5pt);
     \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,1);
-    \draw[->] (2, 1) -- node[right]{$\vec{b}$} (2,2);
-    \draw[->] (2,2) -- node[above]{$\vec{c}$} (1,3);
+    \draw[-{Stealth[right]}] (2, 1) -- node[right]{$\vec{b}$} (2,2);
+    \draw[-{Stealth[right]}, shortened line] (2,2) -- node[above]{$\vec{c}$} (1,3);
     
-    \draw[->, thick] (0,0) -- node[left]{$\vec{d}$}(1,3);
+    \draw[-{Stealth[left]}, shortened line] (0,0) -- node[left]{$\vec{d}$}(1,3);
     
     \draw[->] (0,0) -- node[below, sloped]{$\vec{a}+\vec{b}$}(2, 2);
-    \draw[->] (2,1) -- node[below, sloped]{$\vec{b}+\vec{c}$}(1, 3);
+    \draw[-{Stealth[width = 2pt]}, shortened line] (2,1) -- node[below, sloped]{$\vec{b}+\vec{c}$}(1, 3);
     
     \draw[->, dotted] (2,1) -- (1,2);
-    \draw[->, dotted] (1,2) -- (1,3);
+    \draw[-{Stealth[width = 2pt]}, dotted, shortened line] (1,2) -- (1,3);
     \draw[->] (0,0) -- node[below right, sloped]{$\vec{a} + \vec{c}$} (1,2);
 
 \end{tikzpicture}
@@ -177,7 +223,7 @@ Na Figura~\ref{Fig:CaminhoFechadoVetorNulo} temos uma série de deslocamentos su
     \vec{a} + \vec{b} + \vec{c} + \vec{d} + \vec{e} + \vec{f} = \vec{0}.
 \end{equation}
 %
-É comum se omitir a flecha sobre o zero ao se expressar o vetor nulo, pois não existe ambiguidade como no caso de um vetor não-nulo, onde o símbolo sem a flecha normalmente é utilizado para denotar o módulo do vetor.
+É comum se omitir a flecha sobre o zero ao se expressar o vetor nulo, pois não existe ambiguidade como no caso de um vetor não-nulo, onde o símbolo sem a flecha é utilizado para denotar o módulo do vetor.
 
 \begin{marginfigure}
 \centering
@@ -222,7 +268,7 @@ Vamos supor que temos dois vetores $\vec{a}$ e $\vec{b}$, de forma que
 \caption{Para determinarmos a diferença $\vec{a} - \vec{b}$, determinamos o vetor $-\vec{b}$ e então realizamos a soma $\vec{a} + (-\vec{b})$.\label{Fig:DefSubtracaoVetorial}}
 \end{marginfigure}
 
-Assim, subtração de dois vetores é igual a soma do primeiro com \emph{menos o segundo}, onde ``menos o segundo'' significa que esse vetor será tomado no sentido contrário e somado ao primeiro. A Figura~\ref{Fig:DefSubtracaoVetorial} mostra graficamente tal processo. Note também que
+Assim, a subtração de dois vetores é igual a soma do primeiro com \emph{menos o segundo}, onde ``menos o segundo'' significa que esse vetor será tomado no sentido contrário e somado ao primeiro. A Figura~\ref{Fig:DefSubtracaoVetorial} mostra graficamente tal processo. Note também que
 \begin{equation}
     \vec{a} - \vec{b} = -(\vec{b}-\vec{a}).
 \end{equation}
@@ -231,31 +277,33 @@ Assim, subtração de dois vetores é igual a soma do primeiro com \emph{menos o
 \paragraph{Subtração através da regra do paralelogramo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma observação que nos permite calcular mais facilmente a diferença $\vec{a} - \vec{b}$ entre dois vetores é ilustrada na Figura~\ref{Fig:Macete_subtracao}: podemos transladar o vetor $\vec{b}$ até que seu início coincida com o início do vetor $\vec{a}$ e então desenhamos uma seta iniciando na ponta do vetor que aparece após o sinal de menos e terminando na ponta do vetor que aparece antes do sinal. Construindo um paralelogramo, verificamos que uma das ``diagonais'' do paralelogramo nos dá a soma e a outra nos dá a diferença entre os vetores.
+Uma observação que nos permite calcular mais facilmente a diferença $\vec{a} - \vec{b}$ entre dois vetores é ilustrada na Figura~\ref{Fig:Macete_subtracao}: podemos transladar o vetor $\vec{b}$ até que seu início coincida com o início do vetor $\vec{a}$ e então desenhamos uma seta iniciando na ponta do vetor que aparece após o sinal de menos ($\vec{b}$) e terminando na ponta do vetor que aparece antes do sinal ($\vec{a}$). Construindo um paralelogramo, verificamos que uma das ``diagonais'' do paralelogramo nos dá a soma e a outra nos dá a diferença entre os vetores.
 
 \begin{marginfigure}[-3cm]
 \centering
-\begin{tikzpicture}[>=Stealth, scale=1.5]
+\begin{tikzpicture}[>=Stealth, scale=1.5, shortened line/.style={shorten >=-#1,shorten <=-#1}, shortened line/.default=-0.3mm]
 
-    \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,0);
+    \draw[-{Stealth[width=2pt]}] (0,0) -- node[below]{$\vec{a}$}(2,0);
     \draw[->] (2,0) -- node[below right]{$\vec{b}$} +(1,1);
     \draw[->, dashed] (2,0) -- node[below right]{$-\vec{b}$} +(-1,-1);
     
     \draw[->, dashdotted] (0,0) -- node[below,sloped]{$\vec{a} - \vec{b}$} (1,-1);
     
     \draw[->, dotted] (0,0) -- node[above left]{$\vec{b}$} +(1,1);
-    \draw[->, dotted] (1,1) -- node[above, sloped]{$\vec{a} - \vec{b}$} +(1,-1);
+    \draw[-{Stealth[width=2pt]}, dotted] (1,1) -- node[above, sloped]{$\vec{a} - \vec{b}$} +(1,-1);
 
     \begin{scope}[shift={(0,-2.5)}]
     
-        \draw[->] (0,0) -- node[below]{$\vec{a}$}(2,0);
-        \draw[->] (2,0) -- node[below right]{$\vec{b}$} +(1,1);
+        \fill (3,1) circle (0.5pt);
+    
+        \draw[-{Stealth[width=2pt]}] (0,0) -- node[below]{$\vec{a}$}(2,0);
+        \draw[-{Stealth[right]}, shortened line] (2,0) -- node[below right]{$\vec{b}$} +(1,1);
                 
         \draw[->, dotted] (0,0) -- node[above]{$\vec{b}$} +(1,1);
-        \draw[->, dotted] (1,1) -- node[above]{$\vec{a}$}+(2,0);
+        \draw[-{Stealth[left]}, dotted, shortened line] (1,1) -- node[above]{$\vec{a}$}+(2,0);
         
-        \draw[->, dashdotted] (1,1) -- node[above, sloped, near end]{$\vec{a} - \vec{b}$} +(1,-1);
-        \draw[->, dashdotted] (0,0) -- node[above, sloped, near start]{$\vec{a} + \vec{b}$} +(3,1);
+        \draw[-{Stealth[width=3pt]}, dashdotted] (1,1) -- node[above, sloped, near end]{$\vec{a} - \vec{b}$} +(1,-1);
+        \draw[-{Stealth[width=2pt]}, dashdotted, shortened line] (0,0) -- node[above, sloped, near start]{$\vec{a} + \vec{b}$} +(3,1);
     
     \end{scope}
     
@@ -267,14 +315,14 @@ Uma observação que nos permite calcular mais facilmente a diferença $\vec{a} 
 \subsection{Multiplicação e divisão por escalar}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Podemos multiplicar um vetor por um escalar, obtendo outro vetor:
+Podemos multiplicar um vetor por um escalar $\alpha$, obtendo outro vetor:
 \begin{equation}
-  \vec{c} = \alpha\vec{b},
+  \vec{c} = \alpha\vec{b}.
 \end{equation}
 %
-onde $\alpha$ é um escalar. O módulo do vetor $\vec{c}$ será dado por $\mod{\vec{c}} = \mod{\alpha}\mod{\vec{b}}$.\footnote{A notação \mod{\vec{b}} é utilizada para denotar o módulo do vetor $\vec{b}$.}
+O módulo do vetor $\vec{c}$ será dado por $\mod{\vec{c}} = \mod{\alpha}\mod{\vec{b}}$. Note que a multiplicação por um escalar positivo só é capaz de alterar o módulo do vetor, uma vez que escalares não possuem informação de direção e sentido, e por isso essas informações são preservadas. Caso de tenhamos uma multiplicação por um escalar negativo, além da alteração no módulo, ocorre uma mudança de sentido.
 
-\begin{figure}
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- node[above]{$\vec{a}$} (1,0);
@@ -282,14 +330,22 @@ onde $\alpha$ é um escalar. O módulo do vetor $\vec{c}$ será dado por $\mod{\
     \draw[->] (0,-0.75) -- node[above]{$\vec{b} = 2 \,\vec{a}$} +(2,0);
     \draw[->] (0,-1.5) -- node[above]{$\vec{c} = 3\,\vec{a}$} +(3,0);
     \draw[->] (0,-2.25) -- node[above]{$\vec{d} = \np{3,5}\,\vec{a}$} +(3.5,0);
-    \draw[->] (0,-3) -- node[above]{$\vec{e} = -\vec{a}$} +(-1,0);
-    \draw[->] (0,-3.75) -- node[above]{$\vec{f} = -\np{2.3}\,\vec{a}$} +(-2.3,0);
-    
-\end{tikzpicture}
-\caption{O efeito de multiplicar um vetor por um escalar é o de alterar o seu módulo e, se tal escalar for negativo, o seu sentido.}
-\end{figure}
 
-\noindent{}Note que no caso de termos uma multiplicação por um escalar negativo, além da alteração no módulo, ocorre uma mudança de sentido.
+\end{tikzpicture}
+\caption{Ao multiplicarmos um vetor por um escalar positivo, obtemos um novo vetor que preserva as informações de direção e sentido do vetor inicial, porém que tem um módulo diferente.}
+\end{marginfigure}
+
+ \begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[->] (0,0) -- node[above]{$\vec{a}$} (1,0);  
+    \draw[->] (0,-0.75) -- node[above]{$\vec{e} = -\vec{a}$} +(-1,0);
+    \draw[->] (0,-1.5) -- node[above]{$\vec{f} = -\np{2.3}\,\vec{a}$} +(-2.3,0);
+
+\end{tikzpicture}
+\caption{O efeito de multiplicar um vetor por um escalar negativo é o de alterar o seu módulo e o seu sentido.}
+\end{marginfigure}
 
 Para determinarmos o efeito de uma divisão, como por exemplo
 \begin{equation}
@@ -325,8 +381,8 @@ isto é, podemos passar um vetor de um membro para o outro de uma equação assi
 \begin{tikzpicture}[>=Stealth, scale=1.5]
 
     \draw[->] (0,0) -- node[above]{$\vec{a}$} (1,0);
-    \draw[->] (1,0) -- node[right]{$\vec{b}$} +(0,-1);
-    \draw[<-, dashed] (1,-1) -- node[below left]{$\vec{c}$} (0,0);
+    \draw[-{Stealth[width=3pt]}] (1,0) -- node[right]{$\vec{b}$} +(0,-1);
+    \draw[{Stealth[width=3pt]}-, dashed] (1,-1) -- node[below left]{$\vec{c}$} (0,0);
     
     \begin{scope}[shift={(1.5,0)}]
         \draw[->,dashed] (0,0) -- node[above]{$\vec{a}$} (1,0);
@@ -336,8 +392,8 @@ isto é, podemos passar um vetor de um membro para o outro de uma equação assi
     
     \begin{scope}[shift={(0,-1.5)}]
         \draw[dotted, ->] (0,0) -- node[above]{$\vec{a}$} (1,0);
-        \draw[dotted, ->] (1,0) -- node[right]{$\vec{b}$} +(0,-1);
-        \draw[<-] (1,-1) -- node[below left]{$\vec{c}$} (0,0);
+        \draw[dotted, -{Stealth[width=3pt]}] (1,0) -- node[right]{$\vec{b}$} +(0,-1);
+        \draw[{Stealth[width=3pt]}-] (1,-1) -- node[below left]{$\vec{c}$} (0,0);
         \draw[->] (1,-1) -- node[below]{$-\vec{a}$} +(-1,0);
         \draw[dashed,->] (0,0) -- node[left]{$\vec{b}$}(0,-1); 
     \end{scope}
@@ -356,9 +412,9 @@ isto é, podemos passar um vetor de um membro para o outro de uma equação assi
 \section{Sistemas de referência} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A análise de fenômenos físicos utilizando a representação gráfica de vetores é muito trabalhosa e suscetível a erros. Por isso, vamos utilizar um \emph{sistema de referência} para denotar os vetores. A grande vantagem de fazer isso é o fato de que podemos tratar eixos lineares de maneira independente um do outro. Além disso, esse tratamento se resume a manipular grandezas \emph{escalares} ao invés de vetoriais.
+A análise de fenômenos físicos utilizando a representação gráfica de vetores é muito trabalhosa e suscetível a erros. Por isso, vamos utilizar um \emph{sistema de referência} para denotar os vetores. A grande vantagem de fazer isso é o fato de que podemos tratar eixos perpendiculares de maneira independente um do outro. Além disso, esse tratamento se resume a manipular grandezas que denominamos como \emph{componentes vetoriais} e que se comportam como \emph{escalares} ao invés de vetores.
 
-Grande parte da utilidade de um sistema provém de uma escolha adequada para a direção dos eixos: mesmo que \emph{qualquer} conjunto de eixos não-colineares\footnote{Um vetor ou eixo é colinear a outro se ambos têm a mesma direção.} sejam capazes de descrever as propriedades vetoriais, uma escolha adequada do sistema de referência leva a uma grande simplificação do tratamenteo matemático
+Grande parte da utilidade de um sistema provém de uma escolha adequada para a direção dos eixos: mesmo que \emph{qualquer} conjunto de eixos não-colineares\footnote{Um vetor ou eixo é colinear a outro se ambos têm a mesma direção.} sejam capazes de descrever as propriedades vetoriais, uma escolha adequada do sistema de referência leva a uma grande simplificação do tratamento matemático
 
 %%%%%%%%%%%%%%%%%%
 \subsection{Bases}
@@ -392,13 +448,13 @@ Se tomarmos dois vetores não-colineares em um plano, por exemplo, podemos escre
 \caption{Dados dois vetores não colineares, podemos usar as propriedades de multiplicação de vetor por escalar e de soma para que possamos construir um novo vetor.\label{Fig:VetorObtidoAPartirDeUmaBase}}
 \end{marginfigure}
 
-\noindent{}O processo descrito pela equação acima consiste em tomar os vetores $\vec{e}_1$ e $\vec{e}_2$ e os multiplicar por uma grandeza escalar, obtendo um novo vetor:
+\noindent{}O processo descrito pela equação acima consiste em tomar os vetores $\vec{e}_1$ e $\vec{e}_2$ e os multiplicar por uma grandeza escalar, obtendo dois novos vetores
 \begin{align}
     \vec{a}_1 &= \alpha\vec{e}_1 \\
     \vec{a}_2 &= \beta\vec{e}_2
 \end{align}
 %
-e então determinar um novo vetor a partir da soma de ambos:
+e então determinar um novo vetor a partir da soma desses dois últimos:
 \begin{equation}
     \vec{a} = \vec{a}_1 + \vec{a}_2.
 \end{equation}
@@ -523,12 +579,12 @@ Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetoria
 \end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Calculo dos escalares $\alpha$ e $\beta$, vetores unitários}
+\subsection{Cálculo dos escalares $\alpha$ e $\beta$, vetores unitários}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Vamos supor que tenhamos um vetor $\vec{a}$ conhecido, que faz um ângulo $\theta$ com o vetor $\vec{e}_1$ da base. Como podemos determinar os valores de $\alpha$ e $\beta$ que nos permitem reconstruir o vetor $\vec{a}$ a partir dos vetores da base?
 
-Para determinarmos os valores das constantes escalares, vamos considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}. Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores\footnote[][-4.5cm]{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.}. Se conhecemos o valor do ângulo $\theta$, podemos determinar a \emph{projeção}\footnote[][-2.5cm]{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} de $\vec{a}$ na direção de $\vec{e}_1$:
+Para determinarmos os valores das constantes escalares, vamos considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}. Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores\footnote[][-3cm]{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário a partir do vetor da base. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.}. Se conhecemos o valor do ângulo $\theta$, podemos determinar a \emph{projeção}\footnote[][4cm]{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} de $\vec{a}$ na direção de $\vec{e}_1$:
 \begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=3]
@@ -584,8 +640,6 @@ podemos reescrever essa relação como
 \end{equation}
 %
 Veja que mesmo conhecendo os valores de $a$, $\theta$, $e_1$, $e_2$ e $\omega$, não é possível determinar os valores de $\alpha$ e $\beta$, pois temos uma equação com duas incógnitas.
-
-\pagebreak
 
 Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$, obtemos:
 \begin{figure}[!h]
@@ -663,9 +717,10 @@ Note que esse passo não é necessário, uma vez que assumimos que os módulos d
     \beta &= \frac{a[\cos(\omega - \theta) - \cos\theta\cos\omega]}{1-\cos^2\omega} \label{Eq:AlphaEBetaEmFuncaoDeAETheta2}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Bases ortogonais}\label{Sec:ComponentesVetoriais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bases ortogonais, componentes vetoriais}
+\label{Sec:ComponentesVetoriais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Apesar de podermos utilizar dois vetores quaisquer -- desde que eles não sejam colineares --, é mais simples descrever os vetores em termos de uma base ortogonal, isto é, uma base em que o ângulo $\omega$ entre os vetores é de \degree{90}.\footnote[][-2cm]{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt.} Nesse caso, verificamos através das Equações~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta1} e~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta2} que $\alpha$ e $\beta$ podem ser obtidos de maneira muito mais simples:
 \begin{align}
@@ -737,7 +792,7 @@ Se escolhermos $\vec{e}_1$ e $\vec{e}_2$ como unitários, então é claro que
     \beta &= a\sen\theta.
 \end{align}
 
-Em Física geralmente utilizamos uma base ortogonal para descrever os vetores. Os eixos de referência utilizados são geralmente denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, temos que a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como
+Em Física geralmente utilizamos uma base ortogonal para descrever os vetores. Os eixos de referência utilizados são denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, temos que a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como
 \begin{equation}
     \vec{a} = a_x \versi + a_y \versj,
 \end{equation}
@@ -971,7 +1026,7 @@ Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fi
     A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{30}$. Se um vetor $\vec{a}$ tem módulo $a = \np[m]{2.5}$ e faz um ângulo $\theta = \np[\tcdegree]{45}$ em relação ao eixo horizontal, quais são as componentes do vetor nos eixos do sistema rotacionado?
 \end{quote}
 
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1028,7 +1083,7 @@ Assim, temos que
 \subsection{Notação módulo-ângulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Da seção anterior, fica evidente que além de podermos descrever um vetor através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ e do módulo do vetor $\mod{\vec{a}}$, ou através do módulo dos ângulos $\theta$ e $\phi$, em três dimensões. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
+Da seção anterior, fica evidente que além de podermos descrever um vetor $\vec{a}$ através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ entre o vetor e um dos eixos de referência, e do módulo $a$ do vetor. Em três dimensões, precisamos dos ângulos $\theta$ e $\phi$ entre o vetor e os eixos de referência, além do próprio módulo do vetor. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
 
 \begin{marginfigure}
 \centering
@@ -1070,12 +1125,12 @@ de onde podemos escrever
 \end{equation}
 %
 Equivalentemente, podemos verificar esse resultado utilizando relações trigonométricas através da  Figura~\ref{Fig:atan_geometricamente}.
-%
-Além disso, temos
+
+Também podemos encontrar uma relação entre as componentes e o módulo do vetor através de
 \begin{align}
   a_ x^2 + a_y^2 &= (a\cos\theta) ^2 + (a\sen\theta)^2 \\
   &= a^2\cos^2\theta + a^2\sen^2\theta \\
-  &= a^2(\sen^2\theta + \cos^\theta) \\
+  &= a^2(\sen^2\theta + \cos^2\theta) \\
   &= a^2,
 \end{align}
 %
@@ -1127,7 +1182,7 @@ Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do 
 \caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRotModAng}}
 \end{figure}
 
-A situação do problema acima difere do exemplo da seção anterior simplesmente no fado de que não temos o módulo $a$ e o ângulo $\theta$, mas sim as componentes $a_x$ e $a_y$ do vetor $\vec{a}$. 
+A situação do problema acima difere do exemplo da seção anterior simplesmente no fato de que não temos o módulo $a$ e o ângulo $\theta$, mas sim as componentes $a_x$ e $a_y$ do vetor $\vec{a}$. 
 Para que possamos determinar as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$, tanto o ângulo $\theta'$ que o vetor faz com o eixo $x'$, quanto o módulo do vetor.
 
 Podemos determinar o módulo através da Equação~\eqref{Eq:ModAPartirDeComp}:
@@ -1410,7 +1465,7 @@ Para que possamos determinar a projeção do vetor na direção desejada precisa
     &\approx 1.
 \end{align}
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.5]
 
@@ -1497,7 +1552,7 @@ Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do e
 \subsection{Soma através de componentes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[4cm]
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.0]
 
@@ -1505,8 +1560,8 @@ Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do e
     \draw[->] (0,0) -- (0,2.5) node[below left]{$y$};
 
     \draw[->, thick] (0,0) -- node[below]{$\vec{a}$} (1.3,0.8);
-    \draw[->, thick] (1.3,0.8) -- node[below]{$\vec{b}$} (2,2);
-    \draw[->, thick] (0,0) -- node[above]{$\vec{c}$} (2,2);
+    \draw[-{Stealth[right]}, thick] (1.3,0.8) -- node[below]{$\vec{b}$} (2,2);
+    \draw[-{Stealth[left]}, thick] (0,0) -- node[above]{$\vec{c}$} (2,2);
     
     \draw[dotted] (1.3,0.8) -- (1.3,0);
     \draw[dotted] (1.3,0.8) -- (0,0.8);
