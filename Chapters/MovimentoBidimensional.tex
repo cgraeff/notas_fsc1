@@ -16,11 +16,11 @@ Neste capítulo vamos redefinir as variáveis cinemáticas em termos de vetores,
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-Para que possamos descrever o movimento da maneira mais geral possível, devemos considerar um espaço tridimensional: ao ---~por exemplo~--- descrever o movimento de um veículo em uma estrada, se tomarmos um eixo de referência ao longo de um segmento da pista, temos ainda possíveis movimentos laterais devidos a curvas e verticais devidos a subidas ou descidas.
+Para que possamos descrever o movimento da maneira mais geral possível, devemos considerar um espaço tridimensional. Ao, por exemplo, descrever o movimento de um veículo em uma estrada, é necessário descrever o movimento em três eixos distintos: um eixo vertical e dois eixos horizontais. Somente considerando esses três eixos somos capazes de descrever os movimentos de subida e descida, movimentos laterais, e o próprio movimento do veículo ao longo da estrada.\footnote{Um outro exemplo, conceitualmente mais simples, é o de uma partícula carregada que é lançada em uma região do espaço que tem um campo magnético constante: dependendo do ângulo entre a direção do campo magnético e a direção da velocidade com que a partícula entre na região do campo, a trajetória descrita pela partícula é helicoidal ---~isto é, a partícula segue uma trajetória com a mesma forma que uma ``espiral'' de caderno~---.} 
 
 Apesar de a descrição completa do movimento exigir três dimensões, é comum que possamos tratar o movimento em duas, ou mesmo uma dimensão. Isso se deve ao fato de que ao dividirmos as equações nos eixos do sistema de referência, poderemos ignorar uma ou duas dessas equações simplesmente por não haver movimento no eixo a que elas correspondem. Para o caso do movimento em linha reta, por exemplo, ao alinharmos um dos eixos do sistema de referência tridimensional ao longo do movimento, temos uma situação em que não há movimento nos outros dois eixos. Isso corresponde ao que denominamos como \emph{movimento unidimensional} no Capítulo~\ref{Chap:MovimentoUnidimensional}, ou seja, o movimento unidimensional é só um caso especial do movimento tridimensional. No caso do movimento bidimensional temos algo semelhante, porém só conseguimos eliminar um dois eixos.
 
-Verificaremos adiante como fazer uma descrição do movimento em três dimensões e como simplificar o tratamento ao eliminar um ou dois eixos. Verificaremos também que podemos separar o movimento em cada eixo e tratá-los de maneira independente mesmo quando há movimento em mais que um deles. Isso facilitará a interpretação do movimento. 
+Nas próximas seções, utilizaremos o conteúdo do capítulo anterior para definir as variáveis cinemáticas em termos de vetores. Após isso, analisaremos alguns movimentos bidimensionais específicos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vetores posição e deslocamento}
@@ -41,20 +41,31 @@ Quando tratamos do movimento unidimensional, utilizamos a distância até a orig
     \draw[->] (0,0,0) -- (0,0,1.5) node[below]{$z$};
 
     \draw[->, thick] (0,0,0) -- node[above]{$\vec{r}$}(1,0.75,0.5);
-    \draw[dotted] (1,0,0.5) -- (1,0.75,0.5);
-    \draw[dotted] (1,0,0.5) -- (1,0,0);
-    \draw[dotted] (1,0,0.5) -- (0,0,0.5);
-    \draw[dotted] (1,0.75,0.5) -- (0,0.75,0.5) -- (0,0.75,0) -- (1,0.75,0) -- cycle;
-    \draw[dotted] (1,0.75,0) -- (1,0,0);
-    \draw[dotted] (0,0.75,0.5) --(0,0,0.5);
+    \draw[dashed, thin] (1,0,0.5) -- (1,0.75,0.5);
+    \draw[dashed, thin] (1,0,0.5) -- (1,0,0);
+    \draw[dashed, thin] (1,0,0.5) -- (0,0,0.5);
+    \draw[dashed, thin] (1,0.75,0.5) -- (0,0.75,0.5) -- (0,0.75,0) -- (1,0.75,0) -- cycle;
+    \draw[dashed, thin] (1,0.75,0) -- (1,0,0);
+    \draw[dashed, thin] (0,0.75,0.5) --(0,0,0.5);
+    
+    \draw[<->, thin] (1.2, 0, 0) -- node[right]{$r_y$} (1.2, 0.75, 0);
+    \draw[dotted] (1,0.75,0) -- (1.4,0.75,0);
+    
+    \draw[<->, thin] (0, 0, 0.9) -- node[below]{$r_x$} (1, 0, 0.9);
+    \draw[dotted] (1,0,0.5) -- (1,0,1.3);
+    
+    \draw[<->, thin] (-0.2,0.75,0) -- (-0.2, 0.75, 0.5);
+    \draw[dotted] (0,0.75,0) -- (-0.35,0.75,0);
+    \draw[dotted] (0,0.75,0.5) -- (-0.35,0.75,0.5);
+    \node (rz) at (-0.35,0.75,0.15) {$r_z$};
     
 \end{tikzpicture}
-\caption{Um vetor posição em três dimensões.}
+\caption{Um vetor posição em três dimensões.\label{Fig:VetorPosicao}}
 \end{marginfigure}
 
-Utilizando vetores, podemos fazer o mesmo para um movimento bidimensional ou tridimensional. Vamos escolher um ponto como origem de um sistema de coordenadas e descrever a posição por um vetor que parte da origem e termina no ponto onde o objeto se encontra. Como escolhemos a origem coincidindo com o início do vetor, a extremidade está no ponto $(x, y, z)$ do sistema de coordenadas. Além disso, o tamanho das componentes é igual aos valores de $x$, $y$, e $z$, logo, temos que o vetor posição será dado por
+Utilizando vetores, podemos fazer o mesmo para um movimento bidimensional ou tridimensional. Vamos escolher um ponto como origem de um sistema de coordenadas ortogonal e descrever a posição por um vetor que parte da origem e termina no ponto onde o objeto se encontra. Logo, temos que o vetor posição será dado por (Figura~\ref{Fig:VetorPosicao})
 \begin{equation}
-  \vec{r} = x \versi + y \versj + z \versk.
+  \vec{r} = r_x \versi + r_y \versj + r_z \versk.
 \end{equation}
 %
 O conjunto de posições ocupadas por um corpo ao longo do tempo é representado pela evolução temporal do vetor posição $\vec{r}$. Como a posição pode variar no tempo, temos que tal vetor é uma função do tempo $\vec{r}(t)$:
@@ -172,18 +183,29 @@ Geometricamente, o vetor deslocamento é aquele que liga o ponto inicial ao pont
 %
 Utilizando a notação de versores para escrever os vetores em termos dos eixos de referência, temos para $\vec{r}_i$ e $\vec{r}_f$
 \begin{align}
-  \vec{r}_i &= x_i \versi + y_i \versj + z_i \versk \\
-  \vec{r}_f &= x_f \versi + y_f \versj + z_f \versk.
+  \vec{r}_i &= r_x^i \versi + r_y^i \versj + r_z^i \versk \\
+  \vec{r}_f &= r_x^f \versi + r_y^f \versj + r_z^f \versk.
 \end{align}
 %
 Consequentemente, o vetor deslocamento pode ser escrito como
 \begin{align}
-  \Delta\vec{r} &= (x_f \versi + y_f \versj + z_f \versk) - (x_i \versi + y_i \versj + z_i \versk) \\
-  &= (x_f - x_i)\versi + (y_f - y_i)\versj + (z_f - z_i)\versk \\
-  &= \Delta x\versi + \Delta y\versj + \Delta z\versk.
+  \Delta\vec{r} &= (r_x^f \versi + r_y^f \versj + r_z^f \versk) - (r_x^i \versi + r_y^i \versj + r_z^i \versk) \\
+  &= (r_x^f - r_x^i)\versi + (r_y^f - r_y^i)\versj + (r_z^f - r_z^i)\versk.
 \end{align}
 %
-Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado\footnote{Novamente, situações que envolvem o produto vetorial não podem ser separados em eixos distintos. Verificaremos situações desse tipo no Capítulo~\ref{Chap:MomentoAngular}.}. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades. Em muitos casos não precisamos nem mesmo tratar todas as três componentes, devido ao fato de que o movimento ocorre em um plano.
+Note que podemos identificar os termos acima com as próprias variações de posição em cada um dos eixos
+\begin{align}
+    \Delta x &= r_x^f - r_x^i \\
+    \Delta y &= r_y^f - r_y^i \\
+    \Delta z &= r_z^f - r_z^i,
+\end{align}
+%
+o que nos permite escrever
+\begin{equation}
+  \Delta\vec{r} = \Delta x \; \versi + \Delta y \; \versj + \Delta z \; \versk.
+\end{equation}
+%
+Vemos que é possível separar o movimento descrito pelo vetor posição em três componentes distintas, uma para cada eixo coordenado\footnote{Novamente, situações que envolvem o produto vetorial não podem ser separados em eixos distintos. Verificaremos situações desse tipo no Capítulo~\ref{Chap:MomentoAngular}.}. Isso facilita a análise do movimento, permitindo que tratemos cada uma das componentes de acordo com suas particularidades.
 
 \begin{marginfigure}
 \centering
@@ -225,22 +247,95 @@ Em três dimensões, caso um corpo sofra um deslocamento, ele o faz com uma velo
 %
 onde estendemos a definição de velocidade ao caso bi e tridimensional ao substituir o deslocamento ao longo de um eixo retilíneo $x$ pelo vetor deslocamento $\Delta \vec{r}$. Como, nesse caso, temos a divisão de um vetor por um escalar, \emph{a direção do vetor velocidade média é a mesma do deslocamento}. O módulo, no entanto, é diferente, assim como a dimensão: temos que $[v] = L/T$ e o módulo é dado pelo valor numérico obtido pela divisão do módulo do vetor deslocamento pelo valor do intervalo de tempo em que o movimento ocorre. Decompondo o vetor, temos
 \begin{align}
-  \vec{\mean{v}} &= \frac{\Delta x \versi + \Delta y\versj + \Delta z\versk}{\Delta t} \\
+  \vec{\mean{v}} &= \frac{\Delta x \; \versi + \Delta y \; \versj + \Delta z \; \versk}{\Delta t} \\
   &= \frac{\Delta x}{\Delta t} \versi + \frac{\Delta y\versj}{\Delta t} + \frac{\Delta z\versk}{\Delta t} \\
   &= \mean{v}_x \versi + \mean{v}_y \versj + \mean{v}_z \versk.
 \end{align}
+%
+Mais uma vez, verificamos a independência entre os eixos coordenados.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Descrição vetorial do movimento unidimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dotted] (0,0) -- (3,-1);
+    
+    \draw[->] (0.5,-3) coordinate (origin) -- node[left]{$\vec{r}_i$} (0.94, -0.31) coordinate (pos_i);
+    \fill (origin) circle (1pt) node[below left] {$O$};
+    \fill (pos_i) circle (1pt);
+    
+    \draw[->] (pos_i) -- node[above]{$\vec{v}$} (1.423,-0.4743);
+    
+    \draw[dashed, ->] (origin) -- node[below right]{$\vec{r}_f$} (2.3717,-0.7906) coordinate (pos_f);
+    \draw[fill = white, draw = black] (pos_f) circle (1pt);
+    
+    \draw[dashed, ->] (pos_i) -- node[above right]{$\vec{v}\Delta t$}(pos_f);
+    
+\end{tikzpicture}
+\caption{Se a direção e o sentido de $\vec{v}$ são constantes, o movimento é retilíneo. Note que $\vec{v}\Delta t$ representa o \emph{deslocamento} da partícula.\label{Fig:DescricaoVetorialDoMovUnidimensional}}
+\end{marginfigure}
 
 Como definimos a velocidade média em termos do vetor deslocamento, podemos escrever
 \begin{equation}
 	\Delta \vec{r} = \mean{\vec{v}} \Delta t.
 \end{equation}
 %
-No caso especial de termos uma velocidade constante em módulo e sentido, o vetor velocidade média é igual ao vetor velocidade instantânea, logo, podemos escrever
+No caso especial de termos uma velocidade constante em módulo, direção, e sentido, o vetor velocidade média é igual ao vetor velocidade instantânea\footnote{Pois a razão $\Delta\vec{r}/\Delta t$ resulta sempre no mesmo vetor $\mean{\vec{v}}$, ou seja, obtemos sempre o mesmo valor de módulo, a mesma direção e o mesmo sentido.}. Logo, podemos escrever
 \begin{equation}
 	\vec{r}_f = \vec{r}_i + \vec{v} \Delta t.
 \end{equation}
 %
-De acordo com a equação acima, as posições $\vec{r}_f$ ocupadas pela partícula estão todas ao logo da direção determinada pelo vetor $\vec{v}$.
+De acordo com a equação acima, as posições $\vec{r}_f$ ocupadas pela partícula estão todas ao logo da direção determinada pelo vetor $\vec{v}$, o que é mostrado na Figura~\ref{Fig:DescricaoVetorialDoMovUnidimensional}. Se a velocidade não for constante em módulo, o movimento continua a ser retilíneo, porém a expressão acima não será válida.\footnote{Para determinar a posição final no caso de uma velocidade cujo módulo varia no tempo é necessário empregar uma \emph{integral}.}
+
+\begin{marginfigure}[2cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dotted] (0,0) -- (3,-1);
+    
+    \coordinate (origin) at (0.5,-3);
+    \coordinate (pos_i) at (0.94, -0.31);
+    
+    \fill (pos_i) circle (1pt);
+    
+    \draw[->] (pos_i) -- node[above]{$\vec{v}$} (1.423,-0.4743);
+    
+    \coordinate (pos_f) at (2.3717,-0.7906);
+    
+    \draw[fill = white, draw = black] (pos_f) circle (1pt);
+    
+    \draw[dashed, ->] (pos_i) -- node[above right]{$\vec{v}\Delta t$}(pos_f);
+    
+    \fill (0.4743,-0.1581) circle (1pt) node[below left]{$O$};
+    
+\end{tikzpicture}
+\caption{A escolha de um sistema de coordenadas adequado transforma um movimento ``bidimensional'' em um movimento unidimensional.}
+\end{marginfigure}
+
+Note ainda que a expressão para a posição final acima pode ser reescrita como
+\begin{equation}
+    \vec{r}_f = (r_x^i + v_x \Delta t)\versi + (r_y^i + v_y\Delta t)\versj.
+\end{equation}
+%
+Se optarmos por um sistema de referência onde o eixo $x$ é na mesma direção que o movimento e escolhermos uma origem que reside na direção do vetor velocidade, verificamos que
+\begin{align}
+    r_y^i &\equiv 0 \\
+    v_y &= 0,
+\end{align}
+%
+de onde obtemos 
+\begin{equation}
+    \vec{r}_f = (r_x^i + v_x \Delta t)\versi.
+\end{equation}
+%
+Ignorando o caráter vetorial dessa expressão, obtemos
+\begin{equation}
+    x = x_i + v_x t,
+\end{equation}
+%
+ou seja, recuperamos a descrição que utilizamos anteriormente para o movimento unidimensional.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
@@ -253,15 +348,21 @@ Podemos definir a velocidade instantânea a partir da Equação~\ref{Eq:VelMedia
     &= \lim_{\Delta t \to 0} \left(\frac{\Delta x}{\Delta t}\versi + \frac{\Delta y}{\Delta t}\versj + \frac{\Delta z}{\Delta t}\versk\right).
 \end{align}
 %
-Podemos utilizar a propriedade de que o limite da soma é a soma dos limites para escrever
+Podemos utilizar a propriedade de que o limite de uma soma de termos é igual à soma dos limites de cada termo separadamente\footnote{Você verá isso na disciplina de Cálculo.} para escrever
 \begin{align}
   \vec{v} &= \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}\versi + \lim_{\Delta t \to 0} \frac{\Delta y}{\Delta t}\versj + \lim_{\Delta t \to 0} \frac{\Delta z}{\Delta t}\versk \\
   &= v_x \versi + v_y \versj + v_z \versk.
 \end{align}
 %
-Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$.
+Portanto, podemos simplesmente definir o vetor velocidade através da velocidade nos eixos $x$, $y$ e $z$. Note que ao tomarmos o limite, o fato de que o limite de uma soma é igual à soma dos limites preserva a separação entre os eixos que verificamos para a velocidade média.
 
-Podemos determinar a direção da velocidade instantânea se analisarmos a trajetória de uma partícula em um plano $xy$, mostrada na Figura~\ref{Fig:Dir_vel}. Verificamos que para $\Delta t \to 0$, o vetor ``deslocamento instantâneo'' $\delta\vec{r}$, dado por\footnote[][-2cm]{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
+Finalmente, devemos destacar que é comum descrever situações físicas e/ou problemas e exercícios e se referir a um valor numérico particular de velocidade. Nesses casos subentende-se que estamos nos referindo ao \emph{módulo} do vetor velocidade.\footnote{Tal valor também é chamado de \emph{velocidade escalar}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Direção da velocidade instantânea}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos determinar a direção da velocidade instantânea se analisarmos a trajetória de uma partícula em um plano $xy$, como mostrado na Figura~\ref{Fig:Dir_vel}. Verificamos que para $\Delta t \to 0$, o vetor ``deslocamento instantâneo'' $\delta\vec{r}$, dado por\footnote[][-2cm]{Utilizaremos a notação $\delta \xi$ para todas as variáveis do tipo $\Delta \xi$ quando tomamos o limite $\Delta t \to 0$. Podemos interpretar isso como \emph{uma variação infinitamente pequena}.}
 \begin{equation}
     \delta\vec{r} = \lim_{\Delta t \to 0}\Delta \vec{r},
 \end{equation}
@@ -332,8 +433,6 @@ Podemos determinar a direção da velocidade instantânea se analisarmos a traje
 \caption{No limite $\Delta t \to 0$, temos que a direção do vetor deslocamento instantâneo $\delta\vec{r}$ no ponto denotado por $\vec{r}$ é a mesma direção que a da reta que tange a curva no ponto.\label{Fig:Dir_vel}}
 \end{marginfigure}
 
-Finalmente, devemos destacar que é comum descrever situações físicas e/ou problemas e exercícios e se referir a um valor particular de velocidade. Nesses casos subentende-se que estamos nos referindo ao \emph{módulo} do vetor velocidade. Em alguns casos, tal valor pode também ser chamado de \emph{velocidade escalar}.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Variação do vetor velocidade com módulo constante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -348,20 +447,22 @@ podemos ver que ela não é nula, isto é, \emph{mesmo no caso de termos dois ve
 \begin{marginfigure}
    \begin{tikzpicture}[>=Stealth]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
-        \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2);
+        \draw[->] (0,0) -- node[left]{$\vec{r}_i$} (60:2) coordinate (ri);
         \draw[->] (60:2) -- node[above]{$\vec{v}_i$} +(-30:1);
-        \draw[->] (0,0) -- node[below]{$\vec{r}_f$} (30:2);
+        \draw[->] (0,0) -- node[below]{$\vec{r}_f$} (30:2) coordinate (rf);
         \draw[->] (30:2) -- node[right]{$\vec{v}_f$}+(-60:1);
         
         \draw[->] (1, -1) -- node[above]{$\vec{v}_i$} +(-30:1) coordinate (A);
         \draw[->] (1, -1) -- node[left]{$\vec{v}_f$} +(-60:1) coordinate (B);
         \draw[->] (A) -- node[right]{$\Delta \vec{v}$} (B);
         
+        \draw[dashed,->] (ri) -- node[below left]{$\Delta\vec{r}$} (rf);
+        
    \end{tikzpicture}
    \caption{Velocidades em diferentes instantes e a correspondente variação da velocidade $\Delta\vec{v}$ determinada através da diferença entre os vetores. \label{Fig:DeltaVelocidadeComModulosIguais}}
 \end{marginfigure}
 
-Esse aspecto é uma característica dos vetores também se manifesta com o vetor deslocamento, mas nesse caso nos parece mais natural, já que os vetores posição e deslocamento têm uma manifestação mais concreta do que o vetor velocidade. Veremos ao estudar o movimento circular que essa propriedade terá consequências interessantes para a aceleração, que definiremos a seguir.
+Esse aspecto é uma característica dos vetores e também se manifesta com o vetor deslocamento, como também pode ser visto na Figura~\ref{Fig:DeltaVelocidadeComModulosIguais}. Nesse caso, no entanto, nos parece mais natural que tal diferença não seja nula, já que os vetores posição e deslocamento têm uma manifestação mais concreta do que o vetor velocidade. Veremos ao estudar o movimento circular que essa propriedade terá consequências interessantes para a aceleração, que definiremos a seguir.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Rotação de um vetor}
@@ -372,25 +473,22 @@ No caso de termos uma trajetória que não seja retilínea, podemos interpretar 
 \begin{equation}
 	\delta \vec{r} = \vec{v} \delta t.
 \end{equation}
+%
+Na Figura~\ref{Fig:TrajetoriaComoSucessaoDeDescolamentosInfinitesimais} mostramos como uma sucessão de deslocamentos retilíneos curtos são uma aproximação boa para um movimento curvilíneo. Note que a direção e sentido dos vetores mostrados são justamente a direção e sentido do vetor velocidade instantânea em cada ponto da trajetória.
 
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.2]
-    \draw[->] (0:2) -- (10:2);
-    \draw[->] (10:2) -- (20:2);
-    \draw[->] (20:2) -- (30:2);
-    \draw[->] (30:2) -- (40:2);
-    \draw[->] (40:2) -- (50:2);
-    \draw[->] (50:2) -- (60:2);
-    \draw[->] (60:2) -- (70:2);
-    \draw[->] (70:2) -- (80:2);
-    \draw[->] (80:2) -- (90:2);
+
+    \foreach \x [evaluate=\x as \y using \x + 10]in {0,10,...,350}{
+        \draw[->] (\x:2) -- (\y:2);
+    }
     
 \end{tikzpicture}
-\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura mostramos uma série de pequenos deslocamentos que constituem de maneira aproximada uma curva. Se tomarmos deslocamentos menores, a curva passará a ser mais suave. A direção de cada deslocamento muda pois estamos considerando que a direção da velocidade mude devido a uma aceleração.}
+\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura, cada vetor é retilíneo, porém como são pequenos, temos uma boa aproximação para uma curva.\label{Fig:TrajetoriaComoSucessaoDeDescolamentosInfinitesimais}}
 \end{marginfigure}
 
-Através desse conceito de deslocamento infinitesimal, podemos descrever um movimento que acontece com uma velocidade sempre perpendicular ao vetor posição. Na Figura~\ref{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular} temos uma partícula cuja posição é descrita por um vetor posição que parte de uma origem fixada no centro de um circulo. A partícula segue a trajetória circular, sendo que a velocidade é sempre tangente à trajetória, ou seja, \emph{a velocidade é sempre perpendicular ao vetor posição}.
+Através desse conceito de deslocamento infinitesimal, podemos descrever um movimento que acontece com uma velocidade sempre perpendicular ao vetor posição. Na Figura~\ref{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular} temos uma partícula cuja posição é descrita por um vetor $\vec{r}$ que parte de uma origem fixada no centro de um circulo. A partícula segue a trajetória circular, sendo que a velocidade é sempre tangente à trajetória, ou seja, \emph{a velocidade é sempre perpendicular ao vetor posição}. Tal situação descreve uma propriedade importante de um vetor: quando ele ele é somado a uma variação infinitesimal que é perpendicular ao próprio vetor, o vetor resultante têm o mesmo módulo, porém é \emph{rotacionado} na direção da variação infinitesimal.
 
 \begin{marginfigure}
 \centering
@@ -421,7 +519,6 @@ Através desse conceito de deslocamento infinitesimal, podemos descrever um movi
 \caption{O efeito de um vetor velocidade continuamente perpendicular ao vetor posição é o de causar uma rotação neste último. \label{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular}}
 \end{marginfigure}
 
-A situação acima descreve uma propriedade importante de um vetor: quando ele ele é somado a uma variação infinitesimal que é perpendicular ao proprio vetor, o vetor resultante têm o mesmo módulo, porém é \emph{rotacionado} na direção da variação infinitesimal.
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Aceleração}
@@ -456,26 +553,90 @@ onde utilizamos novamente a propriedade de que o limite da soma é a soma dos li
   \vec{a} = a_x \versi + a_y \versj + a_z \versk,
 \end{equation}
 %
-e observamos que para o caso da aceleração, também temos que as componentes do vetor são dadas pelos valores de -- neste caso -- aceleração dos eixos $x$, $y$ e $z$.
+e observamos que para o caso da aceleração, também temos que as componentes do vetor são dadas pelos valores de ---~neste caso~--- aceleração dos eixos $x$, $y$ e $z$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Aceleração com módulo da velocidade constante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Conforme verificamos na seção anterior, existem casos em que a velocidade se mantém constante, mas que mesmo assim possuem uma variação do \emph{vetor} velocidade. Isso se deve ao fato de que temos um $\Delta \vec{v}$ dado por
+Conforme verificamos na seção anterior, existem casos em que a velocidade se mantém constante em módulo, mas que mesmo assim possuem uma variação \emph{direção} do vetor velocidade. Isso se deve ao fato de que temos um $\Delta \vec{v}$ dado por
 \begin{equation}
 	\Delta \vec{v} = \vec{v}_f - \vec{v}_i,
 \end{equation}
 %
-que é diferente de zero. Segundo a definição de aceleração, portanto, podemos ter acelerações que mantém o módulo da velocidade constante. Na Seção~\eqref{Sec:MovimentoCircular}, analisaremos mais a fundo os dois aspectos da aceleração --~alterar o módulo e/ou a direção da velocidade~--utilizando como exemplo o movimento circular.
+que é diferente de zero: isso implica na existência de um vetor aceleração, não obstante o fato de que o módulo da velocidade não muda. Na Seção~\eqref{Sec:MovimentoCircular}, analisaremos o movimento circular e verificaremos que a aceleração pode ser dividida em duas componentes, uma \emph{tangencial} e outra \emph{centrípeta}, e que cada uma delas causa modificações diferentes na velocidade: a primeira altera somente o \emph{módulo} do vetor velocidade, enquanto a segunda altera somente a \emph{direção} de tal vetor. Antes, no entanto, vamos analisar o movimento de projéteis, cujo tratamento é mais simples.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento de projéteis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O movimento de um projétil ao ser lançado com velocidade que faz um ângulo com a horizontal é conhecido como movimento balístico. Neste movimento, podemos usar a propriedade da decomposição da velocidade para analisar o movimento em cada eixo separadamente: no eixo horizontal, temos um movimento com velocidade constante, enquanto no eixo vertical temos um movimento com aceleração constante. Esses dois tipos de movimento correspondem aos dois mais simples que podemos estudar. Dessa forma, o movimento de um projétil serve como um bom exemplo de aplicação da descrição vetorial das variáveis cinemáticas.
+O movimento de um corpo lançado com uma velocidade inicial que faz um ângulo com a horizontal é conhecido como movimento balístico. Neste movimento, podemos usar a propriedade da decomposição da velocidade para analisar o movimento em cada eixo separadamente.
 
-\begin{figure}[!htb]\forceversofloat
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    \draw[->] (0,0) -- node[above, sloped]{$\vec{v}_i$} (0,3);
+    \node (plus) at (0.75,1.5) {$+$};
+    
+    \draw[<-, dashed] (1.5,1) -- node[above,sloped]{$\vec{a}\Delta t$} (1.5,2);
+    \node (equals) at (2.25,1.5) {$=$};
+    
+    \draw[->] (3,0.5) -- node[above, sloped]{$\vec{v}_f$} (3,2.5);
+    
+\end{tikzpicture}
+\caption{Para que um vetor velocidade diminua seu módulo, deve atuar sobre ele uma aceleração $\vec{a}$ durante um intervalo de tempo $\Delta t$. Tal aceleração deve ser na mesma direção que a velocidade, porém com sentido oposto, caso contrário ela causaria também uma rotação no vetor.}
+\end{marginfigure}
+
+Conforme discutido na Seção~\ref{Sec:EqCinematicasParaAcelConstTransl}, verificamos experimentalmente que um corpo em queda livre está sujeito a uma aceleração constante, cujo módulo é igual a $g \approx \np[m/s^2]{9,8}$, cuja direção é vertical, e cujo sentido é para baixo: verificamos, por exemplo, que se um corpo tem velocidade inicial nula, após alguns instantes sob ação da gravidade ele passa a ter uma velocidade final que aponta para baixo. Ao lançarmos o corpo verticalmente para cima, verificamos que a velocidade diminui gradualmente até que se torne nula, momento a partir do qual o corpo passa a se deslocar para baixo. Sabemos que, se a aceleração é constante, vale a relação
+\begin{equation}
+    \vec{v}_f = \vec{v}_i + \vec{a} \Delta t.
+\end{equation}
+%
+Essa equação, associada às observações acerca dos lançamentos verticais, nos leva à conclusão de que a aceleração da gravidade é um vetor cuja direção é vertical e cujo sentido é para baixo.
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    \draw[->] (0,0) -- (3,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[->] (1.5,2) coordinate (vstart) -- node[right]{$\vec{a}$} +(0,-1) coordinate (vend);
+    \draw[dashed] (vstart) -- +(1,0) coordinate (ref);
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm]{angle = ref--vstart--vend};
+    
+\end{tikzpicture}
+\caption{Decomposição do vetor aceleração.}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    \draw[->] (0,0) -- (45:3) node[below right]{$x$};
+    \draw[->] (0,0) -- (135:2) node[below left]{$y$};
+    
+    \draw[->] (0,2) coordinate (vstart) -- node[right]{$\vec{a}$} +(0,-1) coordinate (vend);
+    \draw[dashed] (vstart) -- +(1,0) coordinate (ref);
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm]{angle = ref--vstart--vend};
+    
+\end{tikzpicture}
+\caption{Uma escolha ruim do sistema de referência fará com que ambas as componentes do vetor aceleração sejam não nulas, o que implica em tratar ambos os eixos como movimentos acelerados.}
+\end{marginfigure}
+
+Se adotarmos um sistema de referência constituído por um eixo horizontal $x$ e um eixo vertical $y$, podemos escrever a aceleração como
+\begin{equation}
+    \vec{a} = a_x \; \versi + a_y \; \versj.
+\end{equation}
+%
+No entanto, sabemos que a aceleração gravitacional não altera velocidades horizontais, pois ela é dirigida verticalmente. Logo, $a_x \equiv 0$ e\footnote{Decompondo o vetor aceleração temos $a_x = a \cos\np[\tcdegree]{270} = 0$ e $a_y = a \sen\np[\tcdegree]{270} = -a = -g$.}
+\begin{align}
+    \vec{a} &= a_y \; \versj \\
+    &= -g \; \versj.
+\end{align}
+
+Devido a uma boa escolha do sistema de referência, podemos tratar um movimento que ocorre sob influência da aceleração gravitacional no eixo horizontal,como um movimento com \emph{velocidade constante}, enquanto no eixo vertical temos um movimento com \emph{aceleração constante}\footnote{No eixo horizontal a aceleração também é constante, afinal zero é uma constante.}. Esses dois tipos de movimento correspondem aos dois mais simples que podemos estudar. Dessa forma, o movimento de um projétil serve como um bom exemplo de aplicação da descrição vetorial das variáveis cinemáticas.
+
+\begin{figure}[b]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 2,
      interface/.style={
@@ -496,18 +657,18 @@ O movimento de um projétil ao ser lançado com velocidade que faz um ângulo co
 \caption{Lançamento oblíquo de um projétil.}
 \end{figure}
 
-Devemos ter em mente, no entanto, que vamos fazer sérias restrições ao modelo, que fazem com que ele não possa ser aplicado de maneira realista para muitas situações: vamos desconsiderar a força de arrasto do ar, vamos considerar que a aceleração gravitacional é uniforme, e vamos desconsiderar a rotação da Terra\footnote{O arrasto faz com que a trajetória perca o aspecto parabólico e também faz com que o ângulo de maior alcance seja maior que \np[\tcdegree]{45}, já que a força de arrasto é menor em camadas superiores da atmosfera. Se o lançamento atingir alturas e distâncias muito grandes, ele tende a descrever uma elípse, já que a aceleração gravitacional diminui com $r^{-2}$. Finalmente, devido à força de Coriolis, característica de referenciais girantes, temos que a ``parábola'' descrita pelo projétil não está contida num plano.} . Todos esses fatores podem ser muito relevantes para lançamentos a longas distâncias. Apesar disso, tais restrições não prejudicam a principal característica na qual estamos interessados: temos um movimento bidimensional que pode ser descrito de maneira simples.
+Devemos ter em mente, no entanto, que vamos fazer sérias restrições ao modelo, que fazem com que ele não possa ser aplicado de maneira realista para muitas situações: vamos desconsiderar a força de arrasto do ar, vamos considerar que a aceleração gravitacional é uniforme, e vamos desconsiderar a rotação da Terra\footnote[][-2.5cm]{O arrasto faz com que a trajetória perca o aspecto parabólico e também faz com que o ângulo de maior alcance seja maior que \np[\tcdegree]{45}, já que a força de arrasto é menor em camadas superiores da atmosfera. Se o lançamento atingir alturas e distâncias muito grandes, ele tende a descrever uma elípse, já que a aceleração gravitacional diminui com $r^{-2}$. Finalmente, devido à força de Coriolis, característica de referenciais girantes, como é o caso de um referencial fixado na superfície da Terra, temos que a ``parábola'' descrita pelo projétil não está contida num plano.}. Todos esses fatores podem ser muito relevantes para lançamentos a longas distâncias. Apesar disso, tais restrições não prejudicam a principal característica na qual estamos interessados: temos um movimento bidimensional que pode ser descrito de maneira simples.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sistema de referência}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Descrição do movimento de um projétil em termos de um eixo horizontal e um eixo vertical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para descrever o lançamento, vamos considerar que o projétil tem uma velocidade inicial $\vec{v}_i$ cujo módulo $v_i$ e o ângulo em relação à horizontal $\theta$ são conhecidos. Vamos estabelecer um sistema de referência bidimensional para descrever o movimento, tomando um eixo horizontal (eixo $x$) e um vertical (eixo $y$). Essa escolha é a mais adequada pois permite que \emph{haja aceleração somente no eixo vertical $y$}. Isso significa que o movimento no eixo horizontal $x$ é um movimento com \emph{velocidade constante}, enquanto no eixo $y$ temos que\footnote{Note que o sinal negativo reflete o fato de que a aceleração da gravidade aponta no \emph{sentido negativo} do eixo $y$. Se tomássemos um eixo $y$ cujo sentido fosse para baixo, então a aceleração da gravidade seria positiva.}
+Para descrever o lançamento, vamos considerar que o projétil tem uma velocidade inicial $\vec{v}_i$ cujo módulo $v_i$ e o ângulo em relação à horizontal $\theta$ são conhecidos. Conforme vimos na seção anterior, devemos estabelecer um sistema de referência bidimensional para descrever o movimento, tomando um eixo horizontal $x$ e um vertical $y$ ---~cujo sentido positivo aponta para cima~---, sendo que essa escolha é a mais adequada pois permite que \emph{haja aceleração somente no eixo vertical $y$}. Isso significa que o movimento no eixo horizontal $x$ é um movimento com \emph{velocidade constante}, enquanto no eixo $y$ temos que\footnote{Note que o sinal negativo reflete o fato de que a aceleração da gravidade aponta no \emph{sentido negativo} do eixo $y$. Se tomássemos um eixo $y$ cujo sentido fosse para baixo, então a aceleração da gravidade seria positiva.}
 \begin{equation}
-	a = -g,
+	a_y = -g.
 \end{equation}
 %
-o que implica que o movimento pode ser descrito nesse eixo pelas expressões para aceleração constante estudadados no Capítulo~\ref{Chap:MovimentoUnidimensional}
+A existência de uma aceleração constante no eixo vertical implica que o movimento pode ser descrito (nesse eixo) pelas expressões para o movimento com aceleração constante estudados no Capítulo~\ref{Chap:MovimentoUnidimensional}
 
 \begin{marginfigure}
 \centering
@@ -535,7 +696,7 @@ o que implica que o movimento pode ser descrito nesse eixo pelas expressões par
 \end{marginfigure}
 
 Em termos dos eixos $x$ e $y$, o vetor velocidade inicial pode ser escrito como
-obtendo
+sendo
 \begin{equation}
   \vec{v}_i = v_{i}^{x} \versi + v_{i}^{y} \versj,
 \end{equation}
@@ -550,7 +711,7 @@ onde
 \paragraph{Eixo $x$: Movimento com velocidade constante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Analisando o movimento no eixo $x$, temos uma velocidade inicial -- dada por $v_{i}^{x} = v_i\cos\theta$ -- e \emph{não temos nenhuma aceleração}. Como podemos analisar o movimento em cada eixo de maneira completamente independente dos demais, concluímos que
+Analisando o movimento no eixo $x$, temos uma velocidade inicial ---~dada por $v_{i}^{x} = v_i\cos\theta$~--- e \emph{não temos nenhuma aceleração}. Como podemos analisar o movimento em cada eixo de maneira completamente independente dos demais, concluímos que
 \begin{align}
   v_{i}^x &= \text{constante} \\
   x_{f} &= x_{i} + v_{i}^x t.\label{Eq:PosXProj}
@@ -563,22 +724,23 @@ Analisando o movimento no eixo $x$, temos uma velocidade inicial -- dada por $v_
 Verticalmente, temos um movimento com aceleração constante, dirigida para baixo. Se adotarmos o eixo $y$ crescendo para cima, a partir das Equações~\eqref{Eq:VV0AT} e~\eqref{Eq:XX0V0TAT22}, temos
 \begin{align}
   v_{f}^y &= v_{i}^y - a^y t \\
-  &= v_{i}^y - g t \\
-  y_f &= y_i + v_{i}^y t - \frac{g}{2}t^2. \label{Eq:PosYProj}
+  &= v_{i}^y - g t, \\
+  y_f &= y_i + v_{i}^y t + \frac{a}{2}t^2 \\
+  &= y_i + v_{i}^y t - \frac{g}{2}t^2. \label{Eq:PosYProj}
 \end{align}
 %
 Além das expressões acima, podemos utilizar as demais que também se aplicam ao movimento com aceleração constante:
 \begin{align}
 	y_f &= y_i + v_f^y t - \frac{(-g)t^2}{2} \\
 	y_f &= y_i + \frac{v_i^y + v_f^y}{2} t \\
-	(v_f^y)^2 &= (v_i^y)^2 - 2 g \Delta x.
+	(v_f^y)^2 &= (v_i^y)^2 - 2 g \Delta y. \label{Eq:TorricelliMovProj}
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equações para o movimento de projéteis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para explorar melhor as características do movimento de projéteis, vamos a seguir determinar algumas expressões que nos permitem calcular alguns resultados interessantes para o lançamento de projéteis. É importante frizar que elas podem ser aplicadas a vários exercícios/problemas, porém elas não são suficientes para esgotar os resultados interessantes que podem ser retirados do movimento balístico. Muitas vezes seremos obrigados a obter resultados parciais para que possamos resovê-los.
+Para explorar melhor as características do movimento de projéteis, a seguir vamos determinar algumas expressões que nos permitem calcular alguns resultados interessantes para o lançamento de projéteis. É importante frisar que elas podem ser aplicadas a vários exercícios/problemas, porém não são suficientes para esgotar os resultados que podem ser retirados do movimento balístico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Altura máxima}
@@ -607,12 +769,7 @@ Para explorar melhor as características do movimento de projéteis, vamos a seg
 \caption{Altura máxima em relação ao ponto de lançamento.}
 \end{marginfigure}
 
-A partir da equação acima, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Utilizando a equação de Torricelli, obtemos\footnote[][-1cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
-\begin{equation}
-  (v_{f}^{y})^2 = (v_{i}^{y})^2 - 2 g \Delta y.
-\end{equation}
-%
-Substituindo $v_{f}^{y} = 0$ e $v_{i}^{y} = v_i\sen\theta$, obtemos
+A partir da Equação~\eqref{Eq:TorricelliMovProj}, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Empregando a expressão~\eqref{Eq:TorricelliMovProj}, substituindo $v_{f}^{y} = 0$ e $v_{i}^{y} = v_i\sen\theta$, obtemos\footnote[][-1cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
 \begin{equation}
   v_i\sen\theta = 2g\Delta y,
 \end{equation}
@@ -676,6 +833,38 @@ Utilizando a relação trigonométrica $\sen 2\theta = 2 \sen\theta\cos\theta$, 
 \caption{Alcance em relação ao ponto de lançamento.}
 \end{marginfigure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Alcance máximo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Através da Expresão~\eqref{Eq:Alcance}, podemos verificar que para um mesmo valor de velocidade $v_i$, obtemos distâncias diferentes de acordo com diferentes valores para o ângulo $\theta$ de lançamento. Através da Figura~\ref{Fig:SenoLimitado}, podemos notar que a função seno é limitada, e seu valor máximo é 1, o que corresponde a um ângulo de \np[\tcdegree]{90}. Essa observação nos permite determinar que quando o argumento $2\theta$ que aparece na expressão para o alcance $R$ for igual a \np[\tcdegree]{90}, teremos o alcance máximo. Logo,
+\begin{equation}
+	2\theta = \np[\tcdegree]{90}
+\end{equation}
+%
+o que implica em
+\begin{equation}
+	\theta = \np[\tcdegree]{45}
+\end{equation}
+%
+para o ângulo de máximo alcance.
+
+\begin{marginfigure}[-4cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[->] (0,0) -- (4,0);
+    \draw[->] (0,-1.5) -- (0,2);
+    
+    \draw[dashdotted, smooth, samples=1000, domain=0:2.75]
+		plot (\x, {sin(4*\x r)});
+
+	\draw[dotted] (0,1) node[left]{1} -- (3,1);
+	\draw[dotted] (0,-1) node[left]{-1} -- (3,-1);
+    
+\end{tikzpicture}
+\caption{A função seno é limitada a valores dentro do intervalo $[-1,1]$.\label{Fig:SenoLimitado}}
+\end{marginfigure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Distância horizontal percorrida}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -723,38 +912,6 @@ Note que mesmo que a diferença de altura seja conhecida, não temos como determ
 \begin{equation}
 	\Delta x = v_{i}^{x} t.
 \end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Alcance máximimo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Através da Expresão~\eqref{Eq:Alcance}, podemos verificar que para um mesmo valor de velocidade $v_i$, obtemos distâncias diferentes de acordo com diferentes valores para o ângulo $\theta$ de lançamento. Através da Figura~\ref{Fig:SenoLimitado}, podemos notar que a função seno é limitada, e seu valor máximo é 1, o que corresponde a um ângulo de \np[\tcdegree]{90}. Essa observação nos permite determinar que quando o argumento $2\theta$ que aparece na expressão para o alcance $R$ for igual a \np[\tcdegree]{90}, teremos o alcance máximo. Logo,
-\begin{equation}
-	2\theta = \np[\tcdegree]{90}
-\end{equation}
-%
-o que implica em
-\begin{equation}
-	\theta = \np[\tcdegree]{45}
-\end{equation}
-%
-para o ângulo de máximo alcance.
-
-\begin{marginfigure}[-4cm]
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \draw[->] (0,0) -- (4,0);
-    \draw[->] (0,-1.5) -- (0,2);
-    
-    \draw[dashdotted, smooth, samples=1000, domain=0:2.75]
-		plot (\x, {sin(4*\x r)});
-
-	\draw[dotted] (0,1) node[left]{1} -- (3,1);
-	\draw[dotted] (0,-1) node[left]{-1} -- (3,-1);
-    
-\end{tikzpicture}
-\caption{A função seno é limitada a valores dentro do intervalo $[-1,1]$.\label{Fig:SenoLimitado}}
-\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Equação para a trajetória}
@@ -1011,7 +1168,6 @@ Finalmente, obtemos para a altura da mesa
 	  &= \np[m]{0,68}.
 \end{align}
 
-\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Arremesso sobre obstáculo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1135,7 +1291,7 @@ Em situações mais complexas, podemos ter uma composição dos dois efeitos da 
    \caption{Em um movimento circular com velocidade constante, o vetor $\Delta\vec{v}$ aponta para o centro da trajetória quando disposto exatamente no ponto intermediário entre as posições inicial e final. Essa é a mesma direção que a aceleração média, consequentemente, quando tomamos o limite $\Delta t \to 0$ e aproximamos os pontos, verificamos que a aceleração instantânea aponta para o centro da trajetória.\label{Fig:Acel_mov_cir_unif}}
 \end{marginfigure}
 
-Analisando o movimento circular ---~restrito ao caso de velocidade constante em módulo~---, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~\ref{Fig:Acel_mov_cir_unif} vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores velocidade que têm o mesmo módulo, porém direções diferentes. Se calcularmos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta perpendicularmente à trajetória quando disposto no ponto central entre as posições inicial e final, isto é, ele aponta para o centro da trajetória circular.
+Analisando o movimento circular restrito ao caso de velocidade constante em módulo, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~\ref{Fig:Acel_mov_cir_unif} vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores velocidade que têm o mesmo módulo, porém direções diferentes. Se calcularmos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta perpendicularmente à trajetória quando disposto no ponto central entre as posições inicial e final, isto é, ele aponta para o centro da trajetória circular.
 
 Sabemos, que o vetor aceleração média é dado por
 \begin{equation}
@@ -1144,6 +1300,15 @@ Sabemos, que o vetor aceleração média é dado por
 %
 Portanto, mesmo no caso de $v$ constante, temos uma aceleração caso ocorram mudanças na direção do vetor velocidade. Podemos calcular o módulo desta aceleração se considerarmos a Figura~\ref{Fig:Acel_mov_cir_unif_mod}. Inicialmente uma partícula ocupa a posição $\vec{r}_i$, com velocidade $\vec{v}_i$ no instante $t_i$. Após um intervalo de tempo, ela passa a ocupar a posição $\vec{r}_f$, com velocidade $\vec{v}_f$ no instante $t_f$. Vamos assumir que $v_i = v_f = v$ e que $r_i = r_f = r$. 
 
+Verificamos que existe um ângulo $\theta$ entre os vetores $\vec{r}_i$ e $\vec{r}_f$. Além disso, como $r_i = r_f = r$, temos que os outros dois ângulos do triângulo são $\alpha$. Podemos utilizar a lei dos senos para estabelecer a seguinte relação:
+\begin{equation}
+    \frac{\Delta r}{\sen \theta} = \frac{r}{\sen \alpha},
+\end{equation}
+%
+ou, equivalentemente,
+\begin{equation}
+    \frac{\Delta r}{r} = \frac{\sen \theta}{\sen \alpha}.
+\end{equation}
 
 \begin{marginfigure}
 \centering
@@ -1172,16 +1337,6 @@ Portanto, mesmo no caso de $v$ constante, temos uma aceleração caso ocorram mu
    \end{tikzpicture}
    \caption{Triângulos formados pelos vetores $\vec{r}_i$, $\vec{r}_f$, e $\Delta \vec{r}$ e pelos vetores $\vec{v}_i$, $\vec{v}_f$, e $\Delta\vec{v}$. Note que este último foi ampliado em relação à Figura~\ref{Fig:Acel_mov_cir_unif} unicamente para facilitar a visualização.\label{Fig:Acel_mov_cir_unif_mod}}
 \end{marginfigure}
-
-Verificamos que existe um ângulo $\theta$ entre os vetores $\vec{r}_i$ e $\vec{r}_f$. Além disso, como $r_i = r_f = r$, temos que os outros dois ângulos do triângulo são $\alpha$. Podemos utilizar a lei dos senos para estabelecer a seguinte relação:
-\begin{equation}
-    \frac{\Delta r}{\sen \theta} = \frac{r}{\sen \alpha},
-\end{equation}
-%
-ou, equivalentemente,
-\begin{equation}
-    \frac{\Delta r}{r} = \frac{\sen \theta}{\sen \alpha}.
-\end{equation}
 
 Os vetores velocidade inicial e final são perpendiculares aos vetores posição inicial e final, respectivamente. Portanto, o ângulo formado pelos vetores velocidade é o mesmo ângulo formado pelos vetores posição, isto é, o ângulo $\theta$.\footnote{Imagine o seguinte: o vetor $\vec{r}_i$ é girado por um ângulo $\theta$ para se tornar o vetor $\vec{r}_f$. Essa rotação também afeta o vetor velocidade $\vec{v}_i$ o transformando no vetor $\vec{v}_f$, pois a relação de perpendicularidade entre o vetor velocidade e o vetor posição se mantém para todos os pontos em um movimento circular.} Além disso, como $v_i = v_f = v$, os demais ângulos são iguais entre si e são iguais ao mesmo ângulo $\alpha$ que aparece no triângulo formado pelos vetores posição e deslocamento. Aplicando novamente a lei dos senos, obtemos
 \begin{equation}
@@ -1223,7 +1378,7 @@ Verificamos no início desta seção que a aceleração média aponta para o cen
   a_c = \frac{v^2}{r}. \mathnote{Módulo da aceleração centrípeta}
 \end{equation}
 %
-Essa aceleração é responsável por alterar constantemente a direção do vetor velocidade, possibilitando que a partícula execute um movimento curvilíneo. Veremos adiante que ela está relacionada à força resultante que deve ser exercida por um agente externo para que uma partícula execute um movimento circular com velocidade $v$ e raio $r$.
+Essa aceleração é responsável por alterar constantemente a direção do vetor velocidade, possibilitando que a partícula execute um movimento curvilíneo. Veremos no próximo capítulo que ela está relacionada à força resultante que deve ser exercida por um agente externo para que uma partícula execute um movimento circular com velocidade $v$ e raio $r$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Decomposição da aceleração em componentes tangencial e centrípeta}
@@ -1238,12 +1393,12 @@ e no caso específico de um movimento circular com velocidade constante, ela apo
 
 No caso de termos um movimento curvilíneo com velocidade constante, porém não circular, temos que a aceleração centrípeta não é constante. Se temos uma curvatura que se ``fecha'' paulatinamente, isto é, se o raio de curvatura diminui progressivamente, a aceleração centrípeta aumenta. Se ocorre o contrário, a curvatura se ``abre'' e o raio aumenta, temos que a aceleração centrípeta diminui. De qualquer forma, podemos calcular \emph{instantaneamente} a aceleração através da Expressão~\ref{Eq:AceleracaoCentripeta}.
 
-Quando ocorre uma alteração do módulo da velocidade, podemos determinar a aceleração simplesmente calculando a razão $\Delta v/\Delta t$. Temos então dois efeitos possíveis da aceleração: um deles é alterar o módulo da velocidade, o outra é alterar a direção do vetor velocidade. Tais efeitos podem ocorrer isoladamente, como num movimento retilíneo com velocidade variável -- onde ocorre somente o primeiro --, ou num movimento circular com velocidade constante -- onde ocorre somente o segundo --, ou podem ocorrer \emph{ao mesmo tempo}.
+Quando ocorre uma alteração do módulo da velocidade, podemos determinar a aceleração simplesmente calculando a razão $\Delta v/\Delta t$. Como discutimos anteriormente, temos então dois efeitos possíveis da aceleração: um deles é alterar o módulo da velocidade, o outra é alterar a direção do vetor velocidade. Tais efeitos podem ocorrer isoladamente, como num movimento retilíneo com velocidade variável ---~onde ocorre somente o primeiro~---, ou num movimento circular com velocidade constante ---~onde ocorre somente o segundo~---, ou podem ocorrer \emph{ao mesmo tempo}.
 
 O caso de ambos os efeitos ocorrerem conjuntamente é, na prática, o mais comum: um carro que trafega por uma rodovia, por exemplo, executa curvas e altera sua velocidade a todo momento, e em inúmeras vezes, essas mudandas de direção e de módulo da velocidade acontecem concomitantemente. Apesar de termos dois papéis distintos para a aceleração, temos \emph{somente um vetor aceleração}. No entanto, \emph{podemos decompor o vetor aceleração em duas componentes} cujos efeitos correspondem aos discutidos acima, isto é, mudar a direção e o módulo da velocidade. 
 
 % adaptado de https://tex.stackexchange.com/questions/25928/how-to-draw-tangent-line-of-an-arbitrary-point-on-a-path-in-tikz
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth,scale=2.6,
     tangent/.style={
@@ -1292,27 +1447,16 @@ Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajet
     a_r = a_c = \frac{v^2}{r}.
   \end{equation}
   Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade. Podemos entender isso se considerarmos que se só existisse essa componente, então teríamos um movimento circular, onde somente a direção do vetor velocidade é alterada.
-  \item[Componente tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória -- ou seja, na direção perpendicular ao eixo radial --. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade. Isso pode ser entendido se imaginarmos que houvesse somente essa componente da aceleração. Nesse caso, a aceleração seria na própria direção da velocidade, portanto ao calcularmos a velocidade final após um intervalo $\delta t$,
-  \begin{equation}
+  \item[Componente tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória ---~ou seja, na direção da velocidade instantânea~---. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade. Isso pode ser entendido se imaginarmos que houvesse somente essa componente da aceleração agindo por um intervalo de tempo infinitesimal. Nesse caso, a aceleração seria na própria direção da velocidade, portanto ao calcularmos a velocidade final após um intervalo $\delta t$ através de
+\begin{equation}
     \vec{v}_f = \vec{v}_i + \vec{a} \delta t,
-  \end{equation}
+\end{equation}
 %
 percebemos que estamos somando dois vetores colineares. Logo, o resultado $\vec{v}_f$ de tal soma se mantém na mesma direção que os termos do lado direito na equação acima. Assim, temos que
 \begin{equation}
-  v_f = v_i + a_t t. \\
+  v_f = v_i + a_t t. \mathnote{Evolução do módulo da velocidade para um movimento com aceleração tangencial constante.}
 \end{equation}
 \end{description}
-
-\begin{marginfigure}
-\centering
-
-\begin{tikzpicture}[>=Stealth]
-    \draw[->] (0,0) -- node[above]{$\vec{v}_0$} +(1,0);
-    \draw[->] (1,0) -- node[above]{$\vec{a} \delta t$} +(0.5,0);
-    \draw[->] (0,-0.3) -- node[below]{$\vec{v}_f$} +(1.5,0);
-\end{tikzpicture}
-\caption{Caso o vetor aceleração seja colinear à velocidade instantânea, o vetor velocidade final também o é. Isto é, a aceleração só poderá mudar o módulo da velocidade. Esse raciocínio também vale quando estamos tratando o eixo tangencial à trajetória, que é justamente o eixo da velocidade instantânea; nesse caso utilizamos a aceleração tangencial para determinar a variação da velocidade (em módulo).}
-\end{marginfigure}
 
 Caso conheçamos ambas as componentes da aceleração -- o que é bastante comum, uma vez que é mais fácil determinar o módulo da velocidade e eventuais alterações desse valor, o que nos dará os valores de $a_c$ e de $a_t$ -- podemos determinar o vetor $\vec{a}$ utilizando as relações
 \begin{align}
@@ -1370,7 +1514,7 @@ onde $\theta$ é o ângulo que o vetor $\vec{a}$ faz com a direção tangencial.
 	\draw[dotted] (a) -- (at) (a) -- (ac);
 
 \end{tikzpicture}
-\caption{Se conhecermos as componentes tangencial e centrípeta, através das propriedades dos vetores podemos determinar o módulo e o ângulo do vetor aceleração em relação à direção tangente à trajetória.\label{Fig:Decomp_acel_tan_centrip_mod_vet_acel}}
+\caption{Se conhecemos as componentes tangencial e centrípeta, através das propriedades dos vetores podemos determinar o módulo e o ângulo do vetor aceleração em relação à direção tangente à trajetória.\label{Fig:Decomp_acel_tan_centrip_mod_vet_acel}}
 \end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1381,10 +1525,10 @@ Através das componentes radial e tangencial, se ---~por exemplo~--- necessitarm
 
 Em uma análise análoga àquela realizada no Capítulo~\ref{Chap:MovimentoUnidimensional}, verificamos que a posição $s$ de um corpo sujeito a uma aceleração tangencial $a_t$ constante é dada por
 \begin{equation}
-  s_f = s_i + v_i t + \frac{a_t t^2}{2}.
+  s_f = s_i + v_i t + \frac{a_t t^2}{2}.\mathnote{Evolução temporal da posição ao longo de uma trajetória curvilínea para o caso de aceleração tangencial constante.}
 \end{equation}
 %
-De fato, podemos reobter todos os resultados que verificamos para a cinemática unidimensional nesse contexto de deslocamento em uma trajetória curvilínea, sendo que a única diferença é a de que devemos substituir a aceleração $a$ pela componente tangencial $a_t$. Note porém que nesse movimento a velocidade não é constante e, portanto, temos que a componente centrípeta $a_c$ da aceleração aumenta ou diminui à medida que velocidade e/ou o raio da trajetória muda.
+De fato, podemos reobter todos os resultados que verificamos para a cinemática unidimensional nesse contexto de deslocamento em uma trajetória curvilínea, sendo que a única diferença é a de que devemos substituir a aceleração $a$ pela componente tangencial $a_t$. Note porém que nesse movimento a direção do vetor  velocidade não é constante e, portanto, temos que a componente centrípeta $a_c$ da aceleração aumenta ou diminui à medida que velocidade e/ou o raio da trajetória muda.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Componentes da aceleração de um carro em uma pista circular}
@@ -1394,7 +1538,7 @@ De fato, podemos reobter todos os resultados que verificamos para a cinemática 
 Em um certo instante, um carro se desloca em uma pista circular com velocidade $v = \np[m/s]{7,0}$, sendo que ele está sujeito a uma aceleração cuja componente na direção tangencial à trajetória é dada por $a_t = \np[m/s^2]{0,60}$. O raio $r$ da pista é de \np[m]{500,0}.
 \begin{itemize}
 	\item[(a)] Quais são o módulo e o ângulo do vetor aceleração $\vec{a}$ em relação à direção tangencial à trajetória nesse instante?
-	\item[(b)] Quais são o módulo e o ângulo do vetor aceleração em relação à direção tangencial após \np[s]{120}?
+	\item[(b)] Quais são o módulo e o ângulo do vetor aceleração em relação à direção tangencial após \np[s]{120}, assumindo que a aceleração tangencial se mantenha a mesma?
 	\item[(b)] Supondo que o piloto do veículo suporte uma aceleração máxima de módulo $5g$, isto é, cinco vezes a aceleração da gravidade, quanto tempo ele pode manter a aceleração tangencial mencionada antes de perder a consciência?
 \end{itemize}
 \end{quote}
@@ -1428,7 +1572,7 @@ Na Figura~\ref{Fig:FiguraProblemaMovCircCarroAcelerando} temos uma representaç�
 	\draw[densely dotted, ->] (-60:2) -- (-60:0.5) node[below left]{$y$};
 
 \end{tikzpicture}
-\caption{lorem ipsum dolor sihet amet contribus longus captionus co tambe curtas palavrorum.\label{Fig:FiguraProblemaMovCircCarroAcelerando}}
+\caption{Vetores aceleração e velocidade em um instante qualquer do movimento.\label{Fig:FiguraProblemaMovCircCarroAcelerando}}
 \end{marginfigure}
 
 Como vimos ao analisar o movimento circular, as componentes da aceleração nos eixos tangencial e radial têm papeis distintos, e vemos que o problema nos dá o valor da componente tangencial:
@@ -1564,7 +1708,7 @@ onde usamos o fato de que $v_i = 0$. Obtemos então
 
 Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo no solo. Assim, quando um ônibus passa, a velocidade que atribuímos a seus passageiros é a mesma do próprio ônibus, caso eles estejam sentados. Se fixarmos o referencial no piso do ônibus, veremos que a velocidade dos passageiros é nula. Portanto, a velocidade que medimos depende do referencial adotado. Isso se deve ao fato de que a própria posição depende do referencial.
 
-\begin{figure}[!h]\forceversofloat
+\begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1659,6 +1803,11 @@ Podemos ainda calcular as transformações para a aceleração através de um c�
 \end{equation}
 %
 Temos um interesse particular nessa equação devido ao conceito de \emph{referencial inercial}. Veremos adiante que as Leis de Newton só têm validade dentro de um referencial inercial, que é um referencial que não está submetido a acelerações. Dessa forma, se ---~por exemplo~--- o referencial $S$ for um referencial inercial, o referencial $S'$ só será inercial se a aceleração $\vec{a}_{S'S}$ for igual a zero. Um referencial não inercial pode ser identificado quando surgem forças ``inexplicáveis''. Um exemplo disso é quando estamos em carro que acelera para a frente e verificamos que um objeto suspenso se desloca para trás, como se tivesse sido puxado através de um fio invisível. Dentro do referencial do carro, esta força não tem origem física aparente, só podendo ser explicada quando levamos em conta o fato de que o referencial sofre uma aceleração em relação ao solo. Mesmo no caso do solo, como temos uma rotação da Terra em torno do próprio eixo, não temos um referencial verdadeiramente inercial. Este impasse pode ser resolvido através da Primeira Lei de Newton, que veremos no próximo capítulo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Seções opcionais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usar cálculo vetorial para provar essas equações de velocidade e posição em termos da aceleração tangencial. Preciso ver uma prova mais bem feita de que a distância percorrida ao longo da trajetória seja dada por $s = s_0 + v_0 t + a_t t^2/2$.
 
 %%%%%%%%%%%%%%%%%%%%%%
 %\section{Questionário}
