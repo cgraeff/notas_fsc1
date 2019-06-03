@@ -121,11 +121,14 @@ Assim, temos
 %
 Note que o resultado acima para um sistema de partículas é análogo à própria Segunda Lei de Newton para uma partícula, Equação~\eqref{Eq:SegundaLeiMomento}, porém representa a relação entre a variação do momento linear de um sistema como um todo, quando sujeito a forças externas; como visto acima, as forças internas não são capazes de alterar o momento linear total do sistema devido ao fato de que os efeitos das forças do par ação-reação se cancelam. Verificaremos na Seção~\ref{Sec:ConservacaoMomentoLinear} que a equação acima está ligada a uma lei de conservação que será muito importante para analisarmos alguns fenômenos, como por exemplo colisões ou explosões.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Centro de massa}
-%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Sec:CentroDeMassa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para o caso partícular de um corpo rígido que translada sem sofrer rotações, podemos considerar que todas as partículas que o compõe têm velocidade dada pelo mesmo vetor $\vec{v}$:
+%\textbf{Tem uma discussão muito interessante no Landau - Mechanics que permite definir o conceito de centro de massa a partir do momento linear, pensando através de referenciais. Depois que tivermos uma boa discussão de referenciais, elaborar uma explicação alternativa a essa que temos aqui, para enriquecer o texto.}
+
+Para o caso partícular de um corpo rígido que translada sem sofrer rotações, podemos considerar que todas as partículas que o compõe têm velocidade dada pelo mesmo vetor $\vec{v}_{\rm{sis}}$:
 \begin{equation}
     \vec{v}_i \equiv \vec{v}_{\rm{sis}}.
 \end{equation}
@@ -136,10 +139,17 @@ Logo, a Segunda Lei de Newton para um sistema de partículas, Equação~\eqref{E
     &= \frac{d}{dt} \left[\sum_{i=1}^N m_i\vec{v}_i\right] \\
     &= \frac{d}{dt} \left[\sum_{i=1}^N m_i\vec{v}_{\rm{sis}}\right] \\
     &= \frac{d}{dt} \left[\left(\sum_{i=1}^N m_i\right) \vec{v}_{\rm{sis}}\right] \\
-    &= \frac{d}{dt} \left[M \vec{v}\right],
+    &= \frac{d}{dt} \left[M \vec{v}_{\rm{sis}}\right],
 \end{align}
 %
-onde usamos $\vec{P}_{\rm{sis}} = \sum \vec{p}_i$, $\vec{p}_i = m_i\vec{v}_i$, e $M = \sum m_i$. Se considerarmos que a massa total $M$ é constante, temos
+onde usamos
+\begin{align}
+    \vec{P}_{\rm{sis}} &= \sum \vec{p}_i \\
+    \vec{p}_i &= m_i\vec{v}_i, \\
+    M &= \sum m_i.
+\end{align}
+%
+Se considerarmos que a massa total $M$ é constante, temos
 \begin{equation}\label{Eq:SegundaLeiSistemaDeParticulasMConst}
 	\vec{F}_{R}^{\rm{ext}} = M \vec{a}_{\rm{sis}}. \mathnote{Segunda Lei de Newton para um sistema com massa total constante}
 \end{equation}
@@ -153,7 +163,7 @@ A equação acima nos mostra que o tratamento de um corpo rígido sujeito a uma 
     &= \frac{d}{dt} \vec{v}_{\rm{CM}},
 \end{align}
 %
-onde $\vec{r}_{\rm{CM}}$ denota a posição\footnote{Determinaremos a posição do centro de massa na próxima seção.} do centro de massa. Também temos que
+onde $\vec{r}_{\rm{CM}}$ denota a posição\footnote{Determinaremos a posição do centro de massa para um sistema de partículas na próxima seção.} do centro de massa. Também temos que
 \begin{align}
     \vec{P}_{\rm{CM}} &= \vec{P}_{\rm{sis}} \\
     &= M \vec{v}_{\rm{CM}}.
@@ -198,7 +208,7 @@ e
 \caption{Ao submetermos um sistema como o mostrado na figura a uma força $\vec{F}$, diferentes partes apresentarão diferentes acelerações. Podemos, no entanto, descrever a aceleração \emph{coletiva} do sistema através da aceleração do centro de massa.}
 \end{marginfigure}
 
-As definições acima nos permite descrever um comportamento coletivo de um sistema de partículas mesmo quando tal comportamento não é completamente evidente. Um exemplo de um sistema que apresenta um comportamento complexo, porém que tem um movimento coletivo simples é caso em que temos dois blocos de massa $m$ ligados por uma mola, e que podem deslisar sobre uma superfície sem atrito. Ao exercermos uma força $\vec{F}$ lateral sobre um dos blocos, a aceleração de cada um deles será diferente, variando conforme o estado da compressão/distensão da mola: inicialmente a mola estará relaxada e a aceleração do bloco da esquerda será dada por
+As definições acima nos permitem descrever um comportamento coletivo de um sistema de partículas mesmo quando tal comportamento não é completamente evidente. Um exemplo de um sistema que apresenta um comportamento complexo, porém que tem um movimento coletivo simples é caso em que temos dois blocos de massa $m$ ligados por uma mola, e que podem deslisar sobre uma superfície sem atrito. Ao exercermos uma força $\vec{F}$ lateral sobre um dos blocos, a aceleração de cada um deles será diferente, variando conforme o estado da compressão/distensão da mola: inicialmente a mola estará relaxada e a aceleração do bloco da esquerda será dada por
 \begin{equation}
     a = \frac{F}{m},
 \end{equation}
@@ -210,12 +220,7 @@ enquanto a aceleração do bloco da direita é nula. Conforme a mola for comprim
     &\equiv a_{\rm{CM}}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Algum exemplo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%Discutir um sistema complexo onde é difícil falar na segunda lei para uma dar partículas, mas que seja fácil falar na segunda lei para o sistema como um todo. Ver exemplo 'Bolas' no Kleppner.
-
-Movimentos complexos podem ocorrer mesmo ao considerarmos corpos rígidos. Se arremessarmos um corpo extenso em um lançamento oblíquo, verificaremos que o movimento é em geral muito mais complexo que uma parábola: temos um movimento em que ele gira conforme executa a translação, o que confere a cada partícula do corpo uma posição, velocidade e aceleração diferente. No entanto, como a única força externa exercida sobre o corpo é a força peso, verificamos que a aceleração do centro de massa é dada por
+Movimentos complexos podem ocorrer mesmo ao considerarmos corpos rígidos. Se arremessarmos um corpo extenso em um lançamento oblíquo, verificaremos que as diferentes partículas do corpo movimento é em geral muito mais complexo que uma parábola: temos um movimento em que ele gira conforme executa a translação, o que confere a cada partícula do corpo uma posição, velocidade e aceleração diferente. No entanto, como a única força externa exercida sobre o corpo é a força peso, verificamos que a aceleração do centro de massa é dada por
 \begin{align}
     a_{\rm{CM}} &= \frac{F_R^{\rm{ext}}}{M} \\
     &= \frac{Mg}{M} \\
@@ -230,7 +235,7 @@ Note que a força resultante externa é dada pela soma das forças peso das dive
     &= M g.
 \end{align}
 %
-Note que o resultado acima para a aceleração do centro de massa mostra que a trajetória $\vec{r}_{\rm{CM}}(t)$ tem a forma de uma parábola.
+O resultado acima para a aceleração do centro de massa mostra que a trajetória $\vec{r}_{\rm{CM}}(t)$ tem a forma de uma parábola.
 
 \begin{marginfigure}
 \centering
@@ -298,9 +303,9 @@ O fato de que as forças durante a explosão são internas implica então em uma
 \caption{Em uma explosão, as forças efetuadas sobre as várias partes do corpo que explode são internas. Nesse caso, o movimento do centro de massa não é afetado.\label{Fig:ExplosaoProjetil}}
 \end{marginfigure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Centro de massa de um sistema de partículas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Para determinarmos a posição do centro de massa de um sistema de partículas, basta partirmos das Equações~\eqref{Eq:SegundaLeiSistemaDeParticulas} e~\eqref{Eq:defPosCMEmTermosDeForcaRes} para a força resultante externa. Igualando ambas as expressões, temos que
 \begin{align}
@@ -328,8 +333,8 @@ Note que a equação acima pode ser decomposta nos eixos $x$, $y$, e $z$:
     z_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i z_i
 \end{align}
 \end{subequations}
-
-Note que o centro de massa não precisa estar localizado em um ponto que ``pertença'' a um corpo: no caso de duas partículas de mesma massa, por exemplo, separadas por uma distância $d$, a posição do centro de massa é ao longo da reta que une ambas as partículas, a uma distância $d/2$ de cada uma delas.
+%
+Veja também que o centro de massa não precisa estar localizado em um ponto que ``pertença'' a um corpo: no caso de duas partículas de mesma massa, por exemplo, separadas por uma distância $d$, a posição do centro de massa é ao longo da reta que une ambas as partículas, a uma distância $d/2$ de cada uma delas.
 
 \begin{marginfigure}
 \centering
@@ -344,16 +349,24 @@ Note que o centro de massa não precisa estar localizado em um ponto que ``perte
 \caption{O centro de um conjunto de corpos pode estar localizado no espaço entre eles.}
 \end{marginfigure}
 
+Finalmente, devemos notar que as demais variáveis cinemáticas podem ser obtidas através da equação para a posição, bastando utilizar derivadas:
+\begin{align}
+    \vec{v}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{v}_i \label{Eq:VelCMPart}\\
+    \vec{a}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{a}_i. \label{Eq:AcelCMPart}
+\end{align}
+%
+É interessante notar a partir das expressões acima que se não há um ``movimento coletivo'' das partículas do sistema, como o que acontece para um corpo rígido, os valores de velocidade e aceleração do centro de massa que é difícil de prever intuitivamente.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Centro de massa de um conjunto de partículas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
-    As partículas mostradas na Figura~\ref{Fig:Ex:CMParticulas} têm massa $m$. Se suas posições são
+    As partículas mostradas na Figura~\ref{Fig:Ex:CMParticulas} têm massa $m_1 = m_2 = m$ e $m_3 = 2m$. Se suas posições são
         \begin{align}
             \vec{r}_1 &= \np[m]{1} \, \versi + \np[m]{1} \, \versj \\
-            \vec{r}_2 &= \np[m]{3} \, \versi + \np[m]{2} \, \versj \\
-            \vec{r}_3 &= \np[m]{1.5} \, \versi + \np[m]{2.5} \, \versj,
+            \vec{r}_2 &= \np[m]{1.5} \, \versi + \np[m]{2.5} \, \versj \\
+            \vec{r}_3 &= \np[m]{3} \, \versi + \np[m]{2} \, \versj,
         \end{align}
 determine a posição do centro de massa do sistema.
 \end{quote}
@@ -364,9 +377,9 @@ determine a posição do centro de massa do sistema.
     \draw[->] (0,0) -- (4,0) node[below left]{$x$ (m)};
     \draw[->] (0,0) -- (0,3) node[below left]{$y$ (m)};
     
-    \draw[pattern = north west lines] (1,1) circle (1mm);
-    \draw[pattern = north west lines] (3,2) circle (1.5mm);
-    \draw[pattern = north west lines] (1.5,2.5) circle (1.2mm);
+    \draw[pattern = north west lines] (1,1) circle (1mm) node[above left]{$m_1$};
+    \draw[pattern = north west lines] (3,2) circle (1.5mm) node[above right]{$m_3$};
+    \draw[pattern = north west lines] (1.5,2.5) circle (1mm) node[above left]{$m_2$};
     
 \end{tikzpicture}
 \caption{Sistema composto por três partículas.\label{Fig:Ex:CMParticulas}}
@@ -375,21 +388,21 @@ determine a posição do centro de massa do sistema.
 De acordo com as Expressões~\ref{Eq:CMConjuntoDeParticulasEixos}, podemos determinar a posição do centro de massa através de
 \begin{align}
     x_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i x_i \\
-    &= \frac{1}{3m} [m\cdot(\np[m]{1}) + m\cdot(\np[m]{3}) + m\cdot(\np[m]{1.5})] \\
-    &= \frac{1}{3} (\np[m]{5,5}) \\
-    &= \np[m]{1,83}.
+    &= \frac{1}{4m} [m\cdot(\np[m]{1}) + m\cdot(\np[m]{1.5}) + 2m\cdot(\np[m]{3})] \\
+    &= \frac{1}{4} (\np[m]{8,5}) \\
+    &= \np[m]{2,125}.
 \end{align}
 %
 \begin{align}
     y_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i y_i \\
-    &= \frac{1}{3m} [m\cdot(\np[m]{1}) + m\cdot(\np[m]{2}) + m\cdot(\np[m]{2.5})] \\
-    &= \frac{1}{3} (\np[m]{5,5}) \\
-    &= \np[m]{1,83}.
+    &= \frac{1}{4m} [m\cdot(\np[m]{1}) + m\cdot(\np[m]{2.5}) + 2m\cdot(\np[m]{2})] \\
+    &= \frac{1}{4} (\np[m]{7,5}) \\
+    &= \np[m]{1,875}.
 \end{align}
 %
 Logo,
 \begin{equation}
-    \vec{r}_{\rm{CM}} = \np[m]{1,83} \, \versi + \np[m]{1,83} \, \versj.
+    \vec{r}_{\rm{CM}} = \np[m]{2,125} \, \versi + \np[m]{1,875} \, \versj.
 \end{equation}
 
 \begin{marginfigure}[-2cm]
@@ -398,26 +411,86 @@ Logo,
     \draw[->] (0,0) -- (4,0) node[below left]{$x$ (m)};
     \draw[->] (0,0) -- (0,3) node[below left]{$y$ (m)};
     
-    \draw[pattern = north west lines] (1,1) circle (1mm);
-    \draw[pattern = north west lines] (3,2) circle (1.5mm);
-    \draw[pattern = north west lines] (1.5,2.5) circle (1.2mm);
+    \draw[pattern = north west lines] (1,1) circle (1mm) node[above left]{$m_1$};
+    \draw[pattern = north west lines] (3,2) circle (1.5mm) node[above right]{$m_3$};
+    \draw[pattern = north west lines] (1.5,2.5) circle (1mm) node[above left]{$m_2$};
     
-    \draw (1.83,1.83) circle (1pt) node[below]{CM};
+    \draw (2.125,1.875) circle (1pt) node[below]{CM};
     
 \end{tikzpicture}
 \caption{Posição do centro de massa do sistema.\label{Fig:Ex:CMParticulas}}
 \end{marginfigure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Velocidade do centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quote}
+    Suponha que as partículas do exemplo anterior tenham velocidades dadas por
+    \begin{align}
+        \vec{v}_1 &= \np[m/s]{1,5} \, \versi + \np[m/s]{4,9} \, \versj \\
+        \vec{v}_2 &= \np[m/s]{-2.4} \, \versi + \np[m/s]{0,9} \, \versj \\
+        \vec{v}_3 &= \np[m/s]{0,45} \, \versi + \np[m/s]{-1,9} \, \versj.
+    \end{align}
+Determine a velocidade do centro de massa do sistema.
+\end{quote}
 
-% exemplo clássico de uma pessoa que se move em um barco: tanto o barco quanto a pessoa se movem e o CM permanece no mesmo lugar.
+Usando a Equação~\ref{Eq:VelCMPart}, podemos determinar a velocidade do cento de massa através de
+\begin{align}
+    v^x_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i v^x_i \\
+    &= \frac{1}{4m} [m\cdot(\np[m/s]{1.5}) + m\cdot(\np[m/s]{-2.4}) + 2m\cdot(\np[m/s]{0,45})] \\
+    &= \frac{1}{4} (\np[m/s]{0}) \\
+    &= 0.
+\end{align}
+%
+\begin{align}
+    v^y_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i v^y_i \\
+    &= \frac{1}{4m} [m\cdot(\np[m/s]{4,9}) + m\cdot(\np[m/s]{0,9}) + 2m\cdot(\np[m/s]{-1.9})] \\
+    &= \frac{1}{4} (\np[m/s]{2}) \\
+    &= \np[m/s]{0,25}.
+\end{align}
+%
+Assim, obtemos
+\begin{equation}
+    \vec{v}_{\text{CM}} = \np[m/s]{0,25} \; \versj.
+\end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Centro de massa de um corpo extenso}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Aceleração do centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Ainda considerando as partículas dos dois exemplos anteriores, determine a aceleração do centro de massa considerando que as acelerações das partículas individualmente sejam dadas por
+\begin{align}
+    \vec{a}_1 &= \np[m/s]{18} \, \versi + \np[m/s]{22} \, \versj \\
+    \vec{a}_2 &= \np[m/s]{-3} \, \versi + \np[m/s]{15} \, \versj \\
+    \vec{a}_3 &= \np[m/s]{8,5} \, \versi + \np[m/s]{-13,6} \, \versj
+\end{align}
+\end{quote}
+
+Usando a Equação~\ref{Eq:AcelCMPart}, podemos determinar a velocidade do cento de massa através de
+\begin{align}
+    v^x_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i a^x_i \\
+    &= \frac{1}{4m} [m\cdot(\np[m/s^s]{18}) + m\cdot(\np[m/s^2]{-3}) + 2m\cdot(\np[m/s^2]{8,5})] \\
+    &= \frac{1}{4} (\np[m/s^2]{-32}) \\
+    &= \np[m/s^2]{8,0}.
+\end{align}
+%
+\begin{align}
+    v^y_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i a^y_i \\
+    &= \frac{1}{4m} [m\cdot(\np[m/s^2]{22}) + m\cdot(\np[m/s^2]{15}) + 2m\cdot(\np[m/s^2]{-13,6})] \\
+    &= \frac{1}{4} (\np[m/s^2]{9,8}) \\
+    &= \np[m/s^2]{2.45}.
+\end{align}
+%
+Assim, obtemos
+\begin{equation}
+    \vec{a}_{\text{CM}} = \np[m/s^2]{8,0} \; \versi + \np[m/s^2]{2.45} \;\versj.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Determinação da posição do Centro de massa de um corpo extenso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 No caso de um corpo extenso, não podemos utilizar a Expressão~\eqref{Eq:CMConjuntoDeParticulas} devido a razões práticas: mesmo uma pequena quantidade de matéria é composta por um número extremamente grande de partículas, cujas posições e massas não sabemos precisar com exatidão. Devido a essa dificuldade, vamos analisar algumas outras técnicas que nos permitirão determinar a posição do centro de massa de um corpo extenso.
 
@@ -586,7 +659,7 @@ Em muitos casos não é possível determinar eixos de simetria para um corpo, ou
 Verificamos que a Equação~\ref{Eq:CMConjuntoDeParticulas} é dada por uma soma sobre todas as partículas de um sistema. Se tomarmos uma placa como a da Figura~\ref{Fig:PlacaAssimetrica}, a princípio poderíamos somar sobre todas as partículas que a compõe e determinar a posição do centro de massa. Para efetuar essa soma, vamos dividir as partículas em três regiões, mostradas na Figura~\ref{Fig:PlacaAssimetricaDividida}. Podemos então escrever
 \begin{align}
     \vec{r}_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i \vec{r}_i \\
-    &= \frac{1}{M} \left[ \sum_{i}^{R_1} m_i \vec{r}_i + \sum_{i}^{R_2} m_i \vec{r}_i +\sum_{i}^{R_2} m_i \vec{r}_i\right], \label{Eq:Discretizando}
+    &= \frac{1}{M} \left[ \sum_{i}^{R_1} m_i \vec{r}_i + \sum_{i}^{R_2} m_i \vec{r}_i +\sum_{i}^{R_3} m_i \vec{r}_i\right], \label{Eq:Discretizando}
 \end{align}
 %
 onde separamos as partículas de cada região em três somas distintas.
@@ -1034,7 +1107,7 @@ Finalmente,
 
 \noindent{}Observe que o resultado é igual para todos os eixos: existem três planos que são capazes de dividir o corpo em partes simétricas, sendo que o encontro dos três se dá no eixo que passa exatamente no meio do octante formado pelos eixos $x$, $y$ e $z$ --~veja a linha ponto-tracejada na Figura~\ref{Fig:CMObj3DPosicaoCM}~--. Talvez, numa análise instintiva, pudessemos acreditar que o centro de massa estivesse mais afastado da origem, fora do corpo. Uma maneira de perceber o contrário é imaginar um plano a uma altura $y = \ell$: percebemos que a maior parte da massa está abaixo desse plano, portanto o centro de massa também deve estar abaixo do plano. Porém, por simetria, o centro de massa deve estar localizado sobre a reta tracejada. Logo, ele deve estar mais próximo da origem que o ponto $P = \ell \; \versi + \ell \; \versj + \ell \; \versk$ que é a interseção entre o plano $y = \ell$ e a reta. 
 
-\begin{figure}\forcerectofloat
+\begin{figure}
 \centering
 \begin{tikzpicture}[rotate around y = 10, rotate around z = -3]
 	% eixos
@@ -1077,15 +1150,71 @@ Finalmente,
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: Massa negativa/soma-subtração}
+\paragraph{Discussão: Determinação da posição do centro de massa por subtração}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Exemplo com massa negativa, ou soma e subtração (lembrar do exemplo de um livro em que se extrai uma região circular de um circulo maior}
+Um problema relativamente comum é o de determinar a posição do centro de massa de um corpo com um geometria simples e que tem cavidades também descritas por geometrias simples. A determinação da posição do centro de massa nesses casos é muito complicada se levarmos em conta somente as regiões com massa. Na Figura~\ref{Fig:DetCMPorSubtracao}, por exemplo, temos uma placa quadrada de densidade e espessura uniformes e lado $L$ da qual foi cortada um círculo de raio $L/4$.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[pattern = north west lines] (-2,-2) rectangle (2,2);
+    
+    \draw[draw = black, fill = white] (1,0) circle (1cm);
+    
+    \draw[dashed, ->] (-2.5,0) -- (2.5,0) node[below left]{$x$};
+    \draw[dashed, ->] (0,-2.5) -- (0,2.5) node[below left]{$y$};
+
+
+\end{tikzpicture}
+\caption{Placa formada pela remoção de um círculo de raio $L/4$ de um quadrado de lado $L$.\label{Fig:DetCMPorSubtracao}}
+\end{marginfigure}
+
+Sabemos que se a placa fosse completa, a posição do centro de massa seria a origem do sistema de coordenadas mostrado. Também sabemos que se tomássemos somente o círculo que foi retirado, considerando que ele estivesse em sua posição original, a posição de seu centro de massa seria
+\begin{equation}
+    \vec{r}_{\text{CM}}^{\bullet} = \frac{L}{4} \versi.
+\end{equation}
+%
+Utilizando a ideia de discretização apresentada anteriormente, podemos considerar o cálculo da posição do centro de massa da placa completa como \emph{a determinação do centro de massa do sistema formado pela região destacada na figura e da parte que foi removida:}
+\begin{align}
+    \vec{r}_{\text{CM}}^{\blacksquare} &= \frac{1}{M_{\blacksquare}} \sum_i M_{R_i} \vec{r}_{\text{CM}}^{R_i} \\
+    &= \frac{1}{M} [M_{\text{placa}} \vec{r}_{\text{CM}}^{\text{placa}} + M_{\bullet} \vec{r}_{\text{CM}}^{\bullet}].
+\end{align}
+%
+A partir da expressão acima, podemos escrever
+\begin{align}
+    M_{\blacksquare} \vec{r}_{\text{CM}}^{\blacksquare} &= M_{\text{placa}} \vec{r}_{\text{CM}}^{\text{placa}} + M_{\bullet} \vec{r}_{\text{CM}}^{\bullet} \\
+    M_{\blacksquare} \vec{r}_{\text{CM}}^{\blacksquare} - M_{\bullet} \vec{r}_{\text{CM}}^{\bullet} &= M_{\text{placa}} \vec{r}_{\text{CM}}^{\text{placa}},
+\end{align}
+%
+de onde obtemos
+\begin{equation}
+    \vec{r}_{\text{CM}}^{\text{placa}} = \frac{1}{M_{\text{placa}}} [M_{\blacksquare} \vec{r}_{\text{CM}}^{\blacksquare} - M_{\bullet} \vec{r}_{\text{CM}}^{\bullet}].
+\end{equation}
+
+Como a placa tem densidade uniforme, podemos reescrever a expressão acima em termos da área como
+\begin{align}
+    \vec{r}_{\text{CM}}^{\text{placa}} &= \frac{1}{A_{\text{placa}}} [A_{\blacksquare} \vec{r}_{\text{CM}}^{\blacksquare} - A_{\bullet} \vec{r}_{\text{CM}}^{\bullet}] \\
+    &= \frac{1}{L^2 - \pi(L/4)^2} [L^2 \vec{r}_{\text{CM}}^{\blacksquare} - \pi\left(\frac{L}{4}\right)^2 \vec{r}_{\text{CM}}^{\bullet}]
+\end{align}
+%
+Como
+\begin{align}
+    \vec{r}_{\text{CM}}^{\blacksquare} &= 0 \\
+    \vec{r}_{\text{CM}}^{\bullet} &= \frac{L}{4} \versi,
+\end{align}
+%
+obtemos
+\begin{align}
+    \vec{r}_{\text{CM}}^{\text{placa}} &= -\frac{ \pi\left(\frac{L}{4}\right)^2 \frac{L}{4}\versi}{L^2 - \pi(L/4)^2} \\
+    &=- \frac{\pi}{4(16-\pi)}L \; \versi.
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
 \subsection{Centro de massa de uma distribuição arbitrária de massa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. 
 
 % https://tex.stackexchange.com/questions/123158/tikz-using-the-ellipse-command-with-a-start-and-end-angle-instead-of-an-arc
 \tikzset{
@@ -1094,7 +1223,7 @@ Finalmente,
     }
 }
 
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[interface/.style={
         % superfície
@@ -1149,7 +1278,6 @@ Finalmente,
 \caption{Para determinar a posição do centro de massa de um cone, podemos dividí-lo em diversos cubos e determinar a posição do centro de massa do conjunto de cubos. \label{Fig:CMDiscretizacaoObjeto3D}}
 \end{marginfigure}
 
-A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} para determinar o centro de massa de qualquer corpo, desde que possamos somar a contribuição de todas as partículas que compõe o corpo. Claramente, no entanto, isso não é nada prático. 
 
 Se o objeto tem formas complexas, podemos realizar uma divisão em regiões cujos centros de massa possamos determinar por argumentos de simetria, como fizemos nas seções anteriores. Porém, nem sempre uma divisão em cubos é efetiva. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $M_{R_i}$ --~como no caso do cone da Figura~\ref{Fig:CMDiscretizacaoObjeto3D}~--. Claramente uma divisão em cubos não é a melhor escolhar para descrever um cone, porém se eles forem pequenos o suficiente, teremos uma aproximação razoável. Esse tipo de procedimento pode ser implementado em programas de computador com certa facilidade, e podem até mesmo considerar situações onde a massa não é homogênea, já que determinamos a massa de cada cubo individualmente.
 
@@ -1168,11 +1296,225 @@ A expressão acima pode ser considerada a forma mais geral de se determinar o ce
 
 Mesmo assumindo um conhecimento sólido de cálculo, a definição dada pela Equação~\eqref{Eq:CMDistContinua} não é extremamente útil: Precisamos poder descrever a forma do objeto matematicamente, o que só é fácil para formas relativamente simples. De qualquer maneira, para algumas formas (cones e pirâmides, por exemplo) e no caso de termos uma densidade que possa ser calculada para cada ponto do espaço através de uma função, a forma integral é bastante útil.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa de uma barra fina}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Determine a posição do centro de massa de uma barra fina e homogênea de comprimento $L$ através de uma integral.
+\end{quote}
+
+Podemos determinar a posição do centro de massa através da expressão
+\begin{align}
+    x_{\text{CM}} &= \frac{1}{M} \int x dm \\
+    &= \frac{1}{M} \int \lambda x dx,
+\end{align}
+%
+onde assumimos que a barra está disposta de forma que seu eixo aponta na direção do eixo $x$ e usamos $dm = \lambda dx$. Note ainda que a massa $M$ da barra está relacionada à densidade e ao comprimento através de
+\begin{equation}
+    M = \lambda L.
+\end{equation}
+%
+Se o início da barra coincide com a origem do eixo $x$, então sua extremidade oposta coincide com $x = L$. Logo,
+\begin{align}
+    x_{\text{CM}} &= \frac{1}{\lambda L} \int_0^L \lambda x dx \\
+    &= \frac{\lambda}{\lambda L} \left[\frac{x^2}{2} + C\right]_0^L \\
+    &= \frac{1}{L} \left[\left(\frac{L^2}{2} + C\right) - (0 + C)\right] \\
+    &= \frac{L}{2}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa de uma barra fina de densidade variável}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Determine a posição do centro de massa de uma barra fina com densidade linear de massa $\lambda$ variável, dada por
+    \begin{equation}
+        \lambda = \alpha x,
+    \end{equation}
+    onde $\alpha$ é uma constante qualquer. Considere que o eixo da barra está alinhado com a direção do eixo $x$, que uma das extremidades da barra se encontra na posição $x = 0$ e que o comprimento total da barra é $L$.
+\end{quote}
+
+Podemos determinar a posição do centro de massa através da expressão
+\begin{align}
+    x_{\text{CM}} &= \frac{1}{M} \int x dm \\
+    &= \frac{1}{M} \int \lambda x dx, \\
+    &= \frac{1}{M} \int \alpha x^2 dx.
+\end{align}
+%
+Como o início da barra coincide com a origem do eixo $x$, então sua extremidade oposta coincide com $x = L$. Logo,
+\begin{align}
+    x_{\text{CM}} &= \frac{1}{M} \int_0^L \alpha x^2 dx \\
+    &= \frac{\alpha}{M} \left[\frac{x^3}{3} + C\right]_0^L \\
+    &= \frac{\alpha}{M} \left[\left(\frac{L^3}{3} + C\right) - (0 + C)\right] \\
+    &= \frac{\alpha L^3}{3M}.
+\end{align}
+
+Precisamos determinar a massa total da barra, o que pode ser feito através da integral
+\begin{align}
+    M &= \int dm \\
+    &= \int \lambda dx.
+\end{align}
+%
+Como $\lambda = \alpha x$, podemos integrar\footnote{Essa integral pode ser entendida como a soma da massa de várias ``fatias'' da barra. Como a densidade varia, cada fatia tem uma massa diferente, por isso temos que somar desde a menos densa (localizada em $x = 0$), até a mais densa (em $x = L$).} entre $x = 0$ e $x = L$:
+\begin{align}
+    M &= \int \lambda dx \\
+    &= \int_0^L \alpha x dx \\
+    &= \alpha \left[\frac{x^2}{2} + C\right]\\
+    &= \alpha \left[\left(\frac{L^2}{2} + C\right) - \left(0 + C\right)\right] \\
+    &= \alpha \frac{L^2}{2}.
+\end{align}
+
+Substituindo o resultado acima para a massa no resultado anterior para a posição do centro de massa, obtemos
+\begin{align}
+    x_{\text{CM}} &= \frac{\alpha L^3}{3(\alpha L^2 /2)} \\
+    &= \frac{2}{3} L.
+\end{align}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Centro de massa de um conjunto de corpos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+É relativamente comum que seja necessário determinar o centro de massa de um conjunto de corpos extensos. Nesses casos podemos simplesmente determinar a posição do centro de massa de cada um dos corpos e depois determinar ``o centro de massa dos centros de massa''. Para verificar que isso é verdade, basta utilizarmos o mesmo raciocínio do caso da discretização de um corpo, isto é, devemos dividir a soma sobre o conjunto de partículas que formam o sistema em $n$ somas distintas, onde $n$ é o número de corpos em questão:
+\begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i \vec{r}_i \\
+    &= \frac{1}{M} \left[ \sum_{i}^{C_1} m_i \vec{r}_i + \sum_{i}^{C_2} m_i \vec{r}_i +\sum_{i}^{C_3} m_i \vec{r}_i + \dots\right] \\
+    &= \frac{1}{M} \left[ M_{C_1} \vec{r}_{\text{CM}}^{C_1} + M_{C_2} \vec{r}_{\text{CM}}^{C_2} + M_{C_2} \vec{r}_{\text{CM}}^{C_2} + \dots \right] \\
+    &= \frac{1}{M} \sum_{j=1}^n M_{C_j} \vec{r}_{\text{CM}}^{C_j}. \label{Eq:CMConjuntoDeCorpos}
+\end{align}
+%
+Assim como no caso da discretização de um corpo, a expressão acima é particularmente útil quando podemos determinar a posição do centro de massa dos corpos por simetria.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa do sistema Terra-Lua}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Sabendo que a distância entre a Terra e a Lua de é $L = \np[km]{402589}$, que os seus raios são $r_T = \np[km]{6371,0}$ e $r_L = \np[km]{1737,4}$, e supondo que suas densidades são iguais, determine a posição do centro de massa do sistema formado por esses astros. Fixe a origem do sistema de referência no centro da Terra.
+\end{quote}
+
+Se considerarmos que ambos os astros são esféricos, podemos determinar a posição do centro de massa através da Equação~\ref{Eq:CMConjuntoDeCorpos} e considerando que $M_i = \rho V_i$:
+ \begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{\rho(V_T + V_L)} [\rho V_T \vec{r}_{\text{CM}}^T + \rho V_L \vec{r}_{\text{CM}}^L] \\
+    &= \frac{1}{(\nicefrac{4}{3}) \pi(r_T^3 + r_L^3)}[(\nicefrac{4}{3})\pi r_T^3 \vec{r}_{\text{CM}}^T + (\nicefrac{4}{3})\pi r_L^3 \vec{r}_{\text{CM}}^L] \\
+    &= \frac{1}{r_T^3 + r_L^3} [r_T^3 \vec{r}_{\text{CM}}^T + r_L^3 \vec{r}_{\text{CM}}^L] 
+\end{align}
+%
+No sistema de referência adotados, temos que\footnote{O versor $\hat{r}$ denota um vetor unitário na direção do eixo que liga o centro de massa da Terra ao centro de massa da Lua. Esse versor é usado em coordenadas esféricas.}
+\begin{align}
+    \vec{r}_{\text{CM}}^T &= 0 \\
+    \vec{r}_{\text{CM}}^L &= L \; \hat{r}.
+\end{align}
+%
+Assim,
+ \begin{align}
+    \vec{r}_{\rm{CM}} &= \frac{1}{r_T^3 + r_L^3} [r_L^3 L \; \hat{r}] \\
+    &=\frac{r_L^3}{r_T^3 + r_L^3} L \; \hat{r} \\
+    &\approx \np[km]{8002.4}.
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento do centro de massa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Tentar trabalhar com cinemática/dinâmica do CM, pelo menos pra resolver aqueles problemas em que uma pessoa anda em um barco e as posições das coisas mudam, mas a posição do centro de massa não. Outra coisa é reforças que $P_{\rm{sis}} = P_{\rm{CM}}$.}
+Na Seção~\ref{Sec:CentroDeMassa} verificamos que o movimento do centro de massa de um conjunto de partículas só é alterado devido a ação de forças externas, isto é, devido a forças que não são forças de interação entre as partículas que compõe o sistema. Agora que já verificamos como determinar o centro de massa de um corpo e também de um sistema de corpos, podemos analisar alguns sistemas simples que envolvem o movimento do centro de massa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Movimento de corpos de um sistema sujeito à condição de $\vec{F}_R = 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Sempre que o sistema estiver sujeito à condição de que $\vec{F}_R = 0$, o movimento do centro de massa deve ser retilíneo e com velocidade uniforme. Isso, porém, não restringe de nenhuma maneira o movimento dos corpos ou partículas que compôe o sistema.
+
+\begin{figure}[b]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.95,interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+    % Margem
+    \draw[interface] (-1.15,0) -- (0,0) -- (0,-1.25);
+    
+    % Água e tábua
+    \draw[decorate, decoration = snake] (0,-0.5) -- (2,-0.5);
+    \draw[pattern = north west lines] (2,-0.61) rectangle (9,-0.39);
+    \fill (5.5, -0.5) circle (1pt);
+    \draw[decorate, decoration = snake] (9,-0.5) -- (10,-0.5);
+    
+    %% carrinho
+    % rodas
+    \draw[fill = black] (8.5,-0.25) circle (1.4 mm);
+    \draw[fill = black] (7.5,-0.25) circle (1.4 mm);
+    \draw[fill = white] (8.5, -0.25) circle (1mm);
+    \draw[fill = white] (7.5, -0.25) circle (1mm);
+    
+    % carroceria
+    \draw[fill = gray] (7.1, -0.25) -- (7.3, -0.25) arc[start angle = 180, end angle = 0, radius = 2mm] -- (8.3, -0.25) arc[start angle = 180, end angle = 0, radius = 2mm] -- (9,-0.25) -- (9,0.1) -- (7.7,0.1) -- (7.7,0.7) -- (7.2,0.7) -- (7.1,0.2) -- cycle;
+    
+    % vidro
+    \draw[fill = white] (7.25,0.65) -- (7.65,0.65) -- (7.65, 0.25) -- (7.175, 0.25) -- cycle;
+    
+    % CM
+    \fill (7.9, -0.075) circle (1pt);
+    
+    % Distâncias
+    \draw[dotted] (0,1.5) -- (0,0);
+    \draw[dotted] (7.9,1.5) -- (7.9,0.1);
+    \draw[|<->|] (0, 1.5) -- node[above]{$\ell$} (7.9,1.5);
+    
+    \draw[dotted] (5.5,-0.61) -- (5.5,-1);
+    \draw[<->|] (0,-1) -- node[below]{$L$} (5.5, -1);
+        
+\end{tikzpicture}
+\caption{Carrinho de brinquedo que se desloca sobre uma tábua que flutua na água. \label{Fig:CanoaSobreAgua}}
+\end{figure}
+
+Na Figura~\ref{Fig:CanoaSobreAgua} temos um sistema formado por um carrinho de controle remoto que está sobre uma tábua. A tábua flutua sobre a superfície da água de uma piscina. Inicialmente o sistema se encontra em repouso em relação à margem. A força peso do carrinho e da tábua são equilibradas pela força de empuxo exercida pela água na parte inferior da tábua\footnote{A força peso do carrinho é sustentada diretamente pela força normal exercida pela tábua sobre o carrinho, porém a reação a tal força atua sobre a tábua. Portanto, a força de empuxo deve ser igual à soma dos pesos dos dois corpos, assumindo que o sistema não sofre nenhuma aceleração vertical.}. Quando o carrinho se desloca em direção à margem, a tábua sofre um deslocamento no sentido contrário, no entanto, como as forças de arrasto oferecidas pela água e pelo ar são muito pequenas, podemos considerar que a força resultante externa é nula.
+
+Nesse caso, sabemos que o centro de massa do sistema não está sujeito a nenhuma aceleração, e, como sua velocidade inical em relação à margem é nula, temos que sua posição antes e depois do deslocamento do carrinho são iguais:
+\begin{equation}
+    x_{\text{CM}}^i = x_{\textrm{CM}}^f.
+\end{equation}
+%
+Como as posições do centro de massa antes ou depois do deslocamento são dadas por
+\begin{equation}
+    x_{\text{CM}} = \frac{1}{M} [m_c x_{\text{CM}}^{c} + m_t x_{\text{CM}}^t],
+\end{equation}
+%
+podemos escrever
+\begin{align}
+    x_{\text{CM}}^i &= x_{\textrm{CM}}^f \\
+    \frac{1}{M} [m_c x_{\text{CM}}^{c} + m_t x_{\text{CM}}^t] &= \frac{1}{M} [m_c x_{\text{CM}}^{c} + m_t x_{\text{CM}}^t] \\
+    m_c \ell^i + m_t L^i &= m_c \ell^f + m_t L^f.
+\end{align}
+%
+A partir da expressão acima, podemos escrever
+\begin{equation}
+    L^f = \frac{m_c}{m_t}(\ell^i - \ell^f) + L^i.
+\end{equation}
+%
+Note que a distância $L^f$ do centro de massa da tábua até a margem aumenta à medida que $\ell^f$ diminui, isto é, à medida que o carrinho se desloca em direção à margem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Movimentos orbitais dos planetas e seus satélites}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Ao contrário da discussão anterior para o carrinho sobre a tábua que flutua, na qual a força resultante externa era nula, no movimento de um planeta juntamente com seus satélites em torno do Sol, temos um sistema onde a força resultante é diferente de zero. Nesse sistema, a força exercida sobre os astros é a força gravitacional do Sol, que faz com que eles orbitem em torno da estrela, sendo que em geral dizemos que a órbita de um planeta é uma elipse em torno do Sol. Essa afirmação, no entanto, é bastante imprecisa.
+
+A solução mais geral para a trajetória de uma partícula sujeita a uma força central é uma \emph{elipse}, sendo que o centro atrator ocupa um dos focos da elipse. A descrição dada acima para o movimento da Terra em torno do Sol não é correta pois ela não executa o movimento em torno do Sol sozinha.
+
+Apesar de aparentemente a Lua orbitar em torno da Terra, o fato é que \emph{ambos} orbitam em torno do centro de massa do sistema Terra-Lua. Isso ocorre pois a Terra também está sujeita a uma força devida à interação gravitacional com a Lua. No entanto, como a posição do centro de massa do sistema Terra-Lua é em um ponto entre o centro e a crosta da Terra, o movimento orbital do planeta é muito menos aparente do que o da Lua\footnote{Imaginando que fosse visto de longe. Existem observações astronômicas de sistemas similares ao Terra-Lua e que apresentam o comportamento descrito.}. Do ponto de vista da interação com o Sol, no entanto, o sistema pode ser tratado como uma partícula, desde que tratemos o movimento do centro de massa. Tal ponto está \emph{aproximadamente} sujeito somente à força central exercida pelo Sol, e executa o movimento elíptico característico de uma órbita.
+
+Em alguns casos, com medidas muito precisas, é possível verificar que os planetas interferem nas órbitas uns dos outros. Netuno e Plutão, por exemplo, foram descobertos a partir de discrepâncias entre os dados experimentais e a trajetória prevista para Urano e Netuno, respectivamente. Mesmo o Sol executa um movimento orbital: de uma maneira geral, todo o sistema solar executa um movimento em torno do centro de massa do sistema como um todo. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Salto em altura}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No salto em altura, o competidor precisa saltar sobre uma barra horizontal disposta a uma altura em relação ao solo. Em nível olímpico, tal altura passa de \np[m]{2,30}. Uma das técnicas que permitem um salto tão alto está relacionada ao centro de massa do corpo do competidor e é conhecida como ``Fosbury Flop'', pois foi introduzida por Dick Fosbury, competidor americano e medalha de ouro no salto em altura em 1968.
+
+A técnica consiste em saltar de costas para a barra, fazendo um arco com o corpo. Isso faz com que o centro de massa seja projetado para fora do corpo do atleta, permitindo que ele passe \emph{sobre} a barra, enquanto o centro de massa passa \emph{sob} ela. Esse processo é vantajoso pois ao saltar, a altura máxima que o centro de massa atinge está limitada pelo impulsionamento inicial dado pelo atleta: até a introdução do ``Forbury Flop'', os atletas saltavam de frente, com o corpo paralelo ao solo, o que os limitava a alturas da barra que fossem menores que a altura máxima atingida pelo centro de massa; após a introdução dessa técnica, para o mesmo impulsionamento inicial, o competidor consegue ``desviar'' o corpo sobre a barra, permitindo que ela seja disposta a alturas maiores.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Posição do centro de massa e energia potencial gravitacional}
@@ -1244,6 +1586,88 @@ Substituindo essa expressão na Equação~\eqref{Eq:EnPotGravSisPartSoma}, obtem
 \end{equation}
 
 Constatamos, portanto, que a energia potencial gravitacional de um sistema de partículas é a mesma energia associada a uma partícula de massa $M$, dada pela soma das massas de todas as partículas, e cuja posição vertical é a do próprio centro de massa do sistema. Isso permite que determinemos a variação da energia potencial gravitacional de um corpo simplesmente considerando a variação da posição vertical de seu centro de massa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Bloco em um loop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No capítulo anterior, na página~\pageref{Pag:ExercicioBlocoPistaCircularVertical}, determinamos a compressão necessária de uma mola para que ela armazenasse energia suficiente para que um bloco fosse lançado por uma pista horizontal e chegasse ao topo de uma seção circular da pista. Verificamos que era necessário desprezar as dimensões do bloco, uma vez que não sabíamos determinar a posição do centro de massa. Vamos voltar ao mesmo problema, mas considerando as dimensões dessa vez:
+\begin{quote}
+    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco \emph{de densidade homogênea, em formato de cubo,} que será lançado, empregando uma mola, em uma pista sem atrito composta de uma seção plana e de uma seção circular vertical. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, o raio da pista é $\np[cm]{130}$, \emph{e o cubo tem aresta $L = \np[cm]{30,0}$}, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
+\end{quote}
+
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.4,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-0.5) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (7.05, -2.5);
+    \draw[interface] (7.05,-2.5) arc[start angle = -90, end angle = 123, radius = 3 cm];
+    
+    \draw[->] (0,-3.2) -- (6.5,-3.2) node[below left]{$x$};
+    \draw[|-|] (2.2, -3.2) -- (4.2,-3.2);
+    \path (2.2,-3.3) node[below]{$\ell$} -- (4.2,-3.3) node[below]{0};
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.4, segment length=1.5625mm, amplitude=1.6mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
+    \draw[pattern = north east lines] (3.5,-2.5) rectangle (3.7,-1.5);
+    \draw[<->|] (5,-2.5) -- node[right]{$L$} (5,-1.5);
+        
+\end{tikzpicture}
+\caption{Lançamento de um bloco em uma pista circular vertical.}
+\end{marginfigure}
+
+Como havíamos visto, no sistema formado pelo bloco, a mola, e a pista, temos a atuação de três forças: o peso do bloco, a força normal exercida pelas superfícies, e a força exercida pela mola. Dessas, somente a força normal não é conservativa, porém seu trabalho é nulo pois ela atua sempre perpendicularmente ao deslocamento instantâneo do bloco. Portanto, podemos utilizar a conservação da energia mecânica:
+\begin{align}
+    E_i^{\textrm{mec}} &= E_f^{\textrm{mec}} \\
+    K_i + U_e^i + U_g^i &= K_f + U_g^f + U_e^f
+\end{align}
+%
+Como o bloco parte do repouso, sua energia cinética inicial é zero. Vamos escolher a origem do eixo vertical na altura da pista horizontal. Assim, a posição inicial do centro de massa do bloco é
+\begin{equation}
+    y_{\text{CM}}^i = \frac{L}{2},
+\end{equation}
+%
+uma vez que ele é homogêneo e simétrico. Assim, a expressão acima simplifica-se a:
+\begin{equation}\label{Eq:EnergiasParaOBlocoEmLoopCM}
+    U_e^i + U_g^i= K_f + U_g^f.
+\end{equation}
+%
+Note que a energia cinética final não é nula, já que o bloco não pode ter velocidade nula ao chegar ao topo da seção circular da pista: 
+\begin{equation}
+    v = \sqrt{Rg}.
+\end{equation}
+%
+Quando o bloco chega ao topo, a posição vertical final de seu centro de massa será igual ao diâmetro da pista circular, menos a distância entre o centro de massa e a lateral superior do bloco:
+\begin{equation}
+    y_{\text{CM}}^f = 2R - \frac{L}{2}.
+\end{equation}
+
+Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoopCM} obtemos
+\begin{align}
+    \frac{kx_i^2}{2} + mgy_{\text{CM}}^i&= \frac{mv_f^2}{2} + mgy_{\text{CM}}^f \\
+    \frac{k\ell^2}{2} + mg\frac{L}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg\left(2R - \frac{L}{2}\right) \\
+    \frac{k\ell^2}{2} &= mg\left(2R +\frac{R}{2} - \frac{L}{2} - \frac{L}{2}\right) \\
+    k\ell^2 &= 2mg((\nicefrac{5}{2})R - L) \\
+    \ell &= \sqrt{\frac{mg(2R - L)}{k}}.
+\end{align}
+%
+Substituindo os valores das constantes, temos finalmente
+\begin{align}
+    \ell &= \sqrt{2\cdot\frac{(\np[kg]{0.750}) \cdot (\np[m/s^2]{9.8}) \cdot [(\nicefrac{5}{2}) \cdot (\np[m]{1.30}) - (\np[m]{0.30})]}{(\np[N/m]{1200})}} \\
+    &\approx \np[m]{0.190}.
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conservação do momento linear}
@@ -1386,23 +1810,43 @@ sendo que as soluções são
 %%%%%%%%%%%%%%%%%
 \section{Impulso}
 %%%%%%%%%%%%%%%%%
-\textbf{Preciso pra discutir as colisões. Rever daqui pra frente por causa de mudanças na ordem do conteúdo.}
 
-\textbf{TODO: fazer um gráfico de F em função do tempo, mostrar uma barra com largura dt e falar que a área dela é dp. Aí falar que podemos simplesmente integrar a expressão abaixo.}
-
-A Equação~\eqref{Eq:SegundaLeiMomento} nos dá uma maneira de ligar o valor da força exercida sobre um corpo à variação instantânea do momento linear. Muitas vezes, no entanto, estamos interessados em determinar qual é a \emph{variação total} do momento linear. Isso pode ser feito através de uma integração da expressão~\eqref{Eq:SegundaLeiMomento}:
-\begin{align}\label{Eq:SegundaLeiIntegrando}
-    \frac{d\vec{p}}{dt} &= \vec{F}(t) \\
-    d\vec{p} &= \vec{F}(t) \; dt \\
-    \int_{t_i}^{t_f} \vec{p} &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.
+A Segunda Lei de Newton na forma dada pela Equação~\eqref{Eq:SegundaLeiMomento} nos dá uma maneira de ligar o valor da força exercida sobre um corpo à variação instantânea do momento linear. Muitas vezes, como no caso de \emph{colisões} entre dois corpos\footnote{Abordaremos colisões na próxima seção.}, estamos interessados em determinar qual é a \emph{variação total} do momento linear. Isso pode ser feito através de uma \emph{integração} da expressão~\eqref{Eq:SegundaLeiMomento}:
+\begin{equation*}
+    \frac{d\vec{p}}{dt} = \vec{F}(t)
+\end{equation*}
+%
+pois se temos que $\vec{F}(t)$ é a derivada da função $\vec{p}(t)$, então, pelo teorema fundamental do cálculo, a função $\vec{p}(t)$ é a função primitiva/anti-derivada/integral-indefinida de $\vec{F}(t)$ a menos de uma constante $C$:
+\begin{equation}
+    \vec{p}(t) = \vec{\mathcal{F}}(t) + C.
+\end{equation}
+%
+Como estamos interessados na \emph{variação} do momento linear, tal constante não tem importância\footnote{Como (quase) sempre.}:
+\begin{align}
+    \Delta \vec{p} &= [\vec{\mathcal{F}}(t_f) + C] - [\vec{\mathcal{F}}(t_i) + C] \\
+    &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.\label{Eq:SegundaLeiIntegrando}
 \end{align} 
 %
-A integral à esquerda resulta simplesmente na variação total do momento linear
+A integral à direita na equação acima recebe o nome de \emph{impulso}, e é denotada por $\vec{J}$:
 \begin{equation}
-    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{p}.
+    \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Impulso}
+\end{equation}
+%
+Assim, temos que a Segunda Lei de Newton possui uma forma integral, dada por
+\begin{equation}\label{Eq:Impulso}
+    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Segunda Lei de Newton \\ (forma integral)}
 \end{equation}
 
-\begin{marginfigure}[-4cm]
+Nos resultados acima, devemos destacar que a força, a variação do momento e o impulso são grandezas vetoriais. Assim, devemos aplicar tais equações a cada eixo separadamente:
+\begin{align}
+    \Delta p_x &= \int_{t_i}^{t_f} F_x(t) \; dt \\
+    \Delta p_y &= \int_{t_i}^{t_f} F_y(t) \; dt \\
+    \Delta p_z &= \int_{t_i}^{t_f} F_z(t) \; dt.
+\end{align}
+%
+No entanto, uma escolha adequada do sistema de referências muitas vezes implicará na ausência de componentes de uma força em um ou mais eixos, levando a uma variação nula da componente correspondente do impulso e do momento linear.
+
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1428,35 +1872,81 @@ A integral à esquerda resulta simplesmente na variação total do momento linea
     \node[fill = white, circle, scale = 0.8] (area) at (1.5,0.55) {$J$};
     
 \end{tikzpicture}
-\caption{A área hachurada corresponde ao impulso dado pela componente $F_x(t)$ de uma força hipotética $\vec{F}(t)$ no intervalo $[t_i, t_f]$. Se as componentes $F_y(t)$ e $F_z(t)$ forem não nulas, temos figuras semelhantes para os eixos $y$ e $z$.}
+\caption{A área hachurada corresponde ao impulso dado pela componente $F_x(t)$ de uma força hipotética $\vec{F}(t)$ no intervalo $[t_i, t_f]$. Se as componentes $F_y(t)$ e $F_z(t)$ forem não nulas, temos figuras semelhantes para os eixos $y$ e $z$.\label{Fig:IntegralComponenteXImpulso}}
 \end{marginfigure}
 
-\noindent{}A integral à direita na Equação~\eqref{Eq:SegundaLeiIntegrando} recebe o nome de \emph{impulso}, denotado por $\vec{J}$:
-\begin{equation}
-    \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Impulso}
-\end{equation}
-%
-Assim, temos que a Segunda Lei de Newton pode ser escrita como
-\begin{equation}\label{Eq:Impulso}
-    \Delta \vec{p} = \int_{t_i}^{t_f} \vec{F}(t) \; dt. \mathnote{Segunda Lei de Newton \\ (forma integral)}
-\end{equation}
+Também devemos considerar que em muitos casos o impulso de uma força pode ser desprezível: se uma força atua por pouco tempo, o resultado da integral na Equação~\eqref{Eq:Impulso} será pequeno, exceto se a força for extremamente intensa. Veremos que isso permitirá que ignoremos o efeito de algumas forças ao estudarmos colisões, uma vez que a força de interação entre dois corpos em uma colisão é extremamente intensa.
 
-Nos resultados acima, devemos destacar que a força, a variação do momento e o impulso são grandezas vetoriais. Assim, devemos aplicar tais equações a cada eixo separadamente:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Impulso e força média}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se atiramos uma bola utilizando as mãos, a força exercida não será constante: em momentos diferentes, temos diferentes valores de força, o que torna o processo de cálculo do impulso bastante complicado. Apesar disso, podemos estar interessados em determinar a força média exercida durante o processo de lançamento. Tal força deve necessariamente gerar o mesmo impulso que a força original, logo
 \begin{align}
-    \Delta p_x &= \int_{t_i}^{t_f} F_x(t) \; dt \\
-    \Delta p_y &= \int_{t_i}^{t_f} F_y(t) \; dt \\
-    \Delta p_z &= \int_{t_i}^{t_f} F_z(t) \; dt.
+    \vec{J} &= \int_{t_i}^{t_f} \vec{F}(t) dt \\
+    &= \int_{t_i}^{t_f} \langle\vec{F}\rangle dt.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->] (0,2.5) node (yaxis) [below left] {$F_x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+
+    % área cinza que tem mesmo valor que área hachurada
+    \path[fill=gray!50] (0.5,0) rectangle (2.5,1.1775);
+    
+    % Desenhar função:
+    \draw[smooth,name path=plota,samples=1000,domain=0:3]
+    plot(\x,{-0.02*\x^3 + 0.3*\x^2 - \x + 2});
+   
+     \fill [pattern=north west lines, domain=0.5:2.5, variable=\x]
+      (0.5, 0) node[below]{$t_i$}
+      -- plot ({\x}, {-0.02*\x^3 + 0.3*\x^2 - \x + 2})
+      -- (2.5, 0) node[below]{$t_f$}
+      -- cycle;
+     
+    \path[name path=fromi](0.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](0.5,0) -- (intersection-1);
+    
+    \path[name path=fromi](2.5,0)--+(0,3);
+    \draw[dashed, name intersections={of=fromi and plota}](2.5,0) -- (intersection-1);
+
+    \draw[thick, dotted] (0,1.1775) node[left]{$\mean{F}$} -- (0.5,1.1775);
+    \draw[thick] (0.5, 1.1775) -- (2.5,1.1755);
+    
+\end{tikzpicture}
+\caption{Definimos a força média $\mean{F}$ como sendo a força constante que produz o mesmo impulso que a força original, no mesmo intervalo de tempo.\label{Fig:DetForcaMediaAtravesDoImpulso}}
+\end{marginfigure}
+
+\noindent{}Tal relação é ilustrada pela Figura~\ref{Fig:DetForcaMediaAtravesDoImpulso}. Como $\langle\vec{F}\rangle$ é constante, podemos escrever
+\begin{align}
+    \vec{J} &= \langle\vec{F}\rangle \int_{t_i}^{t_f} dt \\
+    &= \langle\vec{F}\rangle \Delta t,
 \end{align}
 %
-No entanto, uma escolha adequada do sistema de referências muitas vezes implicará na ausência de forças --~ou de componentes de forças~-- em um ou mais eixos, levando a uma variação nula do momento linear de tal eixo.
+ou seja,
+\begin{equation}
+    \langle\vec{F}\rangle = \frac{\vec{J}}{\Delta t}. \mathnote{Expressão para a força média em termos do impulso}
+\end{equation}
 
-Também devemos considerar que em muitos casos o impulso de uma força pode ser desprezível: se uma força atua por pouco tempo, o resultado da integral na Equação~\eqref{Eq:Impulso} será pequeno, exceto se a força for extremamente intensa. Veremos que isso permitirá que ignoremos o efeito de algumas forças ao estudarmos colisões, uma vez que as forças em uma colisão são muito intensas.
+Na maioria das vezes não temos a função $\vec{F}(t)$, por isso não podemos determinar o impulso através da integral. No entanto, sabemos que
+\begin{equation}
+    \Delta \vec{p} = \vec{J},
+\end{equation}
+%
+logo,
+\begin{equation}\label{Eq:ForcaMediaColisao}
+    \langle\vec{F}\rangle = \frac{\Delta \vec{p}}{\Delta t}. \mathnote{Força média em termos da variação do momento linear}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
+%\paragraph{Exemplo: ?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Essa seção de impulso precisa de exemplos. Preciso de algo que fixe a ideia de que o impulso muda o estado de movimento. Deve ser algo que use gráficos, de preferência, mesmo que só pra ilustrar. Usar uma bola que cai, sujeita ao impulso da força gravitacional, depois colide com o solo, onde a normal exerce um impulso. Depois discutir o fato de que $\Delta\vec{p}$ é maior se temos uma colisão onde a bola quica do que se ela batesse e grudasse. No final, discutir o fato de que se tomarmos o sistema formado pela bola e pela Terra, aí podemos considerar que o momento do sistema se conserva. (na real não se conserva, a ideia é que o impulso devido à força gravitacional do sol é muito pequeno durante a colisão, por isso podemos considerar que ele se mantém aproximadamente constante. Ver se aqui é o melhor lugar pra discutir isso, ou se já está feito em colisões. Se não couber aqui, colocar um sidenote indicando onde foi/será discutido.}
+%\textbf{Seria desejável a inclusão de exemplos aqui. Preciso de algo que fixe a ideia de que o impulso muda o estado de movimento. Deve ser algo que use gráficos, de preferência, mesmo que só pra ilustrar. Também seria interessante algum de força média. Não usar nada que envolva colisões, pois não abordamos isso ainda.}
 
 %%%%%%%%%%%%%%%%%%
 \section{Colisões}
@@ -1464,7 +1954,7 @@ Também devemos considerar que em muitos casos o impulso de uma força pode ser 
 
 Podemos empregar a conservação do momento linear para discutir colisões. Uma colisão é caracterizada pela interação de dois corpos através forças de contato entre as suas superfícies, isto é, \emph{forças normais e de atrito}. Na Figura~\ref{Fig:ColisaoEntreDoisDiscos} mostramos uma colisão bidimensional entre dois discos. Vamos assumir que o disco da direita se encontra em repouso\footnote{Sempre podemos escolher um referêncial que satisfaça essa suposição em uma colisão entre dois corpos, bastando fixar o referecial no centro de massa de um dos corpos.}, enquanto o da esquerda se move para a direita com velocidade $\vec{v}$. Como poderíamos determinar o movimento dos discos após a colisão, dados os valores de massa e velocidade do disco incidente?
 
-\begin{figure}[!h]\forcerectofloat
+\begin{figure}[!htb]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1481,7 +1971,34 @@ Podemos empregar a conservação do momento linear para discutir colisões. Uma 
 \caption{Colisão bidimensional entre dois discos. \label{Fig:ColisaoEntreDoisDiscos}}
 \end{figure}
 
-A interação entre os discos de dá por meio de forças de contato que atuam no ponto onde os discos se tocam: no eixo $y$ mostrado na figura, temos a atuação de um par ação-reação de forças normais, enquanto no eixo $x$ temos a atuação de um par ação-reação de forças de atrito. Podemos considerar também que se esses discos se movem sobre uma mesa sem atrito, temos forças peso e normais atuando em cada corpo, perpendicularmente à figura. Supondo que não existe nenhuma aceleração no sistema, temos equilíbrio entre essas forças, e --~portanto~-- a força resultante externa é nula. Logo, podemos empregar a conservação do momento linear para determinar relações entre as componentes dos momentos lineares antes e depois da colisão:
+\begin{marginfigure}[4cm]
+\centering
+\begin{tikzpicture}[>=Stealth,
+interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+                    ]
+                    
+    \draw[interface] (-2,0) -- (2,0);
+    
+    \draw[->] (-1, 0.4) -- node[above]{$\vec{v}$} +(1,0);
+    
+    \draw[pattern = north west lines] (-1.5,0) rectangle (-1,0.25);
+    \draw[pattern = north west lines] (1.5,0) rectangle (1,0.25);
+    \draw[fill] (-1.25, 0.125) circle (0.75pt);
+    \draw[->, thick] (-1.25, 0.125) --+(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (-1.25, 0.25) -- +(0,0.75) node[right]{$\vec{N}$};
+    
+    \draw[pattern = north west lines] (1.5,0) rectangle (1,0.25);
+    \draw[fill] (1.25, 0.125) circle (0.75pt);
+    \draw[->, thick] (1.25, 0.125) --+(0,-0.75) node[right]{$\vec{P}$};
+    \draw[->, thick] (1.25, 0.25) -- +(0,0.75) node[right]{$\vec{N}$};
+\end{tikzpicture}
+\caption{Visão lateral dos discos antes da colisão.\label{Fig:ColisaoEntreDoisDiscosVisaoLateral}}
+\end{marginfigure}
+
+A interação entre os discos de dá por meio de forças de contato que atuam no ponto onde os discos se tocam: no eixo $y$ mostrado na figura, temos a atuação de um par ação-reação de forças normais, enquanto no eixo $x$ temos a atuação de um par ação-reação de forças de atrito. Devemos considerar também que se esses discos se movem sobre uma mesa e por isso temos as forças peso e as respectivas forças normais atuando em cada corpo, como mostrado na Figura~\ref{Fig:ColisaoEntreDoisDiscosVisaoLateral}. Vamos desprezar o atrito entre os discos e a mesa. Supondo que não existe nenhuma aceleração no sistema, temos equilíbrio entre as forças externas que atuam sobre o sistema, ou seja, a força resultante externa é nula. Logo, podemos empregar a conservação do momento linear para determinar relações entre as componentes dos momentos lineares antes e depois da colisão:
 \begin{equation}
 \begin{system}
     p_{1,i}^x &= p_{1,f}^x + p_{2,f}^x \\
@@ -1491,16 +2008,14 @@ A interação entre os discos de dá por meio de forças de contato que atuam no
 %
 Apesar de termos encontrado uma relação entre os momentos lineares através da conservação do momento linear, não temos informações suficientes para a solução desse problema. Veremos adiante que algumas colisões mantém a energia cinética do sistema constante, o que nos daria mais uma relação entre as velocidades inicial e final dos discos. Outra possibilidade é a de termos um atrito desprezível no ponto de contato, o que faria com que as componentes das velocidades ao longo do eixo $x$ fossem constantes, afinal o impulso\footnote{Em uma colisão tal impulso é denominado como \emph{momento transferido} e é representado por $\vec{q} \equiv \Delta \vec{p}$.} responsável pela alteração do momento linear de cada disco seria somente ao longo do eixo $y$.
 
-Nas próximas seções vamos tratar inicialmente algumas situações mais simples que a colisão discutida acima, restringindo o movimento a somente um eixo. Após isso, vamos discutir propriedades gerais de uma colisão e então retornaremos ao problema da colisão entre os dois discos.
+Nas próximas seções vamos discutir algumas propriedades gerais das colisões e depois analisaremos algumas situações mais simples, nas quais as colisões podem ser tratadas como movimentos unidimensionais.
+%\textbf{Futuro: Após isso, vamos discutir propriedades gerais de uma colisão e então retornaremos ao problema da colisão entre os dois discos.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças em uma colisão}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Isso não pode falar em conservação do momento linear na colisão por que agora está antes. Rever o texto.}
-
-Sabemos que a duração de uma colisão é extremamente curta, mas podemos ter uma grande variação do momento linear em um evento deste tipo. Isso nos leva a concluir que as forças que agem nos corpos que colidem devem ser muito intensas. Não podemos calcular exatamente a forma para a força, pois temos uma interação muito complexa, no entanto sabemos que ela age durante um intervalo de duração muito pequeno, como mostrado na Figura~\ref{Fig:ForcaColisaoGaussiana}. Como a área sob a curva é igual ao módulo do impulso, que é igual à variação do momento linear (momento transferido)
-%
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -1524,19 +2039,80 @@ Sabemos que a duração de uma colisão é extremamente curta, mas podemos ter u
 \end{tikzpicture}
 \caption{Qualitativamente a força durante uma colisão tem a forma mostrada na figura acima, caracterizada por uma duração muito curta e com uma intensidade máxima muito grande. A área sob a curva nos dá o módulo do impulso exercido pela força.\label{Fig:ForcaColisaoGaussiana}}
 \end{marginfigure}
-%
+
+Sabemos que a duração de uma colisão é extremamente curta, mas podemos ter uma grande variação do momento linear em um evento deste tipo. Isso nos leva a concluir que as forças que agem nos corpos que colidem devem ser muito intensas. Não podemos calcular exatamente a forma para a força, pois temos uma interação muito complexa, no entanto sabemos que ela age durante um intervalo de duração muito pequeno, como mostrado na Figura~\ref{Fig:ForcaColisaoGaussiana}. Como a área sob a curva é igual ao módulo do impulso, que é igual à variação do momento linear (momento transferido)
 \begin{align}
     A &= J \\
     &= \Delta p,
 \end{align}
 %
-concluímos que o valor máximo da força exercida durante a colisão --~isto é, a altura do pico apresentado na figura~-- deve ser muito grande.
+concluímos que o valor máximo da força exercida durante a colisão ---~isto é, a altura do pico apresentado na figura~--- deve ser muito grande.
 
-Podemos explorar esse valor intenso de força em diversas situações. Por exemplo, se desejamos quebrar um objeto, podemos utilizar um martelo: basta que exerçamos uma força sobre o martelo fazendo com que ele adquira velocidade e, consequentemente, sofra uma alteração de seu momento linear atingindo um valor $\vec{p}_i$ na iminência da colisão. Durante a colisão do martelo com o objeto, se assumirmos que ele ficará parado após a colisão, devemos ter um impulso de forma que o momento linear final seja nulo. Tanto o impulso que é exercido por quem utiliza o martelo, quanto o impulso durante a colisão têm o mesmo valor em módulo. Verificamos, no entano, que o tempo de duração da colisão é muito menor que o tempo que o martelo é acelerado, então a força durante a colisão deve ser muito mais intensa. Tal força é suficiente para causar a separação de moléculas e átomos que formam o objeto, quebrando-o.
+Podemos explorar esse valor intenso de força em diversas situações. Por exemplo, se desejamos quebrar um objeto, ou fixar um prego, podemos utilizar um martelo (veja a Figura~\ref{Fig:MarteloMartelandoPrego}). Ao manusearmos um martelo, exercemos uma força que, aliada à própria força peso de tal ferramenta, exerce um impulso de módulo $J$ e que implica em um aumento do momento linear do martelo, atingindo um valor $p_{ac}$ na iminência da colisão. Durante a colisão do martelo com o objeto, ou com o prego, se assumirmos que ele ficará parado após a colisão, devemos ter um impulso de forma que o momento linear final seja nulo. Portanto, tanto o impulso devido à força exercida por quem manuseia o martelo, somado ao impulso devido à força peso, quanto o impulso durante a colisão têm o mesmo valor em módulo. Verificamos, no entanto, que o tempo de duração da colisão é muito menor que o tempo que o martelo é acelerado, então a força durante a colisão deve ser muito mais intensa. Tal força é suficiente para causar a separação de moléculas que formam o objeto, quebrando-o, ou para fazer com que as fibras da madeira sejam afastadas, permitindo a passagem do prego.
 
-\textbf{ilustrar a ideia do martelo: figura do martelo martelando e do gráfico da força/impulso}
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[>=Stealth, interface/.style={
+       % superfície
+       postaction={draw,decorate,decoration={border,angle=-45,
+                   amplitude=0.2cm,segment length=2mm}}}
+    ]
 
-Por outro lado, quando desejamos ``amortecer'' o impacto de um objeto --~contra uma superfície, por exemplo~--, utilizamos um material capaz de se deformar durante a colisão. Isso tem o efeito de aumentar o tempo de atuação da força, fazendo com que a força máxima seja menor, impedindo que ela atinja valores capazes de causar danos ao objeto que desejamos proteger. Esse princípio é utilizado em \emph{air-bags} de automóveis, ou no plástico-bolha, por exemplo.
+    \begin{scope}[shift ={(-1,3)}, rotate = 45]
+    
+        \draw[draw = black, fill = gray] (0,0.2) rectangle (-1,0.4);
+        \fill (-0.1,0) -- (0.1,0) -- (0.1,0.6) -- (0,0.7) -- (-0.1,0.6) -- cycle;
+
+    \end{scope}
+    
+    \begin{scope}[shift ={(-0.15,1.5)}, rotate = 30]
+    
+        \draw[draw = gray, fill = gray!50] (0,0.2) rectangle (-1,0.4);
+        \fill[gray] (-0.1,0) -- (0.1,0) -- (0.1,0.6) -- (0,0.7) -- (-0.1,0.6) -- cycle;
+
+    \end{scope}
+
+    \draw[draw = gray, fill = gray!50] (0,0.2) rectangle (-1,0.4);
+    \fill[gray] (-0.1,0) -- (0.1,0) -- (0.1,0.6) -- (0,0.7) -- (-0.1,0.6) -- cycle;
+    
+    \draw[interface] (-2,-0.3) -- (2,-0.3);
+    \draw[fill] (-0.05, 0) rectangle (0.05, -0.03);
+    \draw[fill] (-0.015,0) rectangle (0.015,-0.3);
+    
+    \begin{scope}[shift={(5,-0.3)}]
+        \draw[thick] (-1.5,0.302) -- (1.5,0.302);
+    
+        \draw[->] (-2,0) -- (2,0) node[below left]{$t$};
+        \draw[->] (-2,0) -- (-2,3) node[below left]{$F$};
+        
+        
+        \fill [pattern=north west lines, pattern color=gray] (-1.5,0.302) rectangle (1.5,0);
+        
+        \draw[densely dotted] (-1.5, 0.302) -- (-1.5,0) (1.5,0.302) -- (1.5,0);
+        
+    \end{scope}
+    
+    \begin{scope}[shift={(10,-0.3)}]
+        \draw[thick, smooth,name path=plota,samples=1000,domain=-1.5:1.5]
+    plot(\x,{2.8 * exp(-30.0*\x*\x)});
+    
+        \draw[->] (-2,0) -- (2,0) node[below left]{$t$};
+        \draw[->] (-2,0) -- (-2,3) node[below left]{$F$};
+        
+        
+        \fill [pattern=north west lines, pattern color=gray, domain=-1:1, variable=\x]
+         	  (-1, 0)
+              -- plot ({\x}, {2.8 * exp(-30.0*\x*\x)})
+              -- (1, 0)
+              -- cycle;
+        
+    \end{scope}
+    
+\end{tikzpicture}
+\caption{Colisão de um martelo com um prego. Se o martelo tem momento linear nulo após a colisão, temos que a área destacada nos gráficos esquerdo (impulso devido à força exercida sobre o martelo, associada à força peso do próprio martelo) e direito (impulso devido à força de interação entre o martelo e o prego durante a colisão) são iguais.\label{Fig:MarteloMartelandoPrego}}
+\end{figure*}
+
+Por outro lado, quando desejamos ``amortecer'' o impacto de um objeto ---~contra uma superfície, por exemplo~---, utilizamos um material capaz de se deformar durante a colisão. Isso tem o efeito de aumentar o tempo de atuação da força, fazendo com que a força máxima seja menor, impedindo que ela atinja valores capazes de causar danos ao objeto que desejamos proteger. Esse princípio é utilizado em \emph{air-bags} de automóveis, ou no plástico-bolha, por exemplo.
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -1575,48 +2151,39 @@ Por outro lado, quando desejamos ``amortecer'' o impacto de um objeto --~contra 
 \caption{Quando utilizamos algum método para amortecer o impacto em uma colisão, através de um aumento no tempo de ação da força, conseguimos uma diminuição da intensidade da força máxima exercida. Na figura acima, ambos os picos determinam exatamente o mesmo impulso, pois as áreas sob as curvas são iguais.\label{Fig:ForcaColisaoGaussianaAmortecida}}
 \end{marginfigure}
 
-Finalmente, devemos destacar que em diversas situações podemos considerar que as forças externas que atuam sobre um sistema como sendo \emph{aproximadamente zero}. A duração de uma colisão é extremamente curta, nesse caso, uma força moderada em comparação à força característica da colisão será responsável por um impulso desprezível. Assim, em uma colisão que ocorra entre dois corpos que estão em queda, por exemplo, o impulso devido à força peso durante a colisão pode ser desprezado. Outro exemplo é o caso da força de atrito com o solo em uma colisão de automóveis, em que o impulso da força de atrito durante a colisão pode ser desprezado. Note que em ambos os casos não podemos desprezar o efeito de tais forças antes ou depois da colisão, somente \emph{durante} a colisão.
-
-\textbf{No parágrafo acima, deixar mais claro que nossa intenção é sempre tratar a colisão entre dois corpos como se $F_R^{\text{ext}}$ fosse zero. Deixar bem claro que tem que ser entre dois corpos que possam se move, afinal se atirarmos uma bola em uma parede é óbvio que a força exercida sobre a bola deve ser tratada como uma força externa sobre a bola. Não podemos tratar o movimento da parede pois ela está ligada à Terra e não pode se mover, ou o movimento não pode ser mensurado.}
+Finalmente, devemos destacar que em diversas situações podemos considerar que as forças externas que atuam sobre um sistema como sendo \emph{aproximadamente zero}. Como a duração de uma colisão é extremamente curta, uma força de pequena intensidade em comparação à força característica da colisão será responsável por um impulso desprezível. Assim, em uma colisão que ocorra entre uma bola e uma raquete, por exemplo, o impulso devido à força peso durante a colisão pode ser desprezado. Outro exemplo é o caso da força de atrito com o solo em uma colisão de automóveis, em que o impulso da força de atrito durante a colisão pode ser desprezado. Nesses casos estamos assuminto que
+\begin{equation}
+    \vec{F}_R^{\text{ext}} \approx 0,
+\end{equation}
+%
+de onde concluímos que o momento linear do sistema é aproximadamente constante. Note que em ambos os casos não podemos desprezar o efeito de tais forças \emph{antes} ou \emph{depois} da colisão, somente \emph{durante} a colisão. \footnote{Essa aproximação é válida e muito útil em diversas situações, porém devemos tomar o cuidado de identificar as forças a serem desprezadas corretamente: a força exercida diretamente entre os corpos que colidem jamais deve ser eliminada.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Força média em uma colisão}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% discutir a força média em uma colisão, exemplo do fusca/elefante
+Um erro muito frequente, característico da interpretação de ``senso comum'' dos fenômenos físicos, é o de considerar que objetos em queda têm seu peso aumentado. Se considerarmos as características da força peso, sabemos que isso não é possível, uma vez que o módulo dessa força é dado pelo produto da massa pela aceleração gravitacional, sendo que ambas essas grandezas são constantes. No entanto, observamos que a força exercida no impacto de um objeto que cai é tanto maior quanto maior for a sua velocidade, o que talvez justifique esse erro conceitual. Devemos notar, todavia, que a força exercida contra o solo no impacto não é a força peso, mas sim a força de interação característica da colisão.
 
-Um erro muito comum em jornais ou mesmo em conversas cotidianas é o de considerar que objetos em queda têm seu peso aumentado. Sabemos que isso não é possível, uma vez que o módulo da força peso é dado pelo produto da massa pela aceleração gravitacional, sendo que ambas essas grandezas são constantes. Sabemos que a força exercida no impacto de um objeto que cai é tanto maior quanto maior for a sua velocidade, o que talvez justifique esse erro conceitual. No entanto, a força exercida no impacto não é a força peso, mas sim a força de interação na colisão.
-
-Se atiramos uma bola contra uma superfície, temos que o impulso exercido sobre a bola está ligado à variação de seu momento linear por
-\begin{equation}
-    \Delta p = \int_{t_i}^{t_f} F(t) dt,
-\end{equation}
-%
-Sabemos que a forma da força durante uma colisão é bastante complexa, porém vamos assumir que ela seja simplesmente uma força constante. Assim
+De acordo com o que discutimos na seção anterior, durante uma colisão temos uma força cuja forma não sabemos precisar, mas que tem como características uma duração muito curta e uma intensidade muito grande. Se imaginarmos uma colisão em que a velocidade final do corpo incidente é nula\footnote{Estamos fazendo isso simplificar a expressão que obteremos, o resultado qualitativo não depende dessa escolha.}, é fácil verificar que o impulso necessário para parar o objeto é dado por
 \begin{align}
-    \Delta p &= \int_{t_i}^{t_f} F dt \\
-    \Delta p &= F \int_{t_i}^{t_f} dt \\
-    \Delta p &= F \Delta t,
+    \vec{J} &= \Delta \vec{p} \\
+    &= -\vec{p}_i.
 \end{align}
 %
-o que nos permite determinar o valor da força através de
-\begin{equation}
-    F = \frac{\Delta p}{\Delta t}.
-\end{equation}
-
-A expressão acima nada mais é do que a força média exercida durante a colisão:
-\begin{equation}\label{Eq:ForcaMediaColisao}
-    \mean{F} = \frac{\Delta p}{\Delta t}. \mathnote{Força média durante uma colisão}
-\end{equation}
+Como não sabemos exatamente a forma da força exercida durante a colisão, podemos tratar a força média a partir da  Equação~\eqref{Eq:ForcaMediaColisao}, obtendo
+\begin{align}
+    \langle\vec{F}\rangle &= \frac{\Delta\vec{p}}{\Delta t} \\
+    &= -\frac{\vec{p}_i}{\Delta t} \\
+    &= -\frac{m\vec{v}_i}{\Delta t}.
+\end{align}
 %
-Se soubermos o tempo de duração da colisão, podemos determinar um valor médio de força. A duração da colisão, no entanto, varia de acordo com as propriedades dos materiais de que são feitos corpos que colidem: a colisão de uma bola de tênis com uma raquete dura um tempo significativamente maior que a colisão entre duas esferas de aço, por exemplo. Isso pode ser explicado ao levarmos em conta que tanto a bola quanto as cordas da raquete se deformam, ampliando o tempo em que permanecem em contato.
+Se soubermos o tempo de duração da colisão, podemos determinar um valor médio de força. Tal tempo, no entanto, varia de acordo com as propriedades dos materiais de que são feitos os corpos que colidem: a duração da colisão de uma bola de tênis com uma raquete é significativamente maior que a colisão entre duas esferas de aço, por exemplo. Isso pode ser explicado ao levarmos em conta que tanto a bola quanto as cordas da raquete sofrem uma grande deformação durante a colisão, ampliando o tempo em que permanecem em contato; no caso das esferas de aço, a deformação é muito menor.
 
-Se supusermos que a velocidade final da bola é zero após a colisão --~como no caso de atirarmos um pedaço de massa de modelar que se deforma e gruda na superfície que atinge~--, podemos simplificar a expressão acima, obtendo
-\begin{equation}
-    \mean{F} = -\frac{m v_i}{\Delta t}.
-\end{equation}
-%
-Na equação acima temos um sinal que indica que a força exercida sobre a bola é no sentido oposto ao do momento linear inicial, sendo que a reação é exercida sobre a superfície contra a qual ela colide e tem o mesmo módulo, porém sentido contrário ao da força exercida sobre a bola. Verificamos que o módulo da força exercida tem uma dependência na velocidade, o que explica o fato de termos uma intensidade maior quando a velocidade inicial é maior, se considerarmos que o tempo de duração da colisão não é significativamente alterado.
+Note que o resultado obtido para a força média tem uma dependência direta no valor da velocidade. Isso valida a observação de que a força exercida sobre o solo quando um corpo cai é tanto maior quanto maior for a velocidade imediatamente antes do impacto. Temos ainda um sinal que indica que a força exercida sobre a bola é no sentido oposto ao do momento linear inicial, sendo que a reação é exercida sobre a superfície contra a qual ela colide e tem o mesmo módulo, porém sentido contrário ao da força exercida sobre a bola.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Força média e recuo do corpo incidente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Um aspecto interessante e que pode ser constatado facilmente na Expresão~\ref{Eq:ForcaMediaColisao} é o fato de que a força média exercida em uma colisão é maior se há um recuo do corpo incidente após a colisão. Isso se deve ao fato de que nesse caso temos uma variação do impulso que é maior. Para verificarmos isso basta supormos uma colisão entre um corpo e uma superfície em que não há recuo após o impacto, o que resulta em uma variação de momento dada por
 \begin{align}
@@ -1625,7 +2192,7 @@ Um aspecto interessante e que pode ser constatado facilmente na Expresão~\ref{E
     &= m v_i,
 \end{align}
 %
-e uma colisão onde o corpo retorna com a uma velocidade final igual em módulo à velocidade inicial --~porém com sentido contrário~--, o que resulta em uma variação de momento linear dada por
+e uma colisão onde o corpo retorna com a uma velocidade final igual em módulo à velocidade inicial ---~porém com sentido contrário~---, o que resulta em uma variação de momento linear dada por
 \begin{align}
     \Delta p &= p_f - p_i \\
     &= p_f - p_i \\
@@ -1635,21 +2202,21 @@ e uma colisão onde o corpo retorna com a uma velocidade final igual em módulo 
 %
 Logo, verificamos que no caso em que há recuo a variação do momento linear é maior que no caso em que não há recuo. Se a duração das colisões for a mesma para ambos os casos, a força média exercida também será maior.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Uma maneira simples de entender por que a força média é maior no segundo caso é imaginar um patinador que recebe uma bola que foi arremessada em sua direção. Quando ele simplesmente recebe e a segura ---~o que é análogo ao primeiro caso, onde o corpo incidente não recua~---, é exercida sobre a bola uma força suficiente para a desacelerar durante um intervalo de tempo $\Delta t$. Sobre o patinador atua a reação a tal força, fazendo com que ele seja acelerado para trás. Se o patinador arremessa a bola de volta, com a mesma velocidade que a recebeu, ele deve exercer a mesma força novamente, estando mais uma vez sujeito à reação. Isso tem o efeito de aumentar ainda mais sua velocidade para trás.
 
-\textbf{Arranjar um exemplo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Discussão: Escolha do sistema e conservação do momento linear}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Discutir o fato de que se tomarmos o sistema formado pela bola e pela Terra, aí podemos considerar que o momento do sistema se conserva. (na real não se conserva, a ideia é que o impulso devido à força gravitacional do sol é muito pequeno durante a colisão, por isso podemos considerar que ele se mantém aproximadamente constante. Ver se aqui é o melhor lugar pra discutir isso, ou se já está feito em colisões. Se não couber aqui, colocar um sidenote indicando onde foi/será discutido.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Colisões unidimensionais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Em tudo que tiver abaixo, não discutir a energia durante a colisão, isso vai ser feito depois, quando formos discutir energia em colisões e colisões elásticas. (No caso do pêndulo balístico, por exemplo, calcular o exemplo como de praxe, mas no final discutir que vamos ver adiante o que acontece com a energia que falta.}
-
 Uma colisão unidimensional é aquela em que dois corpos se aproximam com velocidades iniciais restritas a um eixo retilíneo, colidem, e se afastam com velocidades finais também restritas ao eixo retilíneo inicial\footnote[][-2cm]{Para duas \emph{partículas} que interagem através de uma força de contato ---~isto é, a força normal no ponto de contato~--- sempre é possível determinarmos um sistema de referência para o qual o movimento está restrito a um único eixo.} (Figura~\ref{Fig:ColisaoUnidimensional}).
 
-\begin{figure}[htb]
+\begin{figure}[htb]\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[dashdotted, ->] (-1.5,0) -- (6,0) node[below left]{$x$};
@@ -1680,8 +2247,6 @@ Uma colisão unidimensional é aquela em que dois corpos se aproximam com veloci
 \caption{Colisão unidimensional. \label{Fig:ColisaoUnidimensional}}
 \end{figure}
 
-
-
 Durante uma colisão, mesmo que de maneira aproximada, podemos considerar que o sistema está sujeito à condição de força resultante externa nula. Nesse caso, podemos afirmar para o problema mostrado na figura acima que
 \begin{align}
     \vec{P}_{\rm{sis}}^i &= \vec{P}_{\rm{sis}}^f \\
@@ -1699,11 +2264,9 @@ Note que os valores das projeções dos vetores podem ser \emph{ou positivos, ou
      m_1 v_{1}^{\rm{ac}} + m_2 v_{2}^{\rm{ac}} = m_1 v_{1}^{\rm{dc}} + m_2 v_{2}^{\rm{dc}}.
 \end{equation}
 %
-Devemos, porém, sempre lembrar que ela é uma relação vetorial, por isso as velocidade podem ser positivas ou negativas.
+Devemos, porém, sempre lembrar que ela é uma relação para as componentes dos vetores velocidade na direção do eixo $x$, por isso os valores podem ser positivos ou negativos.
 
 Finalmente, devemos destacar que se conhecermos o estado inicial de movimento ---~isto é, as massas e as velocidades iniciais~--- a relação acima não determina completamente o estado final de movimento do sistema, porém nos dá condições de determinar qualquer uma das variáveis, dado que as demais sejam conhecidas.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Colisão entre bolas de bilhar}
@@ -1725,7 +2288,7 @@ qual é a velocidade da partícula 2 após a colisão, considerando que ambas t�
 
 Assim como no caso da explosão de um corpo abordada anteriormente, podemos aplicar a conservação do momento linear à colisão unidimensional entre duas bolas de bilhar: novamente, o momento linear é conservado devido ao fato de que a força resultante externa é nula.
 %
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, interface/.style={
         % superfície
@@ -1770,118 +2333,14 @@ Finalmente,
     v_2^{\rm{dc}} = \np[m/s]{1,0}.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Pêndulo balístico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Podemos utilizar a conservação do momento linear para determinarmos a velocidade de um projétil. A Figura~\ref{Fig:PenduloBalistico} mostra um pêndulo balístico, que consiste em um bloco/alvo suspenso. Quando o projétil atinge o alvo, devido à interação entre ambos a velocidade do projétil é diminuída até que ele pare, ficando alojado no bloco. Ao mesmo tempo, o bloco passa a ter uma velocidade final. Devido ao fato de que o alvo está suspenso, após a colisão o bloco se deslocará, efetuando um movimento de subida. A partir da distância percorrida verticalmente pelo alvo/bloco, podemos determinar a velocidade do projétil.
-
-Durante a colisão, podemos considerar que o momento linear do sistema se conserva\footnote[][-2cm]{Na verdade não temos um força resultante externa nula nesse sistema devido ao peso do projétil que não é equilibrado por nenhuma outra força. No entanto, discutido anteriormente, podemos desprezar o impulso devido à força peso.}. Por outro lado, devido às deformações do projétil e do alvo, não podemos considerar que a energia mecânica do sistema se mantenha constante\footnote{Enquanto no processo de explosão de um corpo discutido anteriormente temos um aumento da energia mecânica devido à liberação de energia interna do corpo, no presente caso temos que parte da energia mecânica do sistema é convertida em energia interna.}.
-
-\begin{marginfigure}[2cm]
-\centering
-\begin{tikzpicture}[>=Stealth, interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}}]
-    
-    \draw[interface] (2.3,0) -- (-2,0);
-    
-    \draw (0.5, 0) -- node[right]{$\ell$}(0.5,-2);
-    \draw (1.5,0) -- (1.5,-2);
-    \draw[pattern = north west lines] (0, -2) rectangle (2, -3);
-    
-    \draw[fill] (-1.5, -2.5) circle (1mm);
-    \draw[->] (-1.5,-2.5) -- node[above]{$\vec{v}$} +(1,0);
-    
-    %%%
-    
-    \draw[interface] (2.3,-4) -- (-2,-4);
-    
-    \draw[dotted] (0.5, -4) coordinate (top1) -- (0.5,-6) coordinate (bot1);
-    \draw[dotted] (1.5,-4) coordinate (top2) -- (1.5,-6) coordinate (bot2);
-    \draw[pattern = north west lines, dotted] (0, -6) rectangle (2, -7);
-    
-    \draw (0.5, -4) -- node[right]{$\ell$}+(-70:2) coordinate (des1);
-    \draw (1.5,-4) -- +(-70:2) coordinate (des2);
-    \draw[pattern = north west lines] (0.68, -5.88) rectangle (2.68, -6.88);
-        
-    \draw[pattern = north east lines] (0.68, -6.28) rectangle (1.2, -6.48);
-    \draw[fill] (1.2, -6.38) circle (1mm);
-    
-    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = bot1--top1--des1};
-    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = bot2--top2--des2};
-    
-\end{tikzpicture}
-\caption{Através de um pêndulo balístico, podemos determinar a velocidade de um projétil. Durante a colisão, devido a deformações do alvo e à consequente alteração de sua energia interna, não podemos considerar que a energia mecânica do sistema permaneça constante, mesmo que a conservação da energia total seja válida para o sistema em questão.\label{Fig:PenduloBalistico}}
-\end{marginfigure}
-
-Utilizando a conservação do momento linear na colisão, temos
-\begin{equation}
-    m_p v_p^{x, \rm{ac}} + m_a v_a^{x, \rm{ac}} = m_p v_p^{x, \rm{dc}} + m_a v_a^{x, \rm{dc}},
-\end{equation}
-%
-onde adotamos o eixo $x$ como sendo o eixo horizontal, na direção da velocidade do projétil. Após a colisão, o projétil fica alojado no bloco, logo suas velocidades finais são iguais:
-\begin{equation}
-    v_p^{x, \rm{dc}} = v_a^{x, \rm{dc}} = v^{x, \rm{dc}}.
-\end{equation}
-%
-Além disso, a velocidade inicial do alvo é nula, portanto,
-\begin{equation}
-    m_p v_p^{x, \rm{ac}} = (m_p + m_a) v_p^{x, \rm{dc}}.
-\end{equation}
-%
-Como estamos interessados em determinar a velocidade do projétil, podemos a isolar, obtendo
-\begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} v_p^{x, \rm{dc}}.
-\end{equation}
-
-Após a colisão, o movimento do bloco/alvo juntamente com o projétil está sujeito à condição de energia mecânica constante. Podemos então escrever
-\begin{align}
-    E_i &= E_f \\
-    K_i + U_g^i &= K_f + U_g^f \\
-    \frac{1}{2} m_t v_i^2 + mgy_i &= \frac{1}{2} m_t v_f^2 + mgy_f.
-\end{align}
-%
-Se escolhermos $y_i = 0$, temos que $y_f = h$, onde $h$ é a distância vertical percorrida pelo bloco. Sabemos que na condição de altura máxima $v_f = 0$, logo
-\begin{equation}
-    \frac{1}{2} m_t v_i^2 = mgh,
-\end{equation}
-%
-o que resulta em
-\begin{equation}
-    v_i = \sqrt{2gh}.
-\end{equation}
-
-Finalmente, notando que a velocidade inicial do bloco para o processo de subida após a colisão é igual à velocidade imediatamente após a colisão, temos que
-\begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2gh},
-\end{equation}
-%
-ou, notando que a altura $h$ é dada por
-\begin{align}
-    h &= \ell - \ell\cos\theta \\
-    &= \ell (1 - \cos\theta),
-\end{align}
-%
-\begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2g\ell(1-\cos\theta)}.
-\end{equation}
-
-\textbf{Explicar que o fato de que a força resultante é zero (ou quase) faz com que a energia total do sistema se mantenha constante, uma vez que não existe trabalho de forças externas (pois a força é zero, obviamente). Ainda assim, como existe trabalho de forças não conservativas, podemos afirmar que a energia mecânica não se conserva. De acordo com o princípio da conservação da energia, verificamos então que a energia interna dos corpos deve aumentar durante a colisão.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Colisão entre dois discos sujeitos à força de atrito}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Adaptar como exemplo, transformar o parágrafo abaixo em enunciado.}
-
-Vamos analisar a colisão entre dois discos sólidos, homogêneos, e de mesmo material que colidem ao se deslocarem sobre uma superfície com coeficiente de atrito cinético $\mu_c$. O primeiro disco se desloca com velocidade inicial $v_1^i$ e percorre uma distância $d_1$ até colidir com o segundo disco. Após a colisão com o segundo disco, que estava parado, o primeiro disco volta com uma velocidade imediatamente antes da colisão igual a um sexto da velocidade que tinha imediatamente depois da colisão, percorrendo uma distância $\ell$ até parar. Já o segundo disco se desloca para frente e percorre uma distância $d_2$ até parar. Considerando que $m_2 = 2 m_1$, que o coeficiente de atrito cinético é $\mu_c = \np{0,50}$ e que as distâncias são $d_1 = \np[cm]{30,00}$, $d_2 = \np[cm]{61,25}$ e $\ell = \np[cm]{5,00}$, qual era a velocidade inicial do primeiro disco?
-
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
-    \draw[dashdotted] (0,0) -- (1.1,0);
+    \draw[dashdotted] (0,0) -- (0.85,0);
     \draw[dashdotted] (1.15,0) -- (2.35,0);
     \draw[dashdotted, ->] (2.65,0) -- (4,0) node[below left]{$x$};
     
@@ -1903,6 +2362,10 @@ Vamos analisar a colisão entre dois discos sólidos, homogêneos, e de mesmo ma
 \end{tikzpicture}
 \caption{Colisão unidimensional entre dois discos. Note que o disco da direita está inicialmente em repouso.}
 \end{marginfigure}
+
+\begin{quote}
+Dois discos sólidos, homogêneos, e de mesmo material colidem ao se deslocarem sobre uma superfície com coeficiente de atrito cinético $\mu_c$. O primeiro disco se desloca com velocidade inicial $v_1^i$ e percorre uma distância $d_1$ até colidir com o segundo disco. Após a colisão com o segundo disco, que estava parado, o primeiro disco volta com uma velocidade imediatamente antes da colisão igual a um sexto da velocidade que tinha imediatamente depois da colisão, percorrendo uma distância $\ell$ até parar. Já o segundo disco se desloca para frente e percorre uma distância $d_2$ até parar. Considerando que $m_2 = 2 m_1$, que o coeficiente de atrito cinético é $\mu_c = \np{0,50}$ e que as distâncias são $d_1 = \np[cm]{30,00}$, $d_2 = \np[cm]{61,25}$ e $\ell = \np[cm]{5,00}$, qual era a velocidade inicial do primeiro disco?
+\end{quote}
 
 Podemos dividir o problema nas seguintes partes:
 \begin{description}
@@ -1970,51 +2433,263 @@ o que nos dá uma velocidade de \np[m/s]{4,54}.
 \section{Energia em colisões, colisões elásticas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De um ponto de vista energético, temos segundo o Princípio da Conservação da Energia que
+De um ponto de vista energético, o Princípio da Conservação da Energia nos diz que
 \begin{equation}
-    \Delta E_{\rm{mec}} + \Delta E_{\rm{sis}} = W_{\rm{ext}} + Q + R
+    \Delta E_{\text{sis}}^{\rm{mec}} + \Delta E_{\rm{sis}}^{\text{int}} = W_{\rm{ext}} + Q + R.
 \end{equation}
 %
-Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,\footnote{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
+Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,
 \begin{equation}
     \vec{P}_{\rm{sis}}^{\rm{ac}} = \vec{P}_{\rm{sis}}^{\rm{dc}},
 \end{equation}
 %
-e também em um trabalho externo nulo:
+e também em um trabalho externo nulo:\footnote{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
 \begin{equation}
     W_{\rm{ext}} = 0.
 \end{equation}
-
-Em uma colisão, calor e radiação não são aspectos relevantes. Por isso, concluímos que a energia do sistema também deve ser constante, uma vez que
+%
+Além disso, calor e radiação não são aspectos relevantes em uma colisão. Isso resulta em
 \begin{equation}\label{Eq:ConsEnergiaEmColisao}
-    \Delta E_{\rm{mec}} + \Delta E_{\rm{int}} = 0.
+    \Delta E_{\rm{mec}} + \Delta E_{\rm{int}} = 0,
 \end{equation}
 %
-Apesar de a energia \emph{total} se conservar, muitas vezes a energia mecânica não é constante devido ao trabalho de forças não conservativas, uma vez que
+ou seja, \emph{a energia total do sistema é constante}. Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno, podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:
 \begin{equation}
-    \Delta E_{\rm{mec}} = W_{\rm{NC}}.
+    \Delta K_{\text{sis}} + \Delta E_{\text{sis}}^{\text{int}} = 0.
+\end{equation}
+
+O resultado acima é válido para toda colisão e nos permite dividí-las em dois tipos:
+\begin{description}
+    \item[Colisões elásticas:] colisões onde a energia cinética total dos corpos que colidem não varia. Correspondentemente, não há variação da soma ds energias internas dos corpos.
+    
+    \item[Colisões inelásticas:] colisões onde ocorre variação da energia cinética total, com uma correspondente variação da interna de pelo menos um dos corpos que colidem. Se os corpos permanecem unidos após a colisão, dizemos que temos uma \emph{colisão completamente inelástica}.
+\end{description}
+%
+Em ambos os casos os corpos se deformam durante a colisão, alterando suas energias internas. No caso das colisões inelásticas, no entanto, tais deformações são permanentes, causando uma diminuição permanente da energia cinética.\footnote[][-10cm]{Idealmente, devemos determinar o tipo da colisão verificando se existe variação da energia cinética do sistema, no entanto, sabemos que ocorrem variações da energia interna dos corpos que colidem sempre que eles se deformam permanentemente.} Veremos adiante, na Seção~\ref{Sec:ColisoesElasticas}, alguns resultados interessantes para as colisões elásticas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: Classificação de uma colisão quanto à energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Fazer um exemplo numérico onde verificamos a partir de alguns dados se a colisão foi elástica ou não.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Colisão entre dois blocos ``amortecida'' por uma mola}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.95,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0.75,-2.5) -- (5.85, -2.5);
+    
+    \node (a) at (0.9, -2) {\emph{(a)}};
+
+    \draw[->] (1.25,-1.2) -- node[above]{$\vec{v}_1^{\text{ac}}$} (2.25,-1.2);
+    \draw[pattern = north west lines] (1.25,-2.5) rectangle (2.25,-1.5);
+    \draw[decoration={aspect=0.3, segment length=1.1mm, amplitude=2mm,coil},decorate] (2.5,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \node (v2ac) at (4,-1.1) {$\vec{v}_2^{\text{ac}}=0$};
+    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
+    
+    \begin{scope}[shift={(0,-2.5)}]
+        \draw[interface] (0.75,-2.5) -- (5.85, -2.5);
+        
+        \node (b) at (0.9, -2) {\emph{(b)}};
+
+        \draw[<-] (2,-1.2) -- node[above]{$\vec{a}$} (2.5,-1.2);
+        \draw[pattern = north west lines] (1.75,-2.5) rectangle (2.75,-1.5);
+        \draw[decoration={aspect=0.3, segment length=0.9mm, amplitude=2mm,coil},decorate] (2.75,-2) -- (3.4,-2);
+        \draw (3.4, -2) -- (3.6,-2);
+        
+        \draw[->] (3.85,-1.2) -- node[above]{$\vec{a}$} (4.35,-1.2);
+        \draw[pattern = north west lines] (3.6,-2.5) rectangle (4.6,-1.5);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-5)}]
+        \draw[interface] (0.75,-2.5) -- (5.85, -2.5);
+        
+        \node (c) at (0.9, -2) {\emph{(c)}};
+
+        \draw[<-] (2.1,-1.2) -- node[above]{$\vec{a}$} (3.1,-1.2);
+        \draw[pattern = north west lines] (2.1,-2.5) rectangle (3.1,-1.5);
+        \draw[decoration={aspect=0.3, segment length=0.45mm, amplitude=2mm,coil},decorate] (3.1,-2) -- (3.5,-2);
+        \draw (3.5, -2) -- (3.7,-2);
+        
+        \draw[->] (3.7,-1.2) -- node[above]{$\vec{a}$} (4.7,-1.2);
+        \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-7.5)}]
+        \draw[interface] (0.75,-2.5) -- (5.85, -2.5);
+        
+        \node (d) at (0.9, -2) {\emph{(d)}};
+
+        \draw[<-] (2.45,-1.2) -- node[above]{$\vec{a}$} (2.95,-1.2);
+        \draw[pattern = north west lines] (2.2,-2.5) rectangle (3.2,-1.5);
+        \draw[decoration={aspect=0.3, segment length=0.9mm, amplitude=2mm,coil},decorate] (3.2,-2) -- (3.85,-2);
+        \draw (3.85, -2) -- (4.05,-2);
+        
+        \draw[->] (4.3,-1.2) -- node[above]{$\vec{a}$} (4.8,-1.2);
+        \draw[pattern = north west lines] (4.05,-2.5) rectangle (5.05,-1.5);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-10)}]
+        \draw[interface] (0.75,-2.5) -- (5.85, -2.5);
+        
+        \node (e) at (0.9, -2) {\emph{(e)}};
+
+        \draw[->] (2.5,-1.2) -- node[above]{$\vec{v}_1^{\text{dc}}$} (3.0,-1.2);
+        \draw[pattern = north west lines] (2.2,-2.5) rectangle (3.2,-1.5);
+        \draw[decoration={aspect=0.3, segment length=0.9mm, amplitude=2mm,coil},decorate] (3.7,-2) -- (4.35,-2);
+        \draw (4.35, -2) -- (4.55,-2);
+        
+        \draw[->] (4.75,-1.2) -- node[above]{$\vec{v}_2^{\text{dc}}$} (5.35,-1.2);
+        \draw[pattern = north west lines] (4.55,-2.5) rectangle (5.55,-1.5);
+    \end{scope}
+\end{tikzpicture}
+\caption{Colisão entre dois blocos ``amortecida'' por uma mola.\label{Fig:ColisaoBlocosAmortecidaPorMola}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:ColisaoBlocosAmortecidaPorMola} \emph{(a)} temos dois blocos sobre uma mesa sem atrito que estão prestes a colidir. Entre eles há uma mola que está inicialmente relaxada. Durante o processo de colisão, o bloco da esquerda começa a comprimir a mola gradualmente \emph{(b)}, sendo que a força elástica exercida por ela passa a atuar em ambos os blocos, diminuindo a velocidade do bloco da esquerda e aumentando a velocidade do bloco da direita. Em certo ponto, a mola atingirá sua compressão máxima \emph{(c)}, momento no qual os dois blocos têm a mesma velocidade. Após isso, a mola passa a se expandir \emph{(d)}, ainda exercendo uma força no sentido de desacelerar o bloco da esquerda e acelerar o bloco da direita. Esse processo continua até que a mola volte a ficar relaxada e perca contato com o bloco da esquerda \emph{(e)}.
+
+Do ponto de vista energético, temos um sistema no qual a energia mecânica se conservar, pois temos duas forças conservativas (a força peso e a força elástica) e duas forças não-conservativas cujo trabalho é zero (a força normal e a força de atrito; temos ainda o arrasto, mas vamos desprezá-lo). Durante a colisão, portanto, parte da energia mecânica do bloco da esquerda é transferida para o bloco da direita, porém temos o armazenamento temporário de parte dessa energia na mola.
+
+Note que a colisão entre os blocos é necessariamente elástica, pois não há nenhuma força não conservativa realizando trabalho, por isso a energia mecânica do sistema permanece constante\footnote{Outra maneira de perceber que a colisão deve ser elástica é considerar que os corpos não sofrem deformação ou têm suas temperaturas aumentadas, mas isso é mais difícil de justificar para corpos macroscópicos. Para corpos microscópicos, como átomos ou partículas elementares esse pode ser o caminho mais simples.}. Veremos na próxima seção que se soubermos as velocidades iniciais dos dois blocos e suas massas, seremos capazes de determinar suas velocidades finais.
+
+Se analisarmos a colisão somente até o ponto \emph{(c)}, quando ambos os corpos andam com a mesma velocidade, no entanto, podemos considerar a colisão como sendo \emph{completamente inelástica}. Nesse caso, a energia ``perdida'' está armazenada na mola\footnote{Efetivamente estamos considerando que a mola faz parte do corpo da direita e ele foi deformado, ainda que temporariamente. A colisão é considerada completamente inelástica pelo fato de que ambos os corpos andam com a mesma velocidade.}. Podemos determinar a máxima compressão da mola simplesmente considerando que a energia nela armazenada é igual à diferença entre a energia cinética total antes da colisão (situação ilustrada pela figura \emph{(a)}) e a energia cinética total que os corpos têm quando andam à mesma velocidade (situação ilustrada pela figura \emph{(c)}):
+\begin{align}
+    U_e &= (K_e^{\text{ac}} + K_d^{\text{ac}}) - (K_e^{\text{dc}} - K_d^{\text{dc}}) \\
+    \frac{kx_{\text{max}}^2}{2} &= \left(\frac{m_e(v_e^{\text{ac}})^2}{2} + \frac{m_d(v_d^{\text{ac}})^2}{2}\right) - \left(\frac{m_e(v_e^{\text{dc}})^2}{2} + \frac{m_d(v_d^{\text{dc}})^2}{2}\right) \\
+    \frac{kx_{\text{max}}^2}{2} &= \left(\frac{m_e(v_e^{\text{ac}})^2}{2} + 0\right) - \left(\frac{(m_e + m_d)(v^{\text{dc}})^2}{2}\right).
+\end{align}
+%
+Na última equação acima usamos $v_d^{\text{ac}} = 0$ e $v_e^{\text{dc}} = v_d^{\text{dc}} = v^{\text{dc}}$. Isolando $x_{\text{max}}$:
+\begin{equation}
+    x_{\text{max}} = \sqrt{\frac{m_e(v_e^{\text{ac}})^2 - (m_e + m_d)(v^{\text{dc}})^2}{k}}.
+\end{equation}
+
+É interessante notar que a colisão que descrevemos acima pode ser separada em duas ``partes'': na primeira, parte da energia é absorvida pela mola até que ambos os corpos passem a se mover com a mesma velocidade. Nesse momento temos a maior fração de energia absorvida. Após isso, inicia uma segunda parte da colisão onde a energia armazenada na mola é restituida. Se toda a energia for restituida, então temos uma colisão elástica. Se somente parte dela for restituida, temos uma colisão inelástica. Se os corpos permanessem ligados após a colisão, temos uma colisão completamente inelástica, isto é, a situação onde ambos se movem com a mesma velocidade. Nesse tipo de colisão temos, portanto, a maior quantidade possível de energia cinética ``perdida''.\footnote{Outra maneira de entender por que as colisões completamente representam o caso em que ocorre a maior variação da energia cinética total é fixar um referencial no centro de massa: se a colisão é completamente inelástica, então após a colisão os corpos ficam parados, ou seja, temos uma energia cinética nula; qualquer outro tipo de colisão teria uma energia cinética remanescente após a colisão, o que resulta em uma menor variação da energia cinética total.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Pêndulo balístico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos utilizar a conservação do momento linear para determinarmos a velocidade de um projétil. A Figura~\ref{Fig:PenduloBalistico} mostra um pêndulo balístico, que consiste em um bloco/alvo suspenso. Quando o projétil atinge o alvo, devido à interação entre ambos, a velocidade do projétil é diminuída até que ele pare, ficando alojado no bloco. Ao mesmo tempo, o bloco passa a ter uma velocidade final. Devido ao fato de que o alvo está suspenso, após a colisão o bloco se deslocará, efetuando um movimento de subida. A partir da distância percorrida verticalmente pelo alvo/bloco, podemos determinar a velocidade do projétil.
+
+Durante a colisão, podemos considerar que o momento linear do sistema se conserva\footnote[][-2cm]{Na verdade não temos um força resultante externa nula nesse sistema devido ao peso do projétil que não é equilibrado por nenhuma outra força. No entanto, como discutido anteriormente, podemos desprezar o impulso devido à força peso, uma vez que ele é muito menor dos que o impulso devido à força de interação entre os dois corpos durante a colisão.}. Por outro lado, devido às deformações do projétil e do alvo, não podemos considerar que a energia mecânica do sistema se mantenha constante\footnote{Enquanto no processo de explosão de um corpo discutido anteriormente temos um aumento da energia mecânica devido à liberação de energia interna do corpo, no presente caso temos que parte da energia mecânica do sistema é convertida em energia interna.}.
+
+\begin{marginfigure}[2cm]
+\centering
+\begin{tikzpicture}[>=Stealth, interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}]
+    
+    \draw[interface] (2.3,0) -- (-2,0);
+    
+    \draw (0.5, 0) -- node[right]{$\ell$}(0.5,-2);
+    \draw (1.5,0) -- (1.5,-2);
+    \draw[pattern = north west lines] (0, -2) rectangle (2, -3);
+    
+    \draw[fill] (-1.5, -2.5) circle (1mm);
+    \draw[->] (-1.5,-2.5) -- node[above]{$\vec{v}$} +(1,0);
+    
+    %%%
+    
+    \draw[interface] (2.3,-4) -- (-2,-4);
+    
+    \draw[dotted] (0.5, -4) coordinate (top1) -- (0.5,-6) coordinate (bot1);
+    \draw[dotted] (1.5,-4) coordinate (top2) -- (1.5,-6) coordinate (bot2);
+    \draw[pattern = north west lines, dotted] (0, -6) rectangle (2, -7);
+    
+    \draw (0.5, -4) -- node[right]{$\ell$}+(-70:2) coordinate (des1);
+    \draw (1.5,-4) -- +(-70:2) coordinate (des2);
+    \draw[pattern = north west lines] (0.68, -5.88) rectangle (2.68, -6.88);
+        
+    \draw[pattern = north east lines] (0.68, -6.28) rectangle (1.2, -6.48);
+    \draw[fill] (1.2, -6.38) circle (1mm);
+    
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = bot1--top1--des1};
+    \pic[draw, "$\theta$", angle eccentricity = 1.5] {angle = bot2--top2--des2};
+    
+\end{tikzpicture}
+\caption{Através de um pêndulo balístico, podemos determinar a velocidade de um projétil. Durante a colisão, devido a deformações do alvo e à consequente alteração de sua energia interna, não podemos considerar que a energia mecânica do sistema permaneça constante, mesmo que a conservação da energia total seja válida para o sistema em questão.\label{Fig:PenduloBalistico}}
+\end{marginfigure}
+
+Utilizando a conservação do momento linear na colisão, temos
+\begin{equation}
+    m_p v_p^{x, \rm{ac}} + m_a v_a^{x, \rm{ac}} = m_p v_p^{x, \rm{dc}} + m_a v_a^{x, \rm{dc}},
 \end{equation}
 %
-Tais forças são, por exemplo, aquelas envolvidas em uma colisão entre dois corpos sendo que ocorrem deformações de um deles, ou de ambos. Veja que nesses casos tais deformações estão associadas ao aumento da energia interna dos corpos, como evidenciado pela Equação~\eqref{Eq:ConsEnergiaEmColisao}.
+onde adotamos o eixo $x$ como sendo o eixo horizontal, na direção da velocidade do projétil. Após a colisão, o projétil fica alojado no bloco, logo suas velocidades finais são iguais:
+\begin{equation}
+    v_p^{x, \rm{dc}} = v_a^{x, \rm{dc}} = v^{x, \rm{dc}}.
+\end{equation}
+%
+Além disso, a velocidade inicial do alvo é nula, portanto,
+\begin{equation}
+    m_p v_p^{x, \rm{ac}} = (m_p + m_a) v_p^{x, \rm{dc}}.
+\end{equation}
+%
+Como estamos interessados em determinar a velocidade do projétil, podemos a isolar, obtendo
+\begin{equation}
+    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} v_p^{x, \rm{dc}}.
+\end{equation}
 
-Veremos adiante, na Seção~\ref{Sec:ColisoesElasticas}, que em algumas colisões ---~denominadas \emph{colisões elásticas}~--- poderemos assumir que a energia cinética do sistema se mantenha constante. Esse ``vínculo'' adicional nos permitirá verificar alguns resultados interessantes para as colisões.
+Após a colisão, o movimento do bloco/alvo juntamente com o projétil está sujeito à condição de energia mecânica constante, pois o trabalho de forças não-conservativas é nulo. Podemos então escrever
+\begin{align}
+    E_i &= E_f \\
+    K_i + U_g^i &= K_f + U_g^f \\
+    \frac{1}{2} m_t v_i^2 + mgy_i &= \frac{1}{2} m_t v_f^2 + mgy_f.
+\end{align}
+%
+Se escolhermos $y_i = 0$, temos que $y_f = h$, onde $h$ é a distância vertical percorrida pelo bloco. Sabemos que na condição de altura máxima $v_f = 0$, logo
+\begin{equation}
+    \frac{1}{2} m_t v_i^2 = mgh,
+\end{equation}
+%
+o que resulta em
+\begin{equation}
+    v_i = \sqrt{2gh}.
+\end{equation}
 
-\textbf{Temos que discutir o fato de que as forças não conservativas podem ser externas ou internas. No caso das externas, a proprio princípio da conservação da energia já mostra que ou há uma variação da energia mecânica, ou da energia interna, ou de ambos. Se for interna, deve variar a energia interna, uma vez que a $\Delta E_{mec} + \Delta E_{int} = 0$ e $\Delta E_{mec} = W_{NC}$. Discutir que em geral podemos considerar que $W_{ext}$, $Q$ e $R$ são desprezíveis, o que pode ser entendido considerando que o impulso de uma força externa seria muito pequeno, ou seja, as energias mecânica e interna são muito maiores que tais termos. Falar que o potencial pode ser considerado constante, aproximadamente. Dizer que só sobra a energia cinética pra se preocupar. Se a soma das energias cinéticas é igual antes e depois da colisão, então temos uma colisão dita elástica, e a energia interna dos corpos que colidem não muda. Falar que (eu acho) a ideia é a de que os corpos que colidem se deformam durante a colisão e até podem armazenar uma energia interna, mas até o final da colisão acabam restaurando suas formas e restituem a energia para a forma cinética. Discutir com dois blocos colidindo, sendo que um deles tem uma mola. Fazer um exemplo numérico onde verificamos a partir de alguns dados se a colisão foi elástica ou não. Fazer uma discussão onde verificamos qual é a máxima compressão de uma mola colocada entre dois blocos que colidem.}
+Finalmente, notando que a velocidade inicial do bloco para o processo de subida após a colisão é igual à velocidade imediatamente após a colisão, temos que
+\begin{equation}
+    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2gh},
+\end{equation}
+%
+ou, notando que a altura $h$ é dada por
+\begin{align}
+    h &= \ell - \ell\cos\theta \\
+    &= \ell (1 - \cos\theta),
+\end{align}
+%
+\begin{equation}
+    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2g\ell(1-\cos\theta)}.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Discussão: Colisões com liberação de energia interna}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Explicar que se tiver algum esquema que libere energia interna, como um explosivo, podemos ter uma energia cinética final maior que a inicial. Explicar o caso de ter uma mola engatilhada que libera energia e calcular a velocidade final dos dois corpos.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Relações para as velocidades em colisões elásticas unidimensionais entre duas partículas}
 \label{Sec:ColisoesElasticas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Ver se tem algo pra aproveitar abaixo, a ideia é só discutir as expressões (de preferência as obter).}
 
-Sabemos que sempre que a força resultante externa que atua sobre um sistema de partículas que colidem é nula, o momento linear do sistema se conserva. Podemos ainda verificar o que acontece com a energia cinética antes e depois de uma colisão. Podemos dividir as colisões quanto ao que acontece com a energia cinética em três possibilidades
-\begin{description}
-  \item[Colisões inelásticas] Nesse tipo de colisão, a energia cinética antes e depois da colisão não é a mesma, ocorrendo uma perda de energia cinética.
-  \item[Colisões completamente inelásticas] São as colisões onde os corpos que colidem permanecem unidos após a colisão, se movendo juntos. % Nesse tipo de colisão a perda energética é máxima.\comment{Acho que é, verificar.} 
-  \item[Colisões elásticas] Nesse tipo de colisão a energia cinética total antes e depois da colisão é a mesma.
-\end{description}
 
-Como verificamos anteriormente, em toda colisão pode podemos utilizar a conservação do momento linear, por isso no caso das colisões inelásticas é necessário saber informações acerca das velocidades antes e depois da colisão, restando no máximo uma variável a se determinar. No caso das colisões elásticas, no entanto, temos dois conjuntos de equações, o que nos habilita a resolver o sistema
+Sabemos que em toda colisão pode podemos utilizar a conservação do momento linear. No caso das colisões inelásticas é necessário saber informações acerca das massas e velocidades antes e depois da colisão, restando no máximo uma variável a se determinar. No caso das colisões elásticas, no entanto, temos também uma energia cinétical total constante, o que nos leva ao sistema
 \begin{equation}
 \begin{system}
 m_1 v_1^{\textrm{ac}} + m_2 v_2^{\textrm{ac}} &= m_1 v_1^{\textrm{dc}} + m_2 v_2^{\textrm{dc}} \\
@@ -2069,36 +2744,68 @@ Considerando o texto acima,
 \end{enumerate}
 \end{quote}
 
-\textbf{Resolver como exemplo. Discutir por que o modelo deve ter um núcleo massivo para explicar os dados.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Máxima compressão de uma mola entre dois corpos que colidem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Explicar como determinar e falar que a energia é armazenada e depois retorna pra energia mecânica (e que o fato de que não restam deformações residuais deve ser o porque de se chamar as colisões de elásticas)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Colisão de corpos reais} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Dar uma estudada, resolver a colisão de dois discos. Falar do momento transferido na colisão. Ao colidir, só há variação do momento na direção do momento transferido, que é a direção que liga os centros das bolas no instante que elas se tocam.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Referenciais inerciais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Discutir o fato de que o momento linear depende do referencial inercial adotado, porém que sua variação não. De alguma maneira, mostrar que é a variação que importa.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Questões}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{question}[type={exam}]
-Considerando um referencial inercial:
-\begin{enumerate}[label=(\alph*)]
-    \item Existe uma maneira de dois corpos colidirem de forma que a energia cinética final do sistema formado por ambos os corpos seja nula em tal referencial, considerando que nenhum força externa seja exercida sobre o sistema?
-    \item Qual seria o momento linear inicial do sistema, em relação ao referencial inercial, se tal colisão for possível?
-\end{enumerate}
+Se considerarmos que as colisões entre as partículas $\alpha$ e os elétrons são inelásticas, sabemos que a velocidade da partícula $\alpha$ após a colisão será dada por\footnote{Considerando que a partícula $\alpha$ é a partícula número 1 e o elétron é a partícula número 2, que se encontrava inicialmente em repouso.}
+\begin{equation}
+    v_{\alpha}^{ac} = \frac{m_\alpha - m_e}{m_\alpha + m_e} v_\alpha^{\text{ac}}.
+\end{equation}
 %
-Justifique suas respostas.
-\end{question}
+As massas do elétron e da partícula $\alpha$ são, respectivamente
+\begin{align}
+    m_\alpha &= \np[kg]{6.64465723082E-27} \\
+    m_e &= \np[kg]{9.1093835611E-31},
+\end{align}
+%
+o que resulta em
+\begin{equation}
+    v_\alpha^{\text{dc}} = (\np{0.999722585}) \cdot v_\alpha^{\text{ac}}.
+\end{equation}
+%
+Verificamos, portanto, que a velocidade da partícula alpha após a colisão corresponde a aproximadamente $\np{99.97}\%$ da velocidade antes da colisão. Consequentemente, podemos desprezar as perturbações na trajetória das partículas $\alpha$ devidas aos elétrons.
+
+Quando as partículas $\alpha$ colidem com o núcleo, suas velocidades após a colisão são dadas pela relação
+\begin{equation}
+    v_{\alpha}^{ac} = \frac{m_\alpha - m_N}{m_\alpha + m_N}. v_\alpha^{\text{ac}}.
+\end{equation}
+%
+Para que elas sejam capazes de colidir com um alvo e voltarem com uma velocidade similar à velocidade de incidência, a razão das massas na equação acima deve ser aproximadamente $-1$:
+\begin{equation}
+    \frac{m_\alpha - m_N}{m_\alpha + m_N} \approx -1.
+\end{equation}
+%
+Esse resultado só é possível se 
+\begin{equation}
+    m_N \gg m_\alpha.
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Colisões bidimensionais} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Fazer alguma coisa em 2D, mas ainda considerando partículas.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Colisão de corpos reais} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Dar uma estudada, resolver a colisão de dois discos. Falar do momento transferido na colisão. Ao colidir, só há variação do momento na direção do momento transferido, que é a direção que liga os centros das bolas no instante que elas se tocam.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Referenciais inerciais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Discutir o fato de que o momento linear depende do referencial inercial adotado, porém que sua variação não. De alguma maneira, mostrar que é a variação que importa.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Questões}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{question}[type={exam}]
+%Considerando um referencial inercial:
+%\begin{enumerate}[label=(\alph*)]
+%    \item Existe uma maneira de dois corpos colidirem de forma que a energia cinética final do sistema formado por ambos os corpos seja nula em tal referencial, considerando que nenhum força externa seja exercida sobre o sistema?
+%    \item Qual seria o momento linear inicial do sistema, em relação ao referencial inercial, se tal colisão for possível?
+%\end{enumerate}
+%%
+%Justifique suas respostas.
+%\end{question}
