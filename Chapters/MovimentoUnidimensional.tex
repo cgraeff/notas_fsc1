@@ -19,17 +19,17 @@ O primeiro passo para que possamos estudar a mecânica é a definição das vari
 
 Diversos sistemas físicos interessantes exibem movimento. A \emph{cinemática} é a área da física que se preocupa em descrever o movimento sem se preocupar com a causa de tal fenômeno: Estamos interessados em descrever a série de posições diferentes no espaço ocupadas por um corpo qualquer conforme o tempo progride. Além disso, também estamos interessados em descrever as características dessa evolução temporal da posição. Para isso, basta definir três grandezas principais ---~a posição, a velocidade, e a aceleração~---.
 
-Apesar de termos uma noção cotidiana de tais grandezas, veremos que em alguns casos teremos definições que diferem dessas noções devido ao fato de que elas não são úteis ou precisas. Como estamos interessados em uma descrição \emph{quantitativa}, utilizaremos a linguagem matemática como base para tais definições, nos valendo de vários objetos matemáticos (números, equações, funções, gráficos, limites, vetores, etc.), bem como de técnicas para trabalhar com tais objetos.
+Apesar de termos uma noção cotidiana de tais grandezas, veremos que em alguns casos teremos na Física definições que diferem dessas noções cotidianas devido ao fato de que estas não são úteis ou precisas. Como estamos interessados em uma descrição \emph{quantitativa}, utilizaremos a linguagem matemática como base para tais definições, nos valendo de vários objetos matemáticos (números, equações, funções, gráficos, limites, vetores, etc.), bem como de técnicas para trabalhar com tais objetos.
 
-O tratamento matemático utilizado neste texto é propositalmente simplificado, sendo adequado a um nível de Física Básica do ensino superior. Sendo assim, o texto considera que o leitor não tem conhecimento de Cálculo Diferencial e Integral, mas que está cursando uma disciplina sobre o assunto. Tendo isso em mente, ferramentas de Cálculo serão apresentadas e empregadas aos poucos, porém sempre no sentido de apresentar resultados importantes, não sendo exigidos como um conhecimento do aluno\footnote{Algumas seções opcionais podem exigir um conhecimento sólido em Cálculo.}. Neste primeiro capítulo, são exigidos como conhecimento prévio \emph{operações básicas, equações, funções, gráficos, e área de figuras planas} somente.
+O tratamento matemático utilizado neste texto é propositalmente simplificado, sendo adequado a um nível de Física Básica do ensino superior. Sendo assim, o texto considera que o leitor não tem conhecimento de Cálculo Diferencial e Integral, mas que está cursando uma disciplina sobre o assunto. Tendo isso em mente, ferramentas de Cálculo serão apresentadas e empregadas aos poucos, porém sempre no sentido de apresentar resultados importantes, não sendo exigidos como um conhecimento do aluno\footnote{Algumas seções opcionais podem exigir um conhecimento sólido em Cálculo.}. Neste primeiro capítulo, são exigidos como conhecimentos prévios \emph{operações básicas, equações, funções, gráficos,} e \emph{área de figuras planas} somente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento unidimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Definimos como sendo unidimensional o movimento que ocorre ao longo de uma reta, que denominamos como \emph{direção} do movimento. Essa definição é útil por ser simples e ---~como veremos nos capítulos seguintes~--- é capaz de fornecer uma descrição geral ao simplesmente adicionarmos mais dois eixos de movimento.
+Definimos como sendo unidimensional o movimento que ocorre ao longo de uma reta, que denominamos como \emph{direção} do movimento. Essa definição é útil por ser simples e ---~como veremos nos capítulos seguintes~--- é capaz de fornecer uma descrição geral ao adicionarmos mais dois eixos ao movimento.
 
-Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, isto é, corpos cujas partes que o constituem não se movem em relação umas às outras. Para tais corpos, podemos separar o movimento em uma translação do \emph{centro de massa} e uma rotação em torno do centro massa\footnote[][-2cm]{Essa separação é conhecida como Teorema de Mozzi-Chasles.}. O centro de massa é um ponto que substitui o sistema para fins de determinação da translação do corpo, sendo que para corpos simétricos e de densidade uniforme ele se localiza no centro do corpo, como veremos no Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear}. Trataremos as rotações somente no Capítulo~\ref{Chap:Rotacoes}, nos preocupando somente com a translação do centro de massa até lá.\footnote[][-3cm]{Uma maneira equivalente é tratar o corpo como uma partícula ---~isto é, um corpo de dimensões desprezíveis~---, o que efetivamente elimina a rotação do corpo.}
+Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, isto é, corpos cujas partes que o constituem não se movem em relação umas às outras. Para tais corpos, podemos separar o movimento em uma translação do \emph{centro de massa} e uma rotação em torno do centro massa\footnote[][-2cm]{Essa separação é conhecida como Teorema de Mozzi-Chasles.}. O centro de massa é um ponto que substitui o corpo para fins de determinação de sua translação, sendo que para corpos simétricos e de densidade uniforme ele se localiza seu centro, como veremos no Capítulo~\ref{Chap:CentroDeMassaEMomentoLinear}. Trataremos as rotações somente no Capítulo~\ref{Chap:Rotacoes}, nos preocupando somente com a translação do centro de massa até lá.\footnote[][-3cm]{Uma maneira equivalente é tratar o corpo como uma partícula ---~isto é, um corpo de dimensões desprezíveis~---, o que efetivamente elimina a rotação do corpo.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Posição e Deslocamento}
@@ -39,7 +39,7 @@ Trataremos em todos os capítulos apenas movimentos de \emph{corpos rígidos}, i
 \subsection{Posição}
 %%%%%%%%%%%%%%%%%%%%
 
-O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é a \emph{direção} onde ocorre o movimento. Podemos então colocar um objeto em um ponto qualquer de tal reta\footnote[][-3cm]{Como estamos tratando de um movimento unidimensional, ou seja, o movimento ao longo de uma reta, é natural que a direção do espaço seja simplesmente uma linha reta. Verificaremos no entanto que no caso tridimensional, poderemos descrever o movimento através de vetores, sendo que a direção nesse caso será uma das propriedades dos vetores.}:
+O primeiro passo para que possamos determinar a posição de um corpo  é verificar qual é a \emph{direção} onde ocorre (ou ocorrerá) o movimento unidimensional. Podemos então colocar um objeto em um ponto qualquer de tal reta\footnote[][-3cm]{Como estamos tratando de um movimento unidimensional, ou seja, o movimento ao longo de uma reta, é natural que a direção do espaço seja simplesmente uma linha reta. Verificaremos no entanto que no caso tridimensional, poderemos descrever o movimento através de vetores, sendo que a direção nesse caso será uma das propriedades dos vetores.}:
 
 \begin{figure}
 \centering
@@ -117,7 +117,6 @@ Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode es
 
 \noindent{}Podemos definir dois \emph{sentidos} na figura acima: à esquerda da origem, ou à direita dela. Com essas três informações ---~direção, módulo\footnote{Módulo se refere ao valor numérico da medida de distância entre a origem e a posição do corpo.}, e sentido~--- podemos determinar com exatidão a posição de um corpo qualquer.
 
-\pagebreak
 Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para descrever a posição:
 
 \begin{figure}
@@ -152,20 +151,30 @@ Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para desc
         \draw (-\x cm,-0.4) -- (-\x cm,-0.6)
             node[below]{\small{$\mathllap{-}\x$}};
 \end{tikzpicture}
-\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferencias posições nos diferentes sentidos do eixo através do \emph{sinal positivo ou negativo}.\label{Fig:dois_blocos}}
+\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferenciar posições nos diferentes sentidos do eixo através de um\emph{sinal positivo} ou de um sinal \emph{negativo}.\label{Fig:dois_blocos}}
 \end{figure}
 
 \noindent{}onde temos que as posições dos blocos são dadas por
-\begin{align}
-    x_1 &= \np[m]{-3} \\
-    x_2 &= \np[m]{3}.
-\end{align}
+\begin{equation}
+    x_1 = \np[m]{-3},
+\end{equation}
+%
+para o bloco da esquerda, e
+\begin{equation}
+    x_2 = \np[m]{3},
+\end{equation}
+%
+para o bloco da direita.
 
-Uma reta numerada como a mostrada na figura acima é denominada como \emph{eixo coordenado}. A descrição de movimentos bi e tridimensional necessita de mais do que um eixo coordenado, por isso é comum que eles sejam diferenciados através das denominações $x$, $y$ e $z$. Para um deslocamento unidimensional, em geral denominamos tal eixo como um \emph{eixo $x$}. A direção do eixo é arbitrária, podendo ser horizontal, vertical\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.} ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente.
+Uma reta numerada como a mostrada na figura acima é denominada como \emph{eixo coordenado}. A descrição de movimentos bi e tridimensionais necessita de mais do que um eixo coordenado, por isso é comum que eles sejam diferenciados através das denominações $x$, $y$ e $z$. Para um deslocamento unidimensional, em geral denominamos tal eixo como um \emph{eixo $x$}. A direção do eixo é arbitrária, podendo ser horizontal, vertical\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.} ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente: poderíamos, por exemplo, ter adotado o sentido positivo para a esquerda na Figura~\ref{Fig:dois_blocos}. Apesar de isso alterar os sinais dos valores numéricos associados às posições, a descrição delas continua possível e sem ambiguidades.
 
-Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial.
+Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial. Fisicamente, no entanto, o deslocamento ao longo da estrada estaria sujeito a mudanças de velocidade e aceleração verticais e laterais que indicam que uma descrição utilizando somente a distância percorrida ao longa da estrada não é capaz de contemplar apropriadamente as propriedades físicas de tal fenômeno. De fato, o deslocamento ao longo da estrada é um fenômeno tridimensional, sendo que a distância percorrida ao longo da estrada é somente um parâmetro associado à descrição do formato da estrada.
 
-Como visto no capítulo anterior\footnote{Ainda não escrevi, mas vai tratar sobre unidades.}, a maioria das medidas físicas têm uma dimensão. No caso da posição, como ela é descrita através de uma medida de distância entre a origem e a posição do corpo, tempos que a dimensão é a de \emph{comprimento} e ---~no Sistema Internacional~--- suas unidades são o metro.
+%%%%%%%%%%%%%%%%%%%%
+\paragraph{Unidades}
+%%%%%%%%%%%%%%%%%%%%
+
+Como visto no capítulo anterior\footnote{Ainda não escrevi, mas vai tratar sobre unidades.}, a maioria das medidas físicas têm uma dimensão. No caso da posição, como ela é descrita através de uma medida de distância entre a origem e a posição do corpo, temos que a dimensão é a de \emph{comprimento} e ---~no Sistema Internacional~--- suas unidades são o metro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento}
@@ -178,11 +187,15 @@ Vamos considerar um deslocamento do bloco da direita na Figura~\ref{Fig:dois_blo
   &= -\np[m]{4,0}.
 \end{align}
 %
-O que dizer sobre o sinal negativo? Esse sinal significa que o deslocamento se deu no \emph{sentido negativo do eixo}\footnote{Lembre-se que o sentido do eixo é arbitrário. Nesse caso o sentido positivo é para a direita e o negativo, consequentemente, para a esquerda}. Ao medirmos, o valor da medida não é suficiente para descrevermos o deslocamento. Temos que declarar que o deslocamento foi ---~nesse caso~--- para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou no sentido negativo do eixo)\footnote{Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.}, da mesma forma que a posição. Se o deslocamento fosse no sentido positivo do eixo, o resultado do cálculo de $\Delta x$ seria positivo. 
-
-O deslocamento é dado através da diferença entre posições. Como vimos no capítulo anterior, só podemos somar, subtrair e igualar termos que têm as mesmas dimensões. Logo, concluímos que o deslocamento tem dimensão de \emph{comprimento} e suas unidades são o metro no SI, assim como a posição.
+O sinal negativo significa que o deslocamento se deu no \emph{sentido negativo do eixo}, isto é, para a esquerda\footnote{Lembre-se que o sentido do eixo é arbitrário. Nesse caso o sentido positivo é para a direita e o negativo, consequentemente, para a esquerda}. Ao aferirmos a distância percorrida, o valor da medida não é suficiente para descrevermos o deslocamento: temos que declarar que o deslocamento foi para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou seja, no sentido negativo do eixo)\footnote{Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.}, da mesma forma que a posição. Se o deslocamento fosse no sentido positivo do eixo, o resultado do cálculo de $\Delta x$ seria positivo. 
 
 Claramente temos que se as posições inicial e final\footnote{Outra questão que devemos destacar é a de que os pontos que classificamos como \emph{inicial} e \emph{final} são arbitrários, isto é, são escolhidos conforme a necessidade e a conveniência de cada situação. Identificá-los adequadamente exige um pouco de prática, uma vez que não há uma regra para os escolher.} são iguais, o deslocamento será zero. Apesar de a utilidade de tal definição ser pouco evidente agora, veremos adiante que isso faz sentido para as grandezas físicas, pois no caso de uma força conservativa ---~por exemplo~--- temos que o trabalho é nulo quando o deslocamento é zero.
+
+%%%%%%%%%%%%%%%%%%%%
+\paragraph{Unidades}
+%%%%%%%%%%%%%%%%%%%%
+
+O deslocamento é dado através da diferença entre posições. Como vimos no capítulo anterior, só podemos somar, subtrair e igualar termos que têm as mesmas dimensões. Logo, concluímos que o deslocamento tem dimensão de \emph{comprimento} e suas unidades são ---~no Sistema Internacional~--- o metro, assim como a posição.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento escalar}
@@ -200,7 +213,7 @@ Novamente, temos que a dimensão é de \emph{comprimento} ---~cuja unidade no SI
 \subsection{Posição como função do tempo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote[][-2cm]{Lembre-se de que dois elementos do grupo $t$ podem levar a um mesmo elemento do grupo $x$, porém um elemento de $t$ não pode levar a dois elementos de $x$. Fisicamente isso equivale ao fato de que um objeto não pode se encontrar em dois lugares ao mesmo tempo, porém pode em dois momentos diferentes estar em um mesmo lugar.} (Figura~\ref{Fig:DefFuncaoPosicaoDoTempo}).
+Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um valor de posição $x$ diferente. Se nos lembrarmos do conceito de funções, temos que dados dois grupos de números, uma função é a operação matemática que liga elementos do primeiro grupo a elementos do segundo\footnote[][-4cm]{Lembre-se de que dois elementos do grupo $t$ podem levar a um mesmo elemento do grupo $x$, porém um elemento de $t$ não pode levar a dois elementos de $x$. Fisicamente isso equivale ao fato de que um objeto não pode se encontrar em dois lugares ao mesmo tempo, porém pode em dois momentos diferentes estar em um mesmo lugar.} (Figura~\ref{Fig:DefFuncaoPosicaoDoTempo}).
 \begin{figure}\forcerectofloat
 \centering
 \begin{tikzpicture}
@@ -222,12 +235,19 @@ Se ocorre movimento, podemos dizer que a cada instante de tempo $t$, temos um va
 \caption{A cada valor de tempo $t$ temos um valor de posição $x$ associado. A função $x(t)$ é a operação que descreve a relação entre essas duas variáveis.\label{Fig:DefFuncaoPosicaoDoTempo}}
 \end{figure}
 
-\pagebreak
 Dessa forma, podemos denotar a relação entre o conjunto de instantes de tempo $t$ e o conjunto de posições $x$ correspondente como uma função:\footnote{Note que o tempo $t$ é uma variável da função $x(t)$, que dá o valor $x$ da posição.}
 \begin{equation}
-    x: t \mapsto x(t).
+    x: t \mapsto x(t),
 \end{equation}
-
+%
+assim,
+\begin{align}
+    x_1 &= x(t_1), \\
+    x_2 &= x(t_2), \\
+    x_3 &= x(t_3), \\
+    \vdots \\
+    x_n &= x(t_n).
+\end{align}
 \begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
@@ -256,7 +276,7 @@ Dessa forma, podemos denotar a relação entre o conjunto de instantes de tempo 
     \item[Linha ponto-tracejada:] Movimento com \emph{aceleração} constante.
 \end{description}
 %
-No primeiro caso é fácil verificar que a linha indica que a posição se mantém a mesma para todos os valores de $t$. Para os outros dois casos, verificaremos a justificativa nas seções adiante.
+No primeiro caso é fácil verificar que a linha indica que a posição se mantém a mesma para todos os valores de $t$. Para os outros dois casos, verificaremos a justificativa nas próximas seções.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Velocidade}
@@ -275,6 +295,10 @@ Mesmo considerando uma experiência cotidiana, em que nos deslocamos ao realizar
 %
 Temos agora outra variável que descreve o movimento. 
 
+%%%%%%%%%%%%%%%%%%%%
+\paragraph{Unidades}
+%%%%%%%%%%%%%%%%%%%%
+
 Podemos determinar a dimensão da velocidade através de
 \begin{align}
     [\mean{v}] &= \left[\frac{\Delta x}{\Delta t}\right] \\
@@ -284,7 +308,7 @@ Podemos determinar a dimensão da velocidade através de
 %
 Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
 
-\begin{marginfigure}[-3cm]
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]]
@@ -314,11 +338,14 @@ Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
 \caption{Gráfico da posição em função do tempo. Podemos interpretar a velocidade média graficamente ao ligarmos os pontos da curva que representam os instantes/posições inicial e final.\label{Fig:Interp_graf_vel_med}}
 \end{marginfigure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade média em um gráfico $x \times t$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Podemos conferir uma interpretação gráfica à velocidade média. Para isso, vamos tomar a Figura~\ref{Fig:Interp_graf_vel_med}, onde marcamos dois pontos que correspondem à posição $x_i$ no instante $t_i$ e à posição $x_f$ no instante $t_f$. Ligamos esses dois pontos por uma reta.
 
-
 Traçando uma reta horizontal e uma vertical, podemos completar um triângulo retângulo (Figura~\ref{Fig:Interp_graf_vel_med_b}). Nesse triângulo, temos que o tamanho da lateral direita é igual a $x_f - x_i$, ou seja, corresponde a $\Delta x$. Já a parte inferior é igual a $t_f - t_i$, correspondendo a $\Delta t$.
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]]
@@ -365,7 +392,7 @@ Traçando uma reta horizontal e uma vertical, podemos completar um triângulo re
 \caption{Triângulo formado pela reta que liga os pontos e as linhas horizontal e vertical.\label{Fig:Interp_graf_vel_med_b}}
 \end{marginfigure}
 
-\noindent{}Ao calcularmos a tangente do ângulo $\theta$, temos
+\noindent{}Ao calcularmos a tangente do ângulo $\theta$, obtemos
 \begin{align}
     \tan\theta &= \frac{\Delta x}{\Delta t} \\
     & = \mean{v},
@@ -376,7 +403,7 @@ isto é, \emph{a inclinação da reta que une os pontos correspondentes aos inst
     \mean{v} = \tan\theta.
 \end{equation}
 %
-Assim, se a inclinação entre um par de pontos é maior que entre outro par, temos que a velocidade média é maior no primeiro caso (Figura~\ref{Fig:Interp_graf_vel_med_diff}).
+Assim, se a inclinação da reta $\overline{AB}$ que liga os pontos $A$ e $B$ na Figura~\ref{Fig:Interp_graf_vel_med_diff} é maior que a inclinação da reta $\overline{CD}$ que liga os pontos $C$ e $D$, temos que a velocidade média é maior no intervalo de tempo $[t_A, t_B]$ do que no intervalo $[t_C, t_D]$.
 
 \begin{marginfigure}[-1cm]
 \centering
@@ -394,6 +421,8 @@ Assim, se a inclinação entre um par de pontos é maior que entre outro par, te
     \coordinate (b) at (3,0);
     \coordinate (c) at (0.7,0);
     \coordinate (d) at (2.3, 0);
+    \draw[|-|] (1.2,0) node[below]{$t_A$} -- (3,0) node[below]{$t_B$};
+    \draw[|-|] (0.7,0) node[below]{$t_C$} -- (2.3,0) node[below]{$t_D$};
 
     \path[name path=froma](a)--+(0,4);
     \path[name path=fromb](b)--+(0,4);
@@ -424,17 +453,17 @@ Assim, se a inclinação entre um par de pontos é maior que entre outro par, te
 \subsection{Sinais para a velocidade}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verificamos anteriormente que no caso da posição de um corpo, o sinal simplesmente nos diz em qual dos dois semi-eixos ---~positivo ou negativo~--- ele se encontra.De maneira similar, ao determinarmos o deslocamento, verificamos que o sinal indica qual é o sentido para o qual o corpo se desloca, isto é, no sentido do semi-eixo positivo, ou no sentido do semi-eixo negativo.
+Verificamos anteriormente que no caso da posição de um corpo, o sinal simplesmente nos diz em qual dos dois semieixos ---~positivo ou negativo~--- ele se encontra. De maneira similar, ao determinarmos o deslocamento, verificamos que o sinal indica qual é o sentido para o qual o corpo se desloca, isto é, no sentido do semieixo positivo, ou no sentido do semieixo negativo.
 
-No caso da velocidade, temos que os sinais são um reflexo do sinal do deslocamento: velocidades positivas indicam deslocamento no sentido do semi-eixo positivo, enquanto velocidades negativas indicam deslocamento no sentido do semi-eixo negativo. Tal correspondência tem sua origem na própria definição da velocidade como a razão $\Delta x / \Delta t$, uma vez que $\Delta t$ é sempre positivo.
+No caso da velocidade, temos que os sinais são um reflexo do sinal do deslocamento: velocidades positivas indicam deslocamento no sentido do semieixo positivo, enquanto velocidades negativas indicam deslocamento no sentido do semieixo negativo. Tal correspondência tem sua origem na própria definição da velocidade como a razão $\Delta x / \Delta t$, uma vez que $\Delta t$ é sempre positivo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Na Figura~\ref{Fig:Interp_graf_vel_med}, se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea}. Se estamos interessados em calcular a velocidade em um ponto $P$ (Figura~\ref{Fig:Interp_graf_vel_med_lim}), podemos tomar pares $(t_i, x_i)$, $(t_f, x_f)$ sucessivamente mais próximos do ponto $P = (t_p,x_p)$ até que a distância entre eles seja desprezível, ou seja, \emph{tenda a zero}.
+Na Figura~\ref{Fig:Interp_graf_vel_med}, se tomarmos intervalos sucessivamente menores de tempo, podemos definir o que chamamos de \emph{velocidade instantânea}. Um exemplo de medida da velocidade instantânea é o valor mostrado pelo velocímetro de um carro em que o mostrador é constituído de uma escala e de um ponteiro. Se estamos interessados em calcular a velocidade instantânea em um ponto $P$ (Figura~\ref{Fig:Interp_graf_vel_med_lim}), podemos tomar pares $(t_i, x_i)$, $(t_f, x_f)$ sucessivamente mais próximos do ponto $P = (t_p,x_p)$ até que a distância entre eles seja desprezível, ou seja, \emph{tenda a zero}.
 
-Nesse momento, a reta que liga os dois pontos passa a ser uma \emph{reta tangente à curva no ponto $P$}, isto é, uma reta que toca\footnote[][-2cm]{Imagine uma régua tocando um cilindro, por exemplo; deve haver somente um ponto de contato entre os dois corpos.} a curva $x(t)$ somente no ponto $P$. Podemos interpretar a velocidade instantânea como a inclinação de tal reta.
+Nesse momento, a reta que liga os dois pontos passa a ser uma \emph{reta tangente à curva no ponto $P$}, isto é, uma reta que toca\footnote[][-2cm]{Imagine uma régua tocando um cilindro: deve haver somente um ponto de contato entre os dois corpos.} a curva $x(t)$ somente no ponto $P$. Podemos interpretar a velocidade instantânea como a inclinação de tal reta.
 
 \begin{marginfigure}[-1.5cm]
 \centering
@@ -497,8 +526,6 @@ Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressiva
 \begin{equation}
   v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}.
 \end{equation}
-%
-Um exemplo de medida da velocidade instantânea é o valor mostrado pelo velocímetro de um carro em que o mostrador é constituído de uma escala e de um ponteiro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinal da velocidade à partir da inclinação da reta tangente, velocidade nula}
@@ -553,8 +580,8 @@ Um exemplo de medida da velocidade instantânea é o valor mostrado pelo velocí
 
 Podemos inferir o sinal da velocidade em um ponto $P$ qualquer de um gráfico $x\times t$ através da inclinação da reta tangente à curva no ponto $P$: 
 \begin{description}
-    \item[Inclinação positiva:] Se temos uma inclinação positiva, ou seja, temos um ângulo entre a reta tangente e a horizontal como o denotado por $\theta_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, temos uma velocidade positiva. Isso se deve ao fato de que, de acordo com a curva $x(t)$,um aumento \emph{infinitesimal} ---~isto é, um aumento $\Delta t$ que tende a zero~--- no valor da variável $t$ em relação ao valor dessa variável em $P_1$ leva a um aumento na variável $x$, ou seja, temos $\Delta x > 0$. Consequentemente, a razão $\Delta x / \Delta t$ é positiva.
-    \item[Inclinação negativa:] Já se tomarmos o ponto $P_2$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, podemos notar que ao aumentarmos o valor de $t$ em relação ao valor dessa variável em $P_1$, verificamos que o valor de $x$ diminui. Logo, $\Delta x < 0$ e a razão $\Delta x / \Delta t$ também é menor que zero, ou seja, é negativa.
+    \item[Inclinação positiva:] Se temos uma inclinação positiva, ou seja, temos um ângulo entre a reta tangente e a horizontal como o denotado por $\theta_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, temos uma velocidade positiva. Isso se deve ao fato de que, de acordo com a curva $x(t)$, um aumento \emph{infinitesimal}\footnote{Isto é, um aumento $\Delta t$ que tende a zero.} no valor da variável $t$ em relação ao valor dessa variável em $P_1$ leva a um aumento na variável $x$, ou seja, temos $\Delta x > 0$. Consequentemente, a razão $\Delta x / \Delta t > 0$ e $v >0$.
+    \item[Inclinação negativa:] Já se tomarmos o ponto $P_2$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, podemos notar que ao aumentarmos o valor de $t$ em relação ao valor dessa variável em $P_2$, verificamos que o valor de $x$ diminui. Logo, $\Delta x < 0$ e a razão $\Delta x / \Delta t$ também é menor que zero, ou seja, temos $v < 0$.
     \item[Inclinação nula:]
 Devemos notar ainda que se o ângulo de inclinação $\theta$ da reta tangente à curva $x(t)$ em um ponto qualquer é zero, como mostrado na Figura~\ref{Fig:Interp_graf_vel_med_zero}, temos uma velocidade nula em tal ponto, mesmo que momentaneamente. Isso pode ser entendido considerando que ao aumentar o valor da variável $t$ por um acréscimo infinitesimal, a variação em $x$ tende a zero. Portanto, a razão $\Delta x / \Delta t$ é igual a zero.
 \end{description}
@@ -588,7 +615,7 @@ Devemos notar ainda que se o ângulo de inclinação $\theta$ da reta tangente �
 
 Outra maneira de chegar a essas conclusões consiste em verificar o sinal da tangente do ângulo formado entre a reta tangente e a horizontal: se o ângulo está acima da horizontal, como $\theta_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, sua tangente é positiva; se ele está abaixo da horizontal, como $\theta_2$ na figura, sua tangente é negativa; finalmente, se o ângulo é nulo, então sua tangente é zero.\footnote{Tais resultados podem ser verificados prontamente com o auxílio do \emph{círculo trigonométrico}.}
 
-Como um exemplo prático da utilidade de se interpretar a inclinação da reta tangente em um gráfico da posição em função do tempo como sendo a velocidade instantânea, podemos citar o caso do lançamento vertical: verificaremos mais tarde que ao lançarmos um objeto verticalmente para cima, a função que descreve sua posição é uma parábola como a mostrada na Figura~\ref{Fig:RetasTangentesLancamentoVertical}. Note que à esquerda do ponto de máxima altura, temos uma inclinação da reta tangente que mostra uma velocidade positiva (assumindo que o sentido positivo do eixo seja para cima); à direita, a inclinação da reta tangente mostra uma velocidade negativa; no ponto de altura máxima, a velocidade é momentaneamente nula.
+Como um exemplo prático da utilidade de se interpretar a inclinação da reta tangente em um gráfico da posição em função do tempo como sendo a velocidade instantânea, podemos citar o caso do lançamento vertical: verificaremos mais tarde que ao lançarmos um objeto verticalmente para cima, a função que descreve sua posição em relação ao tempo é uma parábola como a mostrada na Figura~\ref{Fig:RetasTangentesLancamentoVertical}. Note que à esquerda do ponto de máxima altura, temos uma inclinação da reta tangente que mostra uma velocidade positiva (assumindo que o sentido positivo do eixo seja para cima); à direita, a inclinação da reta tangente mostra uma velocidade negativa; no ponto de altura máxima, a velocidade é momentaneamente nula.
 
 
 \begin{marginfigure}
@@ -627,15 +654,57 @@ Ao utilizarmos a definição
 %
 temos algo um tanto quanto estranho: estamos calculando a razão entre dois números que estão indo a zero, já que se $\Delta t$ vai a zero, o deslocamento $\Delta x$ correspondente também vai a zero. À primeira vista, poderíamos pensar que a razão seria \emph{zero sobre zero}, o que é uma indeterminação matemática.
 
-Vamos utilizar um exemplo para mostrar que não é esse o caso. Vamos tomar uma função para a posição que é dada por
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->,thick] (0,3) node (yaxis) [below left] {$x$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+    % Desenhar função:
+    \draw[smooth,name path=plot,samples=1000,domain=0.5:3.6]
+    plot(\x,{0.4*\x^2 + 1.1 - 0.9*\x});
+    
+    % linhas dos eixos à curva
+    \coordinate (a) at (1.2,0);
+    \coordinate (b) at (3.4,0);
+    \coordinate (p) at (2.3,0);
+    \path[name path=froma](a)--+(0,4);
+    \path[name path=fromb](b)--+(0,4);
+    \path[name path=fromp](p)--+(0,4);
+    \path[name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1);
+    \path[name intersections={of=fromp and plot}](p)--(intersection-1) coordinate (plot-p-intersection)--(0,0|-intersection-1);
+    
+    % linha entre as duas interseções (as coordenadas foram salvas acima)
+    \draw[extended line] (plot-a-intersection) -- (plot-b-intersection);
+
+    % pontos nas interseções
+    \fill (plot-a-intersection) circle (2pt);
+    \fill (plot-b-intersection) circle (2pt);
+    
+    \fill[opacity=1] (plot-p-intersection) circle (2pt) node[below right]{$P$};
+    
+    \draw[|-|] (a) node[below]{$t_P - \frac{\Delta t}{2}$} -- (b) node[below]{$t_P + \frac{\Delta t}{2}$};
+    \draw[-|] (a) -- (p) node[below]{$t_P$};
+   
+    % tangente
+    \draw[smooth, densely dashed, name path=deriv,samples=1000,domain=1.5:3.1]
+    plot(\x,{0.94*\x - 1.016});
+     
+\end{tikzpicture}
+\caption{Cálculo da velocidade no ponto $P$ através do limite.\label{Fig:Calculo_Vel_limite}}
+\end{marginfigure}
+
+Vamos utilizar um exemplo para mostrar que não é esse o caso: considerando uma função para a posição que é dada por
 \begin{equation}\label{Eq:FormaFuncCalcDeriv}
     x(t) = \alpha t^2 + \beta
 \end{equation}
 %
-e calcular a velocidade instantânea para um instante de tempo $t = t'$. Devemos tomar um intervalo de tempo que contenha o valor $t'$ para que possamos calcular a o valor de tal velocidade. Uma maneira simples de fazer isso é adotar um intervalo cujo centro é o próprio valor $t'$:
+calcularemos a velocidade instantânea para um instante de tempo $t = t_P$. Devemos tomar um intervalo de tempo que contenha o valor $t_P$ para que possamos calcular o valor de tal velocidade. Uma maneira simples de fazer isso é adotar um intervalo cujo centro é o próprio valor $t_P$ (veja a Figura~\ref{Fig:Calculo_Vel_limite}):
 \begin{align}
-    t_i &= t' - \frac{\Delta t}{2} \\
-    t_f &= t' + \frac{\Delta t}{2}.
+    t_i &= t_P - \frac{\Delta t}{2} \\
+    t_f &= t_P + \frac{\Delta t}{2}.
 \end{align}
 %
 Assim, podemos escrever
@@ -643,32 +712,34 @@ Assim, podemos escrever
     v & = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} \\
     &= \lim_{\Delta t \to 0} \frac{x_f - x_i}{\Delta t} \\
     &= \lim_{\Delta t \to 0} \frac{x(t_f) - x(t_i)}{\Delta t} \\
-    &= \lim_{\Delta t \to 0} \frac{x(t' + \Delta t/2) - x(t'-\Delta t / 2)}{\Delta t}.
+    &= \lim_{\Delta t \to 0} \frac{x(t_P + \Delta t/2) - x(t_P-\Delta t / 2)}{\Delta t}.
 \end{align}
 
-Agora podemos substituir a Expressão~\eqref{Eq:FormaFuncCalcDeriv} para a posição, obtendo
+Agora podemos substituir a Expressão~\eqref{Eq:FormaFuncCalcDeriv} para a função da posição, obtendo
 \begin{equation}
-    v = \lim_{\Delta t \to 0} \frac{\left[\alpha \left(t' + \frac{\Delta t}{2}\right)^2 + \beta\right]-\left[\alpha \left(t' - \frac{\Delta t}{2}\right)^2 + \beta\right]}{\Delta t}.
+    v = \lim_{\Delta t \to 0} \frac{\left[\alpha \left(t_P + \frac{\Delta t}{2}\right)^2 + \beta\right]-\left[\alpha \left(t_P - \frac{\Delta t}{2}\right)^2 + \beta\right]}{\Delta t}.
 \end{equation}
 %
-Note que na expressão acima a constante $\beta$ aparece em ambos os termos, porém devido ao sinal, ocorre um cancelamento. Desenvolvendo os termos ao quadrado, obtemos:
+Note que na expressão acima a constante $\beta$ aparece em ambos os termos. No entanto, devido ao sinal, ocorre um cancelamento. Desenvolvendo os termos ao quadrado, obtemos:
 \begin{align}
-    \left(t' + \frac{\Delta t}{2}\right)^2 &= t'^2 + \frac{(\Delta t)^2}{4} + 2\frac{\Delta t}{2} \\
-    \left(t' - \frac{\Delta t}{2}\right)^2 &= t'^2 + \frac{(\Delta t)^2}{4} - 2\frac{\Delta t}{2},
+    \left(t_P + \frac{\Delta t}{2}\right)^2 &= t_P^2 + \frac{(\Delta t)^2}{4} + 2\frac{\Delta t}{2} \\
+    \left(t_P - \frac{\Delta t}{2}\right)^2 &= t_P^2 + \frac{(\Delta t)^2}{4} - 2\frac{\Delta t}{2},
 \end{align}
 %
-de onde obtemos
+de onde resulta
 
 \begin{align}
-    v &= \lim_{\Delta t \to 0} \alpha\frac{t'^2 + \Delta t^2/4 + t'\Delta t - t'^2 - \Delta t^2/4 + t'\Delta t}{\Delta t} \\
-    &= \lim_{\Delta t \to 0} \alpha\frac{2 t'\Delta t}{\Delta t}.
+    v &= \lim_{\Delta t \to 0} \alpha\frac{t_P^2 + \Delta t^2/4 + t_P\Delta t - t_P^2 - \Delta t^2/4 + t_P\Delta t}{\Delta t} \\
+    &= \lim_{\Delta t \to 0} \alpha\frac{2 t_P\Delta t}{\Delta t}.
 \end{align}
 %
 Finalmente, devemos notar que $\Delta t$ está presente tanto no numerador, quanto no denominador, logo, temos uma expressão que independe de $\Delta t$:
 \begin{align}
-    v &=  \lim_{\Delta t \to 0} \alpha 2 t' \\
-    &= 2 \alpha t'.
+    v &=  \lim_{\Delta t \to 0} \alpha 2 t_P \\
+    &= 2 \alpha t_P.
 \end{align}
+%
+Note que existe um valor determinado de $v$; além disso, como escolhemos um ponto arbitrário, o resultado acima é válido para qualquer valor de $t_P$, isto é, vasta substituirmos os valores numéricos de $\alpha$ e $t_P$ na expressão acima para determinar o valor de velocidade no instante $t$.
 
 O processo discutido acima é o que chamamos de \emph{derivada}, e que consiste em uma maneira de determinar a \emph{taxa de variação instantânea}\footnote{Note que a expressão $\Delta x/\Delta t$ denota a razão entre as \emph{variações} de duas grandezas e serve como medida da \emph{taxa de variação média} da função $x(t)$ ---~ou seja, o quanto $x(t)$ varia no intervalo $\Delta t$~---. Ao tomarmos o limite, obtemos, portanto, a taxa de variação instantânea da função $x(t)$ em relação ao tempo.} de uma função em relação a uma variável. Por isso, temos que a velocidade instantânea $v(t)$ ---~que é a taxa instantânea de variação da posição em relação ao tempo~--- pode ser calculada através da derivada da função posição $x(t)$ em relação ao tempo. Devemos destacar que a apresentação dada acima ao conceito de derivada não é geral, nem ampla e rigorosa. Um estudo mais aprofundado dos conceitos de limite e derivada são parte da disciplina de Cálculo.
 
@@ -681,9 +752,9 @@ Se um corpo se desloca em um movimento retilíneo, porém termina seu movimento 
   \mean{v}_s = \frac{d_s}{\Delta t}.
 \end{equation}
 %
-A velocidade escalar média é o que o computador de bordo de um carro verifica como velocidade média em um trajeto. Apesar de ela corresponder a nossa intuição de ``velocidade média'', ela não é uma grandeza vetorial\footnote{Nos próximos dois capítulos apresentaremos o conceito de vetores e o empregaremos para descrever movimentos bi e tridimensionais.} e não será de grande interesse para a descrição de fenômenos físicos.
+A velocidade escalar média é o que o computador de bordo de um carro verifica como ``velocidade média'' em um trajeto. Apesar de corresponder a nossa intuição de velocidade média, ela não é uma grandeza vetorial\footnote{Nos próximos dois capítulos apresentaremos o conceito de vetores e o empregaremos para descrever movimentos bi e tridimensionais.} e não será de grande interesse para a descrição de fenômenos físicos.
 
-Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção, portanto a única diferença diferença possível entre o deslocamento e o deslocamento escalar é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
+Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção e/ou sentido, portanto a única diferença diferença possível entre o deslocamento e o deslocamento escalar é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
 \begin{equation}
   v_s = |v|.
 \end{equation}
@@ -722,7 +793,7 @@ o que corresponde à Figura~\ref{Fig:GrafVelFuncTempoDiversasCurvas}.
 \caption{A cada valor de tempo $t$ temos um valor de velocidade $v$ associado. A função $v(t)$ descreve a relação entre essas duas variáveis.\label{Fig:GrafVelFuncTempoDiversasCurvas}}
 \end{figure}
 
-Novamente, o fato de que podemos escrever a velocidade como uma função do tempo nos permite a elaboração de gráficos. Assim como no caso dos gráficos de posição em função do tempo, cada sistema físico tem uma forma de curva diferente para gráficos da velocidade em função do tempo, o que permite que seja possível determinar propriedades importantes rapidamente, através de uma simples conferência visual. Na Figura~\ref{Fig:Graf_vel_func_tempo}, por exemplo, temos que a linha cheia representa um movimento com velocidade constante, a linha tracejada representa um movimento com aceleração constante (como veremos ainda neste capítulo), e a linha ponto-tracejada representa um movimento oscilatório, como o de um sistema massa-mola (que discutiremos no Capítulo~\ref{Chap:Energia}).
+Novamente, o fato de que podemos escrever a velocidade como uma função do tempo nos permite a elaboração de gráficos. Assim como no caso dos gráficos de posição em função do tempo, cada sistema físico tem uma forma de curva diferente para gráficos da velocidade em função do tempo, o que permite que seja possível determinar propriedades importantes rapidamente, através de uma simples conferência visual. Na Figura~\ref{Fig:Graf_vel_func_tempo}, por exemplo, temos que a linha cheia representa um movimento com velocidade constante, a linha tracejada representa um movimento com aceleração constante (como veremos ainda neste capítulo), e a linha ponto-tracejada representa um movimento oscilatório, como o de um sistema massa-mola (que discutiremos brevemente no Capítulo~\ref{Chap:Energia}).
 
 \begin{marginfigure}[-3cm]
 \centering
@@ -769,7 +840,7 @@ Como podemos zerar um cronômetro e iniciar a medida de tempo a partir do valor 
 \begin{equation}\label{Eq:XX0AT}
   x_f = x_i + vt.\mathnote{Evolução temporal da posição para velocidade constante.}
 \end{equation}
-
+%
 Comparando a equação acima com uma \emph{equação da reta},
 \begin{equation}
     y = A + Bx,
@@ -843,7 +914,7 @@ o que nos leva a
 %
 A Figura~\ref{Fig:GraficoPosicaoPerseguicao} mostra um gráfico das posições $x_1(t)$ e $x_2(t)$.
 
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -870,7 +941,7 @@ Para determinarmos o tempo transcorrido entre o instante inicial e o instante on
 %
 o que resulta em\footnote{Note que o resultado para o tempo é de \np[s]{150,9433962}, porém descartamos alguns dígitos considerando os números significativos das medidas.}
 \begin{equation}
-	t = \np[s]{150,9}.
+	t = \np[s]{151}.
 \end{equation}
 
 Para determinar as distâncias percorridas pelo veículos, basta lembrar que
@@ -929,7 +1000,7 @@ Vamos assumir que o eixo coordenado $x$ aponta na direção da linha férrea, se
 	v_2 &= \np[km/h]{-35,0}.
 \end{align}
 %
-Temos, portanto, que as expressões para a posição em função do tempo são dadas por
+Note que o sinal negativo na velocidade do segundo trem se deve ao fato de que ele se desloca no sentido negativo do eixo de referência. Temos, portanto, que as expressões para a posição em função do tempo são dadas por
 \begin{align}
 	x_1(t) &= (\np[km/h]{25,0})\cdot t \\
 	x_2(t) &= (\np[km]{40,0}) + (-\np[km/h]{35,0})\cdot t.
@@ -964,6 +1035,12 @@ Se temos uma variação de velocidade em um intervalo de tempo, temos que a acel
   \mean{a} = \frac{\Delta v}{\Delta t}.
 \end{equation}
 %
+A definição acima compreende e quantifica a aceleração através da razão entre a variação da velocidade pela variação do tempo. Dessa forma, uma mesma variação de velocidade pode implicar em valores diferentes de aceleração, dependendo do tempo necessário para que ocorra tal alteração.
+
+%%%%%%%%%%%%%%%%%%%%
+\paragraph{Unidades}
+%%%%%%%%%%%%%%%%%%%%
+
 Fazendo a análise dimensional temos
 \begin{align}
 	[\mean{a}] &= \left[\frac{\Delta v}{\Delta t}\right] \\
@@ -971,7 +1048,11 @@ Fazendo a análise dimensional temos
 		&= \frac{\rm{L}}{\rm{T}^2}.
 \end{align}
 %
-Logo, no Sistema Internacional, a aceleração é dada em $\rm{m}/\rm{s}^2$.
+Logo, no Sistema Internacional de unidades, a aceleração é dada em $\rm{m}/\rm{s}^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aceleração média em um gráfico $v \times t$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Assim como pudemos dar uma interpretação gráfica para a velocidade média $\mean{v}$ em um gráfico $x \times t$, podemos fazer algo análogo para a aceleração média, porém em um gráfico $v \times t$. Observando a Figura~\ref{Fig:Interp_graf_acel_med_b}, temos que
 \begin{equation}
@@ -1143,16 +1224,31 @@ o que é representado esquematicamente na Figura~\ref{Fig:MapeamentoFuncaoAceler
     \draw (0,1) -- (3,1);
 
 	\end{tikzpicture}
-\caption{Em um gráfico $a \times t$, um movimento com aceleração constante corresponde a uma linha horizontal, como a linha cheia no gráfico acima. Já no caso de um sistema massa-mola, um corpo oscila devido à força exercida pela mola e devido à sua própria inércia, o que implica em uma aceleração dada por $a(t) = A\omega^2\sin(\omega t)$ ---~onde $A$ representa a amplitude de oscilação e $\omega$ a frequência angular, que está relaciona à frequência de oscilação~---.\label{Fig:Exemplo_acel_complicada}}
+\caption{Em um gráfico $a \times t$, um movimento com aceleração constante corresponde a uma linha horizontal, como a linha cheia no gráfico acima. Já no caso de um sistema massa-mola, um corpo oscila devido à força exercida pela mola e devido à sua própria inércia, o que implica em uma aceleração dada por $a(t) = A\omega^2\sen(\omega t)$ ---~onde $A$ representa a amplitude de oscilação e $\omega$ a frequência angular, que está relaciona à frequência de oscilação~---.\label{Fig:Exemplo_acel_complicada}}
 \end{marginfigure}
 
-Podemos ter formas complicadas para a aceleração, porém, para que possamos trabalhar situações mais simples, nos limitaremos a movimentos com \emph{aceleração constante}. Faremos isso pois além de simplificarmos o tratamento, temos um caso importante de aceleração constante: a \emph{aceleração da gravidade} próximo à superfície da Terra.
+Podemos ter formas complicadas para a aceleração (Figura~\ref{Fig:Exemplo_acel_complicada}), porém, para que possamos trabalhar situações mais simples, nos limitaremos a movimentos com \emph{aceleração constante}. Faremos isso pois além de simplificarmos o tratamento, temos um caso importante de aceleração constante: a \emph{aceleração da gravidade} próximo à superfície da Terra.
 
-Também é possível definir\cite{jerk} uma variável que descreve a variação da aceleração no tempo ---~geralmente denominada ``conforto'', pois está ligada a vibrações e a variações súbitas de aceleração~---, porém isso não é muito comum. Verificaremos no Capítulo~\ref{Chap:Dinamica} que a aceleração está relacionada à força resultante que atua sobre um corpo, de modo que a determinação do movimento não depende de variáveis que descrevam a variação da aceleração, uma vez que isso está ligado à própria definição da força resultante.
+\pagebreak
+Também é possível definir\cite{jerk} uma variável que descreve a variação da aceleração no tempo ---~geralmente denominada ``conforto'', pois está ligada a vibrações e a variações súbitas de aceleração~---, porém isso não é muito comum. Verificaremos no Capítulo~\ref{Chap:Dinamica} que a aceleração está relacionada à força resultante que atua sobre um corpo, de modo que a determinação do movimento não depende de variáveis que descrevam a variação da aceleração.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Evolução temporal da velocidade para o caso de aceleração constante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[2cm]
+\centering
+\begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw [<->] (0,3) node (yaxis) [below left] {$v$}
+        |- (4.3,0) node (xaxis) [below left] {$t$};
+
+    \draw[thick] (-0.3,0.5) -- (4,2.5);
+         
+\end{tikzpicture}
+\caption{Se $a = \text{const.}$, verificamos que o gráfico $v \times t$ segue uma linha reta.\label{Fig:GrafVelParaAcelConstante}}
+\end{marginfigure}
 
 Se conhecemos a aceleração média, podemos então descrever a variação da velocidade em função do tempo como
 \begin{equation}
@@ -1176,14 +1272,14 @@ Como podemos zerar um cronômetro e iniciar a medida de tempo a partir do valor 
 %
 Portanto, assim como no caso da posição em função do tempo para velocidade constante, o gráfico da velocidade em função do tempo para o caso de aceleração constante também é uma reta.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sentidos dos eixos de referência e sinais das variáveis cinemáticas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sinais para a aceleração}
 \label{Sec:Sinais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Verificamos nas seções anteriores que os sinais das variáveis posição e velocidade estão ligados ao sentido do movimento, e são simples de se determinar. Para a aceleração, no entanto, a determinação do sinal apropriado é mais complicada: Se, por exemplo, temos um deslocamento no sentido do semi-eixo positivo do sistema de referência adotado, temos uma velocidade positiva enquanto ele ocorre. A aceleração, porém, pode ser positiva, negativa, ou nula, sem que haja mudança no sinal do deslocamento, ou da velocidade. Isso ocorre pois a aceleração descreve \emph{alterações na velocidade}. 
 
-\begin{figure}[!h]\forceversofloat
+\begin{figure}[!h]\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1274,7 +1370,7 @@ O caso em que a aceleração é nula é simples, uma vez que a velocidade é con
 Veja que os casos acima são bastante intuitivos: se a velocidade cresce em valor, então a aceleração é positiva; se ela diminui, então a aceleração é negativa. Em geral, adotamos os movimentos como ocorrendo no sentido positivo do eixo de referência, porém isso não é sempre possível, e nos casos onde o movimento ocorre no sentido negativo, os sinais se invertem:
 \begin{description}
     \item[Velocidade negativa e aumentando (em módulo):] Se temos uma velocidade negativa, quando ocorre um aumento no valor da velocidade, passamos a ter \emph{um valor negativo maior}. Consequentemente, $\Delta v < 0$ e $\mean{a} = \Delta v / \Delta t < 0$. Na Figura~\ref{Fig:CasosAcelUnidimensional} inferior esquerda, por exemplo, $v_i = \np[m/s]{-1}$ e $v_f = \np[m/s]{-4}$, o que resulta em $\Delta v = \np[m/s]{-3}$ e, consequentemente, $\mean{a} = \Delta v / \Delta t < 0$.
-    \item[Velocidade negativa e diminuindo (em módulo):] Nesse caso, como temos uma velocidade negativa e ocorre uma diminuição do valor do módulo da velocidade, ocorre que $\Delta v >$, o que leva a $\mean{a} = \Delta v / \Delta t > 0$. Na figura, no quadro inferior direito, verificamos que $v_i = \np[m/s]{-5}$ e $v_f = \np[m/s]{-2}$. Logo, $\Delta v = \np[m/s]{3}$ e $\mean{a} = \Delta v / \Delta t > 0$.
+    \item[Velocidade negativa e diminuindo (em módulo):] Nesse caso, como temos uma velocidade negativa e ocorre uma diminuição do valor do módulo da velocidade, ocorre que $\Delta v > 0$, o que leva a $\mean{a} = \Delta v / \Delta t > 0$. Na figura, no quadro inferior direito, verificamos que $v_i = \np[m/s]{-5}$ e $v_f = \np[m/s]{-2}$. Logo, $\Delta v = \np[m/s]{3}$ e $\mean{a} = \Delta v / \Delta t > 0$.
 \end{description}
 
 Podemos agrupar essas observações acerca da aceleração nos seguintes casos:
@@ -1284,7 +1380,9 @@ Podemos agrupar essas observações acerca da aceleração nos seguintes casos:
     \item Se a velocidade diminui em valor, então a aceleração tem o sinal oposto ao da velocidade.
 \end{itemize}
 
-Finalmente, devemos nos lembrar de que a escolha do sentido positivo do eixo é arbitrária. Podemos escolher de maneira que seja mais conveniente, o que em geral significa minimizar o número de grandezas com sinal negativo. Uma vez escolhido um sentido positivo, no entanto, devemos nos ater a tal escolha, de maneira a garantir que a descrição do movimento seja consistente.
+Devemos nos lembrar de que a escolha do sentido positivo do eixo é arbitrária. Podemos escolher de maneira que seja mais conveniente, o que em geral significa minimizar o número de grandezas com sinal negativo. Uma vez escolhido um sentido positivo, no entanto, devemos nos ater a tal escolha, de maneira a garantir que a descrição do movimento seja consistente.
+
+Finalmente, devemos destacar aqui que veremos no Capítulo~\ref{Chap:MovimentoBidimensional} que a relação dos sinais para a aceleração pode ser entendida de maneira muito mais simples e intuitiva através de uma análise da aceleração do ponto de vista de \emph{vetores}, sendo que verificaremos que o sinal está relacionado à decomposição do vetor aceleração em termos de componentes vetoriais que estão relacionadas aos eixos de referência.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interpretação da área de um gráfico $v \times t$ e $a \times t$}
@@ -1318,12 +1416,14 @@ Finalmente, devemos nos lembrar de que a escolha do sentido positivo do eixo é 
 \caption{A área hachurada está relacionada ao deslocamento em um movimento com velocidade $v_0$ no intervalo de tempo destacado.\label{Fig:Graf_area_graf_v}}
 \end{marginfigure}
 
-Se temos que um objeto se move com velocidade constante, a distância percorrida por ele será
+Se temos uma situação em que um objeto se move com velocidade constante, a distância percorrida por ele em um intervalo de tempo $\Delta t$ será dada por
 \begin{equation}
   \Delta x = v \Delta t.
 \end{equation}
 %
-Ao fazer um gráfico de $v\times t$, como mostrado na Figura~\ref{Fig:Graf_area_graf_v}, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $t$ e os eixos verticais que passam por $t_i$ e $t_f$. Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_i$ e $t_f$ simplesmente calculando a área entre a curva, o eixo $x$ e os eixos verticais passando por $t_i$ e $t_f$. Se a curva $v(t)$ está abaixo do eixo $t$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo.
+Ao fazer um gráfico $v\times t$, como mostrado na Figura~\ref{Fig:Graf_area_graf_v}, percebemos que a equação acima determina a \emph{área} delimitada pela curva $v(t)$, o eixo $t$ e os eixos verticais que passam por $t_i$ e $t_f$.
+
+Se tivéssemos uma situação mais complicada, com uma velocidade $v(t)$ que variasse de uma maneira mais complexa, poderíamos determinar a distância percorrida entre dois instantes $t_i$ e $t_f$ simplesmente calculando a área entre a curva, o eixo horizontal $t$ e os eixos verticais passando por $t_i$ e $t_f$. A Figura~\ref{Fig:Graf_area_graf_v_complicado} mostra um exemplo de velocidade variável, sendo que a área destacada, compreendida entre $t = t_i$ e $t = t_f$ corresponde ao deslocamento em tal intervalo de tempo. Devemos destacar ainda que se a curva $v(t)$ está abaixo do eixo $t$, isso significa que a velocidade é negativa, ou seja, nesta região o objeto estará ``voltando'' e o deslocamento será, consequentemente, negativo.
 
 \begin{marginfigure}[-7cm]
 \centering
@@ -1352,9 +1452,17 @@ Ao fazer um gráfico de $v\times t$, como mostrado na Figura~\ref{Fig:Graf_area_
 \caption{Podemos utilizar a área para determinar o deslocamento em um caso mais complexo, onde a velocidade varia arbitrariamente.\label{Fig:Graf_area_graf_v_complicado}}
 \end{marginfigure}
 
-Para determinar o valor numérico do deslocamento através da área, podemos dividir a região hachurada em várias barras de uma largura arbitrária $\Delta t$ e altura dada pela própria curva $v(t)$. Somando os valores obtidos para cada uma das barras, podemos determinar -- pelo menos de forma aproximada -- o deslocamento total. Se tomarmos intervalos $\Delta t$ sucessivamente menores, eventualmente conseguiremos calcular a área com grande precisão e verificaremos que nesse caso temos exatamente a área ``abaixo'' da curva.
+O cálculo da área que corresponde ao deslocamento não é simples, pois no caso mais geral podemos ter uma forma curvilínea. Na prática, porém, podemos dividir a área em polígonos (quadrados, retângulos, triângulos) de tamanhos diferentes, de maneira a cobrir quase toda a área: pequenos erros podem ser descartados se eles forem menores do que a precisão experimental com a qual fazemos as medidas de tempo e velocidade. O método mais prático, no entanto, é o de dividir a área em retângulos, como mostrado na Figura~\ref{Fig:Graf_area_graf_v_complicado_barras}.
 
-\begin{marginfigure}[-4cm]
+Nesse caso, podemos determinar o valor numérico do deslocamento/área dividindo a região hachurada em várias barras de uma largura arbitrária $\Delta t$ e altura dada pela própria curva $v(t)$, de forma que cada barra tem área dada por
+\begin{align}
+    A_n &= v(t_n) \times \Delta t \\
+    &= v(t_n) \times \frac{t_f - t_i}{N},
+\end{align}
+%
+onde assumimos que o intervalo $[t_i, t_f]$ foi dividido em $N$ barras, sendo que a largura é então dada por $\Delta t = (t_f - t_i) / N$. Note ainda que dentro da largura da barra temos vários valores de $v(t)$, porém na Figura~\ref{Fig:Graf_area_graf_v_complicado_barras} escolhemos para a altura de cada o valor de $v(t)$ no extremo esquerdo de cada uma delas. Somando os valores obtidos para cada uma das barras, podemos determinar o deslocamento total pelo menos de forma aproximada, uma vez que visivelmente temos ``espaços'' que não foram contabilizados e barras que compreendem áreas que vão além da curva $v(t)$.
+
+\begin{marginfigure}[-6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1416,9 +1524,9 @@ Para determinar o valor numérico do deslocamento através da área, podemos div
 \caption{Para determinar o valor da área, basta dividirmos a região em barras com uma largura $\Delta t$ arbitrária e uma altura $v(t)$.\label{Fig:Graf_area_graf_v_complicado_barras}}
 \end{marginfigure}
 
-Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a aceleração for constante, a área entre a curva, o eixo $x$, e os eixos verticais passando por $t_i$ e $t_f$ será igual à variação da velocidade $\Delta v = a \Delta t$. Desenvolvendo um raciocínio análogo ao caso anterior para o cálculo da área entre a curva $a(t)$ e o eixo $x$, concluímos que a variação da velocidade para casos em que a aceleração não é constante pode ser calculada através da área ``abaixo'' da curva. Devemos, novamente, subtrair a área das regiões abaixo do eixo $t$.
+Se necessitarmos de uma precisão maior, basta tomarmos intervalos $\Delta t$ sucessivamente menores. Eventualmente conseguiremos calcular a área com precisão suficiente para nossos propósitos, o que geralmente está ligado à própria precisão dos instrumentos de medida utilizados. O método descrito acima tem como principal vantagem o fato de que pode ser implementado de maneira bastante simples em um computador, bastando que a função $v(t)$ seja conhecida. Nesse caso, dividir a área em um número maior de barras passa a ser algo trivial, bastando alterar um parâmetro em um algoritmo.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1540,17 +1648,18 @@ Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a 
 \caption{Podemos melhorar a aproximação diminuindo a largura das barras, obtendo um erro tão pequeno quanto necessário.\label{Fig:Graf_area_graf_v_complicado_barras_estreito}}
 \end{marginfigure}
 
+Para o caso de um gráfico de $a \times t$, temos uma situação análoga: se a aceleração for constante, a área entre a curva, o eixo horizontal $t$, e os eixos verticais passando por $t_i$ e $t_f$ será igual à variação da velocidade $\Delta v = a \Delta t$. Desenvolvendo um raciocínio análogo ao caso anterior para o cálculo da área entre a curva $a(t)$ e o eixo $t$, concluímos que a variação da velocidade para casos em que a aceleração não é constante pode ser calculada através da área ``abaixo'' da curva. Devemos, novamente, subtrair a área das regiões abaixo do eixo $t$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Equações cinemáticas para movimentos com aceleração constante}
 \label{Sec:EqCinematicasParaAcelConstTransl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Apesar de ser perfeitamente aceitável tratar uma situação em que a aceleração varia, isso não é uma tarefa muito fácil utilizando as ferramentas matemáticas que temos disponíveis. Por isso, vamos tratar com mais detalhes o caso da aceleração constante. Um exemplo de movimento de tal tipo é o caso de movimentos submetidos à aceleração da gravidade, que veremos neste capítulo para movimentos exclusivamente verticais, mas que serão vistos em duas dimensões no Capítulo~\ref{Chap:MovimentoBidimensional}. 
+Apesar de ser perfeitamente aceitável tratar uma situação em que a aceleração varia, isso não é uma tarefa muito fácil utilizando as ferramentas matemáticas que temos disponíveis. Por isso, vamos tratar com mais detalhes o caso da aceleração constante. Em geral, não há razões para supor que um objeto qualquer que se movimente esteja sujeito a uma aceleração constante, exceto se ele estiver claramente sob efeito da força gravitacional, sendo as demais forças desprezíveis. 
 
-Quando um objeto cai livremente próximo da superfície da Terra, ele sofre uma aceleração para baixo com módulo\footnote{Esse valor não é o mesmo em todos os pontos da superfície da Terra, porém vamos utilizar \np[m/s^2]{9,8} como um valor aproximado para qualquer ponto.} \np[m/s^2]{9,8}. Essa aceleração é comum a todos os objetos, independentemente de suas massas, caso a \emph{força de arrasto}\footnote{Esta força é a resistência ao deslocamento em um meio fluido, como o ar, e será discutida em mais detalhes no Capítulo~\ref{Chap:Dinamica}.} seja desprezível. A existência dessa aceleração se deve à força fundamental da natureza denominada \emph{força gravitacional}, responsável pela atração entre corpos como ---~por exemplo~--- um objeto qualquer e a Terra, a Terra e a Lua, o Sol e a Terra, etc. Veremos adiante que essa força tem uma dependência direta na massa dos corpos, o que resulta na independência da aceleração gravitacional em relação à massa do corpo que é atraído pela Terra.
+Quando um objeto cai livremente próximo da superfície da Terra, ele sofre uma aceleração dirigida verticalmente para baixo, com módulo\footnote{Esse valor não é o mesmo em todos os pontos da superfície da Terra, porém vamos utilizar \np[m/s^2]{9,8} como um valor aproximado para qualquer ponto.} \np[m/s^2]{9,8}. Essa aceleração é comum a todos os objetos, independentemente de suas massas, caso a \emph{força de arrasto}\footnote{Esta força é a resistência ao deslocamento em um meio fluido, como o ar, e será discutida em mais detalhes no Capítulo~\ref{Chap:Dinamica}.} seja desprezível. A existência dessa aceleração se deve à força fundamental da natureza denominada \emph{força gravitacional}, responsável pela atração entre corpos como ---~por exemplo~--- um objeto qualquer e a Terra, a Terra e a Lua, o Sol e a Terra, etc. Veremos adiante que essa força tem uma dependência direta na massa dos corpos, o que resulta na independência da aceleração gravitacional em relação à massa do corpo.
 
-A aceleração da gravidade próximo da superfície da terrestre é a principal justificativa para o estudo de movimentos com aceleração constante. Em geral, não há razões para supor que um objeto qualquer que se movimente esteja sujeito a uma aceleração constante, exceto se ele estiver claramente sob efeito da força gravitacional, sendo as demais forças desprezíveis. Nas próximas seções verificaremos expressões que relacionarão as variáveis cinemáticas, nos permitindo realizar previsões teóricas acerca do movimento em diversas situações.
+O grande motivador de estudarmos movimentos com aceleração constante, é, portanto, o fato de que ele descreve a aceleração da gravidade. Neste capítulo, nos restringiremos a exclusivamente a movimentos unidimensionais com aceleração constante, o que implica em estudarmos no âmbito da aceleração gravitacional somente lançamentos verticais. No Capítulo~\ref{Chap:MovimentoBidimensional} estudaremos movimentos bidimensionais sujeitos à aceleração gravitacional. Nas próximas seções verificaremos expressões que relacionarão as variáveis cinemáticas, nos permitindo realizar previsões teóricas acerca do movimento em diversas situações.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinal da aceleração em movimentos envolvendo a aceleração gravitacional}
@@ -1572,7 +1681,7 @@ Para chegar a tal conclusão, vamos analisar as seguintes situações:
     \end{itemize}
 \end{description}
 
-Em ambos os casos, podemos afirmar que \emph{se o eixo aponta para cima}, então \emph{a aceleração é negativa}, e que \emph{se o eixo aponta para baixo} então \emph{a aceleração é positiva}. Veremos no Capítulo~\ref{Chap:MovimentoBidimensional} que essa relação pode ser entendida de maneira muito mais simples e intuitiva através de uma análise da aceleração do ponto de vista de \emph{vetores}, sendo que verificaremos que o sinal está relacionado à decomposição do vetor aceleração em termos de componentes vetoriais que estão relacionadas aos eixos de referência.
+Em ambos os casos, podemos afirmar que \emph{se o eixo aponta para cima}, então \emph{a aceleração é negativa}, e que \emph{se o eixo aponta para baixo} então \emph{a aceleração é positiva}. Novamente, a questão da determinação dos sinais da aceleração é muito mais simples do ponto de vista de vetores, o que veremos nos próximos capítulos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equação para a velocidade}
@@ -1583,19 +1692,21 @@ Verificamos anteriormente que se a aceleração é constante, temos que $\mean{a
   v_f = v_i + at.
 \end{equation*}
 %
-Temos portanto uma relação \emph{linear} entre a velocidade e o tempo, ou seja, existe uma proporção direta entre o valor da velocidade e o tempo transcorrido sob efeito da aceleração. Note que as demais expressões que serão deduzidas adiante \emph{não serão lineares}, portanto não poderemos utilizar ``leis de proporção''\footnote{Regra de três.} para as outras variáveis no caso de movimento com aceleração constante.
+Temos portanto uma relação \emph{linear} entre a velocidade e o tempo, ou seja, existe uma proporção direta entre o valor da velocidade e o tempo transcorrido sob efeito da aceleração.
+
+Note que as demais expressões para o caso de aceleração constante que serão deduzidas adiante \emph{não serão lineares}, portanto não poderemos utilizar ``leis de proporção''\footnote{Regra de três.} para as outras variáveis no caso de movimento com aceleração constante.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equações para a posição}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para o caso de aceleração constante, podemos determinar três expressões diferentes, sendo que cada uma delas envolve um grupo diferente de parâmetros e pode ser empregada em situações diferentes. Verificaremos adiante como obter tais expressões.
+Para o caso de aceleração constante, podemos determinar três expressões diferentes para a posição, sendo que cada uma delas envolve um grupo diferente de parâmetros e pode ser empregada em situações diferentes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Equação para a evolução da posição envolvendo a velocidade inicial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}[8cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1629,7 +1740,7 @@ Para o caso de aceleração constante, podemos determinar três expressões dife
 \caption{Para o caso de aceleração constante, podemos calcular a área a dividindo em um retângulo e um triângulo.\label{Fig:Graf_area_acel_const}}
 \end{marginfigure}
 
-Podemos calcular uma expressão para a evolução temporal da posição e que envolve como parâmetros a aceleração e a velocidade inicial se considerarmos a Figura~\ref{Fig:Graf_area_acel_const}. Se a aceleração é constante, vimos que a velocidade deve ser descrita por uma reta em um gráfico $v\times t$. Sabemos ainda que o deslocamento é dado pela área abaixo da curva $v(t)$. Logo, temos que
+Podemos calcular uma expressão para a evolução temporal da posição e que envolve como parâmetros a aceleração e a velocidade inicial se considerarmos a Figura~\ref{Fig:Graf_area_acel_const}. Se a aceleração é constante, sabemos que a velocidade deve ser descrita por uma reta em um gráfico $v\times t$. Sabemos ainda que o deslocamento é dado pela área abaixo da curva $v(t)$. Logo, temos que
 \begin{align}
 	\Delta x &= A \\
 			 &= A_1 + A_2.
@@ -1660,6 +1771,8 @@ e, finalmente,
   x_f = x_i + v_i t +\frac{at^2}{2}.\mathnote{Evolução temporal da posição para aceleração constante (1\textordfeminine~Equação).}
 \end{equation}
 
+Na Figura~\ref{Fig:Graf_Eq_Evol_Pos_a_const} temos dois gráficos para a posição como função do tempo para casos com aceleração constante positiva (esquerda) e negativa (direita). Em ambos os casos temos parábolas, sendo que o sinal da aceleração na Equação~\eqref{Eq:XX0V0TAT22} tem o efeito de alterar a concavidade da curva, enquanto seu valor determina a ``abertura'' (quanto maior o valor de $a$, mais ``fechada'' a curvatura). Os valores de $x_i$ e $v_i$ (incluindo seus sinais) influenciam a posição do mínimo/máximo da parábola.
+ 
 \begin{figure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
@@ -1684,7 +1797,7 @@ e, finalmente,
         \node (ap) at (2.15,-1) {$a < 0$};
     \end{scope}
 \end{tikzpicture}
-\caption{Gráfico para $x(t)$ para o caso $a > 0$. O sinal da aceleração na Equação~\eqref{Eq:XX0V0TAT22} tem o efeito de alterar a concavidade da parábola, enquanto seu valor determina a ``abertura'' (quanto maior o valor de $a$, mais ``fechada'' a curvatura). Os valores de $x_i$ e $v_i$ (incluindo seus sinais) influenciam a posição do mínimo/máximo da parábola.\label{Fig:Graf_Eq_Evol_Pos_a_const}}
+\caption{Gráficos para $x(t)$ para o caso $a \neq 0$.\label{Fig:Graf_Eq_Evol_Pos_a_const}}
 \end{figure}
 
 
@@ -1692,7 +1805,17 @@ e, finalmente,
 \paragraph{Equação para a evolução da posição envolvendo a velocidade final}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Caso não haja informação sobre a velocidade inicial, a Equação~\eqref{Eq:XX0V0TAT22} pode ser reescrita com o auxílio da $v_f = v_i + at$:
+Caso não haja informação sobre a velocidade inicial, a Equação~\eqref{Eq:XX0V0TAT22} pode ser reescrita com o auxílio da expressão
+\begin{equation}
+    v_f = v_i + at,
+\end{equation}
+%
+pois podemos a inverter, obtendo
+\begin{equation}
+    v_i = v_f - at,
+\end{equation}
+%
+o que nos permite eliminar $v_i$ na Equação~\eqref{Eq:XX0V0TAT22}:
 \begin{align}
   x_f &= x_i + (v_f - at) t + \frac{at^2}{2} \\
   &= x_i + v_f t + \frac{at^2 - 2at^2}{2},
@@ -1702,6 +1825,8 @@ resultando em
 \begin{equation}
   x_f = x_i + v_f t - \frac{at^2}{2}.\mathnote{Evolução temporal da posição para aceleração constante (2\textordfeminine~Equação).}
 \end{equation}
+
+Note que se a aceleração tem um valor negativo (devido à escolha do sistema de referência), ao utilizarmos a expressão acima teremos dois sinais negativos. Nesse caso efetivamente usamos um valor positivo ao empregar a expressão acima.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Expressão para a velocidade média no caso de aceleração constante}
@@ -1727,12 +1852,12 @@ Utilizando a própria definição da velocidade média, podemos escrever
     x_f &= x_i + \mean{v} \Delta t.
 \end{align}
 %
-Se tomarmos $t_i = 0$ e $t_f = t$, podemos utilizar o resultado para a velocidade média dado pela Equação~\eqref{Eq:VelMediaComoMedAritParaAcelConst} acima, para escrever
+Se tomarmos $t_i = 0$ e $t_f = t$, podemos utilizar o resultado para a velocidade média dado pela Equação~\eqref{Eq:VelMediaComoMedAritParaAcelConst}, para escrever
 \begin{equation}
   x_f = x_i + \frac{v_i + v_f}{2} t.\mathnote{Evolução temporal da posição para aceleração constante (3\textordfeminine~Equação).}
 \end{equation}
 %
-Note que apesar de a expressão acima não envolver explicitamente a aceleração, ela assume que existe uma aceleração constante durante todo o movimento. Uma aceleração nula também é um valor válido, pois é uma constante: nesse caso simplesmente recuperamos o resultado $x_f = x_i + vt$ obtido anteriormente, uma vez que a velocidade é constante.
+Note que apesar de a expressão acima não envolver explicitamente a aceleração, ela \emph{assume que existe uma aceleração constante durante todo o movimento}. Uma aceleração nula também é um valor válido, pois é uma constante: nesse caso simplesmente recuperamos o resultado $x_f = x_i + vt$ obtido anteriormente, uma vez que a velocidade é constante.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equação de Torricelli}
@@ -1763,7 +1888,7 @@ Eliminando o primeiro e o quarto termos à direita e somando os restantes, obtem
 \subsection{Variáveis ausentes em cada equação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As cinco equações obtidas para a cinemática com aceleração constante envolvem as variáveis $x_i$, $x_f$, $v_i$, $v_f$, $a$ e $t$. Porém cada uma das equações deixa algum desses parâmetros de fora. A ausência de um dos parâmetros pode ser usada ``em nosso favor'' ao determinar a solução de um problema: via de regra, os exercícios/problemas nos descrevem uma situação, dando uma série de informações, omitindo outras, e nos pedem para determinar alguma outra informação.
+As cinco equações obtidas para a cinemática com aceleração constante envolvem as variáveis $x_i$, $x_f$, $v_i$, $v_f$, $a$ e $t$. Porém cada uma das equações deixa algum desses parâmetros de fora. A ausência de um dos parâmetros pode ser usada ``em nosso favor'' ao determinar a solução de um problema: via de regra, os exercícios/problemas nos descrevem uma situação, dando uma série de informações, omitindo outras, e nos pedem para determinar alguma das informações omitidas.
 
 Em diversos casos, a solução consiste em verificar qual equação ---~dentre as discutidas acima, elencadas na Tabela~\ref{Tab:EqsCinematicasVarAusentes}~--- envolve a informação que é pedida\footnote{Isso é obrigatório, não existe maneira de determinar o valor de uma variável através de uma equação se tal variável nem mesmo aparece nela.}, contém também as variáveis cujos valores nos são dados, e não contém as variáveis cujos valores desconhecemos. É claro que muitas vezes temos mais que uma maneira de determinar as informações pedidas ---~em geral usando duas equações, uma seguida da outra~---, o que também é válido, apesar de dar mais trabalho.
 
@@ -1805,7 +1930,7 @@ $v_f^2 = v_i^2 + 2 a \Delta x$ & $t$ \\
 \caption{Corpo lançado verticalmente.}
 \end{marginfigure}
 
-Sabemos que a pedra sofre um deslocamento $\Delta y = \np[m]{9,6}$ em relação ao ponto de lançamento, porém não sabemos se tal deslocamento se refere ao movimento de subida exclusivamente, ou se inclui parte do movimento de descida. Sabemos, no entanto, que o tempo necessário para que o movimento aconteça é de \np[s]{4,0}.
+Sabemos que a pedra sofre um deslocamento $\Delta y = \np[m]{9,6}$ em relação ao ponto de lançamento, porém não sabemos se tal deslocamento se refere ao movimento de subida exclusivamente, ou se inclui parte do movimento de descida. Sabemos, no entanto, que o tempo necessário para que o movimento aconteça é de \np[s]{4,0}. Note ainda que \emph{não sabemos a velocidade da pedra ao final do período de \np[s]{4,0}}; não devemos assumir que ela é zero.
 
 Nas equações para movimentos com aceleração constante, verificamos que existe uma expressão que relaciona as informações que temos (deslocamento, tempo e aceleração) e a informação que desejamos (velocidade inicial):
 \begin{align}
@@ -1814,9 +1939,10 @@ Nas equações para movimentos com aceleração constante, verificamos que exist
 \end{align}
 %
 Veja que a aceleração aparece com um sinal negativo pois adotamos um eixo vertical $y$ que aponta para cima. Isolando a velocidade, obtemos
-\begin{equation}
-    v_i = \frac{\Delta x}{t} + \frac{gt}{2},
-\end{equation}
+\begin{align}
+    v_i &= \frac{\Delta x}{t} + \frac{gt}{2} \\
+    &= \frac{(\np[m]{9,6})}{(\np[s]{4,0})} + \frac{(\np[m/s^2]{9,8})\cdot(\np[s]{4,0})}{2},
+\end{align}
 %
 o que resulta em
 \begin{equation}
@@ -1854,7 +1980,8 @@ Podemos determinar se a pedra já atingiu o ponto mais alto da trajetória de du
     &= (\np[m/s]{22}) - (\np[m/s^2]{9,8})\cdot(\np[s]{4,0}) \\
     &= \np[m/s]{-17}.
 \end{align}
-
+%
+Como $v < 0$ e escolhemos o eixo $x$ apontando verticalmente para cima, concluímos que o corpo está descendo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Distância percorrida durante um movimento de queda livre}
@@ -1944,7 +2071,7 @@ Em ambos os casos, a aceleração $a$ será a própria aceleração gravitaciona
     \draw[->] (-0.75, 3.5) -- (-0.75, -0.5) node[above left]{$x$};
     \draw[|-|] (-0.75, 3) -- (-0.75,1.18);
     \draw[-|] (-0.75, 1.18) -- (-0.75,0);
-    \draw[|-|] (-1, 1.18) -- node[left]{$\Delta x$} (-1,0);
+    \draw[|-|] (-1, 1.195) -- node[left]{$\Delta x$} (-1,0);
     
 \end{tikzpicture}
 \caption{Desejamos determinar a distância $\Delta x$ percorrida durante o último segundo de queda.\label{Fig:DeslUltimoSegQueda}}
