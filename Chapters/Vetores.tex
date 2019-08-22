@@ -18,7 +18,7 @@ Para que possamos estender o tratamento do movimento obtido no Capítulo~\ref{Ch
 
 As grandezas físicas podem ser divididas em dois tipos: escalares e vetoriais. As escalares são aquelas que são compostas por um valor numérico e, na maioria das vezes, uma unidade. Podemos citar como exemplos desse tipo de grandeza a temperatura, o tempo e a massa. Se, por exemplo, denotarmos uma temperatura como ``\np[\tcdegree C]{25,0}'' temos uma informação completa.
 
-Já no caso de grandezas vetoriais, temos ---~além de um valor numérico e de uma unidade~--- uma direção no espaço\footnote{Uma direção no espaço é simplesmente uma linha reta.} e um sentido\footnote{A partir de um ponto qualquer de uma reta, podemos nos mover em dois sentidos, um para cada extremidade.}. No movimento retilíneo a linha reta onde ocorre o movimento é a direção, enquanto o sentido denotamos simplesmente pelo sinal. Note, portanto, que um movimento unidimensional tem todas as características de um vetor, apesar de permitir um tratamento simplificado através de uma variável $x$ para a posição e que se comporta como um escalar\footnote{Veremos adiante que a posição $x$ é na verdade uma \emph{projeção} de um vetor em uma direção do espaço. De fato, as projeções se comportam como escalares.} Para que possamos trabalhar em duas ou três dimensões, no entanto, precisamos tratar algumas grandezas como vetores propriamente.
+Já no caso de grandezas vetoriais, temos ---~além de um valor numérico e de uma unidade~--- uma direção no espaço\footnote{Uma direção no espaço é simplesmente uma linha reta.} e um sentido\footnote{A partir de um ponto qualquer de uma reta, podemos nos mover em dois sentidos, um para cada extremidade.}. No movimento retilíneo a linha reta onde ocorre o movimento é a direção, enquanto o sentido denotamos simplesmente pelo sinal. Note, portanto, que um movimento unidimensional tem todas as características de um vetor, apesar de permitir um tratamento simplificado através de uma variável $x$ para a posição que se comporta como um escalar\footnote{Veremos adiante que a posição $x$ é na verdade uma \emph{projeção} de um vetor em uma direção do espaço. De fato, as projeções se comportam como escalares.} Para que possamos trabalhar em duas ou três dimensões, no entanto, precisamos tratar algumas grandezas como vetores propriamente.
 
 As regras de soma, subtração, multiplicação e divisão para grandezas escalares são aquelas da álgebra comum e não nos oferecem dificuldades. Os vetores, por sua vez, possuem propriedades diferentes de soma, subtração, e multiplicação; além disso, não existe o conceito de divisão entre dois vetores. Teremos que verificar exatamente como realizar operações envolvendo vetores e nos acostumar com suas propriedades diferenciadas em relação ao escalares.
 
@@ -68,7 +68,7 @@ O exemplo mais simples de vetor é o \emph{deslocamento}. Se ocorre um deslocame
 \caption{Destacamos nesta figura a direção do deslocamento através de uma linha reta pontilhada. Além disso, mostramos o valor do deslocamento, que é o próprio valor de distância.\label{Fig:Deslocamento_eh_o_vetor_mais_simples}}
 \end{marginfigure}
 
-No caso de uma outra grandeza, como a velocidade, também associamos o módulo ao comprimento do vetor, porém não temos uma relação direta entre seu tamanho geométrico e o módulo: podemos adotar que um vetor com \np[cm]{1,0} denote uma velocidade de \np[m/s]{1,0} ou \np[m/s]{20,0}. Mesmo para o deslocamento, ao fazermos um desenho, adotamos esse tipo de fator de escala: \np[cm]{1,0} pode denotar \np[m]{1,0}, ou \np[km]{1,0}, por exemplo. Apesar disso, ao representarmos vários vetores da mesma grandeza, devemos utilizar o mesmo fator de proporcionalidade.\footnote{Veremos que manter essa escala não é uma tarefa fácil: muitas vezes os vetores de uma mesma grandeza podem ter tamanhos inconvenientes se respeitarmos a mesma escala. Em alguns casos, o módulo do vetor pode até mesmo ser desconhecido. Nesses casos, optamos por denotar mais precisamente a direção e o sentido dos vetores, deixando o comprimento das flechas como um indicador qualitativo.}
+No caso de outras grandezas ---~como a velocidade, por exemplo~--- também associamos o módulo ao comprimento do vetor, porém não temos uma relação direta entre seu tamanho geométrico e o módulo: podemos adotar que um vetor com \np[cm]{1,0} denote uma velocidade de \np[m/s]{1,0} ou \np[m/s]{20,0}. Mesmo para o deslocamento, ao fazermos um desenho, adotamos esse tipo de fator de escala: \np[cm]{1,0} pode denotar \np[m]{1,0}, ou \np[km]{1,0}, por exemplo. Apesar disso, ao representarmos vários vetores da mesma grandeza, devemos utilizar o mesmo fator de proporcionalidade.\footnote{Veremos que manter essa escala não é uma tarefa fácil: muitas vezes os vetores de uma mesma grandeza podem ter tamanhos inconvenientes se respeitarmos a mesma escala. Em alguns casos, o módulo do vetor pode até mesmo ser desconhecido. Nesses casos, optamos por denotar mais precisamente a direção e o sentido dos vetores, deixando o comprimento das flechas como um indicador qualitativo.}
 
 \begin{marginfigure}
 \centering
@@ -320,7 +320,7 @@ Podemos multiplicar um vetor por um escalar $\alpha$, obtendo outro vetor:
   \vec{c} = \alpha\vec{b}.
 \end{equation}
 %
-O módulo do vetor $\vec{c}$ será dado por $\mod{\vec{c}} = \mod{\alpha}\mod{\vec{b}}$. Note que a multiplicação por um escalar positivo só é capaz de alterar o módulo do vetor, uma vez que escalares não possuem informação de direção e sentido, e por isso essas informações são preservadas. Caso de tenhamos uma multiplicação por um escalar negativo, além da alteração no módulo, ocorre uma mudança de sentido.
+O módulo do vetor $\vec{c}$ será dado por $\mod{\vec{c}} = \mod{\alpha}\mod{\vec{b}}$. Note que a multiplicação por um escalar positivo só é capaz de alterar o módulo do vetor, uma vez que escalares não possuem informação de direção e sentido, e por isso essas informações são preservadas. Caso tenhamos uma multiplicação por um escalar negativo, além da alteração no módulo, ocorre uma mudança de sentido.
 
 \begin{marginfigure}
 \centering
@@ -347,7 +347,7 @@ O módulo do vetor $\vec{c}$ será dado por $\mod{\vec{c}} = \mod{\alpha}\mod{\v
 \caption{O efeito de multiplicar um vetor por um escalar negativo é o de alterar o seu módulo e o seu sentido.}
 \end{marginfigure}
 
-Para determinarmos o efeito de uma divisão, como por exemplo
+Para determinarmos o efeito de uma divisão por um escalar, como por exemplo
 \begin{equation}
     \vec{b} = \frac{\vec{a}}{\alpha},
 \end{equation}
@@ -414,11 +414,11 @@ isto é, podemos passar um vetor de um membro para o outro de uma equação assi
 
 A análise de fenômenos físicos utilizando a representação gráfica de vetores é muito trabalhosa e suscetível a erros. Por isso, vamos utilizar um \emph{sistema de referência} para denotar os vetores. A grande vantagem de fazer isso é o fato de que podemos tratar eixos perpendiculares de maneira independente um do outro. Além disso, esse tratamento se resume a manipular grandezas que denominamos como \emph{componentes vetoriais} e que se comportam como \emph{escalares} ao invés de vetores.
 
-Grande parte da utilidade de um sistema provém de uma escolha adequada para a direção dos eixos: mesmo que \emph{qualquer} conjunto de eixos não-colineares\footnote{Um vetor ou eixo é colinear a outro se ambos têm a mesma direção.} sejam capazes de descrever as propriedades vetoriais, uma escolha adequada do sistema de referência leva a uma grande simplificação do tratamento matemático
+Grande parte da utilidade de um sistema de referência provém de uma escolha adequada para a direção dos eixos: mesmo que \emph{qualquer} conjunto de eixos não-colineares\footnote{Um vetor ou eixo é colinear a outro se ambos têm a mesma direção.} sejam capazes de descrever as propriedades vetoriais, uma escolha adequada do sistema de referência leva a uma grande simplificação do tratamento matemático
 
-%%%%%%%%%%%%%%%%%%
-\subsection{Bases}
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bases vetoriais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Se tomarmos dois vetores não-colineares em um plano, por exemplo, podemos escrever qualquer outro vetor em termos desses dois através de
 \begin{equation}
@@ -459,7 +459,7 @@ e então determinar um novo vetor a partir da soma desses dois últimos:
     \vec{a} = \vec{a}_1 + \vec{a}_2.
 \end{equation}
 
-Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetorial}. Dados valores adequados para os escalares $\alpha$ e $\beta$, podemos atingir qualquer ponto do plano definido pelos vetores $\vec{e}_1$ e $\vec{e}_2$. Na Figura~\ref{Fig:VetoresObtidosAPartirDeUmaBase} temos alguns exemplos de vetores obtidos através da base da Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}, com os respectivos valores das constantes escalares. Note que para que possamos varrer todo o espaço bidimensional, também precisamos utilizar valores negativos de $\alpha$ e $\beta$. Na Figura~\ref{Fig:VetorObtidoAPartirDeUmaBaseValoresNegativos} temos um exemplo de vetor determinado dessa forma.
+Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetorial}, enquanto os escalares $\alpha$ e $\beta$ são chamados de \emph{componentes vetoriais}. Dados valores adequados para $\alpha$ e $\beta$, podemos atingir qualquer ponto do plano definido pelos vetores $\vec{e}_1$ e $\vec{e}_2$. Na Figura~\ref{Fig:VetoresObtidosAPartirDeUmaBase} temos alguns exemplos de vetores obtidos através da base da Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}, com os respectivos valores das constantes escalares. Note que para que possamos varrer todo o espaço bidimensional, também precisamos utilizar valores negativos de $\alpha$ e $\beta$. Na Figura~\ref{Fig:VetorObtidoAPartirDeUmaBaseValoresNegativos} temos um exemplo de vetor determinado dessa forma.
 
 % Realizar operações com vetores geometricamente é possível, porém trabalhoso. Podemos utilizar as propriedades de soma de vetores e de multiplicação por um escalar para definir um sistema de coordenadas em relação a qual o vetores podem ser descritos em termos de componentes.
 
@@ -578,13 +578,13 @@ Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetoria
 \caption{Para que possamos varrer todo o espaço, as constantes escalares devem assumir também valores negativos. Na figura acima, $\alpha = 1$, enquanto $\beta = -1$.\label{Fig:VetorObtidoAPartirDeUmaBaseValoresNegativos}}
 \end{marginfigure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Cálculo dos escalares $\alpha$ e $\beta$, vetores unitários}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo das componentes vetoriais, vetores unitários}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Vamos supor que tenhamos um vetor $\vec{a}$ conhecido, que faz um ângulo $\theta$ com o vetor $\vec{e}_1$ da base. Como podemos determinar os valores de $\alpha$ e $\beta$ que nos permitem reconstruir o vetor $\vec{a}$ a partir dos vetores da base?
+Vamos supor que tenhamos um vetor $\vec{a}$ conhecido, que faz um ângulo $\theta$ com o vetor $\vec{e}_1$ da base. Como podemos determinar os valores de $\alpha$ e $\beta$ que nos permitem reconstruir o vetor $\vec{a}$ a partir dos vetores da base?\footnote[][-1cm]{Tal processo é conhecido como \emph{decomposição vetorial}, e os escalares $\alpha$ e $\beta$ são denominados como \emph{componentes vetoriais nas direções $\hat{e}_1$ e $\hat{e}_2$}.}
 
-Para determinarmos os valores das constantes escalares, vamos considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}. Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores\footnote[][-3cm]{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário a partir do vetor da base. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.}. Se conhecemos o valor do ângulo $\theta$, podemos determinar a \emph{projeção}\footnote[][4cm]{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} de $\vec{a}$ na direção de $\vec{e}_1$:
+Para determinarmos os valores das constantes escalares, vamos considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}. Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores\footnote[][-13mm]{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário a partir do vetor da base. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.}. Se conhecemos o valor do ângulo $\theta$, podemos determinar a \emph{projeção}\footnote[][4cm]{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} de $\vec{a}$ na direção de $\vec{e}_1$:
 \begin{figure}[!h]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=3]
@@ -600,6 +600,7 @@ Para determinarmos os valores das constantes escalares, vamos considerar a Figur
     \draw[dotted] (2.25, 0) -- (2.79,1.08);
     \draw[dotted] (0.54, 1.08) -- (2.79, 1.08);
     \draw[dashed] (2.79, 1.08) -- (2.79, 0) coordinate (quina) -- (2.25,0);
+    \draw[|<->|] (2.79,-0.25) -- node[below]{$|\vec{a}_2| \cos\theta$} (2.25,-0.25);
     
     % medida
     \draw[dotted] (0,0) -- (0,-0.5) (2.79,0) -- +(0,-0.5);
@@ -648,7 +649,7 @@ Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\
     
     % vetores nas direções dos versores
     \draw[->] (0,0) coordinate (origin) -- (2.25,0) node[below]{$\vec{a}_1$} coordinate (a1);
-    \draw[->] (0,0) -- (0.54,1.08) node[left]{$\vec{a}_2$} coordinate (a2);
+    \draw[->] (0,0) -- node[left, near end]{$\vec{a}_2$} (0.54,1.08) coordinate (a2);
     
     % vetor soma
     \draw[->] (0,0) -- node[above]{$\vec{a}$} (2.79, 1.08) coordinate (a);
@@ -657,6 +658,7 @@ Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\
     \draw[dotted] (2.25, 0) -- (2.79,1.08);
     \draw[dotted] (0.54, 1.08) -- (2.79, 1.08);
     \draw[dashed] (2.79, 1.08) -- (63.435:2.22) coordinate (quina) -- (a2);
+    \draw[|<->|] (65.8:2.226) -- node[sloped, above]{$|\vec{a}_2| \cos\omega$} (0.46,1.12);
     
     % medida
     %\draw[dotted] (0,0) -- (0,-0.5) (2.79,0) -- +(0,-0.5);
@@ -676,7 +678,7 @@ Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\
 \caption{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$.}
 \end{figure}
 
-\noindent{}Desta vez, observando que a distância tracejada entre o final de $\vec{a}_2$ e o ângulo reto é dada por
+\noindent{}Desta vez, observando que a distância tracejada entre o final de $\vec{a}_2$ e o ângulo reto é dada por\footnote{Note que a linha pontilhada horizontal é paralela ao vetor $\vec{a}_1$. Logo, o ângulo entre a reta pontilhada e a tracejada também é $\omega$.}
 \begin{displaymath}
     a_1\cos\omega,
 \end{displaymath}
@@ -722,7 +724,7 @@ Note que esse passo não é necessário, uma vez que assumimos que os módulos d
 \label{Sec:ComponentesVetoriais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Apesar de podermos utilizar dois vetores quaisquer -- desde que eles não sejam colineares --, é mais simples descrever os vetores em termos de uma base ortogonal, isto é, uma base em que o ângulo $\omega$ entre os vetores é de \degree{90}.\footnote[][-2cm]{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt.} Nesse caso, verificamos através das Equações~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta1} e~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta2} que $\alpha$ e $\beta$ podem ser obtidos de maneira muito mais simples:
+Apesar de podermos utilizar dois vetores quaisquer ---~desde que eles não sejam colineares~---, é mais simples descrever os vetores em termos de uma \emph{base ortogonal},\footnote[][-5mm]{Uma base ortogonal constituida por vetores unitários é denominada \emph{base ortonormal}.} isto é, uma base em que o ângulo $\omega$ entre os vetores é de \degree{90}.\footnote[][5mm]{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt. Você verá isso na disciplina de Álgebra Linear.} Nesse caso, verificamos através das Equações~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta1} e~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta2} que $\alpha$ e $\beta$ podem ser obtidos de maneira muito mais simples:
 \begin{align}
     \alpha &= \frac{a[\cos\theta - \cos(\np[\tcdegree]{90}-\theta)\cos\np[\tcdegree]{90}]}{1-\cos^2\np[\tcdegree]{90}} \\
     &=a\cos\theta \\
@@ -730,16 +732,14 @@ Apesar de podermos utilizar dois vetores quaisquer -- desde que eles não sejam 
     &= a\sen\theta,
 \end{align}
 %
-onde utilizamos o fato de que $\cos\np[\tcdegree]{90} = 0$ e $\cos(\np[\tcdegree]{90} - \theta) = \sen\theta$.
+onde utilizamos o fato de que $\cos\np[\tcdegree]{90} = 0$ e $\cos(\np[\tcdegree]{90} - \theta) = \sen\theta$. Temos, portanto, uma grande simplificação do processo de determinação das componentes vetoriais.
 
-Para o caso de eixos perpendiculares temos, portanto, uma grande simplificação do processo de determinação das grandezas escalares que nos permitem escrever um vetor qualquer em termos dos vetores da base. Tal processo é conhecido como \emph{decomposição vetorial}, e os escalares $\alpha$ e $\beta$ são denominados como \emph{componentes vetoriais nas direções $\hat{e}_1$ e $\hat{e}_2$}.
-
-\begin{marginfigure}[-6cm]
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.5]
 
-    \draw[dotted] (0,0) -- (2.5,0);
-    \draw[dotted] (0,0) -- (0,1.5);
+    \draw[dashed] (0,0) -- (2.5,0);
+    \draw[dashed] (0,0) -- (0,1.5);
 
     \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (2,1);
     
@@ -766,7 +766,7 @@ Para o caso de eixos perpendiculares temos, portanto, uma grande simplificação
 \caption{Decomposição de um vetor $\vec{a}$ em uma base ortogonal. \label{Fig:DecomposicaoEixosOrto}}
 \end{marginfigure}
 
-Em particular, para o caso de uma base ortogonal, não precisamos trilhar o caminho complexo discutido acima para determinar as componentes vetoriais: podemos calcular as componentes através de um simples triângulo. Se tomarmos o vetor $\vec{a}$ na Figura~\ref{Fig:DecomposicaoEixosOrto}, percebemos que ele é dado por
+Devemos notar ainda que para um sistema de referência composto por uma base ortogonal, \emph{as projeções do vetor $\vec{a}$ nas direções dos vetores da base são as próprias componentes do vetor em termos de tais vetores unitários}. Isso permite que a determinação das componentes seja sempre feita utilizando funções as funções trigonométricas seno e cosseno, de uma forma bastante simples: se tomarmos o vetor $\vec{a}$ na Figura~\ref{Fig:DecomposicaoEixosOrto}, percebemos que ele é dado por
 \begin{equation}\label{eq:vec_a}
     \vec{a} = \alpha\vec{e}_1 + \beta\vec{e}_2.
 \end{equation}
@@ -774,9 +774,9 @@ Em particular, para o caso de uma base ortogonal, não precisamos trilhar o cami
 Novamente, da figura, observamos que\sidenote{Note que as expressões para as projeções do vetor $\vec{a}$ podem ser calculadas através das definições das funções trigonométicas %
 \begin{minipage}{\linewidth} %
 \begin{align*} %
-    \sen \theta &= \frac{C_o}{h} \\ %
-    \cos \theta &= \frac{C_a}{h}, %
+    \sen \theta &= \frac{C_o}{h} & \cos \theta &= \frac{C_a}{h}, %
 \end{align*} %
+\vspace{0.1mm}
 \end{minipage} %
 %
 onde $C_o$ e $C_a$ representam os catetos oposto e adjacente, respectivamente, enquanto $h$ representa a hipotenusa. %
@@ -786,24 +786,52 @@ onde $C_o$ e $C_a$ representam os catetos oposto e adjacente, respectivamente, e
     |\beta\vec{e}_2| &= a\sen\theta.
 \end{align}
 %
-Se escolhermos $\vec{e}_1$ e $\vec{e}_2$ como unitários, então é claro que
+Como escolhemos $\vec{e}_1$ e $\vec{e}_2$ como unitários, então é claro que
 \begin{align}
     \alpha &= a\cos\theta \\
     \beta &= a\sen\theta.
 \end{align}
 
-Em Física geralmente utilizamos uma base ortogonal para descrever os vetores. Os eixos de referência utilizados são denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, temos que a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como
+Em Física\footnote{Não cremos em bases não-ortonormais, mas que elas existem, existem.} geralmente utilizamos uma base ortogonal com vetores unitários para descrever os vetores. Os eixos de referência utilizados são denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, temos que a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como (veja a Figura~\ref{Fig:sis_ref_orto_xy_e_versi_versj})
 \begin{equation}
     \vec{a} = a_x \versi + a_y \versj,
 \end{equation}
-%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.5]
+
+    \draw[->] (0,0) -- (2.5,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,1.5) node[below left]{$y$};
+
+    \draw[->, thick] (0,0) -- node[above]{$\vec{a}$} (2,1);
+    \draw[->, thick] (0,0) -- (0.5,0)node[below left]{$\versi$};
+    \draw[->, thick] (0,0) -- (0,0.5) node[below left]{$\versj$};
+    
+    \draw[dotted] (2,1) -- (2,0);
+    \draw[dotted] (2,1) -- (0,1);
+    
+    \draw[|-|] (0,-0.3) -- node[below]{$a_x$} (2,-0.3);
+    \draw[|-|] (-0.3,0) -- node[left]{$a_y$} (-0.3, 1);
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (2,1);
+    \coordinate (C) at (0,1);
+       
+    \pic [draw, "$\theta$", angle eccentricity=1.25, angle radius = 10mm] {angle = A--O--B};
+
+\end{tikzpicture}
+\caption{Sistema de referência ortonormal com vetores unitários $\versi$ e $\versj$.\label{Fig:sis_ref_orto_xy_e_versi_versj}}
+\end{marginfigure}
+
 onde
 \begin{align}
     a_x &= a\cos\theta \label{Eq:CompX}\\
     a_y &= a\sen\theta. \label{Eq:CompY}
 \end{align}
 %
-Essa escolha é tão comum que na maioria das vezes simplesmente descrevemos um vetor em termos de suas componentes em um sistema de referência, como em
+Essa escolha é tão comum que muitas vezes simplesmente descrevemos um vetor em termos de suas componentes em um sistema de referência, como em
 \begin{equation}
     \vec{a} = (a_x,a_y),
 \end{equation}
@@ -811,10 +839,8 @@ ou
 \begin{equation}
   \vec{a} = \begin{pmatrix} a_x \\ a_y \end{pmatrix}.
 \end{equation}
-%
-Devemos notar ainda que para um sistema composto por eixos ortogonais, \emph{as projeções do vetor $\vec{a}$ nos eixos $x$ e $y$ são as próprias componentes do vetor nas direções dos versores $\versi$ e $\versj$}. Isso permite que a determinação das componentes seja sempre feita utilizando funções as funções trigonométricas seno e cosseno, de uma forma bastante simples.\footnote[][-5cm]{É claro que \emph{jamais} vamos tentar utilizar um sistema de referência que emprega uma base não-ortogonal. Essa discussão toda é justamente pra mostrar por que isso é uma má ideia!}
 
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.5]
 
@@ -847,7 +873,55 @@ Apesar de ser mais comum termos as informações de ângulo em relação ao eixo
     a_y &= a\cos\sigma.
 \end{align}
 %
-Ao analisar uma situação como a resolução de um problema, devemos estar atentos e utilizar a decomposição correta.\footnote[][-2.5cm]{O melhor a se fazer é verificar quais são as expressões para o cálculo das componentes utilizando a própria definição das funções trigonométricas seno e cosseno.}
+Ao analisar uma situação como a resolução de um problema, devemos estar atentos e utilizar a decomposição correta.\footnote{O melhor a se fazer é verificar quais são as expressões para o cálculo das componentes utilizando a própria definição das funções trigonométricas seno e cosseno.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Notação módulo-ângulo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Da seção anterior, fica evidente que além de podermos descrever um vetor $\vec{a}$ através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ entre o vetor e um dos eixos de referência, e do módulo $a$ do vetor. Em três dimensões, precisamos dos ângulos $\theta$ e $\phi$ entre o vetor e os eixos de referência, além do próprio módulo do vetor. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
+
+Em duas dimensões, podemos observar a partir das Equações~\eqref{Eq:CompX} e~\eqref{Eq:CompY} que
+\begin{align}
+  \frac{a_y}{a_x} &=\frac{a\sen\theta}{a\cos\theta} \\
+  &= \tan\theta,
+\end{align}
+%
+de onde podemos escrever\footnote{A função arco tangente ($\arctan$) é a função inversa da função tangente. Seu efeito é determinar o ângulo correspondente a um dado valor de tangente. Se tomarmor $\arctan(\tan \theta)$, obtemos simplesmente o ângulo $\theta$.}
+\begin{equation}\label{Eq:AngaPartirDeComp}
+  \theta = \arctan\frac{a_y}{a_x}.
+\end{equation}
+%
+Equivalentemente, podemos verificar esse resultado utilizando relações trigonométricas através da  Figura~\ref{Fig:sis_ref_orto_angulo_eixo_y}.
+
+Também podemos encontrar uma relação entre as componentes e o módulo do vetor através de
+\begin{align}
+  a_ x^2 + a_y^2 &= (a\cos\theta) ^2 + (a\sen\theta)^2 \\
+  &= a^2\cos^2\theta + a^2\sen^2\theta \\
+  &= a^2(\sen^2\theta + \cos^2\theta) \\
+  &= a^2,
+\end{align}
+%
+onde usamos o fato de que
+\begin{equation}
+    \sen^2\theta + \cos^2\theta = 1,
+\end{equation}
+%
+o que nos permite escrever o módulo $a$ do vetor em termos de suas componentes como
+\begin{equation}\label{Eq:ModAPartirDeComp}
+    a = \sqrt{a_x^2 + a_y^2}.
+\end{equation}
+%
+Novamente, esse resultado pode ser obtido geometricamente ao empregarmos o teorema de Pitágoras no triângulo mostrado na Figura~\ref{Fig:atan_geometricamente}.
+
+Portanto, se conhecemos o vetor em termos de duas componentes, podemos calcular seu módulo e o ângulo que ele faz com o eixo horizontal e vice-versa. Concluímos então que as duas notações são completamente equivalentes.
+
+Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do módulo do vetor, através de
+\begin{align}
+    a &= \sqrt{a_x^2 + a_y^2 + a_z^2} \\
+    \theta &= \arccos \frac{a_z}{r} \\
+    \phi &= \arctan \frac{a_y}{a_x}.
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sistema de referência em três dimensões}
@@ -856,7 +930,7 @@ Ao analisar uma situação como a resolução de um problema, devemos estar aten
 % Segue figura retirada de: http://www.texample.net/tikz/examples/the-3dplot-package/
 % com alterações
 
-\begin{marginfigure}
+\begin{marginfigure}[-1.5cm]
 \centering
 %% Copyright 2009 Jeffrey D. Hein
 %
@@ -945,7 +1019,7 @@ Ao analisar uma situação como a resolução de um problema, devemos estar aten
 \caption{Sistema de coordenadas em três dimensões.}
 \end{marginfigure}
 
-Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicioamos mais um eixo de referência denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Para que possamos decompor um vetor $\vec{a}$ qualquer em termos de uma base tridimensional, precisamos de mais um ângulo entre o vetor e um dos eixos. Em geral, se utiliza um ângulo entre o vetor e o eixo $z$. Nesse caso podemos determinar as componentes através de
+Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicionamos mais um eixo de referência, denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Para que possamos decompor um vetor $\vec{a}$ qualquer em termos de uma base tridimensional, precisamos de mais um ângulo entre o vetor e um dos eixos. Em geral, se utiliza um ângulo entre o vetor e o eixo $z$. Nesse caso podemos determinar as componentes através de
 \begin{align}
     a_x &= a \sen\theta\cos\phi \\
     a_y &= a \sin\theta\sin\phi \\
@@ -1026,7 +1100,7 @@ Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fi
     A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{30}$. Se um vetor $\vec{a}$ tem módulo $a = \np[m]{2.5}$ e faz um ângulo $\theta = \np[\tcdegree]{45}$ em relação ao eixo horizontal, quais são as componentes do vetor nos eixos do sistema rotacionado?
 \end{quote}
 
-\begin{figure}\forcerectofloat
+\begin{figure}\forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1077,82 +1151,6 @@ Assim, temos que
     a_{x'} &= a\cos\theta' & a_{y'} &= a\sen\theta' \\
     &= (\np[m]{2.5})\cdot(\cos\np[\tcdegree]{15}) & &= (\np[m]{2.5})\cdot(\sen\np[\tcdegree]{15}) \\
     &\approx \np[m]{2.415} & &\approx \np[m]{0.647}
-\end{align}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Notação módulo-ângulo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Da seção anterior, fica evidente que além de podermos descrever um vetor $\vec{a}$ através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ entre o vetor e um dos eixos de referência, e do módulo $a$ do vetor. Em três dimensões, precisamos dos ângulos $\theta$ e $\phi$ entre o vetor e os eixos de referência, além do próprio módulo do vetor. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[scale=1.5]
-
-    \draw[-Stealth] (0,0) -- (2.75,0) node[below left]{$x$};
-    \draw[-Stealth] (0,0) -- (0,1.5) node[below left]{$y$};
-
-    \draw[-Stealth, thick] (0,0) -- node[above]{$\vec{a}$} (2,1);
-    
-    \draw[dotted] (2,1) -- (2,0);
-    \draw[dotted] (2,1) -- (0,1);
-    
-    \draw[|<->|] (0,-0.3) -- node[below]{$a_x$} (2,-0.3);
-    \draw[|<->|] (2.3,0) -- node[right]{$a_y$} (2.3, 1);
-    
-    \coordinate (O) at (0,0);
-    \coordinate (A) at (1,0);
-    \coordinate (B) at (2,1);
-    \coordinate (C) at (0,1);
-    \coordinate (D) at (2,0);
-       
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
-    \pic [draw, "$\cdot$", angle eccentricity=0.5, angle radius = 3mm] {angle = B--D--O};
-
-\end{tikzpicture}
-\caption{Podemos determinar as relações entre o módulo, as componentes, e o ângulo do vetor através de trigonométria.\label{Fig:atan_geometricamente}}
-\end{marginfigure}
-
-Em duas dimensões, podemos observar a partir das Equações~\eqref{Eq:CompX} e~\eqref{Eq:CompY} que
-\begin{align}
-  \frac{a_y}{a_x} &=\frac{a\sen\theta}{a\cos\theta} \\
-  &= \tan\theta,
-\end{align}
-%
-de onde podemos escrever
-\begin{equation}\label{Eq:AngaPartirDeComp}
-  \theta = \arctan\frac{a_y}{a_x}.
-\end{equation}
-%
-Equivalentemente, podemos verificar esse resultado utilizando relações trigonométricas através da  Figura~\ref{Fig:atan_geometricamente}.
-
-Também podemos encontrar uma relação entre as componentes e o módulo do vetor através de
-\begin{align}
-  a_ x^2 + a_y^2 &= (a\cos\theta) ^2 + (a\sen\theta)^2 \\
-  &= a^2\cos^2\theta + a^2\sen^2\theta \\
-  &= a^2(\sen^2\theta + \cos^2\theta) \\
-  &= a^2,
-\end{align}
-%
-onde usamos o fato de que
-\begin{equation}
-    \sen^2\theta + \cos^2\theta = 1,
-\end{equation}
-%
-o que nos permite escrever o módulo $a$ do vetor em termos de suas componentes como
-\begin{equation}\label{Eq:ModAPartirDeComp}
-    a = \sqrt{a_x^2 + a_y^2}.
-\end{equation}
-%
-Novamente, esse resultado pode ser obtido geometricamente ao empregarmos o teorema de Pitágoras no triângulo mostrado na Figura~\ref{Fig:atan_geometricamente}.
-
-Portanto, se conhecemos o vetor em termos de duas componentes, podemos calcular seu módulo e o ângulo que ele faz com o eixo horizontal e vice-versa. Concluímos então que as duas notações são completamente equivalentes.
-
-Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do módulo do vetor, através de
-\begin{align}
-    a &= \sqrt{a_x^2 + a_y^2 + a_z^2} \\
-    \theta &= \arccos \frac{a_z}{r} \\
-    \phi &= \arctan \frac{a_y}{a_x}.
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1269,7 +1267,7 @@ Concluímos, portanto, que se um vetor aponta na mesma direção que um eixo de 
 \subsection{Projeções negativas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}
 
@@ -1295,73 +1293,62 @@ Concluímos, portanto, que se um vetor aponta na mesma direção que um eixo de 
 \caption{Podemos utilizar tanto o ângulo $\phi$, quanto o ângulo $\theta$ em relação ao eixo $x$ para determinar as componentes de um vetor, porém devemos estar atentos ao sinal. \label{Fig:DecompVetorCompNegativa}}
 \end{marginfigure}
 
-Algo que é bastante importante notarmos é o fato de que muitos vetores têm uma ou mais componentes negativas. Isso está ligado ao simples fato de que para os gerar a partir dos vetores da base escolhida, precisamos que as componentes tenham valores negativos. Por isso, é importante que ao decompor um vetor em termos de uma base/sistema de referência, saibamos identificar se tais sinais são necessários.
+Algo que é bastante importante notarmos é o fato de que muitos vetores têm uma ou mais componentes negativas. Isso está ligado ao simples fato de que para os gerar a partir dos vetores da base escolhida, precisamos que as componentes tenham valores negativos. Por isso, é importante que ao decompor um vetor em termos de uma base/sistema de referência, saibamos identificar se tais sinais são necessários. Se determinarmos os valores das componentes através de
+\begin{align}
+    a_x &= a \cos\theta \\
+    a_y &= a\sen\theta,
+\end{align}
+%
+onde o ângulo $\theta$ é medido a partir do eixo $x$, no sentido anti-horário, os sinais serão ``gerados'' apropriadamente pelas próprias funções trigonométricas.
 
-Uma maneira simples de verificar se a componente será negativa, é verificar a projeção do vetor no eixo: se ela aponta no sentido negativo, então a componente é negativa\footnote{Veja que estamos interpretando a projeção como uma distância, mas de certa forma sabemos para onde a ``sombra'' do vetor aponta.} (veja a Figura~\ref{Fig:DecompVetorCompNegativa}).
-
-%projeções negativas nos eixos de referência. Isso está ligado ao fato de que se pretendemos gerar o vetor em questão a partir de ``vetores componentes'' que têm a mesma direção dos vetores unitários da base, precisamos que um deles tenha o sentido oposto ao de um dos vetores da base.
-
-%\begin{marginfigure}
-%\centering
-%\begin{tikzpicture}[>=Stealth]
-%   
-%    \draw[->, thick] (2.25,0.5) coordinate (ai) -- node[above right]{$\vec{a}$} (1,2) coordinate (af);
-
-%    \draw[->, dashed] (ai) +(-1.75,0) -- +(1.75,0) node[below left]{$x$};
-%    \draw[->, dashed] (ai) -- +(0,2.5) node[below right]{$y$};
-%    \draw[->, thick] (ai) -- +(0.5,0) node[below] {$\versi$};
-%    \draw[->, thick] (ai) -- +(0, 0.5) node[right]{$\versj$};
-%        
-%    \draw[->] (ai) -- +(-1.25,0) node[below right]{$\vec{a}_x$};
-%    \draw[->] (ai) -- +(0,1.5) node[below right]{$\vec{a}_y$};
-%    
-%    \draw[dotted] (af) -- +(1.25,0) (af) -- +(0,-1.5);
-%    
-%\end{tikzpicture}
-%\caption{Alguns vetores precisam de componentes negativas para serem descritos. \label{Fig:VetorCompNegativa}}
-%\end{marginfigure}
-
-%Vamos tomar como exemplo o vetor $\vec{a}$ na Figura~\ref{Fig:VetorCompNegativa}. Note que o vetor $\vec{a}_x$ pode ser escrito como
-%\begin{equation}
-%    \vec{a}_x = a_x \versi,
-%\end{equation}
-%%
-%onde $a_x < 0$. Sabemos que $a_x$ precisa ser negativo pois o vetor $\vec{a}_x$ tem o sentido oposto ao do vetor unitário $\versi$.
-
-
-Note que podemos determinar o valor absoluto de $a_x$ em termos de $a$ e do ângulo $\phi$ entre a direção do vetor e o eixo $x$ (Figura~\ref{Fig:DecompVetorCompNegativa}):
+Existem dois casos, no entanto, em que simplesmente utilizar as expressões acima não será suficiente. O primeiro deles está relacionado ao fato de que muitas vezes não temos, ou não é conveniente utilizar o ângulo $\theta$ como definido acima.\footnote{Em geral a informação que temos, ou que é fácil de se verificar, é um ângulo entre o vetor e um dos eixos do sistema de referência, sendo que costumeiramente se escolhe um ângulo que seja menor que \degree{90}.} Se, por exemplo, tivermos o ângulo $\phi$ na Figura~\ref{Fig:DecompVetorCompNegativa}, podemos determinar os \emph{valores numéricos} das projeções do vetor ao usar tal ângulo, porém não obteremos os sinais adequados. Na figura, claramente a componente $a_x$ é negativa, uma vez que $\degree{90} < \theta < \degree{180}$, logo\footnote{Lembre-se que $a$ representa o módulo do vetor, o que é sempre positivo.}
 \begin{equation}
-    |a_x| = a \cos\phi.
+    a_x = a\cos\theta < 0.
 \end{equation}
-%%
-No entanto, temos que $\phi < \np[\tcdegree]{90}$, o que implica que $a \cos\phi > 0$. Sabemos que $a_x < 0$, logo
+%
+Por outro lado, podemos verificar que
 \begin{equation}
+    |a_x| = a \cos\phi,
+\end{equation}
+%
+o que pode ser obtido através das relações trigonométricas. Como temos que $\degree{0} < \phi < \np[\tcdegree]{90}$, o que implica que $a \cos\phi > 0$, utilizamos a notação de módulo, pois sabemos que $a_x < 0$. Logo
+\begin{equation}\label{Eq:ComponenteComSinalAdicionadoManualmente}
     a_x = - a \cos\phi,
 \end{equation}
 %
-onde precisamos inserir o sinal ``manualmente'' para que a componente tenha o sinal negativo. Isso se deve ao fato de que estamos utilizando um método geométrico para determinar a componente ---~estamos usando a projeção~---, porém ele não é capaz de descrever o seu sinal.
+onde precisamos inserir o sinal ``manualmente'' para que a componente tenha o sinal negativo necessário. Isso se deve ao fato de que estamos utilizando um método geométrico para determinar a componente ---~estamos usando a projeção~---, porém ele não é capaz de descrever o seu sinal.
 
-As Expressões~\eqref{Eq:CompX} e~\eqref{Eq:CompY} são capazes de nos dar as componentes com o sinal correto, porém o fazem empregando o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor unitário na direção do eixo\footnote{Lembre-se de que definimos o ângulo $\theta$ como sendo aquele medido no sentido anti-horário, e que parte do vetor da base em direção ao vetor.}, o que equivale ao ângulo $\theta$ na Figura~\ref{Fig:DecompVetorCompNegativa}. Nesse caso, como $\np[\tcdegree]{90} < \theta < \np[\tcdegree]{180}$, temos que $\cos\theta < 0$, assim a expressão
+A maneira mais simples e intuitiva de verificar o sinal adequado para a componente do vetor quando utilizamos um ângulo diferente do $\theta$ na Figura~\ref{Fig:DecompVetorCompNegativa} é observarmos a ``sombra'' da projeção no eixo que estamos analisando. Se ela aponta no sentido negativo do eixo, sabemos que a componente deve ser negativa; se ela aponta no sentido positivo, sabemos que ela é positiva. O sinal negativo deve ser então introduzido ``manualmente'', da mesma maneira que fizemos na Equação~\eqref{Eq:ComponenteComSinalAdicionadoManualmente} acima.
+
+O segundo caso em que devemos ter atenção à questão do sinal é quando temos um sistema ortogonal ``heterodoxo''. Rigorosamente, devemos ter que o semieixo positivo $y$ aponta em uma direção e sentido que faz um ângulo de \degree{90} em relação ao semieixo $x$ positivo, sendo que o ângulo deve ser medido no sentido anti-horário. Muitas vezes, no entanto, adotamos eixos que não respeitam essa regra. Nesses casos, mesmo que utilizemos as funções trigonométricas para o ângulo $\theta$ medido a partir do eixo $x$, em sentido anti-horário, podemos ter problemas de sinal. 
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[->] (0,0) coordinate (O) -- (3,0) node[below left]{$x$} coordinate (X);
+    \draw[->] (0,1.5) -- (0,-1.5) node[above left]{$y$};
+    
+    \draw[thick, ->] (0,0) -- (30:2) node[below]{$\vec{a}$} coordinate (A);
+    
+    \pic [draw, "$\gamma$", angle eccentricity = 1.5, angle radius = 5mm]{angle = X--O--A};
+    
+\end{tikzpicture}
+\caption{Vetor $\vec{a}$ em relação aos eixos do sistema de referência. \label{Fig:Ex:DecompNegativaNaoOrtodoxa}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:Ex:DecompNegativaNaoOrtodoxa} temos um sistema de referência onde adotamos o eixo vertical $y$ apontando para baixo. Nesse caso, ao calcularmos o valor de $a_y$ utilizando o ângulo $\gamma$ mostrado, obtemos
 \begin{equation}
-    a_x = a\cos\theta
+    a_y = a \cos\gamma > 0,
 \end{equation}
 %
-descreve adequadamente o valor e o sinal da componente.\footnote{Lembre-se que \\%
-%
-\begin{minipage}{\linewidth}%
-\begin{equation*} %
-\cos(\np[\tcdegree]{180} - \phi) = -\cos\phi, %
-\end{equation*} %
-\end{minipage} \\%
-%
-então as duas expressões para $a_x$ resultam no mesmo valor.}
-
-É importante destacar que em diversas situações temos informações acerca do ângulo $\phi$ e não do ângulo $\theta$. Nesse caso, devemos ou determinar $\theta$, o que é simples, pois
+porém a projeção do vetor no eixo $y$ aponta no sentido negativo. A expressão acima, portanto, está incorreta, pois resulta em uma projeção com o sinal inadequado. Devemos inserir o sinal manualmente:
 \begin{equation}
-    \theta = 180 - \phi,
+    a_y = -a \cos\gamma > 0.
 \end{equation}
 %
-ou devemos lembra que ---~devido ao fato de que a componente aponta no sentido negativo do eixo~--- é necessário que coloquemos um sinal, como fizemos acima.
+Novamente, a maneira mais simples de determinar a projeção corretamente é utilizar um ângulo entre \degree{0} e \degree{90}, utilizar a função trigonométrica adequada e então verificar o sinal através da ``sombra'' do vetor no eixo.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Decomposição de um vetor com uma componente negativa}
@@ -1513,6 +1500,11 @@ Note que ao utilizarmos uma calculadora para determinar o ângulo, é comum que 
 \caption{Os ângulos $\alpha$ e $\beta$ estão relacionados através de $\alpha - \beta = \np[\tcdegree]{180}$. Note que $\beta$ é um ângulo negativo, pois é medido no sentido horário.\label{Fig:Ex:AngNegativoConverter}}
 \end{marginfigure}
 
+Basta agora determinarmos o ângulo $\gamma$. Através da Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, podemos notar que o ângulo entre a reta tracejada e o eixo $y$ é igual a $\alpha$ ---~pois são alternos internos, veja a Figura~\ref{Fig:Ex:AlternosInternos}~---. Como o ângulo entre os eixos $x$ e $y$ é de \np[\tcdegree]{90}, temos que
+\begin{equation}
+    \gamma = \np[\tcdegree]{120}.
+\end{equation}
+
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -1532,12 +1524,7 @@ Note que ao utilizarmos uma calculadora para determinar o ângulo, é comum que 
 \caption{Ângulos alternos internos são iguais.\label{Fig:Ex:AlternosInternos}}
 \end{marginfigure}
 
-Basta agora determinarmos o ângulo $\gamma$. Através da Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, podemos notar que o ângulo entre a reta tracejada e o eixo $y$ é igual a $\alpha$ ---~pois são alternos internos, veja a Figura~\ref{Fig:Ex:AlternosInternos}~---. Como o ângulo entre os eixos $x$ e $y$ é de \np[\tcdegree]{90}, temos que
-\begin{equation}
-    \gamma = \np[\tcdegree]{120}.
-\end{equation}
-%
-Concluímos, portanto, que
+\noindent{}Concluímos, portanto, que
 \begin{equation}
     \beta = \np[\tcdegree]{30}.
 \end{equation}
@@ -1548,9 +1535,11 @@ Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do e
     &\approx \np{0,866}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Soma através de componentes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Operações através de componentes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Verificaremos agora uma propriedade importante dos vetores e que facilita o tratamento de sistemas que precisam ser descritos vetorialmente: a independência dos eixos para as operações de soma, subtração, e multiplicação por escalar. Verificaremos que sempre que uma dessas três operações precisa ser feita entre dois vetores quaisquer, basta que façamos tal operação para as componentes do vetor em cada um dos eixos de referência.
 
 \begin{marginfigure}[2cm]
 \centering
@@ -1581,17 +1570,56 @@ Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do e
 \caption{Soma através de componentes vetoriais.\label{Fig:Soma_comp}}
 \end{marginfigure}
 
-Na Figura~\ref{Fig:Soma_comp}, temos uma soma geométrica de vetores. Temos também um sistema de referência cartesiano sobre o qual projetamos as componentes dos vetores $\vec{a}$ e $\vec{b}$. Se tomarmos o vetor $\vec{c}$ vemos que
+Na Figura~\ref{Fig:Soma_comp}, temos uma soma geométrica de vetores. Temos também um sistema de referência sobre o qual projetamos as componentes dos vetores $\vec{a}$ e $\vec{b}$. Se tomarmos o vetor $\vec{c}$ vemos que
 \begin{align}
   c_x &= a_x + b_x \\
   c_y &= a_y + b_y,
 \end{align}
 %
-ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular as componentes do vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações dos vetores.
+ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular as componentes do vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações dos vetores. Se considerarmos ainda que a subtração nada mais é do que a soma de um vetor cujo sentido é invertido pelo sinal, concluímos que a subtração de dois vetores também pode ser realizada através das componentes, de forma que se
+\begin{equation}
+    \vec{d} = \vec{a} - \vec{b},
+\end{equation}
+%
+então
+\begin{align}
+    d_x &= a_x - b_x \\
+    d_y &= a_y - b_y.
+\end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equações e vetores unitários}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Finalmente, ao multiplicarmos um vetor por um escalar, sabemos que o vetor resultante tem a mesma direção e sentido que o vetor original, porém seu módulo é alterado. Assim, se
+\begin{equation}
+    \vec{e} = \alpha \vec{a},
+\end{equation}
+%
+então
+\begin{align}
+    e_x &= e \cos\theta \\
+    e_y &= e \sen\theta,
+\end{align}
+%
+porém temos que
+\begin{equation}
+    e = \alpha a,
+\end{equation}
+%
+o que nos permite escrever
+\begin{align}
+    e_x &= \alpha a \cos\theta \\
+    e_y &= \alpha a \sen\theta.
+\end{align}
+%
+Os termos $a\cos\theta$ e $a\sen\theta$ na expressão acima nada mais são do que as próprias componentes do vetor $\vec{a}$ projetadas nos eixos de referência. Portanto, concluímos que
+\begin{align}
+    e_x &= \alpha a_x \\
+    e_y &= \alpha a_y.
+\end{align}
+
+Note que verificamos nas expressões acima que as operações envolvendo as componentes de cada dimensão (eixo) ocorrem de forma que não é necessário saber informações acerca das demais dimensões. Issp significa que se os eixos são ortogonais, eles atuam independentemente uns dos outros.\footnote{Isso não é verdade para equações que envolvam o \emph{produto vetorial entre dois vetores}. Veremos tal produto somente no Capítulo~\ref{Chap:MomentoAngular}}. Isso será fundamental para que possamos simplificar a interpretação de movimentos bi e tridimensionais no Capítulo~\ref{Chap:MovimentoBidimensional}, mas tal resultado não se limita à cinemática.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Operações e equações através de vetores unitários}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A grande vantagem de escrever os vetores em termos das componentes vetoriais é que podemos realizar cálculos de uma maneira bastante cômoda. Se temos a soma de dois vetores 
 \begin{align}
@@ -1611,8 +1639,6 @@ Devido ao versor unitário, podemos somar as componente, colocando-o em evidênc
 %
 Em casos mais complexos, como veremos mais adiante, a praticidade da notação de versores unitários se tornará mais evidente.
 % TODO Legal seria um exemplo ou dois mostrando que é melhor
-
-Uma propriedade importante que pode ser prontamente verificada através da discussão acima é a de que equações envolvendo vetores pode ser separadas em três equações idênticas, uma para cada eixo\footnote{Isso não é verdade para equações que envolvam o \emph{produto vetorial entre dois vetores}. Veremos tal produto somente no Capítulo~\ref{Chap:MomentoAngular}}. Isso será fundamental para que possamos simplificar a interpretação de movimentos bi e tridimensionais no Capítulo~\ref{Chap:MovimentoBidimensional}, mas tal resultado não se limita à cinemática.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Determinação de um vetor soma}
