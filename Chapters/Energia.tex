@@ -59,7 +59,7 @@ Diversas situações podem ser bastante complicadas de se resolver utilizando as
 \caption{O cálculo da velocidade de um pêndulo através das leis de Newton é muito complexo, pois a aceleração depende da posição em que o corpo se encontra.}
 \end{marginfigure}
 
-Em muitos casos a determinação de algumas grandezas através das Leis de Newton é uma tarefa bastante complexa. Se, por exemplo, estamos interessados em calcular a velocidade de um pêndulo após ele percorrer uma certa distância, temos uma aceleração que varia dependendo da posição: ao aplicarmos a Segunda Lei de Newton obtemos, considerando a Figura~\ref{Fig:PenduloCalcVelSegLei}, obtemos
+Em muitos casos a determinação de algumas grandezas através das Leis de Newton é uma tarefa bastante complexa. Se, por exemplo, estamos interessados em calcular a velocidade de um pêndulo após ele percorrer uma certa distância, temos uma aceleração que varia dependendo da posição: ao aplicarmos a Segunda Lei de Newton, considerando a Figura~\ref{Fig:PenduloCalcVelSegLei}, obtemos
 \begin{description}
     \item[Eixo $x$:]
         \begin{align}
@@ -452,7 +452,7 @@ o que implica em
 \paragraph{Sinal do trabalho}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Finalmente, devemos destacar ainda que uma maneira simples de verificar se o trabalho tem o sinal adequado, é analisar o efeito da força considerada na energia cinética. Como verificamos na definição do teorema Trabalho--Energia-cinética, os possíveis efeitos de uma força que atua sobre um corpo são aumentar, diminuir, ou manter a energia cinética constante. O último caso ocorre se a força é perpendicular ao deslocamento, o que já sabemos que implica um trabalho nulo.
+Finalmente, devemos destacar ainda que uma maneira simples de verificar se o trabalho tem o sinal adequado, é analisar o efeito da força considerada na energia cinética. Como verificamos na definição do teorema Trabalho--Energia-cinética, os possíveis efeitos de uma força que atua sobre um corpo são aumentar, diminuir, ou manter a energia cinética constante. O último caso ocorre se a força é perpendicular ao deslocamento, o que já sabemos que implica em um trabalho nulo.
 
 Os dois primeiros casos ocorrem quando a força atua no sentido de acelerar, ou de desacelerar o corpo. Sempre que a força atua no sentido de acelerar o corpo, isso significa que ela deve causar um \emph{aumento da velocidade}, com um consequente \emph{aumento na energia cinética}. Logo, o trabalho realizado pela força é \emph{positivo}. Caso a força atue no sentido de \emph{diminuir a velocidade}, isto é, a força tende a causar uma desaceleração do corpo, deve haver uma \emph{diminuição da energia cinética} e o trabalho deve ser \emph{negativo}. Verificar tais propriedades é, em geral, muito simples, podendo poupar algum trabalho ao evitar revisar contas devido a erros de sinal.
 
@@ -525,7 +525,7 @@ Sabemos que a força peso atua na direção vertical, apontando para baixo. Pode
     &= \vec{P}\cdot\vec{d}_{\parallel},
 \end{align}
 %
-onde usamos $\vec{P}\cdot\vec{d}_{\perp} = 0$. Note que o módulo de $\vec{d}_{\perp}$ equivale à variação da posição no eixo vertical mostrado na figura. Logo
+onde usamos $\vec{P}\cdot\vec{d}_{\perp} = 0$. Note que o módulo de $\vec{d}_{\parallel}$ equivale à variação da posição no eixo vertical mostrado na figura. Logo
 \begin{align}
     W &= \vec{P}\cdot\vec{d}_{\parallel} \\
     &= P |\Delta y| \cos\degree{0},
@@ -541,7 +541,7 @@ Temos, portanto, uma expressão que evidencia o fato de que o trabalho realizado
 Caso o deslocamento seja tal que o corpo sobe, ou seja, se desloca no sentido negativo de $y$, obtemos
 \begin{align}
     W &= \vec{P}\cdot\vec{d}_{\parallel} \\
-    &= P |\Delta y| \cos\degree{0} \\
+    &= P |\Delta y| \cos\degree{180} \\
     &= mg |\Delta y| \cos\degree{180},
 \end{align}
 %
@@ -652,11 +652,11 @@ Em geral, quando se pensa em situações envolvendo o atrito, nos vêm à mente 
     \item[Força peso:] Para determinarmos o trabalho realizado pela força peso, basta utilizarmos a Expressão~\eqref{Eq:TrabalhoPeso}:\footnote{Estamos assumindo que o eixo $y$ aponta para baixo.}
     \begin{align}
         W_P &= mg\Delta y \\
-        &= mgd\cos\alpha.
+        &= mgd\sen\alpha.
     \end{align}
 \end{description}
 
-Note que em geral não temos uma expressão fechada que nos dá o trabalho, como no caso da força peso\footnote{Veremos adiante que as forças que possuem expressões como a Equação~\eqref{Eq:TrabalhoPeso} são especiais.}. Se não temos expressões fechadas, devemos então utilizar a Expressão~\eqref{Eq:TrabalhoForcaConstante}, como fizemos acima\footnote{Assumindo que elas são constantes, se não forem verificaremos adiante o que fazer.}. Outras forças ---~como, por exemplo, a tensão e o arrasto~--- também não têm expressões fechadas, e deveremos proceder da mesma maneira que fizemos para a normal e o atrico.
+Note que em geral não temos uma expressão fechada que nos dá o trabalho, como no caso da força peso\footnote{Veremos adiante que as forças que possuem expressões como a Equação~\eqref{Eq:TrabalhoPeso} são especiais.}. Se não temos expressões fechadas, devemos então utilizar a Expressão~\eqref{Eq:TrabalhoForcaConstante}, como fizemos acima\footnote{Assumindo que elas são constantes, se não forem verificaremos adiante o que fazer.}. Outras forças ---~como, por exemplo, a tensão e o arrasto~--- também não têm expressões fechadas, e deveremos proceder da mesma maneira que fizemos para a normal e o atrito.
 
 Quando tratamos a força de arrasto, em particular, também temos a impressão de que o trabalho é sempre negativo, o que é incorreto. Quando um paraquedista cai, chegando à sua velocidade terminal, claramente temos um trabalho negativo, pois a força de arrasto tem direção contrária ao deslocamento. Porém se soprarmos uma bola de ping-pong, ela ganhará velocidade. Temos então que a força de arrasto, que tem a mesma direção e sentido que o deslocamento, realiza um trabalho positivo.
 
@@ -669,7 +669,7 @@ Podemos voltar agora ao problema de determinar a velocidade do pêndulo discutid
     \Delta K = W_t.
 \end{equation*}
 %
-No caso do pêndulo, temos duas forças: a força peso e a tensão no fio.
+No caso do pêndulo, temos duas forças relevantes: a força peso e a tensão no fio. Devido à baixa velocidade, podemos desprezar o arrasto.
 
 \begin{marginfigure}
 \centering
@@ -712,7 +712,7 @@ Já vimos que o trabalho da força peso está ligado à distância percorrida ve
     W_g = -mg\Delta y,
 \end{equation*}
 %
-onde o eixo $y$ cresce verticalmente para cima. Já no caso da tensão, apesar de ela variar em módulo e direção a cada instante, \emph{sua direção é sempre perpendicular ao deslocamento}, o que implica em um trabalho nulo devido a essa força em todo o movimento. Assim, temos
+onde o eixo $y$ cresce verticalmente para cima. Já no caso da tensão, apesar de ela variar em módulo e direção a cada instante, \emph{sua direção é sempre perpendicular ao deslocamento instantâneo}, o que implica em um trabalho nulo devido a essa força durante todo o movimento. Assim, temos
 \begin{equation}
     \frac{1}{2}m v_f^2 - \frac{1}{2}m v_i^2 = -mg\Delta y,
 \end{equation}
@@ -818,8 +818,8 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
     Considerando que a força é na direção horizontal, e que o deslocamento é paralelo à superfície do plano inclinado, o ângulo entre os vetores força e deslocamento é o mesmo que entre o a horizontal e o plano (veja a Figura~\ref{Fig:Ex:TrabalhoBlocoArrastadoRampaForcasAnguloForcaDeslocamento}). Logo,
     \begin{align}
         W &= Fd\cos\alpha \\
-        &= (\np[N]{100})\cdot(\np[m]{5})\cdot(\cos\degree{35}) \\
-        &= \np[J]{409,6}.
+        &= (\np[N]{100})\cdot(\np[m]{5,0})\cdot(\cos\degree{35}) \\
+        &= \np[J]{4,10E2}.
     \end{align}
     
     \item[Força normal:] Sabemos que o deslocamento do bloco é paralelo à superfície do plano inclinado. Como a força normal é perpendicular a superfície, ela também é perpendicular ao deslocamento. Logo,
@@ -875,12 +875,12 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
     onde usamos $F_y = F\sen\alpha$, como pode ser verificado através da Figura~\ref{Fig:Ex:TrabalhoBlocoArrastadoRampaForcasAnguloForcaDeslocamento}, lembrando que o eixo $y$ é perpendicular à direção do vetor deslocamento $\vec{d}$.
     Além disso, sabemos que podemos determinar o trabalho considerando somente a componente da força que aponta na direção do deslocamento, logo
     \begin{align}
-        W_{f_{\rm{at}}} &= -[f_{\rm{at}}]_{\parallel} d \\
-        &= - [\mu(mg\cos\alpha + F\sen\alpha)\cos\alpha]d \\
-        &= -\big[(\np{0,6})\cdot\big((\np[km]{2,0})\cdot(\np[m/s^2]{9,8})\cdot(\cos\degree{35}) \nonumber\\
-        &\phantom{=-\big[(\np{0,6})\cdot\big[}+ (\np[N]{100})\cdot(\sen\degree{35})\big)\cdot(\cos\degree{35})\big] \nonumber\\
-        &\phantom{=-\big[}\cdot(\cos\degree{35}) \\
-        &= -\np[J]{180,4}.
+        W_{f_{\rm{at}}} &= \vec{f}_{\rm{at}} \cdot \vec{d} \\
+        &= (\mu N) \, d \cos \degree{180} \\
+        &= - \mu(mg\cos\alpha + F\sen\alpha) \, d \\
+        &= -(\np{0,6})\cdot[(\np[kg]{2,0})\cdot(\np[m/s^2]{9,8})\cdot(\cos\degree{35})\nonumber \\
+        &\phantom{=-(\np{0,6})\cdot[} + (\np[N]{100})\cdot\sen\degree{35}]\cdot(\np[m]{5,0}) \\
+        &= -\np[J]{2,2E2}.
     \end{align}
     
 \begin{marginfigure}
@@ -892,7 +892,9 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
                     amplitude=0.2cm,segment length=2mm}}},
     ]
       
-    \draw[interface, gray] (1.5,0) -- (5,0);
+    \draw[interface, gray] (1.5,0) coordinate (h1)-- (5,0) coordinate (h2);
+    \draw[gray, dotted, rotate around = {35:(5,0)}] (5,0) -- (4,0) coordinate (h3);
+    \pic[draw, gray, "$\alpha$", angle eccentricity = 1.5, angle radius = 5mm]{angle=h1--h2--h3};
            
     \draw[pattern = dots, draw = gray, pattern color = gray] (2.5,0) rectangle (3.5,1);
     \draw[<-, thick, gray] (3.5,1) -- node[above]{$\vec{F}$} +(35:1);
@@ -912,9 +914,9 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
     \draw[dotted, name intersections={of=horiz and eixoy}](pos_final) -- (intersection-1) coordinate (linha_d);
 
     \path[name path=linha_v](pos_final) -- +(-55:2);
-    \draw[dotted, name intersections={of=linha_v and path_linha_f}](pos_final) -- node[above, rotate = 90]{$d\sen\alpha$} (intersection-1) coordinate;
+    \draw[dotted, name intersections={of=linha_v and path_linha_f}](pos_final) -- (intersection-1) coordinate;
     
-    \draw[|-|] ([shift={(-0.2,-0.14)}]linha_F) -- node[above, rotate = 90]{$\Delta y'$} ([shift={(-0.2,-0.14)}]linha_d);
+    \draw[|-|] ([shift={(-0.2,-0.14)}]linha_F) -- node[above, rotate = 90]{$\Delta y' = d \sen\alpha$} ([shift={(-0.2,-0.14)}]linha_d);
     
 \end{tikzpicture}
 \caption{Referencial vertical para a determinação do trabalho da força peso.\label{Fig:Ex:TrabalhoBlocoArrastadoRampaForcasRefVert}}
@@ -925,14 +927,14 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
         W_P &= -mg\Delta y' \\
         &= mg (d\sen\alpha) \\
         &= -(\np[kg]{2,0})\cdot(\np[m/s^2]{9,8})\cdot((\np[m]{5,0})\cdot(\sen\degree{35})) \\
-        &= -\np[J]{56,21}.
+        &= -\np[J]{56}.
     \end{align}
 \end{description}
 
 Finalmente, podemos determinar o trabalho total:
 \begin{align}
     W &= W_F + W_N + W_P + W_{f_{\rm{at}}} \\
-    &= \np[J]{173},
+    &= \np[J]{1,3E2},
 \end{align}
 %
 o que implica em uma velocidade final dada por
@@ -945,8 +947,8 @@ o que implica em uma velocidade final dada por
 onde usamos o fato de que a velocidade inicial é nula. Substituindo os valores para o trabalho e para a massa, obtemos
 \begin{align}
     v_f &= \sqrt{\frac{2W}{m}} \\
-    &= \sqrt{\frac{2\cdot(\np[J]{173})}{(\np[kg]{2,0})}} \\
-    &= \np[m/s]{13,2}.
+    &= \sqrt{\frac{2\cdot(\np[J]{1,3E2})}{(\np[kg]{2,0})}} \\
+    &= \np[m/s]{12}.
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1089,7 +1091,13 @@ o que resulta em um gráfico como o da Figura~\ref{Fig:TrabalhoForcaElastica}. S
 \caption{O trabalho realizado pela mola no deslocamento entre os pontos $x_i$ e $x_f$ é dado pela área hachurada no gráfico. \label{Fig:TrabalhoForcaElastica}}
 \end{marginfigure}
 
-\noindent{}onde usamos o fato de que a altura dos triângulos é dada por $y = F(x)$. Para o cálculo da área, estamos interessados nas distâncias verticais e horizontais, por isso vamos utilizar todos os valores em módulo. Isso implica que utilizaremos a força em módulo: $|F(x)| = kx$. Assim, obtemos
+\noindent{}onde usamos o fato de que as alturas $y_i$ e $y_f$ dos triângulos $OAx_i$ e $OBx_i$ são dadas por
+\begin{align}
+    y_i &= F(x_i) \\
+    y_f &= F(x_f).
+\end{align}
+%
+Para o cálculo da área, estamos interessados nas distâncias verticais e horizontais, por isso vamos utilizar todos os valores em módulo. Isso implica que utilizaremos a força em módulo: $|F(x)| = kx$. Assim, obtemos
 \begin{equation}
   W_{F_e} = \frac{1}{2} k x_i^2 - \left(\frac{1}{2} k x_f^2 \right)
 \end{equation}
@@ -2308,408 +2316,19 @@ Podemos obter uma forma alternativa, porém equivalente, a tal afirmação ao an
 \emph{se o trabalho realizado por uma força no deslocamento entre dois pontos depende do caminho, não podemos escrever um potencial para tal força.}
 \end{quote}
 
-As forças podem ser então classificadas\footnote{A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.} em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial ---~ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho~---. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica, e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal e de tensão ---~por exemplo~--- são não-conservativas.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energia mecânica}
-\label{Sec:EnergiaMecanica}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\textbf{É inútil querer separar isso em duas partes, é melhor já mostar que $\Delta E = W_{\rm{NC}}$}
-
-Verificamos nas seções anteriores a existência de meios diferentes de ``armazenar'' energia e que ela pode ser transferida de um tipo para outro. Veremos a seguir, que em algumas situações podemos dizer que a soma de todos os tipos de energia em um sistema é uma \emph{constante}. Isso será de grande utilidade ao analisarmos fenômenos físicos diversos, facilitando a determinação de grandezas que temos interesse em calcular.
-
-Se analisarmos um caso em que existam $n_f$ forças atuando sobre o sistema, podemos escrever
-\begin{align}
-  \Delta K &= W_{\textrm{Total}} \\
-  &= \sum_{j = 1}^{n_f} W_{F_j}.
-\end{align}
-%
-Se separarmos as forças em dois grupos, um com as forças conservativas e outro com as forças não-conservativas, a expressão acima pode ser escrita como
-\begin{equation}
-    \Delta K = \sum_{j = 1}^{n_f^{c}} W_{F_j} + \sum_{k = 1}^{n_f^{nc}} W_{F_k},
-\end{equation}
-%
-ou, sabendo que cada um dos trabalhos associados às forças conservativas $F_j$ pode ser escrito como
-\begin{equation}
-  W_j = \Delta U_j,
-\end{equation}
-%
-obtemos
-\begin{equation}
-  \Delta K = \sum_{j = 1}^{n_f^c} \Delta U_j + \sum_{k = 1}^{n_f^{nc}} W_{F_k}. \\
-\end{equation}
-
-Em diversos sistemas as forças não-conservativas realizam um trabalho nulo, ou desprezível. Em outros casos, a \emph{soma} do trabalho de duas ou mais forças não-conservativas resulta em um trabalho nulo. Nesses casos, o segundo termo à direita na equação acima se torna nulo:
-\begin{equation}
-  \Delta K = \sum_{j = 1}^{n_f^c} \Delta U_j. \label{Eq:TeoremTrabEnergiaSohConservativas}\\
-\end{equation}
-%
-Podemos escrever o somatório à direita na equação acima como
-\begin{align}
-  \Delta K &= \sum_{j = 1}^{n_f^c} (U_j^f - U_j^i) \\
-  &= \left(\sum_{j = 1}^{n_f^c} U_j^f\right) - \left(\sum_{j = 1}^{n_f^c} U_j^i\right),
-\end{align}
-%
-de onde obtemos
-\begin{equation}
-  K_f + \sum_{j = 1}^{n_f^c} U_j^f = K_i + \sum_{j = 1}^{n_f^c} U_j^i.
-\end{equation}
-
-A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinética e das energias potenciais deve ser uma constante:
-\begin{equation}\label{Eq:DefEnergiaMecanicaParticula}
-  E^{\text{mec}} \equiv K + \sum_{j = 1}^{n_f} U_j, \mathnote{Definição de Energia Mecânica}
-\end{equation}
-%
-onde $E$ representa o que denominamos como \emph{energia mecânica}. Assim, podemos escrever a relação
-\begin{equation}
-    E_i^{\textrm{mec}} = E_f^{\textrm{mec}}, \mathnote{Conservação da energia mecânica}
-\end{equation}
-%
-ou, equivalentemente,
-\begin{equation}
-    \Delta E^{\textrm{mec}} = 0,
-\end{equation}
-%
-onde $E_i^{\text{mec}}$ representa a energia em uma configuração inicial qualquer do sistema e $E_f^{\text{mec}}$ a energia em uma configuração final qualquer do sistema.
-
-Verificamos, portanto, que \emph{se a soma do trabalho das forças não-conservativas que atuam em um sistema for nula}:
-\begin{align}
-    W_{\text{total}}^{nc} &= \sum_{k = 1}^{n_f^{nc}} W_{F_k^{nc}} \\
-    &= 0,
-\end{align}
-%
-então \emph{a energia mecânica de tal sistema é uma constante}:
-\begin{equation}
-    E^{\textrm{mec}}_i = E^{\textrm{mec}}_f \equiv E^{\text{mec}}.
-\end{equation}
-%
-Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico: podemos agora imaginar que existe uma grandeza ---~a energia~--- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante sempre que garantirmos que $W_{\text{total}}^{nc} = 0$. Anteriormente classificamos as forças que dão origem a potenciais como \emph{forças conservativas} e às que não dão origem a potenciais como \emph{não-conservativas}. Nos referíamos justamente ao fato de que quando forças desse último tipo atuam em um sistema, temos uma energia mecânica que não se mantém constante, ou seja, a presença de tais forças implicam em uma não conservação da energia mecânica.
-
-No caso de as forças não-conservativas efetuarem trabalho, teremos uma situação um pouco mais complexa, que será discutida nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}. Veremos que no caso em que a energia mecânica não é constante poderemos associá-la a outras formas de energia e teremos um princípio geral de conservação da energia.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Bloco lançado por uma mola}
-\label{Pag:ExercicioBlocoPistaCircularVertical}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{quote}
-    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado, empregando uma mola, em uma pista sem atrito composta de uma seção plana e de uma seção circular vertical. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
-\end{quote}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 0.4,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    %%
-    
-    \draw[interface] (0,-0.5) -- (0,-2.5);
-    \draw[interface] (0,-2.5) -- (7.05, -2.5);
-    \draw[interface] (7.05,-2.5) arc[start angle = -90, end angle = 123, radius = 3 cm];
-    
-    \draw[->] (0,-3.2) -- (6.5,-3.2) node[below left]{$x$};
-    \draw[|-|] (2.2, -3.2) -- (4.2,-3.2);
-    \path (2.2,-3.3) node[below]{$\ell$} -- (4.2,-3.3) node[below]{0};
-    
-    \draw (0,-2) -- (0.2,-2);
-    \draw[decoration={aspect=0.4, segment length=1.5625mm, amplitude=1.6mm,coil},decorate] (0.2,-2) -- (3.3,-2);
-    \draw (3.3, -2) -- (3.5,-2);
-    
-    \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
-    \draw[pattern = north east lines] (3.5,-2.5) rectangle (3.7,-1.5);
-
-        
-\end{tikzpicture}
-\caption{Lançamento de um bloco em uma pista circular vertical. \label{Fig:BlocoArremessadoEmLoop}}
-\end{marginfigure}
-
-No sistema formado pelo bloco, a mola, e a pista, temos a atuação de três forças: o peso do bloco, a força normal exercida pelas superfícies, e a força exercida pela mola. Dessas, somente a força normal não é conservativa\footnote{Estamos desprezando a força de arrasto.}, porém seu trabalho é nulo pois ela atua sempre perpendicularmente ao deslocamento instantâneo do bloco. Portanto, podemos utilizar a conservação da energia mecânica:
-\begin{align}
-    E_i^{\textrm{mec}} &= E_f^{\textrm{mec}} \\
-    K_i + U_e^i + U_g^i &= K_f + U_g^f + U_e^f
-\end{align}
-%
-Como o bloco parte do repouso, sua energia cinética inicial é zero. Além disso, podemos escolher a posição inicial do bloco como a origem do eixo vertical, assim a energia potencial gravitacional inicial é nula. Por fim, sabemos que quando o bloco deixa a mola, a energia potencial elástica é zero. Assim, a expressão acima simplifica-se a:
-\begin{equation}\label{Eq:EnergiasParaOBlocoEmLoop}
-    U_e^i = K_f + U_g^f.
-\end{equation}
-%
-Note que a energia cinética final não é nula, já que o bloco não pode ter velocidade nula ao chegar ao topo da seção circular da pista. Sua velocidade será dada por\footnote{Esse resultado foi obtido na subseção \emph{Condição de perda de contato e velocidade mínima}, na Seção~\ref{Sec:ForcasNoMovCircular}.}
-\begin{equation}
-    v = \sqrt{Rg}.
-\end{equation}
-%
-Se as dimensões do bloco são desprezíveis\footnote{Lembre-se que estamos tratando do movimento de partículas, trataremos corpos extensos somente a partir do próximo capítulo.}, sua posição vertical final será igual ao diâmetro da pista circular ---~ou seja, $y_f = 2R$ ~---.
-
-Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoop} obtemos
-\begin{align}
-    \frac{kx_i^2}{2} &= \frac{mv_f^2}{2} + mgy_f \\
-    \frac{k\ell^2}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg2R \\
-    \frac{k\ell^2}{2} &= \frac{mgR}{2} + 2mgR \\
-    k\ell^2 &= 5mgR \\
-    \ell &= \sqrt{\frac{5mgR}{k}}.
-\end{align}
-%
-Substituindo os valores das constantes, temos finalmente
-\begin{align}
-    \ell &= \sqrt{\frac{5\cdot(\np[kg]{0.750}) \cdot (\np[m/s^2]{9.8}) \cdot (\np[m]{1.30}) }{(\np[N/m]{1200})}} \\
-    &\approx \np[m]{0.20}.
-\end{align}
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%
-
-%\textbf{Algo parecido com o 25 da lista.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Oscilador harmônico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Um sistema formado por um corpo de massa $m$ ligado a uma mola de massa desprezível e de constante elástica $k$, de forma que o primeiro pode se mover livremente em um eixo, constitui o que denominamos como um \emph{oscilador harmônico}. A principal característica de um oscilador harmônico é o fato de que as funções temporais da posição, velocidade, e aceleração são dadas por funções trigonométricas: Se escrevermos a Segunda Lei de Newton para o eixo $x$ mostrado na Figura~\ref{Fig:OsciladorHarmDeducao}, temos
-\begin{align}
-    F_R^x &= m a_x \\
-    -k x &= m a_x,
-\end{align}
-%
-o que pode ser escrito como
-\begin{equation}
-    a + \frac{k}{m} x = 0.
-\end{equation}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    %%
-    
-    \draw[interface] (0,-1) -- (0,-2.5);
-    \draw[interface] (0,-2.5) -- (4.8, -2.5);
-    
-    \draw (0,-2) -- (0.2,-2);
-    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
-    \draw (3.3, -2) -- (3.5,-2);
-    
-    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
-    
-    \draw[fill] (4,-2) circle (1pt);
-    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
-    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
-    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
-    
-    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
-    \draw[|-|] (2.5,-3.5) -- (4,-3.5);
-    \path (2.5,-3.6) node[below]{$0$} -- (4,-3.6) node[below]{$A$};
-    \draw[-|] (2.5,-3.5) -- (1,-3.5);
-    \path (2.5,-3.6) -- (1,-3.6) node[below]{\llap{$-$}$A$};
-        
-\end{tikzpicture}
-\caption{Um oscilador harmônico exibe duas formas de energia: cinética e potencial elástica. \label{Fig:OsciladorHarmDeducao}}
-\end{marginfigure}
-
-Sabemos que a aceleração é a derivada segunda em relação ao tempo, logo,
-\begin{equation}\label{Eq:EqDifOscilador}
-    \frac{d^2x}{dt^2} + \frac{k}{m} x = 0,
-\end{equation}
-%
-de onde percebemos que a solução para a equação acima é uma \emph{função do tempo}:
-\begin{equation}
-    t \mapsto x = x(t).
-\end{equation}
-%
-Como sabemos que o movimento do sistema é oscilatório, podemos assumir uma solução tentativa na forma
-\begin{equation}\label{Eq:SolPosOscilador}
-    x(t) = A \sen(\omega t + \phi),
-\end{equation}
-%
-cujas derivadas são
-\begin{align}
-    v(t) &\equiv \frac{d}{dt} x(t) = A \omega \cos(\omega t + \phi) \\
-    a(t) &\equiv \frac{d^2}{dt^2} x(t) = -A \omega^2 \sen(\omega t + \phi), \label{Eq:SolAcelOscilador}
-\end{align}
-%
-onde $\omega$ e $\phi$ são constantes e $A$ representa o máximo deslocamento em relação à posição de equilíbrio, e é conhecida como \emph{amplitude} da oscilação. Substituindo as Expressões~\eqref{Eq:SolPosOscilador} e~\eqref{Eq:SolAcelOscilador} na Equação~\eqref{Eq:EqDifOscilador}, obtemos
-\begin{equation}
-    -A \omega^2 \sen(\omega t + \phi) + \frac{k}{m} A \sen(\omega t + \phi) = 0,
-\end{equation}
-%
-de onde obtemos que as soluções para a posição, velocidade, e aceleração são válidas se
-\begin{equation}
-    \omega^2 = \frac{k}{m}. \label{Eq:FrequenciaAngular}
-\end{equation}
-%
-A grandeza $\omega$ é denominada \emph{frequência angular} do oscilador e está relacionada à frequência de oscilação $\nu$, sendo que
-\begin{equation}
-    \omega = 2\pi\nu.
-\end{equation}
-%
-O \emph{ângulo de fase} $\phi$ é uma constante que ajusta os valores de posição, velocidade, e aceleração a valores particulares de uma situação qualquer. Se, por exemplo, temos uma posição $x(t) = 0$ em $t = 0$, então temos que $\phi$ é nulo. A amplitude $A$ nos dá o valor máximo de deslocamento do oscilador em relação à posição de equilíbrio $x = 0$.
-
-Se calcularmos as energias potencial elástica e cinética de um oscilador harmônico como funções do tempo, obtemos
-\begin{align}
-    K &= \frac{m}{2} v^2(t) \\
-    &= \frac{1}{2}m \left(A \omega \cos(\omega t + \phi)\right)^2 \\
-    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) \\
-    U_e &= \frac{k}{2} x^2(t) \\
-    &= \frac{1}{2} k \left(A \sen(\omega t + \phi)\right)^2 \\
-    &= \frac{1}{2} k A^2 \sen^2(\omega t + \phi).
-\end{align}
-%
-Sabemos que nesse problema não existem forças dissipativas, por isso a energia mecânica é constante. Podemos utilizar as expressões acima para verificar que isso é verdade:
-\begin{align}
-    E^{\text{mec}} &= K + U \\
-    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) + \frac{1}{2} k A^2 \sen^2(\omega t + \phi) \\
-    &= \frac{1}{2} A^2 \left(m \omega^2 \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right).
-\end{align}
-%
-Usando a expressão~\eqref{Eq:FrequenciaAngular} para a frequência angular, obtemos
-\begin{align}
-    E^{\text{mec}} &= \frac{1}{2} A^2 \left(\frac{k}{m} m \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right) \\
-    &= \frac{1}{2} A^2 k \; \big(\cos^2(\omega t + \phi) + \sen^2(\omega t + \phi)\big) \\
-    &= \frac{1}{2} k A^2,
-\end{align}
-%
-onde usamos $\sen^2\alpha + \cos^2\alpha = 1$. Observe que o resultado obtido corresponde à energia potencial elástica na posição de máximo afastamento da posição de equilíbrio, onde temos que o corpo pára momentaneamente e sua energia cinética é nula.
-\begin{marginfigure}[-8cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.45, extended line/.style={shorten >=-#1,shorten <=-#1},
- extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
-    % Draw axes: acho que o |- é pra desenhar um "canto", um L
-    \draw[->] (0,0) -- (0,1.5) node[below left] {$E$};
-	\draw[->] (0,0) -- (3,0) node[below left] {$t$};
-
-    % Desenhar função:
-    \draw[smooth, thick, name path=plot,samples=1000,domain=0:2.8]
-    plot(\x,{(sin((3 * \x) r))^2}) node[right]{$U_e$};
-    \draw[smooth, thick, dashed, name path=plot,samples=1000,domain=0:2.8]
-    plot(\x,{(cos((3 * \x) r))^2}) node[right]{$K$};
-    
-    \draw[dotted, thick] (0,1) -- (3, 1) node[above]{$E^{\text{mec}}$};
-
-	\end{tikzpicture}
-\caption{Energias cinética $K$, potencial elástica $U_e$, e mecânica $E$ para um oscilador harmônico. Note que a energia mecânica não varia com o tempo.\label{Fig:GraphEnergiasOsciladorHarmonico}}
-\end{marginfigure}
-
-Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência temporal de cada uma das energias. Note que, como esperado, a energia mecânica é constante. Podemos afirmar que a energia do oscilador harmônico é convertida ciclicamente entre as duas formas disponíveis no sistema.
-
-%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: ?}
-%%%%%%%%%%%%%%%%%%%%%%
-
-%\textbf{Alguns exemplos que possam ser resolvidos utilizando conservação da energia mecânica.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energia mecânica em sistemas com múltiplos corpos}
-\label{Sec:Sistemas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Um \emph{sistema} pode ser definido como um \emph{conjunto de partículas que interagem através de uma ou mais forças}. Ao tomarmos tal definição, automaticamente definimos uma \emph{fronteira} que separa o sistema do resto do universo. Nesse tipo de situação as \emph{forças internas} do sistema poderão ser capazes de alterar a energia das partículas individualmente, por isso não podemos tratar a energia mecânica de cada uma delas como sendo constante.
-
-Ao tratarmos todas as partículas conjuntamente, no entanto, em muitos casos os trabalhos devido às forças internas se cancelam aos pares: como temos um par ação-reação as forças apontam na mesma direção, porém com sentidos opostos e isso leva a trabalhos com o mesmo valor e com sinais opostos. Consequentemente, ao somarmos as variações das energias cinéticas e potenciais de todas as partículas, os termos devidos às forças não-conservativas se cancelam e temos para a energia mecânica do sistema $E_S^{\text{mec}}$ se conserva:
-\begin{equation}
-    E_{S,i}^{\text{mec}} = E_{S,f}^{\text{mec}},
-\end{equation}
-%
-onde
-\begin{equation}
-    E_S^{\text{mec}} = \sum_{i = 1}^{n} E^{\text{mec}}.
-\end{equation}
-%
-A energia mecânica do sistema definida pela equação acima é simplesmente a soma das energias cinéticas e potenciais das partículas, o que pode ser verificado substituindo a Equação~\ref{Eq:DefEnergiaMecanicaParticula} para $E^{\text{mec}}$ na definição acima:
-\begin{equation}
-    E_S^{\text{mec}} = \sum_{i = 1}^{n} K_i + \sum_{i = 1}^n \sum_{j = 1}^{n_f} U_j.
-\end{equation}
-
-Note que para que possamos utilizar a expressão acima é necessário que o trabalho total devido às forças não conservativas que atuam no sistema como um todo seja nulo. Caso essa condição não seja atendida, a energia mecânica do sistema não se conserva. Novamente, tais casos serão tratados nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Máquina de Atwood}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{marginfigure}[8cm]
-\centering
-\begin{tikzpicture}[>=Stealth,  interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}}
-    ]
-    
-    \draw[dashed] (-2.3, 0) rectangle (2.3, -5.2);
-    
-    \draw[interface] (2,-0.3) -- (-2,-0.3);
-    
-    \draw[pattern = north west lines] (0,-1) circle (0.5);
-    \draw[fill] (0,-1) circle (1pt);
-    \draw[fill] (0,-1) -- (0.2,-0.3) -- (-0.2,-0.3) -- cycle;
-    
-    \draw[pattern = north west lines] (-0.8,-4) rectangle (-0.2, -4.6);
-    \draw[dotted, pattern = north west lines] (-0.2,-2) rectangle (-0.8,-2.6);
-    \draw (-0.5,-1) -- (-0.5,-4);
-    \draw[fill] (-0.5, -4.3) circle (1pt);
-    \draw[thick, ->] (-0.5,-4.3) -- +(0,-0.6) node[right]{$\vec{P}_1$};
-    \draw[thick, ->] (-0.5,-4) -- +(0,0.75) node[right]{$\vec{T}$};
-    
-    \draw[pattern = north west lines] (0.2,-2) rectangle (0.8,-2.6);
-    \draw[dotted, pattern = north west lines] (0.8,-4) rectangle (0.2, -4.6);
-    \draw (0.5,-1) -- (0.5,-2);
-    \draw[dotted] (0.5, -2.6) -- (0.5,-4);
-    \draw[fill] (0.5, -2.3) circle (1pt);
-    \draw[thick, ->] (0.5,-2.3) -- +(0,-1) node[right]{$\vec{P}_2$};
-    \draw[thick, ->] (0.5,-2) -- +(0,0.75) node[right]{$\vec{T}$};
-    
-    \draw[|-|] (1,-2.3) -- node[right]{$d$} (1,-4.3);
-    \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
-    \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
-\end{tikzpicture}
-\caption{Se definirmos um sistema como sendo o mostrado na figura acima, incluindo a Terra, temos que nenhuma força externa ao sistema realiza trabalho sobre ele. Consequentemente, a energia mecânica é constante. \label{Fig:MaquinaDeAtwood}}
-\end{marginfigure}
-
-Podemos utilizar a expressão acima para determinar a velocidade dos blocos em uma máquina de Atwood após eles terem percorrido uma determinada distância. Se definirmos um sistema como o mostrado na Figura~\ref{Fig:MaquinaDeAtwood}, temos trabalhos devidos às forças de tensão e ao peso durante o deslocamento dos blocos. No entanto, como as tensões são iguais e os blocos percorrem distâncias iguais, a soma dos trabalhos devidos a forças não-conservativas é nulo. A força peso, por outro lado, é conservativa e será tratada através da energia potencial gravitacional. Finalmente, podemos considerar que as massas da polia e da corda são desprezíveis, e também que a corda é inextensível. Logo, a energia mecânica no sistema deve ser constante e então
-\begin{align}
-    E_{S,i}^{\text{mec}} &= E_{S,f}^{\text{mec}} \\
-    E_{1,i}^{\text{mec}} + E_{2,i}^{\text{mec}} &= E_{1,f}^{\text{mec}} + E_{2,f}^{\text{mec}} \\
-    K_1^i + U_{g, 1}^i + K_2^i + U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f + U_{g, 2}^f.
-\end{align}
-%
-Se os blocos partem do repouso, então as energias cinéticas iniciais são nulas. Além disso, devido à escolha do sistema de coordenadas, a energias potenciais inicial do primeiro bloco  e final do segundo são nulas. Assim,
-\begin{align}
-    U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f \\
-    m_2gy_2^i &= \frac{1}{2} m_1 (v_1^f)^2 + m_1gy_1^f + \frac{1}{2} m_2 (v_2^f)^2,
-\end{align}
-%
-ou, como $v_1^f = v_2^f \equiv v_f$,
-\begin{align}
-    m_2gy_2^i &= \frac{1}{2} (m_1 + m_2) v_f^2 + m_1gy_1^f \\
-    2gd(m_2-m_1) &= (m_1+m_2) v_f^2,
-\end{align}
-%
-onde usamos o fato de que $y_2^i = y_1^f = d$. Finalmente, temos que a velocidade final é dada por
-\begin{equation}
-    v_f = \sqrt{2gd\frac{m_2-m_1}{m_1+m_2}}.
-\end{equation}
+As forças podem ser então classificadas\footnote[][5mm]{A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.} em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial ---~ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho~---. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica, e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal e de tensão ---~por exemplo~--- são não-conservativas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Análise de gráficos de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O fato de que a energia é um escalar faz com que em algumas situações seja muito mais simples se obter informações analisando diretamente o potencial associado a uma força\footnote[][-8cm]{Isso é notavel ao se tratar de potenciais elétricos: a tensão elétrica em um condutor em um circuito elétrico nada mais é do que uma medida da diferença de potencial elétrico entre tal ponto e o ponto de menor potencial.} Veremos a seguir que um simples gráfico do potencial em função da posição encerra várias informações interessantes.
+O fato de que a energia é um escalar faz com que em algumas situações seja muito mais simples se obter informações analisando diretamente o potencial associado a uma força\footnote[][-5cm]{Isso é notavel ao se tratar de potenciais elétricos: a tensão elétrica em um condutor em um circuito elétrico nada mais é do que uma medida da diferença de potencial elétrico entre tal ponto e o ponto de menor potencial.} Veremos a seguir que um simples gráfico do potencial em função da posição encerra várias informações interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças em um gráfico de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -2762,7 +2381,7 @@ O fato de que a energia é um escalar faz com que em algumas situações seja mu
 \end{marginfigure}
 
 
-Verificamos anteriormente que a força pode ser obtida através da derivada do potencial:\footnote{Vamos fazer uma discussão considerando forças unidimensionais. No entanto, as conclusões aqui obtidas podem ser extendidas às três dimensões.}
+Verificamos anteriormente que a força pode ser obtida através da derivada do potencial:\footnote[][1cm]{Vamos fazer uma discussão considerando forças unidimensionais. No entanto, as conclusões aqui obtidas podem ser extendidas às três dimensões.}
 \begin{equation*}
     F = -\frac{dU}{dx}.
 \end{equation*}
@@ -2771,25 +2390,10 @@ A derivada nos dá a \emph{taxa de variação} de uma grandeza. Em um gráfico, 
 
 Para determinar o sentido, basta notarmos que:
 \begin{itemize}
-    \item Se a derivada é \emph{positiva}\footnote[][-1cm]{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$ ---~ângulo $\alpha$ na Figura~\ref{Fig:SinalInclinacao}~---.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$}; (Ponto $A$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
-    \item Se ---~por outro lado~--- a inclinação é \emph{negativa}\footnote[][-1.5cm]{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$ ---~ângulo $\beta$ na Figura~\ref{Fig:SinalInclinacao}~---.}, temos que \emph{a força é no sentido positivo do eixo $x$.} (Ponto $B$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
+    \item Se a derivada é \emph{positiva}\footnote{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$}; (Ponto $A$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
+    \item Se ---~por outro lado~--- a inclinação é \emph{negativa}\footnote{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$.}, temos que \emph{a força é no sentido positivo do eixo $x$.} (Ponto $B$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
 \end{itemize}
 
-\begin{marginfigure}
-\begin{tikzpicture}[>=Stealth]
-    \draw[->] (0,0) -- (4,0);
-    \draw[->] (0,0) -- (0,3);
-    
-    \draw[thick] (0.5,0.5) -- (3, 3) coordinate (i1);
-    \draw[dotted] (2,2) coordinate (O1) -- +(1,0) coordinate (h1);
-    \pic[draw, "$\alpha$", angle eccentricity = 1.5] {angle = h1--O1--i1};
-    
-    \draw[thick, dashed] (0.5,2) -- (3.5,0.5) coordinate (i2);
-    \draw[dotted] (2,1.25) coordinate (O2) -- +(1,0) coordinate (h2);
-    \pic[draw, "$\beta$", angle eccentricity = 1.5] {angle = i2--O2--h2}; 
-\end{tikzpicture}
-\caption{O ângulo de uma reta é positivo se ele está acima do eixo horizontal, como no caso do ângulo $\alpha$ na figura acima. Se ele estiver abaixo da reta horizontal, caso do ângulo $\beta$, ele é negativo. \label{Fig:SinalInclinacao}}
-\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forças eletrostáticas}
@@ -2836,7 +2440,7 @@ A expressão para a força $F_{1\to 2}^e$ nos dá a força exercida sobre a carg
 \caption{Forças entre cargas elétricas de sinais opostos são atrativas (figura superior); entre cargas elétricas de mesmo sinal são repulsivas (figura inferior). \label{Fig:ForcasEntreCargas}}
 \end{marginfigure}
 
-O potencial eletrostático  pode ser obtido através da Equação~\ref{Eq:CalculoDoPotencial}. Escolhendo o ponto inicial como sendo no \emph{infinito}, onde atribuimos energia potencial \emph{nula}, obtemos\footnote{Essa escolha do referencial leva a uma classificação do sistema em termos da energia mecânica: se $E < 0$, as partículas estão \emph{ligadas} ---~isto é, elas não tem energia para se afastar indefinidamente~---; se $E > 0$, existe energia suficiente para que elas se afastem indefinidamente e dizemos que elas estão \emph{livres}.} 
+O potencial eletrostático  pode ser obtido através da Equação~\ref{Eq:CalculoDoPotencial}. Escolhendo o ponto inicial como sendo no \emph{infinito}, onde atribuimos energia potencial \emph{nula}, obtemos\footnote{Essa escolha do referencial leva a uma classificação do sistema em termos da soma das energias cinéticas e potenciais: se $K + U < 0$, as partículas estão \emph{ligadas} ---~isto é, elas não tem energia para se afastar indefinidamente~---; se $K + U > 0$, existe energia suficiente para que elas se afastem indefinidamente e dizemos que elas estão \emph{livres}.} 
 \begin{align}
     U_{el}(r) &= - \int_\infty^r k\frac{q_1q_2}{r^2} dr \\
     &= -k q_1 q_2 \int_\infty^r k\frac{1}{r^2} dr \\
@@ -2963,7 +2567,7 @@ o que nos leva à distância
 %
 de equilíbrio entre os dois átomos.
 
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}[-3.5cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -3379,6 +2983,395 @@ e determinarmos o valor de tal derivada nos pontos de equilíbrio:
 Logo, são pontos de equilíbrio instável os pontos $x_0$, $x_2$, $x_4$, e $x_6$ ---~que equivalem aos pontos $A$, $C$, $E$, e $F$ na Figura~\ref{Fig:ClassificarPontos2}~---, enquanto os pontos de equilíbrio estável são os pontos $x_1$, $x_3$, e $x_5$ ---~que equivalem aos pontos $B$, $D$, e $F$~---.
 
 Finalmente, devemos notar que através da função do potencial podemos determinar diversos outros pontos de equilíbrio. Acima determinamos somente os pontos que estão presentes no gráfico da Figura~\ref{Fig:ClassificarPontos2}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia mecânica}
+\label{Sec:EnergiaMecanica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{É inútil querer separar isso em duas partes, é melhor já mostar que $\Delta E = W_{\rm{NC}}$}
+
+Verificamos nas seções anteriores a existência de meios diferentes de ``armazenar'' energia e que ela pode ser transferida de um tipo para outro. Veremos a seguir, que em algumas situações podemos dizer que a soma de todos os tipos de energia em um sistema é uma \emph{constante}. Isso será de grande utilidade ao analisarmos fenômenos físicos diversos, facilitando a determinação de grandezas que temos interesse em calcular.
+
+Se analisarmos um caso em que existam $n_f$ forças atuando sobre o sistema, podemos escrever
+\begin{align}
+  \Delta K &= W_{\textrm{Total}} \\
+  &= \sum_{j = 1}^{n_f} W_{F_j}.
+\end{align}
+%
+Se separarmos as forças em dois grupos, um com as forças conservativas e outro com as forças não-conservativas, a expressão acima pode ser escrita como
+\begin{equation}
+    \Delta K = \sum_{j = 1}^{n_f^{c}} W_{F_j} + \sum_{k = 1}^{n_f^{nc}} W_{F_k},
+\end{equation}
+%
+ou, sabendo que cada um dos trabalhos associados às forças conservativas $F_j$ pode ser escrito como
+\begin{equation}
+  W_j = \Delta U_j,
+\end{equation}
+%
+obtemos
+\begin{equation}
+  \Delta K = \sum_{j = 1}^{n_f^c} \Delta U_j + \sum_{k = 1}^{n_f^{nc}} W_{F_k}. \\
+\end{equation}
+
+Em diversos sistemas as forças não-conservativas realizam um trabalho nulo, ou desprezível. Em outros casos, a \emph{soma} do trabalho de duas ou mais forças não-conservativas resulta em um trabalho nulo. Nesses casos, o segundo termo à direita na equação acima se torna nulo:
+\begin{equation}
+  \Delta K = \sum_{j = 1}^{n_f^c} \Delta U_j. \label{Eq:TeoremTrabEnergiaSohConservativas}\\
+\end{equation}
+%
+Podemos escrever o somatório à direita na equação acima como
+\begin{align}
+  \Delta K &= \sum_{j = 1}^{n_f^c} (U_j^f - U_j^i) \\
+  &= \left(\sum_{j = 1}^{n_f^c} U_j^f\right) - \left(\sum_{j = 1}^{n_f^c} U_j^i\right),
+\end{align}
+%
+de onde obtemos
+\begin{equation}
+  K_f + \sum_{j = 1}^{n_f^c} U_j^f = K_i + \sum_{j = 1}^{n_f^c} U_j^i.
+\end{equation}
+
+A equação acima é válida quaisquer sejam as configurações inicial e final do sistema. Logo, a soma da energia cinética e das energias potenciais deve ser uma constante:
+\begin{equation}\label{Eq:DefEnergiaMecanicaParticula}
+  E^{\text{mec}} \equiv K + \sum_{j = 1}^{n_f} U_j, \mathnote{Definição de Energia Mecânica}
+\end{equation}
+%
+onde $E$ representa o que denominamos como \emph{energia mecânica}. Assim, podemos escrever a relação
+\begin{equation}
+    E_i^{\textrm{mec}} = E_f^{\textrm{mec}}, \mathnote{Conservação da energia mecânica}
+\end{equation}
+%
+ou, equivalentemente,
+\begin{equation}
+    \Delta E^{\textrm{mec}} = 0,
+\end{equation}
+%
+onde $E_i^{\text{mec}}$ representa a energia em uma configuração inicial qualquer do sistema e $E_f^{\text{mec}}$ a energia em uma configuração final qualquer do sistema.
+
+Verificamos, portanto, que \emph{se a soma do trabalho das forças não-conservativas que atuam em um sistema for nula}:
+\begin{align}
+    W_{\text{total}}^{nc} &= \sum_{k = 1}^{n_f^{nc}} W_{F_k^{nc}} \\
+    &= 0,
+\end{align}
+%
+então \emph{a energia mecânica de tal sistema é uma constante}:
+\begin{equation}
+    E^{\textrm{mec}}_i = E^{\textrm{mec}}_f \equiv E^{\text{mec}}.
+\end{equation}
+%
+Isso é extremamente útil não só do ponto de vista prático, pois facilita os cálculos envolvidos na determinação de grandezas físicas, mas também do ponto de vista teórico: podemos agora imaginar que existe uma grandeza ---~a energia~--- que é passada de uma forma a outra dentro de um sistema, de maneira que seu valor total, somando todas as formas, permanece constante sempre que garantirmos que $W_{\text{total}}^{nc} = 0$. Anteriormente classificamos as forças que dão origem a potenciais como \emph{forças conservativas} e às que não dão origem a potenciais como \emph{não-conservativas}. Nos referíamos justamente ao fato de que quando forças desse último tipo atuam em um sistema, temos uma energia mecânica que não se mantém constante, ou seja, a presença de tais forças implicam em uma não conservação da energia mecânica.
+
+No caso de as forças não-conservativas efetuarem trabalho, teremos uma situação um pouco mais complexa, que será discutida nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}. Veremos que no caso em que a energia mecânica não é constante poderemos associá-la a outras formas de energia e teremos um princípio geral de conservação da energia.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Bloco lançado por uma mola}
+\label{Pag:ExercicioBlocoPistaCircularVertical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    A Figura~\ref{Fig:BlocoArremessadoEmLoop} mostra um bloco que será lançado, empregando uma mola, em uma pista sem atrito composta de uma seção plana e de uma seção circular vertical. Se a constante elástica da mola é $k = \np[N/m]{1200}$, a massa do bloco é $m = \np[kg]{0.750}$, e o raio da pista é $\np[cm]{130}$, qual deve ser a compressão $\ell$ da mola para que o bloco chegue ao ponto mais alto da pista sem que perca contato com ela, assumindo que ele partiu do repouso?
+\end{quote}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.4,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-0.5) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (7.05, -2.5);
+    \draw[interface] (7.05,-2.5) arc[start angle = -90, end angle = 123, radius = 3 cm];
+    
+    \draw[->] (0,-3.2) -- (6.5,-3.2) node[below left]{$x$};
+    \draw[|-|] (2.2, -3.2) -- (4.2,-3.2);
+    \path (2.2,-3.3) node[below]{$\ell$} -- (4.2,-3.3) node[below]{0};
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.4, segment length=1.5625mm, amplitude=1.6mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.7,-2.5) rectangle (4.7,-1.5);
+    \draw[pattern = north east lines] (3.5,-2.5) rectangle (3.7,-1.5);
+
+        
+\end{tikzpicture}
+\caption{Lançamento de um bloco em uma pista circular vertical. \label{Fig:BlocoArremessadoEmLoop}}
+\end{marginfigure}
+
+No sistema formado pelo bloco, a mola, e a pista, temos a atuação de três forças: o peso do bloco, a força normal exercida pelas superfícies, e a força exercida pela mola. Dessas, somente a força normal não é conservativa\footnote{Estamos desprezando a força de arrasto.}, porém seu trabalho é nulo pois ela atua sempre perpendicularmente ao deslocamento instantâneo do bloco. Portanto, podemos utilizar a conservação da energia mecânica:
+\begin{align}
+    E_i^{\textrm{mec}} &= E_f^{\textrm{mec}} \\
+    K_i + U_e^i + U_g^i &= K_f + U_g^f + U_e^f
+\end{align}
+%
+Como o bloco parte do repouso, sua energia cinética inicial é zero. Além disso, podemos escolher a posição inicial do bloco como a origem do eixo vertical, assim a energia potencial gravitacional inicial é nula. Por fim, sabemos que quando o bloco deixa a mola, a energia potencial elástica é zero. Assim, a expressão acima simplifica-se a:
+\begin{equation}\label{Eq:EnergiasParaOBlocoEmLoop}
+    U_e^i = K_f + U_g^f.
+\end{equation}
+%
+Note que a energia cinética final não é nula, já que o bloco não pode ter velocidade nula ao chegar ao topo da seção circular da pista. Sua velocidade será dada por\footnote{Esse resultado foi obtido na subseção \emph{Condição de perda de contato e velocidade mínima}, na Seção~\ref{Sec:ForcasNoMovCircular}.}
+\begin{equation}
+    v = \sqrt{Rg}.
+\end{equation}
+%
+Se as dimensões do bloco são desprezíveis\footnote{Lembre-se que estamos tratando do movimento de partículas, trataremos corpos extensos somente a partir do próximo capítulo.}, sua posição vertical final será igual ao diâmetro da pista circular ---~ou seja, $y_f = 2R$ ~---.
+
+Substituindo os resultados acima na Equação~\ref{Eq:EnergiasParaOBlocoEmLoop} obtemos
+\begin{align}
+    \frac{kx_i^2}{2} &= \frac{mv_f^2}{2} + mgy_f \\
+    \frac{k\ell^2}{2} &= \frac{m(\sqrt{Rg})^2}{2} + mg2R \\
+    \frac{k\ell^2}{2} &= \frac{mgR}{2} + 2mgR \\
+    k\ell^2 &= 5mgR \\
+    \ell &= \sqrt{\frac{5mgR}{k}}.
+\end{align}
+%
+Substituindo os valores das constantes, temos finalmente
+\begin{align}
+    \ell &= \sqrt{\frac{5\cdot(\np[kg]{0.750}) \cdot (\np[m/s^2]{9.8}) \cdot (\np[m]{1.30}) }{(\np[N/m]{1200})}} \\
+    &\approx \np[m]{0.20}.
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Algo parecido com o 25 da lista antiga.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Oscilador harmônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Um sistema formado por um corpo de massa $m$ ligado a uma mola de massa desprezível e de constante elástica $k$, de forma que o primeiro pode se mover livremente em um eixo, constitui o que denominamos como um \emph{oscilador harmônico}. A principal característica de um oscilador harmônico é o fato de que as funções temporais da posição, velocidade, e aceleração são dadas por funções trigonométricas: Se escrevermos a Segunda Lei de Newton para o eixo $x$ mostrado na Figura~\ref{Fig:OsciladorHarmDeducao}, temos
+\begin{align}
+    F_R^x &= m a_x \\
+    -k x &= m a_x,
+\end{align}
+%
+o que pode ser escrito como
+\begin{equation}
+    a + \frac{k}{m} x = 0.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (0,-1) -- (0,-2.5);
+    \draw[interface] (0,-2.5) -- (4.8, -2.5);
+    
+    \draw (0,-2) -- (0.2,-2);
+    \draw[decoration={aspect=0.3, segment length=2.5625mm, amplitude=2mm,coil},decorate] (0.2,-2) -- (3.3,-2);
+    \draw (3.3, -2) -- (3.5,-2);
+    
+    \draw[pattern = north west lines] (3.5,-2.5) rectangle (4.5,-1.5);
+    
+    \draw[fill] (4,-2) circle (1pt);
+    \draw[->, thick] (4,-2) -- +(0,-1) node[right]{$\vec{P}$};
+    \draw[->, thick] (4,-1.5) -- node [right]{$\vec{N}$} +(0,1);
+    \draw[->, thick] (3.5, -2) -- node[below right]{$\vec{F}_e$} +(-1,0);
+    
+    \draw[->] (0,-3.5) -- (4.8,-3.5) node[below left]{$x$};
+    \draw[|-|] (2.5,-3.5) -- (4,-3.5);
+    \path (2.5,-3.6) node[below]{$0$} -- (4,-3.6) node[below]{$A$};
+    \draw[-|] (2.5,-3.5) -- (1,-3.5);
+    \path (2.5,-3.6) -- (1,-3.6) node[below]{\llap{$-$}$A$};
+        
+\end{tikzpicture}
+\caption{Um oscilador harmônico exibe duas formas de energia: cinética e potencial elástica. \label{Fig:OsciladorHarmDeducao}}
+\end{marginfigure}
+
+Sabemos que a aceleração é a derivada segunda em relação ao tempo, logo,
+\begin{equation}\label{Eq:EqDifOscilador}
+    \frac{d^2x}{dt^2} + \frac{k}{m} x = 0,
+\end{equation}
+%
+de onde percebemos que a solução para a equação acima é uma \emph{função do tempo}:
+\begin{equation}
+    t \mapsto x = x(t).
+\end{equation}
+%
+Como sabemos que o movimento do sistema é oscilatório, podemos assumir uma solução tentativa na forma
+\begin{equation}\label{Eq:SolPosOscilador}
+    x(t) = A \sen(\omega t + \phi),
+\end{equation}
+%
+cujas derivadas são
+\begin{align}
+    v(t) &\equiv \frac{d}{dt} x(t) = A \omega \cos(\omega t + \phi) \\
+    a(t) &\equiv \frac{d^2}{dt^2} x(t) = -A \omega^2 \sen(\omega t + \phi), \label{Eq:SolAcelOscilador}
+\end{align}
+%
+onde $\omega$ e $\phi$ são constantes e $A$ representa o máximo deslocamento em relação à posição de equilíbrio, e é conhecida como \emph{amplitude} da oscilação. Substituindo as Expressões~\eqref{Eq:SolPosOscilador} e~\eqref{Eq:SolAcelOscilador} na Equação~\eqref{Eq:EqDifOscilador}, obtemos
+\begin{equation}
+    -A \omega^2 \sen(\omega t + \phi) + \frac{k}{m} A \sen(\omega t + \phi) = 0,
+\end{equation}
+%
+de onde obtemos que as soluções para a posição, velocidade, e aceleração são válidas se
+\begin{equation}
+    \omega^2 = \frac{k}{m}. \label{Eq:FrequenciaAngular}
+\end{equation}
+%
+A grandeza $\omega$ é denominada \emph{frequência angular} do oscilador e está relacionada à frequência de oscilação $\nu$, sendo que
+\begin{equation}
+    \omega = 2\pi\nu.
+\end{equation}
+%
+O \emph{ângulo de fase} $\phi$ é uma constante que ajusta os valores de posição, velocidade, e aceleração a valores particulares de uma situação qualquer. Se, por exemplo, temos uma posição $x(t) = 0$ em $t = 0$, então temos que $\phi$ é nulo. A amplitude $A$ nos dá o valor máximo de deslocamento do oscilador em relação à posição de equilíbrio $x = 0$.
+
+Se calcularmos as energias potencial elástica e cinética de um oscilador harmônico como funções do tempo, obtemos
+\begin{align}
+    K &= \frac{m}{2} v^2(t) \\
+    &= \frac{1}{2}m \left(A \omega \cos(\omega t + \phi)\right)^2 \\
+    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) \\
+    U_e &= \frac{k}{2} x^2(t) \\
+    &= \frac{1}{2} k \left(A \sen(\omega t + \phi)\right)^2 \\
+    &= \frac{1}{2} k A^2 \sen^2(\omega t + \phi).
+\end{align}
+%
+Sabemos que nesse problema não existem forças dissipativas, por isso a energia mecânica é constante. Podemos utilizar as expressões acima para verificar que isso é verdade:
+\begin{align}
+    E^{\text{mec}} &= K + U \\
+    &= \frac{1}{2}m A^2 \omega^2 \cos^2(\omega t + \phi) + \frac{1}{2} k A^2 \sen^2(\omega t + \phi) \\
+    &= \frac{1}{2} A^2 \left(m \omega^2 \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right).
+\end{align}
+%
+Usando a expressão~\eqref{Eq:FrequenciaAngular} para a frequência angular, obtemos
+\begin{align}
+    E^{\text{mec}} &= \frac{1}{2} A^2 \left(\frac{k}{m} m \cos^2(\omega t + \phi) + k \sen^2(\omega t + \phi)\right) \\
+    &= \frac{1}{2} A^2 k \; \big(\cos^2(\omega t + \phi) + \sen^2(\omega t + \phi)\big) \\
+    &= \frac{1}{2} k A^2,
+\end{align}
+%
+onde usamos $\sen^2\alpha + \cos^2\alpha = 1$. Observe que o resultado obtido corresponde à energia potencial elástica na posição de máximo afastamento da posição de equilíbrio, onde temos que o corpo pára momentaneamente e sua energia cinética é nula.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.45, extended line/.style={shorten >=-#1,shorten <=-#1},
+ extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
+    % Draw axes: acho que o |- é pra desenhar um "canto", um L
+    \draw[->] (0,0) -- (0,1.5) node[below left] {$E$};
+	\draw[->] (0,0) -- (3,0) node[below left] {$t$};
+
+    % Desenhar função:
+    \draw[smooth, thick, name path=plot,samples=1000,domain=0:2.8]
+    plot(\x,{(sin((3 * \x) r))^2}) node[right]{$U_e$};
+    \draw[smooth, thick, dashed, name path=plot,samples=1000,domain=0:2.8]
+    plot(\x,{(cos((3 * \x) r))^2}) node[right]{$K$};
+    
+    \draw[dotted, thick] (0,1) -- (3, 1) node[above]{$E^{\text{mec}}$};
+
+	\end{tikzpicture}
+\caption{Energias cinética $K$, potencial elástica $U_e$, e mecânica $E$ para um oscilador harmônico. Note que a energia mecânica não varia com o tempo.\label{Fig:GraphEnergiasOsciladorHarmonico}}
+\end{marginfigure}
+
+Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência temporal de cada uma das energias. Note que, como esperado, a energia mecânica é constante. Podemos afirmar que a energia do oscilador harmônico é convertida ciclicamente entre as duas formas disponíveis no sistema.
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: ?}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\textbf{Alguns exemplos que possam ser resolvidos utilizando conservação da energia mecânica.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia mecânica em sistemas com múltiplos corpos}
+\label{Sec:Sistemas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Um \emph{sistema} pode ser definido como um \emph{conjunto de partículas que interagem através de uma ou mais forças}. Ao tomarmos tal definição, automaticamente definimos uma \emph{fronteira} que separa o sistema do resto do universo. Nesse tipo de situação as \emph{forças internas} do sistema poderão ser capazes de alterar a energia das partículas individualmente, por isso não podemos tratar a energia mecânica de cada uma delas como sendo constante.
+
+Ao tratarmos todas as partículas conjuntamente, no entanto, em muitos casos os trabalhos devido às forças internas se cancelam aos pares: como temos um par ação-reação as forças apontam na mesma direção, porém com sentidos opostos e isso leva a trabalhos com o mesmo valor e com sinais opostos. Consequentemente, ao somarmos as variações das energias cinéticas e potenciais de todas as partículas, os termos devidos às forças não-conservativas se cancelam e temos para a energia mecânica do sistema $E_S^{\text{mec}}$ se conserva:
+\begin{equation}
+    E_{S,i}^{\text{mec}} = E_{S,f}^{\text{mec}},
+\end{equation}
+%
+onde
+\begin{equation}
+    E_S^{\text{mec}} = \sum_{i = 1}^{n} E^{\text{mec}}.
+\end{equation}
+%
+A energia mecânica do sistema definida pela equação acima é simplesmente a soma das energias cinéticas e potenciais das partículas, o que pode ser verificado substituindo a Equação~\ref{Eq:DefEnergiaMecanicaParticula} para $E^{\text{mec}}$ na definição acima:
+\begin{equation}
+    E_S^{\text{mec}} = \sum_{i = 1}^{n} K_i + \sum_{i = 1}^n \sum_{j = 1}^{n_f} U_j.
+\end{equation}
+
+Note que para que possamos utilizar a expressão acima é necessário que o trabalho total devido às forças não conservativas que atuam no sistema como um todo seja nulo. Caso essa condição não seja atendida, a energia mecânica do sistema não se conserva. Novamente, tais casos serão tratados nas Seções~\ref{Sec:TrabalhoForcasNaoConservativas} e~\ref{Sec:PrincipioDaConsDaEnergia}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Máquina de Atwood}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[8cm]
+\centering
+\begin{tikzpicture}[>=Stealth,  interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+    
+    \draw[dashed] (-2.3, 0) rectangle (2.3, -5.2);
+    
+    \draw[interface] (2,-0.3) -- (-2,-0.3);
+    
+    \draw[pattern = north west lines] (0,-1) circle (0.5);
+    \draw[fill] (0,-1) circle (1pt);
+    \draw[fill] (0,-1) -- (0.2,-0.3) -- (-0.2,-0.3) -- cycle;
+    
+    \draw[pattern = north west lines] (-0.8,-4) rectangle (-0.2, -4.6);
+    \draw[dotted, pattern = north west lines] (-0.2,-2) rectangle (-0.8,-2.6);
+    \draw (-0.5,-1) -- (-0.5,-4);
+    \draw[fill] (-0.5, -4.3) circle (1pt);
+    \draw[thick, ->] (-0.5,-4.3) -- +(0,-0.6) node[right]{$\vec{P}_1$};
+    \draw[thick, ->] (-0.5,-4) -- +(0,0.75) node[right]{$\vec{T}$};
+    
+    \draw[pattern = north west lines] (0.2,-2) rectangle (0.8,-2.6);
+    \draw[dotted, pattern = north west lines] (0.8,-4) rectangle (0.2, -4.6);
+    \draw (0.5,-1) -- (0.5,-2);
+    \draw[dotted] (0.5, -2.6) -- (0.5,-4);
+    \draw[fill] (0.5, -2.3) circle (1pt);
+    \draw[thick, ->] (0.5,-2.3) -- +(0,-1) node[right]{$\vec{P}_2$};
+    \draw[thick, ->] (0.5,-2) -- +(0,0.75) node[right]{$\vec{T}$};
+    
+    \draw[|-|] (1,-2.3) -- node[right]{$d$} (1,-4.3);
+    \draw[->] (-1,-5) -- (-1, -2) node[left]{$y$};
+    \draw (-0.95, -4.3) -- (-1.05,-4.3) node[left]{$y=0$};
+\end{tikzpicture}
+\caption{Se definirmos um sistema como sendo o mostrado na figura acima, incluindo a Terra, temos que nenhuma força externa ao sistema realiza trabalho sobre ele. Consequentemente, a energia mecânica é constante. \label{Fig:MaquinaDeAtwood}}
+\end{marginfigure}
+
+Podemos utilizar a expressão acima para determinar a velocidade dos blocos em uma máquina de Atwood após eles terem percorrido uma determinada distância. Se definirmos um sistema como o mostrado na Figura~\ref{Fig:MaquinaDeAtwood}, temos trabalhos devidos às forças de tensão e ao peso durante o deslocamento dos blocos. No entanto, como as tensões são iguais e os blocos percorrem distâncias iguais, a soma dos trabalhos devidos a forças não-conservativas é nulo. A força peso, por outro lado, é conservativa e será tratada através da energia potencial gravitacional. Finalmente, podemos considerar que as massas da polia e da corda são desprezíveis, e também que a corda é inextensível. Logo, a energia mecânica no sistema deve ser constante e então
+\begin{align}
+    E_{S,i}^{\text{mec}} &= E_{S,f}^{\text{mec}} \\
+    E_{1,i}^{\text{mec}} + E_{2,i}^{\text{mec}} &= E_{1,f}^{\text{mec}} + E_{2,f}^{\text{mec}} \\
+    K_1^i + U_{g, 1}^i + K_2^i + U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f + U_{g, 2}^f.
+\end{align}
+%
+Se os blocos partem do repouso, então as energias cinéticas iniciais são nulas. Além disso, devido à escolha do sistema de coordenadas, a energias potenciais inicial do primeiro bloco  e final do segundo são nulas. Assim,
+\begin{align}
+    U_{g, 2}^i &= K_1^f + U_{g, 1}^f + K_2^f \\
+    m_2gy_2^i &= \frac{1}{2} m_1 (v_1^f)^2 + m_1gy_1^f + \frac{1}{2} m_2 (v_2^f)^2,
+\end{align}
+%
+ou, como $v_1^f = v_2^f \equiv v_f$,
+\begin{align}
+    m_2gy_2^i &= \frac{1}{2} (m_1 + m_2) v_f^2 + m_1gy_1^f \\
+    2gd(m_2-m_1) &= (m_1+m_2) v_f^2,
+\end{align}
+%
+onde usamos o fato de que $y_2^i = y_1^f = d$. Finalmente, temos que a velocidade final é dada por
+\begin{equation}
+    v_f = \sqrt{2gd\frac{m_2-m_1}{m_1+m_2}}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia mecânica em gráficos de potencial: Pontos de retorno}
@@ -3820,7 +3813,7 @@ Substituindo os valores das constantes, temos finalmente
 
 Na seção anterior verificamos que o trabalho de uma força não conservativa implica em uma alteração da energia mecânica do sistema. Vamos considerar agora o que acontece com a energia em duas situações diferentes. 
 
-\begin{marginfigure}
+\begin{marginfigure}[5cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -3889,7 +3882,7 @@ Vamos supor agora que temos um sistema onde atuam forças conservativas e uma fo
 \caption{Sistema formado por um oscilador massa-mola sujeito a uma força de atrito. Se nenhuma força que atravessa a fronteira do sistema realiza trabalho, então o sistema é \emph{fechado}.\label{Fig:MassaMolaSistemaFechado}}
 \end{marginfigure}
 
-Segundo a equação acima, a energia mecânica deve diminuir, porém estamos considerando um \emph{sistema fechado}, ou seja, não pode haver fluxo de energia através da fronteira. Nesse momento, aparentemente deveríamos argumentar que a energia se perdeu, afinal, estamos tratando de uma situação em que atua uma força não conservativa. Essa ideia, porém, não descreve o que acontece quando uma força não conservativa atua de maneira a realizar trabalho através da fronteira, como no caso da força exercida pela haste no exemplo anterior. Além disso, é comum em situações como a da Figura~\ref{Fig:MassaMolaSistemaFechado} que se note um \emph{aumento da temperatura do sistema}, isto é, um aumento da temperatura do bloco e da superfície onde ele se apoia.\footnote{\textrm{Falar sobre a observação do Rumford ao perfurar canhões: enquanto houvesse trabalho sendo efetuado, havia aumento de temperatura (na real colocavam água para que isso não acontecesse). Diz que ele até usou uma broca intencionalmente cega, para poder ver essa relação melhor. Falar sobre a exp. do Joule para determinar o equivalente mecânico do calor.}}
+Segundo a equação acima, a energia mecânica deve diminuir, porém estamos considerando um \emph{sistema fechado}, ou seja, não pode haver fluxo de energia através da fronteira. Nesse momento, aparentemente deveríamos argumentar que a energia se perdeu, afinal, estamos tratando de uma situação em que atua uma força não conservativa. Essa ideia, porém, não descreve o que acontece quando uma força não conservativa atua de maneira a realizar trabalho através da fronteira, como no caso da força exercida pela haste no exemplo anterior. Além disso, é comum em situações como a da Figura~\ref{Fig:MassaMolaSistemaFechado} que se note um \emph{aumento da temperatura do sistema}, isto é, um aumento da temperatura do bloco e da superfície onde ele se apoia.
 
 \begin{marginfigure}
 \centering
@@ -3933,7 +3926,7 @@ Apesar de a expressão acima ser mais geral que a Expressão~\eqref{Eq:TrabalhoN
 \begin{description}
     \item[Energia química:] Se, por exemplo, utilizarmos um motor elétrico ligado a uma bateria, sabemos que é possível o utilizar para alterar a energia mecânica do sistema, mesmo sem a ação de uma força externa. De fato, existe uma energia química armazenada na bateria que nos permite utilizar o trabalho da força não-conservativa exercida pelo motor para fazer variar a energia mecânica do sistema, ou a energia interna do sistema, ou mesmo ambas. Outra possibilidade é a de utilizar um combustível e substituir o motor elétrico por uma máquina térmica: assim como no caso da bateria, os combustíveis são uma maneira de armazenar energia química. Como esse tipo de energia tem um caráter similar à energia interna associada à temperatura, não há necessidade de alterar a expressão~\eqref{Eq:ConservacaoDaEnergia1}.\footnote{Microscopicamente, a energia química é uma energia potencial elétrica armazenada nas configurações moleculares dos átomos.}
     
-    \item[Condução térmica:] Se a energia interna está associada à temperatura, então existe uma maneira de transferir energia para fora de um sistema que não envolve a realização de trabalho por uma força externa: se tormarmos dois sistemas distintos ---~ como, por exemplo, dois blocos metálicos~--- a temperaturas diferentes, é fácil perceber que ao deixarmos que ambos fiquem em contato direto, a temperatura do bloco frio aumenta, enquanto a temperatura do bloco quente diminui. A tal fluxo de energia interna denominamos \emph{calor}\footnote{Microscopicamente, como a temperatura dos blocos é diferente, a energia cinética média das partículas que compõe os blocos também é diferente. No contato direto entre os blocos, as partículas do corpo quente interagem com as do corpo frio, forçando-as a oscilar. Ocorre uma transferência de energia cinética entre as partículas de cada um dos corpos através do trabalho das forças entre as cargas elétricas dos átomos.}. Devemos então adicionar um termo $Q$ à direita da Expressão~\eqref{Eq:ConservacaoDaEnergia1}, relativo ao calor transmitido.
+    \item[Condução térmica:] Se a energia interna está associada à temperatura, então existe uma maneira de transferir energia para fora de um sistema que não envolve a realização de trabalho por uma força externa: se tormarmos dois sistemas distintos ---~ como, por exemplo, dois blocos metálicos~--- a temperaturas diferentes, é fácil perceber que ao deixarmos que ambos fiquem em contato direto, a temperatura do bloco frio aumenta, enquanto a temperatura do bloco quente diminui. A tal fluxo de energia interna denominamos \emph{calor}\footnote[][-3cm]{Microscopicamente, como a temperatura dos blocos é diferente, a energia cinética média das partículas que compõe os blocos também é diferente. No contato direto entre os blocos, as partículas do corpo quente interagem com as do corpo frio, forçando-as a oscilar. Ocorre uma transferência de energia cinética entre as partículas de cada um dos corpos através do trabalho das forças entre as cargas elétricas dos átomos.}. Devemos então adicionar um termo $Q$ à direita da Expressão~\eqref{Eq:ConservacaoDaEnergia1}, relativo ao calor transmitido.
 
     \item[Radiação eletromagnética:] Sabemos que o Sol é capaz de causar variações de temperatura na Terra, mesmo na ausência de um \emph{meio de contato} entre ambos. Devido à ausência de tal meio, não é possível que haja transmissão de energia interna através de um fluxo de calor. Também não existe uma força que atravesse ambas as fronteiras, realizando trabalho\footnote{Na verdade, a força gravitacional entre o Sol e a Terra, ou entre a Lua e a Terra, pode realizar trabalho, essa é a origem das marés.}. Resta então a transmissão de energia através de \emph{radiação eletromagnética}. A radiação eletromagnética, é uma perturbação de caráter ondulatório nos campos elétrico e magnético que preenchem o espaço, e também é conhecida como \emph{ondas eletromagnéticas}. Como tais campos podem existir mesmo no vácuo, as ondas eletromagnéticas podem se propagar na ausência de matéria. Representamos a radiação eletromagnética através de um termo $R$ à direita da Expressão~\eqref{Eq:ConservacaoDaEnergia1}.
 \end{description}

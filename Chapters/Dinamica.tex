@@ -1282,7 +1282,7 @@ Sabemos que quando o sistema está em repouso, temos uma situação de equilíbr
     \end{align}
 \end{description}
 %
-Sabemos que a força elástica está relacionada à distensão $\Delta \ell$ da mola e à constante elástica $k$ através da Equação~\eqref{Eq:LeiDeHooke}, podemos escrever
+Sabemos que a força elástica está relacionada à distensão $\Delta \ell$ da mola e à constante elástica $k$ através da Equação~\eqref{Eq:LeiDeHooke}, portanto podemos escrever
 \begin{align}
     -k\Delta \ell &= mg \\
     k &= - \frac{mg}{\Delta\ell}.
@@ -2204,8 +2204,8 @@ Vemos, também que as tensões nos pontos superior e inferior não são pares a�
     ]
 
 	% mesa
-	\draw[interface] (0,0) -- (3,0);
-	\draw[interface] (3,0) -- (3,-1);
+	\draw[interface, gray] (0,0) -- (3,0);
+	\draw[interface, gray] (3,0) -- (3,-1);
 	
 	% roldana	
 	\draw (3.3,0.05) circle[radius = 0.2];
@@ -2218,7 +2218,8 @@ Vemos, também que as tensões nos pontos superior e inferior não são pares a�
 	% bloco superior
 	\draw[pattern = north west lines, pattern color = gray, draw = gray] (0.5,0) rectangle +(1,0.5);
 	\draw (1.5,0.25) -- (3.3,0.25);
-	\draw[->, thick] (1,0) -- +(0,-1) node[left]{$\vec{P}_1$};
+	\draw[->, thick] (1,0.25) -- +(0,-1) node[left]{$\vec{P}_1$};
+	\fill (1,0.25) circle (1.5pt);
 	\draw[->, thick] (1.5,0.25) -- +(0.5,0) node[above]{$\vec{T}_s$};
 	\draw[->, thick] (1,0.5) -- +(0,1) node[left]{$\vec{N}$};
 	
@@ -2227,7 +2228,8 @@ Vemos, também que as tensões nos pontos superior e inferior não são pares a�
 	\draw (3.5,0.05) -- +(0,-1);
 	\draw[pattern = north west lines] (3.3,-0.95) rectangle +(0.4,-0.8);
 	\draw[->, thick] (3.5,-0.95) -- +(0,0.5) node[right]{$\vec{T}_i$};
-	\draw[->, thick] (3.5,-1.75) -- +(0,-0.75) node[right]{$\vec{P}_2$};
+	\draw[->, thick] (3.5,-1.35) -- +(0,-0.75) node[right]{$\vec{P}_2$};
+	\fill (3.5,-1.35) circle (1.5pt);
 
 \end{tikzpicture}
 \caption{As forças exercidas nas extremidades de uma corda podem ter direções diferentes se empregarmos uma roldana, isso indica que elas não formam um par ação-reação.}
@@ -3058,7 +3060,54 @@ Algumas vezes podemos utilizar os mesmo eixos de referência para todos os corpo
 \caption{Algumas vezes podemos utilizar o mesmo sistema de coordenadas para todos corpos: nesta situação, $x_1=x_2$ para todos os pontos e os eixos $y_1$ e $y_2$ têm a mesma orientação, sendo que seus valores diferem somente por um valor constante (a distância vertical entre as duas origens). Para efeitos de cálculo de velocidade ou aceleração neste eixo, no entanto, tal constante não importa, pois a velocidade é definida em termos do \emph{deslocamento} -- isto é, pela \emph{diferença} das posições no tempo --.\label{Fig:CorposAceleradosMesmoRef}}
 \end{marginfigure}
 
-Na situação mostrada na Figura~\ref{Fig:MaquinaAtwoodHoriz} temos algo mais complexo. A aceleração do bloco 1 será no eixo $x_1$, enquanto a aceleração do bloco 2 será no eixo $y_2$. Se o fio é inextensível, podemos afirmar que o módulo dessas duas acelerações é o mesmo, o que nos leva à equação
+\begin{marginfigure}
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+
+	% mesa
+	\draw[interface] (0,0) -- (3,0);
+	\draw[interface] (3,0) -- (3,-1);
+	
+	% roldana	
+	\draw (3.3,0.05) circle[radius = 0.2];
+	\draw[fill] (3.3,0.05) circle[radius = 0.05];
+	\draw[fill] (2.6,0.1) rectangle (3.3,0);
+	\draw[fill] (2.7,0.1) circle[radius = 0.05];
+	\draw[fill] (2.9,0.1) circle[radius = 0.05];
+	\draw[fill, white] (3.3,0.05) circle[radius = 0.02];
+	
+	% bloco superior
+	\node[draw, densely dotted, circle, scale = 0.8] (b1) at (0.3,0.7) {1};
+	\draw[pattern = north west lines, pattern color = gray, draw = gray] (0.5,0) rectangle +(1,0.5);
+	\draw (1.5,0.25) -- (3.3,0.25);
+	\draw[->, thick] (1,0.25) -- +(0,-1) node[left]{$\vec{P}_1$};
+	\fill (1,0.25) circle (1.5pt);
+	\draw[->, thick] (1.5,0.25) -- +(0.5,0) node[above]{$\vec{T}$};
+	\draw[->, thick] (1,0.5) -- +(0,1) node[left]{$\vec{N_1}$};
+	
+	% bloco inferior
+	\node[draw, densely dotted, circle, scale = 0.8] (b2) at (3.1,-1.9) {2};
+	\draw (3.5,0.05) -- +(0,-1);
+	\draw[pattern = north west lines] (3.3,-0.95) rectangle +(0.4,-0.8);
+	\draw[->, thick] (3.5,-0.95) -- +(0,0.5) node[right]{$\vec{T}$};
+	\draw[->, thick] (3.5,-1.35) -- +(0,-0.75) node[right]{$\vec{P}_2$};
+	\fill (3.5,-1.35) circle (1.5pt);
+	
+	% Coordenadas
+	\draw[->, dashed] (0,0.25) -- (2.5,0.25) node[above]{$x_1$};
+	\draw[->, dashed] (1,-1.5) -- (1,2) node[below right]{$y_1$};
+	
+	\draw[<-, dashed] (3.5, -1.35) +(0,2.25) node[below right]{$y_2$} -- +(0,-1.5);
+	\draw[->, dashed] (3.5,-1.35)+(-1,0) -- +(1,0) node[below left]{$x_2$};
+\end{tikzpicture}
+\caption{Neste sistema, os blocos têm acelerações em eixos diferentes, porém ---~devido ao fato de que eles estão ligados por um fio inextensível~---, temos que $a_{1,x} = -a_{2,y}$.\label{Fig:MaquinaAtwoodHoriz}}
+\end{marginfigure}
+
+Na situação mostrada na Figura~\ref{Fig:MaquinaAtwoodHoriz} temos algo mais complexo. A aceleração do bloco 1 será no sentido positivo do eixo $x_1$, enquanto a aceleração do bloco 2 será no sentido negativo do eixo $y_2$. Se o fio é inextensível, podemos afirmar que o módulo dessas duas acelerações é o mesmo, o que nos leva à equação
 \begin{equation}\label{Eq:AtwoodHorizRelAcel}
     a_{1,x} = - a_{2,y},
 \end{equation}
@@ -3092,51 +3141,6 @@ Vamos supor que estamos interessados em calcular a aceleração e a tensão no f
                 \end{align}
         \end{description}
 \end{description}
-
-\begin{marginfigure}[6cm]
-\begin{tikzpicture}[>=Stealth,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-
-	% mesa
-	\draw[interface] (0,0) -- (3,0);
-	\draw[interface] (3,0) -- (3,-1);
-	
-	% roldana	
-	\draw (3.3,0.05) circle[radius = 0.2];
-	\draw[fill] (3.3,0.05) circle[radius = 0.05];
-	\draw[fill] (2.6,0.1) rectangle (3.3,0);
-	\draw[fill] (2.7,0.1) circle[radius = 0.05];
-	\draw[fill] (2.9,0.1) circle[radius = 0.05];
-	\draw[fill, white] (3.3,0.05) circle[radius = 0.02];
-	
-	% bloco superior
-	\node[draw, densely dotted, circle, scale = 0.8] (b1) at (0.3,0.7) {1};
-	\draw[pattern = north west lines, pattern color = gray, draw = gray] (0.5,0) rectangle +(1,0.5);
-	\draw (1.5,0.25) -- (3.3,0.25);
-	\draw[->, thick] (1,0) -- +(0,-1) node[left]{$\vec{P}_1$};
-	\draw[->, thick] (1.5,0.25) -- +(0.5,0) node[above]{$\vec{T}$};
-	\draw[->, thick] (1,0.5) -- +(0,1) node[left]{$\vec{N}$};
-	
-	% bloco inferior
-	\node[draw, densely dotted, circle, scale = 0.8] (b2) at (3.1,-1.9) {2};
-	\draw (3.5,0.05) -- +(0,-1);
-	\draw[pattern = north west lines] (3.3,-0.95) rectangle +(0.4,-0.8);
-	\draw[->, thick] (3.5,-0.95) -- +(0,0.5) node[right]{$\vec{T}$};
-	\draw[->, thick] (3.5,-1.75) -- +(0,-0.75) node[right]{$\vec{P}_2$};
-	
-	% Coordenadas
-	\draw[->, dashed] (0,0.25) -- (2.5,0.25) node[above]{$x_1$};
-	\draw[->, dashed] (1,-1.5) -- (1,2) node[below right]{$y_1$};
-	
-	\draw[<-, dashed] (3.5, -1.35) +(0,2.25) node[below right]{$y_2$} -- +(0,-1.5);
-	\draw[->, dashed] (3.5,-1.35)+(-1,0) -- +(1,0) node[below left]{$x_2$};
-\end{tikzpicture}
-\caption{Neste sistema, os blocos têm acelerações em eixos diferentes, porém -- como eles estão ligados por um fio inextensível --, temos que $a_{1,x} = -a_{2,y}$.\label{Fig:MaquinaAtwoodHoriz}}
-\end{marginfigure}
 
 Para determinar a aceleração e a tensão, precisamos resolver o sistema de equações formado pelas expressões \eqref{Eq:AtwoodHorizX1} e \eqref{Eq:AtwoodHorizY2}. No entanto, temos três incógnitas: $a_{1,x}$, $a_{2,y}$ e $T$. Para que possamos resolver este sistema, precisamos de mais uma equação: a relação entre as acelerações dada pela expressão \ref{Eq:AtwoodHorizRelAcel}. Assim
 \begin{equation}
@@ -3207,16 +3211,18 @@ uma distinção da aceleração de cada bloco não é necessária. No eixo $y$, 
 	\node[draw, densely dotted, circle, scale = 0.8] (b1) at (0.3,0.7) {1};
 	\draw[pattern = north west lines] (0.5,0) rectangle +(1,0.5);
 	\draw (1.5,0.25) -- (3.3,0.25);
-	\draw[->, thick] (1,0) -- +(0,-1) node[left]{$\vec{P}_1$};
+	\draw[->, thick] (1,0.25) -- +(0,-1) node[left]{$\vec{P}_1$};
+	\fill (1,0.25) circle (1.5pt);
 	\draw[->, thick] (1.5,0.25) -- +(0.5,0) node[above]{$\vec{T}$};
-	\draw[->, thick] (1,0.5) -- +(0,1) node[left]{$\vec{N}$};
+	\draw[->, thick] (1,0.5) -- +(0,1) node[left]{$\vec{N_1}$};
 	
 	% bloco inferior
 	\node[draw, densely dotted, circle, scale = 0.8] (b2) at (3.1,-1.9) {2};
 	\draw[gray] (3.5,0.05) -- +(0,-1);
 	\draw[pattern = north west lines] (3.3,-0.95) rectangle +(0.4,-0.8);
 	\draw[->, thick] (3.5,-0.95) -- +(0,0.5) node[right]{$\vec{T}$};
-	\draw[->, thick] (3.5,-1.75) -- +(0,-0.75) node[right]{$\vec{P}_2$};
+	\draw[->, thick] (3.5,-1.35) -- +(0,-0.75) node[right]{$\vec{P}_2$};
+	\fill (3.5,-1.35) circle (1.5pt);
 	
 	% Coordenadas
 	\draw[->, dashed] (0,0.25) -- (2.5,0.25) node[above]{$x$};
@@ -3242,7 +3248,7 @@ Assim, temos ao analisar o sistema:
                     F_R^{y} &= m_1 a_y \\
                     N_1 - P_1 &= m_1 a_y \\
                     N_1 - P_1 &= 0 \\
-                    N_1 = P_1.
+                    N_1 &= P_1.
                 \end{align}
         \end{description}
     \item[Bloco 2:] Novamente, aplicando a Segunda Lei de Newton para cada eixo:
@@ -3837,7 +3843,7 @@ Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclin
             mg \sen\theta - \mu_e N &= 0 \\
             mg \sen\theta &= \mu_e N \label{coef_atrito_deduc}
         \end{align}
-    \item[Eixo $y$:] Novamente, a aceleração é nula,
+    \item[Eixo $y$:] Novamente, a aceleração é nula, o que nos leva a
         \begin{align}
             F_{R, y} &= m a_y \\
             N - P_y &= 0 \\
