@@ -1843,6 +1843,91 @@ onde utilizamos $x$ para denotar a distância percorrida durante a aplicação d
 \section{Energia Potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textbf{Novo texto, muito mais sucinto e direto e matemático}
+
+A Eq. para o trabalho de uma força variável define o trabalho para uma força variável assumindo que ela é na direção do movimento (se não estiver assim, é fácil mudar o texto para que passe a ser). Se tivermos uma força cuja direção pode variar em relação ao deslocamento instantâneo ao longo da trajetória, podemos determinar o trabalho total assumindo que temos uma série de pequenos deslocamentos retilíneos. Assim,
+\begin{equation}
+    W = \lim_{|\Delta\vec{r}_i| \to 0} \sum_i \vec{F}_i\cdot\Delta\vec{r}_i.
+\end{equation}
+%
+Se a força $\vec{F}$ é bem definida para todos os pontos do espaço e a trajetória tem um comprimento \emph{finito} (ou seja, um comprimento que \emph{não é infinito}), então o limite definido acima existe e é denotato por
+\begin{equation}
+    W = \int_C \vec{F}\cdot d\vec{r},
+\end{equation}
+%
+e é conhecido como \emph{integral de linha}, onde $C$ denota uma parametrização da curva que define a trajetória seguida pelo corpo sobre o qual a força $\vec{F}$ atua. O cálculo da integral depende de particularidades da curva escolhida e recai em uma integral em uma, duas, ou três dimensões \textbf{(que os alunos ainda não viram)}. 
+
+Mesmo sem sabermos os detalhes de como calcular essa integral, podemos dividir o seu resultado em duas possibilidades: ou ele depende do caminho escolhido, ou ele não depende de tal escolha. Se ele não depende, então as únicas possibilidades são que o resultado dependa dos pontos inicial e final da trajetória, ou que seja constante, isto é, seja sempre o mesmo valor independentemente dos pontos inicial e final. Esse último caso só é possível se a força $\vec{F}$ for nula para todos os pontos do espaço.
+
+No caso de termos uma dependência somente dos pontos inicial e final, podemos escrever
+\begin{equation}\label{Eq:TrabForcaIndepCaminhoDefPotencial}
+    W = \int_C \vec{F}\cdot d\vec{r} = -[U(\vec{r}_f) - U(\vec{r}_i)],
+\end{equation}
+%
+onde $U(\vec{r})$ é uma função escalar que depende da posição. É evidente da expressão acima que
+\begin{equation}
+    W = - \Delta U
+\end{equation}
+%
+e que tal função tem a mesma unidade que o trabalho. Note ainda que uma diminuição do valor de $U(\vec{r})$ entre os pontos $\vec{r}_i$ e $\vec{r}_f$ implica em um trabalho positivo realizado sobre o corpo, enquanto um aumento no valor dessa função entre tais pontos implica em uma trabalho negativo realizado sobre ele. Isso nos leva à interpretação de que \emph{a função $U(\vec{r})$ representa uma forma de energia} que denominamos como \emph{energia potencial}. 
+
+\textbf{Discutir a interpretação de transferência de energia entre uma forma e outra. Usar o potencial gravitacional como exemplo (dizer que vamos determinar a expressão depois, mas argumentar que o trabalho não depende do caminho). Falar que o potencial é uma forma de energia associada às características da força e à disposição dos corpos que interagem através dela.}
+
+Para o caso de um movimento unidimensional, ou de uma força que depende somente de uma das coordenadas, isto é, se
+\begin{equation}
+    \vec{F}(\vec{r}) \equiv \vec{F}(x),
+\end{equation}
+%
+temos um potencial que depende somente de $x$,
+\begin{equation}
+    U(\vec{r}) \equiv U(x),
+\end{equation}
+%
+e a Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencial} se torna uma integral unidimensional:
+\begin{equation}\label{Eq:TrabForcaIndepCaminhoDefPotencialUnidimensional}
+    W = \int_{x_i}^{x_f} F_x(x) \cos\theta \,dx = -[U(x_f) - U(x_i)],
+\end{equation}
+%
+onde $F_x(x)$ representa a componente da força projetada na direção do deslocamento.\footnote{No caso do movimento unidimensional precisamos projetar a força na direção do deslocamento, enquanto no caso de a força depender de somente uma das dimenções devemos projetar o deslocamento na direção da força. Esses dois resultados, no entanto, são iguais, como vimos na Seção~\ref{Sec:}. Dessa forma, a Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencialUnidimensional} é válida em ambos os casos.}
+%
+Através do Teorema Fundamental do Cálculo, Equação~\ref{Eq:}, temos que
+\begin{align}
+    W &= \int_{x_i}^{x_f} F(x) \,dx \\
+    &= \left[\mathcal{F}(x) + C\right]_{x_i}^{x_f} \\
+    &= [(\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i) + C)] \\
+    &= -[U(x_f) - U(x_i)],
+\end{align}
+%
+de onde identificamos que
+\begin{align}
+    - U(x_f) &= \mathcal{F}(x_f) + C \\
+    - U(x_i) &= \mathcal{F}(x_i) + C,
+\end{align}
+%
+ou seja, que \emph{a função primitiva $\mathcal{F}(x)$ da função $F(x)$ é o próprio potencial}:\emph{Se o valor do trabalho independe do caminho. Note que em uma dimensão o caminho é o ``histórico'' de posições ocupadas pelo corpo.}
+\begin{equation}
+    - U(x) = \mathcal{F}(x) + C.
+\end{equation}
+
+Se derivarmos a expressão acima, obtemos
+\begin{align}
+    - U'(x) &= \mathcal{F}'(x) + C' \\
+    - U'(x) &= F(x).
+\end{align}
+%
+Essa relação é útil para situações onde o potencial é conhecido\footnote{Em alguns sistemas é mais fácil obter informações diretas sobre o potencial do que sobre a força.} como função da posição e nas quais precisamos obter a força (também como função da posição).
+
+\paragraph{Potencial gravitacional}
+Obter e discutir o potencial gravitacional
+
+\paragraph{Potencial elástico}
+Obter e discutir o potencial elástico
+
+\paragraph{Exemplificar forças não conservativas}
+Usar o atrito e o arrasto como exemplos. Acho que é interessante falar que mesmo no caso de sabermos a força ponto a ponto, não temos exatamente uma função da posição, só que em um caso particular a força tinha um certo valor em certo ponto (para um intervalo de pontos), o que nos permite calcular o trabalho, mas não um potencial.
+
+\textbf{Fim do texto novo, rever texto antigo pra ver se tem coisas importantes que devem ser incorporadas no texto novo.}
+
 %\textbf{Aqui listar (itemize) as características, fica mais fácil.}
 Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças que atuam em um sistema de partículas e \emph{à própria configuração} ---~isto é, \emph{à disposição}~--- das partículas que compõe o sistema. Tais formas de energia são denominadas como \emph{energias potenciais}. (Portanto, as expressões para o potencial dependem só de características da força de interação, e da disposição das partículas.)
 
@@ -3383,7 +3468,7 @@ Se tomarmos um sistema como o da Figura~\ref{Fig:PotElasticoComMassaMola}, onde 
   &= U_A.
 \end{align}
 
-\begin{marginfigure}[5cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={

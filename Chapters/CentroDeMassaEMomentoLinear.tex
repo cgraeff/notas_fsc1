@@ -126,203 +126,78 @@ Note que o resultado acima para um sistema de partículas é análogo à própri
 \label{Sec:CentroDeMassa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Tem uma discussão muito interessante no Landau - Mechanics que permite definir o conceito de centro de massa a partir do momento linear, pensando através de referenciais. Depois que tivermos uma boa discussão de referenciais, elaborar uma explicação alternativa a essa que temos aqui, para enriquecer o texto.}
-
-Para o caso partícular de um corpo rígido que translada sem sofrer rotações, podemos considerar que todas as partículas que o compõe têm velocidade dada pelo mesmo vetor $\vec{v}_{\rm{sis}}$:
+Verificamos na Seção~\ref{Sec:MovimentoRelativo} que a velocidade $\vec{v}_S$ de uma partícula que se desloca em relação a um referêncial $S$ pode ser escrita através de
 \begin{equation}
-    \vec{v}_i \equiv \vec{v}_{\rm{sis}}.
+     \vec{v}_S = \vec{v}_{S'} + \vec{v}_{S'S},
 \end{equation}
 %
-Logo, a Segunda Lei de Newton para um sistema de partículas, Equação~\eqref{Eq:SegundaLeiSistemaDeParticulas}, resulta em
-\begin{align}
-    \vec{F}_{R}^{\rm{ext}} &= \frac{d}{dt}\vec{P}_{\rm{sis}} \\
-    &= \frac{d}{dt} \left[\sum_{i=1}^N m_i\vec{v}_i\right] \\
-    &= \frac{d}{dt} \left[\sum_{i=1}^N m_i\vec{v}_{\rm{sis}}\right] \\
-    &= \frac{d}{dt} \left[\left(\sum_{i=1}^N m_i\right) \vec{v}_{\rm{sis}}\right] \\
-    &= \frac{d}{dt} \left[M \vec{v}_{\rm{sis}}\right],
-\end{align}
-%
-onde usamos
-\begin{align}
-    \vec{P}_{\rm{sis}} &= \sum \vec{p}_i \\
-    \vec{p}_i &= m_i\vec{v}_i, \\
-    M &= \sum m_i.
-\end{align}
-%
-Se considerarmos que a massa total $M$ é constante, temos
-\begin{equation}\label{Eq:SegundaLeiSistemaDeParticulasMConst}
-	\vec{F}_{R}^{\rm{ext}} = M \vec{a}_{\rm{sis}}. \mathnote{Segunda Lei de Newton para um sistema com massa total constante}
-\end{equation}
-%
-A equação acima nos mostra que o tratamento de um corpo rígido sujeito a uma força resultante $\vec{F}_{R}^{\rm{ext}}$ é \emph{equivalente} ao de uma uma partícula com massa $M$ e cuja aceleração é representada por $\vec{a}_{\rm{sis}}$. A posição de tal partícula representa o que entendemos por \emph{centro de massa} de um sistema de partículas. Assim, identificamos algumas propriedades do centro de massa de um corpo rígido:
-\begin{align}
-    m_{\rm{CM}} &= M \equiv \sum_{i=1}^N m_i \\
-    \vec{v}_{\rm{CM}} &= \vec{v}_{\rm{sis}} \\
-    &= \frac{d}{dt} \vec{r}_{\rm{CM}} \\
-    \vec{a}_{\rm{CM}} &= \vec{a}_{\rm{sis}} \\
-    &= \frac{d}{dt} \vec{v}_{\rm{CM}},
-\end{align}
-%
-onde $\vec{r}_{\rm{CM}}$ denota a posição\footnote{Determinaremos a posição do centro de massa para um sistema de partículas na próxima seção.} do centro de massa. Também temos que
-\begin{align}
-    \vec{P}_{\rm{CM}} &= \vec{P}_{\rm{sis}} \\
-    &= M \vec{v}_{\rm{CM}}.
-\end{align}
-    
-Se considerarmos o caso em que o sistema de partículas descrito pela Equação~\eqref{Eq:SegundaLeiSistemaDeParticulas} não se comporta como um corpo rígido, não existe uma velocidade $\vec{v}_{\rm{sis}}$ ou uma aceleração $\vec{a}_{\rm{sis}}$, pois cada partícula apresentará valores diferentes para essas variáveis. No entanto, ainda assim podemos \emph{definir} uma posição, uma velocidade e uma aceleração para o centro de massa tal que
-\begin{align}
-    \vec{F}_{R}^{\rm{ext}} &= M\frac{d^2}{dt^2}\vec{r}_{\rm{CM}} \label{Eq:defPosCMEmTermosDeForcaRes} \\
-    \vec{v}_{\rm{CM}} &= \frac{d}{dt}\vec{r}_{\rm{CM}} \\
-    \vec{a}_{\rm{CM}} &= \frac{d}{dt}\vec{v}_{\rm{CM}}
-\end{align}
-%
-e
-\begin{align}
-    \vec{P}_{\rm{CM}} &= \vec{P}_{\rm{sis}} \\
-    &= M \vec{v}_{\rm{CM}}.
-\end{align}
+onde $v_{S'}$ é a velocidade da partícula em relação a um referencial $S'$ e $v_{S'S}$ é a velocidade do referencial $S'$ em relação ao referencial $S$.
 
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 0.9,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    %%
-    
-    \draw[interface] (-0.3,0) -- (4.7, 0);
-    
-    \draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=2mm,coil},decorate] (1.6,0.5) -- (2.9,0.5);
-    \draw (1.5,0.5) -- (1.6,0.5);
-    \draw (2.9,0.5) -- (3,0.5);
-    
-    \draw[pattern = north west lines, pattern color = gray] (3,0) rectangle (4,1);
-    \draw[pattern = north west lines, pattern color = gray] (0.5,0) rectangle (1.5,1);
-    
-    \draw[->, thick] (-0.3,0.5) -- node[above]{$\vec{F}$} (0.5,0.5);
-    
-\end{tikzpicture}
-\caption{Ao submetermos um sistema como o mostrado na figura a uma força $\vec{F}$, diferentes partes apresentarão diferentes acelerações. Podemos, no entanto, descrever a aceleração \emph{coletiva} do sistema através da aceleração do centro de massa.}
-\end{marginfigure}
-
-As definições acima nos permitem descrever um comportamento coletivo de um sistema de partículas mesmo quando tal comportamento não é completamente evidente. Um exemplo de um sistema que apresenta um comportamento complexo, porém que tem um movimento coletivo simples é caso em que temos dois blocos de massa $m$ ligados por uma mola, e que podem deslisar sobre uma superfície sem atrito. Ao exercermos uma força $\vec{F}$ lateral sobre um dos blocos, a aceleração de cada um deles será diferente, variando conforme o estado da compressão/distensão da mola: inicialmente a mola estará relaxada e a aceleração do bloco da esquerda será dada por
+Isso nos permite escrever uma relação entre os momentos lineares do sistema nos dois referenciais:
+\begin{align}
+    \vec{P}_{sis, S} &= \sum m_i \vec{v}_{i,S} \\
+    &= \sum m_i (\vec{v}_{S'} + \vec{v}_{S'S}) \\
+    &= \sum m_i \vec{v}_{S'} + \sum m_i \vec{v}_{S'S}.
+\end{align}
+%
+O primeiro termo à direita corresponde à soma dos momentos lineares no referencial $S'$:
 \begin{equation}
-    a = \frac{F}{m},
+    \vec{P}_{sis, S'} = \sum m_i \vec{v}_{S'},
 \end{equation}
 %
-enquanto a aceleração do bloco da direita é nula. Conforme a mola for comprimida, a aceleração do bloco da esquerda diminui, enquanto a do bloco da direita aumenta. A diferença entre as acelerações leva também a uma diferença inicial de velocidades dos blocos, o que dá origem a um movimento oscilatório entre eles. Apesar de esse comportamento ser complexo, se nos afastarmos o suficiente do sistema, não conseguimos distinguir o comportamento individual dos blocos, mas somente uma aceleração coletiva dada por
-\begin{align}
-    a &= \frac{F_R^{\rm{ext}}}{2m} \\
-    &= \frac{F_R^{\rm{ext}}}{M} \\
-    &\equiv a_{\rm{CM}}.
-\end{align}
-
-Movimentos complexos podem ocorrer mesmo ao considerarmos corpos rígidos. Se arremessarmos um corpo extenso em um lançamento oblíquo, verificaremos que as diferentes partículas do corpo movimento é em geral muito mais complexo que uma parábola: temos um movimento em que ele gira conforme executa a translação, o que confere a cada partícula do corpo uma posição, velocidade e aceleração diferente. No entanto, como a única força externa exercida sobre o corpo é a força peso, verificamos que a aceleração do centro de massa é dada por
-\begin{align}
-    a_{\rm{CM}} &= \frac{F_R^{\rm{ext}}}{M} \\
-    &= \frac{Mg}{M} \\
-    &= g.
-\end{align}
-%
-Note que a força resultante externa é dada pela soma das forças peso das diversas partículas que compõe o corpo:
-\begin{align}
-    F_R^{\rm{ext}} &= \sum_{i=1}^N P_i \\
-    &= \sum_{i=1}^N m_i g \\
-    &= \left[\sum_{i=1}^N m_i\right] g \\
-    &= M g.
-\end{align}
-%
-O resultado acima para a aceleração do centro de massa mostra que a trajetória $\vec{r}_{\rm{CM}}(t)$ tem a forma de uma parábola.
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-    
-    \draw[dotted, smooth, samples=1000, domain=0:3.33] plot ({1*\x}, {2*\x - 0.6*\x*\x});
-    \draw[smooth, samples=1000, domain=0:3.1] plot ({1*\x-0.3*sin(8*\x r)}, {2*\x - 0.6*\x*\x - 0.3*cos(8*\x r)});
-    
-    \begin{scope}
-        \draw [rotate = 90] (-1,-0.1) rectangle (1,0.1);
-        \draw[fill] (0,-0.3) circle (0.6pt);
-        \draw[fill] (0,0) circle (0.8pt);
-    \end{scope}
-
-    \begin{scope}[shift = {(1.25,1.5625)}, rotate = 572.96]
-        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
-        \draw[fill] (0,-0.285) circle (0.6pt);
-        \draw[fill, gray] (0,0) circle (0.8pt);
-    \end{scope}
-    
-    \begin{scope}[shift = {(2.75,0.9625)}, rotate = 1260.51]
-        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
-        \draw[fill] (0,-0.3) circle (0.6pt);
-        \draw[fill,gray] (0,0) circle (0.8pt);
-    \end{scope}
-        
-\end{tikzpicture}
-\caption{Quando arremessamos um bastão com uma velocidade de rotação, o movimento efetuado por cada partícula é bastante complexo, porém o centro de massa descreve uma parábola.}
-\end{marginfigure}
-
-Outro caso em que o movimento do centro de massa é mais simples de se descrever é o das partes de um projétil após sua explosão. Imagine que um projétil seja lançado com velocidade $\vec{v}_0$ fazendo um ângulo $\theta$ com a horizontal, sendo que ele explode antes de tocar o solo. Cada uma das partículas que compunham o projétil serão sujeitas a forças muito intensas durante a explosão, tendo suas trajetórias alteradas. Da mesma maneira que para o lançamento de um corpo rígido, sabemos que a força externa resultante sobre as partículas após a explosão será simplesmente\footnote{Estamos desprezando o efeito da força de arrasto.} a soma da força peso de cada uma delas, o que implica em uma força peso igual àquela do projétil antes da explosão:
-\begin{align}
-	\vec{F}_{R}^{\rm{ext}} &= \sum_i^N \vec{P}_i \\
-		&= \vec{P} \\
-		&= M\vec{g}.
-\end{align}
-%
-Logo,
-\begin{align}
-    M a_{\rm{CM}} &= M g \\
-    a_{\rm{CM}} &= g.
-\end{align}
-
-O fato de que as forças durante a explosão são internas implica então em uma igualdade entre a velocidade do centro de massa antes e depois da explosão, pois a aceleração do centro de massa é nula. Logo, se a velocidade do centro de massa não é alterada, e ele continua sujeito à mesma força após a explosão, concluímos que \emph{a desintegração do projétil não altera a trajetória do centro de massa}.
-
-\begin{marginfigure}[-3cm]
-\centering
-\begin{tikzpicture}[>=Stealth, decoration=bumps]
-    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
-    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
-    
-    \draw[smooth, samples=1000, domain=0:2.33] plot (\x, {2*\x - 0.6*\x*\x});
-    \draw[densely dotted, smooth, samples=1000, domain=2.33:3.33] plot (\x, {2*\x - 0.6*\x*\x});
-    
-    \coordinate (O) at (0,0);
-    \coordinate (A) at (1,0);
-    \coordinate (B) at (63.434948823:1);
-       
-	\draw[->, thick] (0,0) -- (63.43:1.5) node[above]{$\vec{v}_0$};
-    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
-
-	\draw[decorate] (2.33, 1.4) circle (2mm);
-        
-\end{tikzpicture}
-\caption{Em uma explosão, as forças efetuadas sobre as várias partes do corpo que explode são internas. Nesse caso, o movimento do centro de massa não é afetado.\label{Fig:ExplosaoProjetil}}
-\end{marginfigure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Centro de massa de um sistema de partículas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Para determinarmos a posição do centro de massa de um sistema de partículas, basta partirmos das Equações~\eqref{Eq:SegundaLeiSistemaDeParticulas} e~\eqref{Eq:defPosCMEmTermosDeForcaRes} para a força resultante externa. Igualando ambas as expressões, temos que
-\begin{align}
-    M \frac{d^2}{dt^2} \vec{r}_{\rm{CM}} &= \frac{d}{dt} \vec{P}_{\rm{sis}} \\
-    &= \frac{d}{dt} \sum_{i} m_i \vec{v}_i \\
-    &= \frac{d}{dt} \sum_{i} m_i \frac{d}{dt} \vec{r}_i \\
-    &= \frac{d^2}{dt^2} \sum_{i} m_i \vec{r}_i,
-\end{align}
-%
-onde assumimos que a massa de cada partícula é constante. Como a massa total $M$ é simplesmente a soma das massas das partículas, ela também é constante, logo
+ou seja, é o momento linear do sistema em tal referencial. Já o segundo termo pode ser escrito como
 \begin{equation}
-    \frac{d^2}{dt^2} \vec{r}_{\rm{CM}} =  \frac{d^2}{dt^2} \frac{1}{M} \sum_{i} m_i \vec{r}_i.
+    \sum m_i \vec{v}_{S'S} = M \vec{v}_{S'S},
 \end{equation}
 %
-A expressão acima só é verdadeira se a posição do centro de massa for dada por
+onde a variável $M$ representa a massa total do sistema:
+\begin{equation}
+    M = \sum m_i.
+\end{equation}
+%
+Assim, podemos escrever
+\begin{equation}
+    \vec{P}_{sis, S} = \vec{P}_{sis, S'} + M \vec{v}_{S'S}.
+\end{equation}
+
+Note que existe um referencial $S'_0$ em específico para o qual o momento linear $\vec{P}_{sis, S'_0}$ do sistema é nulo. Nesse caso, dizemos que \emph{o sistema se encontra em repouso em relação a tal sistema de referência}. Podemos substituir $\vec{P}_{sis, S'_0}$ por zero na equação anterior e obter a velocidade $\vec{v}_{S'_0S}$ de tal sistema de referência em relação ao referencial $S$:
+\begin{align}
+    \vec{v}_{S'_0S} &= \frac{\vec{P}_{sis, S}}{M} \label{Eq:MomSis}\\
+    &= \frac{\sum m_i \vec{v}_{i,S}}{M}. \label{Eq:SomaVelPart}
+\end{align}
+%
+Se o sistema como um todo se encontra em repouso no referencial $S'_0$, podemos dizer que a velocidade $\vec{v}_{S'_0S}$ descreve um ``comportamento coletivo'' do sistema em relação ao referencial $S$. Além disso, verificamos através da Equação~\eqref{Eq:MomSis} que o momento linear do sistema segue uma relação análoga ao momento linear de uma partícula de massa $M$, desde que consideremos que a velocidade do sistema seja a ``velocidade coletiva'' $\vec{v}_{S'_0S}$:
+\begin{equation}
+    \vec{P}_{sis, S} = M \vec{v}_{S'_0S}.
+\end{equation}
+%
+Finalmente, podemos considerar que a velocidade $\vec{v}_{S'_0S}$ dada pela Equação~\eqref{Eq:SomaVelPart} pode ser escrita como a derivada de
 \begin{equation}\label{Eq:CMConjuntoDeParticulas}
-    \vec{r}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{r}_i. \mathnote{Centro de massa de um conjunto de partículas}
+    \vec{r}_{\text{CM}} = \frac{\sum m_i \vec{r}_{i,S}}{M}. \mathnote{Posição do centro de massa de um sistema de partículas}
+\end{equation}
+
+Essa posição é denominada como \emph{centro de massa} do sistema de partículas no referencial $S$. Se a velocidade $\vec{v}_{S'_0S}$ representa uma ``velocidade do sistema'', então a posição do centro de massa representa uma ``posição do sistema''. Adotando essa nova nomenclatura, podemos denotar $\vec{v}_{S'_0S}$ como a \emph{velocidade do centro de massa} e até mesmo definir uma aceleração do centro de massa:
+\begin{align}
+    \vec{v}_{\text{CM}} = \frac{d}{dt}\vec{r}_{\text{CM}} &= \frac{\sum m_i \vec{v}_{i,S}}{M} \mathnote{Velocidade do centro de massa de um sistema de partículas} \label{Eq:VelCMPart}\\
+    \vec{a}_{\text{CM}} = \frac{d}{dt}\vec{v}_{\text{CM}} &= \frac{\sum m_i \vec{a}_{i,S}}{M}. \mathnote{Aceleração do centro de massa de um sistema de partículas} \label{Eq:AcelCMPart}
+\end{align}
+%
+Note ainda que, através da definição $\vec{v}_{\text{CM}} \equiv \vec{v}_{S'_0S}$  o momento linear do sistema pode ser escrito como
+\begin{equation}
+    \vec{P}_{sis,S} = M\vec{v}_{\text{CM}},
+\end{equation}
+%
+e por isso também é conhecido como \emph{momento linear do centro de massa}.
+    
+Veremos nas demais seções desse capítulo que muitas grandezas físicas relativas a um sistema de partículas podem ser determinadas de uma maneira mais simples ao utilizarmos as propriedades do centro de massa. Além disso, muitas vezes é mais fácil analisar um fenômeno se considerarmos que o sistema é substituido por uma partícula cuja massa total é igual à massa total do sistema, e que ocupa a posição do centro de massa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Centro de massa de um sistema de partículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para determinarmos a posição do centro de massa de um sistema de partículas, basta utilizarmos a expressão
+\begin{equation}
+    \vec{r}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{r}_i.
 \end{equation}
 %
 Note que a equação acima pode ser decomposta nos eixos $x$, $y$, e $z$:
@@ -333,8 +208,6 @@ Note que a equação acima pode ser decomposta nos eixos $x$, $y$, e $z$:
     z_{\rm{CM}} &= \frac{1}{M} \sum_{i} m_i z_i
 \end{align}
 \end{subequations}
-%
-Veja também que o centro de massa não precisa estar localizado em um ponto que ``pertença'' a um corpo: no caso de duas partículas de mesma massa, por exemplo, separadas por uma distância $d$, a posição do centro de massa é ao longo da reta que une ambas as partículas, a uma distância $d/2$ de cada uma delas.
 
 \begin{marginfigure}
 \centering
@@ -349,13 +222,7 @@ Veja também que o centro de massa não precisa estar localizado em um ponto que
 \caption{O centro de um conjunto de corpos pode estar localizado no espaço entre eles.}
 \end{marginfigure}
 
-Finalmente, devemos notar que as demais variáveis cinemáticas podem ser obtidas através da equação para a posição, bastando utilizar derivadas:
-\begin{align}
-    \vec{v}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{v}_i \label{Eq:VelCMPart}\\
-    \vec{a}_{\rm{CM}} = \frac{1}{M} \sum_{i} m_i \vec{a}_i. \label{Eq:AcelCMPart}
-\end{align}
-%
-É interessante notar a partir das expressões acima que se não há um ``movimento coletivo'' das partículas do sistema, como o que acontece para um corpo rígido, os valores de velocidade e aceleração do centro de massa que é difícil de prever intuitivamente.
+\noindent{}Veja também que o centro de massa não precisa estar localizado em um ponto que ``pertença'' a um corpo: no caso de duas partículas de mesma massa, por exemplo, separadas por uma distância $d$, a posição do centro de massa é ao longo da reta que une ambas as partículas, a uma distância $d/2$ de cada uma delas. Note ainda que que as demais variáveis cinemáticas, obtidas através das derivadas da equação para a posição $\vec{r}_{\text{CM}}$, também podem ser decompostas nos eixos $x$, $y$, e $z$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Centro de massa de um conjunto de partículas}
@@ -487,6 +354,153 @@ Assim, obtemos
 \begin{equation}
     \vec{a}_{\text{CM}} = \np[m/s^2]{8,0} \; \versi + \np[m/s^2]{2.45} \;\versj.
 \end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Segunda Lei de Newton para o centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para um sistema de partículas, a Segunda Lei de Newton é dada por
+\begin{equation}
+    \vec{F}_{R}^{\rm{ext}} = \frac{d}{dt}\vec{P}_{\rm{sis}}.
+\end{equation}
+%
+Através do conceito de centro de massa, podemos escrever o momento linear do sistema como
+\begin{equation}
+    \vec{P}_{sis} = M\vec{v}_{\text{CM}}.
+\end{equation}
+%
+Substituindo essa última expressão na anterior, podemos escrever
+\begin{equation}
+    \vec{F}_{R}^{\rm{ext}} = M\vec{a}_{\text{CM}}.
+\end{equation}
+
+\begin{marginfigure}[2cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.9,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
+    
+    %%
+    
+    \draw[interface] (-0.3,0) -- (4.7, 0);
+    
+    \draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=2mm,coil},decorate] (1.6,0.5) -- (2.9,0.5);
+    \draw (1.5,0.5) -- (1.6,0.5);
+    \draw (2.9,0.5) -- (3,0.5);
+    
+    \draw[pattern = north west lines, pattern color = gray] (3,0) rectangle (4,1);
+    \draw[pattern = north west lines, pattern color = gray] (0.5,0) rectangle (1.5,1);
+    
+    \draw[->, thick] (-0.3,0.5) -- node[above]{$\vec{F}$} (0.5,0.5);
+    
+\end{tikzpicture}
+\caption{Ao submetermos um sistema como o mostrado na figura a uma força $\vec{F}$, diferentes partes apresentarão diferentes acelerações. Podemos, no entanto, descrever a aceleração \emph{coletiva} do sistema através da aceleração do centro de massa.}
+\end{marginfigure}
+
+Esse resultado nos permite descrever um comportamento coletivo de um sistema de partículas mesmo quando tal comportamento não é completamente evidente. Um exemplo de um sistema que apresenta um comportamento complexo, porém que tem um movimento coletivo simples é caso em que temos dois blocos de massa $m$ ligados por uma mola, e que podem deslisar sobre uma superfície sem atrito. Ao exercermos uma força $\vec{F}$ lateral sobre um dos blocos, a aceleração de cada um deles será diferente, variando conforme o estado da compressão/distensão da mola: inicialmente a mola estará relaxada e a aceleração do bloco da esquerda será dada por
+\begin{equation}
+    a = \frac{F}{m},
+\end{equation}
+%
+enquanto a aceleração do bloco da direita é nula. Conforme a mola for comprimida, a aceleração do bloco da esquerda diminui, enquanto a do bloco da direita aumenta. A diferença entre as acelerações leva também a uma diferença inicial de velocidades dos blocos, o que dá origem a um movimento oscilatório entre eles. Apesar de esse comportamento ser complexo, se nos afastarmos o suficiente do sistema, não conseguimos distinguir o comportamento individual dos blocos, mas somente uma aceleração coletiva\footnote{Nesse problema, se a força externa dá somente um impulso inicial, é possível escrever a posição dos blocos em relação ao um referencial fixado no centro de massa, obtendo equações relativamente simples. A ideia de descrever o sistema no referencial do centro de massa é bastante frutífera em vários fenômenos.} dada por
+\begin{align}
+    a &= \frac{F_R^{\rm{ext}}}{2m} \\
+    &= \frac{F_R^{\rm{ext}}}{M} \\
+    &\equiv a_{\rm{CM}}.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, decoration=bumps]
+    \draw[->] (0,0) -- (4,0) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,2) node[below left]{$y$};
+    
+    \draw[smooth, samples=1000, domain=0:2.33] plot (\x, {2*\x - 0.6*\x*\x});
+    \draw[densely dotted, smooth, samples=1000, domain=2.33:3.33] plot (\x, {2*\x - 0.6*\x*\x});
+    
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (1,0);
+    \coordinate (B) at (63.434948823:1);
+       
+	\draw[->, thick] (0,0) -- (63.43:1.5) node[above]{$\vec{v}_0$};
+    \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = A--O--B};
+
+	\draw[decorate] (2.33, 1.4) circle (2mm);
+        
+\end{tikzpicture}
+\caption{Em uma explosão, as forças efetuadas sobre as várias partes do corpo que explode são internas. Nesse caso, o movimento do centro de massa não é afetado.\label{Fig:ExplosaoProjetil}}
+\end{marginfigure}
+
+Outro caso em que o movimento do centro de massa é mais simples de se descrever é o das partes de um projétil após sua explosão. Imagine que um projétil seja lançado com velocidade $\vec{v}_0$ fazendo um ângulo $\theta$ com a horizontal, sendo que ele explode antes de tocar o solo. Cada uma das partículas que compunham o projétil serão sujeitas a forças muito intensas durante a explosão, tendo suas trajetórias alteradas. Da mesma maneira que para o lançamento de um corpo rígido, sabemos que a força externa resultante sobre as partículas após a explosão será simplesmente\footnote{Estamos desprezando o efeito da força de arrasto.} a soma da força peso de cada uma delas, o que implica em uma força peso igual àquela do projétil antes da explosão:
+\begin{align}
+	\vec{F}_{R}^{\rm{ext}} &= \sum_i^N \vec{P}_i \\
+		&= \vec{P} \\
+		&= M\vec{g}.
+\end{align}
+%
+Logo,
+\begin{align}
+    M a_{\rm{CM}} &= M g \\
+    a_{\rm{CM}} &= g.
+\end{align}
+%
+Como a aceleração do centro de massa é a mesma antes, durante, e depois da explosão, concluímos que \emph{a desintegração do projétil não altera a trajetória do centro de massa}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema de Mozzi-Chasles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    
+    \draw[dotted, smooth, samples=1000, domain=0:3.33] plot ({1*\x}, {2*\x - 0.6*\x*\x});
+    \draw[smooth, samples=1000, domain=0:3.1] plot ({1*\x-0.3*sin(8*\x r)}, {2*\x - 0.6*\x*\x - 0.3*cos(8*\x r)});
+    
+    \begin{scope}
+        \draw [rotate = 90] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+        \draw[fill] (0,0) circle (0.8pt);
+    \end{scope}
+
+    \begin{scope}[shift = {(1.25,1.5625)}, rotate = 572.96]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.285) circle (0.6pt);
+        \draw[fill, gray] (0,0) circle (0.8pt);
+    \end{scope}
+    
+    \begin{scope}[shift = {(2.75,0.9625)}, rotate = 1260.51]
+        \draw [rotate = 90, gray] (-1,-0.1) rectangle (1,0.1);
+        \draw[fill] (0,-0.3) circle (0.6pt);
+        \draw[fill,gray] (0,0) circle (0.8pt);
+    \end{scope}
+        
+\end{tikzpicture}
+\caption{Quando arremessamos um bastão com uma velocidade de rotação, o movimento efetuado por cada partícula é bastante complexo, porém o centro de massa descreve uma parábola.\label{Fig:BastaoArremessadoGirandoLancObliquo}}
+\end{marginfigure}
+
+Devido às rotações, movimentos complexos podem ocorrer mesmo ao considerarmos corpos rígidos. Se arremessarmos um corpo extenso em um lançamento oblíquo, verificaremos que para as diferentes partículas do corpo o movimento é em geral muito mais complexo que uma parábola: temos um movimento em que o corpo gira conforme executa a translação, o que confere a cada partícula do corpo uma posição, velocidade e aceleração diferente. No entanto, como a única força externa exercida sobre o corpo é a força peso, verificamos que a aceleração do centro de massa é dada por
+\begin{align}
+    a_{\rm{CM}} &= \frac{F_R^{\rm{ext}}}{M} \\
+    &= \frac{Mg}{M} \\
+    &= g.
+\end{align}
+%
+Note que a força resultante externa é dada pela soma das forças peso das diversas partículas que compõe o corpo:
+\begin{align}
+    F_R^{\rm{ext}} &= \sum_{i=1}^N P_i \\
+    &= \sum_{i=1}^N m_i g \\
+    &= \left[\sum_{i=1}^N m_i\right] g \\
+    &= M g.
+\end{align}
+%
+O resultado acima para a aceleração do centro de massa mostra que a trajetória $\vec{r}_{\rm{CM}}(t)$ tem a forma de uma parábola.
+
+Apesar de o movimento de cada partícula em separado ser muito complexo em um lançamento como o retratado na Figura~\ref{Fig:BastaoArremessadoGirandoLancObliquo}, eles podem ser descritos como \emph{uma rotação em torno de um eixo que passa pelo centro de massa} associado a \emph{uma translação do centro de massa}. O teorema que garante essa possibilidade é conhecido como \emph{Teorema de Mozzi-Chasles}, ou simplesmente como \emph{Teorema de Chasles}. Sua prova é dada na Seção~\label{Sec:DeducaoTeoremaDeMozziChasles}, porém exige conhecimentos de Cálculo vetorial. Como verificamos acima, a translação do centro de massa equivale à translação de uma partícula. Já a questão das rotações será tratada nos Capítulos~\ref{Chap:Rotacoes} e~\ref{Chap:MomentoAngular}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determinação da posição do Centro de massa de um corpo extenso}
@@ -1678,7 +1692,7 @@ A partir da Expressão~\eqref{Eq:SegundaLeiSistemaDeParticulas} para a Segunda L
 
 Sabemos que a definição de um sistema é arbitrária. Nesse caso, podemos o escolher de maneira que a \emph{a força resultante externa seja nula}. Nesse caso, temos que o momento linear do sistema de partículas deve se manter constante, já que
 \begin{equation}
-	\vec{F}_R^{\rm{ext}} = \frac{d}{dt} \vec{P}.
+	\vec{F}_R^{\rm{ext}} = \frac{d}{dt} \vec{P}_{sis}.
 \end{equation}
 %
 Isso significa que \emph{se a força resultante externa é zero, então o momento linear total do sistema se mantém constante, não importando que interações aconteçam entre as partículas}. Consequentemente, entre dois instantes inicial $i$ e final $f$ quaisquer, temos que:
@@ -2463,12 +2477,12 @@ Além disso, calor e radiação não são aspectos relevantes em uma colisão. I
     \Delta E_{\rm{mec}} + \Delta E_{\rm{int}} = 0,
 \end{equation}
 %
-ou seja, \emph{a energia total do sistema é constante}. Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno, podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:
+ou seja, \emph{a energia total do sistema é constante}. \textbf{Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno (isso não é razoável para uma colisão entre duas partículas carregadas, por exemplo; acho melhor pensas que a variação da energia potencial entre os estados imediatamente antes e imediatamente depois da colisão é aproximadamente zero), podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:}\footnote{\textbf{Mudar isso, no exemplo da mola abaixo temos o potencial elástico. Aí fica a dúvida: o que determina que a colisão é elástica? a variação da energia interna ser zero, ou a variação da energia cinética ser zero? Então, na real acho que precisa ser definido através da energia cinética mesmo, por que as equações para colisões unidimensionais elásticas assumem que a energia cinética total é constante. Por outro lado, o Landau e Lifschitz Mechanics diz com todas as letras que o estado interno não muda.}}
 \begin{equation}
     \Delta K_{\text{sis}} + \Delta E_{\text{sis}}^{\text{int}} = 0.
 \end{equation}
 
-O resultado acima é válido para toda colisão e nos permite dividí-las em dois tipos:
+\textbf{O resultado acima é válido para toda colisão e nos permite dividí-las em dois tipos:}
 \begin{description}
     \item[Colisões elásticas:] colisões onde a energia cinética total dos corpos que colidem não varia. Correspondentemente, não há variação da soma ds energias internas dos corpos.
     
@@ -2793,6 +2807,7 @@ Esse resultado só é possível se
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\textbf{Fazer alguma coisa em 2D, mas ainda considerando partículas.}
+% Dar uma olhada no Landau e Lifschitz Mechanics, tem uns resultados interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Colisão de corpos reais} 
@@ -2805,6 +2820,13 @@ Esse resultado só é possível se
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\textbf{Discutir o fato de que o momento linear depende do referencial inercial adotado, porém que sua variação não. De alguma maneira, mostrar que é a variação que importa.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dedução do Teorema de Mozzi-Chasles}
+\label{Sec:DeducaoTeoremaDeMozziChasles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Fazer igual ao Kleppner, página 274.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Questões}
