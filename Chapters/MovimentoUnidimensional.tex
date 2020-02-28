@@ -17,11 +17,11 @@ O primeiro passo para que possamos estudar a mecânica é a definição das vari
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%
 
-Diversos sistemas físicos interessantes exibem movimento. A \emph{cinemática} é a área da física que se preocupa em descrever o movimento sem se preocupar com a causa de tal fenômeno: Estamos interessados em descrever a série de posições diferentes no espaço ocupadas por um corpo qualquer conforme o tempo progride. Além disso, também estamos interessados em descrever as características dessa evolução temporal da posição. Para isso, basta definir três grandezas principais ---~a posição, a velocidade, e a aceleração~---.
+A \emph{cinemática} é a área da física que se preocupa em descrever o movimento de um corpo sem se preocupar com a causa de tal fenômeno: Estamos interessados em descrever a série de posições diferentes no espaço ocupadas por um corpo qualquer conforme o tempo progride. Além disso, também estamos interessados em descrever as características dessa evolução temporal da posição. Para isso, basta definir três grandezas principais ---~a posição, a velocidade, e a aceleração~---.
 
-Apesar de termos uma noção cotidiana de tais grandezas, veremos que em alguns casos teremos na Física definições que diferem dessas noções cotidianas devido ao fato de que estas não são úteis ou precisas. Como estamos interessados em uma descrição \emph{quantitativa}, utilizaremos a linguagem matemática como base para tais definições, nos valendo de vários objetos matemáticos (números, equações, funções, gráficos, limites, vetores, etc.), bem como de técnicas para trabalhar com tais objetos.
+Apesar de termos uma noção cotidiana de tais grandezas, veremos que em alguns casos teremos na Física definições que diferem dessas noções cotidianas devido ao fato de que estas não são úteis ou precisas. Como estamos interessados em uma descrição \emph{quantitativa}, utilizaremos a linguagem matemática como base para tais definições, nos valendo de vários conceitos matemáticos (números, equações, funções, gráficos, limites, vetores, etc.), bem como de técnicas para trabalhar com tais conceitos.
 
-O tratamento matemático utilizado neste texto é propositalmente simplificado, sendo adequado a um nível de Física Básica do ensino superior. Sendo assim, o texto considera que o leitor não tem conhecimento de Cálculo Diferencial e Integral, mas que está cursando uma disciplina sobre o assunto. Tendo isso em mente, ferramentas de Cálculo serão apresentadas e empregadas aos poucos, porém sempre no sentido de apresentar resultados importantes, não sendo exigidos como um conhecimento do aluno\footnote{Algumas seções opcionais podem exigir um conhecimento sólido em Cálculo.}. Neste primeiro capítulo, são exigidos como conhecimentos prévios \emph{operações básicas, equações, funções, gráficos,} e \emph{área de figuras planas} somente.
+O tratamento matemático utilizado neste texto é propositalmente simplificado, sendo adequado a um nível de Física Básica do ensino superior. Sendo assim, o texto considera que o leitor não tem conhecimento de Cálculo Diferencial e Integral, mas que está cursando uma disciplina sobre o assunto. Tendo isso em mente, ferramentas de Cálculo serão apresentadas e empregadas aos poucos, porém sempre no sentido de apresentar resultados importantes\footnote{Algumas seções opcionais podem exigir um conhecimento sólido em Cálculo.}. Neste primeiro capítulo, são exigidos como conhecimentos prévios \emph{operações básicas, equações, funções, gráficos,} e \emph{área de figuras planas} somente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimento unidimensional}
@@ -119,7 +119,7 @@ Tal descrição ainda é insuficiente, pois podemos ter outro objeto que pode es
 
 Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para descrever a posição:
 
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
 \begin{tikzpicture}[
      >=Stealth,
@@ -151,30 +151,30 @@ Podemos denotar o sentido por um sinal se adotarmos a \emph{reta real} para desc
         \draw (-\x cm,-0.4) -- (-\x cm,-0.6)
             node[below]{\small{$\mathllap{-}\x$}};
 \end{tikzpicture}
-\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferenciar posições nos diferentes sentidos do eixo através de um\emph{sinal positivo} ou de um sinal \emph{negativo}.\label{Fig:dois_blocos}}
+\caption{Podemos utilizar a reta real para descrever a posição de um corpo. Desta forma, podemos diferenciar posições nos diferentes sentidos do eixo através de um \emph{sinal positivo} ou de um sinal \emph{negativo}.\label{Fig:dois_blocos}}
 \end{figure}
 
-\noindent{}onde temos que as posições dos blocos são dadas por
+\noindent{}onde temos que as posições dos blocos da esquerda e da direita são dadas por
 \begin{equation}
     x_1 = \np[m]{-3},
 \end{equation}
 %
-para o bloco da esquerda, e
+e
 \begin{equation}
     x_2 = \np[m]{3},
 \end{equation}
 %
-para o bloco da direita.
+respectivamente.
 
 Uma reta numerada como a mostrada na figura acima é denominada como \emph{eixo coordenado}. A descrição de movimentos bi e tridimensionais necessita de mais do que um eixo coordenado, por isso é comum que eles sejam diferenciados através das denominações $x$, $y$ e $z$. Para um deslocamento unidimensional, em geral denominamos tal eixo como um \emph{eixo $x$}. A direção do eixo é arbitrária, podendo ser horizontal, vertical\footnote{Ao tratarmos de movimentos unidimensionais verticais, por exemplo, podemos utilizar $x$. Quando trabalhamos em duas dimensões, no entanto, é preferível que o eixo vertical seja denominado $y$.} ou mesmo inclinada, bastando ser na direção do movimento unidimensional. O sentido positivo do eixo também é arbitrário, e podemos fazer essa escolha livremente: poderíamos, por exemplo, ter adotado o sentido positivo para a esquerda na Figura~\ref{Fig:dois_blocos}. Apesar de isso alterar os sinais dos valores numéricos associados às posições, a descrição delas continua possível e sem ambiguidades.
 
-Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial. Fisicamente, no entanto, o deslocamento ao longo da estrada estaria sujeito a mudanças de velocidade e aceleração verticais e laterais que indicam que uma descrição utilizando somente a distância percorrida ao longa da estrada não é capaz de contemplar apropriadamente as propriedades físicas de tal fenômeno. De fato, o deslocamento ao longo da estrada é um fenômeno tridimensional, sendo que a distância percorrida ao longo da estrada é somente um parâmetro associado à descrição do formato da estrada.
+Em alguns casos, podemos utilizar a distância até a origem para expressar a posição mesmo para um movimento que não é retilíneo, caso não haja ambiguidade em relação à definição da localização. Um exemplo disso são estradas nas quais se utilizam marcadores de distância. Se necessitamos declarar o endereço de uma propriedade ao longo de uma rodovia, podemos utilizar a distância em relação a um marco inicial. Apesar de esse claramente não ser um caso unidimensional, pois o deslocamento não será em uma linha reta, podemos marcar um ponto de maneira única através da distância \emph{ao longo} da estrada até o marco inicial. Fisicamente, no entanto, o deslocamento ao longo da estrada estaria sujeito a mudanças de velocidade e aceleração verticais e laterais que indicam que uma descrição utilizando somente a distância percorrida ao longa da estrada não é capaz de contemplar apropriadamente as propriedades físicas de tal fenômeno. De fato, o deslocamento ao longo da estrada é um fenômeno tridimensional, sendo que a distância percorrida ao longo dela a é somente um parâmetro associado à descrição do formato da estrada.
 
 %%%%%%%%%%%%%%%%%%%%
 \paragraph{Unidades}
 %%%%%%%%%%%%%%%%%%%%
 
-Como visto no capítulo anterior\footnote{Ainda não escrevi, mas vai tratar sobre unidades.}, a maioria das medidas físicas têm uma dimensão. No caso da posição, como ela é descrita através de uma medida de distância entre a origem e a posição do corpo, temos que a dimensão é a de \emph{comprimento} e ---~no Sistema Internacional~--- suas unidades são o metro.
+Como visto no capítulo anterior, a maioria das medidas físicas têm uma dimensão. No caso da posição, como ela é descrita através de uma medida de distância entre a origem e a posição do corpo, temos que a dimensão é a de \emph{comprimento} e ---~no Sistema Internacional~--- suas unidades são o metro.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Deslocamento}
@@ -187,9 +187,9 @@ Vamos considerar um deslocamento do bloco da direita na Figura~\ref{Fig:dois_blo
   &= -\np[m]{4,0}.
 \end{align}
 %
-O sinal negativo significa que o deslocamento se deu no \emph{sentido negativo do eixo}, isto é, para a esquerda\footnote{Lembre-se que o sentido do eixo é arbitrário. Nesse caso o sentido positivo é para a direita e o negativo, consequentemente, para a esquerda}. Ao aferirmos a distância percorrida, o valor da medida não é suficiente para descrevermos o deslocamento: temos que declarar que o deslocamento foi para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou seja, no sentido negativo do eixo)\footnote{Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.}, da mesma forma que a posição. Se o deslocamento fosse no sentido positivo do eixo, o resultado do cálculo de $\Delta x$ seria positivo. 
+O sinal negativo significa que o deslocamento se deu no \emph{sentido negativo do eixo}, isto é, para a esquerda\footnote{Lembre-se que o sentido do eixo é arbitrário. Nesse caso o sentido positivo é para a direita e o negativo, consequentemente, para a esquerda}. Ao aferirmos a distância percorrida, o valor da medida não é suficiente para descrevermos o deslocamento: temos que declarar que ele foi para a esquerda. Portanto, o deslocamento tem um módulo (\np[m]{4,0}), uma direção (ao longo do eixo $x$) e um sentido (para a esquerda, ou seja, no sentido negativo do eixo),\footnote{Veremos mais adiante que essas propriedades são características de vetores e serão muito importantes para descrevermos o movimento em duas e três dimensões.} da mesma forma que a posição. Se o deslocamento fosse no sentido positivo do eixo, o resultado do cálculo de $\Delta x$ seria positivo. 
 
-Claramente temos que se as posições inicial e final\footnote{Outra questão que devemos destacar é a de que os pontos que classificamos como \emph{inicial} e \emph{final} são arbitrários, isto é, são escolhidos conforme a necessidade e a conveniência de cada situação. Identificá-los adequadamente exige um pouco de prática, uma vez que não há uma regra para os escolher.} são iguais, o deslocamento será zero. Apesar de a utilidade de tal definição ser pouco evidente agora, veremos adiante que isso faz sentido para as grandezas físicas, pois no caso de uma força conservativa ---~por exemplo~--- temos que o trabalho é nulo quando o deslocamento é zero.
+Claramente temos a partir da definição dada acima a consequência de que que se as posições inicial e final\footnote{Outra questão que devemos destacar é a de que os pontos que classificamos como \emph{inicial} e \emph{final} são arbitrários, isto é, são escolhidos conforme a necessidade e a conveniência de cada situação. Identificá-los adequadamente exige um pouco de prática, uma vez que não há uma regra para os escolher.} são iguais, o deslocamento será zero. Apesar de a utilidade de tal definição ser pouco evidente agora, veremos adiante que isso faz sentido para as grandezas físicas, pois no caso de uma força conservativa ---~por exemplo~--- temos que o trabalho é nulo quando o deslocamento é zero.
 
 %%%%%%%%%%%%%%%%%%%%
 \paragraph{Unidades}
@@ -201,7 +201,7 @@ O deslocamento é dado através da diferença entre posições. Como vimos no ca
 \subsection{Deslocamento escalar}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Algo importante a se notar é que o deslocamento pode ser descrito como a \emph{diferença} entre os valores de posição ocupadas por um corpo em dois valores de tempo distintos. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial ---~a garagem, por exemplo~--- será diferente para cada momento do dia. Quando o veículo retorna à garagem, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado como \emph{deslocamento escalar}\footnote{Apesar de ser algo mais ligado à nossa experiência cotidiana de deslocamento, o deslocamento escalar será de pouca utilidade.} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
+Algo importante a se notar é que o deslocamento pode ser descrito como a \emph{diferença} entre os valores de posição ocupadas por um corpo em dois valores de tempo distintos. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial será diferente para cada momento do dia. Quando o veículo retorna à posição inicial, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado como \emph{deslocamento escalar}\footnote{Apesar de ser algo mais ligado à nossa experiência cotidiana de deslocamento, o deslocamento escalar será de pouca utilidade.} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
 \begin{equation}
   d_s = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
 \end{equation}
@@ -324,8 +324,8 @@ Consequentemente, no SI, a velocidade tem unidades de $\rm{m}/\rm{s}$.
     \node[below](b)at(3,0){$t_f$};
     \path[name path=froma](a)--+(0,4);
     \path[name path=fromb](b)--+(0,4);
-    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_1$};
-    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_2$};
+    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_i$};
+    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_f$};
     
     % linha entre as duas interseções (as coordenadas foram salvas acima)
     \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
@@ -361,8 +361,8 @@ Traçando uma reta horizontal e uma vertical, podemos completar um triângulo re
     \node[below](b)at(3,0){$t_f$};
     \path[name path=froma](a)--+(0,4);
     \path[name path=fromb](b)--+(0,4);
-    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_1$};
-    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_2$};
+    \draw[dotted, thin,name intersections={of=froma and plot}](a)--(intersection-1) coordinate (plot-a-intersection)--(0,0|-intersection-1)node[left]{$x_i$};
+    \draw[dotted, thin, name intersections={of=fromb and plot}](b)--(intersection-1) coordinate (plot-b-intersection)--(0,0|-intersection-1)node[left]{$x_f$};
     
     % linha entre as duas interseções (as coordenadas foram salvas acima)
     \draw[extended line, dashed] (plot-a-intersection) -- (plot-b-intersection);
@@ -405,7 +405,7 @@ isto é, \emph{a inclinação da reta que une os pontos correspondentes aos inst
 %
 Assim, se a inclinação da reta $\overline{AB}$ que liga os pontos $A$ e $B$ na Figura~\ref{Fig:Interp_graf_vel_med_diff} é maior que a inclinação da reta $\overline{CD}$ que liga os pontos $C$ e $D$, temos que a velocidade média é maior no intervalo de tempo $[t_A, t_B]$ do que no intervalo $[t_C, t_D]$.
 
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -530,7 +530,9 @@ Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressiva
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinal da velocidade à partir da inclinação da reta tangente, velocidade nula}
 
-\begin{marginfigure}
+Podemos inferir o sinal da velocidade em um ponto $P$ qualquer de um gráfico $x\times t$ através da inclinação da reta tangente à curva no ponto $P$: 
+
+\begin{marginfigure}[-1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -577,8 +579,6 @@ Esse processo de aproximações sucessivas em que fazemos $\Delta t$ progressiva
 \end{tikzpicture}
 \caption{As inclinações das retas tangentes indicam que em $P_1$ a velocidade é positiva, enquanto em $P_2$ temos uma velocidade negativa.\label{Fig:Interp_graf_vel_med_signs}}
 \end{marginfigure}
-
-Podemos inferir o sinal da velocidade em um ponto $P$ qualquer de um gráfico $x\times t$ através da inclinação da reta tangente à curva no ponto $P$: 
 \begin{description}
     \item[Inclinação positiva:] Se temos uma inclinação positiva, ou seja, temos um ângulo entre a reta tangente e a horizontal como o denotado por $\theta_1$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, temos uma velocidade positiva. Isso se deve ao fato de que, de acordo com a curva $x(t)$, um aumento \emph{infinitesimal}\footnote{Isto é, um aumento $\Delta t$ que tende a zero.} no valor da variável $t$ em relação ao valor dessa variável em $P_1$ leva a um aumento na variável $x$, ou seja, temos $\Delta x > 0$. Consequentemente, a razão $\Delta x / \Delta t > 0$ e $v >0$.
     \item[Inclinação negativa:] Já se tomarmos o ponto $P_2$ na Figura~\ref{Fig:Interp_graf_vel_med_signs}, podemos notar que ao aumentarmos o valor de $t$ em relação ao valor dessa variável em $P_2$, verificamos que o valor de $x$ diminui. Logo, $\Delta x < 0$ e a razão $\Delta x / \Delta t$ também é menor que zero, ou seja, temos $v < 0$.
@@ -848,7 +848,7 @@ Comparando a equação acima com uma \emph{equação da reta},
 %
 percebemos que o gráfico da posição em função do tempo deve seguir uma reta, conforme mostrado (conceitualmente) na Figura~\ref{Fig:GraficoGenericoEvolPosicaoComoReta}.
 
-\begin{figure}[!h]
+\begin{figure}[!h]\forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- (5,0) node[below left]{$t$};
@@ -857,7 +857,7 @@ percebemos que o gráfico da posição em função do tempo deve seguir uma reta
     \draw[thick] (-0.5,1) -- (4.5, 2.5);
     
 \end{tikzpicture}
-\caption{Para o caso de \emph{velocidade constante} temos que o gráfico da velocidade é uma reta. Note que a figura mostra um gráfico conceitual, isto é, ele mostra o comportamento da evolução da posição, mas não valores específicos de $x$ e $t$, já que eles dependem das constantes $x_i$ e $v$. Consequentemente, o canto inferior esquerdo não necessariamente corresponde a $t=0$, $x=0$. \label{Fig:GraficoGenericoEvolPosicaoComoReta}}
+\caption{Para o caso de \emph{movimento com velocidade constante} temos que o gráfico da \emph{posição em função do tempo} é uma reta. Note que a figura mostra um gráfico conceitual, isto é, ele mostra o comportamento da evolução da posição, mas não valores específicos de $x$ e $t$, já que eles dependem das constantes $x_i$ e $v$. Consequentemente, o canto inferior esquerdo não necessariamente corresponde a $t=0$, $x=0$. \label{Fig:GraficoGenericoEvolPosicaoComoReta}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -949,7 +949,7 @@ Para determinar as distâncias percorridas pelo veículos, basta lembrar que
 	\Delta x = v t,
 \end{equation}
 %
-o que resulta em\footnote{Para obter tais resultados, devemos utilizar o tempo com o máximo de dígitos possíveis, ou seja, devemos usar o valor obtido para o tempo antes de truncarmos o resultado ao número adequado de algarismos significativos. Após a obtenção dos valores para $\Delta x_1$ e $\Delta x_2$, devemos eliminar dígitos de acordo com as regras para operações com algarismos significativos e as regras de arredondamento.}
+de onde determinamos que\footnote{Para obter tais resultados, devemos utilizar o tempo com o máximo de dígitos possíveis, ou seja, devemos usar o valor obtido para o tempo antes de truncarmos o resultado ao número adequado de algarismos significativos. Após a obtenção dos valores para $\Delta x_1$ e $\Delta x_2$, devemos eliminar dígitos de acordo com as regras para operações com algarismos significativos e as regras de arredondamento.}
 \begin{align}
 	\Delta x_1 &= (\np[m/s]{25,2})\cdot(\np[s]{150,9}) \\
 	&= \np[km]{3,80} \\

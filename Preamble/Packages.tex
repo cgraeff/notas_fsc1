@@ -59,3 +59,14 @@
 \usepgfplotslibrary{external} 
 \tikzexternalize
 
+% Abaixo vão os comandos para usar vírgula na pontuação das questões nos
+% questionários de cada experiência (as questões em si são formatadas
+% pelo pacote exsheets
+\usepackage[locale=DE]{siunitx}
+\usepackage{tasks}
+\ExplSyntaxOn
+\cs_set_protected:Npn \exsheets_num:n #1
+ {
+  \num{\fp_eval:n{#1}}
+ }
+\ExplSyntaxOff

@@ -1295,6 +1295,7 @@ A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} pa
 
 Se o objeto tem formas complexas, podemos realizar uma divisão em regiões cujos centros de massa possamos determinar por argumentos de simetria, como fizemos nas seções anteriores. Porém, nem sempre uma divisão em cubos é efetiva. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $M_{R_i}$ --~como no caso do cone da Figura~\ref{Fig:CMDiscretizacaoObjeto3D}~--. Claramente uma divisão em cubos não é a melhor escolhar para descrever um cone, porém se eles forem pequenos o suficiente, teremos uma aproximação razoável. Esse tipo de procedimento pode ser implementado em programas de computador com certa facilidade, e podem até mesmo considerar situações onde a massa não é homogênea, já que determinamos a massa de cada cubo individualmente.
 
+\textbf{rever aqui, dar uma olhada num livro de cálculo}
 Se tomarmos cubos extremamente pequenos, temos uma soma que tende a infinitos termos. Esse processo é a própria definição de uma uma integral em duas ou três dimensões sobre a área ou volume no qual se distribui a massa:
 \begin{align}\label{Eq:CMDistContinua}
   \vec{r}_{\textrm{CM}} &= \lim_{N \to \infty} \frac{1}{M} \sum_{i = 1}^N M_{R_i} \vec{r}_{\rm{CM}}^{R_i} \\
@@ -1385,6 +1386,16 @@ Substituindo o resultado acima para a massa no resultado anterior para a posiç�
     &= \frac{2}{3} L.
 \end{align}
     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: centro de massa de um triângulo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Um que não seja equilátero, óbvio.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Centro de massa de um cone}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Ou e um tronco de cone}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Centro de massa de um conjunto de corpos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

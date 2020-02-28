@@ -876,10 +876,10 @@ Apesar de ser mais comum termos as informações de ângulo em relação ao eixo
 Ao analisar uma situação como a resolução de um problema, devemos estar atentos e utilizar a decomposição correta.\footnote{O melhor a se fazer é verificar quais são as expressões para o cálculo das componentes utilizando a própria definição das funções trigonométricas seno e cosseno.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Notação módulo-ângulo}
+\paragraph{Notação módulo-ângulo: coordenadas polares}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Da seção anterior, fica evidente que além de podermos descrever um vetor $\vec{a}$ através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ entre o vetor e um dos eixos de referência, e do módulo $a$ do vetor. Em três dimensões, precisamos dos ângulos $\theta$ e $\phi$ entre o vetor e os eixos de referência, além do próprio módulo do vetor. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
+Da seção anterior, fica evidente que além de podermos descrever um vetor $\vec{a}$ através de suas componentes nos eixos $x$ e $y$, podemos defini-lo completamente em duas dimensões através do ângulo $\theta$ entre o vetor e um dos eixos de referência, e do módulo $a$ do vetor. Um sistema de referências desse tipo é denominado \emph{sistema de coordenadas polares}. Nesta notação, ainda estamos nos valemos da definição dos eixos coordenados, uma vez que eles são utilizados para definir os ângulos. 
 
 Em duas dimensões, podemos observar a partir das Equações~\eqref{Eq:CompX} e~\eqref{Eq:CompY} que
 \begin{align}
@@ -912,20 +912,224 @@ o que nos permite escrever o módulo $a$ do vetor em termos de suas componentes 
     a = \sqrt{a_x^2 + a_y^2}.
 \end{equation}
 %
-Novamente, esse resultado pode ser obtido geometricamente ao empregarmos o teorema de Pitágoras no triângulo mostrado na Figura~\ref{Fig:atan_geometricamente}.
+Novamente, esse resultado pode ser obtido geometricamente ao empregarmos o teorema de Pitágoras em qualquer um dos triângulos mostrados na Figura~\ref{Fig:sis_ref_orto_angulo_eixo_y}.
 
 Portanto, se conhecemos o vetor em termos de duas componentes, podemos calcular seu módulo e o ângulo que ele faz com o eixo horizontal e vice-versa. Concluímos então que as duas notações são completamente equivalentes.
 
-Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do módulo do vetor, através de
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Decomposição de vetores}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Dados três vetores deslocamento $\vec{a}$, $\vec{b}$, e $\vec{c}$, decomponha-os em um sistema de referência ortogonal, composto por um eixo horizontal $x$ e um eixo vertical $y$, sabendo que seus módulos são
+    \begin{align*}
+        a &= \np[m]{3} & b &= \np[m]{4,5} & c &= \np[m]{2.50}
+    \end{align*}
+    %
+    e que fazem ângulos $\theta_a$, $\theta_b$, e $\theta_c$ com o eixo horizontal dados por
+    \begin{align*}
+        \theta_a &= \np[\tcdegree]{20} & \theta_b &= \np[\tcdegree]{36} & \theta_c &= \np[\tcdegree]{58}.
+    \end{align*}
+\end{quote}
+
+\begin{marginfigure}[-3cm]
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
+    
+    \draw[->] (0,0) -- (20:3) coordinate (A) node[above]{$\vec{a}$};
+    \draw[->] (0,0) -- (36:4.5) coordinate (B) node[above]{$\vec{b}$};
+    \draw[->] (0,0) -- (58:2.5) coordinate (C) node[above]{$\vec{c}$};
+    
+    \pic [draw, dotted, angle eccentricity = 1.1, angle radius = 20mm] {angle = X--O--A};
+    \pic [draw, dotted, angle eccentricity = 1.2, angle radius = 15mm] {angle = X--O--B};
+    \pic [draw, dotted, angle eccentricity = 1.3, angle radius = 10mm] {angle = X--O--C};
+    
+\end{tikzpicture}
+\caption{Vetores em relação ao sistema de referência. \label{Fig:Ex:Decomp}}
+\end{marginfigure}
+
+Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fig:Ex:Decomp}. Para determinarmos as componentes, basta utilizarmos as Expressões~\eqref{Eq:CompX} e~\eqref{Eq:CompY}:
+\begin{align*}
+    a_x &= a\cos\theta_a & a_y &= a\sen\theta_a \\
+    &= (\np[m]{3})\cdot(\cos\np[\tcdegree]{20}) & &= (\np[m]{3})\cdot(\sen\np[\tcdegree]{20}) \\
+    &= \np[m]{2,82} & &= \np[m]{1,03} \\
+    \\
+    b_x &= a\cos\theta_a & b_y &= a\sen\theta_a \\
+    &= (\np[m]{4.5})\cdot(\cos\np[\tcdegree]{36}) & &= (\np[m]{4.5})\cdot(\sen\np[\tcdegree]{36}) \\
+    &= \np[m]{3.64} & &= \np[m]{2.65} \\
+    \\
+    c_x &= a\cos\theta_a & c_y &= a\sen\theta_a \\
+    &= (\np[m]{2.5})\cdot(\cos\np[\tcdegree]{58}) & &= (\np[m]{2.5})\cdot(\sen\np[\tcdegree]{58}) \\
+    &= \np[m]{1.32} & &= \np[m]{2.12}.
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Decomposição de vetores em um referencial rotacionado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{30}$. Se um vetor $\vec{a}$ tem módulo $a = \np[m]{2.5}$ e faz um ângulo $\theta = \np[\tcdegree]{45}$ em relação ao eixo horizontal, quais são as componentes do vetor nos eixos do sistema rotacionado?
+\end{quote}
+
+\begin{marginfigure}[-3.5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=0.8]
+
+    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
+    
+    \draw[->] (0,0) -- (30:4) coordinate (Xl) node[below] {$x'$};
+    \draw[->] (0,0) -- (120:3) node[left]{$y'$};
+    
+    \draw[->, thick] (0,0) -- (45:2.5) coordinate (A) node[above]{$\vec{a}$};
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.2, angle radius = 13mm]{angle = X--O--A};
+    \pic [draw, "$\omega$", angle eccentricity = 1.5, angle radius = 5mm]{angle = X--O--Xl};
+    
+\end{tikzpicture}
+\caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRot}}
+\end{marginfigure}
+
+\begin{marginfigure}[5mm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.8]
+
+    \draw[->, densely dotted] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
+    \draw[->, densely dotted] (0,0) -- (0,3) node[below left]{$y$};
+    
+    \draw[->] (0,0) -- (30:4) coordinate (Xl) node[below] {$x'$};
+    \draw[->] (0,0) -- (120:3) node[left]{$y'$};
+    
+    \draw[->, thick] (0,0) -- (45:2.5) coordinate (A) node[above]{$\vec{a}$};
+    
+    \pic [gray,draw, densely dotted, "$\theta$", angle eccentricity = 1.2, angle radius = 10mm]{angle = X--O--A};
+    \pic [gray,draw, densely dotted, "$\omega$", angle eccentricity = 1.5, angle radius = 5mm]{angle = X--O--Xl};
+    \pic [draw, "$\theta'$", angle eccentricity = 1.2, angle radius = 14mm]{angle = Xl--O--A};
+    
+\end{tikzpicture}
+\caption{As componentes do vetor $\vec{a}$ no sistema de referência rotacionado estão ligadas ao valor do ângulo $\theta'$. \label{Fig:Ex:DecompRefRotThetaP}}
+\end{marginfigure}
+
+Para que possamos determinar as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$, precisamos somente determinar o ângulo $\theta'$ que o vetor faz com o eixo $x'$, uma vez que o módulo do vetor é constante. A partir da figura, podemos verificar facilmente que tal ângulo corresponde a
 \begin{align}
-    a &= \sqrt{a_x^2 + a_y^2 + a_z^2} \\
-    \theta &= \arccos \frac{a_z}{r} \\
-    \phi &= \arctan \frac{a_y}{a_x}.
+    \theta' &= \theta - \omega \\
+    &= \np[\tcdegree]{45} - \np[\tcdegree]{30} \\
+    &= \np[\tcdegree]{15}.
+\end{align}
+%
+Assim, temos que
+\begin{align}
+    a_{x'} &= a\cos\theta' & a_{y'} &= a\sen\theta' \\
+    &= (\np[m]{2.5})\cdot(\cos\np[\tcdegree]{15}) & &= (\np[m]{2.5})\cdot(\sen\np[\tcdegree]{15}) \\
+    &\approx \np[m]{2.415} & &\approx \np[m]{0.647}
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Sistema de referência em três dimensões}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Decomposição de vetores em um referencial rotacionado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{20}$. Se um vetor $\vec{a}$ tem componentes $a_x = \np[m]{2}$ e $a_y = \np[m]{1}$, quais são as componentes do vetor nos eixos do sistema rotacionado?
+\end{quote}
+
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 0.8]
+
+    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
+    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
+    
+    \draw[->] (0,0) -- (20:4) coordinate (Xl) node[below] {$x'$};
+    \draw[->] (0,0) -- (105:3) node[left]{$y'$};
+    
+    \draw[->, thick] (0,0) -- (26.565:2.2361) coordinate (A) node[above]{$\vec{a}$};
+    
+    \pic [draw, "$\theta$", angle eccentricity = 1.2, angle radius = 15mm]{angle = X--O--A};
+    \pic [draw, "$\omega$", angle eccentricity = 1.2, angle radius = 10mm]{angle = X--O--Xl};
+    
+\end{tikzpicture}
+\caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRotModAng}}
+\end{marginfigure}
+
+A situação do problema acima difere do exemplo da seção anterior simplesmente no fato de que não temos o módulo $a$ e o ângulo $\theta$, mas sim as componentes $a_x$ e $a_y$ do vetor $\vec{a}$. Para que possamos determinar as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$, tanto o ângulo $\theta'$ que o vetor faz com o eixo $x'$, quanto o módulo do vetor devem ser determinados.
+
+Podemos determinar o módulo através da Equação~\eqref{Eq:ModAPartirDeComp}:
+\begin{align}
+    a &= \sqrt{a_x^2 + a_y^2} \\
+    &= \sqrt{(\np[m]{2})^2 + (\np[m]{1})^2} \\
+    &= \sqrt{(\np[m^2]{4}) + (\np[m^2]{1}} \\
+    &= \sqrt{\np[m^2]{5}} \\
+    &\approx \np[m]{2.236}.
+\end{align}
+%
+Para determinarmos o ângulo $\theta'$, precisamos antes determinar o ângulo $\theta$. A partir da Equação~\eqref{Eq:AngaPartirDeComp}, temos
+\begin{align}
+    \theta &= \arctan\left(\frac{a_y}{a_x}\right) \\
+    &= \arctan\left(\frac{(\np[m]{1})}{(\np[m]{2})}\right) \\
+    &=\arctan\left(\frac{1}{2}\right) \\
+    &\approx \np[\tcdegree]{26.565}.
+\end{align}
+%
+Assim, temos para $\theta'$
+\begin{align}
+    \theta' &= \theta - \omega \\
+    &= \np[\tcdegree]{26.565} - \np[\tcdegree]{20} \\
+    &= \np[\tcdegree]{6.565}.
+\end{align}
+%
+Finalmente, temos que
+\begin{align}
+    a_{x'} &= a\cos\theta' & a_{y'} &= a\sen\theta' \\
+    &= (\np[m]{2.236})\cdot(\cos\np[\tcdegree]{6.565}) & &= (\np[m]{2.236})\cdot(\sen\np[\tcdegree]{6.565}) \\
+    &\approx \np[m]{2.221} & &\approx \np[m]{0.256}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistema de referência em três dimensões}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=2.0]
+
+    \draw[->, dashed] (0,0,0) -- (1.5,0,0) node[below left]{$y$};
+    \draw[->, dashed] (0,0,0) -- (0,1.5,0) node[below left]{$z$};
+    \draw[->, dashed] (0,0,0) -- (0,0,2) node[below]{$x$};
+    
+    \draw[->] (0,0,0) -- (0.3,0,0) node[below left]{$\versj$};
+    \draw[->] (0,0,0) -- (0,0.3,0) node[below left]{$\versk$};
+    \draw[->] (0,0,0) -- (0,0,0.3) node[below]{$\versi$};
+      
+    \draw[->, thick] (0,0,0) -- node[above]{$\vec{a}$} (1,1,1);
+    
+    \draw[dotted] (1,1,1) -- (1,1,0) (1,1,1) -- (1,0,1) (1,1,1) -- (0,1,1) (1,1,0) -- (1,0,0) (1,1,0) -- (0,1,0) (0,1,1) -- (0,0,1) (0,1,1) -- (0,1,0) (1,0,1) -- (1,0,0) (1,0,1) -- (0,0,1);
+    
+    \draw[<->] (1.1,0,0) -- node[right]{$a_z$} (1.1,1,0);
+    \draw[very thin] (1.05,1,0) -- (1.15,1,0);
+    \draw[<->] (1.15,0,0) -- node[right]{$a_x$} (1.15,0,1);
+    \draw[very thin] (1.10,0,1) -- (1.23,0,1);
+    \draw[<->] (1,0,1.2) -- node[below]{$a_y$} (0,0,1.2);
+    \draw[very thin] (1,0,1.15) -- (1,0,1.3);
+    
+\end{tikzpicture}
+\caption{Sistema de referência tridimensional.\label{Fig:vetores_unitários}}
+\end{marginfigure}
+
+Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote[][1cm]{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicionamos mais um eixo de referência, denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Assim, um vetor $\vec{a}$ qualquer pode ser descrito em termos das componentes nos eixos $x$, $y$, e $z$ como
+\begin{equation}
+    \vec{a} = a_x \,\versi + a_y\,\versj + a_z\,\versk.
+\end{equation}
+%
+Um exemplo disso é o vetor $\vec{a} = \np{1,0} \,\versi + \np{1,0}\,\versj + \np{1,0}\,\versk$ mostrado na Figura~\ref{Fig:vetores_unitários}\footnote{Note que em uma representação bidimensional de um sistema tridimensional a visualização das componentes pode ser mais difícil. O ideal seria girar a figura e a visualizar em diversos ângulos.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Notação módulo-ângulo: coordenadas esféricas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Assim como no caso bidimensional, um vetor pode ser denotado em relação a uma base através dos valores numéricos das componentes, ou através do módulo do vetor e de ângulos em relação a eixos de referência. Como temos uma base tridimensional, precisamos de mais um ângulo entre o vetor e um dos eixos. Em geral, se utiliza um ângulo  $\theta$ entre o vetor e o eixo $z$, e um ângulo $\phi$ entre a projeção do vetor no plano $xy$ e o eixo $x$. Tal sistema de referência é conhecido como \emph{sistema de coordenadas esféricas}.
 
 % Segue figura retirada de: http://www.texample.net/tikz/examples/the-3dplot-package/
 % com alterações
@@ -1016,202 +1220,50 @@ Em três dimensões, podemos determinar os ângulos $\theta$ e $\phi$, além do 
 \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}{\thetavec}{anchor=south west}{$\theta$}
 
 \end{tikzpicture}
-\caption{Sistema de coordenadas em três dimensões.}
+\caption{Ângulos em um sistema de coordenadas esféricas.\label{Fig:ExemploVetor3D}}
 \end{marginfigure}
 
-Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicionamos mais um eixo de referência, denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Para que possamos decompor um vetor $\vec{a}$ qualquer em termos de uma base tridimensional, precisamos de mais um ângulo entre o vetor e um dos eixos. Em geral, se utiliza um ângulo entre o vetor e o eixo $z$. Nesse caso podemos determinar as componentes através de
+Podemos determinar as componentes $a_x$, $a_y$, e $a_z$ em termos de $a$, $\theta$, e $\phi$ através das definições das funções trigonométricas:
+\begin{description}
+    \item[Componente $a_x$:] Podemos determinar o comprimento $a_{xy}$ da projeção do vetor $\vec{a}$ no plano $xy$ fazendo
+    \begin{equation}
+        a_{xy} = a \sen\theta.
+    \end{equation}
+    A projeção $a_x$ é então dada por
+    \begin{align}
+        a_x &= a_{xy} \cos\phi \\
+        &= a \sen\theta\cos\phi.
+    \end{align}
+    
+    \item[Componente $a_y$:] Podemos obter $a_y$ usando de $a_{xy}$ através de
+    \begin{align}
+        a_y &= a_{xy} \sen\phi \\
+        &= a \sen\theta\sen\phi.
+    \end{align}
+    
+    \item[Componente $a_x$:] A componente no eixo $z$ pode ser obtida diretamente através de
+    \begin{equation}
+        a_z = a \cos \theta.
+    \end{equation}
+\end{description}
+
+Para obtermos os ângulos através das componentes, basta utilizar a função arco tangente (função inversa da tangente), de onde obtemos:
 \begin{align}
-    a_x &= a \sen\theta\cos\phi \\
-    a_y &= a \sin\theta\sin\phi \\
-    a_z &= a \cos\theta.
-\end{align}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale=1.0]
-
-    \draw[->] (0,0,0) -- (2,0,0) node[below left]{$y$};
-    \draw[->] (0,0,0) -- (0,2,0) node[below left]{$z$};
-    \draw[->] (0,0,0) -- (0,0,2) node[below]{$x$};
-    
-    \draw[->, thick] (0,0,0) -- (0.7,0,0) node[below left]{$\versj$};
-    \draw[->, thick] (0,0,0) -- (0,0.7,0) node[below left]{$\versk$};
-    \draw[->, thick] (0,0,0) -- (0,0,0.7) node[below]{$\versi$};
-    
-\end{tikzpicture}
-\caption{Vetores unitários em um sistema de referência tridimensional.\label{Fig:vetores_unitários}}
-\end{marginfigure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Decomposição de vetores}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{quote}
-    Dados três vetores deslocamento $\vec{a}$, $\vec{b}$, e $\vec{c}$, decomponha-os em um sistema de referência ortogonal, composto por um eixo horizontal $x$ e um eixo vertical $y$, sabendo que seus módulos são
-    \begin{align*}
-        a &= \np[m]{3} & b &= \np[m]{4,5} & c &= \np[m]{2.50}
-    \end{align*}
-    %
-    e que fazem ângulos $\theta_a$, $\theta_b$, e $\theta_c$ com o eixo horizontal dados por
-    \begin{align*}
-        \theta_a &= \np[\tcdegree]{20} & \theta_b &= \np[\tcdegree]{36} & \theta_c &= \np[\tcdegree]{58}.
-    \end{align*}
-\end{quote}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
-    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
-    
-    \draw[->] (0,0) -- (20:3) coordinate (A) node[above]{$\vec{a}$};
-    \draw[->] (0,0) -- (36:4.5) coordinate (B) node[above]{$\vec{b}$};
-    \draw[->] (0,0) -- (58:2.5) coordinate (C) node[above]{$\vec{c}$};
-    
-    \pic [draw, dotted, angle eccentricity = 1.1, angle radius = 20mm] {angle = X--O--A};
-    \pic [draw, dotted, angle eccentricity = 1.2, angle radius = 15mm] {angle = X--O--B};
-    \pic [draw, dotted, angle eccentricity = 1.3, angle radius = 10mm] {angle = X--O--C};
-    
-\end{tikzpicture}
-\caption{Vetores em relação ao sistema de referência. \label{Fig:Ex:Decomp}}
-\end{marginfigure}
-
-Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fig:Ex:Decomp}. Para determinarmos as componentes, basta utilizarmos as Expressões~\eqref{Eq:CompX} e~\eqref{Eq:CompY}:
-\begin{align*}
-    a_x &= a\cos\theta_a & a_y &= a\sen\theta_a \\
-    &= (\np[m]{3})\cdot(\cos\np[\tcdegree]{20}) & &= (\np[m]{3})\cdot(\sen\np[\tcdegree]{20}) \\
-    &= \np[m]{2,82} & &= \np[m]{1,03} \\
-    \\
-    b_x &= a\cos\theta_a & b_y &= a\sen\theta_a \\
-    &= (\np[m]{4.5})\cdot(\cos\np[\tcdegree]{36}) & &= (\np[m]{4.5})\cdot(\sen\np[\tcdegree]{36}) \\
-    &= \np[m]{3.64} & &= \np[m]{2.65} \\
-    \\
-    c_x &= a\cos\theta_a & c_y &= a\sen\theta_a \\
-    &= (\np[m]{2.5})\cdot(\cos\np[\tcdegree]{58}) & &= (\np[m]{2.5})\cdot(\sen\np[\tcdegree]{58}) \\
-    &= \np[m]{1.32} & &= \np[m]{2.12}.
-\end{align*}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Decomposição de vetores em um referencial rotacionado}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{quote}
-    A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{30}$. Se um vetor $\vec{a}$ tem módulo $a = \np[m]{2.5}$ e faz um ângulo $\theta = \np[\tcdegree]{45}$ em relação ao eixo horizontal, quais são as componentes do vetor nos eixos do sistema rotacionado?
-\end{quote}
-
-\begin{figure}\forceversofloat
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
-    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
-    
-    \draw[->] (0,0) -- (30:4) coordinate (Xl) node[below] {$x'$};
-    \draw[->] (0,0) -- (120:3) node[left]{$y'$};
-    
-    \draw[->, thick] (0,0) -- (45:2.5) coordinate (A) node[above]{$\vec{a}$};
-    
-    \pic [draw, "$\theta$", angle eccentricity = 1.2, angle radius = 13mm]{angle = X--O--A};
-    \pic [draw, "$\omega$", angle eccentricity = 1.5, angle radius = 5mm]{angle = X--O--Xl};
-    
-\end{tikzpicture}
-\caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRot}}
-\end{figure}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 0.8]
-
-    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
-    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
-    
-    \draw[->] (0,0) -- (30:4) coordinate (Xl) node[below] {$x'$};
-    \draw[->] (0,0) -- (120:3) node[left]{$y'$};
-    
-    \draw[->, thick] (0,0) -- (45:2.5) coordinate (A) node[above]{$\vec{a}$};
-    
-    \pic [draw, densely dashed, "$\theta$", angle eccentricity = 1.2, angle radius = 10mm]{angle = X--O--A};
-    \pic [draw, densely dashed, "$\omega$", angle eccentricity = 1.5, angle radius = 5mm]{angle = X--O--Xl};
-    \pic [draw, "$\theta'$", angle eccentricity = 1.2, angle radius = 14mm]{angle = Xl--O--A};
-    
-\end{tikzpicture}
-\caption{As componentes do vetor $\vec{a}$ no sistema de referência rotacionado estão ligadas ao valor do ângulo $\theta'$. \label{Fig:Ex:DecompRefRotThetaP}}
-\end{marginfigure}
-
-Para que possamos determinar as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$, precisamos somente determinar o ângulo $\theta'$ que o vetor faz com o eixo $x'$, uma vez que o módulo do vetor é constante. A partir da figura, podemos verificar facilmente que tal ângulo corresponde a
-\begin{align}
-    \theta' &= \theta - \omega \\
-    &= \np[\tcdegree]{45} - \np[\tcdegree]{30} \\
-    &= \np[\tcdegree]{15}.
+    \theta &= \arccos \frac{a_z}{a} \\
+    \phi &= \arctan \frac{a_y}{a_x}.
 \end{align}
 %
-Assim, temos que
+Para obtermos uma relação para o módulo, podemos utilizar as expressões deduzidas acima para escrever
 \begin{align}
-    a_{x'} &= a\cos\theta' & a_{y'} &= a\sen\theta' \\
-    &= (\np[m]{2.5})\cdot(\cos\np[\tcdegree]{15}) & &= (\np[m]{2.5})\cdot(\sen\np[\tcdegree]{15}) \\
-    &\approx \np[m]{2.415} & &\approx \np[m]{0.647}
-\end{align}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Decomposição de vetores em um referencial rotacionado}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{quote}
-    A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{20}$. Se um vetor $\vec{a}$ tem componentes $a_x = \np[m]{2}$ e $a_y = \np[m]{1}$, quais são as componentes do vetor nos eixos do sistema rotacionado?
-\end{quote}
-
-\begin{figure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[->] (0,0) coordinate (O) -- (4,0) coordinate (X) node[below left]{$x$};
-    \draw[->] (0,0) -- (0,3) node[below left]{$y$};
-    
-    \draw[->] (0,0) -- (20:4) coordinate (Xl) node[below] {$x'$};
-    \draw[->] (0,0) -- (105:3) node[left]{$y'$};
-    
-    \draw[->, thick] (0,0) -- (26.565:2.2361) coordinate (A) node[above]{$\vec{a}$};
-    
-    \pic [draw, "$\theta$", angle eccentricity = 1.2, angle radius = 15mm]{angle = X--O--A};
-    \pic [draw, "$\omega$", angle eccentricity = 1.2, angle radius = 10mm]{angle = X--O--Xl};
-    
-\end{tikzpicture}
-\caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRotModAng}}
-\end{figure}
-
-A situação do problema acima difere do exemplo da seção anterior simplesmente no fato de que não temos o módulo $a$ e o ângulo $\theta$, mas sim as componentes $a_x$ e $a_y$ do vetor $\vec{a}$. Para que possamos determinar as componentes do vetor $\vec{a}$ nos eixos $x'$ e $y'$, tanto o ângulo $\theta'$ que o vetor faz com o eixo $x'$, quanto o módulo do vetor devem ser determinados.
-
-Podemos determinar o módulo através da Equação~\eqref{Eq:ModAPartirDeComp}:
-\begin{align}
-    a &= \sqrt{a_x^2 + a_y^2} \\
-    &= \sqrt{(\np[m]{2})^2 + (\np[m]{1})^2} \\
-    &= \sqrt{(\np[m^2]{4}) + (\np[m^2]{1}} \\
-    &= \sqrt{\np[m^2]{5}} \\
-    &\approx \np[m]{2.236}.
+    a_x^2 + a_y^2 + a_z^2 &= a^2 \sen^2\theta\cos^2\phi + a^2 \sen^2\theta \sen^2\phi + a^2 \cos^2 \\
+    &= a^2 [\sen^2\theta(\sen^2\phi + \cos^2\phi) + \cos^2\theta] \\
+    &= a^2,
 \end{align}
 %
-Para determinarmos o ângulo $\theta'$, precisamos antes determinar o ângulo $\theta$. A partir da Equação~\eqref{Eq:AngaPartirDeComp}, temos
-\begin{align}
-    \theta &= \arctan\left(\frac{a_y}{a_x}\right) \\
-    &= \arctan\left(\frac{(\np[m]{1})}{(\np[m]{2})}\right) \\
-    &=\arctan\left(\frac{1}{2}\right) \\
-    &\approx \np[\tcdegree]{26.565}.
-\end{align}
-%
-Assim, temos para $\theta'$
-\begin{align}
-    \theta' &= \theta - \omega \\
-    &= \np[\tcdegree]{26.565} - \np[\tcdegree]{20} \\
-    &= \np[\tcdegree]{6.565}.
-\end{align}
-%
-Finalmente, temos que
-\begin{align}
-    a_{x'} &= a\cos\theta' & a_{y'} &= a\sen\theta' \\
-    &= (\np[m]{2.236})\cdot(\cos\np[\tcdegree]{6.565}) & &= (\np[m]{2.236})\cdot(\sen\np[\tcdegree]{6.565}) \\
-    &\approx \np[m]{2.221} & &\approx \np[m]{0.256}
-\end{align}
+onde usamos a propriedade de que $\sen^2\alpha + \cos^2\alpha = 1$ para qualquer ângulo $\alpha$. Finalmente, podemos escrever
+\begin{equation}
+    a = \sqrt{a_x^2 + a_y^2 + a_z^2}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Projeções completas}
@@ -1539,9 +1591,9 @@ Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do e
 \label{Sec:OpAtravesDeComp}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verificaremos agora uma propriedade importante dos vetores e que facilita o tratamento de sistemas que precisam ser descritos vetorialmente: a independência dos eixos para as operações de soma, subtração, e multiplicação por escalar. Verificaremos que sempre que uma dessas três operações precisa ser feita entre dois vetores quaisquer, basta que façamos tal operação para as componentes do vetor em cada um dos eixos de referência.
+Verificaremos agora uma propriedade importante dos vetores e que facilita o tratamento de sistemas que precisam ser descritos vetorialmente: a independência dos eixos\footnote[][-1cm]{Para que isso seja verdade, devemos considerar um sistema de referência ortogonal, que é o que sempre vamos fazer.} para as operações de soma, subtração, e multiplicação por escalar. Verificaremos que sempre que uma dessas três operações precisa ser feita entre dois vetores quaisquer, basta que façamos tal operação para as componentes do vetor em cada um dos eixos de referência.
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.0]
 
@@ -1576,7 +1628,7 @@ Na Figura~\ref{Fig:Soma_comp}, temos uma soma geométrica de vetores. Temos tamb
   c_y &= a_y + b_y,
 \end{align}
 %
-ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular as componentes do vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações dos vetores. Se considerarmos ainda que a subtração nada mais é do que a soma de um vetor cujo sentido é invertido pelo sinal, concluímos que a subtração de dois vetores também pode ser realizada através das componentes, de forma que se
+ou seja, podemos simplesmente somar as componentes dos vetores nos eixos para poder calcular as componentes do vetor resultante. Isto nos dá uma forma muito mais simples para realizar somas e subtrações de vetores. Se considerarmos ainda que a subtração nada mais é do que a soma de um vetor cujo sentido é invertido pelo sinal, concluímos que a subtração de dois vetores também pode ser realizada através das componentes, de forma que se
 \begin{equation}
     \vec{d} = \vec{a} - \vec{b},
 \end{equation}
@@ -1609,13 +1661,15 @@ o que nos permite escrever
     e_y &= \alpha a \sen\theta.
 \end{align}
 %
-Os termos $a\cos\theta$ e $a\sen\theta$ na expressão acima nada mais são do que as próprias componentes do vetor $\vec{a}$ projetadas nos eixos de referência. Portanto, concluímos que
+Na expressão acima, $a\cos\theta$ e $a\sen\theta$ são as próprias componentes do vetor $\vec{a}$ projetadas nos eixos de referência. Portanto, concluímos que
 \begin{align}
     e_x &= \alpha a_x \\
-    e_y &= \alpha a_y.
+    e_y &= \alpha a_y,
 \end{align}
+%
+isto é, ao multiplicarmos um vetor por um escalar, podemos simplesmente multiplicar todas as suas componentes por tal escalar.
 
-Note que verificamos nas expressões acima que as operações envolvendo as componentes de cada dimensão (eixo) ocorrem de forma que não é necessário saber informações acerca das demais dimensões. Issp significa que se os eixos são ortogonais, eles atuam independentemente uns dos outros.\footnote{Isso não é verdade para equações que envolvam o \emph{produto vetorial entre dois vetores}. Veremos tal produto somente no Capítulo~\ref{Chap:MomentoAngular}}. Isso será fundamental para que possamos simplificar a interpretação de movimentos bi e tridimensionais no Capítulo~\ref{Chap:MovimentoBidimensional}, mas tal resultado não se limita à cinemática.
+Note que verificamos nas expressões acima que as operações envolvendo as componentes de cada dimensão (eixo) ocorrem de forma que não é necessário saber informações acerca das demais dimensões. Isso significa que se os eixos são ortogonais, eles atuam independentemente uns dos outros.\footnote{Isso não é verdade para equações que envolvam o \emph{produto vetorial entre dois vetores}. Veremos tal produto somente no Capítulo~\ref{Chap:MomentoAngular}}. Isso será fundamental para que possamos simplificar a interpretação de movimentos bi e tridimensionais no Capítulo~\ref{Chap:MovimentoBidimensional}, mas tal resultado não se limita à cinemática.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Operações e equações através de vetores unitários}
@@ -1632,7 +1686,7 @@ podemos escrever
   \vec{c} = a_x \versi + a_y \versj + a_z \versk + b_x \versi + b_y \versj + b_z \versk.
 \end{equation}
 %
-Devido ao versor unitário, podemos somar as componente, colocando-o em evidência, obtendo
+Devido ao vetor unitário, podemos somar as componente,s colocando-o em evidência, obtendo
 \begin{equation}
   \vec{c} = (a_x + b_x) \versi + (a_y + b_y) \versj + (a_z + b_z)\versk.
 \end{equation}
@@ -1640,9 +1694,9 @@ Devido ao versor unitário, podemos somar as componente, colocando-o em evidênc
 Em casos mais complexos, como veremos mais adiante, a praticidade da notação de versores unitários se tornará mais evidente.
 % TODO Legal seria um exemplo ou dois mostrando que é melhor
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Determinação de um vetor soma}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Soma e subtração de vetores}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
     Dados dois vetores $\vec{a}$ e $\vec{b}$ tais que

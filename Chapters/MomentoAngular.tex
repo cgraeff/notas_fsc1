@@ -7,7 +7,7 @@
 
 \begin{fullwidth}
 {\it
-\lipsum[1]
+Plano: Ler o Kleppner. Depois disso, listar as questôes em aberto do capítulo anterior (como, por exemplo, o fato não explicado de que podemos calcular a velocidade anguar da haste que cai considerando o mov. do CM junto com a rotação em torno do CM ou a rotação em torno do eixo de rotação propriamente dito, que passa na extremidade da haste). Depois disso, listar os tópicos abordadeos pelo Kleppner e fazer uma lista minha. A ideia é deixar todo o movimento de rotação ``simples'' no capítulo anterior. Depois vem o capítulo de momento angular.
 }
 \end{fullwidth}
 
@@ -175,86 +175,7 @@ A grandeza que se mantém constante em um movimento como o descrito por um plane
     \vec{\ell} = \vec{r} \times \vec{p}, \mathnote{Momento angular de uma partícula}
 \end{equation}
 %
-onde $\vec{p}$ é o vetor momento linear do corpo em questão, e $\vec{r}$ determina sua posição em relação a uma origem fixada em um ponto qualquer. \textbf{Rever isso, acho que não cabe aqui, estamos tratando uma partícula e o referencial, não faz sentido falar em velocidade relativa nesse contexto (afinal, é só considerar o referencial fixo, e a partícula se movendo):}Percebemos portanto que a escolha da origem do sistema de coordenadas influi duplamente na determinação do momento angular: temos influência tanto na determinação do vetor posição, quanto no vetor momento linear, uma vez que podemos ter valores diferentes de momento linear em dois referenciais diferentes, dependendo da velocidade relativa entre eles.
-
-Para que possamos simplificar o tratamento dos problemas, no entanto, temos um ponto no qual podemos fixar o referencial: o centro de massa. Podemos entender por que tal escolha é a mais adequada se considerarmos o momento angular $\vec{L}$ de um conjunto de partículas. Nesse caso temos\footnote{Assim como fazemos com a velocidade, ou com o momento linear, a grandeza relativa ao sistema é dada pela soma da mesma grandeza relativa a cada partícula. Assim, o momento angular de um conjunto de partículas é definido como a soma dos momentos angulares de cada partícula.}
-\begin{align}
-    \vec{L} &= \sum_{i=1}^N \vec{\ell}_i \\
-    &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i.
-\end{align}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \coordinate (origin) at (0,0);
-    \coordinate (p1) at (1.5,3);
-    \coordinate (p2) at (2,1.5);
-    
-    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
-    \draw[fill] (p1) circle (1pt);
-    \draw[fill] (p2) circle (0.8pt);
-    
-    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
-    \draw[->] (p2) -- node[above] {$\vec{p}_2$} +(-180:0.6);
-    
-    \draw[->] (origin) -- node[left]{$\vec{r}_1$} (p1);
-    \draw[->] (origin) -- node[below]{$\vec{r}_2$} (p2);
-\end{tikzpicture}
-\caption{Posições de duas partículas dadas em relação à origem $O$. Note que o produto vetorial determina um momento angular que entra na página para a partícula 1, e um que sai da página para a partícula 2 (não mostramos tais vetores). \label{Fig:ParticulasPosicao}}
-\end{marginfigure}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \coordinate (origin) at (0,0);
-    \coordinate (p1) at (1.5,3);
-    \coordinate (p2) at (2,1.5);
-    \coordinate (cm) at (1.67, 2.5);
-    
-    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
-    \draw[fill] (p1) circle (1pt);
-    \draw[fill] (p2) circle (0.8pt);
-    
-    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
-    \draw[->] (p2) -- node[below] {$\vec{p}_2$} +(-180:0.6);
-    
-    \draw[->] (origin) -- node[left]{$\vec{r}_{\rm{CM}}$} (cm);
-    \draw[->] (cm) -- node[right]{$\vec{r}'_2$} (p2);
-    \draw[->] (cm) -- node[left]{$\vec{r}'_1$} (p1);
-    \draw[draw = black, fill = white] (cm) circle (0.8pt);
-\end{tikzpicture}
-\caption{Podemos reescrever os vetores posição das partículas 1 e 2 da Figura~\ref{Fig:ParticulasPosicao} utilizando o vetor posição do centro de massa. Nesse caso temos que $\vec{r}_1 = \vec{r}_{\rm{CM}} + \vec{r}'_1$ e $\vec{r}_2 = \vec{r}_{\rm{CM}} + \vec{r}'_2$.\label{Fig:ParticulasPosicaoCM}}
-\end{marginfigure}
-
-Conforme mostrado nas Figuras~\ref{Fig:ParticulasPosicao} e~\ref{Fig:ParticulasPosicaoCM}, podemos denotar a posição como a soma do vetor posição do centro de massa, mais um vetor posição em relação ao centro de massa, isto é,
-\begin{equation}
-    \vec{r} = \vec{r}_{\rm{CM}} + \vec{r}',
-\end{equation}
-%
-de onde obtemos
-\begin{align}
-    \vec{L} &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i \\
-    &= \sum_{i=1}^N (\vec{r}_{\rm{CM}} + \vec{r}') \times \vec{p}_i \\
-    &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] + \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
-\end{align}
-%
-No primeiro termo à direita na equação acima, $\vec{r}_{\rm{CM}}$ é constante. Além disso, $\sum_{i=1}^N \vec{p}_i = \vec{P}_{\rm{CM}}$. Logo, podemos escrever um termo relativo ao momento angular do centro de massa do sistema, dado por
-\begin{align}
-    \vec{L}_{\rm{CM}} &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] \\
-    &= \vec{r}_{\rm{CM}} \times \vec{P}_{\rm{CM}},
-\end{align}
-%
-e outro relativo ao momento angular em torno do centro de massa, dado por
-\begin{equation}
-    \vec{L}' = \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
-\end{equation}
-%
-Finalmente,
-\begin{equation}
-    \vec{L} = \vec{L}_{\rm{CM}} + \vec{L}'.
-\end{equation}
-
-Portanto, se escolhermos como origem a própria posição do centro de massa, ou qualquer outra origem para a qual a velocidade do centro de massa seja nula, temos somente o termo relativo ao momento angular para uma rotação em torno do centro de massa. Veremos mais adiante que, sob certas condições, o momento angular de um sistema se conserva\footnote{O próprio movimento orbital de um planeta é um exemplo de um sistema onde temos conservação do momento angular.}. Assim, quando estamos interessados em analisar fenômenos que ocorrem dentro de tal sistema, devemos tomar como origem o próprio centro de massa do sistema, ou outra posição fixa em relação a ele.
+onde $\vec{p}$ é o vetor momento linear do corpo em questão, e $\vec{r}$ determina sua posição em relação a uma origem fixada em um ponto qualquer. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Momento angular em um movimento orbital}
@@ -347,9 +268,13 @@ Na Figura~\ref{Fig:MomentoAngularPartLinhaReta} temos uma partícula que se desl
     \ell = r_\perp m v.
 \end{equation}
 
+
+
 %%%%%%%%%%%%%%%%
 \section{Torque}
 %%%%%%%%%%%%%%%%
+
+\textbf{Calcular a skew rod de novo, usando a derivada do momento angular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conservação do momento angular}
@@ -369,7 +294,7 @@ Falar alguma coisa aqui sobre todas as características de um movimento de rota�
 \subsection{Momento angular de um corpo rígido simétrico em relação ao eixo de rotação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Note que a dedução abaixo não exige um corpo simétrico: estamos calculando somente a componente na direção do eixo de rotação ($z$). Podemos dizer que $L_z = I\omega$ sempre, onde $z$ é a direção do eixo de rotação (consequentemente, é a direção do vetor velocidade angular. Se o corpo for simétrico, então podemos afirmar que $\vec{L} = I\vec{omega}$, pois as componentes $L_x$ e $L_y$ são nulas mesmo.}
+\textbf{Note que a dedução abaixo não exige um corpo simétrico: estamos calculando somente a componente na direção do eixo de rotação ($z$). Podemos dizer que $L_z = I\omega$ sempre, onde $z$ é a direção do eixo de rotação (consequentemente, é a direção do vetor velocidade angular. Se o corpo for simétrico, então podemos afirmar que $\vec{L} = I\vec{omega}$, pois as componentes $L_x$ e $L_y$ são nulas mesmo. Fazer em z antes, depois fazer o caso simétrico.}
 
 Podemos determinar o momento angular de um corpo rígido simplesmente o tratando como um sistema de partículas, e somando as contribuições de cada uma delas. Em geral, isso significa que obteremos um vetor que aponta em uma direção específica do espaço, porém que depende tanto da forma do corpo, como da origem escolhida para o sistema\footnote{Tal dependência se dá pela própria definição do vetor posição $\vec{r}$.}.
 
@@ -525,6 +450,91 @@ O termo entre colchetes nada mais é que o momento de inércia do corpo. Logo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{demonstrar aditividade do momento angular de um corpo rígido}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Momento angular em relação ao centro de massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Rever isso, acho que não cabe aqui, estamos tratando uma partícula e o referencial, não faz sentido falar em velocidade relativa nesse contexto (afinal, é só considerar o referencial fixo, e a partícula se movendo):}Percebemos portanto que a escolha da origem do sistema de coordenadas influi duplamente na determinação do momento angular: temos influência tanto na determinação do vetor posição, quanto no vetor momento linear, uma vez que podemos ter valores diferentes de momento linear em dois referenciais diferentes, dependendo da velocidade relativa entre eles.
+
+Para que possamos simplificar o tratamento dos problemas, no entanto, temos um ponto no qual podemos fixar o referencial: o centro de massa. Podemos entender por que tal escolha é a mais adequada se considerarmos o momento angular $\vec{L}$ de um conjunto de partículas. Nesse caso temos\footnote{Assim como fazemos com a velocidade, ou com o momento linear, a grandeza relativa ao sistema é dada pela soma da mesma grandeza relativa a cada partícula. Assim, o momento angular de um conjunto de partículas é definido como a soma dos momentos angulares de cada partícula.}
+\begin{align}
+    \vec{L} &= \sum_{i=1}^N \vec{\ell}_i \\
+    &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \coordinate (origin) at (0,0);
+    \coordinate (p1) at (1.5,3);
+    \coordinate (p2) at (2,1.5);
+    
+    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
+    \draw[fill] (p1) circle (1pt);
+    \draw[fill] (p2) circle (0.8pt);
+    
+    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
+    \draw[->] (p2) -- node[above] {$\vec{p}_2$} +(-180:0.6);
+    
+    \draw[->] (origin) -- node[left]{$\vec{r}_1$} (p1);
+    \draw[->] (origin) -- node[below]{$\vec{r}_2$} (p2);
+\end{tikzpicture}
+\caption{Posições de duas partículas dadas em relação à origem $O$. Note que o produto vetorial determina um momento angular que entra na página para a partícula 1, e um que sai da página para a partícula 2 (não mostramos tais vetores). \label{Fig:ParticulasPosicao}}
+\end{marginfigure}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \coordinate (origin) at (0,0);
+    \coordinate (p1) at (1.5,3);
+    \coordinate (p2) at (2,1.5);
+    \coordinate (cm) at (1.67, 2.5);
+    
+    \draw[fill] (origin) circle (0.5pt) node[below left]{$O$};
+    \draw[fill] (p1) circle (1pt);
+    \draw[fill] (p2) circle (0.8pt);
+    
+    \draw[->] (p1) -- +(-10:1) node[above] {$\vec{p}_1$};
+    \draw[->] (p2) -- node[below] {$\vec{p}_2$} +(-180:0.6);
+    
+    \draw[->] (origin) -- node[left]{$\vec{r}_{\rm{CM}}$} (cm);
+    \draw[->] (cm) -- node[right]{$\vec{r}'_2$} (p2);
+    \draw[->] (cm) -- node[left]{$\vec{r}'_1$} (p1);
+    \draw[draw = black, fill = white] (cm) circle (0.8pt);
+\end{tikzpicture}
+\caption{Podemos reescrever os vetores posição das partículas 1 e 2 da Figura~\ref{Fig:ParticulasPosicao} utilizando o vetor posição do centro de massa. Nesse caso temos que $\vec{r}_1 = \vec{r}_{\rm{CM}} + \vec{r}'_1$ e $\vec{r}_2 = \vec{r}_{\rm{CM}} + \vec{r}'_2$.\label{Fig:ParticulasPosicaoCM}}
+\end{marginfigure}
+
+Conforme mostrado nas Figuras~\ref{Fig:ParticulasPosicao} e~\ref{Fig:ParticulasPosicaoCM}, podemos denotar a posição como a soma do vetor posição do centro de massa, mais um vetor posição em relação ao centro de massa, isto é,
+\begin{equation}
+    \vec{r} = \vec{r}_{\rm{CM}} + \vec{r}',
+\end{equation}
+%
+de onde obtemos
+\begin{align}
+    \vec{L} &= \sum_{i=1}^N \vec{r}_i \times \vec{p}_i \\
+    &= \sum_{i=1}^N (\vec{r}_{\rm{CM}} + \vec{r}') \times \vec{p}_i \\
+    &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] + \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
+\end{align}
+%
+No primeiro termo à direita na equação acima, $\vec{r}_{\rm{CM}}$ é constante. Além disso, $\sum_{i=1}^N \vec{p}_i = \vec{P}_{\rm{CM}}$. Logo, podemos escrever um termo relativo ao momento angular do centro de massa do sistema, dado por
+\begin{align}
+    \vec{L}_{\rm{CM}} &= \sum_{i=1}^N \left[\vec{r}_{\rm{CM}} \times \vec{p}_i\right] \\
+    &= \vec{r}_{\rm{CM}} \times \vec{P}_{\rm{CM}},
+\end{align}
+%
+e outro relativo ao momento angular em torno do centro de massa, dado por
+\begin{equation}
+    \vec{L}' = \sum_{i=1}^N \left[\vec{r}' \times \vec{p}_i\right].
+\end{equation}
+%
+Finalmente,
+\begin{equation}
+    \vec{L} = \vec{L}_{\rm{CM}} + \vec{L}'.
+\end{equation}
+
+Portanto, se escolhermos como origem a própria posição do centro de massa, ou qualquer outra origem para a qual a velocidade do centro de massa seja nula, temos somente o termo relativo ao momento angular para uma rotação em torno do centro de massa. Veremos mais adiante que, sob certas condições, o momento angular de um sistema se conserva\footnote{O próprio movimento orbital de um planeta é um exemplo de um sistema onde temos conservação do momento angular.}. Assim, quando estamos interessados em analisar fenômenos que ocorrem dentro de tal sistema, devemos tomar como origem o próprio centro de massa do sistema, ou outra posição fixa em relação a ele.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Vetor velocidade angular}

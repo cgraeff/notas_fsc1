@@ -69,7 +69,7 @@ biber
 Para gerar o arquivo PDF, é necessário executar o comando `pdflatex` com a opção
 `-shell-escape`:
 ```
-pdflatex -shell-escape main.tex
+pdflatex -shell-escape NotasFisica1.tex
 ```
 A primeira execução será mais demorada, uma vez que é necessário gerar todas
 as figuras. Ao modificar o texto de um capítulo, é interessante desabilitar
@@ -83,7 +83,7 @@ comando `biber`:
 ```
 biber main
 ```
-seguido do comando `pdflatex -shell-escape main.tex` mais algumas vezes (até que
+seguido do comando `pdflatex -shell-escape NotasFisica1.tex` mais algumas vezes (até que
 o próprio comando pare de pedir para ser executado novamente).
 
 ### Exluir arquivos desnecessários

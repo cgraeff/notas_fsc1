@@ -393,7 +393,7 @@ Podemos determinar a direção da velocidade instantânea se analisarmos a traje
         decoration={
             markings,% switch on markings
             mark=
-                at position #1
+                at position 0.3
                 with
                 {
                     \coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
@@ -422,10 +422,16 @@ Podemos determinar a direção da velocidade instantânea se analisarmos a traje
     \coordinate (b) at (1.9,0);
     
     \path[name path=verta] (a)--+(0,3);
-    \path[name path=vertb] (b)--+(0,3);
+    \path[name path=vertb] (b)--+(0,3);  
+    
+    \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
+    \draw[fill, use tangent] (0,0) circle (1pt);
+    \draw[->] (0,0) -- node[above]{$\vec{r}$} (point);
+    
+    \path[name path=trajetoria] (0,2) .. controls (1,0.3) and (2,2.2) .. (3,1.5);
        
-    \path[draw, densely dotted, ->, name intersections={of=traj and verta}](0,0) --  (intersection-1) coordinate (intersec1);
-    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=traj and vertb}](0,0) -- (intersection-1) coordinate (intersec2);
+    \path[draw, densely dotted, ->, name intersections={of=trajetoria and verta}](0,0) --  (intersection-1) coordinate (intersec1);
+    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=trajetoria and vertb}](0,0) -- (intersection-1) coordinate (intersec2);
     
     \draw[->, densely dotted, shorten >=1pt] (intersec1) -- (intersec2);
     
@@ -435,16 +441,11 @@ Podemos determinar a direção da velocidade instantânea se analisarmos a traje
     \path[name path=vertc] (c)--+(0,3);
     \path[name path=vertd] (d)--+(0,3);
        
-    \path[draw, densely dotted, ->, name intersections={of=traj and vertc}](0,0) --  (intersection-1) coordinate (intersec3);
-    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=traj and vertd}](0,0) -- (intersection-1) coordinate (intersec4);
+    \path[draw, densely dotted, ->, name intersections={of=trajetoria and vertc}](0,0) --  (intersection-1) coordinate (intersec3);
+    \path[draw, densely dotted, ->, shorten >=1pt, name intersections={of=trajetoria and vertd}](0,0) -- (intersection-1) coordinate (intersec4);
     
     \draw[->, densely dotted, shorten >=1pt] (intersec3) -- (intersec4);
-    
-    
-    \draw[fill] (0,0) node[below left]{$O$} circle (1pt);
-    \draw[fill, use tangent] (0,0) circle (1pt);
-    \draw[->] (0,0) -- node[above]{$\vec{r}$} (point);
-    
+
 \end{tikzpicture}
 \caption{No limite $\Delta t \to 0$, temos que a direção do vetor deslocamento instantâneo $\delta\vec{r}$ no ponto denotado por $\vec{r}$ é a mesma direção que a da reta que tange a curva no ponto.\label{Fig:Dir_vel}}
 \end{marginfigure}
