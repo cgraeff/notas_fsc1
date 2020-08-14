@@ -353,6 +353,8 @@ Ignorando o caráter vetorial dessa expressão, obtemos
 %
 ou seja, recuperamos a descrição que utilizamos anteriormente para o movimento unidimensional.
 
+Note ainda que se o módulo da velocidade não é constante, porém a direção é sempre a mesma, ainda retemos o caráter unidimensional, porém as relação entre as variáveis cinemáticas serão diferentes. No caso particular em que o vetor aceleração é constante e aponta na mesma direção que a velocidade, valem as expressões discutidas na Seção~\ref{Sec:EqCinematicasParaAcelConstTransl}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Velocidade instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -648,32 +650,32 @@ No entanto, sabemos que a aceleração gravitacional não altera velocidades hor
 
 Devido a uma boa escolha do sistema de referência, podemos tratar um movimento que ocorre sob influência da aceleração gravitacional no eixo horizontal,como um movimento com \emph{velocidade constante}, enquanto no eixo vertical temos um movimento com \emph{aceleração constante}\footnote{No eixo horizontal a aceleração também é constante, afinal zero é uma constante.}. Esses dois tipos de movimento correspondem aos dois mais simples que podemos estudar. Dessa forma, o movimento de um projétil serve como um bom exemplo de aplicação da descrição vetorial das variáveis cinemáticas.
 
-Devemos ter em mente, no entanto, que vamos fazer sérias restrições ao modelo, que fazem com que ele não possa ser aplicado de maneira realista para muitas situações: vamos desconsiderar a força de arrasto do ar, vamos considerar que a aceleração gravitacional é uniforme, e vamos desconsiderar a rotação da Terra\footnote{O arrasto faz com que a trajetória perca o aspecto parabólico e também faz com que o ângulo de maior alcance seja maior que \np[\tcdegree]{45}, já que a força de arrasto é menor em camadas superiores da atmosfera. Se o lançamento atingir alturas e distâncias muito grandes, ele tende a descrever uma elípse, já que a aceleração gravitacional diminui com $r^{-2}$. Finalmente, devido à força de Coriolis, característica de referenciais girantes, como é o caso de um referencial fixado na superfície da Terra, temos que a ``parábola'' descrita pelo projétil não está contida num plano.}. Todos esses fatores podem ser muito relevantes para lançamentos a longas distâncias. Apesar disso, tais restrições não prejudicam a principal característica na qual estamos interessados: temos um movimento bidimensional que pode ser descrito de maneira simples.
+Devemos ter em mente, no entanto, que vamos fazer sérias restrições ao modelo, que fazem com que ele não possa ser aplicado de maneira realista para muitas situações: vamos desconsiderar a força de arrasto do ar, vamos considerar que a aceleração gravitacional é uniforme, e vamos desconsiderar a rotação da Terra\footnote[][-2cm]{O arrasto faz com que a trajetória perca o aspecto parabólico e também faz com que o ângulo de maior alcance seja maior que \np[\tcdegree]{45}, já que a força de arrasto é menor em camadas superiores da atmosfera. Se o lançamento atingir alturas e distâncias muito grandes, ele tende a descrever uma elípse, já que a aceleração gravitacional diminui com $r^{-2}$. Finalmente, devido à força de Coriolis, característica de referenciais girantes, como é o caso de um referencial fixado na superfície da Terra, temos que a ``parábola'' descrita pelo projétil não está contida num plano.}. Todos esses fatores podem ser muito relevantes para lançamentos a longas distâncias. Apesar disso, tais restrições não prejudicam a principal característica na qual estamos interessados: temos um movimento bidimensional que pode ser descrito de maneira simples.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Descrição do movimento de um projétil em termos de um eixo horizontal e um eixo vertical}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[ht]\forcerectofloat
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 2,
-     interface/.style={
-        % superfície
-        postaction={draw,decorate,decoration={border,angle=-45,
-                    amplitude=0.2cm,segment length=2mm}}},
-    ]
-    
-    \draw[interface] (-0.25,0) -- (4,0) coordinate (hd);
- 
-    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.75]
-        plot(\x,{\x*tan(45) - 9.8 * \x^2 / (2 * 6.062^2*(cos(45))^2)});
-    
-    \draw[->, thick] (0,0) coordinate(origin) -- node[above left]{$\vec{v}_i$} (45:1) coordinate (v);
- 
-    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = hd--origin--v};
-\end{tikzpicture}
-\caption{Visão lateral do lançamento oblíquo de um projétil.}
-\end{figure}
+%\begin{figure}[ht]\forcerectofloat
+%\centering
+%\begin{tikzpicture}[>=Stealth, scale = 2,
+%     interface/.style={
+%        % superfície
+%        postaction={draw,decorate,decoration={border,angle=-45,
+%                    amplitude=0.2cm,segment length=2mm}}},
+%    ]
+%    
+%    \draw[interface] (-0.25,0) -- (4,0) coordinate (hd);
+% 
+%    \draw[smooth, dash dot, name path=plotc,samples=1000,domain=0:3.75]
+%        plot(\x,{\x*tan(45) - 9.8 * \x^2 / (2 * 6.062^2*(cos(45))^2)});
+%    
+%    \draw[->, thick] (0,0) coordinate(origin) -- node[above left]{$\vec{v}_i$} (45:1) coordinate (v);
+% 
+%    \pic [draw, "$\theta$", angle eccentricity = 1.5] {angle = hd--origin--v};
+%\end{tikzpicture}
+%\caption{Visão lateral do lançamento oblíquo de um projétil.}
+%\end{figure}
 
 Para descrever o lançamento, vamos considerar que o projétil tem uma velocidade inicial $\vec{v}_i$ cujo módulo $v_i$ e o ângulo $\theta$ em relação à horizontal são conhecidos. Conforme vimos na seção anterior, devemos estabelecer um sistema de referência bidimensional para descrever o movimento, tomando um eixo horizontal $x$ e um vertical $y$ ---~cujo sentido positivo aponta para cima~---, sendo que essa escolha é a mais adequada pois permite que \emph{haja aceleração somente no eixo vertical $y$}. Isso significa que o movimento no eixo horizontal $x$ é um movimento com \emph{velocidade constante}, enquanto no eixo $y$ temos que\footnote{Note que o sinal negativo reflete o fato de que a aceleração da gravidade aponta no \emph{sentido negativo} do eixo $y$. Se tomássemos um eixo $y$ cujo sentido fosse para baixo, então a aceleração da gravidade seria positiva.}
 \begin{equation}
@@ -794,7 +796,7 @@ Para explorar melhor as características do movimento de projéteis, a seguir va
 
 A partir da Equação~\eqref{Eq:TorricelliMovProj}, podemos determinar qual é o valor de altura máxima que o projétil alcança ao ser lançado com velocidade $\vec{v}_i$. Sabemos que no ponto onde o projétil atinge a altura máxima, sua velocidade no eixo vertical deve ser nula, afinal ocorre uma inversão no sentido do movimento. Empregando a expressão~\eqref{Eq:TorricelliMovProj}, substituindo $v_{f}^{y} = 0$ e $v_{i}^{y} = v_i\sen\theta$, obtemos\footnote[][-2.5cm]{Na dedução das equações para altura máxima, alcance horizontal e para a trajetória, escolheremos um sistema de coordenadas onde o eixo $y$ cresce verticalmente para cima. Nesse caso, ao utilizar as fórmulas é importante que tal escolha também seja efetuada ao se resolver exercícios e problemas, respeitando a convenção que originou as fórmulas. Se isso não acontecer, ocorrerão problemas com os sinais de algumas variáveis cinemáticas.}
 \begin{equation}
-  v_i\sen\theta = 2g\Delta y,
+  (v_i\sen\theta)^2 = 2g\Delta y,
 \end{equation}
 %
 e, finalmente, denotando a altura máxima por $H$ e sabendo que $H = \Delta y$,
@@ -894,7 +896,7 @@ para o ângulo de máximo alcance.
 
 Em muitos casos estamos interessados em determinar a distância horizontal $\Delta x$ percorrida pelo projétil, mas tal distância difere do alcance $R$. Temos da própria definição do alcance que o projétil deve voltar ao mesmo ponto de que foi lançado, em relação ao eixo $y$. Em um cálculo mais geral da distância horizontal percorrida, podemos ter um lançamento que ocorre de cima de uma elevação, atingindo o solo mais abaixo (como no caso de um lançamento que parte de cima de uma mesa e que atinge o chão), ou mesmo um lançamento que parte de um ponto mais baixo e atinge uma elevação.
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}[-1cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- (4,0) node[below left]{$x$};
@@ -1300,11 +1302,11 @@ Essa distância se refere à altura da bola em relação ao ponto de lançamento
 \label{Sec:MovimentoCircular}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Como um segundo exemplo de movimento bidimensional, vamos analisar o movimento circular. Nesse tipo de movimento, a distância a um ponto do espaço é sempre a mesma, de forma que a trajetória descrita pelo corpo que executa o movimento circular está contida em um plano.\footnote[][-1cm]{E forma um círculo, claro.}
+Como um segundo exemplo de movimento bidimensional, vamos analisar o movimento circular. Nesse tipo de movimento, a distância a um ponto do espaço é sempre a mesma, de forma que a trajetória descrita pelo corpo que executa o movimento circular está contida em um plano.\footnote[][-2cm]{E forma um círculo, claro.}
 
 O efeito do vetor aceleração no vetor velocidade é mais difícil de visualizar do que o efeito da velocidade no vetor deslocamento. É mais fácil considerarmos dois efeitos separadamente: a alteração do módulo, e a alteração da direção do vetor $\vec{v}$. Ambos podem estar presentes em um movimento circular.
 
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) -- node[above]{$\vec{v}_i$} +(1,0);
@@ -1348,15 +1350,15 @@ Já no caso de termos um vetor aceleração que seja sempre perpendicular ao vet
 
 Em situações mais complexas, podemos ter uma composição dos dois efeitos da aceleração. Se temos uma situação como a da Figura~\ref{Fig:DoisEfeitosAceleracaoNaVelocidade}, por exemplo, temos que o vetor velocidade final tem um módulo maior que o vetor velocidade inicial, e que sofreu uma rotação em relação ao vetor inicial. De qualquer forma, podemos utilizar a ideia de componentes vetoriais para decompor a aceleração em uma componente na direção da velocidade inicial, e outra na direção perpendicular ao vetor velocidade inicial. Essa estratégia simplifica bastante a análise de movimentos bi e tridimensionais, e será a base para a análise do movimento circular nas seções seguintes.
 
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.75]
 
 	\draw[->] (0,0) -- node[below]{$\vec{v}_i$} (2,0);
 
-	\draw[arrows={[-Stealth[harpoon,swap]}] (2,0) -- node[right]{$\Delta v = \vec{a} t$} +(1,2) coordinate (at);
+	\draw[arrows={-Stealth[harpoon,swap]}] (2,0) -- node[right]{$\Delta v = \vec{a} t$} +(1,2) coordinate (at);
 
-	\draw[arrows={[-Stealth[harpoon]}] (0,0) -- node[above, sloped]{$\vec{v}_i$} (at);
+	\draw[arrows={-Stealth[harpoon]}] (0,0) -- node[above, sloped]{$\vec{v}_i$} (at);
 
 \end{tikzpicture}
 \caption{O efeito mais geral de uma aceleração é o de alterar o módulo do vetor velocidade e também o de causar uma rotação em tal vetor.\label{Fig:DoisEfeitosAceleracaoNaVelocidade}}
@@ -1366,7 +1368,7 @@ Em situações mais complexas, podemos ter uma composição dos dois efeitos da 
 \subsection{Aceleração centrípeta}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{marginfigure}[1mm]
 \centering
    \begin{tikzpicture}[>=Stealth, scale=1.4]
         \draw[dotted] ([shift={(0,0)}]120:2) arc[radius=2, start angle=120, end angle= 0];
@@ -1386,7 +1388,7 @@ Em situações mais complexas, podemos ter uma composição dos dois efeitos da 
 Analisando o movimento circular restrito ao caso de velocidade constante em módulo, verificamos que temos uma alteração constante da direção do vetor velocidade. Na Figura~\ref{Fig:Acel_mov_cir_unif} vemos uma parte da trajetória seguida por uma partícula. Em dois instantes diferentes, temos dois vetores velocidade que têm o mesmo módulo, porém direções diferentes. Se calcularmos geometricamente a diferença entre esses vetores, vemos que $\Delta \vec{v}$ aponta perpendicularmente à trajetória quando disposto no ponto central entre as posições inicial e final, isto é, ele aponta para o centro da trajetória circular.
 
 Sabemos, que o vetor aceleração média é dado por
-\begin{equation}
+\begin{equation}\label{Eq:AcelMed:DefAcelMedia}
   \mean{\vec{a}} = \frac{\Delta \vec{v}}{\Delta t}.
 \end{equation}
 %
@@ -1449,7 +1451,7 @@ A partir desses resultados, temos que
     \frac{\Delta v}{v} = \frac{\Delta r}{r}.
 \end{equation}
 %
-Isolando $\Delta v$ e substituindo na expressão para a aceleração média, obtemos para o módulo\footnote{Note que estamos desprezando o caráter vetorial da equação abaixo, pois já sabemos a direção e o sentido do vetor e estamos interessados somente em determinar o módulo da aceleração média.}
+Isolando $\Delta v$ e substituindo na expressão para a aceleração média, obtemos para o módulo\footnote{Lembre-se que a divisão por um escalar só altera o módulo do vetor, por isso a Equação~\eqref{Eq:AcelMed:DefAcelMedia} implica em $\mean{a} = \Delta v / \Delta t$.}
 \begin{equation}
   \mean{a} = \frac{v}{r} \frac{\Delta r}{\Delta t}.
 \end{equation}
@@ -1542,7 +1544,7 @@ Qualquer ponto de uma trajetória curvilínea pode ser aproximado por uma trajet
   \begin{equation}
     a_r = a_c = \frac{v^2}{r}.
   \end{equation}
-  Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade. Podemos entender isso se considerarmos que se só existisse essa componente, então teríamos um movimento circular, onde somente a direção do vetor velocidade é alterada.
+  Podemos atribuir a esta componente o papel exclusivo de alterar a \emph{direção} do vetor velocidade. Podemos entender isso se considerarmos que se só existisse essa componente, então teríamos um movimento circular, onde somente a direção do vetor velocidade é alterada.\footnote{Lembre-se que um vetor aceleração $\vec{a}$ perpendicular ao vetor velocidade $\vec{v}$ só é capaz de causar uma rotação do vetor $\vec{v}$.}
   \item[Componente tangencial] A outra componente da aceleração é a projeção do vetor na direção tangencial à trajetória ---~ou seja, na direção da velocidade instantânea~---. Esta componente tem o papel exclusivo de alterar o \emph{módulo} da velocidade. Isso pode ser entendido se imaginarmos que houvesse somente essa componente da aceleração agindo por um intervalo de tempo infinitesimal. Nesse caso, a aceleração seria na própria direção da velocidade, portanto ao calcularmos a velocidade final após um intervalo $\delta t$ através de
 \begin{equation}
     \vec{v}_f = \vec{v}_i + \vec{a} \delta t,

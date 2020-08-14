@@ -582,10 +582,17 @@ Os vetores $\vec{e}_1$ e $\vec{e}_2$ formam o que chamamos de \emph{base vetoria
 \subsection{Cálculo das componentes vetoriais, vetores unitários}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Vamos supor que tenhamos um vetor $\vec{a}$ conhecido, que faz um ângulo $\theta$ com o vetor $\vec{e}_1$ da base. Como podemos determinar os valores de $\alpha$ e $\beta$ que nos permitem reconstruir o vetor $\vec{a}$ a partir dos vetores da base?\footnote[][-1cm]{Tal processo é conhecido como \emph{decomposição vetorial}, e os escalares $\alpha$ e $\beta$ são denominados como \emph{componentes vetoriais nas direções $\hat{e}_1$ e $\hat{e}_2$}.}
+Vamos supor que tenhamos um vetor $\vec{a}$ conhecido, que faz um ângulo $\theta$ com o vetor $\vec{e}_1$ da base. Como podemos determinar os valores de $\alpha$ e $\beta$ que nos permitem reconstruir o vetor $\vec{a}$ a partir dos vetores da base?\footnote[][-1cm]{Tal processo é conhecido como \emph{decomposição vetorial}, e os escalares $\alpha$ e $\beta$ são denominados como \emph{componentes vetoriais nas direções $\vec{e}_1$ e $\vec{e}_2$}.} Veremos a seguir que basta considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase} e \emph{projetar}\footnote{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} o vetor $\vec{a}$ na direção dos vetores da base, o que nos permitirá encontrar os valores das constantes após resolver um sistema de equações.
 
-Para determinarmos os valores das constantes escalares, vamos considerar a Figura~\ref{Fig:VetorObtidoAPartirDeUmaBase}. Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores\footnote[][-13mm]{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário a partir do vetor da base. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.}. Se conhecemos o valor do ângulo $\theta$, podemos determinar a \emph{projeção}\footnote[][4cm]{A projeção de um vetor $\vec{a}$ qualquer em uma direção é sempre dada por $a\cos\theta$, onde $a$ é o módulo do vetor e $\theta$ é o ângulo entre o vetor e a direção na qual o estamos projetando. Podemos a interpretar como a ``sombra'' do vetor quando iluminado por um feixe de luz que incide perpendicularmente à direção sobre a qual estamos projetando.} de $\vec{a}$ na direção de $\vec{e}_1$:
-\begin{figure}[!h]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_1$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Como assumimos que a base é conhecida, sabemos os vetores $\vec{e}_1$ e $\vec{e}_2$, seus módulos, e o ângulo $\omega$ entre tais vetores.\footnote{É importante destacar aqui que definimos o ângulo $\theta$ entre o vetor $\vec{a}$ e o vetor $\vec{e}_1$ da base como sendo aquele medido no sentido anti-horário a partir do vetor da base. Precisamos tomar esse cuidado pois caso contrário teremos problemas de sinal.} Se conhecemos o valor do ângulo $\theta$, podemos determinar a projeção de $\vec{a}$ na direção de $\vec{e}_1$, cujo valor é dado por (veja a Figura~\ref{Fig:ProjNaBaseEixoE1})%\footnote{Na Equação~\eqref{Eq:ProjAEmE1}, $a_{e_1}$ representa a a ideia de ``projeção do vetor $\vec{a}$ na direção do vetor $\vec{e}_1$'' e o índíce $e_1$ não está ligado ao módulo do vetor $\vec{e}_1$, ele é só um ``rótulo'' ou uma ``etiqueta'' que faz parte da descrição.}
+\begin{equation}\label{Eq:ProjAEmE1}
+	a_{e_1} = a \cos\theta.
+\end{equation}
+
+\begin{figure}[!h]\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth, scale=3]
     
@@ -600,7 +607,7 @@ Para determinarmos os valores das constantes escalares, vamos considerar a Figur
     \draw[dotted] (2.25, 0) -- (2.79,1.08);
     \draw[dotted] (0.54, 1.08) -- (2.79, 1.08);
     \draw[dashed] (2.79, 1.08) -- (2.79, 0) coordinate (quina) -- (2.25,0);
-    \draw[|<->|] (2.79,-0.25) -- node[below]{$|\vec{a}_2| \cos\theta$} (2.25,-0.25);
+    \draw[|<->|] (2.79,-0.25) -- node[below]{$|\vec{a}_2| \cos\omega$} (2.25,-0.25);
     
     % medida
     \draw[dotted] (0,0) -- (0,-0.5) (2.79,0) -- +(0,-0.5);
@@ -616,34 +623,53 @@ Para determinarmos os valores das constantes escalares, vamos considerar a Figur
     \pic [draw, "$\omega$", angle eccentricity = 2, angle radius = 3mm] {angle = quina--a1--a};
     
 \end{tikzpicture}
-\caption{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_1$.}
+\caption{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_1$.\label{Fig:ProjNaBaseEixoE1}}
 \end{figure}
 
-Note que a projeção $a\cos\theta$ tem o mesmo tamanho que o vetor $\vec{a}_1$, mais a distância tracejada até o ângulo reto. Essa distância, no entanto, pode ser calculada através de 
+Note que a projeção $a_{e_1}$ tem o mesmo tamanho que o vetor $\vec{a}_1$, mais a distância tracejada até o ângulo reto. Essa distância, no entanto, pode ser calculada através de 
 \begin{displaymath}
-    a_2\cos\omega
+    a_2\cos\omega,
 \end{displaymath}
 %
 pois o vetor $\vec{a}_2$ pode ser transladado para a posição da linha pontilhada à direita. Assim, temos a relação
-\begin{equation}
+\begin{align}
+    a_{e_1} &= a\cos\theta \\
+    &= a_1 + a_2\cos\omega,
+\end{align}
+%
+ou, simplesmente,
+\begin{equation}\label{Eq:ProjBaseRelEixoE1}
     a\cos\theta = a_1 + a_2\cos\omega.
 \end{equation}
-
+%
 Lembrando que os vetores $\vec{a}_1$ e $\vec{a}_2$ são definidos como
-\begin{align*}
+\begin{subequations}\label{Eq:RelVecsA1A2}
+\begin{align}
     \vec{a}_1 &= \alpha \vec{e}_1 \\
     \vec{a}_2 &= \beta \vec{e}_2,
-\end{align*}
+\end{align}
+\end{subequations}
 %
-podemos reescrever essa relação como
+o que implica em
+\begin{subequations}\label{Eq:RelModulosA1A2}
+\begin{align}
+    a_1 &= \alpha e_1 \\
+    a_2 &= \beta e_2,
+\end{align}
+\end{subequations}
+%
+podemos reescrever a Equação~\eqref{Eq:ProjBaseRelEixoE1} como
 \begin{equation}
     \alpha e_1 = a\cos\theta - \beta e_2 \cos\omega.
 \end{equation}
 %
 Veja que mesmo conhecendo os valores de $a$, $\theta$, $e_1$, $e_2$ e $\omega$, não é possível determinar os valores de $\alpha$ e $\beta$, pois temos uma equação com duas incógnitas.
 
-Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$, obtemos:
-\begin{figure}[!h]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!h] \forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth, scale=3]
     
@@ -658,7 +684,7 @@ Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\
     \draw[dotted] (2.25, 0) -- (2.79,1.08);
     \draw[dotted] (0.54, 1.08) -- (2.79, 1.08);
     \draw[dashed] (2.79, 1.08) -- (63.435:2.22) coordinate (quina) -- (a2);
-    \draw[|<->|] (65.8:2.226) -- node[sloped, above]{$|\vec{a}_2| \cos\omega$} (0.46,1.12);
+    \draw[|<->|] (65.8:2.226) -- node[sloped, above]{$|\vec{a}_1| \cos\omega$} (0.46,1.12);
     
     % medida
     %\draw[dotted] (0,0) -- (0,-0.5) (2.79,0) -- +(0,-0.5);
@@ -678,22 +704,30 @@ Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\
 \caption{Projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$.}
 \end{figure}
 
-\noindent{}Desta vez, observando que a distância tracejada entre o final de $\vec{a}_2$ e o ângulo reto é dada por\footnote{Note que a linha pontilhada horizontal é paralela ao vetor $\vec{a}_1$. Logo, o ângulo entre a reta pontilhada e a tracejada também é $\omega$.}
+Voltando à figura, podemos perceber ainda que ao fazer a projeção do vetor $\vec{a}$ na direção de $\vec{e}_2$, obtemos (veja a Figura~\ref{Fig:ProjNaBaseEixoE1})
+\begin{equation}
+    a_{e_2} = a\cos(\omega - \theta).
+\end{equation}
+%
+Desta vez, observando que a distância tracejada entre o final de $\vec{a}_2$ e o ângulo reto é dada por\footnote{Note que a linha pontilhada horizontal é paralela ao vetor $\vec{a}_1$. Logo, o ângulo entre a reta pontilhada e a tracejada também é $\omega$.}
 \begin{displaymath}
     a_1\cos\omega,
 \end{displaymath}
 %
 obtemos a relação
 \begin{equation}
-    a\cos(\omega - \theta) - a_1\cos\omega = a_2,
+    a_{e_2} = a_2 + a_1\cos\omega,
 \end{equation}
 %
-ou ainda
+ou
 \begin{equation}
-    a\cos(\omega - \theta) - \alpha e_1\cos\omega = \beta e_2,
+    a\cos(\omega - \theta) = a_2 + a_1\cos\omega.
 \end{equation}
 %
-onde utilizamos as definições de $\vec{a}_1$ e $\vec{a}_2$.
+Se utilizamos as relações dadas pelas Equações~\ref{Eq:RelModulosA1A2} para os módulos dos vetores $\vec{a}_1$ e $\vec{a}_2$, obtemos
+\begin{equation}
+    a\cos(\omega - \theta) = \beta e_2 + \alpha e_1 \cos\omega.
+\end{equation}
 
 Podemos agora montar um sistema de equações a partir do qual é possível determinar os valores de $\alpha$ e $\beta$:
 \begin{equation}
@@ -720,11 +754,11 @@ Note que esse passo não é necessário, uma vez que assumimos que os módulos d
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Bases ortogonais, componentes vetoriais}
+\subsection{Bases ortogonais}
 \label{Sec:ComponentesVetoriais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Apesar de podermos utilizar dois vetores quaisquer ---~desde que eles não sejam colineares~---, é mais simples descrever os vetores em termos de uma \emph{base ortogonal},\footnote[][-5mm]{Uma base ortogonal constituida por vetores unitários é denominada \emph{base ortonormal}.} isto é, uma base em que o ângulo $\omega$ entre os vetores é de \degree{90}.\footnote[][5mm]{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt. Você verá isso na disciplina de Álgebra Linear.} Nesse caso, verificamos através das Equações~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta1} e~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta2} que $\alpha$ e $\beta$ podem ser obtidos de maneira muito mais simples:
+Apesar de podermos utilizar dois vetores quaisquer ---~desde que eles não sejam colineares~---, é mais simples descrever os vetores em termos de uma \emph{base ortogonal}, isto é, uma base em que o ângulo $\omega$ entre os vetores é de \degree{90}.\footnote[][-1cm]{Sempre que conhecemos dois vetores que formam uma base (isto é, dois vetores que não são colineares), podemos calcular dois outros vetores que são ortogonais entre si através do processo de ortogonalização de Gram-Schmidt. Você verá isso na disciplina de Álgebra Linear.} Nesse caso, verificamos através das Equações~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta1} e~\eqref{Eq:AlphaEBetaEmFuncaoDeAETheta2} que $\alpha$ e $\beta$ podem ser obtidos de maneira muito mais simples:
 \begin{align}
     \alpha &= \frac{a[\cos\theta - \cos(\np[\tcdegree]{90}-\theta)\cos\np[\tcdegree]{90}]}{1-\cos^2\np[\tcdegree]{90}} \\
     &=a\cos\theta \\
@@ -766,7 +800,7 @@ onde utilizamos o fato de que $\cos\np[\tcdegree]{90} = 0$ e $\cos(\np[\tcdegree
 \caption{Decomposição de um vetor $\vec{a}$ em uma base ortogonal. \label{Fig:DecomposicaoEixosOrto}}
 \end{marginfigure}
 
-Devemos notar ainda que para um sistema de referência composto por uma base ortogonal, \emph{as projeções do vetor $\vec{a}$ nas direções dos vetores da base são as próprias componentes do vetor em termos de tais vetores unitários}. Isso permite que a determinação das componentes seja sempre feita utilizando funções as funções trigonométricas seno e cosseno, de uma forma bastante simples: se tomarmos o vetor $\vec{a}$ na Figura~\ref{Fig:DecomposicaoEixosOrto}, percebemos que ele é dado por
+Devemos notar ainda que para um sistema de referência composto por uma base ortogonal, \emph{as projeções do vetor $\vec{a}$ nas direções dos vetores da base são as próprias componentes do vetor em termos de tais vetores unitários}. Isso permite que a determinação das componentes seja sempre feita utilizando as funções trigonométricas seno e cosseno, de uma forma bastante simples: se tomarmos o vetor $\vec{a}$ na Figura~\ref{Fig:DecomposicaoEixosOrto}, percebemos que ele é dado por
 \begin{equation}\label{eq:vec_a}
     \vec{a} = \alpha\vec{e}_1 + \beta\vec{e}_2.
 \end{equation}
@@ -792,7 +826,7 @@ Como escolhemos $\vec{e}_1$ e $\vec{e}_2$ como unitários, então é claro que
     \beta &= a\sen\theta.
 \end{align}
 
-Em Física\footnote{Não cremos em bases não-ortonormais, mas que elas existem, existem.} geralmente utilizamos uma base ortogonal com vetores unitários para descrever os vetores. Os eixos de referência utilizados são denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, temos que a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como (veja a Figura~\ref{Fig:sis_ref_orto_xy_e_versi_versj})
+Em Física geralmente utilizamos uma base ortogonal com vetores unitários\footnote[][-1cm]{Uma base ortogonal constituida por vetores unitários é denominada \emph{base ortonormal}.} para descrever os vetores.\footnote{\textit{Não cremos em bases não-ortonormais, mas que elas existem, existem.}} Os eixos de referência utilizados são denominados como eixos $x$ e $y$, e contam com vetores unitários denominados $\versi$ e $\versj$, respectivamente\footnote{Veja que o que chamamos de \emph{eixos de referência} são simplesmente as direções dos próprios vetores unitários. Ao empregarmos essa nomenclatura, no entanto, assumimos sempre que se trata de uma base ortogonal.}. Já para as componentes, ao invés de utilizarmos $\alpha$ e $\beta$, utilizamos simplesmente $a_x$ e $a_y$. Considerando essa notação, a Equação~\eqref{eq:vec_a} para o vetor $\vec{a}$ pode ser reescrita como (veja a Figura~\ref{Fig:sis_ref_orto_xy_e_versi_versj})
 \begin{equation}
     \vec{a} = a_x \versi + a_y \versj,
 \end{equation}
@@ -840,7 +874,7 @@ ou
   \vec{a} = \begin{pmatrix} a_x \\ a_y \end{pmatrix}.
 \end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=1.5]
 
@@ -974,7 +1008,7 @@ Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fi
     A Figura~\ref{Fig:Ex:DecompRefRot} mostra dois sistemas de referência ortogonais ---~um constituido por um eixo $x$ horizontal e um eixo $y$ vertical, e outro constituido por dois eixos $x'$ e $y'$~---, sendo que o segundo foi obtido a partir de uma rotação do primeiro sistema de referência por um ângulo $\omega = \np[\tcdegree]{30}$. Se um vetor $\vec{a}$ tem módulo $a = \np[m]{2.5}$ e faz um ângulo $\theta = \np[\tcdegree]{45}$ em relação ao eixo horizontal, quais são as componentes do vetor nos eixos do sistema rotacionado?
 \end{quote}
 
-\begin{marginfigure}[-3.5cm]
+\begin{marginfigure}[-5.5cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=0.8]
 
@@ -993,7 +1027,7 @@ Podemos ilustrar os vetores no sistema de referência através da Figura~\ref{Fi
 \caption{O vetor $\vec{a}$ em relação aos dois sistemas de referência. \label{Fig:Ex:DecompRefRot}}
 \end{marginfigure}
 
-\begin{marginfigure}[5mm]
+\begin{marginfigure}[-1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.8]
 
@@ -1318,7 +1352,15 @@ Concluímos, portanto, que se um vetor aponta na mesma direção que um eixo de 
 \subsection{Projeções negativas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[3cm]
+Algo que é bastante importante notarmos é o fato de que muitos vetores têm uma ou mais componentes negativas. Isso está ligado ao simples fato de que para os gerar a partir dos vetores da base escolhida, precisamos que as componentes tenham valores negativos. Por isso, é importante que ao decompor um vetor em termos de uma base/sistema de referência, saibamos identificar se tais sinais são necessários. Se determinarmos os valores das componentes através de
+\begin{align}
+    a_x &= a \cos\theta \\
+    a_y &= a\sen\theta,
+\end{align}
+%
+onde o ângulo $\theta$ é medido a partir do eixo $x$, no sentido anti-horário, os sinais serão ``gerados'' apropriadamente pelas próprias funções trigonométricas.
+
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}
 
@@ -1344,14 +1386,6 @@ Concluímos, portanto, que se um vetor aponta na mesma direção que um eixo de 
 \caption{Podemos utilizar tanto o ângulo $\phi$, quanto o ângulo $\theta$ em relação ao eixo $x$ para determinar as componentes de um vetor, porém devemos estar atentos ao sinal. \label{Fig:DecompVetorCompNegativa}}
 \end{marginfigure}
 
-Algo que é bastante importante notarmos é o fato de que muitos vetores têm uma ou mais componentes negativas. Isso está ligado ao simples fato de que para os gerar a partir dos vetores da base escolhida, precisamos que as componentes tenham valores negativos. Por isso, é importante que ao decompor um vetor em termos de uma base/sistema de referência, saibamos identificar se tais sinais são necessários. Se determinarmos os valores das componentes através de
-\begin{align}
-    a_x &= a \cos\theta \\
-    a_y &= a\sen\theta,
-\end{align}
-%
-onde o ângulo $\theta$ é medido a partir do eixo $x$, no sentido anti-horário, os sinais serão ``gerados'' apropriadamente pelas próprias funções trigonométricas.
-
 Existem dois casos, no entanto, em que simplesmente utilizar as expressões acima não será suficiente. O primeiro deles está relacionado ao fato de que muitas vezes não temos, ou não é conveniente utilizar o ângulo $\theta$ como definido acima.\footnote{Em geral a informação que temos, ou que é fácil de se verificar, é um ângulo entre o vetor e um dos eixos do sistema de referência, sendo que costumeiramente se escolhe um ângulo que seja menor que \degree{90}.} Se, por exemplo, tivermos o ângulo $\phi$ na Figura~\ref{Fig:DecompVetorCompNegativa}, podemos determinar os \emph{valores numéricos} das projeções do vetor ao usar tal ângulo, porém não obteremos os sinais adequados. Na figura, claramente a componente $a_x$ é negativa, uma vez que $\degree{90} < \theta < \degree{180}$, logo\footnote{Lembre-se que $a$ representa o módulo do vetor, o que é sempre positivo.}
 \begin{equation}
     a_x = a\cos\theta < 0.
@@ -1373,7 +1407,7 @@ A maneira mais simples e intuitiva de verificar o sinal adequado para a componen
 
 O segundo caso em que devemos ter atenção à questão do sinal é quando temos um sistema ortogonal ``heterodoxo''. Rigorosamente, devemos ter que o semieixo positivo $y$ aponta em uma direção e sentido que faz um ângulo de \degree{90} em relação ao semieixo $x$ positivo, sendo que o ângulo deve ser medido no sentido anti-horário. Muitas vezes, no entanto, adotamos eixos que não respeitam essa regra. Nesses casos, mesmo que utilizemos as funções trigonométricas para o ângulo $\theta$ medido a partir do eixo $x$, em sentido anti-horário, podemos ter problemas de sinal. 
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1480,7 +1514,7 @@ de onde obtemos
     Na Figura~\ref{Fig:Ex:ProjecaoEixoQQ} temos um vetor $\vec{a}$, cujas coordenadas em relação ao sistema de referência $xy$ mostrado são $a_x = \np{-0.866}$ e $a_y = \np{0.5}$. Determine a projeção do vetor na direção do eixo tracejado mostrado na figura, sabendo que o ângulo $\alpha$ indicado é de \np[\tcdegree]{30}.
 \end{quote}
 
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,scale = 1.5]
 
@@ -1503,7 +1537,7 @@ Para que possamos determinar a projeção do vetor na direção desejada precisa
     &\approx 1.
 \end{align}
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.5]
 
@@ -1533,7 +1567,7 @@ Observando a Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, verificamos que podemos obter 
 %
 Note que ao utilizarmos uma calculadora para determinar o ângulo, é comum que a função $\arctan$ retorne um valor negativo para o ângulo, o que equivale nesse caso ao ângulo entre o eixo $x$ e a continuação da reta pontilhada no quarto quadrante, medido no sentido horário ---~veja a Figura~\ref{Fig:Ex:AngNegativoConverter}~---. Para determinarmos o ângulo $\theta$ que desejamos, basta somar \np[\tcdegree]{180}.
 
-\begin{marginfigure}
+\begin{marginfigure}[-6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.75]
 

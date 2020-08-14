@@ -2,22 +2,188 @@
 \label{Chap:Unidades}
 
 \begin{fullwidth}
-    Dimensões, unidades, medidas, conversão de unidades, análise dimensional
+\it
+    Neste capítulo faremos uma discussão inicial acerca de grandezas, suas dimensões, unidades, medidas, conversão de unidades. Além disso, verificaremos alguns aspectos importantes de análise dimensional, sistemas de unidades ---~em especial, o \emph{Sistema Internacional de Unidades -- SI}~---, bem com um processo simples e geral de conversão de unidades.
 \end{fullwidth}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Medidas e unidades}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grandezas, medidas, e unidades}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sistema Internacional, unidades fundamentais e não-fundamentais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Talvez a afirmação mais básica que se pode fazer sobre a Física é que existem \emph{grandezas} no mundo no qual habitamos que podem ser mensuradas, isto é, podemos atribuir um valor numérico a tal grandeza. Além disso, podemos estabelecer relações entre grandezas, sendo que essas relações são equações matemáticas, uma vez que estamos tratando de números. O valor obtido para uma grandeza é o que denominamos \emph{medida}, sendo que o processo de obtenção de uma medida é denominado \emph{medição}.\footnote{Esse termo não costuma ser muito usado, geralmente você vai ler ou ouvir frases contendo ``meça'', ``obtenha o valor da medida'', ``afira o valor de'', ou alguma outra expressão similar.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Análise dimensional}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Se, por exemplo, sabemos que uma torneira está mal fechada, quanto mais rapidamente pingam pingos, mais rapidamente um balde que é posto sob ela se encherá. Nessa observação, verificamos diversos conceitos:
+\begin{itemize}
+    \item o balde comporta um certo número de pingos;
+    \item é necessário um certo tempo para que o balde encha;
+    \item a ``rapidez com que os pingos pingam'' está associada a uma ideia de quantidade por tempo.
+\end{itemize}
+É claro que uma descrição como essa não é muito precisa, afinal um pingo não tem um tamanho bem definido. Podemos, no entanto, melhorar essa descrição.
+
+Em primeiro lugar, podemos determinar o \emph{volume} do balde em termos de um volume padrão. Esse padrão pode ser um volume de referência qualquer, como o volume de um copo em particular. Assim, se mudarmos o balde por um maior ou menor, a descrição dos volumes medidos e as relações com outras variáveis continuam válidas. Ao realizarmos a medida, se podemos despejar o conteúdo do copo exatamente 100 vezes dentro do balde, podemos denotar o volume deste como
+\begin{equation}
+    V = \np[copos]{100}.
+\end{equation}
+%
+A expressão acima representa uma medida típica: uma grandeza (o volume, representado por $V$) tem seu valor mensurado, resultando em um valor numérico (100) em uma unidade específica (copos). A \emph{unidade} nada mais é do que o padrão de referência adotado para a medida e é escolhida por conveniência. 
+
+De maneira similar, precisamos determinar o tempo necessário para enchermos o balde. Também vamos precisar de um padrão, como no caso do volume. Apesar ser algo trivial hoje, contar a passagem do tempo com precisão é um fenômeno bastante moderno: precisamos de um sistema físico que possua uma propriedade que mude com muita regularidade.\footnote{E verificar essa regularidade é algo bastante difícil se você não tem como referência algum outro sistema que varie de maneira mais regular.} Um sistema que apresenta um movimento regular é um \emph{pêndulo}, isto é, um corpo pesado\footnote{``Pesado'' aqui se refere ao sentido usual da palavra, ou seja, algo que é difícil de levantar do chão. Mais tarde, no Capítulo~\ref{Chap:Dinamica}, vamos nos referir a um corpo com tal propriedade como sendo um corpo \emph{com grande massa}, pois essa é uma propriedade mais fundamental do corpo.} preso à extremidade de uma corda fina e leve. Quando a outra extremidade é presa a um suporte rígido e deixarmos o corpo solto de forma a esticar a corda, verificaremos que qualquer perturbação de sua posição em relação ao ponto mais baixo que ele pode ocupar dá origem a um movimento de vai e vem. Esse movimento, denominado \emph{movimento oscilatório} é bastante regular e pode ser usado como um padrão de tempo.\footnote{O primeiro relógio usando um pêndulo foi projetado pelo físico neerlandês Christiaan Huygens, em 1635, porém o primeiro a notar a regularidade das oscilações de um pêndulo foi o polímata Galileu Galilei, em 1581. Um dos artefatos mais antigos para se registrar a passagem do tempo são os \emph{relógios de água}, ou \emph{clepsidras}, que consistem em encher recipientes usando uma fonte com um \emph{fluxo constante} de água. (O que é um pouco irônico, pois eu não pensei nisso ao começar a escrever esse texto usando esse exemplo.)} Se o tempo necessário para encher o balde é o mesmo tempo que um pêndulo em particular demora para executar 800 oscilações, então podemos escrever
+\begin{equation}
+    t = 800\,\textrm{oscilações}.
+\end{equation}
+%
+Note que mais uma vez temos uma medida que determina um valor (800) e uma unidade (oscilações) para uma grandeza (o tempo transcorrido durante o preenchimento do balde, representado por $t$).
+
+Finalmente, podemos agora descrever a medição do \emph{fluxo de água}. Nesse caso, podemos pensar na determinação do valor da medida de uma maneira diferente. É claro que podemos escrever uma relação entre o volume $V$ de água depositado no balde, o tempo $t$ necessário para preenchê-lo, e o fluxo $f$ de água como
+\begin{equation}
+    V = f \cdot t.
+\end{equation}
+%
+Se dividirmos ambos os lados da equação acima por $t$, obteremos\footnote{Uma equação continua verdadeira sempre que você fizer uma operação de um lado e também fizer essa mesma operação do outro. Exceto se essa operação for uma divisão por zero, o que é contra as regras.}
+\begin{equation}
+\frac{V}{t} = \frac{f \cdot t}{t},
+\end{equation}
+%
+o que é igual a
+\begin{equation}
+    \frac{V}{t} = f,
+\end{equation}
+%
+ou, virando a equação,
+\begin{equation}
+    f = \frac{V}{t}.
+\end{equation}
+%
+Agora, substituindo os valores de volume e tempo, obtemos
+\begin{align}
+    f &= \frac{V}{t} \\
+    &= \frac{(100\,\textrm{copos})}{(800\,\textrm{oscilações})} \\
+    &= \np{0,125}\,\textrm{copos}/\textrm{oscilação}.
+\end{align}
+%
+As duas medidas anteriores, isto é, as medidas de volume e de tempo, foram obtidas através de uma \emph{comparação direta} com um padrão. Já a medida de fluxo foi obtida de uma maneira \emph{indireta}, através de um cálculo que realizamos com os valores de duas medidas diretas. Além disso, note que a unidade obtida simplesmente segue o mesmo cálculo usado para o valor numérico e envolve ambas as unidades. Dentre essas três unidades, podemos classificar as duas primeiras (``copos'' e ``oscilações'') como \emph{unidades de base}, ou \emph{unidades fundamentais}, enquanto a terceira (``copos/oscilação'') é uma \emph{unidade derivada}, pois é definida em termos de outras unidades. Como veremos adiante, as unidades de base estão associadas a um conjunto de grandezas de base, e que formam a base de um \emph{sistema de unidades}.
+
+De uma maneira formal,\cite{VocabMetrologia} uma \emph{medida} é o valor quantitativo associado a uma \emph{grandeza}, que é uma propriedade de um sistema físico que pode ser expressa quantitativamente através de um \emph{número} e de uma \emph{referência}. O processo de obtenção de uma medida é denominado \emph{medição}. A referência geralmente é uma unidade, mas pode ser também um \emph{procedimento de medida}, um \emph{material de referência}, ou uma combinação destes.
+
+As grandezas podem ser divididas em diferentes \emph{naturezas}. Como exemplos podemos citar:\footnote{Alguns grupos são bastante óbvios, como os dois primeiros exemplos, porém outros não. A descoberta de que calor está associado a energia foi algo bastante importante e revolucionário.} 
+\begin{itemize}
+    \item posição, comprimento, deslocamento, comprimento de onda, etc., são grandezas com a mesma \emph{natureza de comprimento};
+    \item as grandezas forças de atrito, tensão, empuxo, etc., têm \emph{natureza de força};
+    \item as grandezas calor, energia cinética, e energia potencial, têm \emph{natureza de energia}.
+\end{itemize}
+
+As grandezas de uma mesma natureza têm sempre a mesma \emph{dimensão}.\footnote{Não estamos falando de dimensão do espaço aqui. Isso é outro conceito com o qual vamos trabalhar e que tem o mesmo nome, mas se trata de um contexto diferente.} Podemos dizer que a dimensão é um tipo em particular de unidade: se medimos uma distância em polegadas ou em centímetros, estamos optando entre duas unidades diferentes que possuem a mesma dimensão de \emph{comprimento}; quando expressamos uma velocidade ou em metros por segundo, ou em quilômetros por hora, em ambos os casos temos uma unidade com estrutura de unidades de \emph{comprimento} divididas por unidades de \emph{tempo}. Note, portanto, que as dimensões de algumas grandezas são compostas de outras dimensões, como no caso da velocidade. Outro ponto importante a se destacar é que algumas grandezas são \emph{adimensionais}. Isso acontece com algumas grandezas que são calculadas através da razão entre duas grandezas de mesmas dimensões, como o \emph{coeficiente de atrito}, que veremos no Capítulo~\ref{Chap:Dinamica}, e os ângulos medidos em radianos, que veremos no Capítulo~\ref{Chap:Rotacoes}.
+
+Apesar de grandezas de uma mesma natureza terem sempre a mesma dimensão, a recíproca não é verdadeira e grandezas com a mesma dimensão podem ser de diferentes naturezas. Como exemplos podemos citar:\footnote{A ordem das dimensões que aparecem em uma dimensão composta é irrelevante. Além disso, é mais comum nos referirmos ``as dimensões da grandeza $X$'' no plural, pois a maioria das grandezas possui uma dimensão composta.}
+\begin{itemize}
+    \item torque e energia, cujas dimensões são ``$\text{massa}\cdot\text{comprimento}^2\cdot\text{tempo}^{-2}$'' e cujas unidades no SI correspondem a $\rm{kg}\cdot\rm{m}^2\cdot\rm{s}^{-2}$;
+    \item pressão e densidade de energia, cujas dimensões são ``$\text{massa}\cdot\text{comprimento}^{-1}\cdot\text{tempo}^{-2}$'', que correspondem a $\rm{kg}\cdot \rm{m}^{-1} \cdot \rm{s}^{-2}$ no SI;
+    \item entropia e capacidade térmica, de dimensões ``$\text{massa}\cdot\text{tempo}^{-2}\cdot\text{comprimento}^2\cdot\text{temperatura}^{-1}$'', que correspondem a $\rm{kg}\cdot\rm{m}^2\cdot\rm{s}^{-2}\cdot\rm{K}^{-1}$ no SI.
+\end{itemize}
+
+É interessante notar ainda que \emph{só podemos somar, subtrair e igualar grandezas com as mesmas dimensões}. Veremos no Capítulo~\ref{Chap:MovimentoUnidimensional} que o deslocamento em um movimento unidimensional sujeito a uma aceleração constante é descrito pela equação
+\begin{equation}
+x_f - x_i = v_i \cdot t + \frac{a\cdot t^2}{2}.
+\end{equation}
+%
+No lado esquerdo dessa equação temos a diferença entre duas posições, cujas dimensões são de comprimento. Já do lado direito temos dois termos, um cujas dimensões são\footnote{É comum utilizarmos a notação $[X]$ para denotar ``dimensão de $X$''.}
+\begin{align}
+    [v_i\cdot t] &= [v_i]\cdot[t] \\
+    &=\frac{\text{comprimento}}{\text{tempo}} \cdot \text{tempo} \\
+    &=\text{comprimento},
+\end{align}
+%
+e outro cujas dimensões são
+\begin{align}
+    [a \cdot t^2] &= [a]\cdot[t^2] \\
+    &= \frac{\text{comprimento}}{\text{tempo}^2} \cdot [t]^2 \\
+    &= \frac{\text{comprimento}}{\text{tempo}^2} \cdot \text{tempo}^2 \\
+    &= \text{comprimento}.
+\end{align}
+%
+Portanto, todos os termos têm a mesma dimensão. Note que multiplicações, divisões, potências, etc. não precisam ser entre termos com as mesmas unidades, somente somas, subtrações e igualdades. Esse tipo de análise das dimensões, denominado \emph{análise dimensional}, é uma ferramenta útil para verificar se há algum erro grosseiro em uma conta.\footnote[][-3cm]{Em alguns casos pode acontecer de você verificar que uma dimensão não concorda com a outra em uma equação e as coisas estarem corretas pois é comum omitirmos uma medida nas contas quando ela é unitária, ou seja, seu valor é 1. As dimensões associadas a tal valor omitido são as responsáveis por garantir que a equação esteja consistente.}
+
+Finalmente, devemos destacar que os símbolos para as unidades são regulamentados pela ISO \np{80000}.\footnote{A norma ISO \np{80000} é dividida em diversas partes, sendo que muitas delas, mas não todas, podem ser visualizadas gratuitamente em \url{https://www.iso.org/obp/ui/\#home}.} Cada unidade é escrita usando símbolos específicos que devem ser grafados em caracteres romanos. As variáveis utilizadas para descrever as grandezas devem ser escritas utilizando caracteres romanos ou gregos em itálico e a norma ISO \np{80000} sugere símbolos específicos para diversas grandezas. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sistemas de unidades, Sistema internacional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Na seção anterior discutimos dimensões e unidades específicas para algumas grandezas. Se considerarmos o conjunto de \emph{todas} as grandezas, necessitamos de um conjunto reduzido de \emph{grandezas fundamentais} para descrevê-las, uma vez que é possível descrever as demais em termos das grandezas fundamentais. Se considerarmos o exemplo da seção anterior no qual as gotas de uma torneira pingavam em um balde, verificamos que o volume do balde e o tempo foram tratados como grandezas fundamentais, enquanto o fluxo de água foi tratado como uma grandeza derivada, isto é, como uma grandeza descrita em termos das grandezas fundamentais. Essa relação entre as grandezas permite a definição de um \emph{sistema de unidades}.
+
+Ao definirmos um sistema de unidades, escolhemos um conjunto reduzido de grandezas fundamentais e definimos todas as demais grandezas em termos dessas grandezas fundamentais. É claro que existe uma grande flexibilidade na escolha de quais serão as grandezas fundamentais, porém são escolhidas grandezas cuja verificação experimental é a mais simples possível, o que envolve não só a simplicidade na obtenção de medidas, como também simplicidade na própria elaboração de equipamentos de medida. Dessa forma, retornando novamente ao exemplo da seção anterior, ao invés de definirmos o volume como sendo uma grandeza fundamental, faz mais sentido definirmos o comprimento como fundamental e expressarmos o volume em termos do comprimento. Isso é vantajoso pois o processo de medida de comprimento com uma régua, bem como a fabricação de uma régua, são processos simples, e podemos expressar o volume $V$ de um corpo em termos de múltiplos do volume de um cubo com aresta $a$, o que implica que a dimensão do volume é
+\begin{align}
+    [V] &= [a^3] \\
+    &= \text{comprimento}^3.
+\end{align}
+
+Um conjunto de grandezas fundamentais é necessário, mas não suficiente para que tenhamos um sistema de unidades. Precisamos escolher unidades específicas para cada uma dessas grandezas. Uma escolha em particular, conhecida como \emph{Sistema Internacional de Unidades -- SI} é composta pelas seguintes grandezas e unidades:
+\begin{itemize}
+    \item Massa: quilograma (kg);
+    \item Tempo: segundo (s); 
+    \item Comprimento: metro (m);
+    \item Temperatura: kelvin (K);
+    \item Corrente elétrica: ampere (A);
+    \item Quantidade de matéria: mole (mol);
+    \item Intensidade luminosa: candela (cd);
+\end{itemize}
+%
+Todas as demais medidas unidades derivadas das supracitadas, como área ($\rm{m}^2$), volume ($\rm{m}^3$), velocidade ($\rm{m}/\rm{s}$), aceleração ($\rm{m}/\rm{s}^2$), etc. É comum, no entanto, que tais grandezas sejam inconvenientes por serem muito grandes, ou muito pequenas. Nesse caso, adotamos \emph{potências de 10} e/ou \emph{prefixos} equivalentes. Ao medirmos uma folha de papel A4, por exemplo, temos
+\begin{align}
+    \ell_1 &= \np[mm]{210} & \ell_2 &= \np[mm]{297} \\
+    &= \np[cm]{21,0} & &= \np[cm]{29,7} \\
+    &= \np[m]{210E-3} & &= \np[m]{297E-3}.
+\end{align}
+%
+Os prefixos mais comuns são:
+\begin{align}
+    \textrm{n} &= \np{1E-9} = \np{0.000000001} & \textrm{da} &= \np{1E1} = \np{10} \\
+    \textrm{\textmu} &= \np{1E-6} = \np{0.000001} & \textrm{h} &= \np{1E2} = \np{100} \\
+    \textrm{m} &= \np{1E-3} = \np{0.001} & \textrm{k} &= \np{1E3} = \np{1000} \\
+    \textrm{c} &= \np{1E-2} = \np{0.01} & \textrm{M} &= \np{1E6} = \np{1000000} \\
+    \textrm{d} &= \np{1E-1} = \np{0.1} & \textrm{G} &= \np{1E9} = \np{1000000000}.
+\end{align}
+
+O SI é o sistema de unidades adotado pela comunidade científica e engenharias e a maioria das grandezas que utilizamos no dia a dia são parte do SI. Algumas unidades amplamente utilizadas, no entanto não pertencem ao SI, como as unidades minutos e horas, ou a de velocidade $\rm{km}/{h}$ utilizada em veículos. Outras grandezas, como a polegada, são parte do sistema de unidades utilizados cotidianamente em alguns poucos países, mais notadamente os Estados Unidos.\footnote{Na verdade, eles usam o SI indiretamente, pois as unidades do sistema adotado por eles são definidas em termos das unidades do SI.} Outros dois sistemas que podem ser encontrados com alguma frequência em livros mais antigos são o centímetro-grama-segundo -- CGS e o metro-quilograma-segundo -- MKS, sendo que esse último deu origem ao SI, que utilizamos atualmente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conversão de unidades}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Devido ao fato de que diversas unidades diferentes existem para os mesmos tipos de grandeza, é inevitável que tenhamos que fazer conversões. O fato é que para isso é necessária uma tabela de conversões. Se, por exemplo, temos que\footnote{A unidade m.n. se refere à \emph{milha náutica} e corresponde à distância coberta por um minuto de arco ao nível do mar.}
+\begin{equation}
+    \np[m.n.]{1} = \np[m]{1852},
+\end{equation}
+%
+basta multiplicarmos o número de milhas por 1842 para obter o número de metros e dividir o número de metros por tal valor para obter o número de milhas.
+
+Em algumas situações, no entanto, podemos ter algo mais complexo, com uma unidade de medida que é composta de outras unidades. Nesses casos, é útil multiplicar o valor que queremos converter por fatores de conversão ``unitários'' compostos pela razão entre os valores para uma mesma medida em duas unidades diferentes. Por exemplo, se desejamos converter a medida de velocidade
+\begin{align}
+    v &= \np{3,40}\, \text{nós} \\
+    &= \np[m.n./h]{3,40}
+\end{align}
+%
+para metros por segundo, podemos escrever
+\begin{align}
+    v &= \np{3,40}\, \frac{\rm{m.n.}}{\rm{h}} \cdot \left(\frac{\np[m]{1852}}{\np[m.n.]{1}}\right) \\
+    &= \np{6296.8}\, \frac{\rm{m}}{\rm{h}}.
+\end{align}
+%
+O termo entre parêntesis é uma fração ``unitária'' pois o numerador e o denominador equivalem à mesma medida. Ao efetuarmos a multiplicação, verificamos que a unidade m.n. aparece no numerador e no denominador, e por isso se cancela. 
+
+Aplicando o mesmo raciocínio para converter a unidade de tempo, obtemos
+\begin{align}
+    v &= \np{6296.8}\, \frac{\rm{m}}{\rm{h}} \cdot \left(\frac{\np[h]{1}}{\np[min]{60}}\right) \cdot \left(\frac{\np[min]{1}}{\np[s]{60}}\right) \\
+    &= \np[m/s]{1,75}.
+\end{align}
+%
+Note ainda que ao escrevermos as frações unitárias devemos tomar o cuidado de posicionar as unidades de forma a cancelar as unidades que desejamos eliminar. Finalmente, não existe a necessidade de aplicar essa estratégia ``em partes'', podemos aplicar as conversões todas ao mesmo tempo:
+\begin{align}
+    v&= \np[m.n./h]{3,40} \\
+    &= \np[m.n./h]{3,40} \cdot \left(\frac{\np[m]{1852}}{\np[m.n.]{1}}\right) \cdot \left(\frac{\np[h]{1}}{\np[min]{60}}\right) \cdot \left(\frac{\np[min]{1}}{\np[s]{60}}\right) \\
+    &= \np[m/s]{1,75}.
+\end{align}
+
+
+
 
