@@ -1,3 +1,4 @@
+
 \chapter{Momento Linear}
 \label{Chap:CentroDeMassaEMomentoLinear}
 
@@ -406,14 +407,14 @@ Esse resultado nos permite descrever um comportamento coletivo de um sistema de 
     a = \frac{F}{m},
 \end{equation}
 %
-enquanto a aceleração do bloco da direita é nula. Conforme a mola for comprimida, a aceleração do bloco da esquerda diminui, enquanto a do bloco da direita aumenta. A diferença entre as acelerações leva também a uma diferença inicial de velocidades dos blocos, o que dá origem a um movimento oscilatório entre eles. Apesar de esse comportamento ser complexo, se nos afastarmos o suficiente do sistema, não conseguimos distinguir o comportamento individual dos blocos, mas somente uma aceleração coletiva\footnote{Nesse problema, se a força externa dá somente um impulso inicial, é possível escrever a posição dos blocos em relação ao um referencial fixado no centro de massa, obtendo equações relativamente simples. A ideia de descrever o sistema no referencial do centro de massa é bastante frutífera em vários fenômenos.} dada por
+enquanto a aceleração do bloco da direita é nula. Conforme a mola for comprimida, a aceleração do bloco da esquerda diminui, enquanto a do bloco da direita aumenta. A diferença entre as acelerações leva também a uma diferença inicial de velocidades dos blocos, o que dá origem a um movimento oscilatório entre eles. Apesar de esse comportamento ser complexo, se nos afastarmos o suficiente do sistema, não conseguimos distinguir o comportamento individual dos blocos, mas somente uma aceleração coletiva\footnote[][-2cm]{Nesse problema, se a força externa dá somente um impulso inicial, é possível escrever a posição dos blocos em relação ao um referencial fixado no centro de massa, obtendo equações relativamente simples. A ideia de descrever o sistema no referencial do centro de massa é bastante frutífera em vários fenômenos.} dada por
 \begin{align}
     a &= \frac{F_R^{\rm{ext}}}{2m} \\
     &= \frac{F_R^{\rm{ext}}}{M} \\
     &\equiv a_{\rm{CM}}.
 \end{align}
 
-\begin{marginfigure}
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, decoration=bumps]
     \draw[->] (0,0) -- (4,0) node[below left]{$x$};
@@ -452,6 +453,7 @@ Como a aceleração do centro de massa é a mesma antes, durante, e depois da ex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Teorema de Mozzi-Chasles}
+\label{Sec:TeoremaDeMozziChasles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{marginfigure}
@@ -500,7 +502,7 @@ Note que a força resultante externa é dada pela soma das forças peso das dive
 %
 O resultado acima para a aceleração do centro de massa mostra que a trajetória $\vec{r}_{\rm{CM}}(t)$ tem a forma de uma parábola.
 
-Apesar de o movimento de cada partícula em separado ser muito complexo em um lançamento como o retratado na Figura~\ref{Fig:BastaoArremessadoGirandoLancObliquo}, eles podem ser descritos como \emph{uma rotação em torno de um eixo que passa pelo centro de massa} associado a \emph{uma translação do centro de massa}. O teorema que garante essa possibilidade é conhecido como \emph{Teorema de Mozzi-Chasles}, ou simplesmente como \emph{Teorema de Chasles}. Sua prova é dada na Seção~\label{Sec:DeducaoTeoremaDeMozziChasles}, porém exige conhecimentos de Cálculo vetorial. Como verificamos acima, a translação do centro de massa equivale à translação de uma partícula. Já a questão das rotações será tratada nos Capítulos~\ref{Chap:Rotacoes} e~\ref{Chap:MomentoAngular}.
+Apesar de o movimento de cada partícula em separado ser muito complexo em um lançamento como o retratado na Figura~\ref{Fig:BastaoArremessadoGirandoLancObliquo}, eles podem ser descritos como \emph{uma rotação em torno de um eixo que passa pelo centro de massa} associado a \emph{uma translação do centro de massa}. O teorema que garante essa possibilidade é conhecido como \emph{Teorema de Mozzi-Chasles}, ou simplesmente como \emph{Teorema de Chasles}. Sua prova é dada na Seção~\ref{Sec:DeducaoTeoremaDeMozziChasles}, porém exige conhecimentos de Cálculo vetorial. Como verificamos acima, a translação do centro de massa equivale à translação de uma partícula. Já a questão das rotações será tratada nos Capítulos~\ref{Chap:Rotacoes} e~\ref{Chap:MomentoAngular}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determinação da posição do Centro de massa de um corpo extenso}
@@ -558,7 +560,7 @@ Na figura, o eixo $\overline{AB}$ divide o objeto em duas parte simétricas. Vam
 pois para cada ponto na soma acima, temos um ponto simétrico de forma que a soma total seja nula. Consequentemente, \emph{sempre que houver um eixo de simetria em um corpo com densidade uniforme, sabemos que o centro de massa necessariamente reside sobre tal eixo}. Portanto, a existência de um eixo de simetria simplifica o problema de determinação do centro de massa.
 
 Se pudermos determinar mais que um eixo de simetria, o centro de massa reside sobre o encontro de tais eixos. No caso de uma figura plana, são suficientes dois eixos de simetria diferentes para que possamos determinar exatamente a posição do centro de massa. Na Figura~\ref{Fig:CMQuadrado}, mostramos dois eixos que dividem um quadrado em partes siméticas. Note que esses não são os únicos eixos possíveis: poderíamos utilizar os eixos horizontal e vertical que dividem o quadrado em dois retângulos, ou quaisquer outros eixos que dividam o quadrado em duas partes simétricas.
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}
     \draw[pattern = north west lines, pattern color = lightgray] (0,0) rectangle (2,-2);
@@ -1293,9 +1295,9 @@ A princípio, podemos utilizar a expressão~\eqref{Eq:CMConjuntoDeParticulas} pa
 \end{marginfigure}
 
 
-Se o objeto tem formas complexas, podemos realizar uma divisão em regiões cujos centros de massa possamos determinar por argumentos de simetria, como fizemos nas seções anteriores. Porém, nem sempre uma divisão em cubos é efetiva. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $M_{R_i}$ --~como no caso do cone da Figura~\ref{Fig:CMDiscretizacaoObjeto3D}~--. Claramente uma divisão em cubos não é a melhor escolhar para descrever um cone, porém se eles forem pequenos o suficiente, teremos uma aproximação razoável. Esse tipo de procedimento pode ser implementado em programas de computador com certa facilidade, e podem até mesmo considerar situações onde a massa não é homogênea, já que determinamos a massa de cada cubo individualmente.
+Se o objeto tem formas complexas, podemos realizar uma divisão em regiões cujos centros de massa possamos determinar por argumentos de simetria, como fizemos nas seções anteriores. Porém, nem sempre uma divisão em cubos é efetiva. Uma maneira alternativa consiste em dividir o corpo em $N$ pequenos cubos contendo diversas partículas, sendo que cada cubo tem massa $M_{R_i}$ ---~como no caso do cone da Figura~\ref{Fig:CMDiscretizacaoObjeto3D}~---. Claramente uma divisão em cubos não é a melhor escolhar para descrever um cone, porém se eles forem pequenos o suficiente, teremos uma aproximação razoável. Esse tipo de procedimento pode ser implementado em programas de computador com certa facilidade, e podem até mesmo considerar situações onde a massa não é homogênea, já que determinamos a massa de cada cubo individualmente.
 
-\textbf{rever aqui, dar uma olhada num livro de cálculo}
+%\textbf{rever aqui, dar uma olhada num livro de cálculo}
 Se tomarmos cubos extremamente pequenos, temos uma soma que tende a infinitos termos. Esse processo é a própria definição de uma uma integral em duas ou três dimensões sobre a área ou volume no qual se distribui a massa:
 \begin{align}\label{Eq:CMDistContinua}
   \vec{r}_{\textrm{CM}} &= \lim_{N \to \infty} \frac{1}{M} \sum_{i = 1}^N M_{R_i} \vec{r}_{\rm{CM}}^{R_i} \\
@@ -1307,7 +1309,7 @@ onde $dm$ representa a massa \emph{infinitesimal} associada a um cubo quando faz
 Da mesma forma que na integral em uma dimensão, a ideia não é determinar o resultado desse limite, mas substituir o problema por um equivalente e que nos permita determinar o centro de massa. Matematicamente, o processo de resolução de uma integral em duas ou três dimensões consiste em resolver duas ou três integrais unidimensionais, respectivamente. A principal diferença é a de que os limites de integração não são números, mas funções que descrevem as superfícies externas da região do espaço onde estamos realizando a integração, o que no nosso caso é a própria superfície externa do corpo.
 
 
-A expressão acima pode ser considerada a forma mais geral de se determinar o centro de massa para uma distribuição contínua de massa, pois a discussão anterior sobre discretização pode ser interpretada como uma simples propriedade da integral acima. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) \; dA$ ou $dm = \lambda(x) \; dx$ --~onde $\sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~--.
+A expressão acima pode ser considerada a forma mais geral de se determinar o centro de massa para uma distribuição contínua de massa, pois a discussão anterior sobre discretização pode ser interpretada como uma simples propriedade da integral acima. Muitas vezes não é necessário considerar o caso tridimensional, bastando substituir $dm = \sigma(\vec{r}) \; dA$ ou $dm = \lambda(x) \; dx$ ---~onde $\sigma(\vec{r})$ e $\lambda(x)$ representam as densidades superficial de massa e a densidade linear de massa (respectivamente), e $dA$ e $dx$ correspondem aos elementos de área e de comprimento~---.
 
 Mesmo assumindo um conhecimento sólido de cálculo, a definição dada pela Equação~\eqref{Eq:CMDistContinua} não é extremamente útil: Precisamos poder descrever a forma do objeto matematicamente, o que só é fácil para formas relativamente simples. De qualquer maneira, para algumas formas (cones e pirâmides, por exemplo) e no caso de termos uma densidade que possa ser calculada para cada ponto do espaço através de uma função, a forma integral é bastante útil.
 
@@ -1387,14 +1389,14 @@ Substituindo o resultado acima para a massa no resultado anterior para a posiç�
 \end{align}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: centro de massa de um triângulo}
+%\paragraph{Exemplo: centro de massa de um triângulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Um que não seja equilátero, óbvio.}
+%\textbf{Um que não seja equilátero, óbvio.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Centro de massa de um cone}
+%\paragraph{Exemplo: Centro de massa de um cone}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Ou e um tronco de cone}
+%\textbf{Ou e um tronco de cone}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Centro de massa de um conjunto de corpos}
@@ -1846,7 +1848,7 @@ pois se temos que $\vec{F}(t)$ é a derivada da função $\vec{p}(t)$, então, p
     \vec{p}(t) = \vec{\mathcal{F}}(t) + C.
 \end{equation}
 %
-Como estamos interessados na \emph{variação} do momento linear, tal constante não tem importância\footnote{Como (quase) sempre.}:
+Como estamos interessados na \emph{variação} do momento linear, tal constante não tem importância:\footnote{Como (quase) sempre.}
 \begin{align}
     \Delta \vec{p} &= [\vec{\mathcal{F}}(t_f) + C] - [\vec{\mathcal{F}}(t_i) + C] \\
     &= \int_{t_i}^{t_f} \vec{F}(t) \; dt.\label{Eq:SegundaLeiIntegrando}
@@ -2473,12 +2475,12 @@ De um ponto de vista energético, o Princípio da Conservação da Energia nos d
     \Delta E_{\text{sis}}^{\rm{mec}} + \Delta E_{\rm{sis}}^{\text{int}} = W_{\rm{ext}} + Q + R.
 \end{equation}
 %
-Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,
+Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,\footnote[][-3cm]{Ou o impulso é negligível e podemos dizer que o momento linear é aproximadamente constante.}
 \begin{equation}
     \vec{P}_{\rm{sis}}^{\rm{ac}} = \vec{P}_{\rm{sis}}^{\rm{dc}},
 \end{equation}
 %
-e também em um trabalho externo nulo:\footnote{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
+e também em um trabalho externo nulo:\footnote[][-3cm]{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
 \begin{equation}
     W_{\rm{ext}} = 0.
 \end{equation}
@@ -2488,12 +2490,12 @@ Além disso, calor e radiação não são aspectos relevantes em uma colisão. I
     \Delta E_{\rm{mec}} + \Delta E_{\rm{int}} = 0,
 \end{equation}
 %
-ou seja, \emph{a energia total do sistema é constante}. \textbf{Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno (isso não é razoável para uma colisão entre duas partículas carregadas, por exemplo; acho melhor pensas que a variação da energia potencial entre os estados imediatamente antes e imediatamente depois da colisão é aproximadamente zero), podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:}\footnote{\textbf{Mudar isso, no exemplo da mola abaixo temos o potencial elástico. Aí fica a dúvida: o que determina que a colisão é elástica? a variação da energia interna ser zero, ou a variação da energia cinética ser zero? Então, na real acho que precisa ser definido através da energia cinética mesmo, por que as equações para colisões unidimensionais elásticas assumem que a energia cinética total é constante. Por outro lado, o Landau e Lifschitz Mechanics diz com todas as letras que o estado interno não muda.}}
+ou seja, \emph{a energia total do sistema é constante}. Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno, podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:\footnote[][-5cm]{É claro que no caso de potenciais de alcance infinito, como os potenciais proporcionais a $r^{-1}$, teremos uma parte da energia armazenada no próprio potencial. Estou buscando aqui explorar o que acontece internamente com os corpos que colidem.}
 \begin{equation}
     \Delta K_{\text{sis}} + \Delta E_{\text{sis}}^{\text{int}} = 0.
 \end{equation}
 
-\textbf{O resultado acima é válido para toda colisão e nos permite dividí-las em dois tipos:}
+O resultado acima é válido para toda colisão e nos permite dividí-las em dois tipos:
 \begin{description}
     \item[Colisões elásticas:] colisões onde a energia cinética total dos corpos que colidem não varia. Correspondentemente, não há variação da soma ds energias internas dos corpos.
     
@@ -2596,7 +2598,7 @@ Em ambos os casos os corpos se deformam durante a colisão, alterando suas energ
 
 Na Figura~\ref{Fig:ColisaoBlocosAmortecidaPorMola} \emph{(a)} temos dois blocos sobre uma mesa sem atrito que estão prestes a colidir. Entre eles há uma mola que está inicialmente relaxada. Durante o processo de colisão, o bloco da esquerda começa a comprimir a mola gradualmente \emph{(b)}, sendo que a força elástica exercida por ela passa a atuar em ambos os blocos, diminuindo a velocidade do bloco da esquerda e aumentando a velocidade do bloco da direita. Em certo ponto, a mola atingirá sua compressão máxima \emph{(c)}, momento no qual os dois blocos têm a mesma velocidade. Após isso, a mola passa a se expandir \emph{(d)}, ainda exercendo uma força no sentido de desacelerar o bloco da esquerda e acelerar o bloco da direita. Esse processo continua até que a mola volte a ficar relaxada e perca contato com o bloco da esquerda \emph{(e)}.
 
-Do ponto de vista energético, temos um sistema no qual a energia mecânica se conservar, pois temos duas forças conservativas (a força peso e a força elástica) e duas forças não-conservativas cujo trabalho é zero (a força normal e a força de atrito; temos ainda o arrasto, mas vamos desprezá-lo). Durante a colisão, portanto, parte da energia mecânica do bloco da esquerda é transferida para o bloco da direita, porém temos o armazenamento temporário de parte dessa energia na mola.
+Do ponto de vista energético, temos um sistema no qual a energia mecânica se conserva, pois temos duas forças conservativas (a força peso e a força elástica) e duas forças não-conservativas cujo trabalho é zero (a força normal e a força de atrito; temos ainda o arrasto, mas vamos desprezá-lo). Durante a colisão, portanto, parte da energia mecânica do bloco da esquerda é transferida para o bloco da direita, porém temos o armazenamento temporário de parte dessa energia na mola.
 
 Note que a colisão entre os blocos é necessariamente elástica, pois não há nenhuma força não conservativa realizando trabalho, por isso a energia mecânica do sistema permanece constante\footnote{Outra maneira de perceber que a colisão deve ser elástica é considerar que os corpos não sofrem deformação ou têm suas temperaturas aumentadas, mas isso é mais difícil de justificar para corpos macroscópicos. Para corpos microscópicos, como átomos ou partículas elementares esse pode ser o caminho mais simples.}. Veremos na próxima seção que se soubermos as velocidades iniciais dos dois blocos e suas massas, seremos capazes de determinar suas velocidades finais.
 
@@ -2837,7 +2839,7 @@ Esse resultado só é possível se
 \label{Sec:DeducaoTeoremaDeMozziChasles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Fazer igual ao Kleppner, página 274.
+\textbf{Fazer igual ao Kleppner, página 274.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Questões}

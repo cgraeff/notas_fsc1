@@ -500,11 +500,11 @@ Na Figura~\ref{Fig:TrajetoriaComoSucessaoDeDescolamentosInfinitesimais} mostramo
 \begin{tikzpicture}[>=Stealth, scale=1.2]
 
     \foreach \x [evaluate=\x as \y using \x + 10]in {0,10,...,350}{
-        \draw[->] (\x:2) -- (\y:2);
+        \draw[->] (\x:1.5) -- (\y:1.5);
     }
     
 \end{tikzpicture}
-\caption{Todo movimento pode ser considerado como uma série de deslocamentos infinitamente pequenos. Na figura, cada vetor é retilíneo, porém como são pequenos, temos uma boa aproximação para uma curva.\label{Fig:TrajetoriaComoSucessaoDeDescolamentosInfinitesimais}}
+\caption{Todo movimento pode ser considerado como uma série de deslocamentos retilíneos infinitamente pequenos. Na figura, cada vetor é retilíneo, porém como são pequenos, temos uma boa aproximação para uma curva.\label{Fig:TrajetoriaComoSucessaoDeDescolamentosInfinitesimais}}
 \end{marginfigure}
 
 Através desse conceito de deslocamento infinitesimal, podemos descrever um movimento que acontece com uma velocidade sempre perpendicular ao vetor posição. Na Figura~\ref{Fig:VetorPosicaoRotacaoDevidoVelocidadePerpendicular} temos uma partícula cuja posição é descrita por um vetor $\vec{r}$ que parte de uma origem fixada no centro de um circulo. A partícula segue a trajetória circular, sendo que a velocidade é sempre tangente à trajetória, ou seja, \emph{a velocidade é sempre perpendicular ao vetor posição}. Tal situação descreve uma propriedade importante de um vetor: quando ele ele é somado a uma variação infinitesimal que é perpendicular ao próprio vetor, o vetor resultante têm o mesmo módulo, porém é \emph{rotacionado} na direção da variação infinitesimal.
@@ -1812,7 +1812,7 @@ onde usamos o fato de que $v_i = 0$. Obtemos então
 
 Geralmente escolhemos o referencial para descrever um fenômeno como sendo fixo no solo. Assim, quando um ônibus passa, a velocidade que atribuímos a seus passageiros é a mesma do próprio ônibus, caso eles estejam sentados. Se fixarmos o referencial no piso do ônibus, veremos que a velocidade dos passageiros é nula. Portanto, a velocidade que medimos depende do referencial adotado. Isso se deve ao fato de que a própria posição depende do referencial.
 
-\begin{figure}[!h]
+\begin{figure}[!h]\forcerectofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
 

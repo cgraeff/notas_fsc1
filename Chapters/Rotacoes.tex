@@ -59,11 +59,11 @@ A rotação de um corpo rígido pode ser tratada como o movimento coletivo exibi
 \caption{Para um grupo de partículas que constituem um corpo rígido, ao submetermos uma das partículas a uma rotação por um ângulo $\theta$, todas as demais partículas serão rotacionadas pelo mesmo ângulo, em torno do mesmo eixo.}
 \end{marginfigure}
 
-Como estamos tratando de um corpo rígido, entretanto, temos que em um movimento de rotação pura, as diversas partículas efetuam um movimento coletivo em torno de um \emph{eixo de rotação}\footnote{Esse resultado é geral para qualquer rotação, e é conhecido como Teorema de Euler para a Rotação.}. Verificamos então que existem variáveis coletivas para o movimento das partículas: como a distância relativa entre as diversas partículas é constante \emph{por definição}, se uma partícula qualquer efetua uma rotação por um ângulo $\theta$ em torno do eixo de rotação, todas as demais devem efetuar rotações com o mesmo ângulo $\theta$, em torno do mesmo eixo; A taxa de variação de tal ângulo em relação ao tempo, durante um movimento de rotação também deve ser comum a todas as partículas. Verificaremos na próxima seção que seremos capazes de determinar valores de \emph{posição, velocidade, e aceleração angulares} para corpos rígidos.
+Entretanto, como estamos tratando de um corpo rígido, temos que em um movimento de rotação pura, as diversas partículas efetuam um movimento coletivo em torno de um \emph{eixo de rotação}\footnote{Esse resultado é geral para qualquer rotação, e é conhecido como Teorema de Euler para a Rotação.}. Verificamos então que existem variáveis coletivas para o movimento das partículas: como a distância relativa entre as diversas partículas é constante \emph{por definição}, se uma partícula qualquer efetua uma rotação por um ângulo $\theta$ em torno do eixo de rotação, todas as demais devem efetuar rotações com o mesmo ângulo $\theta$, em torno do mesmo eixo; A taxa de variação de tal ângulo em relação ao tempo, durante um movimento de rotação também deve ser comum a todas as partículas. Verificaremos na próxima seção que seremos capazes de determinar valores de \emph{posição, velocidade, e aceleração angulares} para corpos rígidos.
 
-\textbf{Rever abaixo, o teorema de mozzi-chasles vai ser ``discutido'' ao falar de CM, depois provado no final do capítulo de momento. A ideia é deixar todo o convencimento e explicação lá, aqui só destacar o uso do teorema e tocar pra frente (até pq o exemplo do bastão é mencionado lá).}
+%\textbf{Rever abaixo, o teorema de mozzi-chasles vai ser ``discutido'' ao falar de CM, depois provado no final do capítulo de momento. A ideia é deixar todo o convencimento e explicação lá, aqui só destacar o uso do teorema e tocar pra frente (até pq o exemplo do bastão é mencionado lá).}
 
-Finalmente, devemos notar que alguns movimentos não podem ser descritos como sendo simplesmente translações ou simplesmente rotações. Na  Figura~\ref{Fig:LancamentoObliquoCorpoGirando}, por exemplo, temos o movimento de um bastão que é atirado em um movimento sujeito à força gravitacioanal. Se considerarmos um ponto qualquer do corpo, verificamos uma trajetória complexa, uma vez que ele está sujeito não só à sua própria força peso, mas também às forças internas devidas às demais partículas que formam o corpo. Nesse caso, à primeira vista, não podemos tratar o movimento das partículas de maneira coletiva.
+Finalmente, devemos lembrar que alguns movimentos não podem ser descritos como sendo simplesmente translações ou simplesmente rotações. No entanto, nas Seções~\ref{Sec:TeoremaDeMozziChasles} e~\ref{Sec:DeducaoTeoremaDeMozziChasles} verificamos que o movimento descrito pelo centro de massa do corpo equivale ao movimento que uma partícula executaria se fosse submetida ao conjunto de forças que atuam sobre o corpo. Já a rotação efetuada pelo corpo será aquela que ele efetuaria se os torques atuassem da mesma maneira, porém o corpo não transladasse. Os dois movimentos são, em tese, completamente independentes. Em alguns casos, no entanto, algum tipo de vínculo pode existir de maneira que tais movimentos ocorram de maneira sincronizada. Vericaremos, na Seção~\ref{Sec:MovCombRotTrans} alguns casos desse tipo.
 
 \begin{marginfigure}
 \centering
@@ -93,8 +93,6 @@ Finalmente, devemos notar que alguns movimentos não podem ser descritos como se
 \end{tikzpicture}
 \caption{Quando arremessamos um bastão com uma velocidade de rotação, o movimento efetuado por cada partícula é bastante complexo. Cada uma das partículas estará sujeita a um conjunto de forças internas que será capaz de alterar a sua trajetória. \label{Fig:LancamentoObliquoCorpoGirando}}
 \end{marginfigure}
-
-Um resultado conhecido como Teorema de Chasles, ou de Mozzi-Chasles, no entanto, garante que \emph{todo movimento pode ser descrito como uma rotação em torno de um eixo que passa pelo centro de massa, aliado a uma translação do centro de massa}. Assim, podemos descrever o movimento da partícula da Figura~\ref{Fig:LancamentoObliquoCorpoGirando} como uma translação do centro de massa, que percorre uma parábola devido à ação do peso (força resultante externa), aliado a uma rotação da partícula em torno de um eixo que passa pelo centro da barra, isto é, pelo centro de massa. A Figura~\ref{Fig:LancamentoObliquoCorpoGirandoDecomposto} mostra o mesmo movimento, destacando as suas duas componentes.
 
 \begin{marginfigure}
 \centering
@@ -602,7 +600,7 @@ Usando a relação entre a velocidade angular e a velocidade de translação par
 %
 onde utilizamos $R_1$ e $R_2$ para denotar os raios.
 
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -677,13 +675,44 @@ A aceleração acima é responsável por variar o módulo da velocidade somente,
 	a_t = \alpha r_\perp.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Queda de uma chaminé}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Discussão: Quebra de uma chaminé que tomba}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Um efeito bastante interessante da equação acima é a quebra de uma chaminé antes de ela atingir o solo. Qualquer estrutura que sofre uma queda, sendo que sua base permanece no mesmo ponto de apoio estará sujeita a acelerações tangenciais diferentes ao longo de sua extensão: os pontos próximos à base têm acelerações muito pequenas, enquanto os pontos próximos da extremidade oposta têm acelerações tangenciais muito mais altas. Essa diferença entre as acelerações de cada um dos pontos só são possíveis devido às \emph{forças de cisalhamento} exercidas entre as diversas partes que compõe a estrutura.
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth,
+     interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}},
+    ]
 
-Se imaginarmos uma chaminé feita de tijolos,\footnote{Uma torre alta feita de Lego se parte pelo mesmo motivo.} sabemos que cada um deles estará sujeito a uma aceleração diferente, e que para que isso ocorra deve haver uma força de cisalhamento exercida pela argamassa que os une. No entanto, apesar de esse material ter uma grande resistência a ser comprimido, ele não resiste bem a forças que tendem a o esticar ou o cisalhar. Por isso é comum que o material não seja capaz de resistir às forças e ocorra uma quebra. Se o material for flexível, como uma árvore alta, veremos uma flexão ao longo de seu comprimento durante queda.\footnote{Essa flexão também se deve à força de arrasto oferecida pelo ar.}
+
+    \draw[interface] (-2,0) -- (2,0);
+    
+    \draw (-0.05,0) rectangle (0.05,3);
+    \fill[gray] (-0.05,0) rectangle (0.05, 0.5);
+    \fill[gray] (-0.05, 1) rectangle (0.05, 1.5);
+    \fill[gray] (-0.05, 2) rectangle (0.05, 2.5);
+
+    \draw (-0.2,0) -- (-0.2, 1.5) -- (-2,1.5);
+    \draw (-2, 1.5) -- (-1.4, 1.8) -- (-1.4, 1.5) -- (-0.8, 1.8) -- (-0.8, 1.5) -- (-0.2, 1.8) -- (-0.2,1.5); 
+    
+    \begin{scope}[rotate = -30]
+        \draw[dashed] (-0.05,0) rectangle (0.05,3);
+        \fill[lightgray] (-0.05,0) rectangle (0.05, 0.5);
+        \fill[lightgray] (-0.05, 1) rectangle (0.05, 1.5);
+        \fill[lightgray] (-0.05, 2) rectangle (0.05, 2.5);
+    \end{scope}
+    
+\end{tikzpicture}
+\caption{Uma chaminé que tomba tem a tendência a se partir antes de chegar ao solo devido às diferentes acelerações tangenciais ao longo de seu comprimento.}
+\end{marginfigure}
+
+Um efeito bastante interessante da equação acima é que quando uma chaminé feita de tijolos tomba, pode ocorrer uma quebra antes de ela atingir o solo. Qualquer estrutura que sofre uma queda, sendo que sua base permanece no mesmo ponto de apoio, estará sujeita a acelerações tangenciais diferentes ao longo de sua extensão: os pontos próximos à base têm acelerações muito pequenas, enquanto os pontos próximos da extremidade oposta têm acelerações tangenciais muito mais altas. Essa diferença entre as acelerações de cada um dos pontos só são possíveis devido às \emph{forças de cisalhamento}\footnote{Forças de cisalhamento são forças que são aplicadas a um corpo em direções paralelas e em sentidos diferentes, com uma pequena distância entre as direções de aplicação. É o que uma tesoura faz; isso tem a tendência de cortar o corpo.} que surgem entre as diversas partes que compõe a estrutura.
+
+Se imaginarmos uma chaminé feita de tijolos,\footnote{Uma torre alta feita de Lego se parte ao tombar pelo mesmo motivo.} sabemos que cada um dos tijolos estará sujeito a uma aceleração diferente, e que para que isso ocorra deve haver uma força de cisalhamento exercida pela argamassa que os une. No entanto, apesar de esse material ter uma grande resistência a ser comprimido, ele não resiste bem a forças que tendem a o esticar ou a o cisalhar. Por isso é comum que o material não seja capaz de resistir às forças e ocorra uma quebra. Se o material for flexível, como uma árvore alta, veremos uma flexão ao longo de seu comprimento durante queda, ao invés de uma quebra.\footnote{Essa flexão também se deve à força de arrasto oferecida pelo ar.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -757,7 +786,7 @@ Na Figura~\ref{Fig:DefinicaoTorque}, podemos ver que a componente $F_r$ da forç
 %
 Note que o ângulo $\phi$ deve ser medido entre ao prolongamento\footnote{Isto é, o segmento de reta \emph{além} do ponto de aplicação da força quando partimos o eixo e nos dirigimos ao ponto de aplicação da força.} da reta que une o eixo de rotação ao ponto de aplicação da força $\vec{F}$ e a própria direção da força.
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.5,
      interface/.style={
@@ -833,12 +862,6 @@ ou, como é mais comum de se denotar,
 %
 Veja que dimensionalmente $\rm{N}\cdot\rm{m}$ é equivalente à unidade para o trabalho, isto é, o joule (J). No entanto, jamais devemos nos referir ao torque em joules: o joule é uma unidade utilizada para se referir exclusivamente a energia. Veremos futuramente que o torque pode ser definido como um vetor --~diferentemente da energia, que é um escalar~--. Temos, portanto, grandezas físicas completamente diferentes.
 
-%%%%%%%%%%%%%%%%%%
-\paragraph{Sinais}
-%%%%%%%%%%%%%%%%%%
-
-\textbf{Discutir o sinal do torque aqui}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Segunda lei de Newton para as rotações}
 \label{Sec:SegundaLeiDeNewtonParaRotacoes}
@@ -851,7 +874,7 @@ Se aplicarmos uma força sobre uma porta em que as dobradiças têm pouco atrito
 
 Se tentarmos abrir uma porta interna de uma casa, ou uma porta externa, percebemos que a externa exige mais força para obter uma mesma aceleração angular, pois ela é maciça, e -- portanto -- mais massiva. No entanto, veremos que para as rotações a forma como a massa está distribuida também influencia a aceleração angular obtida.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.4,
      interface/.style={
@@ -1029,7 +1052,11 @@ e suas unidades são $[I] = \rm{M}\cdot\rm{L}^2$, ou, dentro do SI, $[I] = \rm{k
 
 É importante notar que o momento de inércia, definido pela Equação~\eqref{Eq:MomentoInerciaConjPart}, tem uma dependência na \emph{forma} do objeto: devido ao fato de que existe uma dependência no quadrado da distância $r_i$ entre a partícula e o eixo de rotação, temos uma dependência na forma como a massa está distribuída. Se, por exemplo, temos um disco girando em torno de um eixo que passa por seu centro de massa, perpendicularmente à sua face plana, temos partículas distribuídas por toda a distância entre o eixo e a borda externa do disco. Se tomarmos um aro sustentado por raios finos, de forma que a massa e o diâmetro sejam iguais aos do disco, devemos ter um momento de inércia maior para uma rotação em torno de um eixo que também passe pelo centro de massa, perpendicularmente à face plana. Isso se deve ao fato de que a maior parte das partículas se localizará a uma distância maior do eixo de rotação.
 
-Finalmente, note que quando temos um torque que tende a gerar uma rotação no sentido horário, isso implica em uma aceleração negativa: se --~por exemplo~-- temos uma velocidade angular inicial nula, temos um aumento do módulo da velocidade angular no sentido horário, o que implica em uma aceleração angular negativa, pois velocidades angulares no sentido horário são negativas. Através da Segunda Lei de Newton para a rotação, sabemos que o sinal do torque deve ser o mesmo da velocidade angular, logo, \emph{torques que tendem a gerar rotações no sentido horário são negativos, enquanto torques que tendem a gerar rotações no sentido anti-horário são positivos}.
+%%%%%%%%%%%%%%%%%%
+\paragraph{Sinais}
+%%%%%%%%%%%%%%%%%%
+
+Um ponto importante a ser notado é que o torque pode ser positivo ou negativo: quando temos um torque que tende a gerar uma rotação no sentido horário, isso implica em uma aceleração negativa: se ---~por exemplo~--- temos uma velocidade angular inicial nula, temos um aumento do módulo da velocidade angular no sentido horário, o que implica em uma aceleração angular negativa, pois velocidades angulares no sentido horário são negativas. Através da Segunda Lei de Newton para a rotação, sabemos que o sinal do torque deve ser o mesmo da velocidade angular, logo, \emph{torques que tendem a gerar rotações no sentido horário são negativos, enquanto torques que tendem a gerar rotações no sentido anti-horário são positivos}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Torque devido ao peso de um corpo extenso}
@@ -1041,7 +1068,7 @@ Finalmente, note que quando temos um torque que tende a gerar uma rotação no s
     &= \sum_i r_i P_i \sen \phi_i.
 \end{align}
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2]
        
@@ -1146,13 +1173,61 @@ Note que a expressão acima tem exatamente a mesma forma que a expressão para o
 \paragraph{Discussão: Alavancas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{marginfigure}[3cm]
+\centering
+\begin{tikzpicture}[>=Stealth, interface/.style={
+        % superfície
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=2mm}}}
+    ]
+       
+    \begin{scope}[rotate = 45]
+        % braço
+        \draw[pattern = crosshatch, draw = gray, pattern color = gray] (-0.5,-0.05) rectangle (3,0.05);
+        \fill (0,0) coordinate (O) node[above left]{$O$} circle (1pt);
+        
+        % ponto de aplicação da força
+        \coordinate (center) at (3,0);
+        
+    \end{scope}
+    
+    \draw[dotted] (O) -- (45:4.25) coordinate (A);
+    \path (O) -- node[below, sloped]{$L$} (center);
+    \draw[dotted] (45:-0.5) coordinate (extr) -- (45:-1) coordinate (fix);
+    \path (O) -- node[below, sloped]{$\ell$} (extr);
+        
+    \draw[->, thick] (45:-0.5) -- +(0,-1.5) coordinate (E) node[right]{$\vec{P}$};
+    \draw[->, thick] (center) -- +(0,-0.9) coordinate (B) node[right]{$\vec{F}$};
+    
+    \pic[draw, "$\phi_2$", angle eccentricity = 1.5, angle radius = 3mm]{angle = B--center--A};
+    \pic[draw, "$\phi_1$", angle eccentricity = 1.5, angle radius = 3mm]{angle = fix--extr--E};
+    \pic[draw, "$\gamma$", angle eccentricity = 1.25, angle radius = 6mm]{angle = O--center--B};
+
+\end{tikzpicture}
+\caption{alavanca. \label{Fig:Alavanca}}
+\end{marginfigure}
+
 Uma aplicação simples, porém útil da Segunda Lei de Newton para a rotação é a de uma \emph{alavanca}. Se, por exemplo, desejamos erguer um corpo muito pesado, podemos usar uma haste e um fulcro como mostrado na Figura~\ref{Fig:Alavanca}. Aplicando a a Segunda Lei de Newton para a rotação em torno do fulcro ($O$), obtemos
 \begin{align}
     \tau_{\text{Res}} &= I \alpha \\
-    F d_f \sen\phi + P_1 d_1 \sen\phi - P_2 d_2 \sen\varphi - P_c d_c \sen\varphi &= I\alpha.
+    P \ell \sen\phi_1 - F L \sen\phi_2 &= I\alpha.
 \end{align}
 %
-
+Se considerarmos que a aceleração seja nula, ou seja, após iniciarmos o movimento, temos velocidade constante, então
+\begin{align}
+    F L \sen \phi_2 &= P\ell \sen\phi_1 \\
+    F &= P \frac{\ell}{L} \frac{\sen\phi_1}{\sen\phi_2}.
+\end{align}
+%
+Note que $\sen(\degree{180} - \alpha) = \sen\alpha$, por isso $\sen\phi_2 = \sen\gamma$. Como $\gamma = \phi_1$, já que as forças $\vec{F}$ e $\vec{P}$ são paralelas, concluímos que a razão entre os senos é igual a 1. Logo,
+\begin{equation}
+    F = P \frac{\ell}{L}.
+\end{equation}
+%
+A razão $\ell/L$ é menor do que 1, o que nos mostra que 
+\begin{equation}
+    F < P.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Balanças de braços}
@@ -1205,9 +1280,7 @@ Uma aplicação simples, porém útil da Segunda Lei de Newton para a rotação 
 \caption{Balança de braços. \label{Fig:BalancaDeBracos}}
 \end{marginfigure}
 
-\textbf{Rever o texto, falar que é uma aplicação do conceito de alavanca}
-
-Uma balança de braços é um dispositivo que se vale das propriedades do torque para que possamos determinar a massa de um corpo qualquer. Na Figura~\ref{Fig:BalancaDeBracos} temos um desenho esquemático de uma balança desse tipo: nele podemos verificar a existência de um braço longo apoiado sobre um fulcro, de um prato sobre o qual apoiamos o corpo cuja massa desejamos aferir e que está ligado a uma das extremidades do braço, e uma massa que pode deslizar ao longo do braço. No equilíbrio, o torque exercido em torno do fulcro pela parte da balança à esquerda do ponto de contato é igual ao torque exercido pela parte à direita de tal ponto.
+Uma balança de braços é um dispositivo que se vale das propriedades do torque ao empregar uma alavanca, permitindo que possamos determinar a massa de um corpo qualquer. Na Figura~\ref{Fig:BalancaDeBracos} temos um desenho esquemático de uma balança desse tipo: nele podemos verificar a existência de um braço longo apoiado sobre um fulcro, de um prato sobre o qual apoiamos o corpo cuja massa desejamos aferir e que está ligado a uma das extremidades do braço, e uma massa que pode deslizar ao longo do braço. No equilíbrio, o torque exercido em torno do fulcro pela parte da balança à esquerda do ponto de contato é igual ao torque exercido pela parte à direita de tal ponto.
 
 Assim,
 \begin{equation}
@@ -1228,22 +1301,20 @@ onde usamos o fato de que os centros de massa do corpo e do prato de apoio estã
 Com exceção da distância $L$, todos os parâmetros à direita são constantes, o que implica em uma relação direta entre a distância e a massa sobre o prato o que permite que o próprio braço seja marcado com uma escala mostrando os valores de massa. Além disso, a relação entre $L$ e $m$ é \emph{linear}, isto é, ela segue uma equação da reta. Isso quer dizer que as marcações no braço são feitas em intervalos regulares: para calibrarmos a balança, basta escolhermos dois corpo de massas conhecidas, marcar ambas as posições de equilíbrio, e elaborar novas marcações com o mesmo tamanho que a primeira.\footnote[][-2cm]{Para medir valores intermediários e/ou realizar medidas mais ``finas'', basta realizarmos marcações mais próximas, sempre em intervalos regulares.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Engrenagens}
+%\paragraph{Discussão: Engrenagens}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Explicar como alavancas e engrenagens ampliam o torque. Lembre-se que ainda não vimos o cálculo do momento de inércia.}
+%\textbf{Explicar como alavancas e engrenagens ampliam o torque. Lembre-se que ainda não vimos o cálculo do momento de inércia.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Discussão: Carretel cilíndrico}
+\paragraph{Discussão: Polia cilíndrica}
+\label{Sec:PoliaCilindrica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Aqui podemos colocar uma polia com uma corda enrolada ao eixo. Calcular a aceleração angular dada a força que aplicada sobre a corda. Depois fazer a mesma coisa com uma segunda polia em contato, como duas ``engrenagens''. Determinar a aceleração, deve cair num sistema. Ao fazer isso, dá pra pra fazer um sisteminha de equações. Assim eu posso tirar essa máquina de atwood daqui e levar lá para movimento combinado. Note que é pra ser algo simples, então a força é exercida puxando a corda e é constante, não quero considerar que a força se deva ao peso do segmento de corda suspenso.}
-
-\textbf{o texto abaixo fica aqui mesmo.}
-O torque exercido sobre a polia se deve à interação com corda através do atrito. Podemos determinar o valor desse torque se considerarmos que ---~como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}~---a força de atrito nos diversos pontos de contato da corda com a polia fazem um ângulo de \np[\tcdegree]{90} com a direção que liga o eixo de rotação ao ponto em que a força é exercida, além do fato de que a distância entre o ponto de aplicação da força e o eixo de rotação é sempre igual ao raio da polia, obtendo
+Uma situação relativamente comum e que envolve rotação é a utilização de polias. O modelo mais simples que pode podemos fazer para uma polia e a de um disco que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente à sua face plana. Em torno da polia uma corda é então enrolada por um certo número de voltas, ou mesmo menos que uma volta. Ao aplicarmos tensões diferentes nas extremidades livres da corda, teremos uma rotação da polia, com uma aceleração angular qualquer. Vamos determinar a relação entre tais tensões e o valor da aceleração angular.
 %
-\begin{marginfigure}
+\begin{marginfigure}[-25mm]
 \centering
 \begin{tikzpicture}[>=Stealth,  interface/.style={
         % superfície
@@ -1272,24 +1343,21 @@ O torque exercido sobre a polia se deve à interação com corda através do atr
 \end{tikzpicture}
 \caption{A força de atrito total que atua sobre a corda se deve a diversas forças em diferentes pontos de contato. Ainda assim, podemos determinar o torque de maneira simples pois as características dessas forças são comuns a todos os pontos de contato. \label{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}}
 \end{marginfigure}
-%
-\begin{align}
-    \tau &= f_1 R \sen\phi + f_2 R \sen\phi + \dots \\
-    &= f_1 R \sen\np[\tcdegree]{90} + f_2 R \sen\np[\tcdegree]{90} + \dots
-\end{align}
-%
-A força de atrito total na corda é dada pela soma das forças exercidas nos diversos pontos de contato, isto é, $f_{\rm{at}} = \sum_{i} f_i$, portanto, podemos escrever a relação acima como
-\begin{align}
-    \tau &= f_{\rm{at}} R \sen\np[\tcdegree]{90} \\
-    &= f_{\rm{at}} R.
-\end{align}
-%
-Como o torque exercido pela força de atrito tende a causar uma rotação no sentido horário, a expressão para o torque acima ganha um sinal negativo:
-\begin{equation}
-    \tau = - f_{\rm{at}} R.
-\end{equation}
 
-Podemos determinar o valor da força de atrito analisando as forças que atuam sobre o segmento da corda que está em contato com a polia. As forças que atuam sobre tal segmento são as tensões $T_1$ e $T_2$ exercidas pelos segmentos suspensos de corda, além da própria força de atrito (reação da força de atrito exercida sobre a polia). Considerando somente a aceleração tangencial, pois ela é a responsável por alterar a velocidade, podemos substituir a região curva da corda por uma região reta, como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalheCorda}. Assim:
+O torque exercido sobre a polia se deve à interação com corda através do atrito. Podemos determinar o valor desse torque ao considerarmos que ---~como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}~--- as forças de interação entre a corda e a polia nos diversos pontos de contato fazem sempre um ângulo de \np[\tcdegree]{90} com a direção que liga o eixo de rotação ao ponto em que a força é exercida. Além disso, a distância entre o ponto de aplicação da força e o eixo de rotação é sempre igual ao raio da polia. Portanto,\footnote{O sinal negativo se deve ao fato de que as forças tendem a causar uma rotação da polia no sentido horário.}
+%
+\begin{align}
+    \tau &= -f_1 R \sen\phi - f_2 R \sen\phi - \dots \\
+    &= -f_1 R \sen\np[\tcdegree]{90} - f_2 R \sen\np[\tcdegree]{90} - \dots
+\end{align}
+%
+A força de atrito total na corda é dada pela soma das forças exercidas nos diversos pontos de contato, isto é, $f_{\rm{at}} = \sum_{i} f_i$, o que nos permite reescrever a relação acima como
+\begin{align}
+    \tau &= -f_{\rm{at}} R \sen\np[\tcdegree]{90} \\
+    &= -f_{\rm{at}} R.
+\end{align}
+
+Podemos determinar o valor da força de atrito analisando as forças que atuam sobre o segmento da corda que está em contato com a polia. As forças que atuam sobre tal segmento são as tensões $T_1$ e $T_2$ exercidas sobre os segmentos livres de corda, além da própria força de atrito (reação da força de atrito exercida sobre a polia). Considerando somente a aceleração tangencial, pois ela é a responsável por alterar a velocidade, podemos substituir a região curva da corda por uma região reta, como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalheCorda}. Assim:
 \begin{align}
     F_R &= m_{cc} a_t \\
     T_2 - T_1 - f_{\rm{at}} &= m_{cc} a_t.
@@ -1321,9 +1389,9 @@ Podemos determinar o valor da força de atrito analisando as forças que atuam s
     f_{\rm{at}} = T_2 - T_1.
 \end{equation}
 %
-Note que \emph{as tensões nos segmentos suspensos esquerdo e direito da corda são necessariamente diferentes}. Tal diferença é responsável por causar a aceleração da polia! 
+Note que \emph{as tensões nos segmentos esquerdo e direito da corda são necessariamente diferentes}. Tal diferença é responsável por causar a aceleração da polia! 
 
-Outra relação importante que devemos observar entre a polia e a corda é a de que a aceleração tangencial $a_t^b$ e a velocidade $v_b$ de um ponto na borda da polia são iguais a aceleração $a$ e a velocidade $v$ da corda. Caso isso não fosse verdade, teríamos um deslizamento entre a corda e a polia, o que não observamos\footnote{Uma situação dessas é possível, mas complicaria ainda mais esse problema.}. Isso nos permite determinar uma relação entre a aceleração da corda --~que é igual a aceleração dos blocos~-- e a aceleração angular da polia:
+Outra relação importante que devemos observar entre a polia e a corda é a de que a aceleração tangencial $a_t^b$ e a velocidade $v_b$ de um ponto na borda da polia são iguais a aceleração $a$ e a velocidade $v$ da corda. Caso isso não fosse verdade, teríamos um deslizamento entre a corda e a polia, o que não observamos.\footnote{Uma situação dessas é possível, mas complicaria ainda mais esse problema.} Isso nos permite determinar uma relação entre a aceleração da corda --~que é igual a aceleração dos blocos~-- e a aceleração angular da polia:
 \begin{align}
     a_t^b &= \alpha r \\
     a &= \alpha R.
@@ -1345,17 +1413,15 @@ o que --~através da Segunda Lei de Newton para a rotação~-- nos leva a
     -(T_2 - T_1) R &= I \alpha.
 \end{align}
 %
-Aqui notamos que existe uma dependência no momento de inércia, que por sua vez depende da massa e da distribuição de massa da polia --~isto é, depende da \emph{forma} da polia~--. Supondo que temos uma polia em formato de disco, temos que o momento de inércia é dado por\footnote{Verificaremos nas seções seguintes como determinar o momento de inércia de um corpo rígido.}
+Aqui notamos que existe uma dependência no momento de inércia, que por sua vez depende da massa e da distribuição de massa da polia ---~isto é, depende da \emph{forma} da polia~---. Estamos supondo que a polia tem formato de disco, cujo momento de inércia é dado por\footnote{Verificaremos nas seções seguintes como determinar o momento de inércia de um corpo rígido.}
 \begin{equation}
     I = \frac{1}{2} MR^2.
 \end{equation}
 %
 Podemos então escrever a seguinte relação para a polia:
-\begin{equation}
+\begin{equation}\label{Eq:ResPolia}
     -(T_2 - T_1) = \frac{MR}{2} \alpha.
 \end{equation}
-
-\textbf{emendar com o texto abaixo}
 
 Nesse sistema, a questão da determinação do torque sobre a polia é bastante complexa. Se substituíssemos a corda por uma corrente como a de uma bicicleta e a polia por uma que tivesse dentes para encaixarem na corrente, teríamos uma interação diferente, através de forças normais nas superfícies dos dentes e dos encaixes da corrente. Essas forças são predominantes nos primeiros dentes onde ocorre o encaixe completo. Dessa forma, podemos imaginar que as forças de tensão são exercidas sobre a polia somente nesses pontos, o que resulta em algo como a Figura~\eqref{Fig:TorquesPolia}. Nesse caso, temos dois torques devidos às forças de tensão que são exercidas sobre a polia, logo
 %
@@ -1393,9 +1459,12 @@ Nesse sistema, a questão da determinação do torque sobre a polia é bastante 
 %
 onde utilizamos $\phi = \np[\tcdegree]{90}$ e o sinal se deve ao fato de que a tensão $T_2$ tende a causar uma rotação no sentido horário.
 
-Observamos que o resultado acima é exatamente o mesmo que obtivemos para o caso em que fizemos uma análise através do atrito. De fato, o que ocorre é que em todos os casos onde não há deslizamento entre a polia e o cabo que segura os blocos ---~seja ele uma corda, uma correia, ou uma corrente~--- podemos supor que toda a força de tensão exercida pela corda é exercida diretamente sobre a polia, no ponto onde a reta que liga o eixo de rotação ao ponto de contato faz um ângulo de \np[\tcdegree]{90} em relação à direção da tensão.
+Observamos que o resultado acima é exatamente o mesmo que obtivemos para o caso em que fizemos uma análise através do atrito. De fato, o que ocorre é que em todos os casos onde não há deslizamento entre a polia e o cabo ---~seja ele uma corda, uma correia, ou uma corrente~--- podemos supor que as forças de tensão exercidas nas extremidades do cabo são exercida diretamente sobre a polia, no ponto onde a reta que liga o eixo de rotação ao ponto de contato faz um ângulo de \np[\tcdegree]{90} em relação à direção da tensão.
 
-\textbf{Resolver de fato o problema.}
+Finalmente, para determinarmos a aceleração, basta isolarmos $\alpha$ na  Equação~\eqref{Eq:ResPolia} acima, o que resulta em
+\begin{equation}
+    \alpha = (T_1 - T_2) \frac{2}{MR}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cálculo do momento de inércia}
@@ -1403,7 +1472,7 @@ Observamos que o resultado acima é exatamente o mesmo que obtivemos para o caso
 
 Para que possamos aplicar a Segunda Lei de Newton para a rotação, é fundamental que saibamos qual é o momento de inércia do corpo em questão para o eixo em torno do qual a rotação ocorre. Como é possível verificar na Expressão~\ref{Eq:MomentoInerciaConjPart}, o momento de inércia depende da distância de cada uma das partículas em relação ao eixo de rotação. Isso nos indica que é importante determinar uma série de características particulares a cada situação que estivermos analisando.
 
-\begin{marginfigure}[-1.5cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, rotate = -90,
      interface/.style={
@@ -1509,9 +1578,9 @@ Dentre as principais características do momento de inércia, temos as seguintes
     \item[Dependência na distância ao eixo de rotação:] Mesmo que tenhamos o cuidado de escolher eixos cuja orientação em relação ao corpo é a mesma, a distância entre o eixo de rotação e o próprio corpo é um fator determinante no cálculo do momento de inércia, já que isso causa uma variação da distância entre as partículas e o eixo. Na Figura~\ref{Fig:MomInerciaRotEixosParalelos} temos três eixos distintos, paralelos uns aos outros, em torno dos quais o corpo pode efetuar uma rotação. Devido a alteração das distâncias entre as partículas e o eixo, cada um deles terá um momento de inércia diferente. Devemos destacar em especial o eixo $z''$, pois ele não atravessa o corpo. Esse tipo de situação é relativamente comum quando analisamos corpos compostos de diversas partes, e tem grande influência no valor do momento de inércia. Verificaremos adiante que os momentos de inércia em eixos paralelos estão relacionados de forma bastante simples e essa relação deixará evidente que o momento de inércia mínimo é aquele associado ao eixo que passa pelo centro de massa do corpo.
 \end{description}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}
 \centering
-\begin{tikzpicture}[>=Stealth, scale = 1.2,
+\begin{tikzpicture}[>=Stealth, scale = 1.1,
      interface/.style={
         % superfície
         postaction={draw,decorate,decoration={border,angle=-45,
@@ -1547,7 +1616,7 @@ Dentre as principais características do momento de inércia, temos as seguintes
 \draw[->] (-2.5,1.05) [partial ellipse=-225:60:0.3cm and 0.125cm];
 
 \end{tikzpicture}
-\caption{Mesmos que a orientação de diversos eixo em relação ao um corpo seja a mesma, a distância em relação ao corpo também varia a distância das partículas em relação ao eixo de rotação. Veja que quando um corpo faz parte de um conjunto mais complexo, podemos ter uma rotação em relação a um eixo que não o atravessa. \label{Fig:MomInerciaRotEixosParalelos}}
+\caption{Mesmo que a orientação de diversos eixos em relação a um corpo seja a mesma, a distância em relação ao corpo também determina a distância das partículas em relação ao eixo de rotação. Veja que quando um corpo faz parte de um conjunto mais complexo, podemos ter uma rotação em relação a um eixo que não o atravessa. \label{Fig:MomInerciaRotEixosParalelos}}
 \end{marginfigure}
 
 Outra característica importante do processo de determinação do momento de inércia é o fato de que --~assim como para o cálculo da posição do centro de massa~-- temos uma quantidade muito grande de partículas. Através da Expressão~\ref{Eq:MomentoInerciaConjPart}, em tese podemos determinar o momento de inércia para qualquer corpo. No entanto, isso é claramente inadequado para o caso de um corpo rígido, devido ao fato de que a soma teria um número muito grande de termos. Além disso, não sabemos precisar quais são as posições de cada uma das partículas, ou quais são as suas massas. Diferentemente da determinação do centro de massa, não podemos utilizar argumentos de simetria para determinar o momento de inércia\footnote{Isso se deve ao fato de que a distância ao eixo de rotação aparece ao quadrado na Expressão~\ref{Eq:MomentoInerciaConjPart}. No caso do cálculo do centro de massa nos valíamos do sinal que aparece na distância ao eixo de simetria para garantir que os termos simétricos se cancelassem.}, por isso vamos ter que utilizar técnicas de Cálculo para que possamos considerar uma distribuição contínua de massa.
@@ -1609,10 +1678,10 @@ ou, se separarmos a soma em diferentes regiões,
 Isso significa que podemos dividir o corpo em regiões cujo momento de inércia sabemos calcular, e, após isso, determinamos o momento de inércia total simplesmente somando os resultados. É importante destacar que a posição das regiões em relação ao eixo de rotação não muda, isto é, apesar de separarmos o corpo de diversas partes, a posição que elas ocupam no corpo altera o valor obtido para o momento de inércia. No caso da Figura~\ref{Fig:AditividadeMomInercia}, por exemplo, podemos calcular separadamente o momento de inércia do disco e da haste, mas devemos levar em conta que a haste gira em torno de um eixo que está distante da extremidade.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momento de inércia de uma distribuição contínua}
+\subsection{Momento de inércia de uma distribuição contínua de massa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[interface/.style={
         % superfície
@@ -1656,7 +1725,7 @@ Sabemos que o momento de inércia de um conjunto de partículas é dado pela Exp
     I = \sum_i m_i (r_\perp^i)^2,
 \end{equation}
 %
-onde utilizamos $r_\perp^i$ para denotar a distância de cada partícula ao eixo de rotação. Note que, como a parede do tubo é muito fina, podemos em boa aproximação assumir que a distância das partículas ao eixo é igual ao raio do próprio tubo\footnote[][-2cm]{Qualquer tubo real tem um raio interno e um raio externo. Se utilizarmos o raio interno, obtemos um valor mínimo para $I$, se usarmo o externo, obtemos um valor máximo. Estamos assumindo que a a espessura da parede é realmente muito fina, de forma que essa diferença seja desprezível.}:
+onde utilizamos $r_\perp^i$ para denotar a distância de cada partícula ao eixo de rotação. Note que, como a parede do tubo é muito fina, podemos em boa aproximação assumir que a distância das partículas ao eixo é igual ao raio do próprio tubo:\footnote{Qualquer tubo real tem um raio interno e um raio externo. Se utilizarmos o raio interno, obtemos um valor mínimo para $I$, se usarmo o externo, obtemos um valor máximo. Estamos assumindo que a a espessura da parede é realmente muito fina, de forma que essa diferença seja desprezível.}
 \begin{equation}
     r_\perp^i = R.
 \end{equation}
@@ -1976,7 +2045,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Anel fino
 %% 
        
-\begin{marginfigure}[2cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[interface/.style={>=Stealth,
         % superfície
@@ -2048,7 +2117,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
             I_z = M \frac{R_i^2 + R_e^2}{2}.
         \end{equation}
         
-\begin{marginfigure}
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[interface/.style={>=Stealth,
         % superfície
@@ -2195,7 +2264,12 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Placa, cubo
 %%
     
-    \begin{marginfigure}
+    \item[Placa, prisma retangular:] Se temos uma placa retangular --~ou mesmo um prisma retangular~-- que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao plano, o momento de inércia é dado por
+    \begin{equation}
+        I_z = \frac{1}{12}M (a^2 + b^2).
+    \end{equation}
+    
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[
      interface/.style={
@@ -2244,13 +2318,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
     
 \end{tikzpicture}
 \caption{Placa/prisma retangular.}
-\end{marginfigure} 
-
-    \item[Placa, prisma retangular:] Se temos uma placa retangular --~ou mesmo um prisma retangular~-- que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente ao plano, o momento de inércia é dado por
-    \begin{equation}
-        I_z = \frac{1}{12}M (a^2 + b^2).
-    \end{equation}
-    
+\end{marginfigure}
     
 \end{description}
 
@@ -2553,7 +2621,7 @@ Para um objeto que se aproxima de uma figura plana, como a placa da Figura~\ref{
     I_z = I_x + I_y.
 \end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -2665,10 +2733,10 @@ Concluímos então que
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Tensor de inércia}
+%\paragraph{Tensor de inércia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Falar do tensor de inércia?}
+%\textbf{Falar do tensor de inércia?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho e energia cinética para rotações}
@@ -2677,88 +2745,10 @@ Concluímos então que
 Assim como no caso das translações, é interessante utilizarmos os conceitos de trabalho, energia cinética e energia mecânica no caso das rotações. Nas próximas seções vamos determinar expressões adequadas para o cálculo dessas grandezas em um contexto de rotações. Após isso, verificaremos alguns exemplos de sistemas cuja análise é mais simples de um ponto de vista energético, do que de um ponto de vista dinâmico.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Teorema trabalho--energia-cinética}
+\subsection{Trabalho em rotações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{O texto abaixo está redundante. Ou começa com ele e deduz $K = I\omega^2/2$ e $W = \tau\Delta\theta$ aqui, ou deixa na ordem que está e simplifica aqui. Acho que dessas duas opções, a primeira vai dar um texto melhor, mais curto. Mudei a ordem já, acertar o texto.}
-
-Precisamos ainda demostrar no contexto de rotações a validade da expressão
-\begin{equation}
-    \Delta K = W.
-\end{equation}
-%
-Para isso, vamos analisar um conjunto de $N$ partículas que formam um corpo rígido e que podem girar em torno de um eixo. Cada uma das partículas que compõe o corpo está sujeita a um número $n_f$ de forças, sejam elas devidas a interações com outras partículas ou a agentes externos ao sistema de partículas. De um ponto de vista translacional, se analisarmos a variação da energia cinética da $i$-ésima partícula, obtemos a seguinte expressão
-\begin{align}
-    \Delta K^i &= \sum_{j=1}^{n_f} W_j \\
-    K_f^i - K_i^i &= \sum_{j=1}^{n_f} W_j.
-\end{align}
-%
-Para cada partícula teremos uma equação como a acima, totalizando $N$ equações. Somando todas elas, obtemos
-\begin{align}
-    \sum_{i = 1}^N K_f^i - \sum_{i = 1}^N K_i^i &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j \\
-    \sum_{i = 1}^N \frac{1}{2}m_i (v_f^i)^2 - \sum_{i = 1}^N \frac{1}{2}m_i(v_i^i)^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j.
-\end{align}
-%
-O fato de que as partículas compõe um corpo rígido que efetua uma rotação em torno de um eixo nos permite relacionar a velocidade de cada uma delas à velocidade angular do corpo através de
-\begin{equation*}
-v = r_\perp \omega,
-\end{equation*}
-%
-o que nos permite escrever:
-\begin{align}
-    \sum_{i = 1}^N \frac{1}{2}m_i (r_\perp^i)^2 \omega_f^2 - \sum_{i = 1}^N \frac{1}{2}m_i (r_\perp^i)^2\omega_i^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j \\
-    \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_f^2 - \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_i^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j \\
-    \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j.\label{Eq:TeoremaTrabalhoEnergiaRotQuaseFinal}
-\end{align}
-%
-Finalmente, resta analisarmos a soma dos trabalhos no termo à direita da igualdade. Sabemos que a maior parte das forças que atuam sobre as partículas que compõe um corpo rígido são devidas a interações das próprias partículas umas com as outras. Nesse caso, sabemos que os trabalhos devidos a tais forças devem ter sinais opostos e se cancelam,\footnote{Ou são nulos, caso o deslocamento seja nulo.} \emph{restando assim somente o trabalho devido a forças externas ao corpo rígido}.\footnote{Na verdade, como verificamos na Seção~\ref{Sec:SegundaLeiDeNewtonParaRotacoes}, os torques sobre as partículas que estão sujeitas ao par ação-reação são iguais em módulo e têm sentidos opostos. Nesse caso, se as partículas estiverem sujeitas a deslocamentos diferentes, os trabalhos não se cancelam. No entanto, estamos tratando de um corpo rígido, então as partículas estão sujeitas ao mesmo deslocamento angular \emph{por definição}.} Tais trabalhos devem ser calculados da maneira que for mais apropriada, seja através das expressões para o trabalho de uma força em uma translação, seja através das expressões para o trabalho de um torque. Em todo caso, podemos denotar tal soma por\footnote{Note que no índice se refere a externo ao corpo rígido, não ao sistema, seja ele qual for.}
-\begin{equation}
-    W_{\text{Res}}^{\text{Ext}} = \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j,
-\end{equation}
-%
-o que nos permite escrever
-\begin{equation}
-    \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2 = W_{\text{Res}}^{\text{Ext}},
-\end{equation}
-%
-ou ainda
-\begin{equation}
-    \Delta K = W_{\text{Res}}^{\text{Ext}}.
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia cinética de rotação}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A energia cinética de um conjunto de partículas pode ser escrita como
-\begin{equation}
-	K = \sum_{i=1}^N \frac{1}{2} m_i v_i^2,
-\end{equation}
-%
-onde $N$ é o número de partículas. No caso de um corpo rígido, as partículas descrevem círculos em torno do eixo de rotação. Para uma partícula qualquer, temos que a velocidade é dada por
-\begin{equation}
-    v_i = \omega r_\perp^i,
-\end{equation}
-%
-onde $\omega$ é a velocidade angular do corpo rígido e $r_\perp^i$ é a distância  partícula ao eixo de rotação. Logo,
-\begin{align}
-	K &= \sum_{i=1}^{N} \frac{1}{2} m_i (\omega r_\perp^i)^2 \\
-	&= \sum_{i=1}^N \frac{1}{2} m_i (r_\perp^i)^2 \omega^2 \\
-	&= \frac{1}{2} \left[\sum_{i=1}^N m_i (r_\perp^i)^2\right] \omega^2,
-\end{align}
-%
-onde $\omega$ pôde sair do somatório pois a velocidade angular é a mesma para todas as partículas que compõe um corpo rígido. Note que o termo entre colchetes é o momento de inércia em torno do eixo de rotação. Logo, temos que a energia cinética é dada por
-\begin{equation}
-	K = \frac{1}{2} I \omega^2,
-\end{equation}
-%
-e temos mais uma vez uma equação que segue uma analogia com o caso da translação.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Trabalho exercido por um torque, potência}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Através da Segunda Lei de Newton para a rotação, sabemos que um corpo sujeito a um torque resultante externo estará sujeito a uma aceleração. Devido a essa aceleração, ele sofrerá uma variação de sua velocidade angular, que --~como vimos na seção anterior~-- está ligada a uma variação da energia cinética do corpo. Nesse caso, é interessante que tenhamos também uma expressão para o trabalho realizado pela força, em termos de variáveis características da rotação. Isso nos permitirá utilizar o Teorema Trabalho--Energia-Cinética e, consequentemente, a conservação da energia mecânica.
+Como primeiro passo para que possamos utilizar conceitos de trabalho e energia cinética, precisamos determinar uma expressão para o trabalho em termos das variáveis que descrevem a rotação. Através da Segunda Lei de Newton para a rotação, sabemos que um corpo sujeito a um torque resultante externo estará sujeito a uma aceleração. Devido a essa aceleração, ele sofrerá uma variação de sua velocidade angular, que está ligada a uma variação da energia cinética do corpo.
 
 \begin{marginfigure}[6cm]
 \centering
@@ -2820,10 +2810,10 @@ Podemos calcular o trabalho realizado no deslocamento de tal ponto se considerar
 %
 onde $s$ é o comprimento do arco descrito pelo ponto $P$. Devido ao fato de que o comprimento do arco está ligado ao deslocamento angular em radianos através de
 \begin{equation}
-    \theta = \frac{s}{r},
+    \theta = \frac{s}{r_\perp},
 \end{equation}
 %
-onde $r$ é o raio da trajetória circular, podemos reescrever a expressão para o trabalho como
+onde $r_\perp$ é o raio da trajetória circular, podemos reescrever a expressão para o trabalho como
 \begin{equation}
     W = F_t r_\perp \Delta\theta,
 \end{equation}
@@ -2846,8 +2836,6 @@ Note que o trabalho pode ser positivo ou negativo, sendo que tal sinal é determ
 \paragraph{Trabalho de um torque variável}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{aqui poderíamos simplesmente partir da equação \eqref{Eq:TrabalhoTorqueConstante}}
-
 Caso a força $\vec{F}$ não seja constante, podemos considerar o trabalho realizado em um deslocamento infinitesimal $ds$, considerando que $\vec{F}$ se mantenha constante\footnote{Como o deslocamento é infinitesimal, podemos considerar que as variações de intensidade ou direção são desprezíveis.}, o que nos leva a um trabalho infinitesimal $dW$ dado por
 \begin{align}
     dW &= F_t \, ds \\
@@ -2857,7 +2845,7 @@ Caso a força $\vec{F}$ não seja constante, podemos considerar o trabalho reali
 %
 onde usamos o fato de que um deslocamento infinitesimal $ds$ corresponde a um deslocamento angular infinitesimal
 \begin{equation}
-    \frac{ds}{r} = d\theta.
+    \frac{ds}{r_\perp} = d\theta.
 \end{equation}
 %
 Finalmente, para obtermos o trabalho total, basta integrarmos entre os valores inicial e final das variáveis:
@@ -2869,36 +2857,80 @@ Na expressão acima, a determinação do sinal do deslocamento está ligada aos 
 
 Finalmente, é importante destacar que tanto a expressão obtida para o trabalho realizado por um torque constante, quanto a obtida para o trabalho realizado por um torque variável são análogas àquelas que obtivemos para o caso da translação.
 
-%%%%%%%%%%%%%%%%%%%%
-\paragraph{Potência}
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema trabalho--energia-cinética}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Da mesma forma que definimos a potência para o caso da translação, podemos defini-la para a rotação como
+Definida uma experssão para o trabalho, precisamos demostrar no contexto de rotações a validade da expressão
 \begin{equation}
-    \mean{P} = \frac{W}{\Delta t},
+    \Delta K = W.
 \end{equation}
 %
-no caso da potência média, ou
-\begin{equation}
-    P = \frac{dW}{dt}
-\end{equation}
-%
-no caso da potência instantânea.
-
-Assim como no caso da translação, é interessante notarmos que para um torque constante, temos
+Para isso, vamos analisar um conjunto de $N$ partículas que formam um corpo rígido e que podem girar em torno de um eixo. Cada uma das partículas que compõe o corpo está sujeita a um número $n_f$ de forças, sejam elas devidas a interações com outras partículas ou a agentes externos ao sistema de partículas. De um ponto de vista translacional, se analisarmos a variação da energia cinética da $i$-ésima partícula, obtemos a seguinte expressão
 \begin{align}
-    P &= \frac{d}{dt} \tau \theta \\
-    &= \tau \frac{d\theta}{dt} \\
-    &= \tau \omega,
+    \Delta K^i &= \sum_{j=1}^{n_f} W_j \\
+    K_f^i - K_i^i &= \sum_{j=1}^{n_f} W_j.
 \end{align}
 %
-de onde verificamos que ao aplicarmos um torque constante, o trabalho é tanto maior quanto maior for a velocidade angular. Esse resultado impôe um limite no torque efetuado por um dispositivo como um motor elétrico, cuja potência seja constante, ou impôe um valor de potência para um valor de velocidade angular específico, se o torque for constante. Essa equação mostra que o torque e a potência de um motor a combustão interna, por exemplo, não são independentes: se considerarmos que o torque seja aproximadamente constante para toda a faixa de rotação que o motor é capaz de trabalhar, verificamos que a potência não é constante, mas aumenta conforme a rotação aumenta.\footnote{Os valores de potência divulgados por fabricantes de veículos são sempre os valores máximos.}
+Para cada partícula teremos uma equação como a acima, totalizando $N$ equações. Somando todas elas, obtemos
+\begin{align}
+    \sum_{i = 1}^N K_f^i - \sum_{i = 1}^N K_i^i &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j \\
+    \sum_{i = 1}^N \frac{1}{2}m_i (v_f^i)^2 - \sum_{i = 1}^N \frac{1}{2}m_i(v_i^i)^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j.
+\end{align}
+%
+O fato de que as partículas compõe um corpo rígido que efetua uma rotação em torno de um eixo nos permite relacionar a velocidade de cada uma delas à velocidade angular do corpo através de
+\begin{equation*}
+v = r_\perp \omega,
+\end{equation*}
+%
+o que nos permite escrever:\footnote{Note que as constantes podem ser postas em evidência, ou seja, para fora do somatório.}
+\begin{align}
+    \sum_{i = 1}^N \frac{1}{2}m_i (r_\perp^i)^2 \omega_f^2 - \sum_{i = 1}^N \frac{1}{2}m_i (r_\perp^i)^2\omega_i^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j \\
+    \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_f^2 - \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_i^2 &= \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j. \label{Eq:TrabEnergiaRotacoesQuase}
+\end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{Exemplo: Desenrolando um carretel}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Note que os termos à esquerda da igualdade são iguais às energias cinéticas inicial e final do do conjunto de partículas que compõe o corpo rígido
+\begin{align}
+    K_i &= \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_i^2 \\
+    K_f &= \frac{1}{2}\left[\sum_{i = 1}^N m_i (r_\perp^i)^2\right]\omega_f^2,
+\end{align}
+%
+e que o termo entre colchetes é igual em ambos os casos e é o próprio momento de inércia do corpo. Assim, podemos denotar a energia cinética em rotações como
+\begin{equation}
+    K = \frac{1}{2} I\omega^2. \mathnote{Energia cinética em rotações.}
+\end{equation}
+    
+Finalmente, resta analisarmos a soma dos trabalhos no termo à direita da igualdade na Equação~\eqref{Eq:TrabEnergiaRotacoesQuase}. Podemos dividir as forças que atuam sobre as partículas em \emph{forças internas} e em \emph{forças externas}, o que nos permite reescrever a soma dos trabalhos como\footnote{A primeira soma à direita é sobre os trabalhos devidos a forças internas, enquanto a segunda soma à direita é sobre os trabalhos devidos a forças externas.}
+\begin{equation}
+    \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j = \sum_{i = 1}^{n_f^{\text{int}}} W_i + \sum_{j = 1}^{n_f^{\text{ext}}} W_j
+\end{equation}
+%
+ Sabemos que a maior parte das forças que atuam sobre as partículas que compõe um corpo rígido são devidas a interações das próprias partículas umas com as outras, ou seja, são forças internas. Sabemos que os torques devidos aos pares ação-reação são iguais, porém têm sentidos opostos. Logo, os trabalhos devidos a forças internas devem ter sinais opostos e se cancelam, uma vez que sempre formam pares ação-reação contidos no corpo rígido.\footnote[][1cm]{Verificamos a questão dos torques na Seção~\ref{Sec:SegundaLeiDeNewtonParaRotacoes}. Além disso, estamos tratando de um corpo rígido, as partículas estão sujeitas ao mesmo deslocamento angular \emph{por definição}. Consequentemente, o trabalho total de pares ação-reação é nulo.} \emph{O trabalho total devido a forças internas é, portanto, nulo} 
+ \begin{equation}
+    \sum_{i = 1}^{n_f^{\text{int}}} W_i = 0,
+ \end{equation}
+ %
+ e então
+ \begin{equation}
+    \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j = \sum_{j = 1}^{n_f^{\text{ext}}} W_j
+ \end{equation}
+ 
+ Assim, restam somente os trabalhos devidos a forças externas que atuam sobre o corpo. Tais trabalhos externos devem ser calculados da maneira que for mais apropriada, seja através das expressões para o trabalho de uma força em uma translação, seja através das expressões para o trabalho de um torque. Em todo caso, podemos denotar o trabalho total por\footnote{Note que no índice se refere a externo ao corpo rígido, não ao sistema, seja ele qual for.}
+\begin{equation}
+    W_{\text{Res}}^{\text{Ext}} = \sum_{i = 1}^N\sum_{j=1}^{n_f} W_j,
+\end{equation}
+%
+o que nos permite escrever
+\begin{equation}
+    \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2 = W_{\text{Res}}^{\text{Ext}},
+\end{equation}
+%
+ou ainda
+\begin{equation}
+    \Delta K = W_{\text{Res}}^{\text{Ext}}.
+\end{equation}
 
-% \textbf{podemos verificar o trabalho e a potência efetuadas ao puxar um fio de um carretel, desenrolando-o.}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2972,19 +3004,51 @@ Substituindo $F \equiv P = mg$, $r \equiv L/2$ e $\phi = \degree{90} - \theta$, 
 
 O resultado acima reproduz aquele obtido através da expressão para o trabalho na translação. É claro que ao calcularmos o trabalho através do torque temos uma complicação que é, nesse caso, completamente desnecessária. Em outras situações, no entanto, o cálculo do trabalho através do torque pode ser o caminho mais simples.
 
-\textbf{Mais um exemplo, se possível}
+%\textbf{Mais um exemplo, se possível}
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Potência}
+%%%%%%%%%%%%%%%%%%%%
+
+Da mesma forma que definimos a potência para o caso da translação, podemos defini-la para a rotação como
+\begin{equation}
+    \mean{P} = \frac{W}{\Delta t},
+\end{equation}
+%
+no caso da potência média, ou
+\begin{equation}
+    P = \frac{dW}{dt}
+\end{equation}
+%
+no caso da potência instantânea.
+
+Assim como no caso da translação, é interessante notarmos que para um torque constante, temos
+\begin{align}
+    P &= \frac{d}{dt} \tau \theta \\
+    &= \tau \frac{d\theta}{dt} \\
+    &= \tau \omega,
+\end{align}
+%
+de onde verificamos que ao aplicarmos um torque constante, o trabalho é tanto maior quanto maior for a velocidade angular. Esse resultado impôe um limite no torque efetuado por um dispositivo como um motor elétrico, cuja potência seja constante, ou impôe um valor de potência para um valor de velocidade angular específico, se o torque for constante. Essa equação mostra que o torque e a potência de um motor a combustão interna, por exemplo, não são independentes: se considerarmos que o torque seja aproximadamente constante para toda a faixa de rotação que o motor é capaz de trabalhar, verificamos que a potência não é constante, mas aumenta conforme a rotação aumenta.\footnote{Os valores de potência divulgados por fabricantes de veículos são sempre os valores máximos.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\paragraph{Exemplo: Desenrolando um carretel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \textbf{podemos verificar o trabalho e a potência efetuadas ao puxar um fio de um carretel, desenrolando-o.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimentos combinados de rotação e de translação}
+\label{Sec:MovCombRotTrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Nas seções abaixo, a ideia é a seguinte: em casos como o da queda da haste discutida no exemplo acima, existe o complicador de que podemos tratar como uma rotação pura em torno da extremidade ou podemos tratar o movimento de rotação em torno do CM concomitante com uma translação do CM. O jeito mais certo é o segundo, o mais fácil é o primeiro. O problema é que tratar do jeito certo exige considerar tanto a translação quanto a rotação. Como eu só queria mostrar que existe uma expressão simples pra energia cinética, deixei do jeito mais simples acima, mas agora vamos colocar o resto no movimento combinado de translação e de rotação. O script é: mostrar que a energia cinética do conjunto de partículas pode ser dividida em uma parte de translação e outra de rotação (deveríamos fazer tanto para a energia quanto para a dinâmica, mas como, exatamente. Como o teorema de mozzi-chasles entra na nisso?),  mostrar a equivalência da rotação em torno do CM + mov. do CM e da rotação em torno do eixo que passa pela extremidade, resolver o problema da barra que gira em torno da extremidade sujeita ao próprio peso usando energia mecânica, mostrar o conceito de energia mecânica considerando a rotação tb, resolver a máquina de atwood. Note ainda que a lista de exercícios precisa ser modificada pra refletir essa organização. Os exercícios de dinâmica na maioria dos casos envolve translação de blocos ou coisa do gênero.}
+%\textbf{Nas seções abaixo, a ideia é a seguinte: em casos como o da queda da haste discutida no exemplo acima, existe o complicador de que podemos tratar como uma rotação pura em torno da extremidade ou podemos tratar o movimento de rotação em torno do CM concomitante com uma translação do CM. O jeito mais certo é o segundo, o mais fácil é o primeiro. O problema é que tratar do jeito certo exige considerar tanto a translação quanto a rotação. Como eu só queria mostrar que existe uma expressão simples pra energia cinética, deixei do jeito mais simples acima, mas agora vamos colocar o resto no movimento combinado de translação e de rotação. O script é: mostrar que a energia cinética do conjunto de partículas pode ser dividida em uma parte de translação e outra de rotação (deveríamos fazer tanto para a energia quanto para a dinâmica, mas como, exatamente? Como o teorema de mozzi-chasles entra na nisso?),  mostrar a equivalência da rotação em torno do CM + mov. do CM e da rotação em torno do eixo que passa pela extremidade, resolver o problema da barra que gira em torno da extremidade sujeita ao próprio peso usando energia mecânica, mostrar o conceito de energia mecânica considerando a rotação tb, resolver a máquina de atwood. Note ainda que a lista de exercícios precisa ser modificada pra refletir essa organização. Os exercícios de dinâmica na maioria dos casos envolve translação de blocos ou coisa do gênero.}
 
 Já verificamos como descrever a translação de um corpo através do centro de massa, e também a sua  rotação em torno de um eixo que passa pelo centro de massa, sendo que a direção do eixo é fixa. Notamos ainda que separar o movimento nessas componentes \emph{translacional} e \emph{rotacional} facilita muito a sua descrição: se, por exemplo, atiramos um bastão em um lançamento oblíquo, sendo que o bastão tem uma velocidade angular em torno do centro de massa, sabemos que o movimento de qualquer ponto pode ser descrito como uma rotação em torno do centro de massa e por um deslocamento do centro de massa.
 
 A descrição de movimento desse tipo, no entanto, depende de conhecermos diversas informações: módulo e direção da velocidade do centro de massa, módulo da velocidade angular, direção do eixo de rotação, aceleração gravitacional, forças de arrasto, dimensões e massa do objeto, e potencialmente outras quantidades. Isso se deve ao fato de que os movimentos de rotação e de translação são \emph{independentes}.
 
-Por outro lado, o fato de que são movimentos de um mesmo corpo implica em interações com outros corpos cujos comportamentos dependem tanto da rotação, quanto da translação do corpo. Um exemplo bastante claro disso é o jogo de tênis: quando o jogador bate na bola com a raquete, é comum que ele o faça de forma a imprimir uma rotação na bola; tal rotação não afeta\footnote{Na verdade, pode afetar sim: o fato de que a bola gira enquanto se desloca faz com que surja uma força aerodinâmica na bola que provoca um deslocamento lateral da bola. Esse efeito é o que possibilita um gol de escanteio no futebol.} a trajetória da bola entre a raquete e o ponto de contato com o solo no lado oposto da quadra, porém faz com que surja uma força de atrito que causa um desvio da trajetória da bola quando ela toca o chão. O intuito do tenista com esse desvio é dificultar a reação do adversário.
+Por outro lado, o fato de que são movimentos de um mesmo corpo implica em interações com outros corpos cujos comportamentos dependem tanto da rotação, quanto da translação do corpo. Um exemplo bastante claro disso é o jogo de tênis: quando o jogador bate na bola com a raquete, é comum que ele o faça de forma a imprimir uma rotação na bola; tal rotação não afeta\footnote{Na verdade, pode afetar sim: o fato de que a bola gira enquanto se desloca faz com que surja uma força aerodinâmica que provoca um deslocamento lateral da bola. Esse efeito é o que possibilita um gol de escanteio no futebol.} a trajetória da bola entre a raquete e o ponto de contato com o solo no lado oposto da quadra, porém faz com que surja uma força de atrito que causa um desvio da trajetória da bola quando ela toca o chão. O intuito do tenista com esse desvio é dificultar a reação do adversário.
 
 Nas seções seguintes vamos verificar algumas propriedades gerais dos movimentos combinados de rotação e de translação de um sistema com um ou mais corpos. Depois, verificaremos um movimento em especial, o de \emph{rolamento}, que possui um vínculo simples entre as variáveis de rotação e de translação, permitindo que exploremos mais as suas propriedades e obtenhamos alguns resultados interessantes.
 
@@ -2992,28 +3056,28 @@ Nas seções seguintes vamos verificar algumas propriedades gerais dos movimento
 \subsection{Dinâmica de um movimento combinado de rotação e de translação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Na real tem a questão de que a direção do eixo de rotação pode mudar tb, então seria algo mais complicado do que o que está posto aí em baixo. Melhor não se comprometer. só usar o papo de que temos que aplicar a segunda lei da rotação ou da translação pra cada corpo, ou nos dois aspectos, se ambos forem relevantes.}
+%\textbf{Na real tem a questão de que a direção do eixo de rotação pode mudar tb, então seria algo mais complicado do que o que está posto aí em baixo. Melhor não se comprometer. só usar o papo de que temos que aplicar a segunda lei da rotação ou da translação pra cada corpo, ou nos dois aspectos, se ambos forem relevantes.}
 Sempre que um corpo estiver sujeito a rotações e/ou a translações, devemos
 \begin{itemize}
-    \item determinar as forças que atuam sobre ele e aplicar as Leis de Newton para a translação, obtendo assim a aceleração $\vec{a}_{\text{CM}}(t)$;
+    \item determinar as forças que atuam sobre ele e aplicar as Leis de Newton para a translação, obtendo assim a aceleração do centro de massa $\vec{a}_{\text{CM}}(t)$;
     \item determinar os torques que atuam sobre ele e aplicar as Lei de Newton para a rotação, obtendo a aceleração angular $\alpha(t)$;
     \item determinar informações sobre a posição $\vec{r}_{\text{CM}}(t_0)$ e a velocidade $\vec{v}_{\text{CM}}(t_0)$ iniciais do centro de massa para um tempo $t_0$ qualquer, o que nos permite determinar completamente a função $\vec{r}_{\text{CM}}(t)$;
     \item determinar informações sobre a posição angular $\theta(t_0)$ e a velocidade angular $\omega(t_0)$ iniciais, o que nos permite determinar completamente a função $\theta(t)$.
 \end{itemize}
 %
-Ao determinarmos essas duas funções, o movimento fica completamente determinado. Caso exista mais que um corpo, devemos fazer o mesmo procedimento para cada um deles. Devemos destacar que uma mesma força pode ser relevante tanto para a translação do corpo, quanto para sua rotação.
+Ao obtermos essas $\vec{r}_{\text{CM}}(t)$ e $\theta(t)$, o movimento fica completamente determinado. Caso exista mais que um corpo, devemos fazer o mesmo procedimento para cada um deles. Devemos destacar que uma mesma força pode ser relevante tanto para a translação do corpo, quanto para sua rotação.
 
-\textbf{Ainda estou indeciso sobre deixar a máquina de atwood lá, ou aqui (abaixo, como um paragraph). Gostaria de deixar aqui, mas preciso de alguma coisa pra tratar ao discutir a segunda lei de newton para a rotação.}
-É claro que em muitos casos ou o aspecto de rotação, ou o aspecto de translação do movimento não é relevante, o que permite que simplifiquemos bastante o tratamento do problema em questão: um exemplo disso é a Máquina de Atwood discutida na página~\pageref{Par:AcelMaqAtwood}, onde os blocos só exibiam translação e a polia só rotação textbf{(A ideia é mover a máquina de Atwood pra cá, depois desse ponto. Rever esse texto quando tiver feito isso)}. Em outros casos, existe um vínculo entre as variáveis de rotação e de translação, eliminando várias incógnitas do tratamento matemático oriundo das Leis de Newton. Dois exemplos desse tipo de movimento são a Roda de Maxwell, que abordaremos a seguir, e o rolamento, que optamos por deixar para mais tarde para que possamos fazer uma análise um pouco mais detalhada.
+É claro que em muitos casos ou o aspecto de rotação, ou o aspecto de translação do movimento não é relevante, o que permite que simplifiquemos bastante o tratamento do problema em questão: um exemplo disso é a Máquina de Atwood que discutiremos abaixo, dessa vez tratando a polia de maneira correta. Nela, os blocos só exibiam translação e a polia somente rotação.
 
-\textbf{Aqui temos que comentar como a solução é de fato feita: aplicando a segunda lei pra translação/rotação pra cada corpo e fazendo um sistema de equações e resolvendo (aqui é que entra a máquina de atwood)}
+Em outros casos, existe um vínculo entre as variáveis de rotação e de translação, eliminando várias incógnitas do tratamento matemático oriundo das Leis de Newton. Alguns exemplos desse tipo de movimento são o movimento de um ioiô, a Roda de Maxwell (que do ponto de vista físico é similar a um ioiô), e o rolamento. Vamos tratar a Roda de Maxwell abaixo, após discutirmos a Máquina de Atwood, e também o movimento de rolamento, que optamos por deixar para mais tarde para que possamos fazer uma análise um pouco mais detalhada.
 
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Máquina de Atwood}
 %\label{Par:AcelMaqAtwood}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Se mudar isso pra adiante, dá pra usar o momento de inércia direto (tenho que dizer que vai ser visto adiante e dar a expressão)}
 
+Anteriormente discutimos sistemas envolvendo roldanas determinando ou a aceleração dos blocos suspensos através da Segunda Lei de Newton para a translação, ou suas velocidades após percorrerem uma distância $d$ através da conservação da energia mecânica. Em ambos os casos assumimos que a massa da roldana era desprezível. Agora vamos passar a levar em conta o fato de que isso não é verdade.\footnote[][-2cm]{A análise em termo de energia e a determinação da velocidade será feita na Seção~\ref{Sec:EnergiaMovCombRotTrans}.}
 
 \begin{marginfigure}
 \centering
@@ -3048,13 +3112,14 @@ Ao determinarmos essas duas funções, o movimento fica completamente determinad
 \caption{Uma solução para o sistema mostrado acima deve levar em conta o fato de que é necessário um torque resultante seja exercido sobre a polia, causando uma aceleração. Verificaremos que nesse caso as tensões nos segmentos suspensos esquerdo e direito da corda não podem ser iguais. \label{Fig:MaquinaDeAtwoodComPolia}}
 \end{marginfigure}
 
-Anteriormente discutimos sistemas envolvendo roldanas como o mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, determinando a aceleração dos blocos suspensos através da Segunda Lei de Newton, e ---~através da conservação da energia mecânica~--- a velocidade após percorrerem uma distância $d$. Em ambos os casos assumimos que a massa da roldana era desprezível. Agora vamos passar a levar em conta o fato de que isso não é verdade.
+Verificamos na Seção~\ref{Sec:PoliaCilindrica} que para que haja uma aceleração angular da polia, é necessário que haja um torque resultante externo que atue sobre ela, e que tal torque se deve à diferença entre as tensões nas duas extremidades da corda. Obtivemos então a relação
+\begin{equation}
+    \alpha = (T_1 - T_2) \frac{2}{MR}
+\end{equation}
+%
+para a aceleração angular $\alpha$ da polia. Note que esse resultado depende do momento de inércia, e por isso dependa da forma da polia. A equação acima é válida para uma polia cilíndrida, ou em formato de disco.
 
-Verificamos através da Segunda Lei de Newton para a rotação que para que haja uma aceleração angular de um objeto, é necessário que haja um torque resultante externo que atue sobre ele. Dessa forma, na Figura~\ref{Fig:MaquinaDeAtwoodComPolia}, torques devem atuar sobre a polia, uma vez que ela sofrerá uma alteração de sua velocidade angular devido a aceleração angular cuja origem é um torque resultante externo.
-
-\textbf{Aplicar a segunda lei pra polia aqui, mencionar os resultados da seção do carretel  cilíndrico pra ficar mais rápido.}
-
-Por fim, podemos aplicar a Segunda Lei de Newton para a translação dos blocos\footnote{Adotamos ambos os eixos $y$ como sendo verticais, com sentido positivo para cima. Assim, as acelerações dos blocos são $a_1^y = a$ e $a_2^y = -a$, onde $a$ é a aceleração da corda, adotada anteriormente.}:
+Resta considerarmos agora a translação dos blocos. Adotaremos ambos os eixos $y$ ---~um para cada bloco~--- como sendo verticais, com sentido positivo para cima. Assim, as acelerações dos blocos são $a_1^y = a$ e $a_2^y = -a$, onde $a$ é a aceleração da corda.
 \begin{description}
     \item[Bloco 1:] Aplicando a Segunda Lei de Newton para cada eixo:
         \begin{description}
@@ -3079,12 +3144,22 @@ Por fim, podemos aplicar a Segunda Lei de Newton para a translação dos blocos\
         \end{description}
 \end{description}
 
+Antes que possamos resolver as equações e determinar a aceleração do sistema, precisamos de uma relação entre a aceleração angular da polia e a aceleração de translação dos blocos. Verificamos, também na Seção~\ref{Sec:PoliaCilindrica}, que a aceleração da corda é a mesma que a de um ponto na borda da polia, se não houver deslizamento, o que implica em
+\begin{equation}
+    a = \alpha R,
+\end{equation}
+%
+onde $R$ representa o raio da polia. Note, no entanto, que devido à nossa escolha do sistema de coordenadas, uma aceleração para cima do bloco 1 corresponde a um valor positivo de $a$. Isso corresponde a uma rotação da polia no sentido horário, o que implica em uma aceleração angular negativa, por isso devemos colocar um sinal negativo na relação acima, obtendo
+\begin{equation}
+    a = -\alpha R.
+\end{equation}
+
 Finalmente, podemos escrever o sistema
 \begin{equation}
 \begin{system}
     T_1 - P_1 &= m_1 a \\
     - T_2 + P_2 &= m_2 a \\
-    -(T_2 - T_1) &= \frac{MR}{2} \alpha \\
+    T1 - T_2 &= \frac{MR}{2} \alpha \\
     a &= -\alpha R,
 \end{system}
 \end{equation}
@@ -3094,7 +3169,7 @@ cuja solução para a aceleração é
     a = \frac{m_2 - m_1}{m_1+m_2+\nicefrac{M}{2}} g.
 \end{equation}
 %
-Note que o resultado acima se reduz ao caso estudado anteriormente, quando ignorávamos a massa da polia, se $M \to 0$.
+Note que se $M \to 0$ o resultado acima se reduz ao caso estudado anteriormente, quando ignorávamos a massa da polia.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Roda de Maxwell}
@@ -3193,7 +3268,7 @@ Note que o resultado acima se reduz ao caso estudado anteriormente, quando ignor
 \caption{Roda de Maxwell, visão lateral.\label{Fig:RodaDeMaxwellVisaoLateral}}
 \end{marginfigure}
 
-Um dos sistemas mais simples que exibe rotação e translação é o que denominamos como ``Roda de Maxwell'', e que consiste em um disco ligado a um eixo suspenso por cordas. As cordas são enroladas no eixo e o sistema é liberado a partir do repouso, deixando o disco descer e desenrolar a corda, de maneira similar a um ioiô. Apesar de o disco exibir uma rotação e uma translação, esses movimentos não são independentes, uma vez que a distância percorrida pelo centro de massa está ligada ao comprimento de corda que é desenrolado do eixo. A relação entre o deslocamento do centro de massa e o deslocamento angular, que determina a quantidade de corda desenrolada, é
+Um dos sistemas mais simples que exibe rotação e translação é o que denominamos como ``Roda de Maxwell'', e que consiste em um disco ligado a um eixo suspenso por cordas. As cordas são enroladas no eixo e o sistema é liberado a partir do repouso, deixando o disco descer e desenrolar a corda, de maneira similar a um ioiô. Apesar de o disco exibir uma rotação e uma translação, esses movimentos não são independentes, uma vez que a distância percorrida pelo centro de massa está ligada ao comprimento de corda que é desenrolado do eixo. A relação entre o deslocamento do centro de massa e o deslocamento angular, que determina a quantidade $\ell$ de corda desenrolada, é
 \begin{equation}
     \Delta y_{\text{CM}} \equiv \ell = r \Delta \theta.
 \end{equation}
@@ -3206,16 +3281,16 @@ A partir dessa relação, também temos
 %
 Note que as relações acima podem ou não ter um sinal negativo, dependendo da escolha do sistema de referência. Se adotarmos um eixo vertical apontando para cima, as expressões acima estão adequadas. %\textbf{Se tirar a máquina de atwood lá do começo, vou precisar explicar a questão dos sinais aqui.}
 
-Aplicando a Segunda Lei de Newton ao centro de massa obtemos
+Aplicando a Segunda Lei de Newton para translação ao centro de massa, obtemos
 \begin{description}
 \item[Eixo $y$:]
 \begin{align}
-    F_R^y &= m_t a_y^{\text{CM}} \\
+    F_R^y &= m_t a_{\text{CM}, y} \\
     T - P &= m_t a,
 \end{align}
 \end{description}
 %
-onde adotamos $a \equiv a_y^{\text{CM}}$.
+onde adotamos $a \equiv a_{\text{CM}, y}$ e $m_t$ representa a massa total do sistema (soma da massa do disco e dos dois semieixos).
 
 Aplicando a Segunda Lei de Newton para a rotação, temos
 \begin{align}
@@ -3305,13 +3380,14 @@ Um caso particular da expressão obtida acima para a aceleração é aquele em q
     &\to \frac{2}{3} \cdot g.
 \end{align}
 %
-Note que esse é o mesmo resultado que se obtém ao usar $I = Mr^2$ na Equação~\eqref{Eq:AcelRodaDeMaxwellGenerica}.
+Note que esse é o mesmo resultado que se obtém ao usar $I = MR^2 / 2$, com $M = m_t$ e $R = r$ na Equação~\eqref{Eq:AcelRodaDeMaxwellGenerica}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energia em um movimento combinado de rotação e de translação}
+\label{Sec:EnergiaMovCombRotTrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Simplificar aqui. Provar que a energia cinética pode ser dada pela soma da energia cinética de translação com a de rotação (está pronto, abaixo). Depois simplesmente argumentar que se $\Delta E = W_{NC}$ e o sistema pode ser sempre considerado como um conjunto de inúmeras partículas (os átomos), então precisamos só somar as energias cinéticas das partículas, o que é equivalente a somar a energia cinética de translação do cm com a energia cinética de rotação em torno do eixo de rotação que passa pelo cm, e as energias potenciais. Como a soma das energias potenciais gravitacionais é igual à energia potencial do centro de massa, basta usarmos $E = K_{t, CM} + K_{r} + U_{g,CM} + \sum U_i$.}
+%\textbf{Simplificar aqui. Provar que a energia cinética pode ser dada pela soma da energia cinética de translação com a de rotação (está pronto, abaixo). Depois simplesmente argumentar que se $\Delta E = W_{NC}$ e o sistema pode ser sempre considerado como um conjunto de inúmeras partículas (os átomos), então precisamos só somar as energias cinéticas das partículas, o que é equivalente a somar a energia cinética de translação do cm com a energia cinética de rotação em torno do eixo de rotação que passa pelo cm, e as energias potenciais. Como a soma das energias potenciais gravitacionais é igual à energia potencial do centro de massa, basta usarmos $E = K_{t, CM} + K_{r} + U_{g,CM} + \sum U_i$.}
 
 Anteriormente determinamos uma expressão para a energia cinética de um corpo rígido simplesmente considerando que suas partículas executavam uma rotação em torno de um eixo. No caso mais geral, no entanto, precisamos considerar a possibilidade de que o corpo como um todo sofra um deslocamento. Nesse caso, podemos escrever a velocidade de cada partícula como
 \begin{equation}
@@ -3352,12 +3428,12 @@ O terceiro termo pode ser reescrito como
     &= \left[\sum_{i = 1}^N \vec{p}^i_{\text{CM}}\right]\cdot \vec{v}_{\text{CM}}.
 \end{align}
 %
-Note, no entanto, que a soma dos momentos lineares das partículas no referencial do centro de massa é igual ao momento linear total do sistema nesse referencial, porém o momento linear total de um sistema no referecial de seu próprio centro de massa é zero.\footnote{O momento linear total de um sistema é igual ao momento linear de seu centro de massa e pode ser escrito como $\vec{P}_{\text{sis}} = M\vec{v}_{\text{CM}}$, mas a velocidade do centro de massa em relação ao referencial fixado no próprio centro de massa é obviamente zero!} Concluímos então que para um corpo rígido qualquer, podemos determinar sua energia cinética como
+Note, no entanto, que a soma dos momentos lineares das partículas no referencial do centro de massa é igual ao momento linear total do sistema nesse referencial, porém o momento linear total de um sistema no referecial de seu próprio centro de massa é zero.\footnote[][-3cm]{O momento linear total de um sistema é igual ao momento linear de seu centro de massa e pode ser escrito como $\vec{P}_{\text{sis}} = M\vec{v}_{\text{CM}}$, mas a velocidade do centro de massa em relação ao referencial fixado no próprio centro de massa é obviamente zero!} Concluímos então que para um corpo rígido qualquer, podemos determinar sua energia cinética como
 \begin{equation}
-    K = K_{\text{rot}} + K_{\text{trans}}.
+    K = K_{\text{rot}} + K_{\text{trans}}. \mathnote{Energia cinética de um corpo que efetua um movimento combinado de rotação e de translação.}
 \end{equation}
 
-\textbf{texto antigo, ver se tem algo proveitoso. Acho que pelo menos o exemplo é algo interessante, pra podermos dizer que é equivalente tratar o movimento da haste como uma rotação em torno do eixo, ou como uma rotação em torno do cm mais uma translação do cm. Acredito que a questão aqui é que é equivalente tratar como uma rotação em torno do eixo instantâneo de rotação e a rotação em torno do cm mais a translação do cm. Preciso só achar uma explicação e usar esse problema como gancho pra poder discutir isso. A única coisa que achei a respeito é que se temos um eixo de rotação, então $\vec{v} = \vec{\omega}\times\vec{r}$, onde $\vec{r}$ dá a posição em relação ao eixo de rotação (o que é estranho, deveria ser em relação à origem); fazendo o produto $\vec{\omega}\times\vec{v}$ é possível mostrar que $\vec{r}_{\text{inst}} = -\vec{r} = \vec{\omega}\times\vec{v} / \omega^2$, isto é, sabemos que uma rotação pura pode ser usada para descrever o movimento de um corpo com velocidade $\vec{v}$ e velocidade angular $\vec{\omega}$ se adotarmos o eixo de rotação determinado por essa expressão.} % ver esse link: https://physics.stackexchange.com/questions/291234/instantaneous-axis-of-rotation
+%\textbf{texto antigo, ver se tem algo proveitoso. Acho que pelo menos o exemplo é algo interessante, pra podermos dizer que é equivalente tratar o movimento da haste como uma rotação em torno do eixo, ou como uma rotação em torno do cm mais uma translação do cm. Acredito que a questão aqui é que é equivalente tratar como uma rotação em torno do eixo instantâneo de rotação e a rotação em torno do cm mais a translação do cm. Preciso só achar uma explicação e usar esse problema como gancho pra poder discutir isso. A única coisa que achei a respeito é que se temos um eixo de rotação, então $\vec{v} = \vec{\omega}\times\vec{r}$, onde $\vec{r}$ dá a posição em relação ao eixo de rotação (o que é estranho, deveria ser em relação à origem); fazendo o produto $\vec{\omega}\times\vec{v}$ é possível mostrar que $\vec{r}_{\text{inst}} = -\vec{r} = \vec{\omega}\times\vec{v} / \omega^2$, isto é, sabemos que uma rotação pura pode ser usada para descrever o movimento de um corpo com velocidade $\vec{v}$ e velocidade angular $\vec{\omega}$ se adotarmos o eixo de rotação determinado por essa expressão.} % ver esse link: https://physics.stackexchange.com/questions/291234/instantaneous-axis-of-rotation
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -3399,13 +3475,13 @@ Sabemos que esse resultado se aplica ao sistema de partículas que compõe o cor
 \end{equation}
 %
 Portanto, para um sistema que está sujeito a uma simples rotação, se $W_{\rm{NC}} = 0$, podemos utilizar a conservação da energia mecânica: basta interpretarmos a energia cinética como uma energia cinética para a rotação.
-\textbf{Falar que se um corpo gira e translada, precisamos levar em conta ambos os termos. Dizer que vamos ver isso no caso do rolamento.}
+%\textbf{Falar que se um corpo gira e translada, precisamos levar em conta ambos os termos. Dizer que vamos ver isso no caso do rolamento.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: velocidade angular de uma haste após sofrer um deslocamento sujeita à força peso (solução utilizando conservação da energia mecânica)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Resolver usando a rotação em torno do centro de massa mais a translação do centro de massa}
+%\textbf{Resolver usando a rotação em torno do centro de massa mais a translação do centro de massa}
 
 \begin{marginfigure}
 \centering
@@ -3450,7 +3526,7 @@ o que resulta em
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Equivalência das rotações em torno do centro de massa e em torno de um eixo paralelo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{revisar}
+%\textbf{revisar}
 É importante notar que no problema acima tratamos o movimento da haste como uma rotação pura em torno de um eixo que passa por sua extremidade, perpendicularmente ao seu eixo. Dessa forma, não consideramos a translação do centro de massa. Isso, no entanto, equivale a tratarmos o movimento como uma translação do centro de massa simultânea a uma rotação em torno do centro de massa. Tal equivalência pode ser entendida do posto de vista da energia cinética de rotação através de\footnote{Note que a velocidade angular em torno do eixo que passa pelo centro de massa é igual à velocidade angular em torno do eixo paralelo $p$.}
 \begin{align}
     K_{\rm{rot}}^p &= \frac{I_p\omega^2}{2} \\
@@ -3466,7 +3542,7 @@ O primeiro termo na expressão acima corresponde à energia cinética de rotaç�
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Máquina de Atwood}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{revisar}
+%\textbf{revisar}
 Podemos utilizar a expressão para a energia cinética de um corpo rígido juntamente com a energia mecânica para analisar um sistema que contém partes que estão sujeitas a movimentos de translação e de rotação, conjuntamente. No caso do sistema mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaEnergia}, temos dois blocos de massas $m_1$ e $m_2$, presos a uma corda de massa desprezível, e que passa por uma polia. A polia tem momento de inércia $I$ e raio $r$. Ao liberarmos o sistema a partir do repouso, qual é a velocidade dos blocos após terem percorrido uma distância $d$?
 
 \begin{marginfigure}[3cm]
@@ -3554,7 +3630,7 @@ Note que obtivemos uma velocidade menor do que se tivessemos desprezado a massa 
 \section{Rolamento}
 %%%%%%%%%%%%%%%%%%%%%%
 
-Assim como no caso da Roda de Maxwell, no rolamento há um vínculo entre o movimento de rotação e o de translação, caso o movimento ocorra \emph{sem deslizamento}. Nesse caso, o deslocamento do centro de massa está vinculado ao deslocamento angular. Vamos considerar aqui somente rolamentos que ocorrem sobre superfícies planas.\footnote{Para superfícies sujeitas a curvaturas, o ponto de contato entre a superfície e o corpo mudará de posição, o que complica a análise do problema.}
+Assim como no caso da Roda de Maxwell, no rolamento há um vínculo entre o movimento de rotação e o de translação, caso o movimento ocorra \emph{sem deslizamento}. Nesse caso, o deslocamento do centro de massa está vinculado ao deslocamento angular. Vamos considerar aqui somente rolamentos que ocorrem sobre superfícies planas.\footnote[][-3cm]{Para superfícies sujeitas a curvaturas, o ponto de contato entre a superfície e o corpo mudará de posição, o que complica a análise do problema.}
 
 Matematicamente, o vínculo entre o deslocamento angular e o deslocamento do centro de massa, pode ser descrito através de (veja a Figura~\ref{Fig:DeslRolamento})
 \begin{equation}
@@ -3714,7 +3790,7 @@ O movimento das partículas de um corpo que rola só pode ser descrito de uma ma
 
 A determinação da posição de um ponto qualquer no referencial do centro de massa é bastante simples. Vamos considerar que o ponto $P$ na Figura~\ref{Fig:PosPRelCMRol}, cuja distância em relação ao eixo de rotação é $r_\perp$, parte da posição inferior e, durante o rolamento, se desloca por um ângulo $\theta$. Após tal deslocamento, ele se encontra em uma posição que pode ser descrita em termos dos eixos $x$ e $y$ como
 %
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     
@@ -3835,9 +3911,9 @@ Assim, obtemos
     \vec{r}_{P, \, s} = (R\,\theta - r_\perp \sen\theta)\,\versi + (R - r_\perp \cos\theta)\,\versj.
 \end{equation}
 %
-Veja que a equação acima não é uma função do tempo, mas sim uma função do deslocamento angular $\theta$. Esse tipo de expressão é denominada \emph{equação paramétrica}, pois ela descreve uma curva no espaço em função de um parâmetro ---~isto é, ela descreve tanto a posição no eixo $x$, quanto no eixo $y$ em termos de um parâmetro; normalmente descrevemos trajetórias\footnote{Veja que esse conceito não é tão estranho assim: quando descrevemos uma trajetória como uma função do tempo $\vec{r}(t)$, isso é um exemplo de uma equação paramétrica com um parâmetro $t$.} na forma $y(x)$~---. Na Figura~\ref{Fig:GraficosCicloideEAfins}, temos exemplos das trajetórias descritas pela equação acima. Para o caso $r_\perp = R$, em particular, temos uma curva conhecida como \emph{cicloide}. 
+Veja que a equação acima não é uma função do tempo, mas sim uma função do deslocamento angular $\theta$. Esse tipo de expressão é denominada \emph{equação paramétrica}, pois ela descreve uma curva no espaço em função de um parâmetro ---~isto é, ela descreve tanto a posição no eixo $x$, quanto no eixo $y$ em termos de um parâmetro; normalmente descrevemos trajetórias\footnote[][-4cm]{Veja que esse conceito não é tão estranho assim: quando descrevemos uma trajetória como uma função do tempo $\vec{r}(t)$, isso é um exemplo de uma equação paramétrica com um parâmetro $t$.} na forma $y(x)$~---. Na Figura~\ref{Fig:GraficosCicloideEAfins}, temos exemplos das trajetórias descritas pela equação acima. Para o caso $r_\perp = R$, em particular, temos uma curva conhecida como \emph{cicloide}. 
 
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,  interface/.style={
         % superfície
@@ -3972,7 +4048,7 @@ Se ignorarmos a força de arrasto oferecida pelo ar, quando um corpo rola sem de
     \end{align}
 \end{description}
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,  interface/.style={
         % superfície
@@ -4055,7 +4131,7 @@ De um ponto de vista de rotação, a análise pode ser muito complexa pois exist
     \item[Desaceleração devido à resistência à rolagem:] Se o ciclista não freia nem pedala, eventualmente acaba parando devido à própria resistência à rolagem oferecida pelos pneus. No ponto de contato com o solo, o pneu sofre uma deformação que se deve a uma força exercida pelo solo. Devido às características do pneu, ele se comporta como uma mola, exercendo a mesma força sobre a roda. Devido ao fato de que a deformação não é totalmente elástica, quando o pneu volta à forma original, a força exercida na expansão é menor que na compressão, o que faz com que surja uma força resultante que tende a desacelerar a roda. Essa desaceleração tende a fazer com que a velocidade da borda da roda fique em descompasso com a velocidade do centro de massa, o que causa uma tendência ao deslisamento da roda para frente. Essa tendência, por sua vez, causa uma força de atrito que desacelera o sistema.
     \item[Desaceleração devida ao arrasto:] A força de arrasto atua principalmente sobre o ciclista, devido à maior área de seção reta. Assim, a força se transmite ao quadro da bicicleta pelos pontos de apoio. O quadro, por sua vez, está ligado ao eixo de rotação das rodas pelos eixos. As forças exercidas através do eixo tendem a transladar a roda como um todo, o que tende a causar um deslisamento da roda em relação ao solo. Essa tendência ao deslizamento tende a causar um atrito que atua para frente no ponto de contato, pois é necessário que a roda diminua sua velocidade angular. É claro que, como a força de arrasto é maior, a resultante tende a causar uma desaceleração do sistema.
     
-    \item[Bicicleta sendo empurrada:] \textbf{Discutir o caso em que a bicicleta é empurrada por uma força que é exercida sobre o quadro, ver como ficam as forças de atrito no ponto de contato.}\footnote{Física de verdade é difícil.}
+%    \item[Bicicleta sendo empurrada:] \textbf{Discutir o caso em que a bicicleta é empurrada por uma força que é exercida sobre o quadro, ver como ficam as forças de atrito no ponto de contato.}\footnote{Física de verdade é difícil.}
 \end{description}
 
 O padrão comum a todas as situações apresentadas acima é o de que \emph{devemos aplicar tanto a Segunda Lei de Newton para a translação, quanto a Segunda Lei de Newton para a Rotação para um mesmo corpo}:
@@ -4066,7 +4142,8 @@ O padrão comum a todas as situações apresentadas acima é o de que \emph{deve
 \end{system}
 \end{equation}
 %
-\textbf{Quando discutimos a determinação da aceleração na Máquina de Atwood, na página \pageref{Par:AcelMaqAtwood}, havíamos aplicado essas relações ao mesmo sistema (isso mudou de lugar e de propósito, rever)}, porém cada uma em um corpo distinto. Já no rolamento, precisamos de um conjunto de equações que relacione os diversos torques e forças que atuam sobre um só corpo.
+%\textbf{Rever}
+Quando discutimos a determinação da aceleração na Máquina de Atwood, na página \pageref{Par:AcelMaqAtwood, havíamos aplicado essas relações ao mesmo sistema (isso mudou de lugar e de propósito, rever)}, porém cada uma em um corpo distinto. Já no rolamento, precisamos de um conjunto de equações que relacione os diversos torques e forças que atuam sobre um só corpo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Rolamento em uma Rampa}
@@ -4197,7 +4274,7 @@ Isto é, cada tipo de objeto tem uma aceleração diferente, sendo tanto menor q
 \subsection{Energia cinética no rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Essa seção precisa ser removida, já falamos de uma maneira mais geral e mais simples. Analisar com a próxima seção e fazer uma só de Energia no rolamento. Ainda assim, acho que dá pra cortar quase tudo, pq tudo já vai ter sido discutido pois é uma propriedade geral, não é específico do rolamento (acho que vai restar só a razão entre as energias, pois depende do vínculo entre as velocidades de rotação e de translação, que dependem só da condição de rolamento sem deslizar)}
+%\textbf{Essa seção precisa ser removida, já falamos de uma maneira mais geral e mais simples. Analisar com a próxima seção e fazer uma só de Energia no rolamento. Ainda assim, acho que dá pra cortar quase tudo, pq tudo já vai ter sido discutido pois é uma propriedade geral, não é específico do rolamento (acho que vai restar só a razão entre as energias, pois depende do vínculo entre as velocidades de rotação e de translação, que dependem só da condição de rolamento sem deslizar)}
 
 Intuitivamente, já que a energia é uma grandeza escalar, imaginamos que a energia cinética associada ao movimento de rolamento deve ser dada pela soma da energia cinética de translação e da energia cinética de rotação:
 \begin{equation}
@@ -4290,7 +4367,7 @@ como fizemos ao calcular a aceleração do centro de massa durante o rolamento e
 \subsection{Energia mecânica no rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Analisar e juntar com a seção de cima como Energia no rolamento. Acho que aqui tem coisa interessante, mesmo que seja como um exemplo.}
+%\textbf{Analisar e juntar com a seção de cima como Energia no rolamento. Acho que aqui tem coisa interessante, mesmo que seja como um exemplo.}
 
 %\textbf{Seria bom pegar aquela expressão em que determinamos a energia cinética no rolamento e tentar arrancar do termo que zeramos a própria energia potencial gravitacional, assim podemos escrever $E = K_r + K_r + U_g$ de uma maneira mais ``fundamental''. Mas acho que não dá, por que a velocidade do centro de massa não é constante.}
 
@@ -4389,7 +4466,7 @@ Finalmente,
     v = \sqrt{\frac{2gd\sen\beta}{1 + f}}.
 \end{equation}
 
-\pagebreak
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Exercícios}
 %%%%%%%%%%%%%%%%%%%%

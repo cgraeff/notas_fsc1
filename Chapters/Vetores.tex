@@ -95,7 +95,7 @@ ou por um símbolo em negrito
     \bm{b}.
 \end{equation*}
 %
-Adotaremos o primeiro tipo de notação, porém a segunda é mais comum em textos mais avançados. Além disso, ao utilizarmos somente a letra usada para denotar o vetor, sem a flecha e sem negrito, entende-se que se trata do módulo do vetor. Alternativamente, podemos usar $|\vec{a}|$ para denotar o módulo\footnote{Os matemáticos costumam olhar com cara feia que fala em ``módulo'' de um vetor. Eles preferem o termo \emph{norma de um vetor}, e usam a notação $\lVert\vec{a}\rVert$. Na Física, no entanto, todos usam o termo ``módulo''.}. Se, por exemplo, temos um vetor $\vec{a}$ como o da Figura~\ref{Fig:vetor_simples_com_nome}, o símbolo $a$ se refere ao módulo de tal vetor.
+Adotaremos o primeiro tipo de notação, porém a segunda é mais comum em textos mais avançados. Além disso, ao utilizarmos somente a letra usada para denotar o vetor, sem a flecha e sem negrito, entende-se que se trata do módulo do vetor. Alternativamente, podemos usar $|\vec{a}|$ para denotar o módulo\footnote{Os matemáticos costumam olhar com cara feia para quem fala em ``módulo'' de um vetor. Eles preferem o termo \emph{norma de um vetor}, e usam a notação $\lVert\vec{a}\rVert$. Na Física, no entanto, todos usam o termo ``módulo''.}. Se, por exemplo, temos um vetor $\vec{a}$ como o da Figura~\ref{Fig:vetor_simples_com_nome}, o símbolo $a$ se refere ao módulo de tal vetor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Operações envolvendo vetores}
@@ -1125,7 +1125,12 @@ Finalmente, temos que
 \subsection{Sistema de referência em três dimensões}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[3cm]
+Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote[][-3cm]{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicionamos mais um eixo de referência, denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Assim, um vetor $\vec{a}$ qualquer pode ser descrito em termos das componentes nos eixos $x$, $y$, e $z$ como
+\begin{equation}
+    \vec{a} = a_x \,\versi + a_y\,\versj + a_z\,\versk.
+\end{equation}
+
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale=2.0]
 
@@ -1152,12 +1157,7 @@ Finalmente, temos que
 \caption{Sistema de referência tridimensional.\label{Fig:vetores_unitários}}
 \end{marginfigure}
 
-Para que possamos descrever o caso tridimensional, precisamos de uma base composta de três vetores não-colineares. Da mesma maneira que no caso bidimensional, o tratamento utilizando uma base ortogonal, com vetores unitários\footnote[][1cm]{Esse tipo de base é denominada \emph{ortonormal}.}, é mais simples. Portanto, adicionamos mais um eixo de referência, denominado $z$, perpendicular aos eixos $x$ e $y$, sendo que o vetor unitário que aponta em sua direção é denominado $\versk$. Assim, um vetor $\vec{a}$ qualquer pode ser descrito em termos das componentes nos eixos $x$, $y$, e $z$ como
-\begin{equation}
-    \vec{a} = a_x \,\versi + a_y\,\versj + a_z\,\versk.
-\end{equation}
-%
-Um exemplo disso é o vetor $\vec{a} = \np{1,0} \,\versi + \np{1,0}\,\versj + \np{1,0}\,\versk$ mostrado na Figura~\ref{Fig:vetores_unitários}\footnote{Note que em uma representação bidimensional de um sistema tridimensional a visualização das componentes pode ser mais difícil. O ideal seria girar a figura e a visualizar em diversos ângulos.}
+\noindent{}Um exemplo disso é o vetor $\vec{a} = \np{1,0} \,\versi + \np{1,0}\,\versj + \np{1,0}\,\versk$ mostrado na Figura~\ref{Fig:vetores_unitários}.\footnote{Note que em uma representação bidimensional de um sistema tridimensional a visualização das componentes pode ser mais difícil. O ideal seria girar a figura e a visualizar em diversos ângulos.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Notação módulo-ângulo: coordenadas esféricas}
@@ -1168,7 +1168,7 @@ Assim como no caso bidimensional, um vetor pode ser denotado em relação a uma 
 % Segue figura retirada de: http://www.texample.net/tikz/examples/the-3dplot-package/
 % com alterações
 
-\begin{marginfigure}[-1.5cm]
+\begin{marginfigure}[1cm]
 \centering
 %% Copyright 2009 Jeffrey D. Hein
 %

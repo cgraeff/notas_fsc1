@@ -884,22 +884,22 @@ Devemos iniciar o cálculo determinando o tempo de queda da bola:
 \begin{align}
     \Delta y &= v_{i,y} t - \frac{gt^2}{2} \\
     \Delta y &= - \frac{gt^2}{2} \\
-    t^2 &= \frac{2\Delta y}{g},
+    t^2 &= -\frac{2\Delta y}{g},
 \end{align}
 %
-onde assumimos que o eixo $y$ aponta verticalmente para cima e utilizamos o fato de que a velocidade vertical inicial é nula. Obtemos para o tempo de queda
+onde assumimos que o eixo $y$ aponta verticalmente para cima e utilizamos o fato de que a velocidade vertical inicial é nula. Assim, obtemos para o tempo de queda
 \begin{align}
     t &= \sqrt{\frac{2\Delta y}{g}} \\
     &= \sqrt{\frac{2\cdot(\np[m]{1.70})}{(\np[m/s^2]{9,8})}} \\
     &= \np[s]{0,589} \\
-    &= \np[s]{0,59},
+    &= \np[s]{0,59}.
 \end{align}
 %
 A partir desse resultado, podemos determinar a velocidade no eixo horizontal, que sabemos que é constante:
 \begin{align}
     \Delta x &= v_x t \\
     v_x &= \frac{\Delta x}{t} \\
-    v_x &= \Delta x \cdot \sqrt{\frac{g}{2\Delta y}},
+    v_x &= \Delta x \cdot \sqrt{\frac{g}{2\Delta y}}, \label{Ex:VelBolaArremPeloJogInicioLancHoriz}
 \end{align}
 %
 o que resulta ao substituirmos os valores em
@@ -909,21 +909,25 @@ o que resulta ao substituirmos os valores em
     &= \np[m/s]{17}.
 \end{align}
 
-Agora devemos determinar a aceleração da bola durante o processo de lançamento.\footnote{Vamos considerar que o movimento de aceleração da bola é um movimento unidimensional, na horizontal. Vamos omitir o índice $x$ associado a tal eixo pois as variáveis já têm muitos índices.} Como consideramos que a força exercida sobre ela é constante durante o lançamento, a aceleração também será. A bola parte do repouso, logo
+Agora devemos determinar a aceleração $a_\ell$ da bola\footnote{Vamos considerar que o movimento de aceleração da bola é um movimento unidimensional, na horizontal. Vamos omitir o índice $x$ associado a tal eixo pois as variáveis já têm muitos índices.} durante o processo de lançamento.\footnote{Usaremos o índice $\ell$ para nos referirmos às variáveis durante o processo de lançamento.} Como consideramos que a força exercida sobre ela é constante durante o lançamento, a aceleração também será. A bola parte do repouso, logo
 \begin{align}
     v_{\ell,f} &= v_{\ell,i} + a_\ell t_\ell \\
     &= a_\ell t_\ell,
 \end{align}
 %
-onde usamos o índice $\ell$ para nos referirmos às variáveis durante o processo de lançamento. Veja que a velocidade final de lançamento é a própria velocidade inicial do lançamento horizontal, logo
+Note que a velocidade inicial de lançamento é nula, pois é segurada pelo jogador que se encontra inicialmente em repouso. Já a velocidade final de lançamento é a própria velocidade inicial do lançamento horizontal, e que é dada pela Equação~\ref{Ex:VelBolaArremPeloJogInicioLancHoriz}. Logo,
 \begin{align}
     v_{\ell,f} &= a_\ell t_\ell \\
     v_x &= a_\ell t_\ell \\
     a_\ell &=\frac{v_x}{t_\ell} \\
-    &= \frac{\Delta x}{t_\ell} \cdot \sqrt{\frac{g}{2\Delta y}} \\
-    &= \frac{(\np[m]{10,0})}{(\np[s]{0,80})} \cdot \sqrt{\frac{(\np[m/s^2]{9,8})}{2\cdot(\np[m]{1.7})}} \\
+    &= \left(\Delta x \cdot \sqrt{\frac{g}{2\Delta y}}\right) \cdot \frac{1}{t_\ell}.
+\end{align}
+%
+Substituindo os valores,
+\begin{align}
+    a_\ell &= \left((\np[m]{10,0}) \cdot \sqrt{\frac{(\np[m/s^2]{9,8})}{2\cdot(\np[m]{1.7})}}\right) \cdot \frac{1}{(\np[s]{0,80})} \\
     &= \np[m/s^2]{21,22} \\
-    &= \np[m/s^2]{21}..
+    &= \np[m/s^2]{21}.
 \end{align}
 %
 Finalmente, usando a Segunda Lei de Newton,
@@ -3296,7 +3300,7 @@ Apesar de termos uma simplificação bastante grande ao utilizar um eixo na dire
 
     % bloco grande
     \draw[->, thick] (-1,-2) -- node[below]{$\vec{F}$} (0,-2);
-    \draw[pattern = checkerboard light gray, pattern color = gray, draw = gray] (0,-3) rectangle (3,0);
+    \draw[pattern = dots, pattern color = lightgray, draw = lightgray] (0,-3) rectangle (3,0);
     
     % bloco superior
     \draw[pattern = north east lines, pattern color = gray, draw = gray] (1,0) rectangle +(1,1);
@@ -4428,11 +4432,11 @@ para relacionar a força exercida para manter um objeto em uma trajetória circu
 %
 Note, no entanto, que essa relação não nos diz nada sobre a natureza da força, ela simplesmente nos diz qual é a intensidade de força necessária para manter um objeto de massa $m$ em uma trajetória circular de raio $R$, com velocidade $v$:
 \begin{itemize}
-    \item Se temos um corpo que gira preso a um fio, a força é uma tensão;
+    \item Se temos um corpo que gira preso a um fio em um plano horizontal, a força é uma tensão;\footnote{Ou uma componente da força de tensão.}
     \item Se temos um satélite em órbita em torno da Terra, temos a força gravitacional;
     \item Se temos um carro que faz uma curva em uma estrada plana, temos uma força de atrito.
 \end{itemize}
-Além disso, é importante frisar que a força centrípeta não é uma nova força: alguma das diversas forças que estudamos até aqui (ou outras que veremos no futuro). deve assumir esse papel. Em algumas situações, podemos até mesmo ter mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular: 
+Além disso, é importante frisar que a força centrípeta não é uma nova força: alguma das diversas forças que estudamos até aqui (ou outras que veremos no futuro) deve assumir esse papel. Em algumas situações, podemos até mesmo ter mais que uma força atuando de uma maneira complexa para manter um corpo em trajetória circular: 
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=30,
@@ -4473,7 +4477,13 @@ Além disso, é importante frisar que a força centrípeta não é uma nova for�
     \item No caso de um corpo que executa um movimento circular vertical, como na Figura~\ref{Fig:MovimentoCircularVerticalCorpoFio.}, a tensão sempre aponta para o centro da trajetória, mas o peso tem uma componente que aponta para o centro que muda de acordo com a posição. A soma da tensão e do valor instantâneo dessa componente atua como força centrípeta.
 \end{itemize}
 %
-De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}.
+De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}. Devido às propriedades dos vetores, no entanto, tal componente é simplesmente a soma de todas as componentes das forças que atuam sobre o corpo projetadas na direção que liga o corpo ao centro da trajetória:\footnote[][-2cm]{É comum nos referimos a tal direção como \emph{direção radial}.}
+\begin{align}
+   F_c \equiv F_{R,r} &= \sum{i=1}^N F_{i,r} \\
+    &= F_{1,r} + F_{2,r} + F_{3,r} + \dots,
+\end{align}
+%
+onde $N$ representa o número de forças que atuam sobre o corpo. Na equação acima o $r$ minúsculo representa o eixo que aponta para o centro da trajetória.
 
 \begin{marginfigure}
 \centering
@@ -4907,22 +4917,7 @@ onde o sinal positivo nos dá a velocidade máxima e o sinal negativo nos dá a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Em um pêndulo, durante a oscilação da massa, temos uma tensão que varia constantemente. Considerando o movimento circular descrito, temos
-\begin{description}
-    \item[Eixo $x$:]
-        \begin{align}
-            F_{R, x} &= m a_x \\
-            T - P_x &= m \frac{v^2}{R} \\
-            T &= P_x + m\frac{v^2}{R}.
-        \end{align}
-    \item[Eixo $y$:]
-        \begin{align}
-            F_{R, y} &= m a_y \\
-            P_y &= m a_y \\
-            mg \sen\theta &= m a_y.
-        \end{align}
-\end{description}
-
-\begin{marginfigure}
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
      interface/.style={
@@ -4952,6 +4947,20 @@ Em um pêndulo, durante a oscilação da massa, temos uma tensão que varia cons
 \end{tikzpicture}
 \caption{Força centrípeta em um pêndulo.}
 \end{marginfigure}
+\begin{description}
+    \item[Eixo $x$:]
+        \begin{align}
+            F_{R, x} &= m a_x \\
+            T - P_x &= m \frac{v^2}{R} \\
+            T &= P_x + m\frac{v^2}{R}.
+        \end{align}
+    \item[Eixo $y$:]
+        \begin{align}
+            F_{R, y} &= m a_y \\
+            P_y &= m a_y \\
+            mg \sen\theta &= m a_y.
+        \end{align}
+\end{description}
 
 \noindent{}Nas equações acima utilizamos o fato de que o eixo $x$ aponta para o centro da trajetória circular descrita pela massa. Logo, a aceleração $a_x$ é a própria aceleração centrípeta e
 \begin{equation}
@@ -5342,7 +5351,7 @@ O movimento\footnote{Newton usa o termo \emph{movimento} como sinônimo de \emph
 \begin{quote}
 \emph{Uma força impressa é uma ação exercida sobre um corpo, com o intuito de mudar seu estado, seja de repouso, ou de movimento uniforme para frente em uma linha reta.}
 
-Essa força consiste na ação somente; e não permanece no corpor, quanto a ação é finalizada. Pois um corpo mantém cada novo estado que adquire por sua inércia\footnote{Aqui cabe alertar que Newton acreditava que existiria uma \emph{força de inércia} cujo papel era o de manter o estado atual de movimento do corpo, resistindo a mudanças. Hoje utilizamos a interpretação mais simples de que tal força não existe, mas sim que para alterar o estado de movimento, é necessário aplicar uma força, sendo que se o ele se mantém se nenhuma força atua sobre o corpo.} somente. Forças impressas são de diferentes origens [\dots]
+Essa força consiste na ação somente; e não permanece no corpor, quanto a ação é finalizada. Pois um corpo mantém cada novo estado que adquire por sua inércia\footnote[][-2cm]{Aqui cabe alertar que Newton acreditava que existiria uma \emph{força de inércia} cujo papel era o de manter o estado atual de movimento do corpo, resistindo a mudanças. Hoje utilizamos a interpretação mais simples de que tal força não existe, mas sim que para alterar o estado de movimento, é necessário aplicar uma força, sendo que se o ele se mantém se nenhuma força atua sobre o corpo.} somente. Forças impressas são de diferentes origens [\dots]
 \end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,4 @@
-\chapter{Trabalho e Energia Mecânica}
+\chapter{Trabalho e Energia}
 \label{Chap:Energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\minitoc
@@ -1311,14 +1311,14 @@ Logo, \emph{o valor da derivada de $A_{f(x)}(x)$ no ponto $x_p$ é o próprio va
     A_{f(x)}(x_p) = \mathcal{F}(x_p) + C.
 \end{equation}
  
-A constante $C$ não nos permite\footnote[][-2cm]{Na verdade podemos calcular a área entre $a$ e um limite superior qualquer simplesmente escolhendo um ponto de referência mais a esquerda. Logo, o resultado  não depende da posição de $a$ e é geral.} saber exatamente o valor da área entre $a$ e $x_p$, mas tal constante não nos impede de calcular a área entre dois limites $x_i$ e $x_f$ quaisquer (Figura~\ref{Fig:TeoremaFundamentalDoCalculoIntegralDefinida}): basta determinarmos a diferença entre as áreas contidas nos intervalos $[a,x_f]$ e $[a,x_i]$. Assim,
+A constante $C$ não nos permite\footnote{Na verdade podemos calcular a área entre $a$ e um limite superior qualquer simplesmente escolhendo um ponto de referência mais a esquerda. Logo, o resultado  não depende da posição de $a$ e é geral.} saber exatamente o valor da área entre $a$ e $x_p$, mas tal constante não nos impede de calcular a área entre dois limites $x_i$ e $x_f$ quaisquer (Figura~\ref{Fig:TeoremaFundamentalDoCalculoIntegralDefinida}): basta determinarmos a diferença entre as áreas contidas nos intervalos $[a,x_f]$ e $[a,x_i]$. Assim,
 \begin{align}
     A_{[x_i,x_f]} &= A_{f(x)}(x_f) - A_{f(x)}(x_i) \\
     &= (\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i) + C) \\
     &= \mathcal{F}(x_f) - \mathcal{F}(x_i).
 \end{align}
 
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1477,7 +1477,7 @@ ou seja, \emph{constantes saem da integral}.
     Determine a variação da velocidade entre os instantes $t_i$ e $t_f$ para o caso de aceleração constante em direção e sentido.
 \end{quote}
 
-\begin{marginfigure}[6cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -1839,60 +1839,141 @@ onde utilizamos $x$ para denotar a distância percorrida durante a aplicação d
 
 %\textbf{Discuutir aqui a ideia de que se um corpo é submetido a uma aceleração constante, a potência aumenta linearmente com o tempo, uma vez que $v = v_0 + at$. Usar essa ideia para discutir por que a aceleração decresce com o aumento da velocidade, uma vez que se considere $P$ constante. (Veja que não é necessário considerar a força de arrasto, afinal conforme $v$ aumenta, o custo energético de cada $\delta v$ aumenta.)}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energia Potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energia Potencial e forças conservativas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Novo texto, muito mais sucinto e direto e matemático}
-
-A Eq. para o trabalho de uma força variável define o trabalho para uma força variável assumindo que ela é na direção do movimento (se não estiver assim, é fácil mudar o texto para que passe a ser). Se tivermos uma força cuja direção pode variar em relação ao deslocamento instantâneo ao longo da trajetória, podemos determinar o trabalho total assumindo que temos uma série de pequenos deslocamentos retilíneos. Assim,
+A Equação~\eqref{Eq:TrabalhoIntegral} define o trabalho para uma força variável em um movimento unidimensional.\footnote{A rigor, a Equação~\eqref{Eq:TrabalhoIntegral} é válida desde que que $F_x(x)$ represente o valor da componente da força ao longo da direção do movimento, o que faz com que ela possa ser usada em outras ocasiões.} Se tivermos uma força cuja direção pode variar em relação ao deslocamento instantâneo ao longo da trajetória, podemos determinar o trabalho total assumindo que temos uma série de pequenos deslocamentos retilíneos. Assim,
 \begin{equation}
     W = \lim_{|\Delta\vec{r}_i| \to 0} \sum_i \vec{F}_i\cdot\Delta\vec{r}_i.
 \end{equation}
 %
-Se a força $\vec{F}$ é bem definida para todos os pontos do espaço e a trajetória tem um comprimento \emph{finito} (ou seja, um comprimento que \emph{não é infinito}), então o limite definido acima existe e é denotato por
-\begin{equation}
-    W = \int_C \vec{F}\cdot d\vec{r},
+Se a força $\vec{F}$ é bem definida para todos os pontos do espaço e a trajetória tem um comprimento \emph{finito} (ou seja, um comprimento que \emph{não é infinito}), então o limite definido acima existe e é denotado por
+\begin{equation}\label{Eq:TrabalhoGeral}
+    W = \int_C \vec{F}(\vec{r})\cdot d\vec{r},
 \end{equation}
 %
-e é conhecido como \emph{integral de linha}, onde $C$ denota uma parametrização da curva que define a trajetória seguida pelo corpo sobre o qual a força $\vec{F}$ atua. O cálculo da integral depende de particularidades da curva escolhida e recai em uma integral em uma, duas, ou três dimensões \textbf{(que os alunos ainda não viram)}. 
+e é conhecido como \emph{integral de linha},\footnote{Não se assuste, nessa seção so quero transmitir a ideia principal daquilo que estamos discutindo, você não vai precisar fazer essas contas. Foque na interpretação.} onde $C$ denota uma curva que define a trajetória seguida pelo corpo sobre o qual a força $\vec{F}$ atua. Note que na expressão acima a força é denotada como $\vec{F}(\vec{r})$,\footnote{Aqui a força é uma função vetorial, pois ela toma um vetor posição e retorna um vetor.} pois ela pode variar em tese ela pode variar em intensidade e direção em cada ponto $\vec{r}$ do espaço. Além disso, a expressão contém um \emph{produto escalar}, entre a força e o vetor infinitesimal $d\vec{r}$ que denota a direção instantânea do deslocamento; esse produto escalar é responsável por calcular a projeção da força na direção do deslocamento. Na prática, a solução desse tipo de integral é feita ao descrever a curva $C$ através de \emph{equações paramétricas} e então a transformar em uma integral unidimensional em termos de tal parâmetro. Um exemplo comum desse tipo de parâmetro é a própria distância percorrida ao longo da trajetória, mas qualquer outro parâmetro pode ser usado.\footnote{Desde que ao variarmos o parâmetro entre o valor inicial e o valor final percorramos todo o ``caminho'' da curva $C$ uma única vez.}%\cite{Stewart}
 
 Mesmo sem sabermos os detalhes de como calcular essa integral, podemos dividir o seu resultado em duas possibilidades: ou ele depende do caminho escolhido, ou ele não depende de tal escolha. Se ele não depende, então as únicas possibilidades são que o resultado dependa dos pontos inicial e final da trajetória, ou que seja constante, isto é, seja sempre o mesmo valor independentemente dos pontos inicial e final. Esse último caso só é possível se a força $\vec{F}$ for nula para todos os pontos do espaço.
 
-No caso de termos uma dependência somente dos pontos inicial e final, podemos escrever
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+ 
+ 
+    \draw[->] (180:3) coordinate (A) -- (180:2.25) node[above]{$\vec{F}(\vec{r}_i)$};
+    
+    \draw[->] (225:2) coordinate (B) -- (225:1) node[above]{$\vec{F}(\vec{r}_1)$};
+    
+    \draw[->] (270:3) coordinate (C) -- (270:2.25)  node[above]{$\vec{F}(\vec{r}_f)$};
+
+    \draw[dashed] (A) to[bend left] (B);       
+    \draw[dashed] (B) to[bend right] node[below left, midway] {$C$} (C);
+
+    \draw[draw = black, fill = white] (180:3) node {$i$} circle (2mm);
+    \draw[draw = black, fill = white] (225:2) node {1} circle (2mm);
+    \draw[draw = black, fill = white] (270:3) node {$f$} circle (2mm);
+
+    
+\end{tikzpicture}
+\caption{Particula sujeita a uma força variável $\vec{F}(\vec{r})$ em um deslocamento entre os pontos $i$ e $f$ ao longo de um caminho $C$.\label{Fig:PartMovPot}}
+\end{marginfigure}
+
+Vamos considerar uma partícula que se mova entre um ponto inicial $i$ e um ponto final $f$ com velocidade constante, sujeita uma força $\vec{F}(\vec{r})$ qualquer e que realiza um trabalho não nulo ao longo do trajeto (Figura~\ref{Fig:PartMovPot}). Vamos considerar que, dentre as possibilidades discutidas no parágrafo anterior, temos o caso de que o trabalho dependa somente da posição dos pontos inicial e final. Nesse caso, podemos escrever\footnote{Aqui existe um passo bem grande, afinal ``depender só das posições dos pontos inicial e final'' poderia significar que $W$ seria função desses dois pontos, ou seja $W = W(\vec{r}_i, \vec{r}_f)$. O fato é que existe uma generalização para integrais de linha do Teorema Fundamental do Cálculo que garante que se o resultado só depende dos pontos inicial e final, então ele é dado pela diferença de uma mesma função, que chamamos aqui de $U(\vec{r})$, entre os pontos $\vec{r}_f$ e $\vec{r}_i$. Já o sinal negativo que aparece antes da diferença entre colchetes é uma questão de escolha e está associado à interpretação física que damos à Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencial}.}
 \begin{equation}\label{Eq:TrabForcaIndepCaminhoDefPotencial}
     W = \int_C \vec{F}\cdot d\vec{r} = -[U(\vec{r}_f) - U(\vec{r}_i)],
 \end{equation}
 %
-onde $U(\vec{r})$ é uma função escalar que depende da posição. É evidente da expressão acima que
+onde $U(\vec{r})$ é uma função escalar que depende da posição.\footnote{$U(\vec{r})$ é uma função que toma um vetor posição e retorna um número, ou seja, um valor escalar.} É evidente da expressão acima que
 \begin{equation}
     W = - \Delta U
 \end{equation}
 %
-e que tal função tem a mesma unidade que o trabalho. Note ainda que uma diminuição do valor de $U(\vec{r})$ entre os pontos $\vec{r}_i$ e $\vec{r}_f$ implica em um trabalho positivo realizado sobre o corpo, enquanto um aumento no valor dessa função entre tais pontos implica em uma trabalho negativo realizado sobre ele. Isso nos leva à interpretação de que \emph{a função $U(\vec{r})$ representa uma forma de energia} que denominamos como \emph{energia potencial}. 
+e que tal função tem a mesma unidade que o trabalho. Note ainda que uma \emph{diminuição} do valor de $U(\vec{r})$ entre os pontos $\vec{r}_i$ e $\vec{r}_f$ implica em um \emph{trabalho positivo} realizado sobre o corpo, enquanto um aumento no valor dessa função entre tais pontos implica em uma trabalho negativo realizado sobre ele.
 
-\textbf{Discutir a interpretação de transferência de energia entre uma forma e outra. Usar o potencial gravitacional como exemplo (dizer que vamos determinar a expressão depois, mas argumentar que o trabalho não depende do caminho). Falar que o potencial é uma forma de energia associada às características da força e à disposição dos corpos que interagem através dela.}
+Através da equação acima, podemos então associar à função $U(\vec{r})$ uma nova forma de energia, que denominamos como \emph{energia potencial}, e que está associado à força que exercida sobre a partícula e que realiza trabalho. Como requisito para a existência de tal forma de energia, temos as seguintes condições, que são equivalentes umas às outras:
+\begin{itemize}
+    \item O trabalho total realizado pela força em um deslocamento depende exclusivamente das posições inicial e final;
+    \item O trabalho total realizado pela força em um deslocamento independe do caminho adotado;
+    \item O trabalho total realizado pela força em um deslocamento em um caminho fechado ---~isto é, um caminho em que ao final do deslocamento retornamos ao ponto de partida~--- é nulo.
+\end{itemize}
+%
+São poucas as forças que respeitam tais condições: as forças fundamentais (incluem-se aí a gravitacional e a eletrostática), o peso (que é uma aproximação para a força gravitacional), e a força elástica. 
 
-Para o caso de um movimento unidimensional, ou de uma força que depende somente de uma das coordenadas, isto é, se
+Apesar de o número de situações reais em que podemos empregar o conceito de potencial ser reduzido, a enorme simplificação trazida pela independência do valor do trabalho em relação ao caminho adotado para o deslocamento o torna muito valioso. As forças que respeitam as condições acima são denominadas \emph{forças conservativas} pois, como veremos adiante, em sistemas que atuam somente força desse tipo a \emph{energia mecânica} total é constante. Isso permite que diversas situações possam ser analisadas sem que o processo que leva o sistema de uma configuração inicial até uma outra configuração final tenha qualquer relevância. Após estudarmos a energia mecânica, verificaremos ainda que existem outros tipos de energia e que a conversão entre as diversas formas de energia se dá sempre de maneira a manter a quantidade total de energia constante. Dessa forma, podemos afirmar que um potencial é uma maneira de \emph{armazenar} energia.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Forças não-conservativas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A maioria das forças que estamos estudando não respeitam as condições para serem conservativas. A força de atrito, por exemplo, pode realizar um trabalho diferente de zero em um trajeto cujos pontos inicial e final são o mesmo: Se tomarmos um bloco que e o submetermos a um deslocamento sobre uma mesa, temos um ângulo entre a força e o deslocamento instantâneo que é sempre de \degree{180}. Quando o bloco volta à posição inicial, concluímos que o trabalho total é diferente de zero:
 \begin{equation}
-    \vec{F}(\vec{r}) \equiv \vec{F}(x),
+  W_{\rm{at}} = \int_{x_i}^{x_i} \fat dx < 0.
 \end{equation}
-%
-temos um potencial que depende somente de $x$,
-\begin{equation}
-    U(\vec{r}) \equiv U(x),
-\end{equation}
-%
-e a Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencial} se torna uma integral unidimensional:
+
+\begin{marginfigure}[-5cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 2.2]
+    
+    \def\r{0.5}% raio
+
+    \coordinate (origin) at (\r,0,0);
+
+    \draw[gray] (-0.75,0,-0.75) -- (0.75,0,-0.75) -- (0.75,0,0.75) -- (-0.75,0,0.75) -- cycle;
+    \draw[dotted] (origin) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},0,{\r*sin(\t)})}--cycle;
+    \draw[dashdotted] (0,0,0) -- node[above]{$R$} +(0.5,0,0);
+    \draw[fill] (0,0.0) circle (0.5pt);
+    
+    \draw[fill, gray, draw = black] (0.45,0,-0.05) rectangle (0.55,0.1,-0.05);
+    \draw[fill, gray, draw = black] (0.45,0,0.05) rectangle (0.55,0.1,0.05);
+    \draw[fill, gray, draw = black] (0.55,0,0.05) -- (0.55,0,-0.05) -- (0.55,0.1,-0.05) -- (0.55,0.1,0.05) -- cycle;
+    \draw[fill, gray, draw = black] (0.45,0.1,0.05) -- (0.55,0.1,0.05) -- (0.55,0.1,-0.05) -- (0.45,0.1,-0.05) -- cycle;
+    
+    \draw[->] (0.5,0.05, 0.05) -- node[right]{$\vec{v}$} +(0,0,0.65);
+\end{tikzpicture}
+\caption{Num movimento sujeito ao atrito, ao executarmos uma volta completa, não temos um trabalho nulo. Consequentemente, não existe um potencial associado à força de atrito.}
+\end{marginfigure}
+
+\noindent{}Devido a isso, não podemos escrever um potencial para tal força. 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+    \draw[dashed] (0,0) rectangle (4,3);
+    
+    \coordinate (A) at (0.5,1);
+    \coordinate (B) at (3.5, 2);
+    
+    \draw[fill] (A) node[left]{$A$} circle (1pt);
+    \draw[fill] (B) node[right]{$B$} circle (1pt);
+    
+    \draw[->] (A) .. controls (1,2.5) and (3,3) .. (B);
+    \draw[->] (A) .. controls (2,-1) and (2,1.2) .. (B);
+    
+    \node (C1) at (2.5,0.5) {$C_1$};
+    \node (C2) at (1,2.2) {$C_2$};
+    
+\end{tikzpicture}
+\caption{Em um deslocamento entre dois pontos $A$ e $B$, o trabalho realizado pela força de atrito é diferente para cada caminho $C_i$ adotado.}
+\end{marginfigure}
+Equivalentemente, podemos considerar o deslocamento entre dois pontos $A$ e $B$. Sabemos que a força de atrito cinético é constante em módulo, logo, o trabalho tem um valor numérico proporcional à distância percorrida pelo bloco. Isso implica em valores diferentes para o trabalho dependendo do comprimento da trajetória adotada no deslocamento entre os pontos.
+
+Como exemplos de \emph{forças não-conservativas}, ou \emph{forças dissipativas} podemos citar as forças de atrito, arrasto, normal e de tensão.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação da função energia potencial $U$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Determinar uma expressão para um potencial a partir de uma força $\vec{F}(\vec{r})$ de uma maneira geral consiste em encontrar a função $U(\vec{r}$ tal que a Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencial} seja satisfeita. Isso equivale a determinar uma função cujo \emph{gradiente} resulta na força $\vec{F}(\vec{r})$, sendo o gradiente uma generalização da derivada para o caso bi ou tridimensional. Como forma de ilustrar melhor o processo de obtenção de um potencial, porém sem usar conceitos tão avançados de cálculo, vamos considerar o caso unidimensional.
+
+Para o caso de um movimento unidimensional, uma integral de linha em um caminho retilíneo $C$ que liga dois pontos $i$ e $f$ é simplesmente uma integral entre os limites $x_i$ e $x_f$:
 \begin{equation}\label{Eq:TrabForcaIndepCaminhoDefPotencialUnidimensional}
-    W = \int_{x_i}^{x_f} F_x(x) \cos\theta \,dx = -[U(x_f) - U(x_i)],
+    W = \int_{x_i}^{x_f} F(x) \cos\theta \,dx = -[U(x_f) - U(x_i)],
 \end{equation}
 %
-onde $F_x(x)$ representa a componente da força projetada na direção do deslocamento.\footnote{No caso do movimento unidimensional precisamos projetar a força na direção do deslocamento, enquanto no caso de a força depender de somente uma das dimenções devemos projetar o deslocamento na direção da força. Esses dois resultados, no entanto, são iguais, como vimos na Seção~\ref{Sec:}. Dessa forma, a Equação~\eqref{Eq:TrabForcaIndepCaminhoDefPotencialUnidimensional} é válida em ambos os casos.}
-%
-Através do Teorema Fundamental do Cálculo, Equação~\ref{Eq:}, temos que
+onde $\theta$ representa o ângulo entre a força e a direção do deslocamento. Por simplicidade, vamos assumir que $\theta = \degree{0}$, ou seja, a força aponta sempre na direção do movimento. Através do Teorema Fundamental do Cálculo, temos que
 \begin{align}
-    W &= \int_{x_i}^{x_f} F(x) \,dx \\
+    W &= \int_{x_i}^{x_f} F(x) \,dx \label{Eq:TrabalhoPotencial}\\
     &= \left[\mathcal{F}(x) + C\right]_{x_i}^{x_f} \\
     &= [(\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i) + C)] \\
     &= -[U(x_f) - U(x_i)],
@@ -1904,121 +1985,103 @@ de onde identificamos que
     - U(x_i) &= \mathcal{F}(x_i) + C,
 \end{align}
 %
-ou seja, que \emph{a função primitiva $\mathcal{F}(x)$ da função $F(x)$ é o próprio potencial}:\emph{Se o valor do trabalho independe do caminho. Note que em uma dimensão o caminho é o ``histórico'' de posições ocupadas pelo corpo.}
-\begin{equation}
+ou seja, o potencial é o negativo da função primitiva $\mathcal{F}(x)$:
+\begin{equation}\label{Eq:ResultadoPotencialFuncPrimitiva}
     - U(x) = \mathcal{F}(x) + C.
 \end{equation}
 
-Se derivarmos a expressão acima, obtemos
+Note ainda que se derivarmos a expressão acima, obtemos
 \begin{align}
     - U'(x) &= \mathcal{F}'(x) + C' \\
-    - U'(x) &= F(x).
+    - U'(x) &= F(x). \label{Eq:ForcaGradPot}
 \end{align}
 %
 Essa relação é útil para situações onde o potencial é conhecido\footnote{Em alguns sistemas é mais fácil obter informações diretas sobre o potencial do que sobre a força.} como função da posição e nas quais precisamos obter a força (também como função da posição).
 
-\paragraph{Potencial gravitacional}
-Obter e discutir o potencial gravitacional
-
-\paragraph{Potencial elástico}
-Obter e discutir o potencial elástico
-
-\paragraph{Exemplificar forças não conservativas}
-Usar o atrito e o arrasto como exemplos. Acho que é interessante falar que mesmo no caso de sabermos a força ponto a ponto, não temos exatamente uma função da posição, só que em um caso particular a força tinha um certo valor em certo ponto (para um intervalo de pontos), o que nos permite calcular o trabalho, mas não um potencial.
-
-\textbf{Fim do texto novo, rever texto antigo pra ver se tem coisas importantes que devem ser incorporadas no texto novo.}
-
-%\textbf{Aqui listar (itemize) as características, fica mais fácil.}
-Ao estudar a energia cinética e o trabalho, verificamos que tais conceitos são úteis para se calcular algumas quantidades físicas sem nos preocupar com o caráter vetorial das grandezas. Veremos agora que existem outras formas de energia que estão relacionadas às forças que atuam em um sistema de partículas e \emph{à própria configuração} ---~isto é, \emph{à disposição}~--- das partículas que compõe o sistema. Tais formas de energia são denominadas como \emph{energias potenciais}. (Portanto, as expressões para o potencial dependem só de características da força de interação, e da disposição das partículas.)
-
-Uma das propriedades dessa forma de energia é a de que ela independe do histórico de configurações do sistema, dependendo somente de seu estado em um dado momento. Verificaremos também que a propriedade de independer do histórico do sistema faz com que nem todas as forças tenham potenciais associados a elas, porém teremos uma maneira simples de verificar quais forças dão origem a potenciais e quais não. Finalmente, é importante notar que assim como cada força tem uma expressão diferente, o mesmo pode ser dito sobre os potenciais, já que eles são determinados diretamente a partir da expressão para a força, como veremos adiante.
-
-%\textbf{Discutir que nem toda força tem um potencial associado. Discutir que cada tem uma expressão diferente de potencial.}
-
-Quando associamos a energia potencial à energia cinética, verificamos que podemos definir o que denominamos como \emph{energia mecânica} de um sistema. Tal grandeza é constante sob certas condições, e podemos utilizá-la para obter informações sobre sistemas físicos de maneira relativamente simples.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia potencial gravitacional}
+\paragraph{Energia potencial gravitacional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Podemos determinar uma expressão para o que chamamos de \emph{energia potencial gravitacional} se analisarmos um sistema constituido pelo planeta Terra e por um corpo próximo de sua superfície. Vamos desconsiderar momentaneamente a força de arrasto do ar e analisar o trabalho realizado pela força peso. Se o objeto é lançado verticalmente para cima, com velocidade inicial $v_i$, à medida que ele se desloca, sua velocidade diminui, eventualmente chegando a zero. Sabemos que há um trabalho exercido pelo peso, de forma que ---~utilizando o Teorema Trabalho--Energia Cinética e a Equação~\ref{Eq:TrabalhoPeso2}~---, podemos escrever
-\begin{align}
-  \Delta K &= W_g \\
-  K_f - K_i &=  -mg\Delta y \\
-  K_f - K_i &=  -(mgy_f - mgy_i) \\
-  0 - \frac{mv_i^2}{2} &= -(mgy_f - 0) \\
-  \frac{mv_i^2}{2} &= mgh,
-\end{align}
-%
-onde $y_i = 0$ devido à escolha do sistema de referência, e, finalmente,
+Através da Equação~\eqref{Eq:ResultadoPotencialFuncPrimitiva} podemos determinar as funções para o potencial de algumas forças simples através de tentativa e erro. No caso da força peso, temos
 \begin{equation}
-    h = \frac{v_i^2}{2g}.
-\end{equation}
-
-\begin{marginfigure}[-2cm]
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \draw[pattern = north west lines] (0,0) circle (2mm);
-    \draw[fill] (0,0) circle (1pt);
-    \draw[->, thick] (0,0) -- +(0,-1) node[right]{$\vec{P}$};
-    \draw[->] (0,0.2) -- +(0, 0.75) node[right]{$\vec{v}_i$};
-    
-    \draw[draw = gray, pattern = north west lines, pattern color = gray] (0,2.75) circle (2mm);
-    \draw[gray, fill] (0,2.75) circle (1pt);
-    \draw[->, thick, gray] (0,2.75) -- +(0,-1) node[right]{$\vec{P}$};
-    
-    \draw[->] (-1, -1) -- (-1, 3.5) node[below left]{$y$};
-    \draw[|-|] (-1,0) node[left, shift={(-1mm,0)}]{$y_i = 0$} -- (-1,2.75) node[left, shift={(-1mm,0)}]{$y_f = h$};
-    
-\end{tikzpicture}
-\caption{Quando um objeto sobe verticalmente sujeito à força peso, sua velocidade diminui devido ao trabalho realizado por tal força.}
-\end{marginfigure}
-
-Após o corpo chegar ao ponto de máxima altura, ele passa a descer. Quando ele voltar ao ponto $y_i = 0$ sua velocidade será dada por
-\begin{align}
-  \Delta K &= W_g \\
-  K_f - K_i &=  -mg\Delta y \\
-  K_f - K_i &=  -(mgy_f - mgy_i) \\
-  \frac{mv_f^2}{2} - 0 &= -(0 - mgy_i) \\
-  \frac{mv_f^2}{2} &= mgh,
-\end{align}
-%
-o que resulta em
-\begin{equation}
-    v_f = \sqrt{2gh}.
+    \vec{P} = m\vec{g}.
 \end{equation}
 %
-Como $h = v_i^2/2g$, onde $v_i$ é a velocidade inicial de subida, temos que
-\begin{align}
-    v_f &= \sqrt{2g\frac{v_i^2}{2g}} \\
-    &= v_i.
-\end{align}
-
-Podemos interpretar o processo acima como a \emph{transferência} da energia cinética $K_i$ que o corpo possuía no início do movimento de subida para outra forma de energia, que denominamos como \emph{energia potencial gravitacional} e que definimos como
+Se considerarmos um sistema de referência com um eixo vertical apontando para cima, podemos escrever
 \begin{equation}
-  U_g = mgy. \mathnote{Energia potencial gravitacional}
+    P_y = -mg.
+\end{equation}
+
+Sabemos que essa força não realiza trabalho em deslocamentos horizontais, logo podemos pensar em um deslocamento unidimensional vertical somente. Para determinarmos qual é a função para o potencial, basta nos perguntarmos ``qual é a função que quando derivamos em relação a posição obtemos $-mg$ (que são duas constantes)?'' Para respondermos a essa questão, devemos nos lembrar que a derivada de um polinômio é dada por
+\begin{equation}
+    \frac{d}{dx} \alpha x^n = n\alpha x^{n-1}.
 \end{equation}
 %
-No ponto de máxima altura, toda a energia cinética é transferida para a forma potencial gravitacional, por isso o corpo para. Durante a descida, temos o processo inverso, isto é, a energia potencial gravitacional é transferida para a forma cinética, sendo que no momento em que o corpo atinge $y_f = 0$, toda a energia é transferida para a forma cinética e o corpo tem nessa posição a mesma velocidade que no momento do lançamento.
+Como a força não envolve a posição vertical $y$, o valor de ``$n-1$'' deve ser igual a zero, ou seja, $n=1$. Logo, a função primitiva de $F(y) = P \equiv mg$ é simplesmente
+\begin{equation}
+    \mathcal{F} = -mgy + C.
+\end{equation}
+%
+Logo,
+\begin{equation}
+    U_g(y) = mgy - C,
+\end{equation}
+%
+onde adotamos o $U_g$ para denotar o potencial para que não o confundamos com o potencial elástico que será calculado adiante.
+
+Note que temos uma constante $C$ no potencial. Essa constante não tem um significado físico em particular. Ela existe pois o processo de determinação da função primitiva permite/exige, porém podemos utilizá-la para um fim útil: podemos escolher qualquer ponto do eixo vertical de maneira que o potencial seja nulo. Na prática, no entanto, simplesmente escolhermos $C = 0$:
+\begin{equation}\label{Eq:EnergiaPotencialGravitacional}
+    U_g(y) = mgy. \mathnote{Energia potencial gravitacional}
+\end{equation}
+
+Uma maneira alternativa de obter o mesmo resultado para o potencial é verificar que para uma força conservativa
+\begin{equation}
+    W = - \Delta U
+\end{equation}
+%
+e que já determinamos o trabalho da força peso:\footnote{Estamos considerando um eixo vertical que aponta para cima.}
+\begin{equation}
+    W_P = - mg \Delta y.
+\end{equation}
+%
+Substituindo essa equação na anterior, obtemos
+\begin{align}
+    - mg \Delta y &= - \Delta U \\
+    -mg y_f + mg y_i &= -U_f + U_i.
+\end{align}
+%
+Por comparação verificamos que
+\begin{equation}
+\begin{system}
+    U_i &= mgy_i \\
+    U_f &= mgy_f,
+\end{system}
+\end{equation}
+%
+ou seja,
+\begin{equation}
+    U_g = mgy.
+\end{equation}
+%
+Note que a constante $C$ não aparece pois ela se cancela pois partimos de $\Delta U$.
 
 É importante notar que utilizamos a força peso para descrever a atração exercida pelo planeta sobre o corpo, o que limita a utilização desse potencial às imediações da superfície da Terra. No caso de estarmos interessados em calcular o potencial gravitacional a grandes distâncias, precisamos utilizar a Lei da Gravitação Universal (Equação~\eqref{Eq:LeiGravitacaoUniversal}) para deduzir outra expressão para o potencial gravitacional.
 
-Finalmente, note que utilizamos na discussão acima a expressão para o trabalho realizado pela força gravitacional. Portanto, assim como para o trabalho, devemos utilizar um eixo $y$ vertical orientado de forma crescente para cima. 
+Note ainda que devemos utilizar um eixo $y$ vertical orientado para cima sempre que empregarmos a Equação~\eqref{Eq:EnergiaPotencialGravitacional}, uma vez que essa foi a orientação que utilizamos para obter tal equação. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia potencial elástica}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Outro caso em que podemos identificar a existência de um potencial é quando atua sobre o sistema uma força elástica. Considere um bloco disposto sobre uma mesa sem atrito e sujeito a uma força elástica exercida ao longo de um eixo $x$ por uma mola presa ao bloco e a uma parede. Em um dado instante, o bloco se encontra na posição $x_i$ e se afasta da parede com velocidade $v$. Sabemos que nesse caso o trabalho realizado é dado pela Equação~\eqref{Eq:TrabalhoForcaElastica}. Utilizando essa expressão e o Teorema Trabalho -- Energia Cinética, obtemos
-\begin{align}
-  \Delta K &= W_e \\
-  K_f - K_i &= -\frac{k}{2}(x_f^2 - x_i^2) \\
-  K_i &= \frac{k}{2}d^2,
-\end{align}
+Finalmente, vale destacar que na prática, o método mais comum para se determinar o potencial é um misto de determinar a função primitiva e comparar expressões: considerando a Equação~\eqref{Eq:TrabalhoPotencial}, podemos escrever
+\begin{equation}\label{Eq:CalculoDoPotencial}
+    \Delta U = - \int_{x_i}^{x_f} F(x) \,dx.
+\end{equation}
 %
-onde $x_i = 0$ pois a origem coincide com a posição na qual a mola está relaxada.
+Resolver a integral na expressão acima nada mais é do que determinar a expressão para o trabalho, após o que podemos verificar a expressão para o potencial por comparação.
 
-\begin{marginfigure}[-2cm]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Energia potencial elástica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{marginfigure}[3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.9,
      interface/.style={
@@ -2051,24 +2114,53 @@ onde $x_i = 0$ pois a origem coincide com a posição na qual a mola está relax
 \end{tikzpicture}
 \caption{Podemos associar uma energia potencial à força elástica exercida por uma mola.}
 \end{marginfigure}
-
-Da forma análoga ao caso do potencial gravitacional, podemos interpretar o processo descrito acima como a transferência de uma quantidade $kd^2/2$ de energia que estava armazenada na mola para a forma cinética. Assim, definimos um \emph{potencial elástico} $U_e$:
+Outro caso em que podemos identificar a existência de um potencial é quando atua sobre o sistema uma força elástica. Considere um bloco disposto sobre uma mesa sem atrito e sujeito a uma força elástica exercida ao longo de um eixo $x$ por uma mola presa ao bloco e a uma parede. Nessas condições, podemos afirmar que a força elástica é unidimensional, pois atual somente na direção do eixo $x$ e depende somente da posição nesse eixo. Vamos considerar ainda que a posição em que a mola se encontra relaxada é a origem do eixo horizontal. Logo,
 \begin{equation}
-  U_e = \frac{k}{2}x^2. \mathnote{Energia potencial elástica}
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Potencial e trabalho}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Em ambos os casos vistos acima, temos que a variação na energia potencial associada a uma força pode ser escrita através do trabalho por tal força como
-\begin{equation}
-  \Delta U = - W.
+    F = -k x.
 \end{equation}
 %
-Essa relação tem como implicação direta o fato de que podemos escrever a variação da energia cinética como
+Para determinarmos o potencial associado a essa força, basta nos perguntarmos ``qual é a função que ao derivarmos em relação à posição $x$ obtemos $-kx$?'' Se lembrarmos novamente da derivada de um polinômio,
 \begin{equation}
-    \Delta K = - \Delta U.
+    \frac{d}{dx} \alpha x^n = n\alpha x^{n-1},
+\end{equation}
+%
+percebemos que ``$n-1$'' equivale a 1, ou seja, $n = 2$. Assim, temos
+\begin{equation}
+    -kx^2 + C.
+\end{equation}
+%
+Note, no entanto, que se derivarmos o termo quadrático acima em relação a $x$, obtemos $-2kx$. Precisamos também o multiplicar por \nicefrac{1}{2}:
+\begin{equation}
+    \mathcal{F}(x) = -\frac{1}{2} k x^2 + C,
+\end{equation}
+%
+De onde obtemos,
+\begin{equation}
+    U_e(x) = \frac{1}{2} k x^2 - C.
+\end{equation}
+%
+Mais uma vez, podemos utilizar a constante $C$ para escolhermos o valor do potencial em um ponto qualquer, mas o mais comum é a adotarmos como sendo zero, assim
+\begin{equation}
+    U_e(x) = \frac{1}{2} kx^2. \mathnote{Energia potencial elástica.}
+\end{equation}
+
+Assim como no caso do potencial gravitacional, também podemos obter o mesmo resultado por comparação ao substituirmos a Equação~\eqref{Eq:TrabalhoForcaElastica} na relação $W = -\Delta U$:
+\begin{align}
+    W &= -\Delta U \\
+    -\frac{k}{2}(x_f^2 - x_i^2) &= -U_f + U_i,
+\end{align}
+%
+de onde vem que
+\begin{equation}
+\begin{system}
+    U_i &= \frac{1}{2} kx^2_i \\
+    U_f &= \frac{1}{2} kx^2_f
+\end{system}
+\end{equation}
+%
+e, finalmente,
+\begin{equation}
+    U_e(x) = \frac{1}{2} kx^2.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2139,70 +2231,6 @@ Resolvendo a equação de segundo grau acima, obtemos
     &= \np[m]{0,536}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Determinação do potencial para uma força qualquer}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-No caso de termos uma força que varia com a posição, temos que o trabalho é dado pela integral da componente da força na direção do movimento (Equação~\eqref{Eq:TrabalhoIntegral}), logo
-\begin{equation}\label{Eq:CalculoDoPotencial}
-  \Delta U = - \int_{x_i}^{x_f} F(x) dx.
-\end{equation}
-
-Portanto, se o potencial existe\footnote{Nem todas as forças dão origem a potenciais. Verificaremos as condições para a existência de um potencial adiante.}, temos uma maneira definida de o encontrar uma vez que se conheça a expressão para a força: sabemos -- através da segunda parte do Teorema Fundamental do Cálculo -- que 
-\begin{align}
-    \Delta U &= - \int_{x_i}^{x_f} F(x) dx \\
-    &= -\big[\mathcal{F}(x) + C\big]_{x_i}^{x_f} \\
-    U_f - U_i &= -[(\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i + C))],
-\end{align}
-%
-de onde podemos identificar que o \emph{potencial $U(x)$ é a própria função $\mathcal{F}(x)$}, porém com um sinal negativo:
-\begin{equation}\label{Eq:DefPotAntiderivada}
-    U(x) = - \mathcal{F}(x) + C.
-\end{equation}
-%
-A função $\mathcal{F}(x)$, é a integral indefinida da função $F(x)$ que descreve a força. Note que que o potencial é uma função somente da posição atual $x$, não dependendo do histórico de posições ocupadas pelo corpo em questão.
-
-Note que uma consequência da expressão acima é a de que
-\begin{align}
-    \mathcal{F}'(x) &= F(x) \\
-    -U(x) &= F(x),
-\end{align}
-%
-ou seja,
-\begin{equation}\label{Eq:ForcaGradPot}
-  F =  -\frac{dU}{dx},
-\end{equation}
-%
-onde o sinal reflete o sinal da definição do potencial. Esse resultado será muito útil ao analisarmos curvas de potencial mais adiante.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Dependência da energia na escolha do referencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Na Equação~\eqref{Eq:DefPotAntiderivada} temos um detalhe importante: a função $\mathcal{F}(x) + C$ representa uma \emph{família} de funções que diferem por uma constante. Isso significa que o potencial pode sofrer uma alteração de seu valor por uma constante, sem que isso altere suas propriedades. De fato, ao calcularmos a \emph{variação} do potencial entre dois estados quaisquer $x_i$ e $x_f$, temos
-\begin{align}
-    \Delta U &= U(x_f) - U(x_i) \\
-    &= [\mathcal{F}(x_f) + C] - [\mathcal{F}(x_i) + C] \\
-    &= \mathcal{F}(x_f) - \mathcal{F}(x_i)
-\end{align}
-%
-A existência da constante $C$, não representa um problema: podemos a utilizar para que possamos definir um valor arbitrário de potencial a um ponto qualquer. Em geral, escolhermos como nulo o potencial na origem do sistema de referência adotado, porém em alguns casos pode ser útil escolher outro valor, ou que o zero esteja em outro ponto.\footnote{Em potenciais proporcionais a $1/r^2$, onde $r$ representa a distância até a origem, por exemplo, é mais conveniente adotar que o zero do potencial ocorre quando $r \to \infty$.} Note que a expressão acima equivale a
-\begin{equation}
-  \Delta U = - \int_{x_i}^{x_f} F(x) dx,
-\end{equation}
-%
-e que em uma integral definida a constante não interfere no resultado obtido.
-
-Uma outra maneira de verificar a independência do potencial no valor de $C$ é verificar que a força obtida através da Equação~\eqref{Eq:ForcaGradPot} não varia:
-\begin{align}
-  F &= - \frac{d(U+C)}{dx} \\
-  &= -\left(\frac{dU}{dx} + \frac{dC}{dx}\right) \\
-  &= -\frac{dU}{dx}.
-\end{align}
-
-A constante $C$ deve sua existência ao fato de que a origem de um sistema de coordenadas é uma decisão arbitrária ---~não existe uma origem preferencial para descrever um fenômeno\footnote{Porém, em geral, existe uma origem mais \emph{conveniente}.}~---. Os resultados obtidos através de cálculos envolvendo potencial e energia cinética não serão influenciados diretamente pelo \emph{valor} do potencial, mas sim pela sua \emph{variação}, que independe de $C$.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Independência do resultado em relação à escolha da origem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2227,23 +2255,8 @@ obtemos
     \Delta K &= -[mgy_f - mgy_i] \\
     K_f - K_i &= -mgy_f + mgy_i.
 \end{align}
-%
-Note que a energia cinética inicial $K_i$ é nula, uma vez que o pêndulo parte do respouso. Logo,
-\begin{equation}
-    \frac{mv_f^2}{2} = -mgy_f + mgy_i,
-\end{equation}
-%
-onde utilizamos $K_f = mv_f^2/2$.
 
-Isolando a velocidade, obtemos
-\begin{align}
-    v^2 &= -2g(y_f - y_i) \\
-    v &= \sqrt{-2g(y_f - y_i)}.
-\end{align}
-%
-Note que na expressão acima o resultado depende da \emph{diferença} entre as posições final e inicial. Logo, a escolha do zero do sistema de referência não altera o resultado obtido.
-
-\begin{marginfigure}
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2]
 
@@ -2278,6 +2291,21 @@ Note que na expressão acima o resultado depende da \emph{diferença} entre as p
 \end{tikzpicture}
 \caption{Sistema de referência em que o zero do eixo vertical coincide com a posição inicial.\label{Fig:PotencialPosZeroRef}}
 \end{marginfigure}
+
+\noindent{}Note que a energia cinética inicial $K_i$ é nula, uma vez que o pêndulo parte do respouso. Logo,
+\begin{equation}
+    \frac{mv_f^2}{2} = -mgy_f + mgy_i,
+\end{equation}
+%
+onde utilizamos $K_f = mv_f^2/2$.
+
+Isolando a velocidade, obtemos
+\begin{align}
+    v^2 &= -2g(y_f - y_i) \\
+    v &= \sqrt{-2g(y_f - y_i)}.
+\end{align}
+%
+Note que na expressão acima o resultado depende da \emph{diferença} entre as posições final e inicial. Logo, a escolha do zero do sistema de referência não altera o resultado obtido.
 
 \begin{marginfigure}
 \centering
@@ -2331,89 +2359,31 @@ Se, por outro lado, escolhermo o sistema de referência mostrado na Figura~\ref{
 %
 Consequentemente, não só os resultados são iguais em ambos os casos, como serão os mesmos para qualquer posição da origem dos eixos de referência.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Condições para a existência de um potencial}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Identificamos anteriormente que o potencial pode ser definido através da expressão para o cálculo do trabalho através da integral da força que dá origem ao potencial, Equação~\eqref{Eq:CalculoDoPotencial}. Tal expressão respeita uma propriedade fundamental do potencial que é sua dependência exclusiva na configuração atual do sistema, o que implica em ---~no caso de o estado inicial e o final serem o mesmo~---
-\begin{align}
-  \Delta U &= - W \\
-  &= -\int_{x_i}^{x_f=x_i} F(x) dx \\
-  &= 0.
-\end{align}
-
-Entretanto, nem todas as forças respeitam a condição acima. A força de atrito, por exemplo, realiza um trabalho diferente de zero em um trajeto cujos pontos inicial e final são o mesmo: Se tomarmos um bloco que se desloca sobre uma mesa ---~preso a um eixo por um fio de forma a descrever um movimento circular~---, quando o bloco descreve uma volta completa, sua energia cinética certamente é menor. Consequentemente, o trabalho é negativo:
-\begin{equation}
-  W_{\rm{at}} = \int_{x_i}^{x_i} \fat dx < 0.
-\end{equation}
-
-\begin{marginfigure}[-5cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 2.2]
-    
-    \def\r{0.5}% raio
-
-    \coordinate (origin) at (\r,0,0);
-
-    \draw[gray] (-0.75,0,-0.75) -- (0.75,0,-0.75) -- (0.75,0,0.75) -- (-0.75,0,0.75) -- cycle;
-    \draw[dotted] (origin) \foreach \t in {5,10,...,360} {--({\r*cos(\t)},0,{\r*sin(\t)})}--cycle;
-    \draw[dashdotted] (0,0,0) -- node[above]{$R$} +(0.5,0,0);
-    \draw[fill] (0,0.0) circle (0.5pt);
-    
-    \draw[fill, gray, draw = black] (0.45,0,-0.05) rectangle (0.55,0.1,-0.05);
-    \draw[fill, gray, draw = black] (0.45,0,0.05) rectangle (0.55,0.1,0.05);
-    \draw[fill, gray, draw = black] (0.55,0,0.05) -- (0.55,0,-0.05) -- (0.55,0.1,-0.05) -- (0.55,0.1,0.05) -- cycle;
-    \draw[fill, gray, draw = black] (0.45,0.1,0.05) -- (0.55,0.1,0.05) -- (0.55,0.1,-0.05) -- (0.45,0.1,-0.05) -- cycle;
-    
-    \draw[->] (0.5,0.05, 0.05) -- node[right]{$\vec{v}$} +(0,0,0.65);
-\end{tikzpicture}
-\caption{Num movimento circular sujeito ao atrito, ao executarmos uma volta completa, não temos um trabalho nulo. Consequentemente, não existe um potencial associado à força de atrito.}
-\end{marginfigure}
-
-\noindent{}Devido a isso, não podemos escrever um potencial para tal força. Como a integral acima é proveniente da expressão para o trabalho, podemos dizer que
-\begin{quote}
-\emph{se o trabalho realizado por uma força em um caminho fechado é diferente de zero, não podemos escrever um potencial para tal força.}
-\end{quote}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-    \draw[dashed] (0,0) rectangle (4,3);
-    
-    \coordinate (A) at (0.5,1);
-    \coordinate (B) at (3.5, 2);
-    
-    \draw[fill] (A) node[left]{$A$} circle (1pt);
-    \draw[fill] (B) node[right]{$B$} circle (1pt);
-    
-    \draw[->] (A) .. controls (1,2.5) and (3,3) .. (B);
-    \draw[->] (A) .. controls (2,-1) and (2,1.2) .. (B);
-    
-    \node (C1) at (2.5,0.5) {$C_1$};
-    \node (C2) at (1,2.2) {$C_2$};
-    
-\end{tikzpicture}
-\caption{Se o trabalho $W_{A\to B}^{C_1}$ efetuado por uma $F$ no deslocamento de $A$ até $B$ pelo caminho $C_1$ é diferente do trabalho $W_{A\to B}^{C_2}$ efetuado no mesmo deslocamento, porém pelo caminho $C_2$, então a força $F$ não é conservativa.}
-\end{marginfigure}
-
-Podemos obter uma forma alternativa, porém equivalente, a tal afirmação ao analisarmos o deslocamento entre duas configurações distintas $A$ e $B$ para um sistema, porém considerando deslocamentos por caminhos diferentes. Se o potencial é função somente da configuração atual do sistema, os valores de potencial $U_A$ e $U_B$ são os mesmos para qualquer caminho tomado, logo, podemos afirmar que
-\begin{quote}
-\emph{se o trabalho realizado por uma força no deslocamento entre dois pontos depende do caminho, não podemos escrever um potencial para tal força.}
-\end{quote}
-
-As forças podem ser então classificadas\footnote[][5mm]{A denominação \emph{conservativa} e \emph{não-conservativa} será justificada posteriormente.} em dois tipos, as forças \emph{conservativas} e as \emph{não-conservativas}, ou \emph{dissipativas}. Aquelas que se encaixam no primeiro tipo são as forças para as quais podemos definir um potencial ---~ou seja, são as forças para as quais o trabalho em um caminho fechado $A\to B\to A$ é nulo, ou, equivalentemente, para as quais o trabalho independe do caminho~---. Já as forças dissipativas são aquelas que não respeitam tal condição. Como exemplos de forças conservativas, podemos citar o peso, a força gravitacional, a força elástica, e forças elétricas entre cargas. Por outro lado, as forças de atrito, arrasto, normal e de tensão ---~por exemplo~--- são não-conservativas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Análise de gráficos de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-O fato de que a energia é um escalar faz com que em algumas situações seja muito mais simples se obter informações analisando diretamente o potencial associado a uma força\footnote[][-5cm]{Isso é notavel ao se tratar de potenciais elétricos: a tensão elétrica em um condutor em um circuito elétrico nada mais é do que uma medida da diferença de potencial elétrico entre tal ponto e o ponto de menor potencial.} Veremos a seguir que um simples gráfico do potencial em função da posição encerra várias informações interessantes.
+O fato de que a energia é um escalar faz com que em algumas situações seja muito mais simples se obter informações analisando diretamente o potencial associado a uma força\footnote[][-4cm]{Isso é notavel ao se tratar de potenciais elétricos: a tensão elétrica em um condutor em um circuito elétrico nada mais é do que uma medida da diferença de potencial elétrico entre tal ponto e o ponto de menor potencial.} Veremos a seguir que um simples gráfico do potencial em função da posição encerra várias informações interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forças em um gráfico de potencial}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[-2cm]
+Verificamos anteriormente que a força pode ser obtida através da derivada do potencial:\footnote[][-4cm]{Vamos fazer uma discussão considerando forças unidimensionais. No entanto, as conclusões aqui obtidas podem ser extendidas às três dimensões.}
+\begin{equation*}
+    F = -\frac{dU}{dx}.
+\end{equation*}
+%
+A derivada nos dá a \emph{taxa de variação} de uma grandeza. Em um gráfico, isso equivale à inclinação da reta tangente. Isso significa que em gráfico $U \times x$ de um potencial unidimensional $U(x)$, \emph{a inclinação da reta tangente à curva num dado ponto $(x_p, U(x_p))$ nos dá o módulo da força exercida sobre um corpo quando ele ocupa a posição $x_p$}.
+
+Para determinar o sentido, basta notarmos que:
+\begin{itemize}
+    \item Se a derivada é \emph{positiva}\footnote[][-6cm]{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$}; (Ponto $A$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
+    \item Se ---~por outro lado~--- a inclinação é \emph{negativa}\footnote[][-6cm]{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$.}, temos que \emph{a força é no sentido positivo do eixo $x$.} (Ponto $B$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
+\end{itemize}
+
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -2466,36 +2436,18 @@ O fato de que a energia é um escalar faz com que em algumas situações seja mu
 \end{marginfigure}
 
 
-Verificamos anteriormente que a força pode ser obtida através da derivada do potencial:\footnote[][1cm]{Vamos fazer uma discussão considerando forças unidimensionais. No entanto, as conclusões aqui obtidas podem ser extendidas às três dimensões.}
-\begin{equation*}
-    F = -\frac{dU}{dx}.
-\end{equation*}
-%
-A derivada nos dá a \emph{taxa de variação} de uma grandeza. Em um gráfico, isso equivale à inclinação da reta tangente. Isso significa que em gráfico $U \times x$ de um potencial unidimensional $U(x)$, \emph{a inclinação da reta tangente à curva num dado ponto $(x_p, U(x_p))$ nos dá o módulo da força exercida sobre um corpo quando ele ocupa a posição $x_p$}.
-
-Para determinar o sentido, basta notarmos que:
-\begin{itemize}
-    \item Se a derivada é \emph{positiva}\footnote{Isto é, a inclinação da reta tangente faz um ângulo $\theta$ maior que zero em relação ao eixo $x$.}, temos que, devido ao sinal presente na expressão acima, \emph{a força é no sentido negativo do eixo $x$}; (Ponto $A$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
-    \item Se ---~por outro lado~--- a inclinação é \emph{negativa}\footnote{Inclinação da reta tangente fazendo ângulo $\theta$ menor que zero em relação ao eixo $x$.}, temos que \emph{a força é no sentido positivo do eixo $x$.} (Ponto $B$ na Figura~\ref{Fig:InclinacaoDaRetaTangenteEForcaExercida}.)
-\end{itemize}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forças eletrostáticas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Como um exemplo onde podemos extrair informações sobre a força a partir de um gráfico de potencial, verificaremos agora as características do potencial entre duas cargas elétricas pontuais. Tal potencial também será essencial para que possamos analisar o potencial inter-atômico que veremos na seção seguinte.
+Como um exemplo onde podemos extrair informações sobre a força a partir de um gráfico de potencial, verificaremos agora as características do potencial entre duas cargas elétricas pontuais. Tal potencial também será essencial para que possamos analisar o potencial interatômico que veremos na seção seguinte.
 
 A força eletrostática entre duas cargas pontuais quaisquer é dada por
 \begin{equation}
     F_{1\to 2}^{el}(r) = k \frac{q_1 q_2}{r^2}.
 \end{equation}
 %
-Nas equações acima, $q_1$ e $q_2$ representam os valores de duas cargas elétricas que podem ser positivas ou negativas e estão separadas por uma distância $r$. A constante $k$ é caraterística da interação eletromagnética e seu valor é \np[N\cdot m^2 / C^2]{8.99E9}.
-
-A expressão para a força $F_{1\to 2}^e$ nos dá a força exercida sobre a carga $q_2$ pela carga $q_1$. A reação $F_{2\to 1}^e$ exercida pela carga $q_2$ sobre $q_1$ tem o mesmo módulo que $F_{1\to 2}^e$. A força se dá sempre na direção da reta que liga as duas cargas e, consequentemente, temos um problema unidimensional. O sentido, porém, depende das cargas envolvidas: se as cargas possuem o mesmo sinal, a força é repulsiva; se possuem sinais opostos, a força é atrativa. A Figura~\ref{Fig:ForcasEntreCargas} ilustra tais possibilidades.
-
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[pattern = north west lines, pattern color = gray] (0,0) node {$+$} circle (2mm);
@@ -2525,11 +2477,15 @@ A expressão para a força $F_{1\to 2}^e$ nos dá a força exercida sobre a carg
 \caption{Forças entre cargas elétricas de sinais opostos são atrativas (figura superior); entre cargas elétricas de mesmo sinal são repulsivas (figura inferior). \label{Fig:ForcasEntreCargas}}
 \end{marginfigure}
 
-O potencial eletrostático  pode ser obtido através da Equação~\ref{Eq:CalculoDoPotencial}. Escolhendo o ponto inicial como sendo no \emph{infinito}, onde atribuimos energia potencial \emph{nula}, obtemos\footnote{Essa escolha do referencial leva a uma classificação do sistema em termos da soma das energias cinéticas e potenciais: se $K + U < 0$, as partículas estão \emph{ligadas} ---~isto é, elas não tem energia para se afastar indefinidamente~---; se $K + U > 0$, existe energia suficiente para que elas se afastem indefinidamente e dizemos que elas estão \emph{livres}.} 
+\noindent{}Nas equações acima, $q_1$ e $q_2$ representam os valores de duas cargas elétricas que podem ser positivas ou negativas e estão separadas por uma distância $r$. A constante $k$ é caraterística da interação eletromagnética e seu valor é \np[N\cdot m^2 / C^2]{8.99E9}.
+
+A expressão para a força $F_{1\to 2}^e$ nos dá a força exercida sobre a carga $q_2$ pela carga $q_1$. A reação $F_{2\to 1}^e$ exercida pela carga $q_2$ sobre $q_1$ tem o mesmo módulo que $F_{1\to 2}^e$. A força se dá sempre na direção da reta que liga as duas cargas e, consequentemente, temos um problema unidimensional. O sentido, porém, depende das cargas envolvidas: se as cargas possuem o mesmo sinal, a força é repulsiva; se possuem sinais opostos, a força é atrativa. A Figura~\ref{Fig:ForcasEntreCargas} ilustra tais possibilidades.
+
+O potencial eletrostático  pode ser obtido através da Equação~\eqref{Eq:CalculoDoPotencial}. Escolhendo o ponto inicial como sendo no \emph{infinito}, onde atribuimos energia potencial \emph{nula}, obtemos\footnote[][-1cm]{Essa escolha do referencial leva a uma classificação do sistema em termos da soma das energias cinéticas e potenciais: se $K + U < 0$, as partículas estão \emph{ligadas} ---~isto é, elas não tem energia para se afastar indefinidamente~---; se $K + U > 0$, existe energia suficiente para que elas se afastem indefinidamente e dizemos que elas estão \emph{livres}.} 
 \begin{align}
-    U_{el}(r) &= - \int_\infty^r k\frac{q_1q_2}{r^2} dr \\
-    &= -k q_1 q_2 \int_\infty^r k\frac{1}{r^2} dr \\
-    &= -k q_1 q_2 \left[-\frac{1}{r} + C\right]_\infty^r \\
+    \Delta U_{el} &= - \int_\infty^r k\frac{q_1q_2}{r^2} dr \\
+    U_{el}(r) - U_{el}(\infty) &= -k q_1 q_2 \int_\infty^r k\frac{1}{r^2} dr \\
+    U_{el}(r) &= -k q_1 q_2 \left[-\frac{1}{r} + C\right]_\infty^r \\
     &= -k q_1 q_2 \left[\left(\frac{-1}{r} + C \right) - \left(\frac{-1}{\infty} + C\right)\right] \\
     &= k\frac{q_1 q_2}{r}.
 \end{align}
@@ -2780,11 +2736,11 @@ Essa interpretação pode ser entendida da seguinte maneira: se nos deslocamos n
     ]
     
     % Desenhar função:
-    \draw[smooth, thick, name path=plot,samples=1000,domain=-2:2]
+    \draw[smooth, thick, name path=plot,samples=1000,domain=-1.5:1.5]
     plot(\x,{(\x)^3/8}) node[right]{$U(x)$};
     
-    \draw[->] (-2.5,-1.5) -- (2.5,-1.5) node[below left]{$x$};
-    \draw[->] (-2.5,-1.5) -- (-2.5,1.5) node[below left]{$U$};
+    \draw[->] (-2,-1.5) -- (2,-1.5) node[below left]{$x$};
+    \draw[->] (-2,-1.5) -- (-2,1.5) node[below left]{$U$};
     
     \draw[fill] (0,0) circle (1pt) node[above]{$A$};
     
@@ -3074,8 +3030,6 @@ Finalmente, devemos notar que através da função do potencial podemos determin
 \label{Sec:EnergiaMecanica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{É inútil querer separar isso em duas partes, é melhor já mostar que $\Delta E = W_{\rm{NC}}$}
-
 Verificamos nas seções anteriores a existência de meios diferentes de ``armazenar'' energia e que ela pode ser transferida de um tipo para outro. Veremos a seguir, que em algumas situações podemos dizer que a soma de todos os tipos de energia em um sistema é uma \emph{constante}. Isso será de grande utilidade ao analisarmos fenômenos físicos diversos, facilitando a determinação de grandezas que temos interesse em calcular.
 
 Se analisarmos um caso em que existam $n_f$ forças atuando sobre o sistema, podemos escrever
@@ -3225,7 +3179,6 @@ Substituindo os valores das constantes, temos finalmente
 %\paragraph{Exemplo: ?}
 %%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Algo parecido com o 25 da lista antiga.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Discussão: Oscilador harmônico}
@@ -3369,7 +3322,7 @@ Na Figura~\ref{Fig:GraphEnergiasOsciladorHarmonico} mostramos a dependência tem
 %\textbf{Alguns exemplos que possam ser resolvidos utilizando conservação da energia mecânica.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energia mecânica em sistemas com múltiplos corpos}
+\subsection{Energia mecânica em sistemas com múltiplos corpos}
 \label{Sec:Sistemas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -3746,7 +3699,7 @@ onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo
     W_{\textrm{at}} = - \mu_c m g d.
 \end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[-6cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
