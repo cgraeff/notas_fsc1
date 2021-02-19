@@ -177,7 +177,7 @@ O trabalho pode ser analisado em três situações distintas, relacionadas ao â
     \item Finalmente, se $\theta = \degree{90}$, a força não é capaz de acelerar o objeto\footnote[][-1cm]{Lembre-se que o objeto está limitado a se deslocar no eixo $x$, portanto não podemos ter aceleração no eixo perpendicular ao deslocamento.}, deixando a energia cinética constante, o que implica em um trabalho nulo.
 \end{itemize}
 %
-\begin{marginfigure}[2cm]
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
     \draw[->] (0,0) coordinate (origin) -- node[below]{$\vec{a}$} (1.5,0) coordinate (A);
@@ -229,7 +229,7 @@ Assim, considerando os vetores $\vec{F}$ e $\vec{d}$ mostrados na Figura~\ref{Fi
   W = \vec{F}\cdot\vec{d}. \mathnote{Trabalho de uma força constante}
 \end{equation}
 %
-Consequentemente, temos o seguinte resultado, conhecido como \emph{Teorema Trabalho--Energia-cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial (veja as Seções~\ref{Sec:SolPenduloLeisDeNewton} e~\ref{Sec:DetTeoremaTrabEnergiaCalculoVetorial}). De qualquer forma, o resultado é bastante útil.}:
+Consequentemente, temos o seguinte resultado, conhecido como \emph{Teorema Trabalho--Energia-cinética}\footnote[][15mm]{Apesar de o nome dar a impressão de que esse resultado é extremamente notável, ele é uma consequência da 2\textordfeminine~Lei de Newton e pode ser deduzido a partir dela utilizando técnicas de cálculo vetorial (veja as Seções~\ref{Sec:SolPenduloLeisDeNewton} e~\ref{Sec:DetTeoremaTrabEnergiaCalculoVetorial}). De qualquer forma, o resultado é bastante útil.}:
 \begin{equation}
   \Delta K = W. \mathnote{Teorema Trabalho--Energia-cinética}
 \end{equation}
@@ -350,7 +350,7 @@ Ao definir o trabalho de uma força constante, verificamos que somente a compone
     \vec{F} = \vec{F}_{\parallel} + \vec{F}_{\perp},
 \end{equation}
 %
-\begin{marginfigure}[-3cm]
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.1]
     \draw[dashed] (-0.5,0) -- (3,0) coordinate (x);
@@ -1885,7 +1885,7 @@ Vamos considerar uma partícula que se mova entre um ponto inicial $i$ e um pont
     W = \int_C \vec{F}\cdot d\vec{r} = -[U(\vec{r}_f) - U(\vec{r}_i)],
 \end{equation}
 %
-onde $U(\vec{r})$ é uma função escalar que depende da posição.\footnote{$U(\vec{r})$ é uma função que toma um vetor posição e retorna um número, ou seja, um valor escalar.} É evidente da expressão acima que
+onde $U(\vec{r})$ é uma função escalar que depende da posição.\footnote[][2cm]{$U(\vec{r})$ é uma função que toma um vetor posição e retorna um número, ou seja, um valor escalar.} É evidente da expressão acima que
 \begin{equation}
     W = - \Delta U
 \end{equation}
@@ -3579,6 +3579,7 @@ de onde obtemos
 
 %Questão do potencial no caso da montanha russa da montanha russa (problema bidimensional, deslocamento em $x$, potencial dependente de $y$, sendo que $dy = g(x) dx$ e $g(x)$ é a derivada da função $y(x)$, isto é, a derivada do perfil vertical da montanha russa).
 
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Trabalho de forças não conservativas}
 \label{Sec:TrabalhoForcasNaoConservativas}
@@ -3682,24 +3683,7 @@ Note que em algumas situações é possível que o deslocamento dos corpos não 
 \paragraph{Discussão: Oscilador harmônico com atrito}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se voltarmos ao problema do oscilador massa-mola, mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, porém eventualmente parará. Verificamos que a energia mecânica sofrerá uma variação dada por
-\begin{align}
-    \Delta E_S &= W_{F_{\textrm{NC}}^{\textrm{int}}} \\
-    &= W_{\textrm{at}} \\
-    &= \vec{f}_{\textrm{at}} \cdot \vec{d}.
-\end{align}
-%
-No sistema em questão, a força de atrito é cinético; além disso, a normal é igual ao peso. Logo, temos que
-\begin{equation}
-    W_{\textrm{at}} = \mu_c m g d \cos \theta,
-\end{equation}
-%
-onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo será sempre de \degree{180}, e --~portanto~--,
-\begin{equation}
-    W_{\textrm{at}} = - \mu_c m g d.
-\end{equation}
-
-\begin{marginfigure}[-6cm]
+\begin{marginfigure}[5mm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -3752,6 +3736,23 @@ onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo
 \end{tikzpicture}
 \caption{Devido ao atrito, a energia mecânica do sistema sofre uma diminuição progressiva, fazendo com que os pontos de retorno fiquem mais próximos à posição de equilíbrio em cada oscilação. Eventualmente o sistema parará devido ao atrito estático, restando uma energia residual na forma de energia potencial elástica.\label{Fig:PotElasticoComMassaMolaComAtrito}}
 \end{marginfigure}
+
+Se voltarmos ao problema do oscilador massa-mola, mas desta vez considerarmos a possibilidade da existência de uma força de atrito, teremos que o sistema oscilará durante um tempo, porém eventualmente parará. Verificamos que a energia mecânica sofrerá uma variação dada por
+\begin{align}
+    \Delta E_S &= W_{F_{\textrm{NC}}^{\textrm{int}}} \\
+    &= W_{\textrm{at}} \\
+    &= \vec{f}_{\textrm{at}} \cdot \vec{d}.
+\end{align}
+%
+No sistema em questão, a força de atrito é cinético; além disso, a normal é igual ao peso. Logo, temos que
+\begin{equation}
+    W_{\textrm{at}} = \mu_c m g d \cos \theta,
+\end{equation}
+%
+onde $\theta$ é o ângulo formado entre a força e o deslocamento. Esse ângulo será sempre de \degree{180}, e --~portanto~--,
+\begin{equation}
+    W_{\textrm{at}} = - \mu_c m g d.
+\end{equation}
 
 Na Figura~\ref{Fig:PotElasticoComMassaMolaComAtrito} temos um gráfico da energia em função do deslocamento. Note que a cada oscilação, devido à diminuição da energia mecânica, a amplitude da oscilação diminui. Note também que nos pontos de retorno a velocidade é nula, e por isso a condição passa a ser de atrito estático. Nas primeiras oscilações, a força exercida pela mola é suficiente para fazer com que o corpo volte a oscilar, porém, eventualmente, a amplitude será tal que a força exercida pela mola é \emph{menor que a força de atrito estático máxima}. Nesse momento, o sistema para de oscilar, armazenando uma energia residual na forma de energia potencial elástica na mola.
 

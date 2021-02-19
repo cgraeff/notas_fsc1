@@ -1303,7 +1303,7 @@ Finalmente, substituindo os valores para a massa, para a aceleração da gravida
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
-    Considerando o exemplo anterior, determine a distensão da mola se elevador acelera para cima com $a = \np[m/s^2]{3,0}$.
+    Considerando o exemplo anterior, determine a distensão da mola se elevador acelera para cima com $a = \np[m/s^2]{3,0}$ (Figura~\ref{Fig:MassaMolaAceleração vertical}).
 \end{quote}
 
 Adotando um eixo de referência $y$ vertical e aplicando a Segunda Lei de Newton:
@@ -1375,9 +1375,10 @@ Substituindo os valores, obtemos
     \end{scope}
     
 \end{tikzpicture}
-\caption{A distensão da mola é alterada conforme mudamos o valor da aceleração.}
+\caption{A distensão da mola é alterada conforme mudamos o valor da aceleração.\label{Fig:MassaMolaAceleração vertical}}
 \end{figure}
 
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Força Normal} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2353,7 +2354,7 @@ Para um bloco suspenso por uma corda (Figura~\ref{Fig:TensaoBlocoAcelVertical}),
 \caption{Bloco suspenso por uma corda e sujeito a uma aceleração vertical. \label{Fig:TensaoBlocoAcelVertical}}
 \end{marginfigure}
 
-\noindent{}Verificamos que o resultado acima é análogo ao dado pela Expressão~\eqref{Eq:NormalComAceleracao}. Note ainda que podemos escrever a aceleração em função da tensão como
+\noindent{}O resultado acima é análogo àquele dado pela Equação~\eqref{Eq:NormalComAceleracao}. Note ainda que podemos escrever a aceleração em função da tensão como
 \begin{align}
     T - P &= m a_y \\
     a_y &= \frac{T - P}{m} \\
@@ -3772,7 +3773,7 @@ A constante $\mu_e$, denominada \emph{coeficiente de atrito estático}, varia pa
 \paragraph{Discussão: Determinação do coeficiente de atrito estático}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}[5cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -4266,7 +4267,7 @@ Para explicarmos essa situação, precisamos levar em conta a \emph{força de ar
 \paragraph{Arrasto de Stokes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Apesar de termos descrito uma expressão para a força de arrasto acima, ela não tem uma forma bem definida. Uma determinação precisa do arrasto exige a solução de equações complexas de mecânica dos fluidos, sendo que a Equação~\eqref{Eq:ExpPadraoArrasto} é uma aproximação que é válida para alguns regimes de velocidade do corpo em relação ao fluido no qual se desloca.
+Apesar de termos descrito uma expressão para a força de arrasto acima, essa é uma força não tem uma forma bem definida e de ampla aplicabilidade. Uma determinação precisa do arrasto exige a solução de equações complexas de mecânica dos fluidos, sendo que a Equação~\eqref{Eq:ExpPadraoArrasto} é uma aproximação que é válida para alguns regimes de velocidade do corpo em relação ao fluido no qual se desloca.
 
 Se temos velocidades pequenas e objetos com formas mais suaves,  como uma esfera, a ``constante'' $C_D$ ---~que na verdade é uma função da velocidade~--- poderá assumir uma dependência com o inverso da velocidade, o que se reflete em uma dependência linear do arrasto com a velocidade:
 \begin{equation}
@@ -4313,7 +4314,7 @@ Como vimos acima, a força de arrasto é sempre proporcional de alguma forma à 
   a = g.
 \end{equation}
 %
-\begin{marginfigure}
+\begin{marginfigure}[-2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, extended line/.style={shorten >=-#1,shorten <=-#1},
  extended line/.default=3mm]] % talvez fosse melhor amplicar com scale=1.5
@@ -4743,7 +4744,7 @@ Um pêndulo cônico é composto por um corpo de massa $m$ ligado a um fio como m
 
 Na Figura~\ref{Fig:PenduloConicoDiag} temos um diagrama das forças que atuam sobre o corpo. Temos duas forças -- peso e tensão -- atuando de maneira a imprimir uma aceleração que aponta para o centro da trajetória circular, isto é, a força resultante é responsável por alterar a direção do movimento. Decompondo tais forças em dois eixos, um vertical e um que aponta para o centro da trajetória temos:
 %
-\begin{marginfigure}[3cm]
+\begin{marginfigure}[-2cm]
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -4827,7 +4828,7 @@ Em estradas, é essencial que as curvas tenham uma inclinação. Tal inclinaçã
 
 Na Figura~\ref{Fig:CurvaCompensadaRef} mostramos representação de uma visão frontal de um veículo que executa uma curva, mostrando as forças que atuam nesse movimento. Verificamos que existem duas possibilidades para o atrito: ou ele aponta para baixo, o que corresponde ao caso em que o corpo tende a escapar pela parte externa da curva, ou ele aponta para cima, o que corresponde ao caso em que o corpo tende a escapar para baixo. As forças de atrito são estáticas, já que não deve ocorrer deslizamento do veículo. Logo, considerando as forças de atrito são estático máxima, as situações indicadas correspondem à velocidade máxima e à velocidade mínima para as quais a curva pode ser executada sem deslizar. Note que as forças de atrito mostradas não podem ocorrer simultaneamente.
 
-\begin{marginfigure}[4cm]
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=30,
      interface/.style={

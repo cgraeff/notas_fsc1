@@ -463,7 +463,7 @@ Novamente temos uma equação que é anóloga àquela do caso translacional.
 
 Para cada relação da cinemática translacional, temos uma correspondente para o caso rotacional. Na seção acima, utilizamos cálculo para determinar duas dessas equações. Esse método é, na verdade, equivalente ao cálculo de áreas feito para o caso translacional. A partir dessas equações, podemos determinar outras, como fizemos no caso da translação. Na Tabela~\ref{Tab:CompEqsTransRot} podemos ver as equações lado a lado, evidenciando quais equações têm a mesma forma.
 
-\begin{table}[!h]
+\begin{table}[!h]\forcerectofloat
 \centering
 \caption{Comparação entre as equações para aceleração constante nos casos da cinemática da translação e da rotação.\label{Tab:CompEqsTransRot}}
 \begin{tabular}{ll}
@@ -1312,9 +1312,7 @@ Com exceção da distância $L$, todos os parâmetros à direita são constantes
 \label{Sec:PoliaCilindrica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Uma situação relativamente comum e que envolve rotação é a utilização de polias. O modelo mais simples que pode podemos fazer para uma polia e a de um disco que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente à sua face plana. Em torno da polia uma corda é então enrolada por um certo número de voltas, ou mesmo menos que uma volta. Ao aplicarmos tensões diferentes nas extremidades livres da corda, teremos uma rotação da polia, com uma aceleração angular qualquer. Vamos determinar a relação entre tais tensões e o valor da aceleração angular.
-%
-\begin{marginfigure}[-25mm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth,  interface/.style={
         % superfície
@@ -1343,6 +1341,8 @@ Uma situação relativamente comum e que envolve rotação é a utilização de 
 \end{tikzpicture}
 \caption{A força de atrito total que atua sobre a corda se deve a diversas forças em diferentes pontos de contato. Ainda assim, podemos determinar o torque de maneira simples pois as características dessas forças são comuns a todos os pontos de contato. \label{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}}
 \end{marginfigure}
+
+Uma situação relativamente comum e que envolve rotação é a utilização de polias. O modelo mais simples que pode podemos fazer para uma polia e a de um disco que gira em torno de um eixo que passa por seu centro de massa, perpendicularmente à sua face plana. Em torno da polia uma corda é então enrolada por um certo número de voltas, ou mesmo menos que uma volta. Ao aplicarmos tensões diferentes nas extremidades livres da corda, teremos uma rotação da polia, com uma aceleração angular qualquer. Vamos determinar a relação entre tais tensões e o valor da aceleração angular.
 
 O torque exercido sobre a polia se deve à interação com corda através do atrito. Podemos determinar o valor desse torque ao considerarmos que ---~como mostrado na Figura~\ref{Fig:MaquinaDeAtwoodComPoliaDetalhePolia}~--- as forças de interação entre a corda e a polia nos diversos pontos de contato fazem sempre um ângulo de \np[\tcdegree]{90} com a direção que liga o eixo de rotação ao ponto em que a força é exercida. Além disso, a distância entre o ponto de aplicação da força e o eixo de rotação é sempre igual ao raio da polia. Portanto,\footnote{O sinal negativo se deve ao fato de que as forças tendem a causar uma rotação da polia no sentido horário.}
 %
@@ -1743,7 +1743,12 @@ ou seja,
 
 O momento de inércia obtido acima também é válido para um anel fino, pois nesse caso também é válida a consideração de que a distância de cada partícula ao eixo de rotação é a mesma, e seu valor é o próprio raio do objeto. Dada uma quantidade de massa $M$ qualquer, se limitamos a distância ao eixo de rotação a um valor qualquer, a forma que maximiza o momento de inércia é a de um tubo/anel. Nesse caso, assumimos que todas as partículas estão exatamente à distância limite em relação ao eixo.
 
-\begin{marginfigure}[2cm]
+Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref{Eq:MomentoInerciaConjPart} para determinar o momento de inércia de um corpo rígido. Nesse caso, podemos fazer algo similar ao que fizemos para determinar a posição do centro de massa de um objeto extenso: dividimos o corpo em uma série de regiões cúbicas e vamos considerar que toda a massa está localizada no centro de massa do cubo. Assim, temos que
+\begin{equation}
+    I = \sum_{i = 1}^N M_{R_i} (r_\perp^i)^2.
+\end{equation}
+
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[scale = 1.2,
     interface/.style={
@@ -1822,12 +1827,7 @@ O momento de inércia obtido acima também é válido para um anel fino, pois ne
 \caption{Roldana formada por um cilindro com uma ``calha'' semi-circular.}
 \end{marginfigure}
 
-Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref{Eq:MomentoInerciaConjPart} para determinar o momento de inércia de um corpo rígido. Nesse caso, podemos fazer algo similar ao que fizemos para determinar a posição do centro de massa de um objeto extenso: dividimos o corpo em uma série de regiões cúbicas e vamos considerar que toda a massa está localizada no centro de massa do cubo. Assim, temos que
-\begin{equation}
-    I = \sum_{i = 1}^N M_{R_i} (r_\perp^i)^2.
-\end{equation}
-
-Como no caso do centro de massa, a divisão em cubos pode não ser muito precisa para um corpo qualquer cujos limites não se alinhem com os cubos, porém sempre podemos melhorar a precisão ao aumentar o número de cubos, diminuindo assim o volume de cada um deles. Ao tomarmos o limite de infinitos cubos, recaímos novamente na definição de uma integral em duas ou três dimensões:\footnote{O caso bidimensional é um caso especial do tridimensional, e se aplica aos casos onde temos objetos em que uma das dimensões é constante para todo o objeto --~ou seja, uma figura plana, como uma placa metálica, por exemplo~--.}
+Como no caso do centro de massa, a divisão em cubos pode não ser muito precisa para um corpo qualquer cujos limites não se alinhem com os cubos, porém sempre podemos melhorar a precisão ao aumentar o número de cubos, diminuindo assim o volume de cada um deles. Ao tomarmos o limite de infinitos cubos, recaímos novamente na definição de uma integral em duas ou três dimensões:\footnote[][3cm]{O caso bidimensional é um caso especial do tridimensional, e se aplica aos casos onde temos objetos em que uma das dimensões é constante para todo o objeto --~ou seja, uma figura plana, como uma placa metálica, por exemplo~--.}
 \begin{align}
     I &= \lim_{N \to \infty} \sum_{i = 1}^N M_{R_i} (r_\perp^i)^2 \\
     &= \int r_\perp^2 dm. \label{Eq:MomInerciaDistContinua}
@@ -1840,7 +1840,7 @@ A interpretação da expressão acima é mais simples se escrevermos $dm$ em ter
     dm &= \rho(\vec{r}) \; dV.
 \end{align}
 
-Mais uma vez, o emprego da expressões integrais como a Equação~\eqref{Eq:MomInerciaDistContinua} acima depende de podermos descrever a forma de um corpo matematicamente, o que só pode ser feito facilmente para formas simples. Nesse caso, as expressões resultantes para o momento de inércia dos corpos serão diferentes para cada tipo de corpo, porém são razoavelmente simples.
+Mais uma vez, o uso de expressões integrais como a Equação~\eqref{Eq:MomInerciaDistContinua} acima depende de podermos descrever a forma de um corpo matematicamente, o que só pode ser feito facilmente para formas simples. Nesse caso, as expressões resultantes para o momento de inércia dos corpos serão diferentes para cada tipo de corpo, porém são razoavelmente simples.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Momento de inércia de uma haste fina}
@@ -1951,7 +1951,8 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %%
 %% Esfera
 %%
-\begin{marginfigure}[2cm]
+    \item[Esfera:] A esfera é um caso especialmente interessante pois além de ser um sólido simples, ela tem a propriedade de o momento de inércia para todos os eixos que passam pelo centro de massa é o mesmo. Além disso, podemos distinguir entre o caso de esferas maciças e de cascas esféricas, ou seja, de esferas ocas formadas por uma parede fina. Os momentos de inércia são dados por
+\begin{marginfigure}[-25mm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1973,14 +1974,11 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
     
 \end{tikzpicture}
 \caption{Esfera que pode girar em torno de um eixo que passa por seu centro de massa.}
-\end{marginfigure}
-
-    \item[Esfera:] A esfera é um caso especialmente interessante pois além de ser um sólido simples, ela tem a propriedade de o momento de inércia para todos os eixos que passam pelo centro de massa é o mesmo. Além disso, podemos distinguir entre o caso de esferas maciças e de cascas esféricas, ou seja, de esferas ocas formadas por uma parede fina. Os momentos de inércia são dados por
+\end{marginfigure}  
         \begin{align}
             I^{\textrm{esf}}_{\textrm{oca}} &= \frac{2}{3} MR^2 \\
             I^{\textrm{esf}}_{\textrm{mac}} &= \frac{2}{5} MR^2.
         \end{align}
-  
 %%
 %% Disco
 %%  
@@ -2045,7 +2043,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Anel fino
 %% 
        
-\begin{marginfigure}
+\begin{marginfigure}[5mm]
 \centering
 \begin{tikzpicture}[interface/.style={>=Stealth,
         % superfície
@@ -2117,7 +2115,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
             I_z = M \frac{R_i^2 + R_e^2}{2}.
         \end{equation}
         
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}[-15mm]
 \centering
 \begin{tikzpicture}[interface/.style={>=Stealth,
         % superfície
@@ -2162,7 +2160,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Haste fina
 %%
    
-\begin{marginfigure}
+\begin{marginfigure}[5mm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -2209,7 +2207,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Haste
 %%
  
-\begin{marginfigure}
+\begin{marginfigure}[5mm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -2379,7 +2377,7 @@ Utilizando a Equação~\eqref{Eq:MomInerciaDistContinua}, podemos calcular o mom
 %
 Vamos escolher como origem do sistema de coordenadas a própria posição do centro de massa, o que resulta em uma visão como a da Figura~\ref{Fig:TeoremaEixosParalelosDM} ao olharmos na mesma direção dos eixos $z$ e $p$. 
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 2]
 
@@ -3434,7 +3432,7 @@ Note, no entanto, que a soma dos momentos lineares das partículas no referencia
 \end{equation}
 
 %\textbf{texto antigo, ver se tem algo proveitoso. Acho que pelo menos o exemplo é algo interessante, pra podermos dizer que é equivalente tratar o movimento da haste como uma rotação em torno do eixo, ou como uma rotação em torno do cm mais uma translação do cm. Acredito que a questão aqui é que é equivalente tratar como uma rotação em torno do eixo instantâneo de rotação e a rotação em torno do cm mais a translação do cm. Preciso só achar uma explicação e usar esse problema como gancho pra poder discutir isso. A única coisa que achei a respeito é que se temos um eixo de rotação, então $\vec{v} = \vec{\omega}\times\vec{r}$, onde $\vec{r}$ dá a posição em relação ao eixo de rotação (o que é estranho, deveria ser em relação à origem); fazendo o produto $\vec{\omega}\times\vec{v}$ é possível mostrar que $\vec{r}_{\text{inst}} = -\vec{r} = \vec{\omega}\times\vec{v} / \omega^2$, isto é, sabemos que uma rotação pura pode ser usada para descrever o movimento de um corpo com velocidade $\vec{v}$ e velocidade angular $\vec{\omega}$ se adotarmos o eixo de rotação determinado por essa expressão.} % ver esse link: https://physics.stackexchange.com/questions/291234/instantaneous-axis-of-rotation
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -3841,7 +3839,7 @@ Vamos agora determinar a posição do ponto $P$ em relação ao solo. Podemos de
 %
 porém precisamos determinar a posição $\vec{r}_{\rm{CM}, \, s}$ do centro de massa em relação ao solo.
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,  interface/.style={
         % superfície
