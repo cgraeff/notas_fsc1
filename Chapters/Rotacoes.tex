@@ -1743,12 +1743,7 @@ ou seja,
 
 O momento de inércia obtido acima também é válido para um anel fino, pois nesse caso também é válida a consideração de que a distância de cada partícula ao eixo de rotação é a mesma, e seu valor é o próprio raio do objeto. Dada uma quantidade de massa $M$ qualquer, se limitamos a distância ao eixo de rotação a um valor qualquer, a forma que maximiza o momento de inércia é a de um tubo/anel. Nesse caso, assumimos que todas as partículas estão exatamente à distância limite em relação ao eixo.
 
-Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref{Eq:MomentoInerciaConjPart} para determinar o momento de inércia de um corpo rígido. Nesse caso, podemos fazer algo similar ao que fizemos para determinar a posição do centro de massa de um objeto extenso: dividimos o corpo em uma série de regiões cúbicas e vamos considerar que toda a massa está localizada no centro de massa do cubo. Assim, temos que
-\begin{equation}
-    I = \sum_{i = 1}^N M_{R_i} (r_\perp^i)^2.
-\end{equation}
-
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[scale = 1.2,
     interface/.style={
@@ -1826,6 +1821,11 @@ Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref
 \end{tikzpicture}
 \caption{Roldana formada por um cilindro com uma ``calha'' semi-circular.}
 \end{marginfigure}
+
+Exceto para o caso do tubo/anel acima, não podemos empregar a Expressão~\eqref{Eq:MomentoInerciaConjPart} para determinar o momento de inércia de um corpo rígido. Nesse caso, podemos fazer algo similar ao que fizemos para determinar a posição do centro de massa de um objeto extenso: dividimos o corpo em uma série de regiões cúbicas e vamos considerar que toda a massa está localizada no centro de massa do cubo. Assim, temos que
+\begin{equation}
+    I = \sum_{i = 1}^N M_{R_i} (r_\perp^i)^2.
+\end{equation}
 
 Como no caso do centro de massa, a divisão em cubos pode não ser muito precisa para um corpo qualquer cujos limites não se alinhem com os cubos, porém sempre podemos melhorar a precisão ao aumentar o número de cubos, diminuindo assim o volume de cada um deles. Ao tomarmos o limite de infinitos cubos, recaímos novamente na definição de uma integral em duas ou três dimensões:\footnote[][3cm]{O caso bidimensional é um caso especial do tridimensional, e se aplica aos casos onde temos objetos em que uma das dimensões é constante para todo o objeto --~ou seja, uma figura plana, como uma placa metálica, por exemplo~--.}
 \begin{align}
@@ -1952,7 +1952,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Esfera
 %%
     \item[Esfera:] A esfera é um caso especialmente interessante pois além de ser um sólido simples, ela tem a propriedade de o momento de inércia para todos os eixos que passam pelo centro de massa é o mesmo. Além disso, podemos distinguir entre o caso de esferas maciças e de cascas esféricas, ou seja, de esferas ocas formadas por uma parede fina. Os momentos de inércia são dados por
-\begin{marginfigure}[-25mm]
+\begin{marginfigure}[-5mm]
 \centering
 \begin{tikzpicture}[>=Stealth]
 
@@ -1983,7 +1983,7 @@ Através da Equação~\eqref{Eq:MomInerciaDistContinua}, podemos obter os moment
 %% Disco
 %%  
            
-\begin{marginfigure}[1cm]
+\begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
      interface/.style={
@@ -4122,26 +4122,17 @@ Verificamos através do eixo horizontal que a existência da força de atrito es
 %
 Concluímos então que no caso de um rolamento em um plano horizontal, do ponto de vista de translação, as forças que aceleram ou desaceleram o centro de massa são \emph{forças de atrito no ponto de contato com o solo}.
 
-De um ponto de vista de rotação, a análise pode ser muito complexa pois existe uma série de fatores a serem considerados. Vamos considerar, por exemplo, o que acontece com as rodas de uma bicicleta em algumas situações:
+De um ponto de vista de rotação, a análise pode ser muito complexa pois existe uma série de fatores a serem analisados. Vamos considerar, por exemplo, o que acontece com as rodas de uma bicicleta em algumas situações:
 \begin{description}
     \item[Frenagem:] Ao aplicarmos os freios, sabemos que o sistema composto pela bicicleta e pelo ciclista desacelera. Isso, como vimos, se deve à força de atrito entre os pneus e o solo. Do ponto de vista de rotações, os torques devidos ao atrito são no sentido de causar um \emph{aumento da velocidade angular}. A diminuição da velocidade angular se deve ao fato de que existe um torque exercido pelos freios da bicicleta. Note ainda que se considerarmos um eixo que passa pelo centro de massa do sistema, verificamos que as forças de atrito tendem a causar uma rotação do sistema bicicleta+ciclista como um todo. Para que o sistema não sofra uma rotação, é necessário que a força normal exercida pelo solo sobre a roda da frente aumente, enquanto a força normal exercida sobre a roda de trás diminui.\footnote{Isso também explica por que a frente de um carro, ou qualquer outra veículo que tenha suspensão dianteira, abaixa nas frenagens.}
     \item[Aceleração:] Ao acelerarmos, sabemos que deve haver uma força de atrito na roda motriz e que ela deve acelerar o sistema. O torque realizado pela força de atrito sobre a roda, no entanto, tende a desacelerá-la. Como o ciclista exerce força sobre os pedais, no entanto, temos um torque no sentido de acelerar a roda que se deve a tal força\footnote{Transmitida através dos pedais, pedivela, coroas, corrente e pinhões do sistema de transmissão da bicicleta.}. Já na roda da frente, que não é motriz e deve ser ``arrastada'', o atrito surge para trás, provocando um torque que acelera a roda. Novamente, considerando o sistema como um todo está sujeito a um torque que tende a girar a bicicleta+ciclista para trás, ``empinando'', deve haver uma diminuição da força normal que atua sobre a roda dianteira e um aumento da normal que atua sobre a roda traseira.\footnote{Note que se a normal aumenta, a força de atrito estático máximo, e também a aceleração máxima aumentam. Por isso um veículo com tração traseira tende a ter melhores ``arrancadas'' que um com tração dianteira. Note também que se há uma diminuição da força de atrito nas rodas da frente, ao acelerar ficamos mais suscetíveis a perder o controle de um veículo. Isso vale para qualquer veículo.}
     \item[Desaceleração devido à resistência à rolagem:] Se o ciclista não freia nem pedala, eventualmente acaba parando devido à própria resistência à rolagem oferecida pelos pneus. No ponto de contato com o solo, o pneu sofre uma deformação que se deve a uma força exercida pelo solo. Devido às características do pneu, ele se comporta como uma mola, exercendo a mesma força sobre a roda. Devido ao fato de que a deformação não é totalmente elástica, quando o pneu volta à forma original, a força exercida na expansão é menor que na compressão, o que faz com que surja uma força resultante que tende a desacelerar a roda. Essa desaceleração tende a fazer com que a velocidade da borda da roda fique em descompasso com a velocidade do centro de massa, o que causa uma tendência ao deslisamento da roda para frente. Essa tendência, por sua vez, causa uma força de atrito que desacelera o sistema.
     \item[Desaceleração devida ao arrasto:] A força de arrasto atua principalmente sobre o ciclista, devido à maior área de seção reta. Assim, a força se transmite ao quadro da bicicleta pelos pontos de apoio. O quadro, por sua vez, está ligado ao eixo de rotação das rodas pelos eixos. As forças exercidas através do eixo tendem a transladar a roda como um todo, o que tende a causar um deslisamento da roda em relação ao solo. Essa tendência ao deslizamento tende a causar um atrito que atua para frente no ponto de contato, pois é necessário que a roda diminua sua velocidade angular. É claro que, como a força de arrasto é maior, a resultante tende a causar uma desaceleração do sistema.
     
-%    \item[Bicicleta sendo empurrada:] \textbf{Discutir o caso em que a bicicleta é empurrada por uma força que é exercida sobre o quadro, ver como ficam as forças de atrito no ponto de contato.}\footnote{Física de verdade é difícil.}
+    \item[Bicicleta sendo empurrada:] De uma maneira similar ao caso em que a força de arrasto atua sobre o ciclista, se empurramos a bicicleta por algum ponto do quadro, ou ligado a ele, transmitimos uma força às rodas através do eixo do cubo da roda. Ao fazermos isso, criamos uma tendência de deslizamento no ponto de contato com o solo, o que faz com que surjam forças de atrito dirigidas para trás, e que causam a rotação das rodas.
 \end{description}
 
-O padrão comum a todas as situações apresentadas acima é o de que \emph{devemos aplicar tanto a Segunda Lei de Newton para a translação, quanto a Segunda Lei de Newton para a Rotação para um mesmo corpo}:
-\begin{equation}
-\begin{system}
-    \vec{F}_R &= m\vec{a} \\
-    \tau &= I\alpha.
-\end{system}
-\end{equation}
-%
-%\textbf{Rever}
-Quando discutimos a determinação da aceleração na Máquina de Atwood, na página \pageref{Par:AcelMaqAtwood, havíamos aplicado essas relações ao mesmo sistema (isso mudou de lugar e de propósito, rever)}, porém cada uma em um corpo distinto. Já no rolamento, precisamos de um conjunto de equações que relacione os diversos torques e forças que atuam sobre um só corpo.
+Através dos casos acima percebemos que as forças que atuam no rolamento estão ligadas não só à rotação do corpo, mas também ao movimento do centro de massa. Portanto, devemos aplicar tanto a Segunda Lei de Newton para a translação, quando a Segunda Lei de Newton para a rotação a um corpo que efetua um rolamento.\footnote{O que é similar ao que fizemos para a Roda de Maxwell.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemplo: Rolamento em uma Rampa}
@@ -4269,73 +4260,21 @@ Esse resultado é interessante pois mostra que a aceleração a que um corpo ser
 Isto é, cada tipo de objeto tem uma aceleração diferente, sendo tanto menor quanto maior for o valor de $f$. Se, por exemplo, tomarmos três objetos com formas distintas ---~um aro, um cilindro, e uma esfera maciça, por exemplo~--- e os soltarmos a partir do topo de uma rampa, eles levarão tempos diferentes para percorrer a distância até a base. Considerando os três objetos tomados como exemplo, temos que a ordem de chegada será: esfera, cilindro e aro, devido aos valores de $f$ para esses três objetos: $f_a = 1$, $f_c = \nicefrac{1}{2}$ e $f_e = \nicefrac{2}{5}$. Veja ainda que a aceleração não depende da massa ou do raio do objeto em questão, mas sim do fator $f$ associado à \emph{forma} do objeto.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia cinética no rolamento}
+\subsection{Energia no rolamento}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Essa seção precisa ser removida, já falamos de uma maneira mais geral e mais simples. Analisar com a próxima seção e fazer uma só de Energia no rolamento. Ainda assim, acho que dá pra cortar quase tudo, pq tudo já vai ter sido discutido pois é uma propriedade geral, não é específico do rolamento (acho que vai restar só a razão entre as energias, pois depende do vínculo entre as velocidades de rotação e de translação, que dependem só da condição de rolamento sem deslizar)}
-
-Intuitivamente, já que a energia é uma grandeza escalar, imaginamos que a energia cinética associada ao movimento de rolamento deve ser dada pela soma da energia cinética de translação e da energia cinética de rotação:
+No rolamento é válida a expressão
 \begin{equation}
-    K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}.
-\end{equation}
-
-Podemos comprovar essa relação se tomarmos a Expressão~\ref{Eq:VelEscalarPontoRolamento} para a velocidade em relação ao solo de um ponto $P$ qualquer de um corpo rígido que executa um rolamento e calcularmos as energias cinéticas de cada um deles:
-\begin{align}
-    K_{\rm{trans}}^P &= \frac{1}{2}m_P v_{P,\,s}^2 \\
-    &= \frac{1}{2}m_P v_{\rm{CM}}^2 \left(1 + \frac{(r_\perp^i)^2}{R^2} - 2\frac{r_\perp^i}{R}\cos\theta\right).
-\end{align}
-%
-Podemos agora determinar a energia cinética total simplesmente somando a expressão acima. Isso nos leva a
-\begin{align}
-    K_{\rm{trans}} &= \sum_{i=1}^N \left[\frac{1}{2}m_i v_{\rm{CM}}^2 \left(1 + \frac{(r_\perp^i)^2}{R^2} - 2\frac{r_\perp^i}{R}\cos\theta_i\right) \right] \\
-    &= \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2}{2}\right] + \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2 (r_\perp^i)^2}{2R^2} \right] - \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{r_\perp^i}{R}\cos\theta_i\right]
-\end{align}
-
-Na expressão acima, temos para o primeiro termo
-\begin{align}
-    \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2}{2}\right] &= \frac{1}{2} \left[\sum_{i=1}^N m_i \right] v_{\rm{CM}}^2 \\
-    &= \frac{1}{2} m v_{\rm{CM}}^2 \\
-    &= K_{\rm{trans}},
-\end{align}
-%
-onde usamos o fato de que a soma no primeiro termo nada mais é do que a massa total do corpo. Logo, o primeiro termo é a própria energia cinética de translação $K_{\rm{trans}}$.
-
-No segundo termo, podemos utilizar o fato que para um rolamento as velocidades de translação e de angular estão vinculadas através de
-\begin{equation}
-    v_{\rm{CM}} = r\,\omega
+    K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}
 \end{equation}
 %
-para escrever
-\begin{align}
-    \sum_{i=1}^N \left[\frac{m_i v_{\rm{CM}}^2 (r_\perp^i)^2}{2R^2} \right] &= \frac{1}{2} \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{(r_\perp^i)^2}{R^2} \right] \\
-    &= \frac{1}{2} \sum_{i=1}^N \left[m_i \omega^2 (r_\perp^i)^2 \right] \\
-    &= \frac{1}{2} \sum_{i=1}^N \left[m_i (r_\perp^i)^2 \right] \omega^2 \\
-    &= \frac{1}{2} I \omega^2 \\
-    &= K_{\rm{rot}},
-\end{align}
-%
-onde utilizamos a definição do momento de inércia $I$.
-
-Finalmente, para o terceiro termo temos
-\begin{equation}
-    \sum_{i=1}^N \left[m_i v_{\rm{CM}}^2 \frac{r_\perp}{R}\cos\theta_i\right] =  \frac{v_{\rm{CM}}^2}{R}\sum_{i=1}^N \left[m_i r_\perp^i \cos\theta_i\right].
-\end{equation}
-%
-De acordo com a Figura~\ref{Fig:PosPRelCMRol}, verificamos que a posição no eixo vertical em relação ao centro de massa pode ser escrita como
-\begin{equation}
-    y_i = r_\perp^i \cos\theta_i,
-\end{equation}
-%
-onde $y_i$ é a posição do ponto no referencial do centro de massa. Devido à simetria do corpo, no entanto, se assumirmos que ele é homogêneo, verificamos que para cada ponto na região positiva do eixo $y$ corresponde um ponto na região negativa. Logo, o somatório se anula\footnote{Veja que esse termo está relacionado à posição do centro de massa. Se temos um corpo que não é simétrico, o rolamento não acontece com velocidade uniforme, uma vez que existe uma variação periódica da energia potencial gravitacional do corpo. Nesse caso, devemos analisar a energia mecânica no movimento de rolamento.}. Portanto, concluímos que
-\begin{equation}
-    K_{\rm{rol}} = K_{\rm{rot}} + K_{\rm{trans}}.
-\end{equation}
+para a energia cinética em um movimento combinado de rotação e de translação. Além disso, também podemos utilizar a conservação da energia mecânica. Verificaremos abaixo dois exemplos de aplicação dos conceitos de energia ao rolamento.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Razão entre as energias cinéticas de rotação e de translação}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Um resultado interessante para o rolamento sem deslizar é o fato de que a razão entre as energias cinéticas de rotação e de translação é constante:
+No caso de não haver deslizamento, como temos um vínculo entre as velocidades de translação e de rotação, as energias cinéticas também têm valores vinculados um ao outro: a razão entre elas é constante:
 \begin{align}
     \frac{K_{\rm{rol}}}{K_{\rm{trans}}} &= \frac{\nicefrac{1}{2} \, I \omega^2}{\nicefrac{1}{2} \, m v_{\rm{CM}}^2} \\
     &= \frac{I \omega^2}{m v_{\rm{CM}}^2} \\
@@ -4361,20 +4300,11 @@ como fizemos ao calcular a aceleração do centro de massa durante o rolamento e
     &= f.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Energia mecânica no rolamento}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Velocidade no rolamento em uma rampa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Analisar e juntar com a seção de cima como Energia no rolamento. Acho que aqui tem coisa interessante, mesmo que seja como um exemplo.}
-
-%\textbf{Seria bom pegar aquela expressão em que determinamos a energia cinética no rolamento e tentar arrancar do termo que zeramos a própria energia potencial gravitacional, assim podemos escrever $E = K_r + K_r + U_g$ de uma maneira mais ``fundamental''. Mas acho que não dá, por que a velocidade do centro de massa não é constante.}
-
-Assim como pudemos utilizar a conservação da energia no caso de uma simples rotação, também podemos utilizar a conservação da energia em um movimento de rolamento. Para isso, basta lembrarmos que a energia cinética para o rolamento é dada por
-\begin{equation}
-    K_{\rm{rol}} = K_{\rm{trans}} + K_{\rm{rot}}.
-\end{equation}
-
-Se, por exemplo, tomarmos um corpo e o dispusermos no topo de um plano inclinado ---~como retratado na Figura~\ref{Fig:ConsEnergiaRolamento}~---, liberando-o a partir do repouso, podemos determinar a velocidade do centro de massa após ele percorrer uma distância $d$. Para considerar a aplicação da conservação da energia, em primeiro lugar, precisamos determinar se o trabalho exercido por forças não conservativas é nulo. No problema em questão, atuam duas forças não conservativas: a normal e a força de atrito.
+Se tomarmos um corpo e o dispusermos no topo de um plano inclinado ---~como retratado na Figura~\ref{Fig:ConsEnergiaRolamento}~---, liberando-o a partir do repouso, podemos determinar a velocidade do centro de massa após ele percorrer uma distância $d$. Para considerar a aplicação da conservação da energia, em primeiro lugar, precisamos determinar se o trabalho exercido por forças não conservativas é nulo. No problema em questão, atuam duas forças não conservativas: a normal e a força de atrito.
 
 No caso da força normal, temos que a direção da força é sempre perpendicular ao deslocamento, o que implica em um trabalho nulo. No caso da força de atrito, temos que o ponto onde a força atua não se desloca: conforme o rolamento progride, temos uma troca de pontos de apoio, porém não temos o deslocamento dos pontos, fazendo com que o trabalho seja nulo\footnote{Se um bloco é posto sobre uma esteira que é puxada, acelerando o bloco através da força de atrito, por exemplo, temos que o ponto de aplicação da força de atrito se desloca no espaço. Consequentemente, temos um trabalho realizado pelo atrito. No caso do rolamento, no entanto, esse deslocamento do ponto onde a força é aplicada não ocorre. (Lembre-se que o ponto de contato tem velocidade nula em relação ao solo, portanto não se desloca enquanto está sujeito à força de atrito).}. Assim, podemos utilizar a conservação da energia:
 \begin{align}
