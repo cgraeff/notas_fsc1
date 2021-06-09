@@ -198,15 +198,15 @@ Claramente temos a partir da definição dada acima a consequência de que que s
 O deslocamento é dado através da diferença entre posições. Como vimos no capítulo anterior, só podemos somar, subtrair e igualar termos que têm as mesmas dimensões. Logo, concluímos que o deslocamento tem dimensão de \emph{comprimento} e suas unidades são ---~no Sistema Internacional~--- o metro, assim como a posição.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Deslocamento escalar}
+\subsection{Distância percorrida}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Algo importante a se notar é que o deslocamento pode ser descrito como a \emph{diferença} entre os valores de posição ocupadas por um corpo em dois valores de tempo distintos. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial será diferente para cada momento do dia. Quando o veículo retorna à posição inicial, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor pode ser denominado como \emph{deslocamento escalar}\footnote{Apesar de ser algo mais ligado à nossa experiência cotidiana de deslocamento, o deslocamento escalar será de pouca utilidade.} e é calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
+Algo importante a se notar é que o deslocamento pode ser descrito como a \emph{diferença} entre os valores de posição ocupadas por um corpo em dois valores de tempo distintos. Consequentemente, para um veículo que se desloca durante um dia de trabalho, por exemplo, os valores de deslocamento em relação à posição inicial serão diferentes para cada momento do dia. Quando o veículo retorna à posição inicial, seu deslocamento será nulo, pois as posições inicial e final são a mesma. Se verificarmos o hodômetro do veículo, no entanto, veremos um valor diferente de zero. Este valor de distância percorrida\footnote{Apesar de ser algo mais ligado à nossa experiência cotidiana de ``deslocamento'', a distância percorrida não aparece com muita frequência em Física. Dentre os exemplos em que ela pode aparecer, no entanto, podemos destacar o trabalho de forças não conservativas, que estudaremos no Capítulo~\ref{Chap:Energia}.} pode ser calculado pela soma do \emph{módulo} de todos os deslocamentos efetuados pelo veículo:
 \begin{equation}
-  d_s = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
+  d_p = |\Delta x_1| + |\Delta x_2| + |\Delta x_3| + \dots + |\Delta x_n|.
 \end{equation}
 
-Novamente, temos que a dimensão é de \emph{comprimento} ---~cuja unidade no SI é o metro~---, uma vez que o deslocamento escalar é determinado a partir de uma equação que envolve a soma de termos com tais dimensões.
+Novamente, temos que a dimensão é de \emph{comprimento} ---~cuja unidade no SI é o metro~---, uma vez que a distância percorrida é determinada a partir de uma equação que envolve a soma de termos com tais dimensões.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -379,8 +379,7 @@ Traçando uma reta horizontal e uma vertical, podemos completar um triângulo re
     \draw[thin, name intersections={of=fromb and horiz-a}] (intersection-1) -- (plot-a-intersection);
     
     % marcar os ângulos
-    \tkzMarkRightAngle(plot-a-intersection,ang-reto,plot-b-intersection);
-    \tkzLabelAngle[pos=.15](plot-a-intersection,ang-reto,plot-b-intersection){$\cdot$};
+    \pic[draw, "$\cdot$", angle radius = 2mm, angle eccentricity = 0.5]{ angle = plot-b-intersection--ang-reto--plot-a-intersection};
     \path pic[draw, angle radius=5mm, pic text=$\theta$,angle eccentricity=1.3] {angle = ang-reto--plot-a-intersection--plot-b-intersection};
     
     % medidas
@@ -747,14 +746,14 @@ O processo discutido acima é o que chamamos de \emph{derivada}, e que consiste 
 \subsection{Velocidades escalares média e instantânea}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se um corpo se desloca em um movimento retilíneo, porém termina seu movimento na mesma posição em que iniciou, temos um deslocamento nulo. Consequentemente, a velocidade média durante esse percurso será também nula. No entanto, podemos tomar o deslocamento escalar e dividi-lo pelo tempo transcorrido e definir uma \emph{velocidade escalar média}:
+Se um corpo se desloca em um movimento retilíneo, porém termina seu movimento na mesma posição em que iniciou, temos um deslocamento nulo. Consequentemente, a velocidade média durante esse percurso será também nula. No entanto, podemos tomar a distância percorrída e dividi-lo pela tempo transcorrido e definir o que denominamos como uma \emph{velocidade escalar média}:
 \begin{equation}
   \mean{v}_s = \frac{d_s}{\Delta t}.
 \end{equation}
 %
 A velocidade escalar média é o que o computador de bordo de um carro verifica como ``velocidade média'' em um trajeto. Apesar de corresponder a nossa intuição de velocidade média, ela não é uma grandeza vetorial\footnote{Nos próximos dois capítulos apresentaremos o conceito de vetores e o empregaremos para descrever movimentos bi e tridimensionais.} e não será de grande interesse para a descrição de fenômenos físicos.
 
-Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção e/ou sentido, portanto a única diferença diferença possível entre o deslocamento e o deslocamento escalar é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
+Se tomarmos o limite com $\Delta t \to 0$, podemos dizer que o deslocamento nesse pequeno intervalo de tempo não sofre alteração de direção e/ou sentido, portanto a única diferença possível entre o deslocamento e a distãncia percorrida é um sinal. Nesse caso, teremos que a velocidade escalar instantânea será igual ao módulo da velocidade instantânea:
 \begin{equation}
   v_s = |v|.
 \end{equation}
@@ -1095,8 +1094,7 @@ isto é, a aceleração média está relacionada à inclinação da reta que lig
     \draw[thin, name intersections={of=fromb and horiz-a}] (intersection-1) -- (plot-a-intersection);
     
     % marcar os ângulos
-    \tkzMarkRightAngle(plot-a-intersection,ang-reto,plot-b-intersection);
-    \tkzLabelAngle[pos=.15](plot-a-intersection,ang-reto,plot-b-intersection){$\cdot$};
+    \pic[draw, "$\cdot$", angle radius = 2mm, angle eccentricity = 0.5]{ angle = plot-b-intersection--ang-reto--plot-a-intersection};
     \path pic[draw, angle radius=7mm, pic text=$\theta$,angle eccentricity=1.3] {angle = ang-reto--plot-a-intersection--plot-b-intersection};
     
     % medidas
