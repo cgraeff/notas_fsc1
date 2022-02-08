@@ -86,6 +86,16 @@ biber main
 seguido do comando `pdflatex -shell-escape NotasFisica1.tex` mais algumas vezes (até que
 o próprio comando pare de pedir para ser executado novamente).
 
+Para resolver problemas com pacotes de hifenização, pode ser útil remover os diretórios .texlive20??/ presentes no diretório do usuário e/ou executar os comandos
+```
+sudo fmtutil --all -sys
+```
+ou
+```
+fmtutil --all -user
+```
+ou os mesmos comandos com as opções `--missing --refresh` e `-sys` ou `-user`.
+
 ### Exluir arquivos desnecessários
 Uma maneira simples de excluir os arquivos de log, figuras temporárias, etc, é
 excluir todos os arquivos que não foram adicionados ao git através de
