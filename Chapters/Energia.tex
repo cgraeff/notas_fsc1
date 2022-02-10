@@ -98,7 +98,7 @@ A determinação da velocidade nesse problema exige o uso de técnicas de Cálcu
     \draw[densely dotted] (O) -- +(0,-0.75) coordinate (Oi);
     \draw[fill] (bob) circle (1pt);
     \draw[->, thick] (bob) -- +(0,-0.65) coordinate (P) node[right] {$\vec{P}$};
-    \draw[->, thick] (fix) -- node[below right]{$\vec{N}$} +(60:0.866);
+    \draw[->, thick] (fix) -- node[below right]{$\vec{T}$} +(60:0.866);
     
     \draw[dashed,->] (bob) +(240:1.5) coordinate (Xi) -- +(60:1.5) node[left]{$x$};
     \draw[dashed,->] (bob) +(150:1.5) -- +(-30:1.5) coordinate (Y) node[below left]{$y$};
@@ -867,7 +867,8 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
         \item[Eixo $y$:]
             \begin{align}
                 F_R^y &= m a_y \\
-                N + P_y + F_y &= 0 \\
+                N_y + P_y + F_y &= 0 \\
+                N - mg\cos\alpha - F\sen\alpha &= 0 \\
                 N &= mg\cos\alpha + F\sen\alpha,
             \end{align}
     \end{description}
@@ -925,7 +926,7 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
     \item[Força peso:] Para determinarmos o trabalho da força peso, podemos utilizar a Expressão~\ref{Eq:TrabalhoPeso2}, bastando para isso adotar um eixo $y'$ \emph{vertical} e verificando que $\Delta y' = d\sen\alpha$:
     \begin{align}
         W_P &= -mg\Delta y' \\
-        &= mg (d\sen\alpha) \\
+        &= -mg (d\sen\alpha) \\
         &= -(\np[kg]{2,0})\cdot(\np[m/s^2]{9,8})\cdot((\np[m]{5,0})\cdot(\sen\degree{35})) \\
         &= -\np[J]{56}.
     \end{align}
@@ -1339,8 +1340,8 @@ A constante $C$ não nos permite\footnote{Na verdade podemos calcular a área en
     \path[name path=fromb](b)--+(0,3);
     \draw[dashed, name intersections={of=froma and plota}](a) node[below]{$a$} -- (intersection-1);
 	\draw[dashed, name intersections={of=fromb and plota}](b) node[below]{$x_p$} -- (intersection-1);
-	\draw[dashed, name intersections={of=fromd and plota}](d) node[below]{$x_f$} -- (intersection-1);
-	\draw[dashed, name intersections={of=fromc and plota}](c) node[below]{$x_i$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromd and plota}](d) node[below]{$x_i$} -- (intersection-1);
+	\draw[dashed, name intersections={of=fromc and plota}](c) node[below]{$x_f$} -- (intersection-1);
 
     \fill [dotted, pattern color = gray, pattern=north west lines, domain=0.75:2.25, variable=\x]
      	  (0.75, 0)
@@ -1990,7 +1991,11 @@ ou seja, o potencial é o negativo da função primitiva $\mathcal{F}(x)$:
     - U(x) = \mathcal{F}(x) + C.
 \end{equation}
 
-Note ainda que se derivarmos a expressão acima, obtemos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Determinação da força a partir de um potencial}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Note que se derivarmos a Equação~\eqref{Eq:ResultadoPotencialFuncPrimitiva} acima, obtemos
 \begin{align}
     - U'(x) &= \mathcal{F}'(x) + C' \\
     - U'(x) &= F(x). \label{Eq:ForcaGradPot}
@@ -2168,7 +2173,7 @@ e, finalmente,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
-    Um bloco de massa $m = \np[kg]{0,5}$ cai sobre uma mola, conforme mostrado na Figura~\ref{Fig:ex:QuedaBlocoSobreMola}. Se a constante elástica é de \np[N/m]{50}, a altura $h$ é de \np[m]{2,0}, e a velocidade inicial do bloco é nula, determine a distensão máxima $\ell_{\rm{max}}$ da mola.
+    Um bloco de massa $m = \np[kg]{0,5}$ cai sobre uma mola, conforme mostrado na Figura~\ref{Fig:ex:QuedaBlocoSobreMolaEnPot}. Se a constante elástica é de \np[N/m]{50}, a altura $h$ é de \np[m]{2,0}, e a velocidade inicial do bloco é nula, determine a distensão máxima $\ell_{\rm{max}}$ da mola.
 \end{quote}
 
 \begin{marginfigure}[5cm]
@@ -4167,6 +4172,7 @@ onde
     W = \int_C \vec{F} \cdot d\vec{r}.
 \end{equation}
 
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Exercícios}
 %%%%%%%%%%%%%%%%%%%%%%

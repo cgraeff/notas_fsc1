@@ -751,7 +751,7 @@ Verticalmente, temos um movimento com aceleração constante, dirigida para baix
 %
 ou, usando a notação unidimensional,
 \begin{equation}
-    y_f = y_i + v_{i}^y t + \frac{g}{2}t^2.
+    y_f = y_i + v_{i}^y t - \frac{g}{2}t^2.
 \end{equation}
 %
 Além das expressões acima, podemos utilizar as demais que também se aplicam ao movimento com aceleração constante:\footnote{Já assumimos a notação unidimensional nas equações abaixo, ela é a mais comum.}
@@ -1147,7 +1147,7 @@ Para determinarmos o ângulo em relação à horizontal, basta notarmos que o as
 %
 de onde podemos escrever
 \begin{align}
-	\phi &= \arctan \frac{v_y}{v_x}
+	\phi &= \arctan \frac{v_y}{v_x} \\
 	&= \arctan \frac{(\np[m/s]{-7,155413})}{(\np[m/s]{2,000000})}
 \end{align}
 %
@@ -1358,7 +1358,7 @@ Em situações mais complexas, podemos ter uma composição dos dois efeitos da 
 
 	\draw[arrows={-Stealth[harpoon,swap]}] (2,0) -- node[right]{$\Delta v = \vec{a} t$} +(1,2) coordinate (at);
 
-	\draw[arrows={-Stealth[harpoon]}] (0,0) -- node[above, sloped]{$\vec{v}_i$} (at);
+	\draw[arrows={-Stealth[harpoon]}] (0,0) -- node[above, sloped]{$\vec{v}_f$} (at);
 
 \end{tikzpicture}
 \caption{O efeito mais geral de uma aceleração é o de alterar o módulo do vetor velocidade e também o de causar uma rotação em tal vetor.\label{Fig:DoisEfeitosAceleracaoNaVelocidade}}

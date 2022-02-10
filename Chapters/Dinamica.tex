@@ -1493,7 +1493,7 @@ Vamos tomar a primeira situação na Figura~\ref{Fig:NormalVariaComAceleracao} e
 \begin{description}
     \item[Eixo $x$:] Não há forças/componentes na direção deste eixo.
     
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1570,7 +1570,7 @@ momento a partir do qual o corpo passa a executar um movimento de queda livre, i
 
 Em um plano inclinado sem atrito, a aceleração depende do ângulo entre o plano e a horizontal. Se o ângulo é zero, temos uma situação em que não há aceleração alguma; se o ângulo for de \np[\tcdegree]{90}, temos a própria aceleração da gravidade.
 
-\begin{marginfigure}[-3cm]
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -1708,7 +1708,6 @@ Agora podemos aplicar a Segunda Lei de Newton para os dois eixos:
         \begin{align}
             F_{R, x} &= m a_x \\
             N_x + P_x &= m a_x \\
-            P_x &= m a_x \\
             P \sen\theta &= m a_x \\
             mg \sen\theta &= ma_x,\label{Eq:AceleracaoPlanoInclinadoM}
         \end{align}
@@ -1716,7 +1715,7 @@ Agora podemos aplicar a Segunda Lei de Newton para os dois eixos:
         \begin{align}
             F_{R, y} &= m a_y \\
             N_x + P_x &= m a_y \\
-            N - P_y &= 0 \\
+            N - P\cos\theta &= 0 \\
             N &= P \cos\theta \\
             N &= mg \cos\theta,
         \end{align}
@@ -2082,7 +2081,7 @@ o que resulta em:
 
 Podemos simplificar o tratamento do sistema se considerarmos que os blocos compõem um bloco maior. Nesse caso, as forças internas não serão relevantes para a determinação da aceleração.
 
-\begin{marginfigure}[2cm]
+\begin{marginfigure}[-4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 1.2,
      interface/.style={
@@ -2117,7 +2116,8 @@ Verificamos, primeiramente, que o sistema deve estar em equilíbrio no eixo $y$ 
 Já no eixo $x$ paralelo à superfície inferior, resta que
 \begin{align}
     F_{R, x} &= m_t a_x \\
-    F_x + P_{t, x} + N_{t, x} &= m_t a_x,
+    F_x + P_{t, x} + N_{t, x} &= m_t a_x \\
+    F &= m_t a_x,
  \end{align}
  %
  o que resulta em
@@ -2266,7 +2266,7 @@ Outro caso em que a massa de uma corda é importante, é aquele em que ela fica 
 
 Apesar de sabermos que cordas reais têm massa, tratar tal caso requer conhecimento de técnicas de Cálculo. Por isso, vamos tratar o caso de cordas de massa desprezível que pode ser considerado uma boa aproximação ao se utilizar fios finos e leves.
 
-Se temos sobre uma mesa sem atrito dois blocos ligados por uma corda de massa $m_c$, sendo que o sistema é acelerado horizontalmente por uma força $\vec{F}$ (veja a Figura~\ref{Fig:DeducaoMassaDaCordaDesprezivel}), ao aplicarmos a Segunda Lei de Newton\footnote[][-3cm]{A vida é muito curta para escrever $F_{1, x} + F_{2, x} + F_{3, x} + \dots = m a_x$ e $F_{1, y} + F_{2, y} + F_{3, y} + \dots = m a_y$, isto é, todas as componentes, mesmo as que sabemos que serão nulas. A partir de agora vamos escrever as projeções completas diretamente. Algumas vezes poderemos deixar uma componente de alguma força por calcular imediatamente, se for conveniente.}  para a corda no eixo $x$, obtemos\footnote{Note que no eixo vertical temos a força peso da corda que precisa ser equilibrada. Isso só é possível se a corda seguir a forma catenária discutida na seção anterior, pois isso possibilita que as componentes das tensões que atuam sobre as extremidades da corda equilibrem o peso.}
+Se temos sobre uma mesa sem atrito dois blocos ligados por uma corda de massa $m_c$, sendo que o sistema é acelerado horizontalmente por uma força $\vec{F}$ (veja a Figura~\ref{Fig:DeducaoMassaDaCordaDesprezivel}), ao aplicarmos a Segunda Lei de Newton\footnote[][-2cm]{A vida é muito curta para escrever $F_{1, x} + F_{2, x} + F_{3, x} + \dots = m a_x$ e $F_{1, y} + F_{2, y} + F_{3, y} + \dots = m a_y$, isto é, todas as componentes, mesmo as que sabemos que serão nulas. A partir de agora vamos escrever as projeções completas diretamente. Algumas vezes poderemos deixar uma componente de alguma força por calcular imediatamente, se for conveniente.}  para a corda no eixo $x$, obtemos\footnote{Note que no eixo vertical temos a força peso da corda que precisa ser equilibrada. Isso só é possível se a corda seguir a forma catenária discutida na seção anterior, pois isso possibilita que as componentes das tensões que atuam sobre as extremidades da corda equilibrem o peso.}
 \begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
@@ -2534,7 +2534,7 @@ Para que possamos determinar a aceleração, primeiramente devemos escolher um s
     ]
    
     \draw[dashed, <-] (0,0.5) node[below left]{$x$} -- (4,0.5);
-    \draw[dashed, ->] (2,-1) -- (2,2.5) node[below right]{$y$};
+    \draw[dashed, ->] (2,-1) coordinate (Oy) -- (2,2.5) node[below right]{$y$};
     
     \draw[interface] (0,0) -- (4,0);
     \draw[pattern= dots] (1.5,0) rectangle (2.5,1);
@@ -2542,7 +2542,7 @@ Para que possamos determinar a aceleração, primeiramente devemos escolher um s
 
         
     \draw[fill] (2,0.5) circle (1pt);
-    \draw[->, thick] (2,0.5) -- +(-55:1) node[left]{$\vec{P}$};
+    \draw[->, thick] (2,0.5) coordinate(Op) -- +(-55:1) coordinate (Ap) node[below right]{$\vec{P}$};
     \draw[->, thick] (2,1) -- +(0,0.81915) node[below right]{$\vec{N}$};
     
     \coordinate (A) at (4,0);
@@ -2551,6 +2551,7 @@ Para que possamos determinar a aceleração, primeiramente devemos escolher um s
     
     \draw[dashed] (A) -- (B);
     \pic [draw, "$\theta$", angle eccentricity=1.5] {angle = O--A--B};
+    \pic [draw, "$\theta$", angle radius = 7mm, angle eccentricity=1.3] {angle = Oy--Op--Ap};
 
 \end{tikzpicture}
 \caption{Bloco sobre plano inclinado. Escolhemos o sistema de coordenadas de maneira que a aceleração esteja contida em apenas um dos eixos.\label{Fig:Tensao:BlocoPlanoInclinadoAcelDiag}}
@@ -2561,13 +2562,14 @@ Aplicando a Segunda Lei de Newton a cada eixo temos
     \item[Eixo $x$:]
         \begin{align}
             F_{R, x} &= m a_x \\
-            T - P_x &= m a_x \\
-            T - P_x &= m a_x.
+            T_x + P_x &= m a_x \\
+            T - P\sen\theta &= m a_x.
         \end{align}
     \item[Eixo $y$:]
         \begin{align}
             F_{R, y} &= m a_y \\
-            N - P_y &= 0.
+            N_y + P_y &= 0 \\
+            N - P\cos\theta &= 0.
         \end{align}
 \end{description}
 %
@@ -2748,13 +2750,13 @@ Na Figura~\ref{Fig:BlocoSustentadoPorCordasRef} decompomos as forças em dois ei
         \begin{description}
             \item[Eixo $x$:]
                 \begin{align}
-                    -T_{1,x} + T_{2,x} &= m_n a_x \\
-                    -T_{1,x} + T_{2,x} &= 0 \\
-                    T_{1,x} &= T_{2,x}.
+                    T_{1,x} + T_{2,x} &= m_n a_x \\
+                    -T_1\cos\alpha + T_2\cos\beta &= 0
                 \end{align}
             \item[Eixo $y$:]
                 \begin{align}
                     F_{R, y} &= m_n a_y \\
+                    T_{1,y} + T_{2,y} + T_{nb, y}&= 0 \\
                     T_{1,y} + T_{2,y} - T_{nb}&= 0.
                 \end{align}
         \end{description}
@@ -2805,7 +2807,7 @@ Substituindo o resultado acima na Equação~\eqref{Eq:BlocoSustentadoPorCordasT1
 \paragraph{Exemplo: Corpo suspenso por cordas ligadas uma à outra. Caso estático.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.8,
 interface/.style={
@@ -2835,7 +2837,10 @@ interface/.style={
 
 Como as duas cordas superiores têm o mesmo tamanho, o ângulo entre a vertical e cada uma delas é dado por $\alpha = \theta / 2$. Assim, um sistema de referência composto por um eixo vertical e um horizontal é uma boa escolha para tratar o problema, tanto no ``nó'' que amarra as cordas, quanto para o corpo suspenso. Veja a Figura~\ref{Fig:Tensao:ExemploRepouso2}.
 
-\begin{marginfigure}
+Aplicando a Segunda Lei de Newton para o nó, com o auxílio do diagrama de forças mostrado na Figura~\ref{Fig:Tensao:ExemploRepouso3}, obtemos:
+%
+\pagebreak
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.8,
 interface/.style={
@@ -2865,8 +2870,7 @@ interface/.style={
 \end{tikzpicture}
 \caption{Sistemas de referência adotados.\label{Fig:Tensao:ExemploRepouso2}}
 \end{marginfigure}
-
-Aplicando a Segunda Lei de Newton para o nó, com o auxílio do diagrama de forças mostrado na Figura~\ref{Fig:Tensao:ExemploRepouso3}, obtemos:
+%
 \begin{description}
     \item[Eixo $x$:]
         \begin{align}
@@ -2963,10 +2967,10 @@ Finalmente, substituindo o resultado para $T_3$ na Expressão~\eqref{Eq:Tensao:E
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{quote}
-    A Figura~\ref{Fig:Tensao:ExemploRepouso} mostra duas cordas de mesmo comprimento presas ao teto de um elevador, e que estão amarradas a um terceiro segmento de corda, suntentando um corpo de massa $m$. O ângulo entre as cordas superiores é $\theta = \np[\tcdegree]{53.13}$ e a massa do corpo é de \np[kg]{5,0}. Determine o módulo das tensões exercidas pelas cordas se o elevador acelera verticalmente para cima, com aceleração $a = \np[m/s^2]{3,0}$.
+    A Figura~\ref{Fig:Tensao:ExemploAcelerado} mostra duas cordas de mesmo comprimento presas ao teto de um elevador, e que estão amarradas a um terceiro segmento de corda, suntentando um corpo de massa $m$. O ângulo entre as cordas superiores é $\theta = \np[\tcdegree]{53.13}$ e a massa do corpo é de \np[kg]{5,0}. Determine o módulo das tensões exercidas pelas cordas se o elevador acelera verticalmente para cima, com aceleração $a = \np[m/s^2]{3,0}$.
 \end{quote}
 
-\begin{marginfigure}
+\begin{marginfigure}[6cm]
 \centering
 \begin{tikzpicture}[>=Stealth, scale = 0.8,
 interface/.style={
@@ -3065,7 +3069,7 @@ Algumas vezes podemos utilizar os mesmo eixos de referência para todos os corpo
 \caption{Algumas vezes podemos utilizar o mesmo sistema de coordenadas para todos corpos: nesta situação, $x_1=x_2$ para todos os pontos e os eixos $y_1$ e $y_2$ têm a mesma orientação, sendo que seus valores diferem somente por um valor constante (a distância vertical entre as duas origens). Para efeitos de cálculo de velocidade ou aceleração neste eixo, no entanto, tal constante não importa, pois a velocidade é definida em termos do \emph{deslocamento} -- isto é, pela \emph{diferença} das posições no tempo --.\label{Fig:CorposAceleradosMesmoRef}}
 \end{marginfigure}
 
-\begin{marginfigure}
+\begin{marginfigure}[3cm]
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -3192,7 +3196,7 @@ Uma escolha comum de eixos é aquela que se vale da orientação geral do movime
 %
 uma distinção da aceleração de cada bloco não é necessária. No eixo $y$, para ambos os blocos temos aceleração nula.
 
-\begin{marginfigure}[-2cm]
+\begin{marginfigure}[-1cm]
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
         % superfície
@@ -3284,7 +3288,7 @@ cujas soluções para $a_x$ e $T$ são as mesmas dadas pelas equações \eqref{E
 
 Apesar de termos uma simplificação bastante grande ao utilizar um eixo na direção do movimento, temos que tomar cuidado, pois em alguns sistemas não é possível utilizar essa técnica. Na Figura~\ref{Fig:BlocoSuspensoAcelerado} temos um sistema no qual, para um valor específico da aceleração $\vec{a}$ mostrada, o bloco suspenso se mantém em equilíbrio no eixo vertical\footnote[][-2cm]{Nesse sistema as forças que atuam sobre a polia não podem ser entendidas adequadamente se desconsiderarmos a massa da corda que liga os dois blocos. Deve haver uma força que atua sobre o disco da polia, exercida pelo eixo, em uma direção e sentido diagonal para cima. Tal força, juntamente com as reações das tensões exercidas nas extremidades da corda, deve ser responsável pela aceleração da própria corda.}. Note que a aceleração no eixo $x$ não está ligada à aceleração no eixo $y'$. Se tentássemos aplicar a ideia de um eixo na direção da corda ---~isto é, na direção do movimento presumido para o sistema~---, teríamos resultados incoerentes: a aceleração do bloco superior em $x$ teria que ser igual à aceleração do bloco suspenso em $y'$, porém a primeira é igual à aceleração $a$ indicada pela seta, enquanto a segunda é nula.
 
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \begin{tikzpicture}[>=Stealth, scale = 0.8,
      interface/.style={
         % superfície
@@ -3408,9 +3412,7 @@ Em todas essas situações, temos a atuação de forças de atrito. Nelas vemos 
 
 %\textbf{Explorar o aspecto microscópico da força de atrito. Ver se tem alguma fonte segura de que quem fez esse modelo de atrito foi o Coulomb mesmo.}
 
-Uma característica bastante notável da força de atrito é a de que ela possui dois regimes distintos: um estático e um cinético. Se tomarmos o bloco mostrado na Figura~\ref{Fig:Atrito:RegimesAtrito} e o submetermos a ação de uma força lateral $\vec{F}$, verificamos que para uma faixa de valores do módulo da força não ocorre movimento. Tal situação descreve o que denominamos como regime \emph{estático} da força de atrito, e ele corresponde à reta inclinada no gráfico $f_{\rm{at}} \times F$ mostrado na figura. A partir de certo valor de $F$, no entanto, o bloco passa a se mover. Esse regime da força de atrito, denominado \emph{cinético}, corresponde à parte horizontal do gráfico, e que descreve a uma força constante. Nas seções seguintes vamos explorar esses dois regimes da força de atrito. Finalmente, devemos destacar que a força de atrito independe da área aparente\footnote[][-3cm]{Determinar qual é a área efetiva de contato é, na verdade, algo muito difícil. Mesmos as superfícies mais planas possuem irregularidades que fazem com que somente uma parte pequena da área de um corpo esteja efetivamente em contato com outro.}
-
-\begin{marginfigure}
+\begin{marginfigure}[2cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
 interface/.style={
@@ -3443,6 +3445,8 @@ interface/.style={
 \end{tikzpicture}
 \caption{A força de atrito exibe dois regimes distintos: um estático (reta crescente) e um cinético (reta constante). O ponto fechado representa o valor da força de atrito estático máximo.\label{Fig:Atrito:RegimesAtrito}}
 \end{marginfigure}
+
+Uma característica bastante notável da força de atrito é a de que ela possui dois regimes distintos: um estático e um cinético. Se tomarmos o bloco mostrado na Figura~\ref{Fig:Atrito:RegimesAtrito} e o submetermos a ação de uma força lateral $\vec{F}$, verificamos que para uma faixa de valores do módulo da força não ocorre movimento. Tal situação descreve o que denominamos como regime \emph{estático} da força de atrito, e ele corresponde à reta inclinada no gráfico $f_{\rm{at}} \times F$ mostrado na figura. A partir de certo valor de $F$, no entanto, o bloco passa a se mover. Esse regime da força de atrito, denominado \emph{cinético}, corresponde à parte horizontal do gráfico, e que descreve a uma força constante. Nas seções seguintes vamos explorar esses dois regimes da força de atrito. Finalmente, devemos destacar que a força de atrito independe da área aparente\footnote{Determinar qual é a área efetiva de contato é, na verdade, algo muito difícil. Mesmos as superfícies mais planas possuem irregularidades que fazem com que somente uma parte pequena da área de um corpo esteja efetivamente em contato com outro.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Força de atrito estático} 
@@ -3581,13 +3585,13 @@ Adotando um sistema de referência como o mostrado na Figura~\ref{Fig:Atrito:Blo
         \begin{align}
             F_{R, x} &= m a_x \\
             P_x - f_{\rm{at}} &= 0 \\
-            mg\sen\theta &= f_{\rm{at}}.
+            f_{\rm{at}} &= mg\sen\theta.
         \end{align}
         
     \item[Eixo $y$:]
         \begin{align}
             F_{R, y} &= m a_y \\
-            N - P_y &= 0 \\
+            N - P\cos\theta &= 0 \\
             N &= mg\cos\theta.
         \end{align}
 \end{description}
@@ -3720,7 +3724,7 @@ No caso de um bloco submetido a uma força lateral $\vec{F}$ e sujeito à força
      f_{\text{at}}^{e,\textrm{Max}} \propto P.
 \end{equation}
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -3750,7 +3754,7 @@ No caso de um bloco submetido a uma força lateral $\vec{F}$ e sujeito à força
 \caption{Bloco sujeito a duas forças, uma o empurrando contra a superfície e outra tendendo a fazer com que ele deslize.\label{Fig:BlocoEmpurradoParaBaixo}}
 \end{marginfigure}
 
-Se, por outro lado, exercermos uma força $\vec{F}_a$ no sentido de pressionar o bloco contra a superfície, observamos que também ocorre um aumento da força de atrito estático máxima. Outra possibilidade que pode ser verificada experimentalmente e que causa alterações na força de atrito de estático máximo é a de acelerar o sistema superfície-bloco verticalmente para cima. Concluímos então que a força de atrito não deve depender da força peso do corpo, mas sim de algum fator que englobe as outras duas possibilidades citadas. De fato, através das Leis de Newton, verificamos  que existe um aumento da normal\footnote{A interação entre duas superfícies dá origem tanto à força normal, quanto ao atrito. O atrito deve ser dependente de características ou dos dois corpos que interagem, ou da interface de interação. O peso é resultado da interação dos corpos com a Terra, não faria sentido que a força de atrito entre as duas superfícies tivesse relação com um corpo externo ao sistema.} em todas essas situações: analizando a Figura~\ref{Fig:BlocoEmpurradoParaBaixo} através da Segunda Lei de Newton para o eixo $y$ obtemos
+Se, por outro lado, exercermos uma força $\vec{F}_a$ no sentido de pressionar o bloco contra a superfície, observamos que também ocorre um aumento da força de atrito estático máxima. Outra possibilidade que pode ser verificada experimentalmente e que causa alterações na força de atrito de estático máximo é a de acelerar o sistema superfície-bloco verticalmente para cima. Concluímos então que a força de atrito não deve depender da força peso do corpo, mas sim de algum fator que englobe as outras duas possibilidades citadas. De fato, através das Leis de Newton, verificamos  que existe um aumento da normal\footnote[][-2cm]{A interação entre duas superfícies dá origem tanto à força normal, quanto ao atrito. O atrito deve ser dependente de características ou dos dois corpos que interagem, ou da interface de interação. O peso é resultado da interação dos corpos com a Terra, não faria sentido que a força de atrito entre as duas superfícies tivesse relação com um corpo externo ao sistema.} em todas essas situações: analizando a Figura~\ref{Fig:BlocoEmpurradoParaBaixo} através da Segunda Lei de Newton para o eixo $y$ obtemos
 \begin{align}
     F_{R, y} &= m a_y \\
     N - P - F_a &= m a_y \\
@@ -3773,7 +3777,9 @@ A constante $\mu_e$, denominada \emph{coeficiente de atrito estático}, varia pa
 \paragraph{Discussão: Determinação do coeficiente de atrito estático}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+Uma maneira simples de determinar o coeficiente de atrito estático entre dois tipos de superfícies consiste em utilizar um plano cuja inclinação pode ser alterada, sobre o qual apoiamos um bloco. Quando o plano for inclinado até que o bloco esteja na iminência de se mover, podemos analisar o sistema ainda como uma situação de equilíbrio.
+
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -3803,9 +3809,9 @@ A constante $\mu_e$, denominada \emph{coeficiente de atrito estático}, varia pa
 \caption{Bloco em equilíbrio devido à força de atrito sobre um plano inclinado.}
 \end{marginfigure}
 
-Uma maneira simples de determinar o coeficiente de atrito estático entre dois tipos de superfícies consiste em utilizar um plano cuja inclinação pode ser alterada, sobre o qual apoiamos um bloco. Quando o plano for inclinado até que o bloco esteja na iminência de se mover, podemos analisar o sistema ainda como uma situação de equilíbrio.
-
-\begin{marginfigure}
+Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado (Veja a Figura~\ref{Fig:DetCoefAtEstatico}). Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente. Aplicando a Segunda Lei de Newton aos eixos, temos:
+%
+\begin{marginfigure}[25mm]
 \centering
 \begin{tikzpicture}[>=Stealth, rotate=-35,
      interface/.style={
@@ -3837,8 +3843,7 @@ Uma maneira simples de determinar o coeficiente de atrito estático entre dois t
 \end{tikzpicture}
 \caption{Sistema de referência para a análise do sistema.\label{Fig:DetCoefAtEstatico}}
 \end{marginfigure}
-
-Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclinado (Veja a Figura~\ref{Fig:DetCoefAtEstatico}). Dessa forma o ângulo entre a força peso e o eixo $y$ será o mesmo que aquele entre o plano inclinado e a horizontal. As demais forças estarão em um eixo somente. Aplicando a Segunda Lei de Newton aos eixos, temos:
+%
 \begin{description}
     \item[Eixo $x$:] Neste eixo temos, sabendo que $a_x = 0$,
         \begin{align}
@@ -3851,7 +3856,7 @@ Uma escolha razoável para o eixo $x$ é adotá-lo como paralelo ao plano inclin
     \item[Eixo $y$:] Novamente, a aceleração é nula, o que nos leva a
         \begin{align}
             F_{R, y} &= m a_y \\
-            N - P_y &= 0 \\
+            N - P\cos\theta &= 0 \\
             N &= P\cos\theta \\
             N &= mg \cos\theta
         \end{align}
@@ -3953,7 +3958,11 @@ Concluímos, portanto, que a aceleração lateral do bloco terá o mesmo módulo
 \paragraph{Exemplo: Bloco forçado contra uma superfície}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{marginfigure}
+\begin{quote}
+    Na Figura~\ref{Fig:Atrito:ExemploForcaMaximaRepouso}, uma força $\vec{F}$ atua sobre um bloco fazendo um ângulo $\theta = \np[\tcdegree]{45}$ com a horizontal. Determine o valor máximo de $F$ para o qual o bloco não desliza, sabendo que a massa do bloco é $m = \np[kg]{10,0}$ e que o coeficiente de atrito estático $\mu$ é \np{0,75}.
+\end{quote}
+
+\begin{marginfigure}[-10mm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -3975,9 +3984,7 @@ Concluímos, portanto, que a aceleração lateral do bloco terá o mesmo módulo
 \caption{Diagrama de corpo livre para o bloco.\label{Fig:Atrito:ExemploForcaMaximaRepouso}}
 \end{marginfigure}
 
-\begin{quote}
-    Na Figura~\ref{Fig:Atrito:ExemploForcaMaximaRepouso}, uma força $\vec{F}$ atua sobre um bloco fazendo um ângulo $\theta = \np[\tcdegree]{45}$ com a horizontal. Determine o valor máximo de $F$ para o qual o bloco não desliza, sabendo que a massa do bloco é $m = \np[kg]{10,0}$ e que o coeficiente de atrito estático $\mu$ é \np{0,75}.
-\end{quote}
+Adotando o sistema de referência mostrado na Figura~\ref{Fig:Atrito:ExemploForcaMaximaRepouso2} e aplicando a Segunda Lei de Newton a cada eixo, obtemos
 
 \begin{marginfigure}
 \centering
@@ -4010,34 +4017,35 @@ Concluímos, portanto, que a aceleração lateral do bloco terá o mesmo módulo
 \caption{Diagrama de corpo livre para o bloco.\label{Fig:Atrito:ExemploForcaMaximaRepouso2}}
 \end{marginfigure}
 
-Adotando o sistema de referência mostrado na Figura~\ref{Fig:Atrito:ExemploForcaMaximaRepouso2} e aplicando a Segunda Lei de Newton a cada eixo, obtemos
 \begin{description}
     \item[Eixo $x$:]
         \begin{align}
             F_{R, x} &= m a_x \\
-            F_x - f_{\rm{at}} &= 0.
+            F_x - f_{\rm{at}} &= 0 \\
+            F\cos\theta - f_{\rm{at}} &= 0.
         \end{align}
     \item[Eixo $y$:]
         \begin{align}
             F_{R, x} &= m a_y \\
-            N - F_y - P &= 0.
+            N_y + F_y + P_y &= 0 \\
+            N - F\sen\theta - P &= 0.
         \end{align}
 \end{description}
 %
 A partir do resultado obtido para o eixo vertical $y$, podemos escrever
 \begin{equation}
-    N = F_y + P.
+    N = F\sen\theta + P.
 \end{equation}
 %
 Como estamos interessados no máximo valor de $F$ para o qual existe equilíbrio, devemos assumir que a força de atrito corresponde ao valor estático máximo. Assim, a partir do resultado para o primeiro eixo, obtemos
 \begin{equation}
-    F_x - \mu N = 0.
+    F\cos\theta - \mu N = 0.
 \end{equation}
 %
 Substituindo o resultado para a força normal, obtemos
 \begin{align}
-    F_x - \mu N &= 0 \\
-    F_x - \mu (F_y + P) &= 0 \\
+    F\cos\theta - \mu N &= 0 \\
+    F\cos\theta - \mu (F\sen\theta + P) &= 0 \\
     F\cos\theta - \mu F\sen\theta - \mu mg &= 0 \\
     F(\cos\theta - \mu\sen\theta) &= \mu mg,
 \end{align}
@@ -4182,7 +4190,7 @@ Como sabemos que deve existir uma desaceleração do bloco, devemos escolher um 
     \item[Eixo $y$:]
         \begin{align}
             F_{R, y} &= m a_y \\
-            N - P_y &= 0 \\
+            N - P\cos\theta &= 0 \\
             N &= mg\cos\theta.
         \end{align}
 \end{description}
@@ -4285,8 +4293,8 @@ Se a velocidade de escoamento for muito alta, podemos ter uma dependência linea
 \centering
 \begin{tikzpicture}[>=Stealth]
 
-    \draw[->, dashed] (0,1.5) -- (0,2.5) node[below left]{$y$};
-    \draw[dashed] (0,-1.5) -- (0,-2);
+    \draw[-, dashed] (0,1.5) -- (0,2);
+    \draw[dashed, ->] (0,-1.5) -- (0,-2.25) node[above left]{$y$};
         
     \draw[pattern = north west lines] (0,0) circle (0.5);
     
@@ -4300,8 +4308,8 @@ Se a velocidade de escoamento for muito alta, podemos ter uma dependência linea
 Se um objeto é solto a partir do repouso, caindo sob efeito da força peso e da força de arrasto, podemos escrever ---~utilizando a Segunda Lei de Newton~---
 \begin{align}
   F_{R,y} &= ma_y \\
-  P_y + F_{A,y} &= ma_y
-  P - F_A = ma_y,
+  P_y + F_{A,y} &= ma_y \\
+  P - F_A &= ma_y,
 \end{align}
 %
 onde adotamos um eixo $y$ que aponta verticalmente para baixo. Isolando a aceleração $a_y$ na equação acima e notando que a componente $a_x$ é nula, obtemos para o módulo do vetor aceleração
@@ -4480,7 +4488,7 @@ Além disso, é importante frisar que a força centrípeta não é uma nova for�
 %
 De maneira geral, podemos afirma que a força centrípeta é a \emph{componente da força resultante que aponta para o centro da trajetória circular}. Devido às propriedades dos vetores, no entanto, tal componente é simplesmente a soma de todas as componentes das forças que atuam sobre o corpo projetadas na direção que liga o corpo ao centro da trajetória:\footnote[][-2cm]{É comum nos referimos a tal direção como \emph{direção radial}.}
 \begin{align}
-   F_c \equiv F_{R,r} &= \sum{i=1}^N F_{i,r} \\
+   F_c \equiv F_{R,r} &= \sum_{i=1}^N F_{i,r} \\
     &= F_{1,r} + F_{2,r} + F_{3,r} + \dots,
 \end{align}
 %
@@ -4536,6 +4544,8 @@ Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coorden
 \paragraph{Discussão: Movimento circular vertical em uma pista}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
+
 \begin{marginfigure}
 \centering
 \begin{tikzpicture}[>=Stealth]
@@ -4576,9 +4586,7 @@ Para facilitar a análise desse tipo de movimento, devemos tomar um eixo coorden
 \caption{Para cada uma das posições, temos uma componente da força resultante que aponta para o centro da trajetória. A componente tangencial será a responsável pela alteração do módulo da velocidade. \label{Fig:LoopVertical}}
 \end{marginfigure}
 
-Se fizermos uma pista circular vertical, como em um \emph{loop} de montanha russa, se um corpo se desloca acima de uma velocidade mínima, ele completa o \emph{loop} sem perder contato com a pista. De maneira análoga, se colocarmos um objeto dentro de um balde e o girarmos em um círculo vertical, a partir de uma certa velocidade, o objeto não perderá contato com o fundo do balde em nenhum momento da trajetória circular.
-
-O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal ---~exercida pelo fundo do balde~--- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
+O que ocorre nessas situações é que, para que haja um movimento circular, é necessário que exista uma aceleração centrípeta. Tal aceleração se deve a uma força resultante que aponta para o centro da trajetória. Em ambos os exemplos, tal força será uma combinação das forças normal ---~exercida pelo fundo do balde~--- e do peso do objeto. Na Figura~\ref{Fig:LoopVertical} temos um esboço de um movimento circular vertical. Note que, devido ao fato de a força peso apontar sempre em um mesmo sentido, para cada posição temos valores diferentes de normal, porém haverá sempre uma componente\footnote[][1cm]{Se o movimento for com velocidade constante, a força resultante apontará para o centro da trajetória circular. No entanto, se a velocidade varia, haverá uma componente da força resultante cujo papel será o de alterar o módulo da velocidade, isto é, tal componente é responsável pela aceleração tangencial.} da força resultante que apontará no para o centro da trajetória circular.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Condição de perda de contato e velocidade mínima}
@@ -4952,8 +4960,8 @@ Em um pêndulo, durante a oscilação da massa, temos uma tensão que varia cons
     \item[Eixo $x$:]
         \begin{align}
             F_{R, x} &= m a_x \\
-            T - P_x &= m \frac{v^2}{R} \\
-            T &= P_x + m\frac{v^2}{R}.
+            T + P_x &= m \frac{v^2}{R} \\
+            T - P\cos\theta &= m\frac{v^2}{R}.
         \end{align}
     \item[Eixo $y$:]
         \begin{align}
