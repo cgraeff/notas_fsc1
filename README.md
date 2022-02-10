@@ -13,7 +13,7 @@ Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional
 
 ## Obtenção de uma cópia, produção do PDF
 Para obter uma cópia, você pode baixá-la em
-`http://github.com/cgraeff/notas_fsc1` (tanto em versão PDF, quanto os arquivos
+`https://github.com/cgraeff/notas_fsc1` (tanto em versão PDF, quanto os arquivos
 para gerar o PDF).
 
 Para gerar o PDF, é necessária uma distribuição TeX. Versões existem para todos
@@ -25,7 +25,7 @@ tenho ideia de como fazer isso, ou de quanto trabalho isso vai dar.
 ### Como obter uma cópia dos arquivos
 Para obter uma cópia mais facilmente, basta executar em um terminal o comando
 ```
-git clone http://github.com/cgraeff/notas_fsc1
+git clone https://github.com/cgraeff/notas_fsc1.git
 ```
 
 ### Pacotes necessários para gerar o arquivo PDF
@@ -97,9 +97,14 @@ fmtutil --all -user
 ou os mesmos comandos com as opções `--missing --refresh` e `-sys` ou `-user`.
 
 ### Exluir arquivos desnecessários
-Uma maneira simples de excluir os arquivos de log, figuras temporárias, etc, é
+Uma maneira simples de excluir os arquivos de log, figuras temporárias, etc, (arquivos ignorados segundo os filtros contidos no .gitignore) é
 excluir todos os arquivos que não foram adicionados ao git através de
 ```
 git clean -x
 ```
+ou 
+```
+git clean -X
+```
+para excluir os arquivos ignorados e manter os criados manualmente e que ainda não foram "commited".
 
