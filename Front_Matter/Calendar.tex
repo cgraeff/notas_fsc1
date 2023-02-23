@@ -17,14 +17,14 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
     \begin{tikzpicture}
         \calendar (mycal)
         [
-            dates=2022-03-01 to 2022-03-last,
+            dates=2023-03-01 to 2023-03-last,
             week list,
             day headings=gray,
             day letter headings
         ]
         if (Saturday, Sunday)
             [gray]
-        if (at most=2022-03-02)
+        if (at most=2023-03-01)
             [gray]
         ;
     \end{tikzpicture}
@@ -36,17 +36,18 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
     \begin{tikzpicture}
         \calendar (mycal)
         [
-            dates=2022-04-01 to 2022-04-last,
+            dates=2023-04-01 to 2023-04-last,
             week list,
             day headings=gray,
             day letter headings
         ]
         if (Saturday, Sunday)
             [gray]
-        if (equals=2022-04-15, equals=2022-04-21, equals=2022-04-22)
+        if (equals=2023-04-15, equals=2023-04-21, equals=2023-04-22)
             [gray]
         ;
-       \draw (mycal-2022-04-25) circle (6pt);
+       \draw (mycal-2023-04-03) circle (6pt);
+       \draw (mycal-2023-04-26) circle (6pt);
     \end{tikzpicture}
 \end{marginfigure} %
 %
@@ -56,7 +57,7 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
     \begin{tikzpicture}
         \calendar (mycal)
         [
-            dates=2022-05-01 to 2022-05-last,
+            dates=2023-05-01 to 2023-05-last,
             week list,
             day headings=gray,
             day letter headings
@@ -64,7 +65,6 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
         if (Saturday, Sunday)
             [gray]
         ;
-       \draw (mycal-2022-05-11) circle (6pt);
     \end{tikzpicture}
 \end{marginfigure} %
 %
@@ -74,19 +74,18 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
     \begin{tikzpicture}
         \calendar (mycal)
         [
-            dates=2022-06-01 to 2022-06-last,
+            dates=2023-06-01 to 2023-06-last,
             week list,
             day headings=gray,
             day letter headings
         ]
         if (Saturday, Sunday)
             [gray]
-        if (equals= 2022-06-16, equals=2022-06-17, equals=2022-06-29)
+        if (equals= 2023-06-16, equals=2023-06-17, equals=2023-06-29)
             [gray]
         ;
-	\draw (mycal-2022-06-13) circle (6pt);
-	\draw[densely dotted] (mycal-2022-06-23) circle (6pt);
-	\draw (mycal-2022-06-27) circle (6pt);
+	\draw (mycal-2023-06-07) circle (6pt);
+	\draw (mycal-2023-06-28) circle (6pt);
     \end{tikzpicture}
 \end{marginfigure} %
 %
@@ -96,198 +95,19 @@ As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circula
     \begin{tikzpicture}
         \calendar (mycal)
         [
-            dates=2022-07-01 to 2022-07-last,
+            dates=2023-07-01 to 2023-07-last,
             week list,
             day headings=gray,
             day letter headings
         ]
         if (Saturday, Sunday)
             [gray]
-        if (at most=2022-07-06)
+        if (at most=2023-07-06)
             {}
         else
             [gray]
         ;
-       \draw[dashed] (mycal-2022-07-04) circle (6pt);
-    \end{tikzpicture}
-\end{marginfigure}
-
-\vspace{1cm}
-\begin{center}
-\Large\textsc{Engenharia da Computação}
-\end{center}
-\begin{center}
-\begin{longtable}{ccp{70mm}}
-\toprule
-Aula & Data & Conteúdo \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-L1   &  03/03    & 	\textbf{Pré-apresentação/ajuste de cronograma} \\
-1	 & 	07/03	 & 	Repor como revisão de prova 1/4. \\
-2	 & 	09/03	 & 	Repor como revisão de prova 2/4. \\
-L2   &  10/03    &  Repor como Exp. de Laboratório. \\
-3	 & 	14/03	 & 	Repor como revisão de prova 3/4. \\
-4	 & 	16/03	 & 	Repor como revisão de prova 4/4. \\
-L3   &  17/03    &  Repor como Exp. de Laboratório. \\
-5	 & 	21/03	 & 	Repor como revisão para provas substitutivas e exame. \\
-6	 & 	23/03	 & 	\textsc{Revisão de conceitos:} Equações e sistemas de equações. Funções, gráficos de funções. Trigonometria e funções trigonométricas. \\
-L4   &  24/03    &  \textbf{Apresentação da disciplina:} Informações de contato, horários de atendimento, conteúdo, métodos de ensino e avaliação, cronograma e plano de ensino.\\
-7	 & 	28/03	 & 	\textsc{Unidades:} Grandezas e dimensões, medidas, unidades, sistemas de unidades, conversão de unidades. \\
-8	 & 	30/03	 & 	\textsc{Movimento unidimensional:} Posição e deslocamento (posição, deslocamento, distância percorrida, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea, velocidade como função do tempo, evolução temporal da posição para o caso de velocidade constante).\\
-L5   &  31/03    &  \textbf{Aula de laboratório, Turma A:} Exp. 1, Medidas.\\
-9	 & 	04/04	 & 	\textsc{Movimento unidimensional:} Aceleração (aceleração média, aceleração instantânea, aceleração como função do tempo, evolução temporal da velocidade para o caso de aceleração constante), sinais para a aceleração, interpretação da área de gráficos ($v \times t$, $a \times  t$). Equações cinemáticas para movimentos com aceleração constante: evolução para a velocidade, equações para a posição, equação de Torricelli, variáveis ausentes em cada equação.\\
-10	 & 	06/04	 & 	\textsc{Vetores:} Vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, vetor nulo, subtração, multiplicação e divisão por escalar), equações envolvendo vetores, sistemas de referência (bases, representação em vetores unitários, bases ortogonais e componentes vetoriais, notação módulo-ângulo). \\
-L6   &  07/04    & \textbf{Aula de laboratório, Turma B:} Exp. 1, Medidas. \\
-11	 & 	11/04	 & 	\textsc{Vetores:} Sistemas de referência em três dimensões; projeções completas e negativas, operações através de componentes, operações através de vetores unitários. \\
-12	 & 	13/04	 & 	\textsc{Movimento bi e tridimensional:} Variáveis cinemáticas (vetores posição e deslocamento, velocidade (velocidade média, velocidade instantânea), e aceleração (aceleração média, aceleração instantânea)), movimento balístico (descrição do movimento e equações para o movimento). \\
-L7   &  14/04    &  \textbf{Aula de laboratório, Turma A:} Exp. 2, MRU e MRUV.\\
-13	 & 	18/04	 & 	\textsc{Movimento bi e tridimensional:} Movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta, posição em uma trajetória curvilínea). \\
-14	 & 	20/04	 & 	\textsc{Dinâmica da partícula:} Conceitos de força e massa, primeira lei de Newton e princípio da inércia segundo Galileu, segunda lei de Newton, diagramas de força e sistemas de referência, sistemas em equilíbrio.\\
-15	 & 	25/04	 & 	\textbf{\textit{Prova 1}}. \\
-16	 & 	27/04	 & 	\textsc{Dinâmica da partícula:} Terceira lei de Newton, forças forças fundamentais, força gravitacional e peso, força elástica, força normal.\\
-L8   &  28/04    &  \textbf{Aula de laboratório, Turma B:} Exp. 2, MRU e MRUV.\\
-17	 & 	02/05	 & 	\textsc{Dinâmica da partícula:} Múltiplos corpos, forças de tensão, sistemas de referência orientados de acordo com o movimento. Forças de atrito e arrasto.\\
-18	 & 	04/05	 & 	\textsc{Dinâmica da partícula:} Forças no movimento circular. \\
-L9   &  05/05    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-19	 & 	09/05	 & 	\textsc{Trabalho e energia mecânica:} Teorema trabalho-energia, cálculo do trabalho, trabalho realizado pela força peso, trabalho efetuado por outras forças constantes.\\
-20	 & 	11/05	 & 	\textbf{\textit{Prova 2}}. \\
-L10  &  12/05    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$. \\
-21	 & 	16/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho como a área de um gráfico $F \times x$ (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), trabalho com a integral de uma força, potência. \\
-22	 & 	18/05	 & 	\textsc{Trabalho e energia mecânica:} Energia potencial e forças conservativas, determinação da função energia potencial $U$ (determinação do potencial a partir de uma força e da força a partir de um potencial, energia potencial gravitacional, energia potencial elástica). Análise de gráficos de potencial (forças em um gráfico de potencial, pontos e regiões de equilíbrio, equilíbrio e estabilidade).\\
-L11  &  19/05    & \textbf{Aula de laboratório, Turma A:} Exp. $n$.\\
-23	 & 	23/05	 & 	\textsc{Trabalho e energia mecânica:} Energia mecânica, energia mecânica em sistemas com múltiplos corpos. Energia mecânica em gráficos de potencial: pontos de retorno. \\
-24	 & 	25/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho de forças não-conservativas, Princípio da conservação da energia (forças externas, energia interna). \\
-L12  &  26/05    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$.\\
-25	 & 	30/05	 & 	\textsc{Momento linear:} Momento linear, momento linear e segunda lei de Newton para um sistema de partículas, conservação do momento linear. Centro de massa: centro de massa de um conjunto de partículas, segunda lei de Newton para o centro de massa, teorema de Mozzi-Chasles. Centro de massa de um corpo extenso.\\
-26	 & 	01/06	 & 	\textsc{Momento linear:} Impulso, forças em colisões. Colisões unidimensionais entre duas partículas. \\
-L13  &  02/06    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-27	 & 	06/06	 & 	\textsc{Momento linear:} Energia em colisões, colisões elásticas. \\
-28	 & 	08/06	 & 	\textsc{Rotações:} Cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação). \\
-L14  &  09/06    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$.\\
-29	 & 	13/06	 & 	\textbf{\textit{Prova 3}}. \\
-30	 & 	15/06	 & 	\textsc{Rotações:} Dinâmica da rotação (torque, segunda lei de Newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, aditividade do momento de inércia, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos). \\
-31	 & 	20/06	 & 	\textsc{Rotações:} Trabalho e energia cinética para rotações (trabalho de um torque, teorema trabalho-energia para rotações). Movimentos combinados de rotação e de translação (dinâmica, energia).\\
-32	 & 	22/06	 & 	\textsc{Rolamento:} Características do rolamento, movimento das partículas de um corpo rígido durante o rolamento, forças no rolamento, energia cinética no rolamento. \\
-L15  &  23/06    &  \textbf{\textit{Prova de laboratório:}} Turmas A e B. \\
-33	 & 	27/06	 & 	\textbf{\textit{Prova 4}}. \\
---	 & 	29/06	 & 	\emph{Feriado municipal.} \\
-L16  &  30/06    &  Entrega das notas de laboratório. \\
-34	 & 	04/07	 & 	\textbf{\textit{Provas substitutivas e exame}}: Os alunos que optarem por não realizar a prova estão dispensados. \\
-35	 & 	06/07	 & 	Apresentação das notas finais. \\
-\end{longtable}
-\end{center}
-
-%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%
-
-\clearpage
-\begin{fullwidth}
-\it
-As aulas seguirão o planejamento abaixo. No calendário ao lado, estão circuladas as datas das provas.
-\end{fullwidth}
-
-\begin{marginfigure}[4cm]
-    \centering
-    Março\\
-    \begin{tikzpicture}
-        \calendar (mycal)
-        [
-            dates=2022-03-01 to 2022-03-last,
-            week list,
-            day headings=gray,
-            day letter headings
-        ]
-        if (Saturday, Sunday)
-            [gray]
-        if (at most=2022-03-02)
-            [gray]
-        ;
-    \end{tikzpicture}
-\end{marginfigure} %
-%
-\begin{marginfigure}
-    \centering
-    Abril\\
-    \begin{tikzpicture}
-        \calendar (mycal)
-        [
-            dates=2022-04-01 to 2022-04-last,
-            week list,
-            day headings=gray,
-            day letter headings
-        ]
-        if (Saturday, Sunday)
-            [gray]
-        if (equals=2022-04-15, equals=2022-04-21, equals=2022-04-22)
-            [gray]
-        ;
-       \draw (mycal-2022-04-25) circle (6pt);
-    \end{tikzpicture}
-\end{marginfigure} %
-%
-\begin{marginfigure}
-    \centering
-    Maio\\
-    \begin{tikzpicture}
-        \calendar (mycal)
-        [
-            dates=2022-05-01 to 2022-05-last,
-            week list,
-            day headings=gray,
-            day letter headings
-        ]
-        if (Saturday, Sunday)
-            [gray]
-        ;
-       \draw (mycal-2022-05-11) circle (6pt);
-    \end{tikzpicture}
-\end{marginfigure} %
-%
-\begin{marginfigure}
-    \centering
-    Junho\\
-    \begin{tikzpicture}
-        \calendar (mycal)
-        [
-            dates=2022-06-01 to 2022-06-last,
-            week list,
-            day headings=gray,
-            day letter headings
-        ]
-        if (Saturday, Sunday)
-            [gray]
-        if (equals= 2022-06-16, equals=2022-06-17, equals=2022-06-29)
-            [gray]
-        ;
-	\draw (mycal-2022-06-13) circle (6pt);
-	\draw[densely dotted] (mycal-2022-06-21) circle (6pt);
-	\draw (mycal-2022-06-27) circle (6pt);
-    \end{tikzpicture}
-\end{marginfigure} %
-%
-\begin{marginfigure}
-    \centering
-    Julho\\
-    \begin{tikzpicture}
-        \calendar (mycal)
-        [
-            dates=2022-07-01 to 2022-07-last,
-            week list,
-            day headings=gray,
-            day letter headings
-        ]
-        if (Saturday, Sunday)
-            [gray]
-        if (at most=2022-07-06)
-            {}
-        else
-            [gray]
-        ;
-       \draw[dashed] (mycal-2022-07-04) circle (6pt);
+       \draw[dashed] (mycal-2023-07-05) circle (6pt);
     \end{tikzpicture}
 \end{marginfigure}
 
@@ -303,62 +123,46 @@ Aula & Data & Conteúdo \\
 \endhead
 \bottomrule
 \endfoot
-1	 & 	07/03	 & 	\textbf{Pré-apresentação/ajuste de cronograma} \\
-L1   &  08/03    &  Repor como Exp. de Laboratório. \\
-2	 & 	09/03	 & 	Repor como revisão de prova 1/4.\\
-3	 & 	14/03	 & 	Repor como revisão de prova 2/4.  \\
-L2   &  15/03    &  Repor como de Exp. de Laboratório. \\
-4	 & 	16/03	 & 	Repor como revisão de prova 3/4. \\
-5	 & 	21/03	 & 	Repor como revisão de prova 4/4. \\
-L3   &  22/03    &  \textsc{Revisão de conceitos:} Equações e sistemas de equações. Funções, gráficos de funções. Trigonometria e funções trigonométricas. \\
-6	 & 	23/03	 & 	\textsc{Unidades:} Grandezas e dimensões, medidas, unidades, sistemas de unidades, conversão de unidades. \\
-7	 & 	28/03	 & 	\textbf{Apresentação da disciplina:} Informações de contato, horários de atendimento, conteúdo, métodos de ensino e avaliação, cronograma e plano de ensino.\\
-L4   &  29/03    &  \textbf{Aula de laboratório, Turma A:} Exp. 1, Medidas. \\
-8	 & 	30/03	 & 	\textsc{Movimento unidimensional:} Posição e deslocamento (posição, deslocamento, distância percorrida, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea, velocidade como função do tempo, evolução temporal da posição para o caso de velocidade constante).\\
-9	 & 	04/04	 & 	\textsc{Movimento unidimensional:} Aceleração (aceleração média, aceleração instantânea, aceleração como função do tempo, evolução temporal da velocidade para o caso de aceleração constante), sinais para a aceleração, interpretação da área de gráficos ($v \times t$, $a \times  t$). Equações cinemáticas para movimentos com aceleração constante: evolução para a velocidade, equações para a posição, equação de Torricelli, variáveis ausentes em cada equação.\\
-L5   &  05/04    &  \textbf{Aula de laboratório, Turma B:} Exp. 1, Medidas. \\
-10	 & 	06/04	 & 	\textsc{Vetores:} Vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, vetor nulo, subtração, multiplicação e divisão por escalar), equações envolvendo vetores, sistemas de referência (bases, representação em vetores unitários, bases ortogonais e componentes vetoriais, notação módulo-ângulo). \\
-11	 & 	11/04	 & 	\textsc{Vetores:} Sistemas de referência em três dimensões; projeções completas e negativas, operações através de componentes, operações através de vetores unitários. \\
-L6   &  12/04    &  \textbf{Aula de laboratório, Turma A:} Exp. 2, MRU e MRUV. \\
-12	 & 	13/04	 & 	\textsc{Movimento bi e tridimensional:} Variáveis cinemáticas (vetores posição e deslocamento, velocidade (velocidade média, velocidade instantânea), e aceleração (aceleração média, aceleração instantânea)), movimento balístico (descrição do movimento e equações para o movimento). \\
-13	 & 	18/04	 & 	\textsc{Movimento bi e tridimensional:} Movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta, posição em uma trajetória curvilínea). \\
-L7   &  19/04    &  \textbf{Aula de laboratório, Turma B:} Exp. 2, MRU e MRUV. \\
-14	 & 	20/04	 & 	\textsc{Dinâmica da partícula:} Conceitos de força e massa, primeira lei de Newton e princípio da inércia segundo Galileu, segunda lei de Newton, diagramas de força e sistemas de referência, sistemas em equilíbrio.\\
-15	 & 	25/04	 &  \textbf{\textit{Prova 1}}.\\
-L8   &  26/04    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-16	 & 	27/04	 & 	\textsc{Dinâmica da partícula:} Terceira lei de Newton, forças forças fundamentais, força gravitacional e peso, força elástica, força normal.\\
-17	 & 	02/05	 & 	\textsc{Dinâmica da partícula:} Múltiplos corpos, forças de tensão, sistemas de referência orientados de acordo com o movimento. Forças de atrito e arrasto.\\
-L9   &  03/05    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$. \\
-18	 & 	04/05	 & 	\textsc{Dinâmica da partícula:} Forças no movimento circular. \\
-19	 & 	09/05	 & 	\textsc{Trabalho e energia mecânica:} Teorema trabalho-energia, cálculo do trabalho, trabalho realizado pela força peso, trabalho efetuado por outras forças constantes.\\
-L10  &  10/05    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-20	 & 	11/05	 & 	\textbf{\textit{Prova 2}}. \\
-21	 & 	16/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho como a área de um gráfico $F \times x$ (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), trabalho com a integral de uma força, potência. \\
-L11  &  17/05    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$. \\
-22	 & 	18/05	 & 	\textsc{Trabalho e energia mecânica:} Energia potencial e forças conservativas, determinação da função energia potencial $U$ (determinação do potencial a partir de uma força e da força a partir de um potencial, energia potencial gravitacional, energia potencial elástica). Análise de gráficos de potencial (forças em um gráfico de potencial, pontos e regiões de equilíbrio, equilíbrio e estabilidade).\\
-23	 & 	23/05	 & 	\textsc{Trabalho e energia mecânica:} Energia mecânica, energia mecânica em sistemas com múltiplos corpos. Energia mecânica em gráficos de potencial: pontos de retorno. \\
-L12  &  24/05    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-24	 & 	25/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho de forças não-conservativas, Princípio da conservação da energia (forças externas, energia interna). \\
-25	 & 	30/05	 & 	\textsc{Momento linear:} Momento linear, momento linear e segunda lei de Newton para um sistema de partículas, conservação do momento linear. Centro de massa: centro de massa de um conjunto de partículas, segunda lei de Newton para o centro de massa, teorema de Mozzi-Chasles. Centro de massa de um corpo extenso.\\
-L13  &  31/05    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$.\\
-26	 & 	01/06	 & 	\textsc{Momento linear:} Impulso, forças em colisões. Colisões unidimensionais entre duas partículas. \\
-27	 & 	06/06	 & 	\textsc{Momento linear:} Energia em colisões, colisões elásticas. \\
-L14  &  07/06    &  \textbf{Aula de laboratório, Turma A:} Exp. $n$. \\
-28	 & 	08/06	 & 	\textsc{Rotações:} Cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação). \\
-29	 & 	13/06	 & 	\textbf{\textit{Prova 3}}. \\
-L15  &  14/06    &  \textbf{Aula de laboratório, Turma B:} Exp. $n$. \\
-30	 & 	15/06	 & 	\textsc{Rotações:} Dinâmica da rotação (torque, segunda lei de Newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, aditividade do momento de inércia, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos). \\
-31	 & 	20/06	 & 	\textsc{Rotações:} Trabalho e energia cinética para rotações (trabalho de um torque, teorema trabalho-energia para rotações). Movimentos combinados de rotação e de translação (dinâmica, energia).\\
-	L16  &  21/06    &  \textbf{\textit{Prova de laboratório:}} Turmas A e B. \\
-32	 & 	22/06	 & 	\textsc{Rolamento:} Características do rolamento, movimento das partículas de um corpo rígido durante o rolamento, forças no rolamento, energia cinética no rolamento. \\
-33	 & 	27/06	 & 	\textbf{\textit{Prova 4}}. \\
-L17  &  28/06    &  Dúvidas para provas substitutivas e exame. \\
---	 & 	29/06	 & 	\emph{Feriado municipal.} \\
-34	 & 	04/07	 & 	\textbf{\textit{Provas substitutivas e exame}}. Os alunos que optarem por não realizar a prova estão dispensados. \\
-L18  &  05/07    &  Entrega das notas de laboratório. \\
-35	 & 	06/07	 & 	Apresentação das notas finais. \\
+1	 & 	06/03	 & 	Apresentação da disciplina. \\
+2	 & 	08/03	 & 	\textsc{Movimento unidimensional:} Posição e deslocamento (posição, deslocamento, distância percorrida, posição como função do tempo), velocidade (velocidade média, velocidade instantânea, velocidades escalares média e instantânea, velocidade como função do tempo, evolução temporal da posição para o caso de velocidade constante). \\
+3	 & 	13/03	 & 	\textsc{Movimento unidimensional:} Aceleração (aceleração média, aceleração instantânea, aceleração como função do tempo, evolução temporal da velocidade para o caso de aceleração constante), sinais para a aceleração, interpretação da área de gráficos ($v \times t$, $a \times  t$). Equações cinemáticas para movimentos com aceleração constante: evolução para a velocidade, equações para a posição, equação de Torricelli, variáveis ausentes em cada equação. \\
+4	 & 	15/03	 & 	\textsc{Vetores:} Vetores e escalares, representação geométrica de um vetor, operações envolvendo vetores (soma, vetor nulo, subtração, multiplicação e divisão por escalar), equações envolvendo vetores, sistemas de referência (bases, representação em vetores unitários, bases ortogonais e componentes vetoriais, notação módulo-ângulo). \\
+5	 & 	20/03	 &  \textsc{Vetores:} Sistemas de referência em três dimensões; projeções completas e negativas, operações através de componentes, operações através de vetores unitários. \\
+6	 & 	22/03	 & 	\textsc{Movimento bi e tridimensional:} Variáveis cinemáticas (vetores posição e deslocamento, velocidade (velocidade média, velocidade instantânea), e aceleração (aceleração média, aceleração instantânea)), movimento balístico (descrição do movimento e equações para o movimento). \\
+7	 & 	27/03	 & 	\textsc{Movimento bi e tridimensional:} Movimento circular (aceleração centrípeta, decomposição da aceleração em componentes tangencial e centrípeta, posição em uma trajetória curvilínea). \\
+8	 & 	29/03	 & 	Revisão para a Prova 1. \\
+9	 & 	03/04	 & 	\textbf{\textit{Prova 1}}. \\
+10	 & 	05/04	 & 	\textsc{Dinâmica da partícula:} Conceitos de força e massa, primeira lei de Newton e princípio da inércia segundo Galileu, segunda lei de Newton, diagramas de força e sistemas de referência, sistemas em equilíbrio. \\
+11	 & 	10/04	 & 	\textsc{Dinâmica da partícula:} Terceira lei de Newton, forças forças fundamentais, força gravitacional e peso, força elástica, força normal. \\
+12	 & 	12/04	 & 	\textsc{Dinâmica da partícula:} Múltiplos corpos, forças de tensão, sistemas de referência orientados de acordo com o movimento. \\
+13	 & 	17/04	 & 	\textsc{Dinâmica da partícula:} Forças de atrito e arrasto. \\
+14	 & 	19/04	 & 	\textsc{Dinâmica da partícula:} Forças no movimento circular. \\
+15	 & 	24/04	 & 	Revisão para a Prova 2. \\
+16	 & 	26/04	 & 	\textbf{\textit{Prova 2}}. \\
+--   &  01/05    &  \emph{Feriado.} \\
+17	 & 	03/05	 & 	\textsc{Trabalho e energia mecânica:} Teorema trabalho-energia, cálculo do trabalho, trabalho realizado pela força peso, trabalho efetuado por outras forças constantes. \\
+18	 & 	08/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho como a área de um gráfico $F \times x$ (trabalho realizado por uma força elástica), trabalho de uma força variável (teorema fundamental do cálculo), trabalho com a integral de uma força, potência. \\
+19	 & 	10/05	 & 	\textsc{Trabalho e energia mecânica:} Energia potencial e forças conservativas, determinação da função energia potencial $U$ (determinação do potencial a partir de uma força e da força a partir de um potencial, energia potencial gravitacional, energia potencial elástica). Análise de gráficos de potencial (forças em um gráfico de potencial, pontos e regiões de equilíbrio, equilíbrio e estabilidade). \\
+20	 & 	15/05	 & 	\textsc{Trabalho e energia mecânica:} Energia mecânica, energia mecânica em sistemas com múltiplos corpos. Energia mecânica em gráficos de potencial: pontos de retorno. \\
+21	 & 	17/05	 & 	\textsc{Trabalho e energia mecânica:} Trabalho de forças não-conservativas, Princípio da conservação da energia (forças externas, energia interna). \\
+22	 & 	22/05	 & 	\textsc{Momento linear:} Momento linear, momento linear e segunda lei de Newton para um sistema de partículas, conservação do momento linear. Centro de massa: centro de massa de um conjunto de partículas, segunda lei de Newton para o centro de massa, teorema de Mozzi-Chasles. \\
+23	 & 	24/05	 & 	\textsc{Momento linear:} Centro de massa de um corpo extenso. Energia potencial gravitacional e centro de massa. \\
+24	 & 	29/05	 & 	\textsc{Momento linear:} Impulso, forças em colisões. Colisões unidimensionais entre duas partículas. \\
+25	 & 	31/05	 & 	\textsc{Momento linear:} Energia em colisões, colisões elásticas. \\
+26	 & 	05/06	 & 	Revisão para a Prova 3. \\
+27	 & 	07/06	 & 	\textbf{\textit{Prova 3}}. \\
+28	 & 	12/06	 & 	\textsc{Rotações:} Cinemática da rotação (variáveis cinemáticas para rotações, sinais, equações para aceleração angular constante, relação entre variáveis de translação e de rotação). \\
+29	 & 	14/06	 & 	\textsc{Rotações:} Dinâmica da rotação (torque, segunda lei de Newton para as rotações). Cálculo do momento de inércia (momento de inércia de um sistema de partículas, aditividade do momento de inércia, momento de inércia de uma distribuição contínua, teorema dos eixos paralelos). \\
+30	 & 	19/06	 & 	\textsc{Rotações:} Trabalho e energia cinética para rotações (trabalho de um torque, teorema trabalho-energia para rotações). Movimentos combinados de rotação e de translação (dinâmica, energia). \\
+31	 & 	21/06	 & 	\textsc{Rolamento:} Características do rolamento, movimento das partículas de um corpo rígido durante o rolamento, forças no rolamento, energia cinética no rolamento. \\
+32	 & 	26/06	 & 	Revisão para Prova 4. \\
+33	 & 	28/06	 & 	\textbf{\textit{Prova 4}}. \\
+34	 & 	03/07	 & 	Apresentação das notas finais pré-recuperação final. \\
+35	 & 	05/07	 & 	\textbf{\textit{Provas substitutivas e exame}}: Os alunos que optarem por não realizar a prova estão dispensados. \\
 \end{longtable}
 \end{center}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \cleardoublepage
 
