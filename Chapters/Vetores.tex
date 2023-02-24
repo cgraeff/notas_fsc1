@@ -420,9 +420,9 @@ Grande parte da utilidade de um sistema de referência provém de uma escolha ad
 \subsection{Bases vetoriais}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se tomarmos dois vetores não-colineares em um plano, por exemplo, podemos escrever qualquer outro vetor em termos desses dois através de
+Se tomarmos dois vetores não-colineares $\vec{e}_1$ e $\vec{e}_2$ em um plano, por exemplo, podemos escrever qualquer outro vetor $\vec{a}$ em termos desses dois através de
 \begin{equation}
-  \vec{v} = \alpha \vec{e}_1 + \beta \vec{e}_2.
+  \vec{a} = \alpha \vec{e}_1 + \beta \vec{e}_2.
 \end{equation}
 
 \begin{marginfigure}
@@ -1121,6 +1121,120 @@ Finalmente, temos que
     &\approx \np[m]{2.221} & &\approx \np[m]{0.256}
 \end{align}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemplo: Projeção de um vetor em um eixo qualquer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quote}
+    Na Figura~\ref{Fig:Ex:ProjecaoEixoQQ} temos um vetor $\vec{a}$, cujas coordenadas em relação ao sistema de referência $xy$ mostrado são $a_x = \np{-0.866}$ e $a_y = \np{0.5}$. Determine a projeção do vetor na direção do eixo tracejado mostrado na figura, sabendo que o ângulo $\alpha$ indicado é de \np[\tcdegree]{30}.
+\end{quote}
+
+\begin{marginfigure}[-2cm]
+\centering
+\begin{tikzpicture}[>=Stealth,scale = 1.5]
+
+    \draw[->] (-1,0) -- (1,0) node[below left]{$x$};
+    \draw[->] (0,-1) -- (0,1) node[below left]{$y$};
+    
+    \draw[dashed] (0,0) coordinate (O) -- (120:2) coordinate (P) -- +(0,-1) coordinate (Q);
+    
+    \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 5mm]{angle = Q--P--O};
+    
+    \draw[->, thick] (0,0) --  node[below]{$\vec{a}$} (150:1);
+\end{tikzpicture}
+\caption{Disposição do vetor $\vec{a}$ em relação ao sistema de coordenadas e direção do eixo sobre o qual queremos determinar a projeção de tal vetor.\label{Fig:Ex:ProjecaoEixoQQ}}
+\end{marginfigure}
+
+Para que possamos determinar a projeção do vetor na direção desejada precisamos de duas informações: o módulo do vetor e o ângulo formado entre ele e tal direção. A determinação do módulo é bastante simples, bastando utilizar a Expressão~\eqref{Eq:ModAPartirDeComp}:
+\begin{align}
+    a &= \sqrt{a_x^2 + a_y^2} \\
+    &= \sqrt{(-\np{0,866})^2 + \np{0.5}^2} \\
+    &\approx 1.
+\end{align}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.5]
+
+    \draw[->] (-1,0) -- (1,0) coordinate (X) node[below left]{$x$};
+    \draw[->] (0,-1) -- (0,1) node[below left]{$y$};
+    
+    \draw[dashed] (0,0) coordinate (O) -- (120:2) coordinate (P) -- +(0,-1) coordinate (Q);
+    
+    \draw[->, thick] (0,0) --  node[below]{$\vec{a}$} (150:1) coordinate (A);
+        
+    \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 5mm]{angle = Q--P--O};
+    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm]{angle = X--O--A};
+    \pic [draw, "$\gamma$", angle eccentricity = 1.3, angle radius = 7mm]{angle = X--O--P};
+    \pic [draw, "$\beta$", angle eccentricity = 1.3, angle radius = 9mm]{angle = P--O--A};
+ 
+\end{tikzpicture}
+\caption{Definição dos ângulos $\beta$ e $\gamma$.\label{Fig:Ex:ProjecaoEixoQQ2}}
+\end{marginfigure}
+
+Observando a Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, verificamos que podemos obter o ângulo $\beta$ entre o vetor e a reta tracejada pela diferença entre o ângulo $\theta$ e o ângulo $\gamma$, onde o primeiro é o ângulo entre o vetor e o eixo $x$ positivo e o segundo o ângulo entre a reta tracejada e o eixo $x$. Para determinarmos o ângulo $\theta$, basta utilizarmos a Expressão~\eqref{Eq:AngaPartirDeComp}:
+\begin{align}
+    \theta &= \arctan \left(\frac{a_y}{a_x}\right) \\
+    &= \arctan \left(\frac{\np{-0.866}}{\np{0.5}}\right) \\
+    &\approx \np[\tcdegree]{-30} \\
+    &= \np[\tcdegree]{150}.
+\end{align}
+%
+Note que ao utilizarmos uma calculadora para determinar o ângulo, é comum que a função $\arctan$ retorne um valor negativo para o ângulo, o que equivale nesse caso ao ângulo entre o eixo $x$ e a continuação da reta pontilhada no quarto quadrante, medido no sentido horário ---~veja a Figura~\ref{Fig:Ex:AngNegativoConverter}~---. Para determinarmos o ângulo $\theta$ que desejamos, basta somar \np[\tcdegree]{180}.
+
+\begin{marginfigure}[-6cm]
+\centering
+\begin{tikzpicture}[>=Stealth, scale = 1.75]
+
+    \draw[-Stealth] (-1,0) -- (1,0) coordinate (X) node[below left]{$x$};
+    \draw[-Stealth] (0,-1) -- (0,1) node[below left]{$y$};
+    
+    \draw[dashed] (120:1) coordinate (A) -- (-60:1) coordinate (B);
+    
+    \coordinate (O) at (0,0);
+        
+    \pic [->, draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 4mm]{angle = X--O--A};
+    \pic [<-, draw, "$\beta$", angle eccentricity = 1.4, angle radius = 6mm]{angle = B--O--X};
+ 
+\end{tikzpicture}
+\caption{Os ângulos $\alpha$ e $\beta$ estão relacionados através de $\alpha - \beta = \np[\tcdegree]{180}$. Note que $\beta$ é um ângulo negativo, pois é medido no sentido horário.\label{Fig:Ex:AngNegativoConverter}}
+\end{marginfigure}
+
+Basta agora determinarmos o ângulo $\gamma$. Através da Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, podemos notar que o ângulo entre a reta tracejada e o eixo $y$ é igual a $\alpha$ ---~pois são alternos internos, veja a Figura~\ref{Fig:Ex:AlternosInternos}~---. Como o ângulo entre os eixos $x$ e $y$ é de \np[\tcdegree]{90}, temos que
+\begin{equation}
+    \gamma = \np[\tcdegree]{120}.
+\end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[>=Stealth]
+
+    \draw[name path = reta1] (-0.75,-2) coordinate (inf) -- (-0.75,2);
+    \draw[name path = reta2] (0.75,-2) -- (0.75,2) coordinate (sup);
+   
+    \draw[name path = transversal, dashed] (120:2) -- (-60:2);
+        
+    \path[name intersections={of=reta1 and transversal}] (intersection-1) coordinate (a);
+    \path[name intersections={of=reta2 and transversal}] (intersection-1) coordinate (b);
+    
+    \pic [draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 5mm]{angle = inf--a--b};
+    \pic [draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 5mm]{angle = sup--b--a};
+ 
+\end{tikzpicture}
+\caption{Ângulos alternos internos são iguais.\label{Fig:Ex:AlternosInternos}}
+\end{marginfigure}
+
+\noindent{}Concluímos, portanto, que
+\begin{equation}
+    \beta = \np[\tcdegree]{30}.
+\end{equation}
+
+Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do eixo tracejado:
+\begin{align}
+    a_e &= a\cos\np[\tcdegree]{30} \\
+    &\approx \np{0,866}.
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sistema de referência em três dimensões}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1504,120 +1618,6 @@ de onde obtemos
     a_x &= a\cos\phi & a_y &= -a\sen\phi \\
     &= (\np[m]{2,0})\cdot(\cos\np[\tcdegree]{330}) & &= (\np[m]{2,0})\cdot(\sen\np[\tcdegree]{330}) \\
     &\approx \np[m]{1.732} & &= \np[m]{-1,0}
-\end{align}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemplo: Projeção de um vetor em um eixo qualquer}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{quote}
-    Na Figura~\ref{Fig:Ex:ProjecaoEixoQQ} temos um vetor $\vec{a}$, cujas coordenadas em relação ao sistema de referência $xy$ mostrado são $a_x = \np{-0.866}$ e $a_y = \np{0.5}$. Determine a projeção do vetor na direção do eixo tracejado mostrado na figura, sabendo que o ângulo $\alpha$ indicado é de \np[\tcdegree]{30}.
-\end{quote}
-
-\begin{marginfigure}[-2cm]
-\centering
-\begin{tikzpicture}[>=Stealth,scale = 1.5]
-
-    \draw[->] (-1,0) -- (1,0) node[below left]{$x$};
-    \draw[->] (0,-1) -- (0,1) node[below left]{$y$};
-    
-    \draw[dashed] (0,0) coordinate (O) -- (120:2) coordinate (P) -- +(0,-1) coordinate (Q);
-    
-    \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 5mm]{angle = Q--P--O};
-    
-    \draw[->, thick] (0,0) --  node[below]{$\vec{a}$} (150:1);
-\end{tikzpicture}
-\caption{Disposição do vetor $\vec{a}$ em relação ao sistema de coordenadas e direção do eixo sobre o qual queremos determinar a projeção de tal vetor.\label{Fig:Ex:ProjecaoEixoQQ}}
-\end{marginfigure}
-
-Para que possamos determinar a projeção do vetor na direção desejada precisamos de duas informações: o módulo do vetor e o ângulo formado entre ele e tal direção. A determinação do módulo é bastante simples, bastando utilizar a Expressão~\eqref{Eq:ModAPartirDeComp}:
-\begin{align}
-    a &= \sqrt{a_x^2 + a_y^2} \\
-    &= \sqrt{(-\np{0,866})^2 + \np{0.5}^2} \\
-    &\approx 1.
-\end{align}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.5]
-
-    \draw[->] (-1,0) -- (1,0) coordinate (X) node[below left]{$x$};
-    \draw[->] (0,-1) -- (0,1) node[below left]{$y$};
-    
-    \draw[dashed] (0,0) coordinate (O) -- (120:2) coordinate (P) -- +(0,-1) coordinate (Q);
-    
-    \draw[->, thick] (0,0) --  node[below]{$\vec{a}$} (150:1) coordinate (A);
-        
-    \pic [draw, "$\alpha$", angle eccentricity = 1.5, angle radius = 5mm]{angle = Q--P--O};
-    \pic [draw, "$\theta$", angle eccentricity = 1.5, angle radius = 3mm]{angle = X--O--A};
-    \pic [draw, "$\gamma$", angle eccentricity = 1.3, angle radius = 7mm]{angle = X--O--P};
-    \pic [draw, "$\beta$", angle eccentricity = 1.3, angle radius = 9mm]{angle = P--O--A};
- 
-\end{tikzpicture}
-\caption{Definição dos ângulos $\beta$ e $\gamma$.\label{Fig:Ex:ProjecaoEixoQQ2}}
-\end{marginfigure}
-
-Observando a Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, verificamos que podemos obter o ângulo $\beta$ entre o vetor e a reta tracejada pela diferença entre o ângulo $\theta$ e o ângulo $\gamma$, onde o primeiro é o ângulo entre o vetor e o eixo $x$ positivo e o segundo o ângulo entre a reta tracejada e o eixo $x$. Para determinarmos o ângulo $\theta$, basta utilizarmos a Expressão~\eqref{Eq:AngaPartirDeComp}:
-\begin{align}
-    \theta &= \arctan \left(\frac{a_y}{a_x}\right) \\
-    &= \arctan \left(\frac{\np{-0.866}}{\np{0.5}}\right) \\
-    &\approx \np[\tcdegree]{-30} \\
-    &= \np[\tcdegree]{150}.
-\end{align}
-%
-Note que ao utilizarmos uma calculadora para determinar o ângulo, é comum que a função $\arctan$ retorne um valor negativo para o ângulo, o que equivale nesse caso ao ângulo entre o eixo $x$ e a continuação da reta pontilhada no quarto quadrante, medido no sentido horário ---~veja a Figura~\ref{Fig:Ex:AngNegativoConverter}~---. Para determinarmos o ângulo $\theta$ que desejamos, basta somar \np[\tcdegree]{180}.
-
-\begin{marginfigure}[-6cm]
-\centering
-\begin{tikzpicture}[>=Stealth, scale = 1.75]
-
-    \draw[-Stealth] (-1,0) -- (1,0) coordinate (X) node[below left]{$x$};
-    \draw[-Stealth] (0,-1) -- (0,1) node[below left]{$y$};
-    
-    \draw[dashed] (120:1) coordinate (A) -- (-60:1) coordinate (B);
-    
-    \coordinate (O) at (0,0);
-        
-    \pic [->, draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 4mm]{angle = X--O--A};
-    \pic [<-, draw, "$\beta$", angle eccentricity = 1.4, angle radius = 6mm]{angle = B--O--X};
- 
-\end{tikzpicture}
-\caption{Os ângulos $\alpha$ e $\beta$ estão relacionados através de $\alpha - \beta = \np[\tcdegree]{180}$. Note que $\beta$ é um ângulo negativo, pois é medido no sentido horário.\label{Fig:Ex:AngNegativoConverter}}
-\end{marginfigure}
-
-Basta agora determinarmos o ângulo $\gamma$. Através da Figura~\ref{Fig:Ex:ProjecaoEixoQQ2}, podemos notar que o ângulo entre a reta tracejada e o eixo $y$ é igual a $\alpha$ ---~pois são alternos internos, veja a Figura~\ref{Fig:Ex:AlternosInternos}~---. Como o ângulo entre os eixos $x$ e $y$ é de \np[\tcdegree]{90}, temos que
-\begin{equation}
-    \gamma = \np[\tcdegree]{120}.
-\end{equation}
-
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}[>=Stealth]
-
-    \draw[name path = reta1] (-0.75,-2) coordinate (inf) -- (-0.75,2);
-    \draw[name path = reta2] (0.75,-2) -- (0.75,2) coordinate (sup);
-   
-    \draw[name path = transversal, dashed] (120:2) -- (-60:2);
-        
-    \path[name intersections={of=reta1 and transversal}] (intersection-1) coordinate (a);
-    \path[name intersections={of=reta2 and transversal}] (intersection-1) coordinate (b);
-    
-    \pic [draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 5mm]{angle = inf--a--b};
-    \pic [draw, "$\alpha$", angle eccentricity = 1.4, angle radius = 5mm]{angle = sup--b--a};
- 
-\end{tikzpicture}
-\caption{Ângulos alternos internos são iguais.\label{Fig:Ex:AlternosInternos}}
-\end{marginfigure}
-
-\noindent{}Concluímos, portanto, que
-\begin{equation}
-    \beta = \np[\tcdegree]{30}.
-\end{equation}
-
-Finalmente, podemos determinar a projeção do vetor $\vec{a}$ na direção do eixo tracejado:
-\begin{align}
-    a_e &= a\cos\np[\tcdegree]{30} \\
-    &\approx \np{0,866}.
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
