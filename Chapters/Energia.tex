@@ -243,8 +243,8 @@ Essa observação é muito importante, pois permite que interpretemos diversos f
 Tanto a energia cinética, quanto o trabalho tem unidades dadas por
 \begin{align*}
     [K] &= \left[\frac{1}{2} mv^2\right] & [W] &= [\vec{F}\cdot\vec{d}] \\
-    &=[m][v]^2 & &= [F][d] \\
-    &=\rm{M}\frac{\rm{L}^2}{\rm{T}^2} & &= \rm{M}\frac{\rm{L}}{\rm{T}^2} \rm{L},
+    &=[m] \cdot [v]^2 & &= [F] \cdot [d] \\
+    &=\rm{M}\cdot\frac{\rm{L}^2}{\rm{T}^2} & &= \rm{M} \cdot \frac{\rm{L}}{\rm{T}^2} \cdot \rm{L},
 \end{align*}
 %
 o que, utilizando unidades do Sistema Internacional, resulta em
@@ -819,7 +819,7 @@ As forças que atuam no problema, além da força $\vec{F}$, são a força peso 
     \begin{align}
         W &= Fd\cos\alpha \\
         &= (\np[N]{100})\cdot(\np[m]{5,0})\cdot(\cos\degree{35}) \\
-        &= \np[J]{4,10E2}.
+        &= \np[J]{4,1E2}.
     \end{align}
     
     \item[Força normal:] Sabemos que o deslocamento do bloco é paralelo à superfície do plano inclinado. Como a força normal é perpendicular a superfície, ela também é perpendicular ao deslocamento. Logo,
@@ -1001,7 +1001,7 @@ ou seja,
 \section{Trabalho como a área de um gráfico $F \times x$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em um movimento unidimensional, se elaborarmos um gráfico da força $F_x$ que atua sobre um corpo em função de sua posição $x$ em tal eixo, obtemos um gráfico como o da Figura~\ref{Fig:Graf_area_graf_F_vs_x}. O trabalho efetuado pela força no deslocamento entre duas posições $x_i$ e $x_f$ pode então ser calculado como a ``área virtual'' do gráfico compreendida entre as linhas verticais que passam por $x_i$ e $x_f$ e as linhas horizontais do eixo $x$ e da força $F_x$, pois tal área é dada por
+Em um movimento unidimensional, se elaborarmos um gráfico da componente $F_x$ de uma força constante que atua sobre um corpo em função de sua posição $x$ em tal eixo, obtemos um gráfico como o da Figura~\ref{Fig:Graf_area_graf_F_vs_x}. O trabalho efetuado pela força no deslocamento entre duas posições $x_i$ e $x_f$ pode então ser calculado como a ``área virtual'' do gráfico compreendida entre as linhas verticais que passam por $x_i$ e $x_f$ e as linhas horizontais do eixo $x$ e da força $F_x$, pois tal área é dada por
 
 \begin{marginfigure}[4cm]
 \centering
@@ -1034,6 +1034,7 @@ Em um movimento unidimensional, se elaborarmos um gráfico da força $F_x$ que a
 \begin{align}
   A &= \textrm{base} \times \textrm{altura} \\
   &= \Delta x \times F_x \\
+  &= \Delta x \times F \times \cos\theta \\
   &= W_{F_x}.
 \end{align}
 %
@@ -1053,7 +1054,7 @@ o que resulta em um gráfico como o da Figura~\ref{Fig:TrabalhoForcaElastica}. S
   W_{F_e} = \frac{x_i F(x_i)}{2} - \frac{x_f F(x_f)}{2}
 \end{equation}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}[-3cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
      interface/.style={
@@ -1108,7 +1109,7 @@ ou
   W_{F_e} = - \frac{1}{2} k (x_f^2 - x_i^2). \mathnote{Trabalho realizado por uma força elástica}
 \end{equation}
 
-Note que se o deslocamento no problema acima fosse no sentido oposto, o trabalho seria negativo, já que ele tende a diminuir a energia cinética. No entanto, a expressão acima para o trabalho continua sendo válida, pois trocamos os pontos inicial e final. Quando fizemos a interpretação da área de um gráfico na cinemática, sempre tinhamos um deslocamento no sentido positivo do eixo horizontal --~pois ele representa o tempo, que sempre cresce~--, e as áreas acima do eixo horizontal representavam quantidades positivas, enquanto áreas abaixo do eixo representavam quantidades negativas\footnote{No caso de um gráfico da velocidade em função do tempo, por exemplo, a área corresponde ao deslocamento. Se a curva $v(t)$ passa para a parte negativa do eixo vertical, ou seja, abaixo do eixo horizontal, temos um deslocamento no sentido negativo do eixo.}.
+Note que se o deslocamento no problema acima fosse no sentido oposto, o trabalho seria negativo, já que ele tende a diminuir a energia cinética. No entanto, a expressão acima para o trabalho continua sendo válida, pois trocamos os pontos inicial e final. Quando fizemos a interpretação da área de um gráfico na cinemática, sempre tinhamos um deslocamento no sentido positivo do eixo horizontal ---~pois ele representa o tempo, que sempre cresce~---, e as áreas acima do eixo horizontal representavam quantidades positivas, enquanto áreas abaixo do eixo representavam quantidades negativas.\footnote{No caso de um gráfico da velocidade em função do tempo, por exemplo, a área corresponde ao deslocamento. Se a curva $v(t)$ passa para a parte negativa do eixo vertical, ou seja, abaixo do eixo horizontal, temos um deslocamento no sentido negativo do eixo.}
 
 No caso do trabalho, no entanto, podemos tanto ter deslocamentos no sentido positivo do eixo, quanto no sentido negativo. No caso de termos um deslocamento no sentido positivo do eixo, o trabalho terá um valor positivo se a área estiver acima do eixo e um valor negativo se estiver abaixo do eixo horizontal. Em um deslocamento no sentido negativo do eixo horizontal, no entanto, essa relação se inverte: se a área estiver acima do eixo horizontal, ela representa um trabalho negativo, enquanto se estiver abaixo, ela representa um trabalho positivo. Para todos os casos, todavia, a Expressão~\eqref{Eq:TrabalhoForcaElastica} acima é válida.
 
@@ -1176,7 +1177,7 @@ Resolvendo a equação de segundo grau acima, obtemos
 \section{Trabalho de uma força variável}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Verificamos ao discutir o cálculo da área sob uma curva ao ver o movimento unidimensional que podemos determinar a área sob uma curva através de um método aproximativo, que consiste em dividir a área em uma série de retângulos. Esse tipo de aproximação é bastante simples de se fazer utilizando um computador, e também bastante precisa, já que podemos utilizar um número muito grande de retângulos. Esse tipo de procedimento é denominado como \emph{integração por quadratura}. Existem outros métodos numéricos que, com base em uma quadratura, conseguem eliminar alguns erros inerentes a esse tipo de aproximação e determinam valores relativamente bons e com poucos pontos de avaliação da função. No entanto, podemos determinar \emph{exatamente} o valor da área sob uma curva $f(x)$ entre dois limites $x_i$ e $x_f$ ---~o que denominamos como \emph{integral definida}~--- se utilizarmos o \emph{Teorema Fundamental do Cálculo}.
+Ao analisarmos o movimento unidimensional, verificamos ao discutir o cálculo da área sob uma curva que podemos determiná-la através de um método aproximativo, que consiste em dividir a área em uma série de retângulos. Esse tipo de aproximação é bastante simples de se fazer utilizando um computador, e também bastante precisa, já que podemos utilizar um número muito grande de retângulos. Esse tipo de procedimento é denominado como \emph{integração por quadratura}. Existem outros métodos numéricos que, com base em uma quadratura, conseguem eliminar alguns erros inerentes a esse tipo de aproximação e determinam valores relativamente bons e com poucos pontos de avaliação da função. No entanto, podemos determinar \emph{exatamente} o valor da área sob uma curva $f(x)$ entre dois limites $x_i$ e $x_f$ ---~o que denominamos como \emph{integral definida}~--- se utilizarmos o \emph{Teorema Fundamental do Cálculo}.
 
 \begin{marginfigure}[-3cm]
 \centering
@@ -1312,7 +1313,7 @@ Logo, \emph{o valor da derivada de $A_{f(x)}(x)$ no ponto $x_p$ é o próprio va
     A_{f(x)}(x_p) = \mathcal{F}(x_p) + C.
 \end{equation}
  
-A constante $C$ não nos permite\footnote{Na verdade podemos calcular a área entre $a$ e um limite superior qualquer simplesmente escolhendo um ponto de referência mais a esquerda. Logo, o resultado  não depende da posição de $a$ e é geral.} saber exatamente o valor da área entre $a$ e $x_p$, mas tal constante não nos impede de calcular a área entre dois limites $x_i$ e $x_f$ quaisquer (Figura~\ref{Fig:TeoremaFundamentalDoCalculoIntegralDefinida}): basta determinarmos a diferença entre as áreas contidas nos intervalos $[a,x_f]$ e $[a,x_i]$. Assim,
+A constante $C$ não nos permite\footnote{Na verdade podemos calcular a área entre $a$ e um limite superior qualquer simplesmente escolhendo um ponto de referência mais a esquerda. Logo, o resultado  não depende da posição de $a$ e é geral.} saber exatamente o valor da área entre $a$ e $x_p$, mas não nos impede de calcular a área entre dois limites $x_i$ e $x_f$ quaisquer (Figura~\ref{Fig:TeoremaFundamentalDoCalculoIntegralDefinida}): basta determinarmos a diferença entre as áreas contidas nos intervalos $[a,x_f]$ e $[a,x_i]$. Assim,
 \begin{align}
     A_{[x_i,x_f]} &= A_{f(x)}(x_f) - A_{f(x)}(x_i) \\
     &= (\mathcal{F}(x_f) + C) - (\mathcal{F}(x_i) + C) \\
@@ -1756,9 +1757,9 @@ Nesse caso verificamos que a integral é \emph{nula}. De fato, a área entre a c
 \subsection{Trabalho como a integral da força}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De acordo com os resultados das seções anteriores, se conhecemos a função $F_x(x)$ que nos dá a força, podemos calcular o trabalho $W_{F_x}$ no deslocamento de $x_i$ a $x_f$ através de
+De acordo com os resultados das seções anteriores, se conhecemos a função $F_x(x)$ que nos dá a componente da força na direção do deslocamento, podemos calcular o trabalho $W_{F}$ no deslocamento de $x_i$ a $x_f$ através de
 \begin{equation}\label{Eq:TrabalhoIntegral}
-    W_{F_x} = \int_{x_i}^{x_f} F_x(x) \;dx,
+    W_{F} = \int_{x_i}^{x_f} F_x(x) \;dx,
 \end{equation}
 %
 o que equivale a realizar o processo inverso à diferenciação, encontrando uma função $\mathcal{F}(x)$ e então calcular a diferença $\mathcal{F}(x_f) - \mathcal{F}(x_i)$. 
@@ -2226,14 +2227,14 @@ onde estamos descrevendo a distensão da mola através do próprio eixo $y$ vert
 Podemos simplificar a expressão acima se escolhermos $y_i = 0$, obtendo
 \begin{align}
     0 &= -[mg y_f - mg y_i] - \left[\frac{k}{2} y_f^2\right] \\
-    0 &= -[mg \ell_{\rm{max}} - mg h] - \left[\frac{k}{2} \ell_{\rm{max}}^2\right] \\
-    0 &= \frac{k}{2} \ell_{\rm{max}}^2 + mg \ell_{\rm{max}} - mgh.
+    0 &= -[mg (-\ell_{\rm{max}}) - mgh] - \left[\frac{k}{2} \ell_{\rm{max}}^2\right] \\
+    0 &= \frac{k}{2} \ell_{\rm{max}}^2 - mg \ell_{\rm{max}} - mgh.
 \end{align}
 %
 Resolvendo a equação de segundo grau acima, obtemos
 \begin{align}
     y_f &= \frac{-(mg) \pm \sqrt{(mg)^2 - 4\cdot\left(\frac{k}{2}\right)\cdot(-mgh)}}{2\cdot\left(\frac{k}{2}\right)}\\
-    &= \np[m]{0,536}.
+    &= \np[m]{0,73}.
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
