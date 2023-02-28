@@ -13,7 +13,7 @@ Algumas propriedades matemáticas importantes que serão utilizadas ao longo do 
 \section{Variáveis e Equações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Qualquer aplicação mais avançada que o absolutamente básico de matemática exige que usemos variáveis e equações. Uma variável é uma letra que representa um valor numérico desconhecido, ou um ``lugar'' onde devemos colocar um valor numérico qualquer. Denotamos as variáveis usando um itálico específico no texto:
+Qualquer aplicação mais avançada que o absolutamente básico de matemática exige que usemos variáveis e equações. Uma variável é uma letra que representa um valor numérico desconhecido, ou um ``lugar'' onde devemos colocar um valor numérico qualquer. Denotamos as variáveis usando um tipo particular de fonte itálica no texto:
 \begin{displaymath}
     a, b, c, d, e, f, \dots, x, y, z.
 \end{displaymath}
@@ -108,7 +108,7 @@ Substituindo a expressão que encontramos para $x$ na segunda equação do siste
 %
 de onde obtemos $z = 7$. Para obtermos o valor de $y$, basta utilizar o valor obtido para $z$ na Equação~\eqref{Eq:SistemaSolSubsEqYZ}. Finalmente, para obter o valor de $x$, substituimos os valores obtidos para $y$ e $z$ na Equação~\eqref{Eq:SistemaSolSubsEqX}. Note que é incomum que uma das variáveis fique com coeficiente nulo no final do processo de substituição da primeira variável isolada, como ocorreu com a Equação~\eqref{Eq:SistemaSolSubsEqZ}. Normalmente obtemos duas expressões que envolvem duas das variáveis e que formam um novo sistema que precisa então ser resolvido (sistemas com duas variáveis têm solução fácil com o método de substituição).
 
-Outra possibilidade é multiplicar uma das equações por uma constante e somar em outra, visando eliminar uma das variáveis. Podemos, por exemplo, multiplicar a primeira equação por 3
+Outra possibilidade para solucionar o sistema \eqref{Eq:ExemploSistema} é multiplicar uma das equações por uma constante e somar em outra, visando eliminar uma das variáveis. Podemos, por exemplo, multiplicar a primeira equação por 3
 \begin{align}
     3\cdot(3x + 4y + z &= 36) \\
     9x + 12y + 3z &= 108
@@ -179,6 +179,27 @@ Note que em algumas circustâncias até mesmo dividir uma equação por outra po
 
 \emph{O que é uma função?} Uma função é um ``objeto'' matemático que relaciona dois conjuntos de números, ou mais concretamente, dois valores numéricos que são medidos de alguma maneira. O conceito de função é fundamental para a descrição de teorias físicas pois estamos justamente interessados em descrever a relação entre grandezas.
 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$x$};
+\draw (3.1,0.5) node[above] {$y$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$f$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{Fazer a ilustração do desenho que fiz na p. 26.}
+\end{marginfigure}
+
 Os conjuntos relacionados por uma função são chamados de \emph{domínio} e \emph{contradomínio}, então a função relaciona cada elemento do domínio a \emph{somente um elemento} do contradomínio ---~dois elementos diferentes do domínio podem apontar para um mesmo elemento do contradomínio, mas um elemento do domínio não pode apontar para dois elementos do contadomínio~---. Na Figura~\ref{Fig:Funcao} mostramos o domínio à esquerda, o contradomínio à direita, e uma função $f$ que relaciona os elementos do primeiro grupo a elementos do segundo grupo. Além disso, usamos uma convenção muito comum: chamamos os elementos do domínio genericamente de $x$ e os do contradomínio de $y$ (note que não estamos nos referindo a um elemento específico quando falamos em $x$ ou em $y$, mas a qualquer um dos elementos dos respectivos grupos).
 \begin{figure}[h]
 \centering
@@ -210,6 +231,27 @@ ou, o que é mais comum,
 \begin{equation}
     y = f(x).
 \end{equation}
+
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$x$};
+\draw (3.1,0.5) node[above] {$y$};
+\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+\node [circle,draw,fill,scale=0.3] (A){};
+\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$f$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{Fazer a ilustração do desenho que fiz na p. 27. Tentar fazer três funções, se couber verticalmente.}
+\end{marginfigure}
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Gráficos}
