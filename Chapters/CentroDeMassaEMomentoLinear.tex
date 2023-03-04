@@ -2327,12 +2327,12 @@ Finalmente, devemos destacar que se conhecermos o estado inicial de movimento --
 \begin{quote}
     Duas bolas de bilhar, cujas velocidades são
 \begin{align*}
-    v_1^{\rm{ac}} &= \np[m/s]{3,0} & v_2^{\rm{ac}} &= -\np[m/s]{2,0},
+    v_{1,x}^{\rm{ac}} &= \np[m/s]{3,0} & v_{2,x}^{\rm{ac}} &= -\np[m/s]{2,0},
 \end{align*}
 %
 colidem entre si. Se a velocidade final da partícula 1 é
 \begin{equation}
-    v_1 = 0,
+    v_{1,x} = 0,
 \end{equation}
 %
 qual é a velocidade da partícula 2 após a colisão, considerando que ambas têm a mesma massa?
@@ -2366,23 +2366,23 @@ Assim como no caso da explosão de um corpo abordada anteriormente, podemos apli
 
 Como temos o movimento de duas partículas somente em um eixo, podemos escrever
 \begin{equation}
-        m_1 v_1^{\rm{ac}} + m_2 v_2^{\rm{ac}} = m_1 v_1^{\rm{dc}} + m_2 v_2^{\rm{dc}}
+        m_1 v_{1,x}^{\rm{ac}} + m_2 v_{2,x}^{\rm{ac}} = m_1 v_{1,x}^{\rm{dc}} + m_2 v_{2,x}^{\rm{dc}}
 \end{equation}
 %
 ou, considerando que ambas as massas são iguais,
 \begin{equation}
-        v_1^{\rm{ac}} + v_2^{\rm{ac}} = v_1^{\rm{dc}} + v_2^{\rm{dc}}
+        v_{1,x}^{\rm{ac}} + v_{2,x}^{\rm{ac}} = v_{1,x}^{\rm{dc}} + v_{2,x}^{\rm{dc}}
 \end{equation}
 %
 o que resulta em
 \begin{align}
-    v_1^{\rm{ac}} + v_2^{\rm{ac}} &= v_1^{\rm{dc}} + v_2^{\rm{dc}} \\
-    \np[m/s]{3,0} - \np[m/s]{2,0} &= 0 + v_2^{\rm{dc}}.
+    v_{1,x}^{\rm{ac}} + v_{2,x}^{\rm{ac}} &= v_{1,x}^{\rm{dc}} + v_{2,x}^{\rm{dc}} \\
+    \np[m/s]{3,0} - \np[m/s]{2,0} &= 0 + v_{2,x}^{\rm{dc}}.
 \end{align}
 %
 Finalmente,
 \begin{equation}
-    v_2^{\rm{dc}} = \np[m/s]{1,0}.
+    v_{2,x}^{\rm{dc}} = \np[m/s]{1,0}.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2442,9 +2442,14 @@ Podemos dividir o problema nas seguintes partes:
     
     \item[Colisão entre os discos:] Desprezando a força de atrito durante a colisão, podemos dizer que a força externa resultante é nula. Logo, podemos determinar uma relação entre as velocidades através da conservação do momento linear:
         \begin{align}
-            m_1 v_1^{\rm{ac}} + m_2 v_2^{\rm{ac}} &= m_1 v_1^{\rm{dc}} + m_2 v_2^{\rm{dc}} \\
-            m_1 v_1^{\rm{ac}} &= m_1 v_1^{\rm{dc}} + m_2 v_2^{\rm{dc}}
+            m_1 v_{1,x}^{\rm{ac}} + m_2 v_{2,x}^{\rm{ac}} &= m_1 v_{1,x}^{\rm{dc}} + m_2 v_{2,x}^{\rm{dc}} \\
+            m_1 v_{1,x}^{\rm{ac}} &= m_1 v_{1,x}^{\rm{dc}} + m_2 v_{2,x}^{\rm{dc}}.
         \end{align}
+        %
+        Como estamos tratando de um movimento unidimensional, temos que $v_{1,x} = v_1$ e $v_{2,x} = v_2$, portanto
+        \begin{equation}
+            m_1 v_{1}^{\rm{ac}} = m_1 v_{1}^{\rm{dc}} + m_2 v_{2}^{\rm{dc}}.
+        \end{equation}
     \item[Desaceleração dos discos após a colisão:] Após a colisão os discos desaceleram devido ao atrito. As expressões para as velocidades são obtidas da mesma maneira que aquelas para a desaceleração do disco antes da colisão:
     \begin{align}
         (v_1^f)^2 - (v_1^i)^2 = -2\mu_c g \ell \\
@@ -2490,12 +2495,12 @@ De um ponto de vista energético, o Princípio da Conservação da Energia nos d
     \Delta E_{\text{sis}}^{\rm{mec}} + \Delta E_{\rm{sis}}^{\text{int}} = W_{\rm{ext}} + Q + R.
 \end{equation}
 %
-Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,\footnote[][-3cm]{Ou o impulso é negligível e podemos dizer que o momento linear é aproximadamente constante.}
+Sabemos que em uma colisão a força resultante externa é nula, o que implica na conservação do momento linear,\footnote[][-1cm]{Ou o impulso é negligível e podemos dizer que o momento linear é aproximadamente constante.}
 \begin{equation}
     \vec{P}_{\rm{sis}}^{\rm{ac}} = \vec{P}_{\rm{sis}}^{\rm{dc}},
 \end{equation}
 %
-e também em um trabalho externo nulo:\footnote[][-3cm]{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
+e também em um trabalho externo nulo:\footnote{Geralmente uma colisão está associada a emissão de ondas sonoras, que são ondas mecânicas que se propagam em um meio material e são capazes de transferir energia através do trabalho de uma força de interação. Vamos ignorar essa possibilidade, até por que a quantidade de energia transferida é pequena.}
 \begin{equation}
     W_{\rm{ext}} = 0.
 \end{equation}
@@ -2505,7 +2510,7 @@ Além disso, calor e radiação não são aspectos relevantes em uma colisão. I
     \Delta E_{\rm{mec}} + \Delta E_{\rm{int}} = 0,
 \end{equation}
 %
-ou seja, \emph{a energia total do sistema é constante}. Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno, podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:\footnote[][-5cm]{É claro que no caso de potenciais de alcance infinito, como os potenciais proporcionais a $r^{-1}$, teremos uma parte da energia armazenada no próprio potencial. Estou buscando aqui explorar o que acontece internamente com os corpos que colidem.}
+ou seja, \emph{a energia total do sistema é constante}. Se considerarmos que durante uma colisão o deslocamento dos corpos que colidem é muito pequeno, podemos afirmar ainda que a variação dos potenciais presentes na energia mecânica é desprezível, o que resulta na seguinte relação:\footnote[][-1cm]{É claro que no caso de potenciais de alcance infinito, como os potenciais proporcionais a $r^{-1}$, teremos uma parte da energia armazenada no próprio potencial. Estou buscando aqui explorar o que acontece internamente com os corpos que colidem.}
 \begin{equation}
     \Delta K_{\text{sis}} + \Delta E_{\text{sis}}^{\text{int}} = 0.
 \end{equation}
@@ -2641,22 +2646,22 @@ Durante a colisão, podemos considerar que o momento linear do sistema se conser
 
 Utilizando a conservação do momento linear na colisão, temos
 \begin{equation}
-    m_p v_p^{x, \rm{ac}} + m_a v_a^{x, \rm{ac}} = m_p v_p^{x, \rm{dc}} + m_a v_a^{x, \rm{dc}},
+    m_p v_{p,x}^{\rm{ac}} + m_a v_{a,x}^{\rm{ac}} = m_p v_{p,x}^{\rm{dc}} + m_a v_{a,x}^{\rm{dc}},
 \end{equation}
 %
 onde adotamos o eixo $x$ como sendo o eixo horizontal, na direção da velocidade do projétil. Após a colisão, o projétil fica alojado no bloco, logo suas velocidades finais são iguais:
 \begin{equation}
-    v_p^{x, \rm{dc}} = v_a^{x, \rm{dc}} = v^{x, \rm{dc}}.
+    v_{p,x}^{\rm{dc}} = v_{a,x}^{\rm{dc}} = v_{x}^{\rm{dc}}.
 \end{equation}
 %
 Além disso, a velocidade inicial do alvo é nula, portanto,
 \begin{equation}
-    m_p v_p^{x, \rm{ac}} = (m_p + m_a) v_p^{x, \rm{dc}}.
+    m_p v_{p,x}^{\rm{ac}} = (m_p + m_a) v_{p,x}^{\rm{dc}}.
 \end{equation}
 %
 Como estamos interessados em determinar a velocidade do projétil, podemos a isolar, obtendo
 \begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} v_p^{x, \rm{dc}}.
+    v_{p,x}^{\rm{ac}} = \frac{(m_p + m_a)}{m_p} v_{p,x}^{\rm{dc}}.
 \end{equation}
 
 \begin{marginfigure}
@@ -2716,7 +2721,7 @@ o que resulta em
 
 Finalmente, notando que a velocidade inicial do bloco para o processo de subida após a colisão é igual à velocidade imediatamente após a colisão, temos que
 \begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2gh},
+    v_{p,x}^{\rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2gh},
 \end{equation}
 %
 ou, notando que a altura $h$ é dada por
@@ -2726,7 +2731,7 @@ ou, notando que a altura $h$ é dada por
 \end{align}
 %
 \begin{equation}
-    v_p^{x, \rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2g\ell(1-\cos\theta)}.
+    v_{p,x}^{\rm{ac}} = \frac{(m_p + m_a)}{m_p} \sqrt{2g\ell(1-\cos\theta)}.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2741,18 +2746,18 @@ ou, notando que a altura $h$ é dada por
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Sabemos que em toda colisão pode podemos utilizar a conservação do momento linear. No caso das colisões inelásticas é necessário saber informações acerca das massas e velocidades antes e depois da colisão, restando no máximo uma variável a se determinar. No caso das colisões elásticas, no entanto, temos também uma energia cinétical total constante, o que nos leva ao sistema
+Sabemos que em toda colisão pode podemos utilizar a conservação do momento linear. No caso das colisões inelásticas é necessário saber informações acerca das massas e velocidades antes e depois da colisão, restando no máximo uma variável a se determinar. No caso das colisões elásticas unidimensionais, no entanto, temos também uma energia cinétical total constante, o que nos leva ao sistema
 \begin{equation}
 \begin{system}
-m_1 v_1^{\textrm{ac}} + m_2 v_2^{\textrm{ac}} &= m_1 v_1^{\textrm{dc}} + m_2 v_2^{\textrm{dc}} \\
+m_1 v_{1,x}^{\textrm{ac}} + m_2 v_{2,x}^{\textrm{ac}} &= m_1 v_{1,x}^{\textrm{dc}} + m_2 v_{2,x}^{\textrm{dc}} \\
 \frac{1}{2}m_1 (v_1^{\textrm{ac}})^2 + \frac{1}{2}m_2 (v_2^{\textrm{ac}})^2 &= \frac{1}{2}m_1 (v_1^{\textrm{dc}})^2 + \frac{1}{2}m_2 (v_2^{\textrm{dc}})^2
 \end{system}
 \end{equation}
 %
-cuja solução para $v_1^{\textrm{ac}}$ e $v_2^{\textrm{ac}}$ é
+cuja solução\footnote{Lembre-se que $v_{1,x} = v_1$ e $v_{2,x} = v_2$, pois se trata de um movimento unidimensional.} para $v_1^{\textrm{ac}}$ e $v_2^{\textrm{ac}}$ é
 \begin{align}
-v_1^{\textrm{dc}} = \frac{m_1 - m_2}{m_1+m_2} v_1^{\textrm{ac}} + \frac{2m_2}{m_1+m_2} v_2^{\textrm{ac}} \\
-v_2^{\textrm{dc}} = \frac{2m_1}{m_1+m_2} v_1^{\textrm{ac}} + \frac{m_2 - m_1}{m_1+m_2} v_2^{\textrm{ac}}.
+v_{1,x}^{\textrm{dc}} = \frac{m_1 - m_2}{m_1+m_2} \cdot v_{1,x}^{\textrm{ac}} + \frac{2m_2}{m_1+m_2} \cdot v_{2,x}^{\textrm{ac}} \\
+v_{2,x}^{\textrm{dc}} = \frac{2m_1}{m_1+m_2} \cdot v_{1,x}^{\textrm{ac}} + \frac{m_2 - m_1}{m_1+m_2} \cdot v_{2,x}^{\textrm{ac}}.
 \end{align}
 %
 Novamente, como temos uma relação que vem da conservação do momento linear, que é uma relação vetorial, devemos observar os sentidos das velocidades em relação ao eixo coordenado adotado e utilizar sinais coerentes para as variáveis.
@@ -2761,20 +2766,20 @@ Novamente, como temos uma relação que vem da conservação do momento linear, 
 \begin{description}
     \item[$m_1 = m_2$:] Nesse caso, após a colisão temos
     \begin{align}
-        v_1^{\textrm{dc}} &= 0 \\
-        v_2^{\textrm{dc}} &= v_1^{\textrm{ac}}.
+        v_{1,x}^{\textrm{dc}} &= 0 \\
+        v_{2,x}^{\textrm{dc}} &= v_{1,x}^{\textrm{ac}}.
     \end{align}
     
     \item[$m_1 \gg m_2$:] Se a massa do projétil (partícula 1) é muito maior que a do alvo, então 
     \begin{align}
-        v_1^{\textrm{dc}} &\approx v_1^{\textrm{ac}} \\
-        v_2^{\textrm{dc}} &\approx 2 v_1^{\textrm{ac}}.
+        v_{1,x}^{\textrm{dc}} &\approx v_{1,x}^{\textrm{ac}} \\
+        v_{2,x}^{\textrm{dc}} &\approx 2 v_{1,x}^{\textrm{ac}}.
     \end{align}
     
     \item[$m_2 \gg m_1$:] Se a massa do alvo é muito maior que a do projétil, então 
     \begin{align}
-        v_1^{\textrm{dc}} &\approx -v_1^{\textrm{ac}} \\
-        v_2^{\textrm{dc}} &\approx 0.
+        v_{1,x}^{\textrm{dc}} &\approx -v_{1,x}^{\textrm{ac}} \\
+        v_{2,x}^{\textrm{dc}} &\approx 0.
     \end{align}
 \end{description}
 
@@ -2798,7 +2803,7 @@ Considerando o texto acima,
 
 Se considerarmos que as colisões entre as partículas $\alpha$ e os elétrons são inelásticas, sabemos que a velocidade da partícula $\alpha$ após a colisão será dada por\footnote{Considerando que a partícula $\alpha$ é a partícula número 1 e o elétron é a partícula número 2, que se encontrava inicialmente em repouso.}
 \begin{equation}
-    v_{\alpha}^{ac} = \frac{m_\alpha - m_e}{m_\alpha + m_e} v_\alpha^{\text{ac}}.
+    v_{\alpha,x}^{ac} = \frac{m_\alpha - m_e}{m_\alpha + m_e} \cdot v_{\alpha,x}^{\text{ac}}.
 \end{equation}
 %
 As massas do elétron e da partícula $\alpha$ são, respectivamente
@@ -2809,14 +2814,14 @@ As massas do elétron e da partícula $\alpha$ são, respectivamente
 %
 o que resulta em
 \begin{equation}
-    v_\alpha^{\text{dc}} = (\np{0.999722585}) \cdot v_\alpha^{\text{ac}}.
+    v_{\alpha,x}^{\text{dc}} = (\np{0.999722585}) \cdot v_\alpha^{\text{ac}}.
 \end{equation}
 %
 Verificamos, portanto, que a velocidade da partícula $\alpha$ após a colisão corresponde a aproximadamente $\np{99.97}\%$ da velocidade antes da colisão. Consequentemente, podemos desprezar as perturbações na trajetória das partículas $\alpha$ devidas aos elétrons.
 
 Quando as partículas $\alpha$ colidem com o núcleo, suas velocidades após a colisão são dadas pela relação
 \begin{equation}
-    v_{\alpha}^{ac} = \frac{m_\alpha - m_N}{m_\alpha + m_N}. v_\alpha^{\text{ac}}.
+    v_{\alpha,x}^{ac} = \frac{m_\alpha - m_N}{m_\alpha + m_N} \cdot v_{\alpha,x}^{\text{ac}}.
 \end{equation}
 %
 Para que elas sejam capazes de colidir com um alvo e voltarem com uma velocidade similar à velocidade de incidência, a razão das massas na equação acima deve ser aproximadamente $-1$:
@@ -2831,17 +2836,17 @@ Esse resultado só é possível se
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Colisões bidimensionais} 
+\section{Colisões bidimensionais} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Fazer alguma coisa em 2D, mas ainda considerando partículas.}
-% Dar uma olhada no Landau e Lifschitz Mechanics, tem uns resultados interessantes.
+\textbf{Fazer alguma coisa em 2D, mas ainda considerando partículas.}
+ Dar uma olhada no Landau e Lifschitz Mechanics, tem uns resultados interessantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Colisão de corpos reais} 
+\section{Colisão de corpos reais} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\textbf{Dar uma estudada, resolver a colisão de dois discos. Falar do momento transferido na colisão. Ao colidir, só há variação do momento na direção do momento transferido, que é a direção que liga os centros das bolas no instante que elas se tocam.}
+\textbf{Resolver a colisão de dois discos. Falar do momento transferido na colisão. Ao colidir, só há variação do momento na direção do momento transferido, que é a direção que liga os centros das bolas no instante que elas se tocam.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Referenciais inerciais}

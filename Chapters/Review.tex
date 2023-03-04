@@ -177,31 +177,10 @@ Note que em algumas circustâncias até mesmo dividir uma equação por outra po
 \section{Funções}
 %%%%%%%%%%%%%%%%%
 
-\emph{O que é uma função?} Uma função é um ``objeto'' matemático que relaciona dois conjuntos de números, ou mais concretamente, dois valores numéricos que são medidos de alguma maneira. O conceito de função é fundamental para a descrição de teorias físicas pois estamos justamente interessados em descrever a relação entre grandezas.
+\emph{O que é uma função?} Uma função é um ``objeto'' matemático que relaciona dois conjuntos de números, ou mais concretamente, dois valores numéricos que são medidos de alguma maneira. Podemos dizer, de uma maneira mais simples, que uma função é um conjunto de regras que são aplicadas a um número o transformando em outro número (ou conjunto de números). O conceito de função é fundamental para a descrição de teorias físicas pois estamos justamente interessados em descrever a relação entre grandezas.
 
-\begin{marginfigure}
-\centering
-\begin{tikzpicture}
-\draw (0,0.5) node[above] {$x$};
-\draw (3.1,0.5) node[above] {$y$};
-\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
-\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
-\node [circle,draw,fill,scale=0.3] (A){};
-\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
-\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
-\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
-\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
-\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
-\draw [thick, arrows={ - Stealth}]
-(A) edge [bend left=45] node[above]{$f$}(B)
-(C) edge [bend left=45] (D)
-(E) edge [bend left=45] (F);
-\end{tikzpicture}
-\caption{Fazer a ilustração do desenho que fiz na p. 26.}
-\end{marginfigure}
-
-Os conjuntos relacionados por uma função são chamados de \emph{domínio} e \emph{contradomínio}, então a função relaciona cada elemento do domínio a \emph{somente um elemento} do contradomínio ---~dois elementos diferentes do domínio podem apontar para um mesmo elemento do contradomínio, mas um elemento do domínio não pode apontar para dois elementos do contadomínio~---. Na Figura~\ref{Fig:Funcao} mostramos o domínio à esquerda, o contradomínio à direita, e uma função $f$ que relaciona os elementos do primeiro grupo a elementos do segundo grupo. Além disso, usamos uma convenção muito comum: chamamos os elementos do domínio genericamente de $x$ e os do contradomínio de $y$ (note que não estamos nos referindo a um elemento específico quando falamos em $x$ ou em $y$, mas a qualquer um dos elementos dos respectivos grupos).
-\begin{figure}[h]
+Os conjuntos relacionados por uma função são chamados de \emph{domínio} e \emph{contradomínio}, então a função relaciona cada elemento do domínio a \emph{somente um elemento} do contradomínio. Na Figura~\ref{Fig:Funcao} mostramos o domínio à esquerda, o contradomínio à direita, e uma função $f$ que relaciona os elementos do primeiro grupo a elementos do segundo grupo. Além disso, usamos uma convenção muito comum: chamamos os elementos do domínio genericamente de $x$ e os do contradomínio de $y$ (note que não estamos nos referindo a um elemento específico quando falamos em $x$ ou em $y$, mas a qualquer um dos elementos dos respectivos grupos).
+\begin{figure}[t]
 \centering
 \begin{tikzpicture}
 \draw (0,0.5) node[above] {$x$};
@@ -222,19 +201,11 @@ Os conjuntos relacionados por uma função são chamados de \emph{domínio} e \e
 \caption{Domínio, contradomínio e uma função $f$ que relaciona ambos.\label{Fig:Funcao}}
 \end{figure}
 
-Note que os elementos do domínio e do contradomínio podem pertencer ao conjunto dos naturais, dos racionais, dos reais, ou mesmo dos complexos. Em Física, a grande maioria dos casos são de funções com domínio e contradomínio pertencentes aos reais. Matematicamente, a função acima pode ser denotada como
-\begin{equation}
-    f: x \mapsto y,
-\end{equation}
-%
-ou, o que é mais comum,
-\begin{equation}
-    y = f(x).
-\end{equation}
+É importante destacar que dois elementos diferentes do domínio podem apontar para um mesmo elemento do contradomínio, mas um elemento do domínio não pode apontar para dois elementos do contadomínio. Veja a Figura~\ref{Fig:DominioEContradominioFuncaoOuNao}.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3cm]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1]
 \draw (0,0.5) node[above] {$x$};
 \draw (3.1,0.5) node[above] {$y$};
 \draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
@@ -249,17 +220,83 @@ ou, o que é mais comum,
 (A) edge [bend left=45] node[above]{$f$}(B)
 (C) edge [bend left=45] (D)
 (E) edge [bend left=45] (F);
+
+\begin{scope}[shift={(0,-4)}]
+	\draw (0,0.5) node[above] {$x$};
+	\draw (3.1,0.5) node[above] {$y$};
+	\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+	\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+	\node [circle,draw,fill,scale=0.3] (A){};
+	\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+	\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+	\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+	\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+	\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+	\draw [thick, arrows={ - Stealth}]
+	(A) edge [bend left=45] node[above]{$f$}(B)
+	(E) edge [bend left=45] (F);
+	\draw [thick, dashed, arrows={ - Stealth}]	(C) edge [bend left=45] (B);
+\end{scope}
+
+\begin{scope}[shift={(0,-8)}]
+	\draw (0,0.5) node[above] {$x$};
+	\draw (3.1,0.5) node[above] {$y$};
+	\draw (0,-1) ellipse [x radius=12pt, y radius=40pt];
+	\draw (3.1,-1) ellipse [x radius=12pt, y radius=40pt];
+	\node [circle,draw,fill,scale=0.3] (A){};
+	\node [circle,draw,fill,scale=0.3] (B) [right=3cm of A] {};
+	\node [circle,draw,fill,scale=0.3] (C) [below=of A] {};
+	\node [circle,draw,fill,scale=0.3] (D) [right=3cm of C] {};
+	\node [circle,draw,fill,scale=0.3] (E) [below=of C] {};
+	\node [circle,draw,fill,scale=0.3] (F) [right=3cm of E] {};
+	\draw [thick, arrows={ - Stealth}]
+	(A) edge [bend left=45] node[above]{$f$}(B)
+	(E) edge [bend left=45] (F);
+	\draw [thick, dotted, fill, arrows={ - Stealth}, scale=0.3]	(A) edge [bend left=45] (D);
+\end{scope}
+
 \end{tikzpicture}
-\caption{Fazer a ilustração do desenho que fiz na p. 27. Tentar fazer três funções, se couber verticalmente.}
+\caption{Embora as duas primeiras figuras representem conceitualmente uma função, a terceira não representa, pois um elemento do domínio leva a dois elementos do contradomínio.\label{Fig:DominioEContradominioFuncaoOuNao}}
 \end{marginfigure}
+
+Note que os elementos do domínio e do contradomínio podem pertencer ao conjunto dos naturais, dos racionais, dos reais, ou mesmo dos complexos. Em Física, a grande maioria dos casos são de funções com domínio e contradomínio pertencentes aos reais. Matematicamente, a função acima pode ser denotada como
+\begin{equation}
+    f: x \mapsto y,
+\end{equation}
+%
+ou, o que é mais comum,
+\begin{equation}
+    y = f(x).
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Gráficos}
 %%%%%%%%%%%%%%%%%%%%%
 
-Fazer um ``desenho'' como o da Figura~\ref{Fig:Funcao} não é muito útil para reconhecermos uma função em específico, apesar de ilustrar bem o que uma função faz, ainda que genericamente. Se tivéssemos um número muito limitado de elementos, até poderia ser uma alternativa, mas o fato é que temos \emph{infinitos} números para relacionar. Uma técnica muito mais útil e ilustrativa é elaborar um \emph{gráfico}: usamos a distância ao longo de dois eixos perpendiculares como representação dos valores numéricos do domínio (no eixo horizontal) e do contradomínio (no eixo vertical). Usamos essas distâncias para marcar pontos na área retangular determinada pelos eixos e obtemos pelo conjunto (infinito) de pontos uma \emph{curva}. Essa curva será diferente para cada função e podemos a usar como uma ``impressão digital'' que nos permite identificar rapidamente a função (ou pelo menos as suas principais propriedades).
+\begin{marginfigure}[-1cm]
+\centering
+\begin{tikzpicture}
+\draw (0,0.5) node[above] {$x$};
+\draw (3.1,0.5) node[above] {$y$};
+\draw (0,-1.3) ellipse [x radius=18pt, y radius=50pt];
+\draw (3.3,-1.3) ellipse [x radius=18pt, y radius=50pt];
+\node [circle,draw,scale=0.6] (A){1};
+\node [circle,draw,scale=0.6] (B) [right=3cm of A] {1};
+\node [circle,draw,scale=0.6] (C) [below=of A] {2};
+\node [circle,draw,scale=0.6] (D) [right=3cm of C] {4};
+\node [circle,draw,scale=0.6] (E) [below=of C] {3};
+\node [circle,draw,scale=0.6] (F) [right=3cm of E] {9};
+\draw [thick, arrows={ - Stealth}]
+(A) edge [bend left=45] node[above]{$f$}(B)
+(C) edge [bend left=45] (D)
+(E) edge [bend left=45] (F);
+\end{tikzpicture}
+\caption{Utilizar um diagrama desse tipo é fácil perceber que precisamos de uma maneira mais conveniente para representar as funções.}
+\end{marginfigure}
 
-\begin{figure}[h]
+Fazer um ``desenho'' como o da Figura~\ref{Fig:Funcao} não é muito útil para reconhecermos uma função em específico, apesar de ilustrar bem o que uma função faz, ainda que genericamente. Se tivéssemos um número muito limitado de elementos, até poderia ser uma alternativa, mas uma tabela seria uma alternativa melhor. Além disso, o fato é que temos \emph{infinitos} números para relacionar. Uma técnica muito mais útil e ilustrativa\footnote[][0.5cm]{Literalmente!} é elaborar um \emph{gráfico}: usamos a distância\footnote{Essas distâncias geralmente são marcadas nos eixos do gráfico formando uma legenda do eixo em questão. Aqui vamos omitir essas marcações pois estamos mais preocupapos com a forma conceitual dos gráficos.} ao longo de dois eixos perpendiculares como representação dos valores numéricos do domínio (no eixo horizontal) e do contradomínio (no eixo vertical). Usamos essas distâncias para marcar pontos na área retangular determinada pelos eixos e obtemos pelo conjunto (infinito) de pontos uma \emph{curva}. Essa curva será diferente para cada função e podemos a usar como uma ``impressão digital'' que nos permite identificar rapidamente a função (ou pelo menos as suas principais propriedades).
+
+\begin{figure}[h] \forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth,
                     scale = 1.35,
@@ -287,14 +324,22 @@ Fazer um ``desenho'' como o da Figura~\ref{Fig:Funcao} não é muito útil para 
 \caption{Construção de um gráfico através de dois eixos perpendiculares: dado um elemento $x$ pertencente ao domínio, cujo valor é representado visualmente através da distância $v_D$, e um elemento $y$ correspondente do contradomínio ---~determinado através de uma função $f$~---, cujo valor é representado visualmente através da distância $v_C$, marcamos um ponto $P$. Como temos \emph{infinitos} elementos no conjunto do domínio, temos \emph{infinitos} elementos correspondentes no contradomínio. Consequentemente, temos infinitos pontos, que formam a curva contínua mostrada.\label{Fig:ConstrucaoGrafico}}
 \end{figure}
 
-Caso você esteja curioso, a Figura~\ref{Fig:ConstrucaoGrafico} mostra todos os pontos compreendidos no intervalo $x \in [0.75; 3.35]$ do domínio, sendo que os elementos do contradomínio estão ligados aos do domínio através de $y = f(x) = (\np{0,75} \cdot x - \np{1,5})^3 + \np{1,5}$. Na Figura~\ref{Fig:ExemplosGraficos} mostramos, além de $f(x)$, as funções
+\pagebreak
+Na Figura~\ref{Fig:ConstrucaoGrafico} mostramos um gráfico da função 
+\begin{equation}
+	y = f(x) = (\np{0,75} \cdot x - \np{1,5})^3 + \np{1,5}
+\end{equation}
+%
+para o intervalo $x \in [0.75; 3.35]$ do domínio. Nessa figura também mostramos para o mesmo intervalo de domínio as funções
 \begin{align}
     y = g(x) &= \np{0.5} \\
     y = h(x) &= \np{0.4} \cdot x + 0.5 \\
-    y = m(x) &= \np{0.3}\cdot\cos(1000 \cdot x) + 1.
+    y = m(x) &= \np{0.3}\cdot\cos(1000 \cdot x) + 1,
 \end{align}
+%
+sendo que para $m(x)$ consideramos o valor numérico de $x$ como representando um ângulo em graus.
 
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[1cm]
 \centering
 \begin{tikzpicture}[>=Stealth,
                     scale = 1,
@@ -322,12 +367,12 @@ Caso você esteja curioso, a Figura~\ref{Fig:ConstrucaoGrafico} mostra todos os 
 \caption{Gráficos que exemplificam possíveis formas para os gráficos da função posição .\label{Fig:ExemplosGraficos}}
 \end{marginfigure}
 
-\noindent{}Note que a função $g(x)$ é o que chamamos de uma \emph{função constante}, pois todos os elementos do domínio apontam para o mesmo elemento do contradomínio. A função $h(x)$ é uma \emph{equação da reta}, uma função muito comum em diversas áreas, incluindo a Física. Já a função $m(x)$ envolve a função cosseno, que é uma das funções trigonométricas. É importante destacar que as funções não são necessariamente escritas como \emph{polinômios}, isto é, elas não necessariamente precisam ser escritas como somas de termos com a forma $\alpha \cdot x^n$, porém isso é muito frequente e geralmente muito conveniente. A função $\cos x$, por exemplo, pode ser escrita como
+Note que a função $g(x)$ é o que chamamos de uma \emph{função constante}, pois todos os elementos do domínio apontam para o mesmo elemento do contradomínio. A função $h(x)$ é uma \emph{equação da reta}, uma função muito comum em diversas áreas, incluindo a Física. Já a função $m(x)$ envolve a função cosseno, que é uma das funções trigonométricas. É importante destacar que as funções não são necessariamente escritas como \emph{polinômios}, isto é, elas não necessariamente precisam ser escritas como somas de termos com a forma $\alpha \cdot x^n$, porém isso é muito frequente e geralmente muito conveniente. A função $\cos x$, por exemplo, pode ser escrita como\footnote{Nessa série o valor numérico de $x$ representa um valor de ângulo em radianos.}
 \begin{equation}
     \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots,
 \end{equation}
 %
-onde $n!$ representa o fatorial, ou seja, $n! = n\times(n-1) \times (n-2) \times \dots \times 3 \times 2 \times 1$.
+onde $n!$ representa o fatorial, ou seja, $n! = n\times(n-1) \times (n-2) \times \dots \times 3 \times 2 \times 1$. Esse tipo de série é o que uma calculadora usa para determinar os valores das funções trigonométricas, porém truncando-a a um número finito de termos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Funções em Física}
@@ -339,7 +384,7 @@ Talvez você esteja se perguntando ``pra que vamos usar funções?''. Bem, pra t
 \section{Geometria plana}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Quando passarmos a trabalhar com vetores, será muito comum termos que trabalhar com informações envolvendo direções do espaço e os ângulos entre elas. Assim, é importante que tenhamos algumas propriedades em mente, ilustradas nas Figuras~\ref{Fig:PropAngulosRetas1} a~\ref{Fig:AlternosInternos}.
+Quando passarmos a trabalhar com vetores, será muito comum termos que lidar com informações envolvendo direções do espaço e os ângulos entre elas. Assim, é importante que tenhamos algumas propriedades em mente, ilustradas nas Figuras~\ref{Fig:PropAngulosRetas1} a~\ref{Fig:AlternosInternos}.
 \begin{figure}
 \centering
 \begin{tikzpicture}
@@ -410,9 +455,9 @@ Quando passarmos a trabalhar com vetores, será muito comum termos que trabalhar
 
 No contexto de vetores, também usaremos as propriedades dos triângulos, principalmente as funções trigonométricas seno, cosseno e tangente. Por isso, relembraremos aqui as propriedades e definições mais importantes.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Soma dos ângulos internos de um triângulo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Soma dos ângulos internos de um triângulo:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Note que na Figura~\ref{Fig:SomaAngulosTriangulo} a soma dos ângulos na reta superior é
 \begin{equation}
@@ -440,7 +485,9 @@ Notamos também que, usando a Figura~\ref{Fig:AlternosInternos}, os ângulos int
 \caption{Soma dos ângulos de um triângulo.\label{Fig:SomaAngulosTriangulo}}
 \end{marginfigure}
 
-\paragraph{Teorema de Pitágoras}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Teorema de Pitágoras:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ao calcularmos a área do quadrado externo na Figura~\ref{Fig:TeoremaDePitagoras}, temos
 \begin{align}
@@ -480,9 +527,9 @@ Também podemos determinar essa área através da soma da área do quadrado inte
 \end{align}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Definição das funções trigonométricas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Definição das funções trigonométricas:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 No caso de um triângulo retângulo, além do Teorema de Pitágoras, também temos as relações trigonométricas seno, cosseno e tangente. Considerando o triângulo da Figura~\ref{Fig:TrianguloRetanguloDefFuncTrig}, as funções são definidas como
 \begin{align}
@@ -545,9 +592,9 @@ No caso de um triângulo retângulo, além do Teorema de Pitágoras, também tem
 \caption{Gráfico das funções trigonométricas seno e cosseno. Os pequenos círculos no eixo horizontal marcam os ângulos de \degree{0}, \degree{90}, \degree{180}, etc. Note que ambas as funções são limitadas ao intervalo $[-1; 1]$ no conjunto do contradomínio, isto é, no eixo vertical.\label{Fig:GraphSenCos}}
 \end{figure}
 
-\begin{figure}
+\begin{figure}\forcerectofloat
 \centering
-\begin{tikzpicture}[>=Stealth]
+\begin{tikzpicture}[>=Stealth,yscale=0.7]
     \draw[->] (0,0) -- (10,0) node[below left]{$\theta$};
     
     \draw[->] (0, -3.5) -- node[above, sloped, very near end]{$\tan\theta$} (0,3.5);
@@ -591,9 +638,9 @@ No caso de um triângulo retângulo, além do Teorema de Pitágoras, também tem
 \caption{Gráfico das funções tangente. Os pequenos círculos no eixo horizontal marcam os ângulos de \degree{0}, \degree{90}, \degree{180}, etc. As linhas pontilhadas verticais marcam os ângulos de \degree{90} e \degree{270}, bem como seus múltiplos, onde a função tangente vai ao infinito.\label{Fig:GraphTan}}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Funções trigonométricas inversas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Funções trigonométricas inversas:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Sabemos que uma função associa elementos do conjunto domínio a elementos do conjunto contradomínio. Muitas vezes é possível determinar uma segunda função que associa os elementos do contradomínio aos elementos do conjunto original, e denominamos tal função como \emph{função inversa} da função original. Note que nem sempre é possível determinar uma função inversa, ou podemos determiná-la com algumas restrições.
 
@@ -602,7 +649,7 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
 \begin{figure}
 \centering
 \begin{tikzpicture}[>=Stealth]
-    \draw[->] (-5,0) -- (5,0) node[above]{$x = \sen\theta$};
+    \draw[->] (-5,0) -- (5,0) node[above]{$x = \arcsen\theta$};
     
     \draw[->] (0, -2.25) -- (0,2.25) node[below left]{$\theta$};
         
@@ -610,7 +657,7 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
     plot(\x,{1.5 * asin(\x/4) / 90});
     
     \draw[|-|] (-4,0) node[below]{\clap{$-1$}} -- (4,0) node[below]{\clap{$1$}};
-    \draw[|-|] (0,1.5) node[left]{\degree{90}} -- (0,-1.5) node[left]{-\degree{90}};
+    \draw[|-|] (0,1.5) node[left]{\degree{90}} -- (0,-1.5) node[right]{-\degree{90}};
     
     \draw[densely dotted] (-4,0) -- (-4,-1.5) -- (0, -1.5);
     \draw[densely dotted] (4,0) -- (4,1.5) -- (0,1.5);
@@ -620,10 +667,10 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
 \caption{Gráfico da função $\arcsen(x)$. Note que a função toma valores de seno, compreendidos no intervalo $[-1; 1]$, e devolve valores de ângulo compreendidos entre $-\degree{90}$ e $\degree{90}$. \label{Fig:FuncTrigInvSen}}
 \end{figure}
 
-\begin{figure}
+\begin{figure}\forceversofloat
 \centering
 \begin{tikzpicture}[>=Stealth]
-    \draw[->] (-5,0) -- (5,0) node[above]{$x = \cos\theta$};
+    \draw[->] (-5,0) -- (5,0) node[above]{$x = \arccos\theta$};
     
     \draw[->] (0, -0.5) -- (0,4) node[below left]{$\theta$};
         
@@ -631,7 +678,7 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
     plot(\x,{1.5 * acos(\x/4) / 90});
     
     \draw[|-|] (-4,0) node[below]{\clap{$-1$}} -- (4,0) node[below]{\clap{$1$}};
-    \draw[-|] (0,0) node[below left]{\degree{0}} -- (0,3) node[left]{\degree{180}};
+    \draw[-|] (0,0) node[below left]{\degree{0}} -- (0,3) node[below left]{\degree{180}};
     
     \draw[densely dotted] (4,0) -- (4,3) -- (-4,3) -- (-4,0);
     
@@ -645,7 +692,7 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
 \begin{tikzpicture}[>=Stealth,
                     xscale = 0.5
                    ]
-    \draw[->] (-10,0) -- (10,0) node[above]{$x = \tan\theta$};
+    \draw[->] (-10,0) -- (10,0) node[above]{$x = \arctan\theta$};
     
     \draw[->] (0, -2.25) -- (0,2.25) node[below left]{$\theta$};
         
@@ -655,7 +702,7 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
     \draw[smooth, samples=1000, domain=-8:8]
     plot(\x,{1.5 * atan(\x) / 90});
     
-    \draw[|-|] (0,1.5) node[left]{\degree{90}} -- (0,-1.5) node[left]{-\degree{90}};
+    \draw[|-|] (0,1.5) node[below left]{\degree{90}} -- (0,-1.5) node[below left]{-\degree{90}};
     
     \draw[densely dotted] (-9,-1.5) -- (9,-1.5);
     \draw[densely dotted] (-9,1.5) -- (9,1.5);
@@ -668,9 +715,9 @@ No caso das funções trigonométricas, podemos escrever funções inversas que 
 \end{figure}
 
 \FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Círculo trigonométrico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Círculo trigonométrico:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Uma ferramenta que ajuda muito a entender as propriedades das funções trigonométricas é o que chamamos de \emph{círculo trigonométrico}. Ela consiste em um círculo de raio unitário onde interpretamos geometricamente as propriedades das funções. Veja a Figura~\ref{Fig:CirculoTrigonometrico}. Como escolhemos o raio como unitário, os valores de seno e cosseno correspondem ao próprio comprimento dos respectivos catetos, uma vez que a hipotenusa é igual ao raio, que é 1. Também podemos visualizar a tangente no eixo à direita, \emph{tangente} ao círculo. O valor é igual à distância entre o ponto de interseção entre o eixo que determina o ângulo (eixo tracejado na figura) e a própria reta das tangentes.
 
@@ -754,6 +801,34 @@ Devemos destacar ainda que o eixo horizontal, onde verificamos os valores de cos
 \end{tikzpicture}
 \caption{Quadrantes e sinais das fuções trigonométricas. As regiões destacadas têm valores positivos da função trigonométrica correspondente. \label{Fig:SinaisQuadrantesFuncTrig}}
 \end{figure*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Relações de funções trigonométricas:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Existem diversas relações entre funções trigonométricas:
+\begin{align}
+	\sen^2\theta + \cos^2\theta &= 1 \\
+	\sen (2\theta) &= 2\sen \theta \cos \theta \\
+	\cos(2\theta) &= \cos^2\theta - \sen^2 \theta \\
+	&= 1 - 2\sen^2\theta,
+\end{align}
+%
+dentre inúmeras outras.
+
+A primeira, em especial, pode ser verificada de uma maneira muito simples, basta usarmos a definição das próprias funções seno e cosseno:
+\begin{align}
+	\sen^2\theta + \cos^2\theta &= 1 \\
+	\left(\frac{C_o}{h}\right)^2 + \left(\frac{C_a}{h}\right)^2 &= 1.
+\end{align}
+%
+Note que ao multiplicarmos ambos os lados da equação por $h^2$ obtemos o Teorema de Pitágoras,
+\begin{equation}
+	C_o^2 + C_a^2 = h^2,
+\end{equation}
+%
+o que mostra que a relação inicial é verdadeira.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
