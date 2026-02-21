@@ -65,6 +65,19 @@ gnuplot-latex
 biber
 ```
 
+No Debian, são os seguintes pacotes:
+```
+texlive
+texlive-latex-extra
+texlive-lang-greek
+texlive-lang-portuguese
+texlive-latex-extra
+biber
+texlive-science
+texlive-fonts-extra
+gnuplot-data
+```
+
 ### Como gerar o arquivo PDF
 Para gerar o arquivo PDF, é necessário executar o comando `pdflatex` com a opção
 `-shell-escape`:
